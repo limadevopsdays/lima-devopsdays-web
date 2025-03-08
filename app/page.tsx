@@ -1,45 +1,40 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Loading from './components/Loading';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Calendar, Users, Presentation, Store, MapPin } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Calendar, Users, Presentation, Store, MapPin } from 'lucide-react';
 
 // Dynamically import components with explicit SSR false
 const AboutUs = dynamic(() => import('./components/AboutUs'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Speakers = dynamic(() => import('./components/Speakers'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Agenda = dynamic(() => import('./components/Agenda'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const CallForPapers = dynamic(() => import('./components/CallForPapers'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Sponsors = dynamic(() => import('./components/Sponsors'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Contact = dynamic(() => import('./components/Contact'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 export default function Home() {
@@ -103,10 +98,10 @@ export default function Home() {
       </div>
 
       <AboutUs />
-      <Speakers />
+      {/* <Speakers />
       <Agenda />
       <CallForPapers />
-      <Sponsors />
+      <Sponsors /> */}
       <Contact />
     </main>
   );
