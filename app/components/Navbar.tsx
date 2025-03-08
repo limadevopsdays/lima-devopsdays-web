@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -24,19 +24,19 @@ export default function Navbar() {
   return (
     <div className="fixed w-full z-40 top-0 left-0">
       <div className="container mx-auto px-4">
-        <nav className={`flex items-center transition-all duration-300 rounded-full mt-4 ${
-          scrolled 
-            ? 'bg-black/80 backdrop-blur-md shadow-lg border border-[#1EBDD1]/20' 
-            : 'bg-transparent'
-        }`}>
+        <nav
+          className={`flex items-center transition-all duration-300 rounded-full mt-4 ${
+            scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg border border-[#1EBDD1]/20' : 'bg-transparent'
+          }`}
+        >
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="block">
-              <div className={`transition-all duration-500 ${
-                scrolled 
-                  ? 'opacity-0 -translate-y-full absolute' 
-                  : 'opacity-100 translate-y-0'
-              }`}>
+              <div
+                className={`transition-all duration-500 ${
+                  scrolled ? 'opacity-0 -translate-y-full absolute' : 'opacity-100 translate-y-0'
+                }`}
+              >
                 <Image
                   src="/devopsbird.svg"
                   alt="DevOps Bird"
@@ -51,23 +51,30 @@ export default function Navbar() {
 
           <div className="flex-grow flex items-center justify-end px-6 py-2">
             {/* Title (visible when scrolled) */}
-            <div className={`flex-shrink-0 mr-auto transition-all duration-500 flex items-center gap-2 ${
-              scrolled 
-                ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 -translate-x-full'
-            }`}>
+            <div
+              className={`flex-shrink-0 mr-auto transition-all duration-500 flex items-center gap-2 ${
+                scrolled ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
+              }`}
+            >
               <h1 className="font-['Montserrat_Alternates'] font-light text-2xl sm:text-3xl bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] bg-clip-text text-transparent whitespace-nowrap">
                 DevOpsDay
               </h1>
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24" fill="none" className="inline-block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="24"
+                viewBox="0 0 36 24"
+                fill="none"
+                className="inline-block"
+              >
                 <g clipPath="url(#clip0_0_16)">
-                  <rect width="36" height="24" fill="#FF4E4E"/>
-                  <path d="M36 0H0V24H36V0Z" fill="#D91023"/>
-                  <path d="M24 0H12V24H24V0Z" fill="white"/>
+                  <rect width="36" height="24" fill="#FF4E4E" />
+                  <path d="M36 0H0V24H36V0Z" fill="#D91023" />
+                  <path d="M24 0H12V24H24V0Z" fill="white" />
                 </g>
                 <defs>
                   <clipPath id="clip0_0_16">
-                    <rect width="36" height="24" fill="white"/>
+                    <rect width="36" height="24" fill="white" />
                   </clipPath>
                 </defs>
               </svg>
@@ -78,7 +85,7 @@ export default function Navbar() {
               <Link href="/#about" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Conócenos
               </Link>
-              <Link href="/#speakers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              {/* <Link href="/#speakers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Ponentes
               </Link>
               <Link href="/#agenda" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
@@ -89,7 +96,7 @@ export default function Navbar() {
               </Link>
               <Link href="/#sponsors" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Patrocinadores
-              </Link>
+              </Link> */}
               <Link href="/#contact" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Contacto
               </Link>
@@ -97,10 +104,7 @@ export default function Navbar() {
 
             {/* Mobile menu button */}
             <div className="md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-300 hover:text-white"
-              >
+              <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 hover:text-white">
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
@@ -117,7 +121,7 @@ export default function Navbar() {
                 >
                   Sobre Nosotros
                 </Link>
-                <Link
+                {/* <Link
                   href="/#speakers"
                   className="block px-3 py-2 text-gray-300 hover:text-[#1EBDD1] transition-colors"
                   onClick={() => setIsOpen(false)}
@@ -137,14 +141,14 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   Convocatoria
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                   href="/#sponsors"
                   className="block px-3 py-2 text-gray-300 hover:text-[#1EBDD1] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Patrocinadores
-                </Link>
+                </Link> */}
                 <Link
                   href="/#contact"
                   className="block px-3 py-2 text-gray-300 hover:text-[#1EBDD1] transition-colors"

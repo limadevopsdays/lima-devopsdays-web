@@ -1,12 +1,11 @@
 import { MetadataRoute } from 'next';
 
-export const dynamic = 'force-static'
-
+export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://devopsday.pe';
   const lastModified = new Date();
-  
+
   return [
     {
       url: baseUrl,
@@ -49,6 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
-    }
+    },
   ];
 }
