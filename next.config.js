@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/lima-devopsdays-web",
   output: 'export',
   images: {
     unoptimized: true,
