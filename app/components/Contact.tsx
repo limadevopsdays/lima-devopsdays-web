@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Contact() {
@@ -27,7 +27,13 @@ export default function Contact() {
                     <MapPin className="text-purple-400 mt-1" size={24} />
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">Lugar del Evento</h3>
-                      <p className="text-gray-400">Tech Convention Center<br />123 Innovation Street<br />Lima, Peru</p>
+                      <p className="text-gray-400">
+                        Tech Convention Center
+                        <br />
+                        123 Innovation Street
+                        <br />
+                        Lima, Peru
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -75,7 +81,7 @@ export default function Contact() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                   <div className="absolute bottom-6 left-6">
                     <h3 className="text-white font-bold text-2xl mb-2">Tech Convention Center</h3>
-                    <p className="text-gray-200 text-lg">Lima's Premier Tech Venue</p>
+                    <p className="text-gray-200 text-lg">Lima Premier Tech Venue</p>
                   </div>
                 </div>
               </div>
