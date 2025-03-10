@@ -38,7 +38,7 @@ export default function Navbar() {
                 }`}
               >
                 <Image
-                  src="/devopsbird.svg"
+                  src="devopsbird.svg"
                   alt="DevOps Bird"
                   width={150}
                   height={150}
