@@ -82,22 +82,22 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#about" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              <Link href="#about" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Conócenos
               </Link>
-              {/* <Link href="/#speakers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              {/* <Link href="#speakers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Ponentes
               </Link>
-              <Link href="/#agenda" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              <Link href="#agenda" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Agenda
               </Link>
-              <Link href="/#papers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              <Link href="#papers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Convocatoria
               </Link>
-              <Link href="/#sponsors" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              <Link href="#sponsors" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Patrocinadores
               </Link> */}
-              <Link href="/#contact" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              <Link href="#contact" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Contacto
               </Link>
             </div>
