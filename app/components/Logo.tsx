@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,11 +21,13 @@ export default function Logo() {
     <div className="container">
       <div className="fixed top-4 left-4 md:left-8 lg:left-12 z-50">
         <Link href="/" className="block">
-          <div className={`transition-all duration-500 ${
-            scrolled ? 'opacity-0 -translate-y-full' : 'opacity-100 translate-y-0'
-          }`}>
+          <div
+            className={`transition-all duration-500 ${
+              scrolled ? 'opacity-0 -translate-y-full' : 'opacity-100 translate-y-0'
+            }`}
+          >
             <Image
-              src="/devopsbird.svg"
+              src="devopsbird.svg"
               alt="DevOps Bird"
               width={200}
               height={200}
