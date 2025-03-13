@@ -125,7 +125,7 @@ export default function Contact() {
               {/* Venue Image */}
               <div className="relative h-64 rounded-xl overflow-hidden border border-gray-800">
                 <Image
-                  src="http://localhost:3000/img/esan.jpg"
+                  src="/img/esan.jpg"
                   alt="Tech Convention Center"
                   fill
                   className="object-cover"
