@@ -4,7 +4,7 @@ export const dynamic = 'force-static'
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://devopsday.pe';
+  const baseUrl = 'https://devopsdays.pe';
   const lastModified = new Date();
   
   return [

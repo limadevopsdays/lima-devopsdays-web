@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Mail, MapPin, Phone, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Mail, MapPin, Phone, Twitter, Linkedin, Github, Heart, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -11,10 +11,10 @@ export default function Footer() {
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
-              Sobre DevOpsDay
+              Visión DevOpsDay Lima
             </h3>
             <p className="text-gray-400">
-              Join us for an immersive experience in the world of DevOps, featuring industry leaders and innovative technologies.
+            Ser el hub de la transformación tecnológica en Perú, brindando a los participantes inspiración, conocimiento y herramientas para liderar el cambio.
             </p>
           </div>
 
@@ -74,30 +74,36 @@ export default function Footer() {
               Síguenos
             </h3>
             <div className="flex space-x-4">
-              <a
-                href="#"
+              <Link
+                href="https://www.linkedin.com/company/devops-days-lima/" target='_blank'
                 className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-[#1EBDD1] hover:bg-gray-800 transition-all duration-300"
               >
                 <Twitter size={20} />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/devops-days-lima/" target='_blank'
                 className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-[#1EBDD1] hover:bg-gray-800 transition-all duration-300"
               >
                 <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://github.com/limadevopsdays/" target='_blank'
                 className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-[#1EBDD1] hover:bg-gray-800 transition-all duration-300"
               >
                 <Github size={20} />
-              </a>
+              </Link>
+              <Link
+                href="https://www.instagram.com/devopsdayslima/" target='_blank'
+                className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-[#1EBDD1] hover:bg-gray-800 transition-all duration-300"
+              >
+                <Instagram size={20} />
+              </Link>
             </div>
-            <div className="pt-4">
+            {/* <div className="pt-4">
               <button className="w-full bg-[#00A86B] text-white px-6 py-2 rounded-full hover:bg-[#00A86B]/80 transition-colors">
                 Registrate
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 

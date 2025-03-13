@@ -31,8 +31,11 @@ export default function Sponsors() {
           Nuestros Sponsors
         </h2>
         
+        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> Contáctanos en sponsors@devopsdays.pe y te contamos más. ✨  </h3>
+
+
         {/* Platinum Sponsors */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h3 className="text-2xl font-bold text-center text-[#1EBDD1] mb-8">Platinum Sponsors</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {sponsors.platinum.map((sponsor) => (
@@ -48,10 +51,10 @@ export default function Sponsors() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Gold Sponsors */}
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h3 className="text-2xl font-bold text-center text-[#00A86B] mb-8">Gold Sponsors</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {sponsors.gold.map((sponsor) => (
@@ -67,10 +70,10 @@ export default function Sponsors() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Silver Sponsors */}
-        <div>
+        {/* <div>
           <h3 className="text-2xl font-bold text-center text-gray-400 mb-8">Silver Sponsors</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {sponsors.silver.map((sponsor) => (
@@ -86,13 +89,15 @@ export default function Sponsors() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Become a Sponsor */}
         <div className="mt-16 text-center">
+          <a href="mailto:johndoe@fakeemail.com">
           <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
-            Become a Sponsor
+            Sé un Patrocinador de DevOpsDays
           </button>
+          </a>
         </div>
       </div>
     </section>

@@ -9,11 +9,9 @@ export default function AboutUs() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className="text-gray-300 leading-relaxed">
-            DevOpsDays es una serie de conferencias globales sobre cultura, prácticas y herramientas de DevOps, que fomentan la colaboración entre desarrollo y operaciones para mejorar la entrega de software, a través de charlas, discusiones y talleres.
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-            Nuestra misión es fomentar la colaboración, inspirar la innovación e impulsar el futuro de la tecnología a través de debates significativos y oportunidades para establecer contactos.
+            <p className="text-gray-300 leading-relaxed text-justify">
+            <span className=" text-purple-400">DevOpsDays</span> es una conferencia global sobre prácticas, herramientas y cultura DevOps. Reúne a profesionales para compartir conocimientos y experiencias.
+            Nuestra misión en <span className=" text-cyan-400">DevOpsDays Lima</span> es impulsar la evolución tecnológica con un evento que conecta a profesionales, fomenta el intercambio de conocimientos DevOps y refuerza una cultura de innovación continua basada en experiencias reales. <a className="font-bold text-cyan-400" href="https://devopsdays.org/events/2025-lima/welcome/" target="_blank">Saber más</a>
             </p>
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg border border-gray-800">

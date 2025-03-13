@@ -57,7 +57,7 @@ export default function Navbar() {
                 : 'opacity-0 -translate-x-full'
             }`}>
               <h1 className="font-['Montserrat_Alternates'] font-light text-2xl sm:text-3xl bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] bg-clip-text text-transparent whitespace-nowrap">
-                DevOpsDay
+                DevOpsDays
               </h1>
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24" fill="none" className="inline-block">
                 <g clipPath="url(#clip0_0_16)">

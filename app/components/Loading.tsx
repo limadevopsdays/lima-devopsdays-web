@@ -10,7 +10,7 @@ export default function Loading() {
           <div className="absolute inset-0 animate-pulse">
             <Image
               src="/devopsbird.svg"
-              alt="DevOps Bird"
+              alt="DevOpsDays Bird"
               width={200}
               height={200}
               className="object-contain"
@@ -30,7 +30,7 @@ export default function Loading() {
         </div>
         <div className="space-y-3">
           <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
-            Loading DevOpsDay Peru...
+            Loading DevOpsDays Lima...
           </h2>
           <div className="flex justify-center gap-2">
             <div className="w-2 h-2 rounded-full bg-[#1EBDD1] animate-ping [animation-delay:-0.3s]"></div>

@@ -65,15 +65,15 @@ export default function Home() {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] animate-pulse">
-              DevOpsDay 2024
+              DevOpsDays 2025
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-300">
               Únete a la conferencia DevOps más innovadora en Perú
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <button className="px-8 py-3 bg-[#00A86B] hover:bg-[#00A86B]/80 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105">
+              {/* <button className="px-8 py-3 bg-[#00A86B] hover:bg-[#00A86B]/80 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105">
                 Regístrate Ahora
-              </button>
+              </button> */}
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="px-8 py-3 border-2 border-[#1EBDD1] text-[#1EBDD1] hover:bg-[#1EBDD1]/10 rounded-full transition-all duration-300 transform hover:scale-105">
@@ -91,8 +91,16 @@ export default function Home() {
                         <Calendar className="w-5 h-5" />
                         <h3 className="text-lg font-semibold">Fecha y Hora</h3>
                       </div>
-                      <p className="text-gray-300 ml-8">5 de Agosto, 2024</p>
+                      <p className="text-gray-300 ml-8">Jueves 21 de Agosto, 2025</p>
                     </div>
+                    <div className="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg border border-gray-800">
+                      <div className="flex items-center gap-3 text-[#1EBDD1] mb-2">
+                        <MapPin className="w-5 h-5" />
+                        <h3 className="text-lg font-semibold">Lugar</h3>
+                      </div>
+                      <p className="text-gray-300 ml-8">ESAN Convention & Sport Center</p>
+                    </div>
+
                     {/* Additional event details */}
                   </div>
                 </DialogContent>

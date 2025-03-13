@@ -28,13 +28,13 @@ export default function CallForPapers() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                   <FileText className="text-[#1EBDD1] mb-2" size={24} />
-                  <h3 className="text-lg font-bold text-white mb-2">Paper Guidelines</h3>
-                  <p className="text-gray-300 text-sm">Submit your original research, case studies, or technical experiences in DevOps practices.</p>
+                  <h3 className="text-lg font-bold text-white mb-2">Guía para el Paper</h3>
+                  <p className="text-gray-300 text-sm">Envía tu investigación original, estudios de caso o experiencias técnicas en prácticas de DevOps, DevSecOps, SRE, etc.</p>
                 </div>
                 <div className="bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                   <Award className="text-[#8C51BF] mb-2" size={24} />
-                  <h3 className="text-lg font-bold text-white mb-2">Recognition</h3>
-                  <p className="text-gray-300 text-sm">Selected papers will be published and authors will present at the conference.</p>
+                  <h3 className="text-lg font-bold text-white mb-2">Selección</h3>
+                  <p className="text-gray-300 text-sm">Los papers seleccionados se publicarán y los autores presentarán en la conferencia.</p>
                 </div>
               </div>
 
@@ -42,32 +42,32 @@ export default function CallForPapers() {
                 <div>
                   <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
                     <Calendar className="mr-2" size={20} />
-                    Important Dates
+                    Fechas Clave
                   </h3>
                   <ul className="space-y-4 bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Submission Deadline: April 1, 2024</span>
+                      <span className="text-gray-300">Fecha límite de envío: Mayo 16, 2025</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Notification: May 1, 2024</span>
+                      <span className="text-gray-300">Notificación: May 23, 2025</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Camera Ready: May 15, 2024</span>
+                      <span className="text-gray-300">Reunión de Coordinación: May 30, 2025</span>
                     </li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
                     <Users className="mr-2" size={20} />
-                    Topics
+                    Tópicos de Interés
                   </h3>
                   <ul className="space-y-2 bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>DevOps Practices and Culture</span>
+                      <span>Prácticas y Cultura DevOps</span>
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
@@ -83,18 +83,22 @@ export default function CallForPapers() {
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>Cloud Native Technologies</span>
+                      <span>Cloud Native DevOps y DevSecOps</span>
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
                       <span>Site Reliability Engineering</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-gray-300">
+                      <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
+                      <span>AI y MLOps</span>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="mt-8 text-center">
                 <button className="px-8 py-3 bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white rounded-lg hover:opacity-90 transition-opacity transform hover:scale-105 duration-300">
-                  Submit Your Paper
+                  Envía tu Paper
                 </button>
               </div>
             </div>
