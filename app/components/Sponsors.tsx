@@ -31,7 +31,7 @@ export default function Sponsors() {
           Nuestros Sponsors
         </h2>
         
-        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> Contáctanos en sponsors@devopsdays.pe y te contamos más. ✨  </h3>
+        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> Escríbenos a sponsors@devopsdays.pe y te contamos más. ✨  </h3>
 
 
         {/* Platinum Sponsors */}
@@ -93,7 +93,7 @@ export default function Sponsors() {
 
         {/* Become a Sponsor */}
         <div className="mt-16 text-center">
-          <a href="mailto:johndoe@fakeemail.com">
+          <a href="mailto:sponsors@devopsdays.pe">
           <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
             Sé un Patrocinador de DevOpsDays
           </button>

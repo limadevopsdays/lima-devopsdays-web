@@ -67,7 +67,7 @@ export default function CallForPapers() {
                   <ul className="space-y-2 bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>Prácticas y Cultura DevOps</span>
+                      <span>Agilidad y Cultura DevOps</span>
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
@@ -75,15 +75,15 @@ export default function CallForPapers() {
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>Container Orchestration</span>
+                      <span>Continuous Testing</span>
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>Infrastructure as Code</span>
+                      <span>Security & DevSecOps</span>
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>Cloud Native DevOps y DevSecOps</span>
+                      <span>Código como Infraestructura</span>
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
@@ -91,7 +91,15 @@ export default function CallForPapers() {
                     </li>
                     <li className="flex items-center space-x-2 text-gray-300">
                       <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
-                      <span>AI y MLOps</span>
+                      <span>AI & MLOps</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-gray-300">
+                      <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
+                      <span>Platform Engineering</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-gray-300">
+                      <div className="w-2 h-2 rounded-full bg-[#1EBDD1]"></div>
+                      <span>CloudOps</span>
                     </li>
                   </ul>
                 </div>
