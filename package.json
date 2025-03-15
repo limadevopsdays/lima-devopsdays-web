@@ -2,7 +2,7 @@
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lima-devopsdays.github.io/lima-devopsdays-web/",
+  "homepage": "https://limadevopsdays.github.io/lima-devopsdays-web/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
