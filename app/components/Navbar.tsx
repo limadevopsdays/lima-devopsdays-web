@@ -85,7 +85,7 @@ export default function Navbar() {
               <Link href="#about" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Conócenos
               </Link>
-              {/* <Link href="#speakers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
+              <Link href="#speakers" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Ponentes
               </Link>
               <Link href="#agenda" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
@@ -96,7 +96,7 @@ export default function Navbar() {
               </Link>
               <Link href="#sponsors" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Patrocinadores
-              </Link> */}
+              </Link>
               <Link href="#contact" className="text-gray-300 hover:text-[#1EBDD1] transition-colors">
                 Contacto
               </Link>
@@ -121,7 +121,7 @@ export default function Navbar() {
                 >
                   Sobre Nosotros
                 </Link>
-                {/* <Link
+                <Link
                   href="/#speakers"
                   className="block px-3 py-2 text-gray-300 hover:text-[#1EBDD1] transition-colors"
                   onClick={() => setIsOpen(false)}
@@ -141,14 +141,14 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   Convocatoria
-                </Link> */}
-                {/* <Link
+                </Link>
+                <Link
                   href="/#sponsors"
                   className="block px-3 py-2 text-gray-300 hover:text-[#1EBDD1] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Patrocinadores
-                </Link> */}
+                </Link>
                 <Link
                   href="/#contact"
                   className="block px-3 py-2 text-gray-300 hover:text-[#1EBDD1] transition-colors"
