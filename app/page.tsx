@@ -1,47 +1,41 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Loading from './components/Loading';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Calendar, Users, Presentation, Store, MapPin } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Calendar, Users, Presentation, Store, MapPin } from 'lucide-react';
 import CountdownTimer from '@/components/ui/counterback';
-
 
 // Dynamically import components with explicit SSR false
 const AboutUs = dynamic(() => import('./components/AboutUs'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Speakers = dynamic(() => import('./components/Speakers'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Agenda = dynamic(() => import('./components/Agenda'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const CallForPapers = dynamic(() => import('./components/CallForPapers'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Sponsors = dynamic(() => import('./components/Sponsors'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 const Contact = dynamic(() => import('./components/Contact'), {
   ssr: false,
-  loading: () => <div>Loading...</div>
+  loading: () => <div>Loading...</div>,
 });
 
 export default function Home() {
@@ -56,7 +50,7 @@ export default function Home() {
 
   if (!mounted || loading) return <Loading />;
 
-    // Set your target date here (format: YYYY-MM-DD)
+  // Set your target date here (format: YYYY-MM-DD)
   const targetDate = '2025-12-31';
 
   return (
@@ -70,15 +64,13 @@ export default function Home() {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
-            DevOpsDays 2025
+              DevOpsDays 2025
             </h1>
             <p className="text-xl md:text-2xl mb-4 text-gray-300">
-              Únete a la conferencia DevOps más innovadora en Perú
+              Únete a la conferencia DevOps más innovadora en Perú <br />
+              21 de Agosto
             </p>
-            <CountdownTimer 
-  targetDate="2025-08-21" 
-  className="mb-4" 
-/>
+            <CountdownTimer targetDate="2025-08-21" className="mb-4" />
             <div className="flex flex-wrap gap-4 justify-center">
               {/* <button className="px-8 py-3 bg-[#00A86B] hover:bg-[#00A86B]/80 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105">
                 Regístrate Ahora
