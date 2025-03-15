@@ -112,10 +112,10 @@ export default function Home() {
       </div>
 
       <AboutUs />
-      {/* <Speakers />
+      <Speakers />
       <Agenda />
       <CallForPapers />
-      <Sponsors /> */}
+      <Sponsors />
       <Contact />
     </main>
   );
