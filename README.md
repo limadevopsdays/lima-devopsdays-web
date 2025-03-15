@@ -1,4 +1,4 @@
-# DevOpsDay 2024
+# DevOpsDays 2024
 
 Este es un proyecto basado en **Next.js** con **Tailwind CSS**. A continuación se describen los pasos para levantar el proyecto localmente.
 

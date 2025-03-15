@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://devopsday.pe/sitemap.xml',
+    sitemap: 'https://devopsdays.pe/sitemap.xml',
   };
 }

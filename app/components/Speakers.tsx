@@ -133,7 +133,8 @@ export default function Speakers() {
         <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
           Ponentes Destacados
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> ¡Atención! Vienen los ponentes más destacados para inspirarte.</h3>
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {speakers.map((speaker, index) => (
             <div
               key={speaker.name}
@@ -175,7 +176,7 @@ export default function Speakers() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
