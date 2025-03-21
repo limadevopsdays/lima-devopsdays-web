@@ -36,7 +36,7 @@ export default function Sponsors() {
 
         <h3 className="text-2xl font-bold text-center text-gray-400 mb-8">
           {' '}
-          Escríbenos a info@devopsdays.pe y te contamos más. ✨{' '}
+          Escríbenos a sponsors@devopsdays.pe y te contamos más. ✨{' '}
         </h3>
 
         {/* Platinum Sponsors */}

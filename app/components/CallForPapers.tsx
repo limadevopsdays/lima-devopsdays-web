@@ -28,17 +28,23 @@ export default function CallForPapers() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                   <FileText className="text-[#1EBDD1] mb-2" size={24} />
-                  <h3 className="text-lg font-bold text-white mb-2">Guía</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">¿Cómo postular tu charla?</h3>
                   <p className="text-gray-300 text-sm">
-                    Envía tu investigación original, estudios de caso o experiencias técnicas en prácticas de DevOps,
-                    DevSecOps, SRE, etc.
+                    Si tienes una idea innovadora, una experiencia valiosa, o una visión única sobre DevOps, CI/CD, SER,
+                    Seguridad u otros temas relacionados, ¡queremos escucharte! así que envíanos tu propuesta
+                  </p>
+                  <h3 className="text-lg font-bold text-white mb-2">Elige tu formato </h3>
+                  <p className="text-gray-300 text-sm">
+                    Charla (20 - 30 min): Presentaciones técnicas o casos de éxito <br />
+                    Taller (60 min): Sesiones dirigidas por expertos en un tema específico
                   </p>
                 </div>
                 <div className="bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                   <Award className="text-[#8C51BF] mb-2" size={24} />
-                  <h3 className="text-lg font-bold text-white mb-2">Selección</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">¿Cómo elegimos a los speakers? </h3>
                   <p className="text-gray-300 text-sm">
-                    Las charlas seleccionados se publicarán y los autores presentarán en la conferencia.
+                    Para garantizar una agenda diversa y de alto impacto, seguimos un proceso de selección basado en
+                    criterios clave.
                   </p>
                 </div>
               </div>
