@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 
@@ -6,21 +6,24 @@ const sponsors = {
   platinum: [
     { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
     { name: 'Google Cloud', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Cloud_Logo.svg' },
-    { name: 'Microsoft Azure', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg' }
+    { name: 'Microsoft Azure', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg' },
   ],
   gold: [
     { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg' },
     { name: 'Red Hat', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg' },
     { name: 'Oracle', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg' },
-    { name: 'VMware', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg' }
+    { name: 'VMware', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg' },
   ],
   silver: [
     { name: 'GitLab', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg' },
-    { name: 'Docker', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg' },
+    {
+      name: 'Docker',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg',
+    },
     { name: 'HashiCorp', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Hashicorp_Logo.svg' },
     { name: 'Elastic', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Elastic_logo.svg' },
-    { name: 'DataDog', logo: 'https://upload.wikimedia.org/wikipedia/en/2/25/Datadog_logo.svg' }
-  ]
+    { name: 'DataDog', logo: 'https://upload.wikimedia.org/wikipedia/en/2/25/Datadog_logo.svg' },
+  ],
 };
 
 export default function Sponsors() {
@@ -30,9 +33,11 @@ export default function Sponsors() {
         <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
           Nuestros Sponsors
         </h2>
-        
-        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> Escríbenos a sponsors@devopsdays.pe y te contamos más. ✨  </h3>
 
+        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8">
+          {' '}
+          Escríbenos a sponsors@devopsdays.pe y te contamos más. ✨{' '}
+        </h3>
 
         {/* Platinum Sponsors */}
         {/* <div className="mb-16">
@@ -93,10 +98,10 @@ export default function Sponsors() {
 
         {/* Become a Sponsor */}
         <div className="mt-16 text-center">
-          <a href="mailto:sponsors@devopsdays.pe">
-          <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
-            Sé un Patrocinador de DevOpsDays
-          </button>
+          <a href="mailto:info@devopsdays.pe">
+            <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
+              Sé un Patrocinador de DevOpsDays
+            </button>
           </a>
         </div>
       </div>

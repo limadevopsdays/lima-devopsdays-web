@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 
@@ -9,7 +9,7 @@ export default function Loading() {
         <div className="relative w-40 h-40 mx-auto mb-8">
           <div className="absolute inset-0 animate-pulse">
             <Image
-              src="/devopsbird.svg"
+              src="devopsbird.svg"
               alt="DevOpsDays Bird"
               width={200}
               height={200}
@@ -19,7 +19,7 @@ export default function Loading() {
           </div>
           <div className="absolute inset-0 animate-ping opacity-75">
             <Image
-              src="/devopsbird.svg"
+              src="devopsbird.svg"
               alt="DevOps Bird"
               width={200}
               height={200}
