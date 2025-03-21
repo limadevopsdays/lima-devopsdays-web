@@ -58,15 +58,15 @@ export default function CallForPapers() {
                   <ul className="space-y-4 bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Fecha límite de envío: Mayo 16, 2025</span>
+                      <span className="text-gray-300">Fecha límite de envío: 15 de Julio, 2025</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Notificación: May 23, 2025</span>
+                      <span className="text-gray-300">Notificación: 20 de Julio, 2025</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Reunión de Coordinación: May 30, 2025</span>
+                      <span className="text-gray-300">Reunión de Coordinación: TBD, 2025</span>
                     </li>
                   </ul>
                 </div>
@@ -120,9 +120,11 @@ export default function CallForPapers() {
                 </div>
               </div>
               <div className="mt-8 text-center">
+                 <a href="https://talks.devopsdays.org/devopsdays-lima-2025/cfp" target="_blank">
                 <button className="px-8 py-3 bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white rounded-lg hover:opacity-90 transition-opacity transform hover:scale-105 duration-300">
-                  Próximamente
+                  Envía tu Ponencia 
                 </button>
+                   </a>
               </div>
             </div>
           </div>
