@@ -64,11 +64,12 @@ export default function Home() {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
-              DevOpsDays 2025
+              DevOpsDays Lima 2025
             </h1>
             <p className="text-xl md:text-2xl mb-4 text-gray-300">
-              Únete a la conferencia DevOps más innovadora en Perú <br />
-              21 de Agosto
+              El evento internacional de DevOps que está transformando la industria llega a Perú
+              <br />
+              21 de Agosto 2025
             </p>
             <CountdownTimer targetDate="2025-08-21" className="mb-4" />
             <div className="flex flex-wrap gap-4 justify-center">

@@ -8,8 +8,7 @@ export const metadata: Metadata = {
     default: 'DevOpsDays Perú 2025 | La Principal Conferencia DevOps en Latinoamérica',
     template: '%s | DevOpsDays Perú 2024',
   },
-  description:
-    'Únete a la principal conferencia DevOps en Lima, Perú. Experimenta 2 días de charlas de expertos, talleres y networking con profesionales líderes en DevOps. Aprende sobre Cloud Native, SRE, DevSecOps y más. 15-16 de Junio, 2024.',
+  description: 'El evento internacional de DevOps que está transformando la industria llega a Perú.',
   keywords: [
     'Conferencia DevOps',
     'DevOpsDays Perú',
