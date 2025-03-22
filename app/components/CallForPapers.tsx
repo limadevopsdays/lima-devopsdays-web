@@ -30,7 +30,7 @@ export default function CallForPapers() {
                   <FileText className="text-[#1EBDD1] mb-2" size={24} />
                   <h3 className="text-lg font-bold text-white mb-2">¿Cómo postular tu charla?</h3>
                   <p className="text-gray-300 text-sm">
-                    Si tienes una idea innovadora, una experiencia valiosa, o una visión única sobre DevOps, CI/CD, SER,
+                    Si tienes una idea innovadora, una experiencia valiosa, o una visión única sobre DevOps, CI/CD, SRE,
                     Seguridad u otros temas relacionados, ¡queremos escucharte! así que envíanos tu propuesta
                   </p>
                   <h3 className="text-lg font-bold text-white mb-2">Elige tu formato </h3>
