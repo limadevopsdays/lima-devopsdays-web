@@ -69,8 +69,10 @@ export default function Home() {
             <p className="text-xl md:text-2xl mb-4 text-gray-300">
               El evento internacional de DevOps que está transformando la industria llega a Perú
               <br />
-              21 de Agosto 2025
             </p>
+            <h3 className="text-2xl md:text-4xl font-bold mb-6 bg-clip-text bg-gradient-to-r text-turquoise">
+              Jueves, 21 de Agosto
+            </h3>
             <CountdownTimer targetDate="2025-08-21" className="mb-4" />
             <div className="flex flex-wrap gap-4 justify-center">
               {/* <button className="px-8 py-3 bg-[#00A86B] hover:bg-[#00A86B]/80 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105">

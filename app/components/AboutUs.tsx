@@ -26,11 +26,11 @@ export default function AboutUs() {
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg border border-gray-800">
                 <h4 className="text-cyan-400 text-xl font-bold mb-2">30000+</h4>
-                <p className="text-gray-400">Asistentes</p>
+                <p className="text-gray-400">Asistentes a nivel Global</p>
               </div>
               <div className="bg-gradient-to-br from-gray-900 to-black p-4 rounded-lg border border-gray-800">
                 <h4 className="text-purple-400 text-xl font-bold mb-2">60+</h4>
-                <p className="text-gray-400">Países</p>
+                <p className="text-gray-400">Países Organizadores</p>
               </div>
             </div>
           </div>
