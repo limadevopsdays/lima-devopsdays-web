@@ -9,7 +9,9 @@ export default function Agenda() {
         <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
           Agenda de la Conferencia
         </h2>
-        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> 🚀 ¡Los DevOpsDays están por llegar! Prepárate para sumergirte en las últimas tendencias de #DevOps, #automatización, #microservicios, #CI/CD y mucho más.</h3>
+        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8">¡La agenda completa llega pronto!</h3>
+        <img className="mx-auto size-24 object-center" src="/img/agenda.png" alt="Agenda" />
+
         {/* <div className="max-w-4xl mx-auto space-y-8">
           <div className="bg-gradient-to-br from-gray-900 to-black p-6 rounded-lg border border-gray-800">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">

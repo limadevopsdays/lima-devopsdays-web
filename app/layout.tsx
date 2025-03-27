@@ -41,10 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-        <link rel="manifest" href="manifest.json" />
-        <link rel="preload" href="devopsbird.svg" as="image" type="image/svg+xml" />
+        <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+        {/* <link rel="manifest" href="manifest.json" /> */}
+        <link rel="preload" href="img/devopsbird.svg" as="image" type="image/svg+xml" />
       </head>
       <body>
         <ClientWrapper>{children}</ClientWrapper>

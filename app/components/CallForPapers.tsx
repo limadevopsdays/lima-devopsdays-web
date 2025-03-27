@@ -25,48 +25,32 @@ export default function CallForPapers() {
             {/* Content */}
             <div className="relative z-10">
               {/* Features Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
-                  <FileText className="text-[#1EBDD1] mb-2" size={24} />
-                  <h3 className="text-lg font-bold text-white mb-2">¿Cómo postular tu charla?</h3>
-                  <p className="text-gray-300 text-sm">
-                    Si tienes una idea innovadora, una experiencia valiosa, o una visión única sobre DevOps, CI/CD, SRE,
-                    Seguridad u otros temas relacionados, ¡queremos escucharte! así que envíanos tu propuesta
-                  </p>
-                  <h3 className="text-lg font-bold text-white mb-2">Elige tu formato </h3>
-                  <p className="text-gray-300 text-sm">
-                    Charla (20 - 30 min): Presentaciones técnicas o casos de éxito <br />
-                    Taller (60 min): Sesiones dirigidas por expertos en un tema específico
-                  </p>
-                </div>
-                <div className="bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
-                  <Award className="text-[#8C51BF] mb-2" size={24} />
-                  <h3 className="text-lg font-bold text-white mb-2">¿Cómo elegimos a los speakers? </h3>
-                  <p className="text-gray-300 text-sm">
-                    Para garantizar una agenda diversa y de alto impacto, seguimos un proceso de selección basado en
-                    criterios clave.
-                  </p>
-                </div>
-              </div>
+
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center">
                     <Calendar className="mr-2" size={20} />
-                    Fechas Clave
+                    Sé parte de la Conferencia
                   </h3>
+
                   <ul className="space-y-4 bg-black/50 p-4 rounded-lg border border-[#1EBDD1]/20">
+                  <h3 className="text-lg font-bold text-white mb-2">¿Cómo postular tu charla?</h3>
+                  <p className="text-gray-300 text-sm">
+                  Si tienes una idea innovadora, una experiencia única o una visión fresca sobre temas como DevOps, CI/CD, SRE, Seguridad o cualquier otro relacionado, ¡queremos escucharte! Envíanos tu propuesta y sé parte de este gran evento.
+                  </p>
+                  <h3 className="text-lg font-bold text-white mb-2">Fechas Clave</h3>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Fecha límite de envío: 15 de Julio, 2025</span>
+                      <span className="text-gray-300">Fecha límite de envío:  15 Julio, 2025</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Notificación: 20 de Julio, 2025</span>
+                      <span className="text-gray-300">Notificación: 20 Julio, 2025</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full bg-purple-400"></div>
-                      <span className="text-gray-300">Reunión de Coordinación: TBD, 2025</span>
+                      <span className="text-gray-300">Consultas: contacto@devopsdays.pe</span>
                     </li>
                   </ul>
                 </div>
@@ -120,11 +104,12 @@ export default function CallForPapers() {
                 </div>
               </div>
               <div className="mt-8 text-center">
-                 <a href="https://talks.devopsdays.org/devopsdays-lima-2025/cfp" target="_blank">
+                <a href='https://talks.devopsdays.org/devopsdays-lima-2025/cfp' target='_blank'>
                 <button className="px-8 py-3 bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white rounded-lg hover:opacity-90 transition-opacity transform hover:scale-105 duration-300">
-                  Envía tu Ponencia 
+                  Enviar Propuesta
                 </button>
-                   </a>
+                </a>
+
               </div>
             </div>
           </div>

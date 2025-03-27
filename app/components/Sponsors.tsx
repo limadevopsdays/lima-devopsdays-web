@@ -34,11 +34,38 @@ export default function Sponsors() {
           Nuestros Sponsors
         </h2>
 
-        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8">
-          {' '}
-          Escríbenos a sponsors@devopsdays.pe y te contamos más. ✨{' '}
-        </h3>
 
+        <div className="overflow-x-auto">
+        <div className="flex justify-center items-center">
+        <span className="text-2xl font-bold text-center text-gray-400 mb-0">
+          Resalta tu marca al unirte a esta experiencia.✨
+        </span>
+        </div>
+
+    <table className="table-auto mx-auto text-center">
+      
+      <thead>
+        <tr>
+          <th className="px-6 py-4 text-lg font-medium text-gray-600">Bronze</th>
+          <th className="px-6 py-4 text-lg font-medium text-gray-600">Silver</th>
+          <th className="px-6 py-4 text-lg font-medium text-gray-600">Gold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="px-6 py-4">
+            <img src="img/badge-bronze.png" alt="Gold Sponsor" className="w-48 h-auto mx-auto" />
+          </td>
+          <td className="px-6 py-4">
+            <img src="img/badge-silver.png" alt="Silver Sponsor" className="w-48 h-auto mx-auto" />
+          </td>
+          <td className="px-6 py-4">
+            <img src="img/badge-gold.png" alt="Bronze Sponsor" className="w-48 h-auto mx-auto" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
         {/* Platinum Sponsors */}
         {/* <div className="mb-16">
           <h3 className="text-2xl font-bold text-center text-[#1EBDD1] mb-8">Platinum Sponsors</h3>
@@ -98,9 +125,9 @@ export default function Sponsors() {
 
         {/* Become a Sponsor */}
         <div className="mt-16 text-center">
-          <a href="mailto:info@devopsdays.pe">
+          <a href="https://drive.google.com/file/d/1hyATwbpf9gOYiEwyyhY4X4F2nVNIVcTa/view?usp=sharing" target='_blank'>
             <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
-              Sé un Patrocinador de DevOpsDays
+              Sé un Patrocinador
             </button>
           </a>
         </div>

@@ -63,26 +63,33 @@ export default function Home() {
 
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xl md:text-2xl mb-4 text-white">
+              El evento internacional de DevOps<br /> que está transformando la industria llega a Perú
+              <br />
+            </p>
+          
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
               DevOpsDays Lima 2025
             </h1>
-            <p className="text-xl md:text-2xl mb-4 text-gray-300">
-              El evento internacional de DevOps que está transformando la industria llega a Perú
-              <br />
-            </p>
-            <h3 className="text-2xl md:text-4xl font-bold mb-6 bg-clip-text bg-gradient-to-r text-turquoise">
-              Jueves, 21 de Agosto
-            </h3>
             <CountdownTimer targetDate="2025-08-21" className="mb-4" />
+            <br/>
+
+            <span className="text-1xl md:text-4xl font-bold mb-6 bg-clip-text bg-gradient-to-r text-turquoise">
+              Jueves 21 de Agosto
+            </span>
+            <h3 className="text-2xl md:text-4xl font-bold mb-6 bg-clip-text bg-gradient-to-r text-[#8C51BF]">
+            ESAN Centro de Convenciones
+            </h3>
+    
             <div className="flex flex-wrap gap-4 justify-center">
               {/* <button className="px-8 py-3 bg-[#00A86B] hover:bg-[#00A86B]/80 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105">
                 Regístrate Ahora
               </button> */}
               <Dialog>
                 <DialogTrigger asChild>
-                  <button className="px-8 py-3 border-2 border-[#1EBDD1] text-[#1EBDD1] hover:bg-[#1EBDD1]/10 rounded-full transition-all duration-300 transform hover:scale-105">
+                  {/* <button className="px-8 py-3 border-2 border-[#1EBDD1] text-[#1EBDD1] hover:bg-[#1EBDD1]/10 rounded-full transition-all duration-300 transform hover:scale-105">
                     Más Información
-                  </button>
+                  </button> */}
                 </DialogTrigger>
                 <DialogContent className="bg-black/95 border border-[#1EBDD1] p-6 rounded-xl backdrop-blur-lg max-w-md">
                   <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] mb-4">
