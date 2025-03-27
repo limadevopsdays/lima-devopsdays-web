@@ -109,6 +109,7 @@ export default function CallForPapers() {
                   Enviar Propuesta
                 </button>
                 </a>
+
               </div>
             </div>
           </div>
