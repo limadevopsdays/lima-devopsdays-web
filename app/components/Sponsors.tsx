@@ -46,21 +46,21 @@ export default function Sponsors() {
       
       <thead>
         <tr>
-          <th className="px-6 py-4 text-lg font-medium text-gray-600">Gold</th>
-          <th className="px-6 py-4 text-lg font-medium text-gray-600">Silver</th>
           <th className="px-6 py-4 text-lg font-medium text-gray-600">Bronze</th>
+          <th className="px-6 py-4 text-lg font-medium text-gray-600">Silver</th>
+          <th className="px-6 py-4 text-lg font-medium text-gray-600">Gold</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td className="px-6 py-4">
-            <img src="/img/Badge-gold.png" alt="Gold Sponsor" className="w-36 h-auto mx-auto" />
+            <img src="img/badge-bronze.png" alt="Gold Sponsor" className="w-36 h-auto mx-auto" />
           </td>
           <td className="px-6 py-4">
-            <img src="/img/Badge-Silver.png" alt="Silver Sponsor" className="w-36 h-auto mx-auto" />
+            <img src="img/badge-silver.png" alt="Silver Sponsor" className="w-36 h-auto mx-auto" />
           </td>
           <td className="px-6 py-4">
-            <img src="/img/Badge-Bronce.png" alt="Bronze Sponsor" className="w-36 h-auto mx-auto" />
+            <img src="img/badge-gold.png" alt="Bronze Sponsor" className="w-36 h-auto mx-auto" />
           </td>
         </tr>
       </tbody>
@@ -125,7 +125,7 @@ export default function Sponsors() {
 
         {/* Become a Sponsor */}
         <div className="mt-16 text-center">
-          <a href="mailto:info@devopsdays.pe">
+          <a href="https://drive.google.com/file/d/1hyATwbpf9gOYiEwyyhY4X4F2nVNIVcTa/view?usp=sharing" target='_blank'>
             <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
               Sé un Patrocinador
             </button>
