@@ -54,13 +54,13 @@ export default function Sponsors() {
       <tbody>
         <tr>
           <td className="px-6 py-4">
-            <img src="img/badge-bronze.png" alt="Gold Sponsor" className="w-48 h-auto mx-auto" />
+            <img src="img/badge-bronze.png" alt="Bronze Sponsor" className="w-48 h-auto mx-auto" />
           </td>
           <td className="px-6 py-4">
             <img src="img/badge-silver.png" alt="Silver Sponsor" className="w-48 h-auto mx-auto" />
           </td>
           <td className="px-6 py-4">
-            <img src="img/badge-gold.png" alt="Bronze Sponsor" className="w-48 h-auto mx-auto" />
+            <img src="img/badge-gold.png" alt="Gold Sponsor" className="w-48 h-auto mx-auto" />
           </td>
         </tr>
       </tbody>
