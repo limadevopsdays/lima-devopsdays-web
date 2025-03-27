@@ -11,10 +11,10 @@ export default function Footer() {
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
-              Visión DevOpsDays Lima
+              DevOpsDays Lima
             </h3>
-            <p className="text-gray-400">
-              Ser el hub de la transformación tecnológica en Perú, brindando a los participantes inspiración,
+            <p className="text-gray-400 ">
+              Buscamos ser el hub de la transformación tecnológica, brindando a los participantes inspiración,
               conocimiento y herramientas para liderar el cambio.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
                 <Mail size={16} className="text-[#00A86B]" />
-                <span>info@devopsday.com</span>
+                <span>contacto@devopsdays.pe</span>
               </li>
             </ul>
           </div>
@@ -98,17 +98,14 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm flex items-center">
-              © 2025 DevOpsDay. Made with <Heart size={16} className="mx-1 text-[#8C51BF]" /> in Peru
+              © 2025 DevOpsDays. Made with <Heart size={16} className="mx-1 text-[#8C51BF]" /> in Peru
             </p>
             <div className="flex space-x-4 text-sm">
-              <Link href="#" className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
-                Privacy Policy
+              <Link href="/privacidad/" className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
+                Política de Privacidad
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
-                Code of Conduct
+              <Link href="/codigo-conducta/" className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
+                Código de Conducta
               </Link>
             </div>
           </div>

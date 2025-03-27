@@ -35,7 +35,7 @@ export default function Contact() {
                     <Mail className="text-cyan-400 mt-1" size={24} />
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">Escríbenos</h3>
-                      <p className="text-gray-400">info@devopsdays.pe</p>
+                      <p className="text-gray-400">contacto@devopsdays.pe</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -43,7 +43,7 @@ export default function Contact() {
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">Lugar del Evento</h3>
                       <p className="text-gray-400">
-                        ESAN Convention & Sport Center
+                      ESAN Centro de Convenciones
                         <br />
                         Alonso de Molina 1652, Monterrico, Surco
                         <br />
@@ -116,7 +116,7 @@ export default function Contact() {
                 <Image src="img/esan.jpg" alt="Tech Convention Center" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                   <div className="absolute bottom-6 left-6">
-                    <h3 className="text-white font-bold text-2xl mb-2">ESAN Convention & Sport Center</h3>
+                    <h3 className="text-white font-bold text-2xl mb-2">ESAN Centro de Convenciones</h3>
                     <p className="text-gray-200 text-lg">Auditorio Central</p>
                   </div>
                 </div>

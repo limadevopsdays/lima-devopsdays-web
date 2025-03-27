@@ -6,99 +6,35 @@ import { Github, Linkedin, Twitter, Globe } from 'lucide-react';
 
 const speakers = [
   {
-    name: 'Ana Martinez',
+    name: 'TBD0',
     role: 'DevOps Engineer',
-    company: 'AWS',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
-    bio: 'Expert in cloud infrastructure',
+    company: 'Sector E-Commerce',
+    image: 'img/photo1.png',
+    bio: 'Experto Infraestructura Cloud',
     social: { twitter: '#', linkedin: '#', github: '#' },
   },
   {
-    name: 'Carlos Rodriguez',
+    name: 'TBD1',
     role: 'SRE Lead',
-    company: 'Google',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
-    bio: 'Site reliability expert',
+    company: 'Sector Bancario',
+    image: 'img/photo2.png',
+    bio: 'Líder en Site Reliability ',
     social: { twitter: '#', linkedin: '#', github: '#' },
   },
   {
-    name: 'Maria Santos',
+    name: 'TBD2',
     role: 'Platform Engineer',
-    company: 'Microsoft',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
-    bio: 'Platform engineering lead',
+    company: 'Sector AI',
+    image: 'img/photo3.png',
+    bio: 'Ingeniero de Plataformas',
     social: { twitter: '#', linkedin: '#', github: '#' },
   },
   {
-    name: 'Juan Perez',
+    name: 'TB3',
     role: 'DevSecOps',
-    company: 'Red Hat',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-    bio: 'Security automation expert',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Sofia Ramirez',
-    role: 'Cloud Architect',
-    company: 'Oracle',
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop',
-    bio: 'Cloud solutions architect',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Diego Torres',
-    role: 'DevOps Lead',
-    company: 'IBM',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
-    bio: 'Automation specialist',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Laura Vargas',
-    role: 'SRE Manager',
-    company: 'VMware',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop',
-    bio: 'Reliability expert',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Ricardo Silva',
-    role: 'Cloud Engineer',
-    company: 'Datadog',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
-    bio: 'Monitoring specialist',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Carmen Ruiz',
-    role: 'DevOps Architect',
-    company: 'GitLab',
-    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop',
-    bio: 'CI/CD expert',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Pablo Mendoza',
-    role: 'Platform Lead',
-    company: 'Docker',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop',
-    bio: 'Container specialist',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Elena Castro',
-    role: 'SRE Engineer',
-    company: 'HashiCorp',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop',
-    bio: 'Infrastructure expert',
-    social: { twitter: '#', linkedin: '#', github: '#' },
-  },
-  {
-    name: 'Miguel Angel',
-    role: 'DevOps Engineer',
-    company: 'Elastic',
-    image: 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=400&fit=crop',
-    bio: 'Observability specialist',
+    company: 'Sector Software',
+    image: 'img/photo4.png',
+    bio: 'Experto en Automatización',
     social: { twitter: '#', linkedin: '#', github: '#' },
   },
 ];
@@ -133,8 +69,8 @@ export default function Speakers() {
         <h2 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
           Ponentes Destacados
         </h2>
-        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> ¡Atención! Vienen los ponentes más destacados para inspirarte.</h3>
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <h3 className="text-2xl font-bold text-center text-gray-400 mb-8"> ¡Atención! Muy pronto te presentaremos a nuestros speakers.</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {speakers.map((speaker, index) => (
             <div
               key={speaker.name}
@@ -153,13 +89,13 @@ export default function Speakers() {
                     />
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-base font-bold text-white">{speaker.name}</h3>
+                    {/* <h3 className="text-base font-bold text-white">{speaker.name}</h3> */}
                     <p className="text-sm text-[#1EBDD1]">{speaker.role}</p>
                     <p className="text-sm text-[#00A86B]">{speaker.company}</p>
                   </div>
                 </div>
                 <p className="text-sm text-gray-400 mb-3 line-clamp-2">{speaker.bio}</p>
-                <div className="flex space-x-3">
+                {/* <div className="flex space-x-3">
                   <a href={speaker.social.twitter} className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
                     <Twitter size={16} />
                   </a>
@@ -172,11 +108,11 @@ export default function Speakers() {
                   <a href="#" className="text-gray-400 hover:text-[#1EBDD1] transition-colors">
                     <Globe size={16} />
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </section>
   );
