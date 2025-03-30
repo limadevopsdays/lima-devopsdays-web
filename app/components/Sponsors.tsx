@@ -45,7 +45,7 @@ const BenefitsTable = () => {
   ];
 
   // Function to determine background color based on tier
-  const getTierBackgroundColor = (tier) => {
+  const getTierBackgroundColor = (tier: 'gold' | 'silver' | 'bronze') => {
     switch (tier) {
       case 'gold':
         return 'bg-yellow-500/20 dark:bg-yellow-900/30';
@@ -59,7 +59,7 @@ const BenefitsTable = () => {
   };
 
   // Function to determine header color based on tier
-  const getTierHeaderColor = (tier) => {
+  const getTierHeaderColor = (tier: 'gold' | 'silver' | 'bronze' | 'default') => {
     switch (tier) {
       case 'gold':
         return 'bg-yellow-500/20 dark:bg-yellow-900/30 text-white';
@@ -67,8 +67,10 @@ const BenefitsTable = () => {
         return 'bg-gray-300/20 dark:bg-gray-600/30 text-gray-800 text-white';
       case 'bronze':
         return 'bg-amber-600/20 dark:bg-amber-800/30 text-white';
-      default:
+      case 'default':
         return 'bg-gradient-to-br from-gray-900 to-black text-cyan-400';
+      default:
+        return '';
     }
   };
 
@@ -81,7 +83,7 @@ const BenefitsTable = () => {
       <table className="min-w-full divide-y divide-[#1EBDD1]/20 dark:divide-gray-700 ">
         <thead>
           <tr>
-            <th scope="col" className={`px-6 py-4 text-center text-sm font-medium uppercase w- tracking-wider ${getTierHeaderColor('default')}`}>
+            <th scope="col" className={`px-6 py-4 text-center text-sm font-medium uppercase  tracking-wider ${getTierHeaderColor('default')}`}>
               Beneficios
             </th>
             <th scope="col" className={`px-6 py-4 text-center text-sm font-medium uppercase tracking-wider ${getTierHeaderColor('bronze')}`}>
