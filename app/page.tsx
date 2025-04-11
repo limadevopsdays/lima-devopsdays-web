@@ -28,10 +28,10 @@ const CallForPapers = dynamic(() => import('./components/CallForPapers'), {
   loading: () => <div>Loading...</div>,
 });
 
-const Sponsors = dynamic(() => import('./components/Sponsors'), {
-  ssr: false,
-  loading: () => <div>Loading...</div>,
-});
+// const Sponsors = dynamic(() => import('./components/Sponsors'), {
+//   ssr: false,
+//   loading: () => <div>Loading...</div>,
+// });
 
 const Contact = dynamic(() => import('./components/Contact'), {
   ssr: false,
@@ -48,6 +48,18 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const { hash } = new URL(window.location.href);
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 1000);
+    }
+  }, [loading]);
+
   if (!mounted || loading) return <Loading />;
 
   // Set your target date here (format: YYYY-MM-DD)
@@ -63,24 +75,25 @@ export default function Home() {
 
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xl md:text-2xl mb-4 text-white">
-              El evento internacional de DevOps<br /> que está transformando la industria llega a Perú
+            <p className="text-xl md:text-2xl mb-4 text-white">
+              El evento internacional de DevOps
+              <br /> que está transformando la industria llega a Perú
               <br />
             </p>
-          
+
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF]">
               DevOpsDays Lima 2025
             </h1>
             <CountdownTimer targetDate="2025-08-21" className="mb-4" />
-            <br/>
+            <br />
 
             <span className="text-1xl md:text-4xl font-bold mb-6 bg-clip-text bg-gradient-to-r text-turquoise">
               Jueves 21 de Agosto
             </span>
             <h3 className="text-2xl md:text-4xl font-bold mb-6 bg-clip-text bg-gradient-to-r text-[#8C51BF]">
-            ESAN Centro de Convenciones
+              ESAN Centro de Convenciones
             </h3>
-    
+
             <div className="flex flex-wrap gap-4 justify-center">
               {/* <button className="px-8 py-3 bg-[#00A86B] hover:bg-[#00A86B]/80 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105">
                 Regístrate Ahora
@@ -125,7 +138,7 @@ export default function Home() {
       <Speakers />
       <Agenda />
       <CallForPapers />
-      <Sponsors />
+      {/* <Sponsors /> */}
       <Contact />
     </main>
   );
