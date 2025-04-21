@@ -28,10 +28,10 @@ const CallForPapers = dynamic(() => import('./components/CallForPapers'), {
   loading: () => <div>Loading...</div>,
 });
 
-// const Sponsors = dynamic(() => import('./components/Sponsors'), {
-//   ssr: false,
-//   loading: () => <div>Loading...</div>,
-// });
+const Sponsors = dynamic(() => import('./components/Sponsors'), {
+  ssr: false,
+  loading: () => <div>Loading...</div>,
+});
 
 const Contact = dynamic(() => import('./components/Contact'), {
   ssr: false,
@@ -138,7 +138,7 @@ export default function Home() {
       <Speakers />
       <Agenda />
       <CallForPapers />
-      {/* <Sponsors /> */}
+      <Sponsors />
       <Contact />
     </main>
   );

@@ -164,31 +164,58 @@ export default function Sponsors() {
         <div className="overflow-x-auto">
           <div className="flex justify-center items-center mb-8">
             <span className="text-2xl font-bold text-center text-gray-400 mb-0">
-              Resalta tu marca al unirte a esta experiencia.✨
+              Impulse su marca en el principal evento DevOps de Perú
             </span>
           </div>
-          <table className="table-auto mx-auto text-center mb-12">
-            <thead>
-              <tr>
-                <th className="px-6 py-4 text-lg font-medium text-gray-600">Bronze</th>
-                <th className="px-6 py-4 text-lg font-medium text-gray-600">Silver</th>
-                <th className="px-6 py-4 text-lg font-medium text-gray-600">Gold</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="px-6 py-4">
-                  <img src="img/badge-bronze.png" alt="Bronze Sponsor" className="w-48 h-auto mx-auto" />
-                </td>
-                <td className="px-6 py-4">
-                  <img src="img/badge-silver.png" alt="Silver Sponsor" className="w-48 h-auto mx-auto" />
-                </td>
-                <td className="px-6 py-4">
-                  <img src="img/badge-gold.png" alt="Gold Sponsor" className="w-48 h-auto mx-auto" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="flex justify-center items-center mb-8">
+            <p className="flex justify text-gray-400 mb-0">
+              DevOpsDays Lima es una conferencia organizada por voluntarios dedicados a la comunidad DevOps. El éxito de
+              este evento depende significativamente del apoyo de organizaciones comprometidas con la innovación
+              tecnológica.
+            </p>
+          </div>
+
+          <div className="flex justify-center items-center mb-8">
+            <span className="text-2xl font-bold text-center text-gray-400 mb-0">
+              ¿Por qué patrocinar DevOpsDays Lima?
+            </span>
+          </div>
+          <div className="flex items-center mb-8">
+            <p className="text-center text-gray-400 mb-0">Al convertirse en patrocinador, su organización:</p>
+          </div>
+          <div className="flex justify-center items-center mb-8">
+            <ul className="list-disc list-inside text-gray-400">
+              <li>
+                Ganará visibilidad estratégica ante más de 450 profesionales de tecnología incluyendo ingenieros DevOps,
+                especialistas en cloud, desarrolladores, líderes de TI y tomadores de decisiones.{' '}
+              </li>
+              <li>
+                {' '}
+                Obtendrá reconocimiento prominente en nuestro sitio web y canales de redes sociales antes, durante y
+                después del evento.
+              </li>
+              <li>
+                Tendrá la oportunidad de realizar presentaciones breves durante el programa oficial (según el nivel de
+                patrocinio).
+              </li>
+              <li>
+                Establecerá conexiones de valor con una comunidad en crecimiento en el mercado tecnológico peruano.
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex justify-center items-center mb-8">
+            <span className="text-2xl font-bold text-center text-gray-400 mb-0">Nuestra filosofía de patrocinio</span>
+          </div>
+          <div className="flex justify-center items-center mb-8">
+            <p className="flex text-justify text-gray-400 mb-0">
+              DevOpsDays es fundamentalmente un evento centrado en la comunidad. Las organizaciones que obtienen mayor
+              valor son aquellas que participan activamente y se relacionan genuinamente con los asistentes como colegas
+              del sector. Recomendamos enviar a sus profesionales técnicos que puedan interactuar con otros
+              participantes de manera auténtica y significativa. Las tácticas de marketing agresivo generalmente no son
+              bien recibidas en este entorno colaborativo.
+            </p>
+          </div>
 
           {/* Sponsor Benefits Table */}
           <div className="mt-12 mb-8">
@@ -255,6 +282,19 @@ export default function Sponsors() {
         </div> */}
 
         {/* Become a Sponsor */}
+
+        <div className="overflow-x-auto">
+          <div className="flex items-center mb-8">
+            <p className="flex text-gray-400 mb-0">*Los precios no incluyen IGV</p>
+          </div>
+
+          <div className="flex items-center mb-8">
+            <p className=" text-gray-400 mb-0">
+              Para información detallada sobre cada nivel de patrocinio y beneficios específicos, descargue nuestro
+              Media Kit completo:
+            </p>
+          </div>
+        </div>
         <div className=" text-center flex gap-16 justify-center items-center ">
           <a href="https://assets.devopsdays.org/events/2025/lima/DevOpsDays-ES-Lima-2025.pdf" target="_blank">
             <button className="bg-gradient-to-r from-[#1EBDD1] to-[#8C51BF] text-white px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
@@ -266,6 +306,59 @@ export default function Sponsors() {
               Media Kit en Inglés
             </button>
           </a>
+        </div>
+
+        <div className="flex justify-center items-center mb-8 mt-12">
+          <span className="text-2xl font-bold text-center text-gray-400 mb-0">Patrocinio Comunitario</span>
+        </div>
+        <div className="flex justify-center items-center mb-8">
+          <p className="text-justify text-gray-400 mb-0 mt-2">
+            Ofrecemos alianzas estratégicas no monetarias para organizaciones afines. Este formato está especialmente
+            diseñado para conferencias regionales, comunidades tecnológicas y medios de comunicación especializados
+            interesados en establecer colaboraciones mutuamente beneficiosas.
+            {/* </p>{' '} */}
+            <br />
+            <br />
+            {/* <p className="text-justify text-gray-400 mb-0 mt-2"> */}
+            Para calificar como patrocinador comunitario, su organización debe compartir nuestra visión de impulsar la
+            transformación tecnológica en Lima, comprometerse a promover activamente DevOpsDays Lima en sus canales y
+            adherirse a nuestro código de conducta.
+            {/* </p>{' '} */}
+            <br />
+            <br />
+            {/* <p className="text-justify text-gray-400 mb-0 mt-2"> */}
+            Como reconocimiento, los patrocinadores comunitarios recibirán dos entradas de cortesía para el evento,
+            posicionamiento de marca en nuestros sitios web oficiales y visibilidad en nuestros materiales promocionales
+            y comunicaciones con participantes.
+          </p>{' '}
+          <br />
+        </div>
+
+        <div className="flex justify-center items-center mb-8">
+          <span className="text-2xl font-bold text-center text-gray-400 mb-0">Información de contacto</span>
+        </div>
+        <div className="flex justify-center items-center mb-8">
+          <p className="text-justify text-gray-400 mb-0 mt-2">
+            Si está interesado en convertirse en patrocinador de DevOpsDays Lima o desea obtener información adicional,
+            por favor contáctenos en lima@devopsdays.org.
+            <br />
+            <br />
+            Al patrocinar este evento, usted acepta cumplir con nuestro{' '}
+            <a href="https://devopsdays.org/events/2025-lima/conduct" target="_blank">
+              <span className="font-bold mb-6 bg-clip-text bg-gradient-to-r text-[#8C51BF]">Código de Conducta</span>
+            </a>
+          </p>
+        </div>
+
+        <div className="flex justify-center items-center mb-8">
+          <span className="text-2xl font-bold text-center text-gray-400 mb-0">Política de datos</span>
+        </div>
+        <div className="flex justify-center items-center mb-8">
+          <p className="text-justify text-gray-400 mb-0 mt-2">
+            DevOpsDays Lima no comparte información de registro de los asistentes directamente con los patrocinadores.
+            Sin embargo, podrá recopilar información con consentimiento explícito de los participantes durante el
+            evento, especialmente a través de interacciones en su stand.
+          </p>
         </div>
       </div>
     </section>
