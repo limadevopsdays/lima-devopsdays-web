@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:original-web": "pnpm --filter original-web build && mv ./apps/original-web/out ./out"
+    "build:original-web": "pnpm --filter original-web build && mv ./apps/original-web/out ./out",
+    "build:new-web": "pnpm --filter new-web build && mv ./apps/new-web/out ./out"
   },
   "devDependencies": {
     "tsx":"^4.19.3"
