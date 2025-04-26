@@ -4,7 +4,7 @@
   "description": "",
   "exports": {
     ".": {
-      "styles": "./global.css"
+      "style": "./global.css"
     }
   },
   "scripts": {
@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "tailwindcss": "^4.1.4"
   }
 }
