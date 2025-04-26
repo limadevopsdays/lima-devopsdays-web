@@ -1,0 +1,6 @@
+{
+  "tailwindCSS.experimental.configFile": {
+    "sandbox/vite-sandbox/src/index.css": "./**/*",
+    "shared/tailwind-global-config/global.css": "./**/*",
+  }
+}
