@@ -227,6 +227,12 @@ importers:
         specifier: ^8.5.1
         version: 8.5.3
 
+  shared/tailwind-global-config:
+    dependencies:
+      tailwindcss:
+        specifier: ^4.1.4
+        version: 4.1.4
+
 packages:
 
   '@alloc/quick-lru@5.2.0':
