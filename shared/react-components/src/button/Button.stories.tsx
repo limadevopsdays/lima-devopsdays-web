@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from './index';
 
 const meta = {
+  decorators: [(Story)=><div className='bg-surface-background-primary p-10' ><Story/></div>],
   title: 'Atoms/Button',
   component: Button,
   parameters: {

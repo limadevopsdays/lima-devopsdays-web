@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import PanelGrid from './index';
 
 const meta = {
+  decorators: [(Story)=><div className='bg-surface-background-primary p-10' ><Story/></div>],
   title: 'Molecules/PanelGrid',
   component: PanelGrid,
   parameters: {

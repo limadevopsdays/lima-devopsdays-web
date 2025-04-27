@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Paragraph from '.'
 
 const meta = {
+  decorators: [(Story)=><div className='bg-surface-background-primary p-10' ><Story/></div>],
   title: 'Atoms/Paragraph',
   component: Paragraph,
   parameters: {
@@ -20,6 +21,6 @@ export const AsLabel: Story = {
     style: 'normal',
     children: 'Ingresa tu documento de identidad',
     as: 'label',
-  }
+  },
 }
 
