@@ -1,0 +1,14 @@
+/* Hide radio inputs */
+.tab-input {
+  display: none;
+}
+
+/* Hide tab content by default */
+.tab-content {
+  display: none;
+}
+
+/* Show tab content when corresponding radio is checked */
+.tab-input:checked + .tab-content {
+  display: block;
+}
