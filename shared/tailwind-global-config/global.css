@@ -1,7 +1,9 @@
-
+/* TODO: this file shoudl be codegen generated from a JSON */
 @theme {
-  --color-primary: #1E40AF;
-  --color-secondary: #9333EA;
-  --color-background: #F3F4F6;
-  --color-foreground: #1F2937;
+  --color-surface-primary: #80DAE6;
+  --color-surface-secondary: #B87BED;
+  --color-surface-background: #F3F4F6;
+  --color-surface-foreground: #1F2937;
+  --color-surface-border: #2E2F30;
+  --color-surface-border-hover: #646464;
 }

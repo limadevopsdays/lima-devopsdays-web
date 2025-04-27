@@ -317,6 +317,15 @@ importers:
 
   shared/react-components:
     dependencies:
+      '@dyesthetics-lab/react-component-creators':
+        specifier: ^0.1.1
+        version: 0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@dyesthetics-lab/react-tv-variants-creators':
+        specifier: ^6.0.1
+        version: 6.0.1(@dyesthetics-lab/react-component-creators@0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@dyesthetics-lab/react-types@0.0.0(@types/react@19.1.2))(@dyesthetics-lab/tailwind-utils@0.6.0(rambda@9.4.2)(tailwind-variants@1.0.0(tailwindcss@4.1.4)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwind-variants@1.0.0(tailwindcss@4.1.4))
+      '@dyesthetics-lab/react-types':
+        specifier: 0.0.0
+        version: 0.0.0(@types/react@19.1.2)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -479,6 +488,33 @@ packages:
   '@babel/types@7.27.0':
     resolution: {integrity: sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg==}
     engines: {node: '>=6.9.0'}
+
+  '@dyesthetics-lab/react-component-creators@0.1.1':
+    resolution: {integrity: sha512-pW2H+OuS4rafx/9OWvWH2b9pzPgYy+ZeyFH5AkhwuetgxOxZ0aWTIcsm2VhFgAw+PPoiZyk55M2ehpw2VRoeww==}
+    peerDependencies:
+      react: ^19.0.0
+      react-dom: ^19.0.0
+
+  '@dyesthetics-lab/react-tv-variants-creators@6.0.1':
+    resolution: {integrity: sha512-9s1yReuyLJd47swENdpp87Bj44dJX3/fP/c1dvk++qGipB4b8S4lINivH6/Lgfg/tWe8GFyQ3CYsgb/1zfD3fg==}
+    peerDependencies:
+      '@dyesthetics-lab/react-component-creators': 0.1.1
+      '@dyesthetics-lab/react-types': 0.0.0
+      '@dyesthetics-lab/tailwind-utils': 0.6.0
+      react: ^19.0.0
+      react-dom: ^19.0.0
+      tailwind-variants: ^1.0.0
+
+  '@dyesthetics-lab/react-types@0.0.0':
+    resolution: {integrity: sha512-8yFxtdvmrsqsfIOAA+wNixXZJMatg4IVLrwJO564KD77XLo0M+PXRu9KH2tujtmbe4XI7N1bwvSJBqhdZ/99UQ==}
+    peerDependencies:
+      '@types/react': ^19.0.10
+
+  '@dyesthetics-lab/tailwind-utils@0.6.0':
+    resolution: {integrity: sha512-HtiJxxfL0QrYh7Hhiq8q7ZCL5fJ8+NORKTaTv0QxnhXHy1IwheA07DBiCoPBwjP6Y74Fg4SF1OTow2CZn0P8og==}
+    peerDependencies:
+      rambda: ^9.0.0
+      tailwind-variants: ^1.0.0
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -3672,6 +3708,9 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  rambda@9.4.2:
+    resolution: {integrity: sha512-++euMfxnl7OgaEKwXh9QqThOjMeta2HH001N1v4mYQzBjJBnmXBh2BCK6dZAbICFVXOFUVD3xFG0R3ZPU0mxXw==}
+
   react-day-picker@8.10.1:
     resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
     peerDependencies:
@@ -4019,6 +4058,15 @@ packages:
 
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
+
+  tailwind-merge@3.0.2:
+    resolution: {integrity: sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==}
+
+  tailwind-variants@1.0.0:
+    resolution: {integrity: sha512-2WSbv4ulEEyuBKomOunut65D8UZwxrHoRfYnxGcQNnHqlSCp2+B7Yz2W+yrNDrxRodOXtGD/1oCcKGNBnUqMqA==}
+    engines: {node: '>=16.x', pnpm: '>=7.x'}
+    peerDependencies:
+      tailwindcss: '*'
 
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
@@ -4414,6 +4462,29 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
+
+  '@dyesthetics-lab/react-component-creators@0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
+  '@dyesthetics-lab/react-tv-variants-creators@6.0.1(@dyesthetics-lab/react-component-creators@0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@dyesthetics-lab/react-types@0.0.0(@types/react@19.1.2))(@dyesthetics-lab/tailwind-utils@0.6.0(rambda@9.4.2)(tailwind-variants@1.0.0(tailwindcss@4.1.4)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwind-variants@1.0.0(tailwindcss@4.1.4))':
+    dependencies:
+      '@dyesthetics-lab/react-component-creators': 0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@dyesthetics-lab/react-types': 0.0.0(@types/react@19.1.2)
+      '@dyesthetics-lab/tailwind-utils': 0.6.0(rambda@9.4.2)(tailwind-variants@1.0.0(tailwindcss@4.1.4))
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      tailwind-variants: 1.0.0(tailwindcss@4.1.4)
+
+  '@dyesthetics-lab/react-types@0.0.0(@types/react@19.1.2)':
+    dependencies:
+      '@types/react': 19.1.2
+
+  '@dyesthetics-lab/tailwind-utils@0.6.0(rambda@9.4.2)(tailwind-variants@1.0.0(tailwindcss@4.1.4))':
+    dependencies:
+      rambda: 9.4.2
+      tailwind-variants: 1.0.0(tailwindcss@4.1.4)
 
   '@emnapi/core@1.4.3':
     dependencies:
@@ -7740,6 +7811,8 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  rambda@9.4.2: {}
+
   react-day-picker@8.10.1(date-fns@3.6.0)(react@18.2.0):
     dependencies:
       date-fns: 3.6.0
@@ -8198,6 +8271,13 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   tailwind-merge@2.6.0: {}
+
+  tailwind-merge@3.0.2: {}
+
+  tailwind-variants@1.0.0(tailwindcss@4.1.4):
+    dependencies:
+      tailwind-merge: 3.0.2
+      tailwindcss: 4.1.4
 
   tailwindcss-animate@1.0.7(tailwindcss@3.3.3):
     dependencies:
