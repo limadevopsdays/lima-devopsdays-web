@@ -3,7 +3,6 @@ import { createResponsiveStyled } from '@dyesthetics-lab/react-tv-variants-creat
 const Paragraph = createResponsiveStyled({
   tag: 'p',
   preset: {
-    base: ["text-white"],
     variants: {
       weight: {
         thin: 'font-thin',
@@ -18,14 +17,21 @@ const Paragraph = createResponsiveStyled({
         normal: 'not-italic',
       },
       size: {
-        xl: 'text-xl leading-4'
+        xl: 'text-xl leading-4',
+        lg: 'text-lg leading-6',
+        md: 'text-base leading-5',
+      },
+      color: {
+        primary: 'text-white',
+        secondary: 'text-gray-400',
       }
     }
   },
   defaultProps: {
     weight: 'regular',
     style: 'normal',
-    size: 'xl'
+    size: 'md',
+    color: 'primary'
   }
 });
 

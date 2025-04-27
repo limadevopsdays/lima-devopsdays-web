@@ -19,6 +19,7 @@ const Subtitle = createResponsiveStyled({
       },
       size: {
         md: 'text-4xl leading-3',
+        lg: 'text-2xl leading-6',
       }
     }
   }
