@@ -1,0 +1,34 @@
+import { createResponsiveStyled } from '@dyesthetics-lab/react-tv-variants-creators';
+
+const Button = createResponsiveStyled({
+  tag: 'button',
+  preset: {
+    base: [
+      "py-2 px-4 rounded-md font-medium transition-all duration-300 ease-out cursor-pointer",
+      "border border-transparent"
+    ],
+    variants: {
+      variant: {
+        primary: [
+          "bg-button-background-primary text-button-foreground-primary",
+          "hover:bg-button-background-primary-hover"
+        ],
+        secondary: [
+          "bg-button-background-secondary text-button-foreground-secondary border-button-border-secondary",
+          "hover:bg-button-background-secondary-hover"
+        ],
+        tertiary: [
+          "bg-button-background-tertiary text-button-foreground-tertiary border-button-border-tertiary",
+          "hover:bg-button-background-tertiary-hover"
+        ]
+      },
+      size: {
+        small: ["text-sm py-1 px-2"],
+        medium: ["text-base py-2 px-4"],
+        large: ["text-lg py-3 px-6"]
+      }
+    },
+  }
+});
+
+export default Button;
