@@ -1,9 +1,29 @@
 /* TODO: this file shoudl be codegen generated from a JSON */
 @theme {
-  --color-surface-primary: #80DAE6;
-  --color-surface-secondary: #B87BED;
-  --color-surface-background: #F3F4F6;
-  --color-surface-foreground: #1F2937;
+  --color-surface-background-primary: #161719;
+  --color-surface-background-secondary: #0F1012;
+
+  --color-paragraph-primary: #FFFFFF;
+  --color-paragraph-enphasis-primary: #8C50BF;
+  --color-paragraph-enphasis-secondary: #80DAE6;
+
+  --color-subtitle-primary:  #80DAE6;
+
+  --color-button-background-primary: #B87BED;
+  --color-button-background-secondary: transparent;
+  --color-button-background-tertiary: transparent;
+  --color-button-background-primary-hover: #A76DD9;
+  --color-button-background-secondary-hover: #2E2F30;
+  --color-button-background-tertiary-hover: #2E2F30;
+  --color-button-border-primary: transparent;
+  --color-button-border-secondary: white;
+  --color-button-border-tertiary: #B87BED;
+
   --color-surface-border: #2E2F30;
   --color-surface-border-hover: #646464;
+
+  --color-gray-4: #161719;
+  --color-gray-5: #0F1012;
+
+  --color-cyan-base: #80DAE6;
 }
