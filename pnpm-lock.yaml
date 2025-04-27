@@ -317,9 +317,15 @@ importers:
 
   shared/react-components:
     dependencies:
+      '@dyesthetics-lab/react-component-creators':
+        specifier: ^0.1.1
+        version: 0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@dyesthetics-lab/react-tv-variants-creators':
         specifier: ^6.0.1
         version: 6.0.1(@dyesthetics-lab/react-component-creators@0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@dyesthetics-lab/react-types@0.0.0(@types/react@19.1.2))(@dyesthetics-lab/tailwind-utils@0.6.0(rambda@9.4.2)(tailwind-variants@1.0.0(tailwindcss@4.1.4)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tailwind-variants@1.0.0(tailwindcss@4.1.4))
+      '@dyesthetics-lab/react-types':
+        specifier: 0.0.0
+        version: 0.0.0(@types/react@19.1.2)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -891,7 +897,7 @@ packages:
   '@mdx-js/react@3.1.0':
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
     peerDependencies:
-      '@types/react': 19.0.10
+      '@types/react': '>=16'
       react: '>=16'
 
   '@napi-rs/wasm-runtime@0.2.9':

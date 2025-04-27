@@ -16,7 +16,9 @@
     "react-dom": "^19.0.0",
     "tailwind-global-config": "workspace:*",
     "tailwindcss": "^4",
-    "@dyesthetics-lab/react-tv-variants-creators": "^6.0.1"
+    "@dyesthetics-lab/react-tv-variants-creators": "^6.0.1",
+    "@dyesthetics-lab/react-types": "0.0.0",
+    "@dyesthetics-lab/react-component-creators": "^0.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -45,5 +47,12 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "exports": {
+    "./PanelGrid": "./src/panel-grid/index.tsx",
+    "./PanelGridRoot": "./src/panel-grid/PanelGridRoot.tsx",
+    "./PanelRow": "./src/panel-grid/PanelRow.tsx",
+    "./Panel": "./src/panel/index.tsx",
+    "./Paragraph": "./src/paragraph/index.tsx"
   }
 }

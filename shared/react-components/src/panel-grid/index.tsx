@@ -1,3 +1,5 @@
+import PanelGridRoot from "./PanelGridRoot";
+import PanelRow from "./PanelRow";
 import Panel from "../panel";
 import Paragraph from "../paragraph";
 
@@ -13,22 +15,26 @@ export interface IPanelGroup {
 
 export interface PanelGridProps {
   panels: IPanelGroup[];
+  renderRow?: (group: IPanelGroup, children: React.ReactNode) => React.ReactNode;
+  renderPanel?: (item: PanelItem) => React.ReactNode;
 };
 
-export default function PanelGrid({ panels }: PanelGridProps) {
+export default function PanelGrid({ panels, renderRow, renderPanel }: Readonly<PanelGridProps>) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
-      {panels.map(({ id, panelGroup }) => (
-        <div key={id} className="flex gap-2">
-          {panelGroup.map(({ id, title }) => (
-            <Panel key={id}>
-              <Paragraph as="span">
-                {title}
-              </Paragraph>
+    <PanelGridRoot>
+      {panels.map((group) => {
+        const panelNodes = group.panelGroup.map((item) => (
+          renderPanel ?
+            renderPanel(item) :
+            <Panel key={item.id}>
+              <Paragraph as="span">{item.title}</Paragraph>
             </Panel>
-          ))}
-        </div>
-      ))}
-    </div>
+        ));
+
+        return renderRow ?
+          renderRow(group, panelNodes) :
+          <PanelRow key={group.id}>{panelNodes}</PanelRow>;
+      })}
+    </PanelGridRoot>
   );
-};
+}
