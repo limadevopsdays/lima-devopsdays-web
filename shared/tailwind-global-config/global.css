@@ -18,6 +18,9 @@
   --color-button-border-primary: transparent;
   --color-button-border-secondary: white;
   --color-button-border-tertiary: #B87BED;
+  --color-button-foreground-primary: black;
+  --color-button-foreground-secondary: white;
+  --color-button-foreground-tertiary: #B87BED;
 
   --color-surface-border: #2E2F30;
   --color-surface-border-hover: #646464;
