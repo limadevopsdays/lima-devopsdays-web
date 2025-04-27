@@ -1,3 +1,11 @@
 @import "tailwindcss";
 
+@theme inline{
+  --font-default: var(--font-space-grotesk);
+}
+
+body{
+  font-family: var(--font-default), sans-serif;
+}
+
 @import "tailwind-global-config";
