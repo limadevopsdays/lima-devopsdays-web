@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SimpleCard from '.';
 
 const meta = {
-  title: 'Atoms/SimpleCard',
+  title: 'Molecules/SimpleCard',
   component: SimpleCard,
   parameters: {
     layout: 'centered',
