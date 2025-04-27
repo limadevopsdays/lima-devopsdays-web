@@ -1,5 +1,4 @@
 import React from 'react';
-import './tabs.css';
 
 export interface TabContentProps {
   tabId: string;
@@ -17,17 +16,17 @@ export default function TabContent({
   className = ''
 }: TabContentProps) {
   return (
-    <>
+    <div>
       <input
         type="radio"
-        className="tab-input"
         id={tabId}
         name={tabName}
         defaultChecked={defaultChecked}
+        className="peer hidden"
       />
-      <div className={`tab-content ${className}`}>
+      <div className={`hidden peer-checked:block ${className}`}>
         {children}
       </div>
-    </>
+    </div>
   );
 }

@@ -51,15 +51,15 @@ export const BasicTabs: Story = {
           </TabLabel>
         </div>
 
-        <TabContent className='text-white' tabName='tabs' tabId="tab1" defaultChecked={currentTabActive === 'tab1'}>
+        <TabContent className='text-white' tabName='tabs' tabId="tab1" defaultChecked>
           Content for Tab 1
         </TabContent>
 
-        <TabContent className='text-white' tabName='tabs' tabId="tab2" defaultChecked={currentTabActive === 'tab2'}>
+        <TabContent className='text-white' tabName='tabs' tabId="tab2">
           Content for Tab 2
         </TabContent>
 
-        <TabContent className='text-white' tabName='tabs' tabId="tab3" defaultChecked={currentTabActive === 'tab3'}>
+        <TabContent className='text-white' tabName='tabs' tabId="tab3">
           Content for Tab 3
         </TabContent>
       </div>
