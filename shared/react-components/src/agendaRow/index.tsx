@@ -4,7 +4,7 @@ const AgendaRow = createResponsiveStyled({
   tag: 'div',
   preset: {
     base: [
-      "flex py-4 pl-2 w-full border-b border-surface-border gap-[100px]",
+      "grid grid-cols-[auto_1fr] py-4 pl-2 w-full border-b border-surface-border gap-[100px]",
     ],
     variants: {
       variant: {
@@ -12,7 +12,7 @@ const AgendaRow = createResponsiveStyled({
           "bg-surface-background-primary",
         ],
         secondary: [
-          "bg-surface-background-secondary",
+          "bg-gray-3",
         ]
       }
     },

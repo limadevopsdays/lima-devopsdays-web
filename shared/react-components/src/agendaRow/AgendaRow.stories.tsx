@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AgendaRow from './AgendaRow';
+import AgendaRow from '.';
 import Paragraph from '../paragraph';
 import Subtitle from '../subtitle';
 
