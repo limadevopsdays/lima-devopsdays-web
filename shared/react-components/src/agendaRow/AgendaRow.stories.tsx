@@ -4,7 +4,7 @@ import Paragraph from '../paragraph';
 import Subtitle from '../subtitle';
 
 const meta: Meta<typeof AgendaRow> = {
-  title: 'Components/AgendaRow',
+  title: 'Molecules/AgendaRow',
   component: AgendaRow,
   tags: ['autodocs'],
   argTypes: {

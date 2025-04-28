@@ -22,8 +22,9 @@ const Paragraph = createResponsiveStyled({
         md: 'text-base leading-5',
       },
       color: {
-        primary: 'text-white',
+        primary: 'text-paragraph-primary',
         secondary: 'text-gray-400',
+        highlight: 'text-paragraph-enphasis-primary',
       }
     }
   },
