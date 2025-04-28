@@ -4,7 +4,7 @@ const Button = createResponsiveStyled({
   tag: 'button',
   preset: {
     base: [
-      "py-2 px-4 rounded-md font-medium transition-all duration-300 ease-out cursor-pointer",
+      "py-2 px-4 rounded-md font-normal transition-all duration-300 ease-out cursor-pointer",
       "border border-transparent"
     ],
     variants: {

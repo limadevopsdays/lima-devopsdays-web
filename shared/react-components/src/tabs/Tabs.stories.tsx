@@ -4,6 +4,7 @@ import TabLabel from './TabLabel';
 import TabContent from './TabContent';
 
 const meta: Meta = {
+  decorators: [Story => <div className="bg-gray-4 p-4 rounded-md"><Story /></div>],
   title: 'Molecules/Tabs',
   parameters: {
     layout: 'centered',
