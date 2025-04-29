@@ -41,7 +41,7 @@ export default function SponsorPricingSection({
         {pricingTiers.map((tier) => (
           <SponsorTierCard key={tier.name} >
             <SponsorTierCardHeader tier={tier.tier}>
-              <Subtitle size='md'>{tier.name}</Subtitle>
+              <Subtitle size='sm'>{tier.name}</Subtitle>
               <Paragraph size='md'>{tier.description}</Paragraph>
               <Subtitle size='lg' className='mt-3'>{tier.price}</Subtitle>
             </SponsorTierCardHeader>

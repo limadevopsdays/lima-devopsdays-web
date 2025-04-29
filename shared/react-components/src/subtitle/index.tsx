@@ -1,5 +1,7 @@
 import { createResponsiveStyled } from '@dyesthetics-lab/react-tv-variants-creators';
 
+const className = "text-2xl"
+
 const Subtitle = createResponsiveStyled({
   tag: 'h3',
   preset: {
@@ -19,7 +21,8 @@ const Subtitle = createResponsiveStyled({
       },
       size: {
         lg: 'text-4xl leading-10',
-        md: 'text-2xl leading-[30px]',
+        md: 'text-3xl leading-8',
+        sm: 'text-2xl leading-[30px]',
       }
     }
   }

@@ -49,7 +49,7 @@ export const ThreeCards: Story = {
     <div className="flex items-stretch gap-6">
       <SponsorTierCard>
         <SponsorTierCardHeader tier="bronze">
-          <Subtitle size="md">
+          <Subtitle size="sm">
             Bronce
           </Subtitle>
           <Paragraph size="md">
@@ -70,7 +70,7 @@ export const ThreeCards: Story = {
 
       <SponsorTierCard>
         <SponsorTierCardHeader tier="silver">
-          <Subtitle size="md">
+          <Subtitle size="sm">
             Plata
           </Subtitle>
           <Paragraph size="md">
@@ -94,7 +94,7 @@ export const ThreeCards: Story = {
 
       <SponsorTierCard>
         <SponsorTierCardHeader tier="gold">
-          <Subtitle size="md">
+          <Subtitle size="sm">
             Oro
           </Subtitle>
           <Paragraph size="md">
