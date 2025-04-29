@@ -4,7 +4,7 @@ const TabLabel = createResponsiveStyled({
   tag: 'label',
   preset: {
     base: [
-      "cursor-pointer px-1 py-2 rounded-md transition-all duration-300 ease-out",
+      "cursor-pointer select-none px-1 py-2 rounded-md transition-all duration-300 ease-out",
       "text-xl leading-6"
     ],
     variants: {
