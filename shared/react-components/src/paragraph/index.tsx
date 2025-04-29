@@ -24,6 +24,7 @@ const Paragraph = createResponsiveStyled({
       color: {
         primary: 'text-paragraph-primary',
         secondary: 'text-gray-400',
+        tertiary: 'text-paragraph-tertiary',
         highlight: 'text-paragraph-enphasis-primary',
       }
     }
