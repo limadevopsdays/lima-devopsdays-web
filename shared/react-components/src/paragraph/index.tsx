@@ -17,9 +17,9 @@ const Paragraph = createResponsiveStyled({
         normal: 'not-italic',
       },
       size: {
-        xl: 'text-xl leading-4',
-        lg: 'text-lg leading-6',
-        md: 'text-base leading-5',
+        xl: 'text-xl leading-6',
+        lg: 'text-lg leading-5',
+        md: 'text-base leading-4',
       },
       color: {
         primary: 'text-paragraph-primary',
