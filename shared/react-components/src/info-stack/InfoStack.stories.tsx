@@ -5,8 +5,8 @@ import { InfoStack } from ".";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof InfoStack> = {
-  decorators:[Story=><div className="bg-gray-4 p-4 rounded-md"><Story/></div>],
-  title: "InfoStack",
+  decorators: [Story => <div className="bg-gray-4 p-4 rounded-md"><Story /></div>],
+  title: "Molecules/InfoStack",
   component: InfoStack,
   tags: ["autodocs"],
   parameters: {
