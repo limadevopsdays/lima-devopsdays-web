@@ -22,13 +22,13 @@ export default function InfoStackGroup<T extends ElementType = 'div'>({
 }: Readonly<InfoStackGroupProps> & ComponentProps<typeof CardSurface<T>>) {
   return (
     <CardSurface
-      className={"p-8 ".concat(className ?? '')}
+      className={"p-9 ".concat(className ?? '')}
       {...cardSurfaceProps}
     >
       <h3 className="text-subtitle-primary text-4xl mb-8">
         {title}
       </h3>
-      <div className="flex flex-wrap gap-8 justify-between">
+      <div className="flex flex-col md:flex-row gap-8 justify-between">
         {items.map((item) => (
           <InfoStack
             className="flex-1"
