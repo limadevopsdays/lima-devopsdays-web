@@ -22,6 +22,9 @@ const Button = createResponsiveStyled({
           "hover:bg-button-background-tertiary-hover"
         ]
       },
+      width: {
+        maxContent: ["w-max"],
+      },
       size: {
         small: ["text-sm py-1 px-2"],
         medium: ["text-base py-2 px-4"],
