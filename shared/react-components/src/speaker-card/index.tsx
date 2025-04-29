@@ -30,7 +30,7 @@ export default function SpeakerCard({
 
       <div>
         <div className="flex justify-between items-center">
-          <Subtitle weight='medium' size="md">{title}</Subtitle>
+          <Subtitle className='truncate' weight='medium' size="md">{title}</Subtitle>
           <div className="flex gap-2">
             {socialNetworks.map(({ url, icon }, index) => (
               <a key={index} href={url} target="_blank" rel="noopener noreferrer">
