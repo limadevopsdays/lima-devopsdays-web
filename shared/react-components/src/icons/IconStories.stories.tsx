@@ -5,7 +5,7 @@ import LigthBulb from "./LigthBulb";
 import Stocks from "./Stocks";
 
 const meta = {
-  title: "Icons",
+  title: "Atoms/Icons",
   component: DevopsDaysLogo, // Default component for meta, individual stories will override
   parameters: {
     layout: "centered",

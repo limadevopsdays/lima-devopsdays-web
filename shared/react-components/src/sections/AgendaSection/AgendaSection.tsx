@@ -56,7 +56,7 @@ export default function AgendaSection({ tabLabels, agendaItemsBy }: AgendaProps)
                 <AgendaRow key={idx} variant={idx % 2 === 0 ? 'primary' : 'secondary'}>
                   <Paragraph as="span" size="lg" color="secondary">{item.time}</Paragraph>
                   <div className="flex-1 flex flex-col gap-2">
-                    <Subtitle size="lg" weight="bold">{item.title}</Subtitle>
+                    <Subtitle className='text-2xl leading-6 md:text-4xl md:leading-10' size="lg" weight="bold">{item.title}</Subtitle>
                     <Paragraph color="secondary">{item.description}</Paragraph>
                   </div>
                 </AgendaRow>
