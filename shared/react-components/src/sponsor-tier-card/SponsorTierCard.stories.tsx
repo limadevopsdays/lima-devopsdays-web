@@ -7,7 +7,7 @@ import Subtitle from '../subtitle';
 
 export default {
   decorators: [Story => <div className="bg-gray-4 p-12 rounded-md"><Story /></div>],
-  title: 'Components/SponsorTierCard',
+  title: 'Molecules/SponsorTierCard',
   component: SponsorTierCard,
   parameters: {
     layout: 'centered',

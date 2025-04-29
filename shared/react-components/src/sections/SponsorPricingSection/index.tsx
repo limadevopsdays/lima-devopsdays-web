@@ -1,0 +1,71 @@
+import { ReactNode } from 'react';
+import Subtitle from '../../subtitle';
+import Paragraph from '../../paragraph';
+import Button from '../../button';
+import SponsorTierCard from '../../sponsor-tier-card';
+import SponsorTierCardHeader from '../../sponsor-tier-card/SponsorTierCardHeader';
+import SponsorTierCardBody from '../../sponsor-tier-card/SponsorTierCardBody';
+
+export interface SponsorTier {
+  name: string;
+  description: string;
+  price: string;
+  benefits: string[];
+  tier: 'bronze' | 'silver' | 'gold';
+}
+
+export interface SponsorPricingSectionProps {
+  title: string;
+  description: ReactNode;
+  pricingTiers: SponsorTier[];
+  ctaButtonText: string;
+}
+
+export default function SponsorPricingSection({
+  title,
+  description,
+  pricingTiers,
+  ctaButtonText
+}: SponsorPricingSectionProps) {
+  return (
+    <section className='flex flex-col items-center py-16'>
+      <div className='flex flex-col items-center gap-8 mb-12'>
+        <Subtitle size='lg'>{title}</Subtitle>
+        <Paragraph className='text-center' size="xl" >
+          {description}
+        </Paragraph>
+      </div>
+
+      <div className='flex flex-col md:flex-row items-stretch gap-6 w-full mb-6'>
+        {pricingTiers.map((tier) => (
+          <SponsorTierCard key={tier.name} >
+            <SponsorTierCardHeader tier={tier.tier}>
+              <Subtitle size='md'>{tier.name}</Subtitle>
+              <Paragraph size='md'>{tier.description}</Paragraph>
+              <Subtitle size='lg' className='mt-3'>{tier.price}</Subtitle>
+            </SponsorTierCardHeader>
+            <SponsorTierCardBody tier={tier.tier}>
+              <ul className='list-disc list-inside'>
+                {tier.benefits.map((benefit, benefitIndex) => (
+                  <li key={benefitIndex}>{benefit}</li>
+                ))}
+              </ul>
+            </SponsorTierCardBody>
+          </SponsorTierCard>
+        ))}
+      </div>
+
+      <div className='flex flex-col gap-2 md:flex-row md:gap-0 justify-between w-full'>
+        <div className='flex gap-3'>
+          <Button className='flex-1' variant='tertiary'>
+            Media Kit Español
+          </Button>
+          <Button className='flex-1' variant='tertiary'>
+            Media Kit Ingles
+          </Button>
+        </div>
+        <Button size="large" variant='primary'>{ctaButtonText}</Button>
+      </div>
+    </section>
+  );
+}

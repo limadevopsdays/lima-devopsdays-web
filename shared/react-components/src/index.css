@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tailwind-global-config";
 
+@source "./**/*.css";
+@source "./**/*.{ts,tsx}";
+
 @font-face {
   font-family: 'Space Grotesk';
   src: url('/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
