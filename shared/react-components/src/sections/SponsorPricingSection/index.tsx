@@ -5,6 +5,7 @@ import Button from '../../button';
 import SponsorTierCard from '../../sponsor-tier-card';
 import SponsorTierCardHeader from '../../sponsor-tier-card/SponsorTierCardHeader';
 import SponsorTierCardBody from '../../sponsor-tier-card/SponsorTierCardBody';
+import DownloadIcon from '../../icons/Download';
 
 export interface SponsorTier {
   name: string;
@@ -57,11 +58,13 @@ export default function SponsorPricingSection({
 
       <div className='flex flex-col gap-2 md:flex-row md:gap-0 justify-between w-full'>
         <div className='flex gap-3'>
-          <Button className='flex-1' variant='tertiary'>
+          <Button className='flex items-center whitespace-nowrap flex-1 gap-2' variant='tertiary'>
             Media Kit Español
+            <DownloadIcon />
           </Button>
-          <Button className='flex-1' variant='tertiary'>
+          <Button className='flex items-center whitespace-nowrap flex-1 gap-2' variant='tertiary'>
             Media Kit Ingles
+            <DownloadIcon />
           </Button>
         </div>
         <Button size="large" variant='primary'>{ctaButtonText}</Button>
