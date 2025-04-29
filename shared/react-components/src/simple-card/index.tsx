@@ -16,7 +16,7 @@ export default function SimpleCard<T extends ElementType = 'article'>({
 }: Readonly<SimpleCardProps & ComponentProps<typeof CardSurface<T>>>) {
   return (
     <CardSurface
-      className={`flex flex-col py-4 px-6 gap-12 ${className}`}
+      className={`flex flex-col py-6 px-9 gap-12 ${className}`}
       variant="primary"
       as={as ?? "article"}
       {...props}
