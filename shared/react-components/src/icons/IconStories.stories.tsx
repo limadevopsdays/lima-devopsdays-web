@@ -6,7 +6,7 @@ import Stocks from "./Stocks";
 
 const meta = {
   title: "Atoms/Icons",
-  component: DevopsDaysLogo, // Default component for meta, individual stories will override
+  component: DevopsDaysLogo,
   parameters: {
     layout: "centered",
   },
