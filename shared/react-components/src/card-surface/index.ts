@@ -11,6 +11,9 @@ const CardSurface = createResponsiveStyled({
       },
     },
   },
+  defaultProps: {
+    variant: 'primary'
+  }
 });
 
 export default CardSurface;

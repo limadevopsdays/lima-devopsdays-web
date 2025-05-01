@@ -1,5 +1,6 @@
 import { createResponsiveStyled } from '@dyesthetics-lab/react-tv-variants-creators';
 
+
 const Button = createResponsiveStyled({
   tag: 'button',
   preset: {
@@ -20,6 +21,10 @@ const Button = createResponsiveStyled({
         tertiary: [
           "bg-button-background-tertiary text-button-foreground-tertiary border-button-border-tertiary",
           "hover:bg-button-background-tertiary-hover"
+        ],
+        text: [
+          "text-button-foreground-secondary",
+          "hover:bg-button-background-secondary-hover"
         ]
       },
       width: {
