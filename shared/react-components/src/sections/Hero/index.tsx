@@ -1,13 +1,15 @@
 import Paragraph from '../../paragraph';
 import Button from '../../button';
+import BackwardsCounter from './BackwardsCounter';
 
 export interface HeroSectionProps {
   title: string;
   date: string;
   placeText: string;
-  logo: Record<string, any>;
+  logo: Record<string, Record<string, unknown>>;
   ctaText: string;
   ctaUrl: string;
+  targetDate: string;
 }
 
 function formatDate(dateString: string) {
@@ -36,15 +38,16 @@ export default function HeroSection({
   placeText,
   logo,
   ctaText,
-  ctaUrl
-}: HeroSectionProps) {
+  ctaUrl,
+  targetDate
+}: Readonly<HeroSectionProps>) {
 
   const { title: logoTitle } = logo.fields;
 
   return (
     <div className="flex flex-col gap-4">
       <picture>
-        <img src={"/logo.svg"} alt={logoTitle} width={204} height={151} />
+        <img src={"/logo.svg"} alt={String(logoTitle)} width={204} height={151} />
       </picture>
 
       <div className='flex flex-col gap-6'>
@@ -55,8 +58,7 @@ export default function HeroSection({
           <Paragraph className='text-base leading-5 md:text-2xl md:leading-8' color="highlight" >{placeText}</Paragraph>
         </div>
 
-        {/* TODO: Add counter */}
-
+        <BackwardsCounter targetDate={targetDate}  />
         <Button width='maxContent' size='large' as="a" href={ctaUrl} variant="primary" >
           {ctaText}
         </Button>

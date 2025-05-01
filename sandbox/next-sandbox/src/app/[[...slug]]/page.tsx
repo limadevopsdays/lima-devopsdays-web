@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 
   return items.map((item) => {
     return {
-      slug: item.fields.slug?.split("/").filter(Boolean) ?? [],
+      slug: String(item.fields.slug).split("/").filter(Boolean) ?? [],
     }
   })
 }

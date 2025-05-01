@@ -390,6 +390,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      react-hooks:
+        specifier: workspace:*
+        version: link:../react-hooks
       tailwind-global-config:
         specifier: workspace:*
         version: link:../tailwind-global-config
@@ -451,9 +454,6 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.0.0
-      react-hooks:
-        specifier: workspace:*
-        version: link:../react-hooks
       storybook:
         specifier: ^8.6.12
         version: 8.6.12

@@ -19,8 +19,10 @@ export const Default: Story = {
     date: new Date().toISOString(),
     placeText: 'ESAN Centro de Convenciones',
     logo: {
-      title: 'Logo',
-      url: './logo.svg',
+      fields: {
+        title: 'Logo',
+        url: './logo.svg',
+      }
     },
     ctaText: 'Inscribirme',
     ctaUrl: 'https://example.com/tickets',
