@@ -3,35 +3,56 @@ import Button from '../../button';
 
 export interface HeroSectionProps {
   title: string;
-  imageSrc: string;
-  dateText: string;
-  locationText: string;
-  altText: string;
+  date: string;
+  placeText: string;
+  logo: Record<string, any>;
   ctaText: string;
   ctaUrl: string;
 }
 
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+
+  const weekdays = [
+    'Domingo', 'Lunes', 'Martes', 'Miércoles',
+    'Jueves', 'Viernes', 'Sábado'
+  ];
+
+  const months = [
+    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+    'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+  ];
+
+  const weekday = weekdays[date.getDay()];
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+
+  return `${weekday} ${day} de ${month}`;
+}
+
 export default function HeroSection({
   title = "Sponsors",
-  dateText,
-  locationText,
-  imageSrc,
-  altText,
+  date,
+  placeText,
+  logo,
   ctaText,
   ctaUrl
 }: HeroSectionProps) {
+
+  const { title: logoTitle } = logo.fields;
+
   return (
-    <section className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <picture>
-        <img src={imageSrc} alt={altText} width={204} height={151} />
+        <img src={"/logo.svg"} alt={logoTitle} width={204} height={151} />
       </picture>
 
       <div className='flex flex-col gap-6'>
         <h1 className='text-3xl md:text-8xl bg-linear-[90deg,#A150BF,#7B50BF,#2DABD1,#DAF7FB] text-transparent bg-clip-text font-bold'>{title}</h1>
 
         <div>
-          <Paragraph className='text-base leading-5 md:text-2xl md:leading-8'>{dateText}</Paragraph>
-          <Paragraph className='text-base leading-5 md:text-2xl md:leading-8' color="highlight" >{locationText}</Paragraph>
+          <Paragraph className='text-base leading-5 md:text-2xl md:leading-8'>{formatDate(date)}</Paragraph>
+          <Paragraph className='text-base leading-5 md:text-2xl md:leading-8' color="highlight" >{placeText}</Paragraph>
         </div>
 
         {/* TODO: Add counter */}
@@ -40,6 +61,6 @@ export default function HeroSection({
           {ctaText}
         </Button>
       </div>
-    </section>
+    </div>
   );
 }
