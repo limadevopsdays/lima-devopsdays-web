@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tailwind-global-config";
+
+@source "../../../../**/*.css";
+@source "../../../../**/*.{ts,tsx}";
 
 :root {
   --background: #ffffff;

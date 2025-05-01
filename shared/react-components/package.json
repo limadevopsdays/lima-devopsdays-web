@@ -55,6 +55,7 @@
     "./Panel": "./src/panel/index.tsx",
     "./Paragraph": "./src/paragraph/index.tsx",
     "./DevopsDaysLogoIcon": "./src/icons/DevopsDaysLogo.tsx",
-    "./Button": "./src/button/index.tsx"
+    "./Button": "./src/button/index.tsx",
+    "./HeroSection": "./src/sections/Hero/index.tsx"
   }
 }

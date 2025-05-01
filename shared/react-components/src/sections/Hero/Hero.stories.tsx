@@ -16,10 +16,12 @@ type Story = StoryObj<typeof HeroSection>;
 export const Default: Story = {
   args: {
     title: 'DevOps Days Lima',
-    dateText: 'Jueves 21 de Agosto',
-    locationText: 'ESAN Centro de Convenciones',
-    imageSrc: './logo.svg',
-    altText: 'Hero Image',
+    date: new Date().toISOString(),
+    placeText: 'ESAN Centro de Convenciones',
+    logo: {
+      title: 'Logo',
+      url: './logo.svg',
+    },
     ctaText: 'Inscribirme',
     ctaUrl: 'https://example.com/tickets',
   },
