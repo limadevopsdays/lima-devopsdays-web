@@ -5,10 +5,7 @@ export interface HeroSectionProps {
   title: string;
   date: string;
   placeText: string;
-  logo: {
-    url: string;
-    title: string;
-  }
+  logo: Record<string, any>;
   ctaText: string;
   ctaUrl: string;
 }
@@ -41,10 +38,13 @@ export default function HeroSection({
   ctaText,
   ctaUrl
 }: HeroSectionProps) {
+
+  const { title: logoTitle } = logo.fields;
+
   return (
     <div className="flex flex-col gap-4">
       <picture>
-        <img src={logo.url} alt={logo.title} width={204} height={151} />
+        <img src={"/logo.svg"} alt={logoTitle} width={204} height={151} />
       </picture>
 
       <div className='flex flex-col gap-6'>
