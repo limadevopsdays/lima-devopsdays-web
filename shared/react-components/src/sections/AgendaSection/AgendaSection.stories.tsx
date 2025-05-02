@@ -17,56 +17,56 @@ export const Default: Story = {
     agendaItemsBy: {
       'Sala 1': [
         {
-          time: '8:30 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Registro & Bienvenida',
           description: 'Acompañado de Welcome Coffee',
         },
         {
-          time: '9:00 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Inicio de DevOps Days Lima',
           description: 'Discurso inaugural y apertura',
         },
         {
-          time: '10:00 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Charla Técnica',
           description: 'Detalles sobre DevOps y herramientas',
         },
         {
-          time: '11:00 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Break',
           description: 'Momento para networking y café',
         },
       ],
       'Sala 2': [
         {
-          time: '10:00 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Charla Técnica',
           description: 'Detalles sobre DevOps y herramientas',
         },
         {
-          time: '11:30 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Workshop',
           description: 'Taller práctico sobre CI/CD',
         },
         {
-          time: '1:00 pm',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Almuerzo',
           description: 'Tiempo para almorzar y socializar',
         },
       ],
       'Sala 3': [
         {
-          time: '11:00 am',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Panel de Discusión',
           description: 'Expertos discuten sobre el futuro de DevOps',
         },
         {
-          time: '12:30 pm',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Charla Inspiracional',
           description: 'Historias de éxito en la industria',
         },
         {
-          time: '2:00 pm',
+          date: new Date('2023-10-01T09:00:00Z').toISOString(),
           title: 'Cierre del Evento',
           description: 'Palabras finales y agradecimientos',
         },

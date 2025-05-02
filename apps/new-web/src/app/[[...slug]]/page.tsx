@@ -11,7 +11,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 export async function generateStaticParams() {
   const paths = [
-    { slug: [] },
+    { slug: [] }
   ];
 
   if (isDev) return paths;
@@ -111,7 +111,7 @@ export default async function Page({ params }: PageProps) {
   return sections?.map((section: any) => {
     const sectionType = section.sys.contentType.sys.id;
     const container = componentRegistry.get(sectionType);
-    const Component: ((props: unknown)=>ReactElement) | undefined = container
+    const Component: ((props: unknown) => ReactElement) | undefined = container
       ?.get("Component");
 
     if (!Component) return null;

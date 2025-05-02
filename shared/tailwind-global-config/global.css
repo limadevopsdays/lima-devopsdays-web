@@ -40,3 +40,7 @@
 
   --color-cyan-base: #80DAE6;
 }
+
+.container-custom {
+  @apply max-w-[1200px] mx-auto;
+}
