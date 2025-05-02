@@ -18,16 +18,18 @@ export default function Header({
 }: HeaderProps) {
 
   return (
-    <div className="flex items-center justify-between py-4">
-      <Subtitle href="/" as="a" weight="light" size="sm">{logoText}</Subtitle>
+    <header className="bg-gray-4">
+      <div className="flex items-center justify-between py-4 px-6 max-w-[1200px] mx-auto">
+        <Subtitle href="/" as="a" weight="light" size="sm">{logoText}</Subtitle>
 
-      <nav className="hidden sm:flex gap-4">
-        {navItems.map(({ href, text, variant }, index) => (
-          <Button key={index} as="a" href={href} variant={variant} size="medium">
-            {text}
-          </Button>
-        ))}
-      </nav>
-    </div>
+        <nav className="hidden sm:flex gap-4">
+          {navItems.map(({ href, text, variant }, index) => (
+            <Button key={index} as="a" href={href} variant={variant} size="medium">
+              {text}
+            </Button>
+          ))}
+        </nav>
+      </div>
+    </header>
   )
 }
