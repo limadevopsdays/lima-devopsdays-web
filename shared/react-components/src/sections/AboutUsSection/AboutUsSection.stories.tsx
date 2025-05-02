@@ -23,31 +23,41 @@ export const Default: Story = {
   args: {
     title: 'About Us',
     statistics: [
-      { value: '30K+', description: 'Global Attendees' },
-      { value: '60+', description: 'Organizing Countries' },
-      { value: '15+', description: 'Years Building Community' },
+      { fields: { value: '30K+', title: 'Global Attendees' } },
+      { fields: { value: '60+', title: 'Organizing Countries' } },
+      { fields: { value: '15+', title: 'Years Building Community' } },
     ],
-    valuesTitle: 'Our Values',
-    values: [
-      {
-        id: 'collaboration',
-        icon: <HandShake className="bg-cyan-base rounded-md p-1" width={32} height={32} />,
-        title: 'Collaboration',
-        description: 'We foster strong partnerships and teamwork.',
+    ourValues: {
+      fields: {
+        title: 'Our Values',
+        coreValues: [
+          {
+            sys: { id: 'collaboration' },
+            fields: {
+              iconName: 'HandShake',
+              title: 'Collaboration',
+              description: 'We foster strong partnerships and teamwork.',
+            },
+          },
+          {
+            sys: { id: 'innovation' },
+            fields: {
+              iconName: 'LigthBulb',
+              title: 'Innovation',
+              description: 'Bright ideas drive our progress.',
+            },
+          },
+          {
+            sys: { id: 'growth' },
+            fields: {
+              iconName: 'Stocks',
+              title: 'Growth',
+              description: 'We help you reach new heights.',
+            },
+          },
+        ],
       },
-      {
-        id: 'innovation',
-        icon: <LigthBulb className="bg-cyan-base rounded-md p-1" width={32} height={32} />,
-        title: 'Innovation',
-        description: 'Bright ideas drive our progress.',
-      },
-      {
-        id: 'growth',
-        icon: <Stocks className="bg-cyan-base rounded-md p-1" width={32} height={32} />,
-        title: 'Growth',
-        description: 'We help you reach new heights.',
-      },
-    ],
+    },
     description: (
       <>
         <p className="mb-4 text-lg">
@@ -58,13 +68,20 @@ export const Default: Story = {
         </p>
       </>
     ),
-    logoImage: <img src="/logo.svg" alt="logo" />,
+    logo: {
+      fields: {
+        file: {
+          url: '/logo.svg',
+        },
+        title: 'logo',
+      },
+    },
   },
 };
 
 export const WithoutLogo: Story = {
   args: {
     ...Default.args,
-    logoImage: undefined,
+    logo: undefined,
   },
 };
