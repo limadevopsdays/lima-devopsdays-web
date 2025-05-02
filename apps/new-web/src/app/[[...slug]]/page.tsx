@@ -2,6 +2,8 @@ import { container } from "@/globals/container";
 import { ContainerIdentifiers } from "@/globals/identifiers";
 import { serverComponents } from "@/globals/ServerComponents";
 import { IContentData } from "@/services/IContentData";
+import { mkdir, writeFile } from "fs/promises";
+import path, { basename, join } from "node:path";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -28,6 +30,28 @@ interface PageProps {
   params: Promise<{ slug?: string[] }>
 }
 
+
+//TODO: move this to a utils file and use streams
+const fetchToPublic = async (url: string) => {
+  if (!url) return null;
+
+  const absoluteUrl = url.startsWith("http") ? url : `https:${url}`;
+  const response = await fetch(absoluteUrl);
+  if (!response.ok) throw new Error(`Failed to fetch asset: ${absoluteUrl}`);
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+
+
+  const urlObj = new URL(absoluteUrl);
+  const filename = basename(urlObj.pathname);
+  const publicDir = join(process.cwd(), "public/remote");
+  await mkdir(publicDir, { recursive: true });
+  const filePath = path.join(publicDir, filename);
+  await writeFile(filePath, buffer);
+
+  return `/remote/${filename}`;
+}
+
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug ?? [];
@@ -39,6 +63,21 @@ export default async function Page({ params }: PageProps) {
     slug: slug.join("/") || "/",
     include: 2,
   });
+
+  for(const section of sections) {
+    const { fields } = section
+
+    const fieldsEntries = Object.entries(fields);
+
+    for(const [key, value] of fieldsEntries) {
+      const isAsset = value?.sys?.type === "Asset";
+      if(!isAsset) continue;
+
+      const asset = await fetchToPublic(value?.fields?.file?.url);
+      fields[key].fields.file.url = asset;
+
+    }
+  }
 
 
   return sections?.map((section: any) => {
