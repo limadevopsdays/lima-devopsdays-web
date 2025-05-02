@@ -21,14 +21,14 @@ export interface AgendaProps {
 function convertISOToSimpleTime(isoString: string): string {
   const date = new Date(isoString);
 
-  let hours = date.getHours();
-  const ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours === 0 ? 12 : hours;
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Lima',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
 
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-
-  return `${hours}:${minutes} ${ampm}`;
+  return formatter.format(date);
 }
 
 //TODO: refactor to avoid client component
