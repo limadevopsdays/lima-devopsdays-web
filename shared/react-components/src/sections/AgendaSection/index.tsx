@@ -18,6 +18,7 @@ export interface AgendaProps {
   agendaItemsBy: Record<string, AgendaItem[]>;
 }
 
+//TODO: refactor to avoid client component
 export default function AgendaSection({ tabLabels, agendaItemsBy }: AgendaProps) {
   const [currentTabActive, setCurrentTabActive] = useState<string>(`tab${tabLabels[0]}`);
 
