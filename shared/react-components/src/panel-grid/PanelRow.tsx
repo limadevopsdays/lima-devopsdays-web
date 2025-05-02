@@ -4,7 +4,7 @@ import { createStyledComponent } from '@dyesthetics-lab/react-component-creators
 
 const PanelRow = createStyledComponent({
   Component: "div",
-  classNameResolver: ({ className }) => `flex gap-2 ${className}`,
+  classNameResolver: ({ className }) => `flex justify-center flex-wrap gap-2 ${className ?? ''}`,
   divideProps: (props) => {
     const { ...rest } = props;
 

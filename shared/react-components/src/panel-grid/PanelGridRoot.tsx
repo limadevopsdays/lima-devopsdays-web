@@ -5,7 +5,7 @@ import { createStyledComponent } from '@dyesthetics-lab/react-component-creators
 
 const PanelGridRoot = createStyledComponent({
   Component: "div",
-  classNameResolver: ({ className }) => `flex flex-col items-center justify-center gap-2 ${className}`,
+  classNameResolver: ({ className }) => `flex flex-col items-center justify-center gap-2 ${className ?? ''}`,
   divideProps: (props) => {
     const { ...rest } = props;
 
