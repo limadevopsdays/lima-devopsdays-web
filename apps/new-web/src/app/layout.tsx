@@ -3,7 +3,7 @@ import "./globals.css";
 
 import { Space_Grotesk } from "next/font/google";
 import Header, { NavItem } from "react-components/sections/Header";
-import { container } from "@/globals/container";
+import container from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
 import { ContainerIdentifiers } from "@/globals/identifiers";
 import Footer from "react-components/sections/Footer";

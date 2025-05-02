@@ -10,8 +10,10 @@ import { ContainerIdentifiers } from "@/globals/identifiers";
 export class ContentDataContenful implements IContentData {
   private pagesCache: any[] | null = null;
 
-  constructor(@inject(ContainerIdentifiers.IContentfulClient) private readonly client: ContentfulClientApi<undefined>) {
-  }
+  constructor(
+    @inject(ContainerIdentifiers.IContentfulClient)
+    private readonly client: ContentfulClientApi<undefined>
+  ) {}
 
   async getSectionsBySlug({
     slug,
