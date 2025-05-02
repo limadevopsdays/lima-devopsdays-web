@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import TabLabel from '../../tabs/TabLabel';
 import TabContent from '../../tabs/TabContent';
