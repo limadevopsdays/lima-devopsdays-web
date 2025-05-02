@@ -13,7 +13,7 @@ export class ContentDataContenful implements IContentData {
   constructor(
     @inject(ContainerIdentifiers.IContentfulClient)
     private readonly client: ContentfulClientApi<undefined>
-  ) {}
+  ) { }
 
   async getSectionsBySlug({
     slug,
