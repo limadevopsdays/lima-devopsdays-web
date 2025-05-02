@@ -18,7 +18,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-global-config": "workspace:*",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "react-hooks": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
@@ -34,7 +35,6 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "dayjs": "^1.11.13",
-    "react-hooks": "workspace:*",
     "eslint": "^9.22.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
@@ -58,6 +58,14 @@
     "./Paragraph": "./src/paragraph/index.tsx",
     "./DevopsDaysLogoIcon": "./src/icons/DevopsDaysLogo.tsx",
     "./Button": "./src/button/index.tsx",
-    "./HeroSection": "./src/sections/Hero/index.tsx"
+    "./sections/Hero": "./src/sections/Hero/index.tsx",
+    "./sections/AboutUsSection": "./src/sections/AboutUsSection/index.tsx",
+    "./sections/AgendaSection": "./src/sections/AgendaSection/index.tsx",
+    "./sections/CallForSpeakersSection": "./src/sections/CallForSpeakersSection/index.tsx",
+    "./sections/CurrentSponsorsSection": "./src/sections/CurrentSponsorsSection/index.tsx",
+    "./sections/Footer": "./src/sections/Footer/index.tsx",
+    "./sections/Header": "./src/sections/Header/index.tsx",
+    "./sections/SpeakersSection": "./src/sections/SpeakersSection/index.tsx",
+    "./sections/SponsorPricingSection": "./src/sections/SponsorPricingSection/index.tsx"
   }
 }

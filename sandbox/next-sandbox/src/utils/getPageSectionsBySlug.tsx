@@ -1,15 +1,13 @@
 
 import React from 'react';
 import componentMap from '../components/ServerComponents';
+import { ContentfulClientApi } from 'contentful';
 
-type ContentfulClient = {
-  getEntries: (query: any) => Promise<any>;
-};
 
 export interface GetPageSectionsBySlugProps {
-  client: ContentfulClient;
+  client: ContentfulClientApi<undefined>;
   slug: string;
-  include?: number;
+  include?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 }
 
 export async function getPageSectionsBySlug({
@@ -26,9 +24,11 @@ export async function getPageSectionsBySlug({
   const [page] = pageRes.items;
   if (!page) return null;
 
-  const sections = page.fields.sections ?? [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sections = (page.fields.sections ?? []) as unknown as any[];
 
-  return sections.map((section: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return sections?.map((section: any) => {
     const sectionType = section.sys.contentType.sys.id;
     const Component = componentMap[sectionType];
     if (!Component) return null;
