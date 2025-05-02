@@ -14,6 +14,12 @@ importers:
 
   apps/new-web:
     dependencies:
+      contentful:
+        specifier: ^11.5.18
+        version: 11.5.18
+      inversify:
+        specifier: ^7.5.1
+        version: 7.5.1(reflect-metadata@0.2.2)
       next:
         specifier: 15.3.1
         version: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -26,6 +32,15 @@ importers:
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      tailwind-global-config:
+        specifier: workspace:*
+        version: link:../../shared/tailwind-global-config
+      tailwindcss:
+        specifier: ^4.1.4
+        version: 4.1.5
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -48,12 +63,6 @@ importers:
       eslint-config-next:
         specifier: 15.3.1
         version: 15.3.1(eslint@9.25.1(jiti@2.4.2))(typescript@5.7.3)
-      tailwind-global-config:
-        specifier: workspace:*
-        version: link:../../shared/tailwind-global-config
-      tailwindcss:
-        specifier: ^4
-        version: 4.1.5
       typescript:
         specifier: ^5
         version: 5.7.3
