@@ -3,7 +3,6 @@ import AboutUsSection from './index';
 import HandShake from '../../icons/HandShake';
 import LigthBulb from '../../icons/LigthBulb';
 import Stocks from '../../icons/Stocks';
-import DevopsDaysLogo from "../../icons/DevopsDaysLogo";
 
 const meta: Meta<typeof AboutUsSection> = {
   decorators: [Story => <div className="bg-gray-5 p-4 rounded-md"><Story /></div>],
@@ -19,6 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// TODO: Check props 
 export const Default: Story = {
   args: {
     title: 'About Us',

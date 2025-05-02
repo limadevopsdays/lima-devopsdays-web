@@ -96,7 +96,7 @@ export default async function Page({ params }: PageProps) {
 
   const sections = await contentDataService.getSectionsBySlug({
     slug: slug.join("/") || "/",
-    include: 2,
+    include: 4,
   });
 
   for (const section of sections) {
