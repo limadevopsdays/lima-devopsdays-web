@@ -17,7 +17,8 @@
     "react-dom": "^19.1.0",
     "reflect-metadata": "^0.2.2",
     "tailwind-global-config": "workspace:*",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "react-utils": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5",
