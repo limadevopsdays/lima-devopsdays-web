@@ -17,7 +17,11 @@ export async function generateStaticParams() {
 
   const pages = await contentDataService.getPages();
 
-  return pages;
+  return pages.map((item) => {
+    return {
+      slug: String(item.fields.slug).split("/").filter(Boolean) ?? [],
+    }
+  })
 }
 
 interface PageProps {
