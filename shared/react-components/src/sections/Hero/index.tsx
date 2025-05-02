@@ -40,13 +40,13 @@ export default function HeroSection({
   ctaUrl,
 }: Readonly<HeroSectionProps>) {
 
-  const { title: logoTitle } = logo.fields;
+  const { title: logoTitle, file } = logo.fields;
 
   return (
     <section className='bg-gray-4'>
       <div className="flex flex-col gap-4 max-w-[1200px] mx-auto px-6 pb-[120px] pt-[80px]">
         <picture>
-          <img src={"/logo.svg"} alt={String(logoTitle)} width={204} height={151} />
+          <img src={String(file?.url)} alt={String(logoTitle)} width={204} height={151} />
         </picture>
 
         <div className='flex flex-col gap-6'>
