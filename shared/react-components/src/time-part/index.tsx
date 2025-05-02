@@ -18,12 +18,12 @@ export default function TimePart<T extends ElementType = 'div'>({
   ...props
 }: MetaReactElementProps<T, TimePartProps>) {
   const Component = as ?? 'div';
-  const classNames = `flex flex-col items-center ${className}`.trim();
+  const classNames = `flex flex-col items-center ${className ?? ''}`.trim();
 
   return (
     <Component className={classNames} {...props}>
-      <span className="text-4xl font-bold">{formatTwoDigits(value)}</span>
-      <span className="text-xs">{label}</span>
+      <span className="text-xl md:text-2xl">{formatTwoDigits(value)}</span>
+      <span className="text-xs md:text-md text-paragraph-tertiary">{label}</span>
     </Component>
   );
 }

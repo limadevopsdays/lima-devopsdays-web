@@ -12,9 +12,13 @@ export interface CallForSpeakersSectionProps {
   topics: string[][];
 }
 
-export default function CallForSpeakersSection({ title, description, topics }: CallForSpeakersSectionProps) {
+export default function CallForSpeakersSection({
+  title,
+  description,
+  topics
+}: Readonly<CallForSpeakersSectionProps>) {
   return (
-    <section className='flex flex-col items-center gap-9 mt-16 mb-20'>
+    <section className='flex flex-col items-center bg-gray-5 gap-9 px-5 py-20'>
       <div className='flex flex-col items-center gap-4'>
         <Subtitle size='lg'>{title}</Subtitle>
         <Paragraph className='text-center max-w-[620px]'>{description}</Paragraph>

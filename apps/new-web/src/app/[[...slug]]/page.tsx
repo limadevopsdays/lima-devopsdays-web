@@ -1,4 +1,6 @@
-import { container, ContainerIdentifiers } from "@/globals/container";
+import { container } from "@/globals/container";
+import { ContainerIdentifiers } from "@/globals/identifiers";
+import { serverComponents } from "@/globals/ServerComponents";
 import { IContentData } from "@/services/IContentData";
 
 const isDev = process.env.NODE_ENV === "development";
@@ -26,14 +28,20 @@ export default async function Page({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug ?? [];
 
-
   const contentDataService = container
     .get<IContentData>(ContainerIdentifiers.IContentData)
 
   const sections = await contentDataService.getSectionsBySlug({
-    slug: slug.join("/"),
+    slug: slug.join("/") || "/",
     include: 2,
   });
 
-  return sections
+
+  return sections?.map((section: any) => {
+    const sectionType = section.sys.contentType.sys.id;
+    const Component = serverComponents[sectionType];
+    if (!Component) return null;
+
+    return <Component key={section.sys.id} {...section.fields} />;
+  });
 }

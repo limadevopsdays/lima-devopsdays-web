@@ -3,8 +3,9 @@ import "./globals.css";
 
 import { Space_Grotesk } from "next/font/google";
 import Header, { NavItem } from "react-components/sections/Header";
-import { container, ContainerIdentifiers } from "@/globals/container";
+import { container } from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
+import { ContainerIdentifiers } from "@/globals/identifiers";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -24,11 +25,13 @@ export default async function RootLayout({
 }>) {
   const pages = await container.get<IContentData>(ContainerIdentifiers.IContentData).getPages();
 
-  const navItems: NavItem[] = pages.map((page) => ({
-    text: String(page.fields.title),
-    href: `/${page.fields.slug}`,
-    variant: "text",
-  }));
+  const navItems: NavItem[] = pages
+    .filter(({fields})=>fields.includedInNavbar)
+    .map((page) => ({
+      text: String(page.fields.title),
+      href: `/${page.fields.slug}`,
+      variant: "text",
+    }));
 
   return (
     <html lang="en">

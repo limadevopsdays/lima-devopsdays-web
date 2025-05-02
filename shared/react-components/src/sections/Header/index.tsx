@@ -1,6 +1,8 @@
 import Button from "../../button";
 import Subtitle from "../../subtitle";
 
+import "./style.css";
+
 export interface NavItem {
   text: string;
   href: string;
@@ -15,10 +17,10 @@ export interface HeaderProps {
 export default function Header({
   logoText,
   navItems
-}: HeaderProps) {
+}: Readonly<HeaderProps>) {
 
   return (
-    <header className="bg-gray-4">
+    <header className="devops-days-navbar bg-gray-4 sticky top-0 w-full">
       <div className="flex items-center justify-between py-4 px-6 max-w-[1200px] mx-auto">
         <Subtitle href="/" as="a" weight="light" size="sm">{logoText}</Subtitle>
 

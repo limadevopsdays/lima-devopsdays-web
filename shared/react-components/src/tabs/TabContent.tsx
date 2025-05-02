@@ -14,7 +14,7 @@ export default function TabContent({
   children,
   defaultChecked = false,
   className = ''
-}: TabContentProps) {
+}: Readonly<TabContentProps>) {
   return (
     <div>
       <input

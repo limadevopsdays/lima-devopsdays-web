@@ -34,7 +34,7 @@ export default function TimeCounter<T extends ElementType = 'div'>(
 ) {
   return (
     <CardSurface
-      className={`flex ${direction === 'vertical' ? 'flex-col' : ''} gap-3 items-center justify-center w-fit p-4 ${className ?? ''}`.trim()}
+      className={`flex ${direction === 'vertical' ? 'flex-col' : ''} gap-4 items-center justify-center w-fit p-4 md:px-9 ${className ?? ''}`.trim()}
       {...props}
     >
 

@@ -10,7 +10,7 @@ import SpeakersSection from "react-components/sections/SpeakersSection";
 import SponsorPricingSection from "react-components/sections/SponsorPricingSection";
 
 // TODO: add more sections
-const ServerComponents: Record<string, <T extends ElementType>(props: ComponentProps<T>)=>ReactElement> = {
+export const serverComponents: Record<string, <T extends ElementType>(props: ComponentProps<T>)=>ReactElement> = {
   hero: HeroSection,
   aboutUs: AboutUsSection,
   agenda: AgendaSection,
@@ -21,5 +21,3 @@ const ServerComponents: Record<string, <T extends ElementType>(props: ComponentP
   speakers: SpeakersSection,
   sponsorPricing: SponsorPricingSection,
 }
-
-export default ServerComponents;

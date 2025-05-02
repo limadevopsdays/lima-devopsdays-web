@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const CountdownTimer = ({ 
-  targetDate, 
-  className = "", 
+const CountdownTimer = ({
+  targetDate,
+  className = "",
   showLabels = true,
   showTitle = false,
   title = "Countdown Timer",
@@ -19,7 +19,7 @@ const CountdownTimer = ({
     // Function to calculate time remaining
     const calculateTimeLeft = () => {
       const difference = new Date(targetDate) - new Date();
-      
+
       // Return all zeros if the date has passed
       if (difference <= 0) {
         return {
@@ -29,7 +29,7 @@ const CountdownTimer = ({
           seconds: 0
         };
       }
-      
+
       return {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -40,7 +40,7 @@ const CountdownTimer = ({
 
     // Initial calculation
     setTimeLeft(calculateTimeLeft());
-    
+
     // Set up interval to update countdown
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
@@ -68,7 +68,7 @@ const CountdownTimer = ({
   return (
     <div className={`inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 ${className}`}>
       {showTitle && <h3 className="text-lg font-medium mr-2">{title}</h3>}
-      
+
       <div className="flex items-center gap-2 sm:gap-3">
         <div className="flex flex-col items-center">
           <div className="text-xl sm:text-2xl font-semibold">
@@ -76,27 +76,27 @@ const CountdownTimer = ({
           </div>
           {showLabels && <div className="text-xs opacity-70">Días</div>}
         </div>
-        
+
         <div className="text-xl">:</div>
-        
+
         <div className="flex flex-col items-center">
           <div className="text-xl sm:text-2xl font-semibold">
             {String(timeLeft.hours).padStart(2, '0')}
           </div>
           {showLabels && <div className="text-xs opacity-70">Horas</div>}
         </div>
-        
+
         <div className="text-xl">:</div>
-        
+
         <div className="flex flex-col items-center">
           <div className="text-xl sm:text-2xl font-semibold">
             {String(timeLeft.minutes).padStart(2, '0')}
           </div>
           {showLabels && <div className="text-xs opacity-70">Minutos</div>}
         </div>
-        
+
         <div className="text-xl">:</div>
-        
+
         <div className="flex flex-col items-center">
           <div className="text-xl sm:text-2xl font-semibold">
             {String(timeLeft.seconds).padStart(2, '0')}
