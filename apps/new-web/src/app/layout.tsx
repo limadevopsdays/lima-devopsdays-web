@@ -28,7 +28,7 @@ export default async function RootLayout({
 
   const navItems: NavItem[] = pages
     .filter(({ fields }) => fields.includedInNavbar)
-    .toSorted((a, b) => a.fields.navbarOrder - b.fields.navbarOrder)
+    .toSorted((currentPage, nextPage) => currentPage.fields.navbarOrder - nextPage.fields.navbarOrder)
     .map((page) => ({
       text: String(page.fields.title),
       href: `/${page.fields.slug}`,
