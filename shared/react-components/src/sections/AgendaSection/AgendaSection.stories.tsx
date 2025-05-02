@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AgendaSection from './AgendaSection';
+import AgendaSection from '.';
 
 const meta: Meta<typeof AgendaSection> = {
   decorators: [Story => <div className="bg-gray-4 p-4 rounded-md"><Story /></div>],
