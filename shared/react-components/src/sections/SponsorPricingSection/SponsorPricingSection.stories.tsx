@@ -22,7 +22,8 @@ export const Default: Story = {
       Todos los sponsor contarán con logos en <Paragraph size="xl" as="span" color="highlight">web, banners,materiales promocionales y correos.</Paragraph><br />
       Asi como presencia en pantallas <Paragraph size="xl" as="span" color="highlight"> dentro del evento y durante los descansos</Paragraph>
     </>,
-    ctaButtonText: 'Quiero ser sponsor',
+    ctaHref: '#',
+    ctaText: 'Quiero ser sponsor',
     pricingTiers: [
       {
         name: 'Bronce',
