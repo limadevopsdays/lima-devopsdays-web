@@ -23,7 +23,4 @@ container
   .to(ContentDataContenful)
   .inSingletonScope();
 
-
-export {
-  container
-}
+export default container

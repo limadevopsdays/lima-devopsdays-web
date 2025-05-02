@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "pnpm codegen:components",
+    "prevdev": "pnpm codegen:components",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen:components": "node --experimental-specifier-resolution=node ./scripts/generateComponentRegistry.js"
   },
   "dependencies": {
     "contentful": "^11.5.18",

@@ -1,9 +1,11 @@
-import { container } from "@/globals/container";
+import { componentRegistry } from "@/globals/componentRegistry.codegen";
+import container from "@/globals/container";
 import { ContainerIdentifiers } from "@/globals/identifiers";
-import { serverComponents } from "@/globals/ServerComponents";
+
 import { IContentData } from "@/services/IContentData";
 import { mkdir, writeFile } from "fs/promises";
-import path, { basename, join } from "node:path";
+import { basename, join } from "node:path";
+import { ReactElement } from "react";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -30,6 +32,7 @@ interface PageProps {
   params: Promise<{ slug?: string[] }>
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function processAssetsRecursively(item: any): Promise<void> {
   if (!item || typeof item !== 'object') {
     return;
@@ -58,6 +61,7 @@ async function processAssetsRecursively(item: any): Promise<void> {
   }
 
   const entries = Object.entries(item);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   for (const [_, value] of entries) {
     if (value && typeof value === 'object') {
       await processAssetsRecursively(value);
@@ -81,7 +85,7 @@ const fetchToPublic = async (url: string) => {
   const filename = basename(urlObj.pathname);
   const publicDir = join(process.cwd(), "public/remote");
   await mkdir(publicDir, { recursive: true });
-  const filePath = path.join(publicDir, filename);
+  const filePath = join(publicDir, filename);
   await writeFile(filePath, buffer);
 
   return `/remote/${filename}`;
@@ -103,10 +107,15 @@ export default async function Page({ params }: PageProps) {
     await processAssetsRecursively(section);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return sections?.map((section: any) => {
     const sectionType = section.sys.contentType.sys.id;
-    const Component = serverComponents[sectionType];
+    const container = componentRegistry.get(sectionType);
+    const Component: ((props: unknown)=>ReactElement) | undefined = container
+      ?.get("Component");
+
     if (!Component) return null;
+
 
     return <Component key={section.sys.id} {...section.fields} />;
   });
