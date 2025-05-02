@@ -30,6 +30,41 @@ interface PageProps {
   params: Promise<{ slug?: string[] }>
 }
 
+async function processAssetsRecursively(item: any): Promise<void> {
+  if (!item || typeof item !== 'object') {
+    return;
+  }
+
+  if (Array.isArray(item)) {
+    for (const element of item) {
+      await processAssetsRecursively(element);
+    }
+    return;
+  }
+
+  if (item?.sys?.type === "Asset" && item?.fields?.file?.url) {
+    const originalUrl = item.fields.file.url;
+
+    if (originalUrl.startsWith('/remote/')) {
+      return;
+    }
+
+    const processedUrl = await fetchToPublic(item.fields.file.url);
+
+    if (processedUrl) {
+      item.fields.file.url = processedUrl;
+    }
+    return;
+  }
+
+  const entries = Object.entries(item);
+  for (const [_, value] of entries) {
+    if (value && typeof value === 'object') {
+      await processAssetsRecursively(value);
+    }
+  }
+}
+
 
 //TODO: move this to a utils file and use streams
 const fetchToPublic = async (url: string) => {
@@ -64,21 +99,9 @@ export default async function Page({ params }: PageProps) {
     include: 2,
   });
 
-  for(const section of sections) {
-    const { fields } = section
-
-    const fieldsEntries = Object.entries(fields);
-
-    for(const [key, value] of fieldsEntries) {
-      const isAsset = value?.sys?.type === "Asset";
-      if(!isAsset) continue;
-
-      const asset = await fetchToPublic(value?.fields?.file?.url);
-      fields[key].fields.file.url = asset;
-
-    }
+  for (const section of sections) {
+    await processAssetsRecursively(section);
   }
-
 
   return sections?.map((section: any) => {
     const sectionType = section.sys.contentType.sys.id;

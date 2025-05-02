@@ -4,48 +4,66 @@ import Paragraph from '../../paragraph';
 import CardSurface from '../../card-surface';
 
 export interface Sponsor {
-  id: string;
-  imageSrc: string;
-  altText: string;
+  sys: {
+    id: string;
+  };
+  fields: {
+    title: string;
+    file: {
+      url: string;
+    }
+  }
 }
 
-export interface Tier {
-  id: string;
-  title: string;
-  sponsors: Sponsor[];
+export interface SponsorTier {
+  sys: {
+    id: string;
+  };
+  fields: {
+    title: string;
+    sponsors: Sponsor[];
+  }
 }
 
 export interface CurrentSponsorsSectionProps {
   title: string;
   description: ReactNode;
-  tiers: Tier[];
+  sponsorTiers: SponsorTier[];
 }
 
 export default function CurrentSponsorsSection({
-  title = "Sponsors",
+  title,
   description,
-  tiers
+  sponsorTiers,
 }: CurrentSponsorsSectionProps) {
   return (
-    <section className="flex flex-col gap-8">
-      <Subtitle weight="light" size="lg">{title}</Subtitle>
+    <section className="bg-gray-5">
+      <div className='flex flex-col gap-8 max-w-[1200px] mx-auto px-6 py-[64px]'>
+        <Subtitle weight="light" size="lg">{title}</Subtitle>
 
-      <Paragraph weight='light' size="lg">{description}</Paragraph>
+        <Paragraph weight='light' size="lg">{description}</Paragraph>
 
-      <div className="flex flex-col gap-6">
-        {tiers.map(({ title, sponsors, id }) => (
-          <CardSurface variant='primary' className='flex flex-col gap-6 px-8 py-4 items-center' key={id}>
-            <Subtitle weight='light' size="lg">{title}</Subtitle>
+        <div className="flex flex-col gap-6">
+          {sponsorTiers.map(({ fields, sys }, index) => {
+            const { title, sponsors } = fields;
+            return (
+              <CardSurface variant='primary' className='flex flex-col gap-6 px-8 py-4 items-center' key={`${index}-${sys.id}`}>
+                <Subtitle weight='light' size="lg">{title}</Subtitle>
 
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5'>
-              {sponsors.map(({ id, altText, imageSrc }) => (
-                <picture key={id}>
-                  <img src={imageSrc} alt={altText} width={183} height={100} />
-                </picture>
-              ))}
-            </div>
-          </CardSurface>
-        ))}
+                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5'>
+                  {sponsors.map(({ fields, sys }, index) => {
+                    const { title, file } = fields;
+                    return (
+                      <picture key={`${index}-${sys.id}`}>
+                        <img src={file.url} alt={title} width={183} height={100} />
+                      </picture>
+                    )
+                  })}
+                </div>
+              </CardSurface>
+            )
+          })}
+        </div>
       </div>
     </section>
   );
