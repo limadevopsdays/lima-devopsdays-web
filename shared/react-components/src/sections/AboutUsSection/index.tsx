@@ -4,61 +4,118 @@ import CardSurface from '../../card-surface';
 import SimpleCard from '../../simple-card';
 import Subtitle from '../../subtitle';
 
+import HandShake from '../../icons/HandShake';
+import LigthBulb from '../../icons/LigthBulb';
+import Stocks from '../../icons/Stocks';
+
 export interface StatisticProps {
-  value: string;
-  description: string;
+  fields: {
+    title: string;
+    value: string;
+  }
+}
+
+export interface CoreValue {
+  fields: {
+    description: string;
+    iconName: string;
+    title: string;
+  },
+  sys: {
+    id: string;
+  }
 }
 
 export interface AboutUsSectionProps {
   title: string;
   statistics: StatisticProps[];
-  valuesTitle: string;
-  values: InfoStackGroupItem[];
+  ourValues: {
+    fields: {
+      title: string;
+      coreValues: CoreValue[];
+    }
+  },
+  logo: {
+    fields: {
+      file: {
+        url: string;
+      };
+      title: string;
+    }
+  };
   description: ReactNode;
-  logoImage?: ReactNode;
+}
+
+const iconsByName: Record<string, typeof HandShake> = {
+  HandShake: HandShake,
+  LigthBulb: LigthBulb,
+  Stocks: Stocks
 }
 
 export default function AboutUsSection({
   title,
   statistics,
-  valuesTitle,
-  values,
   description,
-  logoImage,
+  logo,
+  ourValues
 }: Readonly<AboutUsSectionProps>) {
+
+  const items: InfoStackGroupItem[] = ourValues.fields.coreValues.map(({ fields, sys }, index) => {
+    const { iconName, title, description } = fields
+
+    const Icon = iconsByName[iconName]
+
+    return {
+      id: `${index}-${sys.id}`,
+      icon: Icon ? <Icon className="bg-cyan-base rounded-md p-1" width={32} height={32} /> : null,
+      title,
+      description
+    }
+  })
+
   return (
-    <section className="w-full py-12 text-white">
-      <Subtitle className='mb-6' weight='light' size='lg' >{title}</Subtitle>
+    <section className="bg-gray-5">
+      <div className="w-full py-12 text-white max-w-[1200px] mx-auto px-4">
+        <Subtitle className='mb-6' weight='light' size='lg' >{title}</Subtitle>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-        {statistics.map(({ description, value }, index) => (
-          <SimpleCard
-            key={index}
-            title={value}
-            description={description}
-          />
-        ))}
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+          {statistics.map(({ fields }, index) => {
+            const { title, value } = fields
 
-      <InfoStackGroup
-        title={valuesTitle}
-        items={values}
-        cardSurfaceProps={{
-          variant: 'primary'
-        }}
-        className="mb-6"
-      />
+            return (
+              <SimpleCard
+                key={index}
+                title={value}
+                description={title}
+              />
+            )
+          })}
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {logoImage && (
+        <InfoStackGroup
+          title={ourValues.fields.title}
+          items={items}
+          cardSurfaceProps={{
+            variant: 'primary'
+          }}
+          className="mb-6"
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <CardSurface variant='primary' className="flex items-center justify-center p-2">
-            {logoImage}
+            <img
+              src={logo.fields.file.url}
+              alt={logo.fields.title}
+              width={215}
+              height={286}
+              className="w-full h-auto"
+            />
           </CardSurface>
-        )}
 
-        <CardSurface className='p-9' variant='primary' >
-          {description}
-        </CardSurface>
+          <CardSurface className='p-9' variant='primary' >
+            {description}
+          </CardSurface>
+        </div>
       </div>
     </section>
   );

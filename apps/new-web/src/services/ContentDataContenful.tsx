@@ -10,7 +10,7 @@ import { ContainerIdentifiers } from "@/globals/identifiers";
 export class ContentDataContenful implements IContentData {
   private pagesCache: any[] | null = null;
 
-  constructor(@inject(ContainerIdentifiers.IContentfulClient)private readonly client: ContentfulClientApi<undefined>) {
+  constructor(@inject(ContainerIdentifiers.IContentfulClient) private readonly client: ContentfulClientApi<undefined>) {
   }
 
   async getSectionsBySlug({
@@ -25,13 +25,13 @@ export class ContentDataContenful implements IContentData {
     });
 
     const { items } = sectionsData;
-    const [ currentPageData ] = items;
+    const [currentPageData] = items;
 
     return currentPageData?.fields?.sections as any[] ?? [];
   }
 
   async getPages(): Promise<any[]> {
-    if(this.pagesCache){
+    if (this.pagesCache) {
       return Promise.resolve(this.pagesCache);
     }
 
