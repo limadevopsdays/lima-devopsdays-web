@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prebuild": "pnpm codegen:components",
-    "prevdev": "pnpm codegen:components",
+    "predev": "pnpm codegen:components",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
