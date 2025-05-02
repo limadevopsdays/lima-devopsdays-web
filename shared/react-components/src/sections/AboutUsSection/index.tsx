@@ -8,6 +8,8 @@ import HandShake from '../../icons/HandShake';
 import LigthBulb from '../../icons/LigthBulb';
 import Stocks from '../../icons/Stocks';
 
+import { defaultParser } from '../../utils';
+
 export interface StatisticProps {
   fields: {
     title: string;
@@ -113,7 +115,7 @@ export default function AboutUsSection({
           </CardSurface>
 
           <CardSurface className='p-9' variant='primary' >
-            {description}
+            {typeof description === 'string' ? defaultParser.parse(description) : description}
           </CardSurface>
         </div>
       </div>

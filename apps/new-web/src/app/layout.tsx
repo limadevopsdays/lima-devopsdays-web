@@ -6,6 +6,7 @@ import Header, { NavItem } from "react-components/sections/Header";
 import { container } from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
 import { ContainerIdentifiers } from "@/globals/identifiers";
+import Footer from "react-components/sections/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ export default async function RootLayout({
   const pages = await container.get<IContentData>(ContainerIdentifiers.IContentData).getPages();
 
   const navItems: NavItem[] = pages
-    .filter(({fields})=>fields.includedInNavbar)
+    .filter(({ fields }) => fields.includedInNavbar)
     .map((page) => ({
       text: String(page.fields.title),
       href: `/${page.fields.slug}`,
@@ -46,6 +47,37 @@ export default async function RootLayout({
           ]}
         />
         {children}
+        <Footer
+          about={{
+            title: "DevOpsDay Lima",
+            description:
+              "Buscamos ser el hub de la transformación tecnológica, brindando a los participantes inspiración, conocimiento y herramientas para liderar el cambio.",
+          }}
+          links={{
+            title: "Enlaces",
+            items: [
+              { text: "Conócenos", url: "/conocenos" },
+              { text: "Speakers", url: "/speakers" },
+              { text: "Agenda", url: "/agenda" },
+              { text: "Call for Speakers", url: "/call-for-speakers" },
+            ],
+          }}
+          contact={{
+            title: "Contacto",
+            location: "Lima, Peru",
+            email: "contacto@devopsdays.pe",
+          }}
+          social={{
+            title: "Síguenos",
+            location: "Lima, Peru",
+            email: "contacto@devopsdays.pe",
+          }}
+          copyright="© 2025 DevOpsDays. Made with <3 in Peru"
+          legalLinks={[
+            { text: "Política de Privacidad", url: "/privacidad" },
+            { text: "Código de Conducta", url: "/conducta" },
+          ]}
+        />
       </body>
     </html>
   );
