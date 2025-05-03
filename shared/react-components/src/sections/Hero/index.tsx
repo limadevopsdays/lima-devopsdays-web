@@ -6,9 +6,10 @@ export interface HeroSectionProps {
   title: string;
   date: string;
   placeText: string;
-  logo: Record<string, Record<string, unknown>>;
   ctaText: string;
   ctaUrl: string;
+  imgURL?: string;
+  logoTitle?: string;
 }
 
 function formatDate(dateString: string) {
@@ -35,18 +36,17 @@ export default function HeroSection({
   title = "Sponsors",
   date,
   placeText,
-  logo,
   ctaText,
+  imgURL,
+  logoTitle,
   ctaUrl,
 }: Readonly<HeroSectionProps>) {
-
-  const { title: logoTitle, file } = logo.fields;
 
   return (
     <section className='bg-gray-4'>
       <div className="flex flex-col gap-4 max-w-[1200px] mx-auto px-6 pb-[120px] pt-[80px]">
         <picture>
-          <img src={String(file?.url)} alt={String(logoTitle)} width={204} height={151} />
+          <img src={imgURL} alt={logoTitle} width={204} height={151} />
         </picture>
 
         <div className='flex flex-col gap-6'>
