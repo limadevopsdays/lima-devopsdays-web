@@ -7,7 +7,7 @@
 }
 
 body{
-  font-family: var(--font-default), sans-serif;
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
 @import "tailwind-global-config";

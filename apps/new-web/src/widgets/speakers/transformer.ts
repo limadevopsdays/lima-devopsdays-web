@@ -1,4 +1,4 @@
-import { SpeakersSectionProps } from "react-components/sections/SpeakersSection";
+import type { SpeakersSectionProps } from "react-components/sections/SpeakersSection";
 
 interface SocialNetwork {
   fields: {

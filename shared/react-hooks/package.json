@@ -23,6 +23,7 @@
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1"
   },
+  "license": "MIT",
   "exports": {
     "./use-countdown": "./src/use-countdown/index.tsx"
   }

@@ -51,6 +51,7 @@
       "plugin:storybook/recommended"
     ]
   },
+  "license": "MIT",
   "exports": {
     "./PanelGrid": "./src/panel-grid/index.tsx",
     "./PanelGridRoot": "./src/panel-grid/PanelGridRoot.tsx",
