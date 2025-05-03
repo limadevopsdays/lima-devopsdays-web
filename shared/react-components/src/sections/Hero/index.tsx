@@ -8,7 +8,8 @@ export interface HeroSectionProps {
   placeText: string;
   logo: Record<string, Record<string, unknown>>;
   ctaText: string;
-  ctaUrl: string;
+  ctaHref: string;
+  showCta: boolean;
 }
 
 function formatDate(dateString: string) {
@@ -37,7 +38,8 @@ export default function HeroSection({
   placeText,
   logo,
   ctaText,
-  ctaUrl,
+  ctaHref,
+  showCta
 }: Readonly<HeroSectionProps>) {
 
   const { title: logoTitle, file } = logo.fields;
@@ -58,9 +60,13 @@ export default function HeroSection({
           </div>
 
           <BackwardsCounter targetDate={date} />
-          <Button width='maxContent' size='large' as="a" href={ctaUrl} variant="primary" >
-            {ctaText}
-          </Button>
+          {
+            showCta && (
+              <Button width='maxContent' size='large' as="a" href={ctaHref} variant="primary" >
+                {ctaText}
+              </Button>
+            )
+          }
         </div>
       </div>
     </section>
