@@ -30,7 +30,7 @@ const iconsByName: Record<string, typeof TwitterIcon> = {
 export default function SpeakersSection({
   speakers,
   title = "Speakers"
-}: SpeakersSectionProps) {
+}: Readonly<SpeakersSectionProps>) {
 
   return (
     <section className="bg-gray-4">

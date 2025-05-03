@@ -20,6 +20,7 @@
     "eslint": "^9",
     "eslint-config-next": "^15"
   },
+  "license": "MIT",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",

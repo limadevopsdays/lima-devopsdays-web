@@ -1,9 +1,10 @@
-import { Container, ResolutionContext } from "inversify";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Container, ContainerOptions, ResolutionContext } from "inversify";
 import type { ComponentType, ReactElement } from "react";
 
-export type RegisterOptions<T extends (props: unknown)=>ReactElement> = {
+export type RegisterOptions<T extends (props: any)=>ReactElement> = {
   Component: T
-  transformer: (props: unknown) => unknown;
+  transformer?: (props: any) => any;
 };
 
 export class ContainerRegistry {
@@ -15,10 +16,14 @@ export class ContainerRegistry {
     return new ContainerRegistry(parent);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerComponent<T extends (props: any)=>ReactElement>(name: string, { Component, transformer }: RegisterOptions<T>) {
+  registerComponent<T extends (props: any)=>ReactElement, R extends string>(
+    name: R,
+    { Component, transformer }: RegisterOptions<T>,
+    containerOptions?: ContainerOptions
+  ) {
     const child = new Container({
       parent: this.parent,
+      ...containerOptions
     });
 
     this.registry.set(name, child);
@@ -39,9 +44,9 @@ export class ContainerRegistry {
       const transformer: (props: unknown)=> unknown = ctx
         .get("transformer") ?? ((props: unknown) => props);
 
-      return function CreatedComponent(rawProps: unknown){
-        const props = transformer(rawProps);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return async function CreatedComponent(rawProps: unknown){
+        const props = await transformer(rawProps);
+
         return <Component {...props as any} />;
       };
     };

@@ -45,6 +45,7 @@
       "plugin:storybook/recommended"
     ]
   },
+  "license": "MIT",
   "exports": {
     ".": "./src/CustomTemplateParser.tsx"
   }

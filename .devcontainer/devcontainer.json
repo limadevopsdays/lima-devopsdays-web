@@ -1,0 +1,19 @@
+// See https://containers.dev/ for more info
+{
+  "name": "Node.js Alpine Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [3000],
+  "remoteUser": "nodeuser",
+  "features": {
+
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "eamodio.gitlens"
+      ]
+    }
+  }
+}

@@ -117,6 +117,9 @@ export default async function Page({ params }: PageProps) {
     if (!Component) return null;
 
 
-    return <Component key={section.sys.id} {...section.fields} />;
+    return <Component
+      key={section.sys.id}
+      {...section.fields}
+    />;
   });
 }
