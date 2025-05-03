@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 
 import { Space_Grotesk } from "next/font/google";
 import Header, { NavItem } from "react-components/sections/Header";
@@ -7,6 +7,7 @@ import container from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
 import { ContainerIdentifiers } from "@/globals/identifiers";
 import Footer from "react-components/sections/Footer";
+import { IGlobalConfig } from "@/services/IGlobalConfig";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -21,10 +22,17 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ slug: string[] }>
 }>) {
-  const pages = await container.get<IContentData>(ContainerIdentifiers.IContentData).getPages();
+
+  const { slug = [""] } = await params;
+
+  const contentDataService = container.get<IContentData>(ContainerIdentifiers.IContentData)
+
+  const pages = await contentDataService.getPages();
 
   const navItems: NavItem[] = pages
     .filter(({ fields }) => fields.includedInNavbar)
@@ -35,17 +43,29 @@ export default async function RootLayout({
       variant: "text",
     }));
 
+  const paymentExternalLink =  await container
+    .get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
+    .getPaymentExternalLink();
+
+
+  const currentPage = pages.find((page) => {
+    const pageSlug = String(page.fields.slug).split("/").filter(Boolean);
+    return pageSlug.join("/") === slug.join("/");
+  });
+
+  const { logoText, showCta } = currentPage.fields.theme?.fields ?? {};
+
+  const newNavItems = navItems
+    .concat(showCta ? [{ text: "Inscribirme", href: paymentExternalLink ?? "/pago", variant: "secondary" }] : [])
+
   return (
     <html lang="en">
       <body
         className={`${spaceGrotesk.variable}`}
       >
         <Header
-          logoText="DevOps Days Lima"
-          navItems={[
-            ...navItems,
-            { text: "Inscribirme", href: "/inscribirme", variant: "secondary" },
-          ]}
+          logoText={logoText}
+          navItems={newNavItems}
         />
         {children}
         <Footer

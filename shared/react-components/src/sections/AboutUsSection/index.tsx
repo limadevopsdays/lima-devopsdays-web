@@ -46,6 +46,8 @@ export interface AboutUsSectionProps {
     }
   };
   description: ReactNode;
+  logoHeight: number;
+  logoWidth: number;
 }
 
 const iconsByName: Record<string, typeof HandShake> = {
@@ -59,12 +61,12 @@ export default function AboutUsSection({
   statistics,
   description,
   logo,
-  ourValues
+  ourValues,
+  logoHeight,
+  logoWidth
 }: Readonly<AboutUsSectionProps>) {
-
   const items: InfoStackGroupItem[] = ourValues.fields.coreValues.map(({ fields, sys }, index) => {
     const { iconName, title, description } = fields
-
     const Icon = iconsByName[iconName]
 
     return {
@@ -108,9 +110,8 @@ export default function AboutUsSection({
             <img
               src={logo.fields.file.url}
               alt={logo.fields.title}
-              width={215}
-              height={286}
-              className="w-full h-auto"
+              width={logoWidth}
+              height={logoHeight}
             />
           </CardSurface>
 

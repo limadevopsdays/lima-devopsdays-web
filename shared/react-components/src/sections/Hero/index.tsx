@@ -7,9 +7,10 @@ export interface HeroSectionProps {
   date: string;
   placeText: string;
   ctaText: string;
-  ctaUrl: string;
   imgURL?: string;
   logoTitle?: string;
+  ctaHref: string;
+  showCta?: boolean;
 }
 
 function formatDate(dateString: string) {
@@ -39,7 +40,8 @@ export default function HeroSection({
   ctaText,
   imgURL,
   logoTitle,
-  ctaUrl,
+  ctaHref,
+  showCta
 }: Readonly<HeroSectionProps>) {
 
   return (
@@ -58,9 +60,13 @@ export default function HeroSection({
           </div>
 
           <BackwardsCounter targetDate={date} />
-          <Button width='maxContent' size='large' as="a" href={ctaUrl} variant="primary" >
-            {ctaText}
-          </Button>
+          {
+            showCta && (
+              <Button width='maxContent' size='large' as="a" href={ctaHref} variant="primary" >
+                {ctaText}
+              </Button>
+            )
+          }
         </div>
       </div>
     </section>
