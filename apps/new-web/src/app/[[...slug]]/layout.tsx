@@ -7,6 +7,7 @@ import container from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
 import { ContainerIdentifiers } from "@/globals/identifiers";
 import Footer from "react-components/sections/Footer";
+import { IGlobalConfig } from "@/services/IGlobalConfig";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -42,6 +43,11 @@ export default async function RootLayout({
       variant: "text",
     }));
 
+  const paymentExternalLink =  await container
+    .get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
+    .getPaymentExternalLink();
+
+
   const currentPage = pages.find((page) => {
     const pageSlug = String(page.fields.slug).split("/").filter(Boolean);
     return pageSlug.join("/") === slug.join("/");
@@ -49,7 +55,8 @@ export default async function RootLayout({
 
   const { logoText, showCta } = currentPage.fields.theme?.fields ?? {};
 
-  const newNavItems = navItems.concat(showCta ? [{ text: "Inscribirme", href: "/inscribirme", variant: "secondary" }] : [])
+  const newNavItems = navItems
+    .concat(showCta ? [{ text: "Inscribirme", href: paymentExternalLink ?? "/pago", variant: "secondary" }] : [])
 
   return (
     <html lang="en">

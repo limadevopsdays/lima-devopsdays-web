@@ -41,11 +41,11 @@ export class ContainerRegistry {
 
   private createFactoryHelper(Component: ComponentType) {
     return (ctx: ResolutionContext) => {
-      const transformer: (props: unknown)=> unknown = ctx
+      const transformer: (props: unknown, ctx: ResolutionContext)=> unknown = ctx
         .get("transformer") ?? ((props: unknown) => props);
 
       return async function CreatedComponent(rawProps: unknown){
-        const props = await transformer(rawProps);
+        const props = await transformer(rawProps, ctx);
 
         return <Component {...props as any} />;
       };

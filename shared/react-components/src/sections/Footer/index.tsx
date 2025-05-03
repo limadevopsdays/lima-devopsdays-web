@@ -43,7 +43,7 @@ export default function Footer({
   social,
   copyright,
   legalLinks
-}: FooterProps) {
+}: Readonly<FooterProps>) {
   return (
     <footer className="bg-gray-5">
       <div className='max-w-[1200px] mx-auto px-4 py-10'>
