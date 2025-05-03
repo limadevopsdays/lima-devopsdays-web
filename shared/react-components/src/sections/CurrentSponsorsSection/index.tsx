@@ -23,6 +23,7 @@ export interface SponsorTier {
   fields: {
     title: string;
     sponsors: Sponsor[];
+    isCenter?: boolean;
   }
 }
 
@@ -43,17 +44,16 @@ export default function CurrentSponsorsSection({
         <Subtitle weight="light" size="lg">{title}</Subtitle>
 
         <Paragraph weight='light' size="lg">
-          {typeof description === 'string'? defaultParser.parse(description): description}
+          {typeof description === 'string' ? defaultParser.parse(description) : description}
         </Paragraph>
 
         <div className="flex flex-col gap-6">
           {sponsorTiers.map(({ fields, sys }, index) => {
-            const { title, sponsors } = fields;
+            const { title, sponsors, isCenter } = fields;
             return (
               <CardSurface variant='primary' className='flex flex-col gap-6 px-8 py-4 items-center' key={`${index}-${sys.id}`}>
-                <Subtitle weight='light' size="lg">{title}</Subtitle>
-
-                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5'>
+                <Subtitle className='text-center' weight='light' size="lg">{title}</Subtitle>
+                <div className={`flex justify-center ${isCenter ? 'md:justify-center' : "md:md:justify-start"} flex-wrap gap-5 w-full`}>
                   {sponsors.map(({ fields, sys }, index) => {
                     const { title, file } = fields;
                     return (
