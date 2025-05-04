@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export interface GetPagesSectionOptions {
+export interface GetPagesSectionOptions<T> {
   slug: string;
-  include?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  meta?: T
 }
 
 
 export interface IContentData {
-  getSectionsBySlug(options: GetPagesSectionOptions): Promise<any[]>;
+  getSectionsBySlug(options: GetPagesSectionOptions<any>): Promise<any[]>;
   getPages(): Promise<any[]>;
 }

@@ -3,11 +3,11 @@ import container from "@/globals/container";
 import { ContainerIdentifiers } from "@/globals/identifiers";
 
 import { IContentData } from "@/services/IContentData";
-import { mkdir, writeFile } from "fs/promises";
-import { basename, join } from "node:path";
-import { ReactElement } from "react";
+import { fetchToPublic } from "@/utils/fetchToPublic";
 
 const isDev = process.env.NODE_ENV === "development";
+
+//TODO: refactor this file because it is too big and has too many concerns
 
 export async function generateStaticParams() {
   const paths = [
@@ -70,26 +70,11 @@ async function processAssetsRecursively(item: any): Promise<void> {
 }
 
 
-//TODO: move this to a utils file and use streams
-const fetchToPublic = async (url: string) => {
-  if (!url) return null;
-
-  const absoluteUrl = url.startsWith("http") ? url : `https:${url}`;
-  const response = await fetch(absoluteUrl);
-  if (!response.ok) throw new Error(`Failed to fetch asset: ${absoluteUrl}`);
-  const arrayBuffer = await response.arrayBuffer();
-  const buffer = Buffer.from(arrayBuffer);
-
-
-  const urlObj = new URL(absoluteUrl);
-  const filename = basename(urlObj.pathname);
-  const publicDir = join(process.cwd(), "public/remote");
-  await mkdir(publicDir, { recursive: true });
-  const filePath = join(publicDir, filename);
-  await writeFile(filePath, buffer);
-
-  return `/remote/${filename}`;
-}
+//TODO: would it be wrong if we fetch the photos in transformers instead?
+//the main concern is if we are doing server side redering, that would mean
+//copying the file to the server but  the relative path to public may be broken?
+//we need to investigate the timing in which this function is called vs
+//the trasnformers in different settings (export and standalone)
 
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params;
@@ -100,23 +85,30 @@ export default async function Page({ params }: PageProps) {
 
   const sections = await contentDataService.getSectionsBySlug({
     slug: slug.join("/") || "/",
-    include: 4,
+    meta:{
+      include: 4,
+    }
   });
 
+  //TODO: could we do this with a  Promise.all?
   for (const section of sections) {
     await processAssetsRecursively(section);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return sections?.map((section: any) => {
+    //TODO: the sections.sys.contentType.sys.id is too specific to the data source, revaluate this
+    // as an alternative, I am thinking on levering another function to get the component name
+    // the problem is that the component name is not always the same as the content type
+    // and the data from the data source could enter in many different formats
     const sectionType = section.sys.contentType.sys.id;
-    const container = componentRegistry.get(sectionType);
-    const Component: ((props: unknown) => ReactElement) | undefined = container
-      ?.get("Component");
+
+    const Component = componentRegistry
+      .getComponent(sectionType);
 
     if (!Component) return null;
 
-
+     //TODO: the sections.fields is too specific to the data source, revaluate this
     return <Component
       key={section.sys.id}
       {...section.fields}

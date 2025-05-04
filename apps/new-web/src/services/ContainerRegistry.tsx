@@ -39,6 +39,17 @@ export class ContainerRegistry {
     return this.registry.get(name);
   }
 
+  getComponent(name: string) {
+    const container = this.registry.get(name);
+
+    if (!container) {
+      throw new Error(`Component ${name} not found`);
+    }
+
+    return container
+      .get<ReturnType<ReturnType<typeof this.createFactoryHelper>> | null>("Component");
+  }
+
   private createFactoryHelper(Component: ComponentType) {
     return (ctx: ResolutionContext) => {
       const transformer: (props: unknown, ctx: ResolutionContext)=> unknown = ctx
