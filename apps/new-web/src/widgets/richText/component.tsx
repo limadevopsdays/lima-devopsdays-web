@@ -1,4 +1,5 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { CSSProperties } from 'react';
 import { tv } from 'tailwind-variants';
 
@@ -12,6 +13,7 @@ export interface DefaultRichTextRendererProps {
 
 
 const richTextWrapper = tv({
+  base: ["px-4", "py-20",],
   variants: {
     predefinedBackgroundColor: {
       gray3: 'bg-gray-3',
@@ -45,6 +47,8 @@ export default function RichTextDefaultRenderer({
     textColor: !!textColor
   })
 
+  //TODO: the render node functions should be gotten from a IoC to allow configuration
+  //from the CMS
   return <section
     style={{
       '--rich-text-background-color': backgroundColor,
@@ -52,8 +56,20 @@ export default function RichTextDefaultRenderer({
     } as CSSProperties}
     className={resolvedClassName}
   >
-    {documentToReactComponents(children, {
-
-    })}
+    <div className='max-w-[1200px] mx-auto'>
+      {documentToReactComponents(children, {
+        preserveWhitespace: true,
+        renderNode: {
+          [BLOCKS.HEADING_1]: (node, children) => <h1
+            className='text-2xl text-center md:text-5xl mb-12'>
+              {children}
+            </h1>,
+          [BLOCKS.HEADING_2]: (node, children) => <h2
+            className='text-xl md:text-2xl my-8'>
+              {children}
+            </h2>,
+        }
+      })}
+    </div>
   </section>
 }
