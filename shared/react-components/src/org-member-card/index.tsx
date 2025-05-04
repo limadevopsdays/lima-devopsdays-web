@@ -1,7 +1,7 @@
 import Subtitle from '../subtitle';
 import Paragraph from '../paragraph';
 
-export interface SpeakerCardProps {
+export interface OrganizationMemberCardProps {
   imageSrc: string;
   name: string;
   role: string;
@@ -11,7 +11,7 @@ export default function OrganizationMemberCard({
   imageSrc,
   name,
   role,
-}: SpeakerCardProps) {
+}: OrganizationMemberCardProps) {
   return (
     <article className="flex flex-col gap-2 ">
       <picture className="rounded-3xl flex justify-center">
