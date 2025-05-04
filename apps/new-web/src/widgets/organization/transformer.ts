@@ -1,4 +1,4 @@
-import { OrganizationProps } from "../../../../../shared/react-components/src/sections/Organization/interface";
+import { OrganizationProps } from "react-components/sections/Organization";
 import { CoreValueDefault, OrganizationPropsDefault, SpeakerProfileDefault } from "./interface";
 
 const transformer = (props: OrganizationPropsDefault):OrganizationProps => {

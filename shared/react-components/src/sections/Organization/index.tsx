@@ -51,4 +51,4 @@ export default function Organization({ title, description, speakerProfile, coreV
   )
 }
 
-
+export * from './interface';
