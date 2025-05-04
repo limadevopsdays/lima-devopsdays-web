@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import "../globals.css";
 
 import { Space_Grotesk } from "next/font/google";
 import Header, { NavItem } from "react-components/sections/Header";
 import container from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
 import { ContainerIdentifiers } from "@/globals/identifiers";
-import Footer from "react-components/sections/Footer";
+import Footer, { LinkItem } from "react-components/sections/Footer";
 import { IGlobalConfig } from "@/services/IGlobalConfig";
+
+import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -34,6 +35,8 @@ export default async function RootLayout({
 
   const pages = await contentDataService.getPages();
 
+  //TODO: this is too atached to the data source, Contentful, we should rethink the way
+  //of consuming and sorting the data
   const navItems: NavItem[] = pages
     .filter(({ fields }) => fields.includedInNavbar)
     .toSorted((currentPage, nextPage) => currentPage.fields.navbarOrder - nextPage.fields.navbarOrder)
@@ -43,11 +46,19 @@ export default async function RootLayout({
       variant: "text",
     }));
 
+  const footerLegalItems: LinkItem[] = pages
+    .filter(({ fields }) => fields.includedInLegal)
+    .toSorted((currentPage, nextPage) => currentPage.fields.legalOrder - nextPage.fields.legalOrder)
+    .map((page) => ({
+      text: String(page.fields.title),
+      url: `/${page.fields.slug}`,
+    }));
+
   const paymentExternalLink =  await container
     .get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
     .getPaymentExternalLink();
 
-
+  //TODO: we need to express intention, rahter abstract the navbar configuration/rendering
   const currentPage = pages.find((page) => {
     const pageSlug = String(page.fields.slug).split("/").filter(Boolean);
     return pageSlug.join("/") === slug.join("/");
@@ -56,18 +67,23 @@ export default async function RootLayout({
   const { logoText, showCta } = currentPage.fields.theme?.fields ?? {};
 
   const newNavItems = navItems
-    .concat(showCta ? [{ text: "Inscribirme", href: paymentExternalLink ?? "/pago", variant: "secondary" }] : [])
+    .concat(
+      showCta ?
+      [{ text: "Inscribirme", href: paymentExternalLink ?? "/pago", variant: "secondary" }] : []
+    )
 
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable}`}
+        className={`${spaceGrotesk.variable} min-h-screen grid`}
       >
         <Header
           logoText={logoText}
           navItems={newNavItems}
         />
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer
           about={{
             title: "DevOpsDay Lima",
@@ -94,7 +110,7 @@ export default async function RootLayout({
             email: "contacto@devopsdays.pe",
           }}
           copyright="© 2025 DevOpsDays. Made with <3 in Peru"
-          legalLinks={[
+          legalLinks={footerLegalItems?.length? footerLegalItems : [
             { text: "Política de Privacidad", url: "/privacidad" },
             { text: "Código de Conducta", url: "/conducta" },
           ]}
