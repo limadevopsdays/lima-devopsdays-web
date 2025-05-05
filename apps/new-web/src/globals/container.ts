@@ -15,6 +15,7 @@ const container = new Container();
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID ?? "",
   accessToken: process.env.CONTENTFUL_API_KEY ?? "",
+  environment: process.env.CONTENTFUL_ENVIRONMENT ?? "master",
 })
 
 container

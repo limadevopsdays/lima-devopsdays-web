@@ -16,12 +16,24 @@ export interface SponsorTier {
   tier: 'bronze' | 'silver' | 'gold';
 }
 
+export interface Link {
+  text: string;
+  href: string;
+  iconName?: string;
+  isHidden?: boolean;
+}
+
 export interface SponsorPricingSectionProps {
   title: string;
   description: ReactNode;
   pricingTiers: SponsorTier[];
   ctaText: string;
   ctaHref: string;
+  mediaKitLinks: Link[];
+}
+
+const iconsByName: Record<string, typeof DownloadIcon> = {
+  "Download": DownloadIcon
 }
 
 export default function SponsorPricingSection({
@@ -29,7 +41,8 @@ export default function SponsorPricingSection({
   description,
   pricingTiers,
   ctaText,
-  ctaHref
+  ctaHref,
+  mediaKitLinks
 }: SponsorPricingSectionProps) {
   return (
     <section className='bg-gray-4'>
@@ -62,16 +75,27 @@ export default function SponsorPricingSection({
 
         <div className='flex flex-col gap-2 md:flex-row md:gap-0 justify-between w-full'>
           <div className='flex gap-3'>
-            <Button className='flex items-center justify-center sm:whitespace-nowrap flex-1 gap-2' variant='tertiary'>
-              Media Kit Español
-              <DownloadIcon />
-            </Button>
-            <Button className='flex items-center justify-center sm:whitespace-nowrap flex-1 gap-2' variant='tertiary'>
-              Media Kit Ingles
-              <DownloadIcon />
-            </Button>
+            {
+              mediaKitLinks.map(({ href, text, iconName, isHidden }, index) => {
+                const Icon = iconName ? iconsByName[iconName] : null
+
+                return (
+                  <Button
+                    key={index}
+                    as='a'
+                    href={href}
+                    hidden={isHidden}
+                    className='flex items-center justify-center sm:whitespace-nowrap flex-1 gap-2'
+                    variant='tertiary'>
+                    {text}
+                    {Icon && <Icon />}
+                  </Button>
+                )
+              })
+            }
+
           </div>
-          <Button as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
+          <Button className='text-center' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
         </div>
       </div>
     </section>
