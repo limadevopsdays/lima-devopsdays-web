@@ -11,3 +11,7 @@ body{
 }
 
 @import "tailwind-global-config";
+
+main, footer{
+  max-width: 100vw;
+}

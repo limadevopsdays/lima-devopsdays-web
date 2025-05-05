@@ -91,7 +91,7 @@ export default function Footer({
               {copyright}
             </Paragraph>
           </div>
-          <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="flex gap-3 sm:gap-6 mt-4 md:mt-0">
             {legalLinks.map((link, index) => (
               <Paragraph
                 as="a"
