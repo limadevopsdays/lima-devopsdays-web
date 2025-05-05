@@ -10,17 +10,27 @@ interface RawProps {
         url: string;
       }
     }
-  }
-
+  },
+  iframeUrl: string;
+  isHidden?: boolean;
 }
 
 const transformer = (props: RawProps): LocationSectionProps => {
+  const {
+    title,
+    description,
+    placeImage,
+    iframeUrl,
+    isHidden = false
+  } = props;
 
   const newProps = {
-    title: props.title,
-    description: props.description,
-    logoUrl: props.placeImage.fields.file.url,
-    logoAlt: props.placeImage.fields.title
+    title,
+    description,
+    logoUrl: placeImage.fields.file.url,
+    logoAlt: placeImage.fields.title,
+    iframeUrl,
+    isHidden
   }
 
   return newProps
