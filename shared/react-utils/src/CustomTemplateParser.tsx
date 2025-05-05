@@ -46,6 +46,7 @@ export class CustomTemplateParser {
   /**
    * Parse a template string and return a React fragment with directives rendered.
    * Also parses markdown links [text](url) and replaces them with anchor tags.
+   * Now also parses markdown subtitles (## Subtitle) as <h2>.
    * @param template - The template string to parse
    * @returns React.ReactNode (a fragment)
    */
@@ -87,10 +88,26 @@ export class CustomTemplateParser {
       return linkNodes;
     };
 
+    // Helper to parse markdown subtitles (## Subtitle) as <h2>
+    const parseMarkdownSubtitles = (text: string): React.ReactNode[] => {
+      const lines = text.split(/\r?\n/);
+      const result: React.ReactNode[] = [];
+      for (const line of lines) {
+        const subtitleMatch = line.match(/^##\s+(.+)/);
+        if (subtitleMatch) {
+          result.push(<h2 key={`subtitle-${key++}`} className="text-xl font-bold my-6">{subtitleMatch[1]}</h2>);
+        } else {
+          result.push(...parseMarkdownLinks(line));
+        }
+        result.push("\n"); // preserve line breaks
+      }
+      return result;
+    };
+
     while ((match = directiveRegex.exec(template)) !== null) {
       if (match.index > lastIndex) {
-        // Parse markdown links in the plain text segment
-        nodes.push(...parseMarkdownLinks(template.slice(lastIndex, match.index)));
+        // Parse markdown subtitles and links in the plain text segment
+        nodes.push(...parseMarkdownSubtitles(template.slice(lastIndex, match.index)));
       }
       const [_, directive, content] = match;
       const render = this.directives[directive];
@@ -103,7 +120,7 @@ export class CustomTemplateParser {
       lastIndex = directiveRegex.lastIndex;
     }
     if (lastIndex < template.length) {
-      nodes.push(...parseMarkdownLinks(template.slice(lastIndex)));
+      nodes.push(...parseMarkdownSubtitles(template.slice(lastIndex)));
     }
     return <>{nodes}</>;
   }
