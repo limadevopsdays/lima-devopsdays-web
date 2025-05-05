@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import Subtitle from '../../subtitle';
 import Paragraph from '../../paragraph';
 import CardSurface from '../../card-surface';
-import { defaultParser } from '../../utils';
 
 export interface Sponsor {
   sys: {
@@ -43,12 +42,12 @@ export default function CurrentSponsorsSection({
       <div className='flex flex-col gap-8 max-w-[1200px] mx-auto px-6 py-[64px]'>
         <Subtitle weight="light" size="lg">{title}</Subtitle>
 
-        <Paragraph weight='light' size="lg">
-          {typeof description === 'string' ? defaultParser.parse(description) : description}
+        <Paragraph as="div" weight='light' size="lg">
+          {description}
         </Paragraph>
 
         <div className="flex flex-col gap-6">
-          {sponsorTiers.map(({ fields, sys }, index) => {
+          {sponsorTiers?.map(({ fields, sys }, index) => {
             const { title, sponsors, isCenter } = fields;
             return (
               <CardSurface variant='primary' className='flex flex-col gap-6 px-8 py-4 items-center' key={`${index}-${sys.id}`}>

@@ -7,6 +7,7 @@ import { createClient } from "contentful"
 import { ContainerIdentifiers } from "./identifiers";
 import { LocalGlobalConfigService } from "@/services/LocalGlobalConfigService";
 import { CachedGlobalConfigProxy, ContentfulGlobalConfigService } from "@/services/ContentfulGlobalConfigService";
+import { CustomTemplateParser } from "react-utils";
 
 
 const container = new Container();
@@ -15,6 +16,10 @@ const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID ?? "",
   accessToken: process.env.CONTENTFUL_API_KEY ?? "",
 })
+
+container
+  .bind(CustomTemplateParser)
+  .toSelf()
 
 container
   .bind(ContainerIdentifiers.IContentfulClient)
