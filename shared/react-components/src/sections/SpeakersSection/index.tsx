@@ -38,7 +38,7 @@ export default function SpeakersSection({
         <Subtitle weight="light" size="lg">{title}</Subtitle>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {speakers.map((speaker) => {
+          {speakers?.map((speaker) => {
             const socialNetworks: SocialNetwork[] = speaker.socialNetworks.map(({ url, iconName }) => {
               const Icon = iconsByName[iconName]
               return {

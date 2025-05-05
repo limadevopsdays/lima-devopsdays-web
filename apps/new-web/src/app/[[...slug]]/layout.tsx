@@ -77,7 +77,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} min-h-screen max-w-screen grid`}
+        className={`${spaceGrotesk.variable} min-h-screen max-w-screen grid bg-gray-4`}
       >
         <Header
           logoText={logoText}

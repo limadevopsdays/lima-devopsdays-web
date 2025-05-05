@@ -23,7 +23,7 @@ export default function Header({
 }: Readonly<HeaderProps>) {
   return (
     <>
-      <header className="devops-days-navbar bg-gray-4 sticky top-0 w-full h-16 sm:h-auto z-20">
+      <header className="devops-days-navbar bg-gray-4 sticky top-0 w-full h-16 sm:h-18 z-20">
         <div className="flex items-center justify-between py-4 px-6 max-w-[1200px] mx-auto h-full">
           <Subtitle href="/" as="a" weight="light" size="sm">{logoText}</Subtitle>
           <label

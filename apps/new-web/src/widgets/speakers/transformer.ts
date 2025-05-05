@@ -35,7 +35,7 @@ interface TransformerProps {
 const transformer = ({ title, speakerProfiles }: TransformerProps): SpeakersSectionProps => {
   const newProps = {
     title,
-    speakers: speakerProfiles.map(({ fields, sys }, index) => {
+    speakers: speakerProfiles?.map(({ fields, sys }, index) => {
       const { name, role, image, companies, socialNetworks } = fields;
       const imageSrc = image.fields.file.url;
 
@@ -47,7 +47,7 @@ const transformer = ({ title, speakerProfiles }: TransformerProps): SpeakersSect
         title: name,
         description: role,
         tags,
-        socialNetworks: socialNetworks.map(({ fields }) => ({
+        socialNetworks: socialNetworks?.map(({ fields }) => ({
           url: fields.url,
           iconName: fields.iconName,
         }))
