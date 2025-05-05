@@ -1,4 +1,6 @@
+import { ResolutionContext } from "inversify";
 import { SponsorPricingSectionProps } from "react-components/sections/SponsorPricingSection";
+import { CustomTemplateParser } from "react-utils";
 
 interface SponsorPackage {
   fields: {
@@ -28,10 +30,16 @@ interface TransformerProps {
   mediaKitLinks?: MediaKitLink[];
 }
 
-const transformer = ({ ctaHref, ctaText, description, sponsorPackages, title, mediaKitLinks }: TransformerProps): SponsorPricingSectionProps => {
+const transformer = (
+  { ctaHref, ctaText, description, sponsorPackages, title, mediaKitLinks }: TransformerProps,
+  ctx: ResolutionContext
+): SponsorPricingSectionProps => {
+  const parser = ctx.get(CustomTemplateParser)
+  const parsedDescription = parser.parse(description)
+
   const newProps = {
     title,
-    description,
+    description: parsedDescription,
     ctaHref,
     ctaText,
     pricingTiers: sponsorPackages.map((sponsorPackage) => ({
