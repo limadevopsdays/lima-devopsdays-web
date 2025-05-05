@@ -1,4 +1,3 @@
-
 /**
  * CustomTemplateParser is a simple, extensible parser for custom text templating in React.
  *
@@ -46,20 +45,52 @@ export class CustomTemplateParser {
 
   /**
    * Parse a template string and return a React fragment with directives rendered.
+   * Also parses markdown links [text](url) and replaces them with anchor tags.
    * @param template - The template string to parse
    * @returns React.ReactNode (a fragment)
    */
   parse(template: string): React.ReactNode {
     // Pattern: %directiveName:content%
-    const regex = /%([\w]+):([^%]+)%/g;
+    const directiveRegex = /%([\w]+):([^%]+)%/g;
     let lastIndex = 0;
     let match;
     let key = 0;
     const nodes: React.ReactNode[] = [];
 
-    while ((match = regex.exec(template)) !== null) {
+    // Helper to parse markdown links in plain text and return nodes
+    const parseMarkdownLinks = (text: string): React.ReactNode[] => {
+      const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+      let linkLastIndex = 0;
+      let linkMatch;
+      const linkNodes: React.ReactNode[] = [];
+      while ((linkMatch = linkRegex.exec(text)) !== null) {
+        if (linkMatch.index > linkLastIndex) {
+          linkNodes.push(text.slice(linkLastIndex, linkMatch.index));
+        }
+        const [_, linkText, linkUrl] = linkMatch;
+        linkNodes.push(
+          <a
+            href={linkUrl}
+            key={`mdlink-${key++}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-paragraph-enphasis-secondary"
+          >
+            {linkText}
+          </a>
+        );
+        linkLastIndex = linkRegex.lastIndex;
+      }
+      if (linkLastIndex < text.length) {
+        linkNodes.push(text.slice(linkLastIndex));
+      }
+      return linkNodes;
+    };
+
+    while ((match = directiveRegex.exec(template)) !== null) {
       if (match.index > lastIndex) {
-        nodes.push(template.slice(lastIndex, match.index));
+        // Parse markdown links in the plain text segment
+        nodes.push(...parseMarkdownLinks(template.slice(lastIndex, match.index)));
       }
       const [_, directive, content] = match;
       const render = this.directives[directive];
@@ -69,10 +100,10 @@ export class CustomTemplateParser {
         // Unknown directive: render as plain text
         nodes.push(match[0]);
       }
-      lastIndex = regex.lastIndex;
+      lastIndex = directiveRegex.lastIndex;
     }
     if (lastIndex < template.length) {
-      nodes.push(template.slice(lastIndex));
+      nodes.push(...parseMarkdownLinks(template.slice(lastIndex)));
     }
     return <>{nodes}</>;
   }

@@ -63,7 +63,7 @@ export default async function RootLayout({
     const pageSlug = String(page.fields.slug).split("/").filter(Boolean);
     return pageSlug.join("/") === slug.join("/");
   });
-
+  console.log(slug)
   const { logoText, showCta } = currentPage.fields.theme?.fields ?? {};
 
   const newNavItems = navItems
