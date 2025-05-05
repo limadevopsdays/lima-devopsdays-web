@@ -29,7 +29,7 @@ export interface SponsorPricingSectionProps {
   pricingTiers: SponsorTier[];
   ctaText: string;
   ctaHref: string;
-  mediaKitLinks: Link[];
+  mediaKitLinks?: Link[];
 }
 
 const iconsByName: Record<string, typeof DownloadIcon> = {
@@ -76,7 +76,7 @@ export default function SponsorPricingSection({
         <div className='flex flex-col gap-2 md:flex-row md:gap-0 justify-between w-full'>
           <div className='flex gap-3'>
             {
-              mediaKitLinks.map(({ href, text, iconName, isHidden }, index) => {
+              mediaKitLinks?.map(({ href, text, iconName, isHidden }, index) => {
                 const Icon = iconName ? iconsByName[iconName] : null
 
                 return (

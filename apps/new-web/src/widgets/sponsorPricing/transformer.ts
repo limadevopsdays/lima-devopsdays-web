@@ -25,7 +25,7 @@ interface TransformerProps {
   ctaHref: string;
   ctaText: string;
   sponsorPackages: SponsorPackage[];
-  mediaKitLinks: MediaKitLink[];
+  mediaKitLinks?: MediaKitLink[];
 }
 
 const transformer = ({ ctaHref, ctaText, description, sponsorPackages, title, mediaKitLinks }: TransformerProps): SponsorPricingSectionProps => {
@@ -41,7 +41,7 @@ const transformer = ({ ctaHref, ctaText, description, sponsorPackages, title, me
       tier: sponsorPackage.fields.tier as 'bronze' | 'silver' | 'gold',
       benefits: sponsorPackage.fields.benefits,
     })),
-    mediaKitLinks: mediaKitLinks.map((link) => ({
+    mediaKitLinks: mediaKitLinks?.map((link) => ({
       text: link.fields.text,
       href: link.fields.href,
       iconName: link.fields.iconName,
