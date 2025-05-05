@@ -26,9 +26,14 @@ export default function LocationSection({
         <Subtitle size='lg'>{title}</Subtitle>
 
         <div className='flex flex-col md:flex-row gap-8 '>
-          <iframe src={iframeUrl} width="591" height="300" className='border-0 rounded-3xl' allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-
-          <picture>
+          <iframe
+            src={iframeUrl}
+            width="591"
+            height="300"
+            className='border-0 rounded-3xl w-full'
+            allowFullScreen loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <picture className='w-full'>
             <img className='rounded-3xl w-full h-full object-cover' src={logoUrl} alt={logoAlt} width={591} height={300} />
           </picture>
         </div>

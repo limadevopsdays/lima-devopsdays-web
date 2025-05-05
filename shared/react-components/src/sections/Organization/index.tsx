@@ -27,7 +27,7 @@ export default function Organization({ title, description, speakerProfile, coreV
         </div>
         <div className="flex mt-24 justify-between flex-col items-center gap-4 md:flex-row ">
           <Paragraph className="text-button-background-primary" size="xl">{description}</Paragraph>
-          <div className="socials flex items-center gap-6">
+          <div className="socials flex items-center gap-3 sm:gap-6">
             {coreValue.map(({ url, iconName }) => {
               const Icon = iconsByName[iconName];
 
