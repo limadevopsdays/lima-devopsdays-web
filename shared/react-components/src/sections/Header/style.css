@@ -3,3 +3,7 @@
   border-bottom-width: 2px;
   border-bottom-style: solid;
 }
+
+.mobile-navbar {
+  height: calc(100vh - 12px);
+}
