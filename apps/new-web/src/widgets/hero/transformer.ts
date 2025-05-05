@@ -8,8 +8,8 @@ interface RawProps {
   date: string;
   placeText: string;
   ctaText: string;
-  ctaUrl: string;
-  logo:{
+  ctaHref: string;
+  logo: {
     fields: {
       title: string;
       file: {
@@ -22,10 +22,10 @@ interface RawProps {
 export default async function transform(
   rawProps: RawProps,
   ctx: ResolutionContext
-): Promise<HeroSectionProps>{
-  const  getGlobalConfig = ctx.get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
-
-  const externalPaymentLink = await getGlobalConfig.getPaymentExternalLink();
+): Promise<HeroSectionProps> {
+  const getGlobalConfig = ctx.get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
+  const globalConfig = await getGlobalConfig.getGlobalConfig()
+  const { paymentExternalLink, name } = globalConfig.fields;
 
   const { logo, ...rest } = rawProps;
 
@@ -33,6 +33,7 @@ export default async function transform(
     ...rest,
     imgURL: logo.fields.file.url,
     logoTitle: logo.fields.title,
-    ctaHref: externalPaymentLink,
+    ctaText: rest.ctaText ?? name,
+    ctaHref: rest.ctaHref ?? paymentExternalLink,
   }
 }
