@@ -54,9 +54,11 @@ export default async function RootLayout({
       url: `/${page.fields.slug}`,
     }));
 
-  const paymentExternalLink =  await container
+  const globalConfig = await container
     .get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
-    .getPaymentExternalLink();
+    .getGlobalConfig()
+
+  const { name, paymentExternalLink } = globalConfig.fields;
 
   //TODO: we need to express intention, rahter abstract the navbar configuration/rendering
   const currentPage = pages.find((page) => {
@@ -64,12 +66,12 @@ export default async function RootLayout({
     return pageSlug.join("/") === slug.join("/");
   });
 
-  const { logoText, showCta } = currentPage.fields.theme?.fields ?? {};
+  const { logoText, ctaText, ctaHref, showCta } = currentPage.fields.theme?.fields ?? {};
 
   const newNavItems = navItems
     .concat(
       showCta ?
-      [{ text: "Inscribirme", href: paymentExternalLink ?? "/pago", variant: "secondary" }] : []
+        [{ text: ctaText ?? name, href: ctaHref ?? paymentExternalLink ?? "/pago", variant: "secondary" }] : []
     )
 
   return (
@@ -110,7 +112,7 @@ export default async function RootLayout({
             email: "contacto@devopsdays.pe",
           }}
           copyright="© 2025 DevOpsDays. Made with <3 in Peru"
-          legalLinks={footerLegalItems?.length? footerLegalItems : [
+          legalLinks={footerLegalItems?.length ? footerLegalItems : [
             { text: "Política de Privacidad", url: "/privacidad" },
             { text: "Código de Conducta", url: "/conducta" },
           ]}
