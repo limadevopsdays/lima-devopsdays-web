@@ -102,15 +102,26 @@ export default async function Page({ params }: PageProps) {
     // the problem is that the component name is not always the same as the content type
     // and the data from the data source could enter in many different formats
     const sectionType = section.sys.contentType.sys.id;
-
+    const key = section.sys.id;
     const Component = componentRegistry
       .getComponent(sectionType);
+    const shouldRenderWarning = isDev && !Component;
+
+    if(shouldRenderWarning)
+      return <div className="text-4xl text-center p-4 bg-button-border-tertiary text-cyan-base" key={key}>
+        <p>
+          Component <span className="text-gray-3">{sectionType}</span> not found , check if it exist in widgets folder
+        </p>
+        <p>
+          This is a development warning, in production this will not be shown
+        </p>
+      </div>
 
     if (!Component) return null;
 
      //TODO: the sections.fields is too specific to the data source, revaluate this
     return <Component
-      key={section.sys.id}
+      key={key}
       {...section.fields}
     />;
   });
