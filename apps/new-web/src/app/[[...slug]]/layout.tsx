@@ -93,10 +93,10 @@ export default async function RootLayout({
           links={{
             title: "Enlaces",
             items: [
-              { text: "Conócenos", url: "/conocenos" },
+              { text: "Conócenos", url: "#conocenos" },
               { text: "Speakers", url: "/speakers" },
               { text: "Agenda", url: "/agenda" },
-              { text: "Call for Speakers", url: "/call-for-speakers" },
+              { text: "Call for Speakers", url: "#call-for-speakers" },
             ],
           }}
           contact={{

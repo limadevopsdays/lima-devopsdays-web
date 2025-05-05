@@ -78,7 +78,7 @@ export default function AboutUsSection({
   })
 
   return (
-    <section className="bg-gray-5">
+    <section id="conocenos" className="bg-gray-5">
       <div className="w-full py-12 text-white max-w-[1200px] mx-auto px-4">
         <Subtitle className='mb-6' weight='light' size='lg' >{title}</Subtitle>
 

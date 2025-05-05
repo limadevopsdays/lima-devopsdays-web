@@ -19,7 +19,7 @@ export default function CallForSpeakersSection({
   topics
 }: Readonly<CallForSpeakersSectionProps>) {
   return (
-    <section className='flex flex-col items-center bg-gray-4 gap-9 px-5 py-20'>
+    <section id="call-for-speakers" className='flex flex-col items-center bg-gray-4 gap-9 px-5 py-20'>
       <div className='flex flex-col items-center gap-4'>
         <Subtitle size='lg'>{title}</Subtitle>
         <Paragraph className='text-center max-w-[620px]'>
