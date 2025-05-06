@@ -20,8 +20,8 @@ export default function OrganizationMemberCard({
 
       <div>
         <div className="flex flex-col justify-center items-center">
-          <Subtitle className='truncate' weight='medium' size="sm">{name}</Subtitle>
-          <Paragraph color='secondary' size="xl" >{role}</Paragraph>
+          <Subtitle className='truncate text-lg' weight='medium'>{name}</Subtitle>
+          <Paragraph color='secondary' size="md" >{role}</Paragraph>
         </div>
       </div>
     </article>
