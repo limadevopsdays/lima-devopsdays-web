@@ -72,7 +72,7 @@ export default function SponsorPricingSection({
           ))}
         </div>
 
-        <div className='flex flex-col gap-2 md:flex-row md:gap-0 justify-between w-full'>
+        <div className={`flex flex-col gap-2 md:flex-row md:gap-0 w-full items-center ${!mediaKitLinks?.length ? 'justify-center' : 'justify-between'}`}>
           <div className='flex gap-3'>
             {
               mediaKitLinks?.map(({ href, text, iconName, isHidden }, index) => {
@@ -94,7 +94,7 @@ export default function SponsorPricingSection({
             }
 
           </div>
-          <Button className='text-center' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
+          <Button className='text-center w-fit' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
         </div>
       </div>
     </section>
