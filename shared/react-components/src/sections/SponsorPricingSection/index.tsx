@@ -31,7 +31,7 @@ export interface SponsorPricingSectionProps {
   mediaKitLinks?: Link[];
 }
 
-const iconsByName: Record<string, typeof DownloadIcon> = {
+export const iconsByName: Record<string, typeof DownloadIcon> = {
   "Download": DownloadIcon
 }
 
