@@ -1,18 +1,18 @@
 import { Meta, StoryObj } from '@storybook/react';
-import SponsorTableSection from './index';
+import SponsorPricingTableSectionProps from './index';
 import Paragraph from '../../paragraph';
 
 export default {
   decorators: [Story => <div className="bg-gray-4 p-12 rounded-md"><Story /></div>],
-  title: 'Sections/SponsorTableSection',
-  component: SponsorTableSection,
+  title: 'Sections/SponsorPricingTableSectionProps',
+  component: SponsorPricingTableSectionProps,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} as Meta<typeof SponsorTableSection>;
+} as Meta<typeof SponsorPricingTableSectionProps>;
 
-type Story = StoryObj<typeof SponsorTableSection>;
+type Story = StoryObj<typeof SponsorPricingTableSectionProps>;
 
 export const Default: Story = {
   args: {

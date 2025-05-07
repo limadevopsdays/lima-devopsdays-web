@@ -1,9 +1,9 @@
 export default function SponsorPricingTable() {
 
   return (
-    <div className="max-w-screen -mx-4 px-4 md:mx-0">
+    <div className="max-w-screen -mx-4 md:mx-0 w-full">
       <div className="overflow-x-auto w-full scrollbar-thin scrollbar-thumb-gray-600">
-        <div className="inline-block min-w-screem align-middle">
+        <div className="inline-block min-w-screem align-middle w-full">
           <table className="min-w-full border-separate border-spacing-0">
             <thead>
               <tr>

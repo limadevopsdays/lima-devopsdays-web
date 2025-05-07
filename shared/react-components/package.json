@@ -70,6 +70,7 @@
     "./sections/SpeakersSection": "./src/sections/SpeakersSection/index.tsx",
     "./sections/SponsorPricingSection": "./src/sections/SponsorPricingSection/index.tsx",
     "./sections/Organization": "./src/sections/Organization/index.tsx",
-    "./sections/LocationSection": "./src/sections/LocationSection/index.tsx"
+    "./sections/LocationSection": "./src/sections/LocationSection/index.tsx",
+    "./sections/SponsorPricingTableSection": "./src/sections/SponsorPricingTableSection/index.tsx"
   }
 }

@@ -25,7 +25,7 @@ export default function LocationSection({
       <div className='flex flex-col items-center container-custom gap-9 px-5 py-16'>
         <Subtitle size='lg'>{title}</Subtitle>
 
-        <div className='flex flex-col md:flex-row gap-8 '>
+        <div className='flex flex-col md:flex-row gap-8 w-full'>
           <iframe
             src={iframeUrl}
             width="591"
