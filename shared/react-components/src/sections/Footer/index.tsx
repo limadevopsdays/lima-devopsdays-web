@@ -1,23 +1,7 @@
-import InstagramIcon from '../../icons/Instagram';
-import LinkedinIcon from '../../icons/Linkedin';
+
 import Paragraph from '../../paragraph';
+import { iconsByName, socials } from './constants';
 import { FooterProps } from './interface';
-
-const iconsByName: Record<string, typeof InstagramIcon> = {
-  "Instagram": InstagramIcon,
-  "Linkedin": LinkedinIcon
-}
-
-const socials = [
-  {
-    url: "https://www.instagram.com/devopsdayslima/",
-    iconName: "Instagram",
-  },
-  {
-    url: "https://www.linkedin.com/company/devops-days-lima/",
-    iconName: "Linkedin",
-  }
-]
 
 export default function Footer({
   about,
