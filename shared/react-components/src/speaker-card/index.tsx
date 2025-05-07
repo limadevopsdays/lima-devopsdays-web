@@ -24,8 +24,8 @@ export default function SpeakerCard({
 }: SpeakerCardProps) {
   return (
     <article className="flex flex-col gap-2">
-      <picture className="rounded-3xl">
-        <img className="rounded-3xl" src={imageSrc} alt={title} width={285} height={285} />
+      <picture className="rounded-3xl w-2xs h-72" >
+        <img className="rounded-3xl object-cover w-full h-full" src={imageSrc} alt={title} />
       </picture>
 
       <div>
@@ -42,12 +42,14 @@ export default function SpeakerCard({
 
         <Paragraph size="xl" >{description}</Paragraph>
 
-        <div className="mt-3 flex gap-2">
-          {tags.map((tag, index) => (
-            <Tag key={index}>{tag}</Tag>
-          ))}
-        </div>
+        {tags.length > 0 && (
+          <div className="mt-3 flex gap-2">
+            {tags.map((tag, index) => (
+              <Tag key={index}>{tag}</Tag>
+            ))}
+          </div>
+        )}
       </div>
-    </article>
+    </article >
   );
 };

@@ -8,7 +8,7 @@ export default function Organization({ title, speakerProfile }: OrganizationProp
       <div className="container mx-auto py-16 px-4">
         <h2 className="text-4xl text-center mb-9 text-white ">{title}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-7 gap-8">
-          {speakerProfile.map((member) => (
+          {speakerProfile?.map((member) => (
             <OrganizationMemberCard
               key={member.name}
               name={member.name}

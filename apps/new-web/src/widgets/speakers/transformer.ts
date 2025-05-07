@@ -39,7 +39,7 @@ const transformer = ({ title, speakerProfiles }: TransformerProps): SpeakersSect
       const { name, role, image, companies, socialNetworks } = fields;
       const imageSrc = image.fields.file.url;
 
-      const tags = companies.map((company) => company);
+      const tags = companies?.map((company) => company);
 
       return {
         id: `${index}${sys.id}`,
