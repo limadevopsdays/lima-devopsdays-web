@@ -5,7 +5,7 @@ import Paragraph from "../../paragraph";
 import Subtitle from "../../subtitle";
 import Button from "../../button";
 
-export interface SponsorTableSectionProps {
+export interface SponsorPricingTableSectionProps {
   title: string;
   description: ReactNode;
   mediaKitLinks?: Link[];
@@ -18,11 +18,11 @@ export interface Link {
   isHidden?: boolean;
 }
 
-export default function SponsorTableSection({
+export default function SponsorPricingTableSection({
   title,
   description,
   mediaKitLinks
-}: Readonly<SponsorTableSectionProps>) {
+}: Readonly<SponsorPricingTableSectionProps>) {
   return (
     <section className="bg-gray-4">
       <div className="flex flex-col container-custom py-16 px-4 items-center">
