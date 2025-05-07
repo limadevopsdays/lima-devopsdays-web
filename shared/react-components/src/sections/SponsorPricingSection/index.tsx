@@ -9,10 +9,14 @@ import DownloadIcon from '../../icons/Download';
 
 export interface SponsorTier {
   name: string;
-  description: string;
+  description: ReactNode;
   price: string;
   benefits: string[];
-  tier: 'bronze' | 'silver' | 'gold';
+  tier: 'bronze' | 'silver' | 'gold' | 'violet' | 'silveGray';
+  ctaText?: string;
+  ctaHref?: string;
+  showCta?: boolean;
+  disableCta?: boolean;
 }
 
 export interface Link {
@@ -26,8 +30,10 @@ export interface SponsorPricingSectionProps {
   title: string;
   description: ReactNode;
   pricingTiers: SponsorTier[];
-  ctaText: string;
-  ctaHref: string;
+  ctaText?: string;
+  ctaHref?: string;
+  showCta?: boolean;
+  disableCta?: boolean;
   mediaKitLinks?: Link[];
 }
 
@@ -41,6 +47,8 @@ export default function SponsorPricingSection({
   pricingTiers,
   ctaText,
   ctaHref,
+  showCta,
+  disableCta,
   mediaKitLinks
 }: Readonly<SponsorPricingSectionProps>) {
   return (
@@ -53,23 +61,34 @@ export default function SponsorPricingSection({
           </Paragraph>
         </div>
 
-        <div className='flex flex-col md:flex-row items-stretch gap-6 w-full mb-6'>
-          {pricingTiers.map((tier) => (
-            <SponsorTierCard key={tier.name} >
-              <SponsorTierCardHeader tier={tier.tier}>
-                <Subtitle size='sm'>{tier.name}</Subtitle>
-                <Paragraph size='md'>{tier.description}</Paragraph>
-                <Subtitle size='lg' className='mt-3'>{tier.price}</Subtitle>
-              </SponsorTierCardHeader>
-              <SponsorTierCardBody tier={tier.tier}>
-                <ul className='list-disc list-inside'>
-                  {tier.benefits.map((benefit, benefitIndex) => (
-                    <li key={benefitIndex}>{benefit}</li>
-                  ))}
-                </ul>
-              </SponsorTierCardBody>
-            </SponsorTierCard>
-          ))}
+        <div className='flex flex-col md:flex-row items-stretch justify-center gap-6 w-full mb-6'>
+          {pricingTiers.map(({
+            name, benefits, description, price,
+            tier, ctaHref, ctaText, showCta, disableCta
+          }) => {
+            return (
+              <SponsorTierCard key={name} >
+                <SponsorTierCardHeader tier={tier}>
+                  <Subtitle size='sm'>{name}</Subtitle>
+                  <Paragraph size='md'>{description}</Paragraph>
+                  <Subtitle size='lg' className='mt-3'>{price}</Subtitle>
+                </SponsorTierCardHeader>
+                <SponsorTierCardBody className='flex flex-col justify-between gap-6' tier={tier}>
+                  <ul className='list-disc list-inside'>
+                    {benefits.map((benefit, benefitIndex) => (
+                      <li key={benefitIndex}>{benefit}</li>
+                    ))}
+                  </ul>
+
+                  {showCta && (
+                    <Button className='text-center' variant={disableCta ? "silveGray" : "primary"} size="large" as="a" href={ctaHref} disabled={disableCta as any}>
+                      {ctaText}
+                    </Button>
+                  )}
+                </SponsorTierCardBody>
+              </SponsorTierCard>
+            )
+          })}
         </div>
 
         <div className={`flex flex-col gap-2 md:flex-row md:gap-0 w-full items-center ${!mediaKitLinks?.length ? 'justify-center' : 'justify-between'}`}>
@@ -94,7 +113,9 @@ export default function SponsorPricingSection({
             }
 
           </div>
-          <Button className='text-center w-fit' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
+          {showCta && (
+            <Button disabled={disableCta as any} className='text-center w-fit' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
+          )}
         </div>
       </div>
     </section>

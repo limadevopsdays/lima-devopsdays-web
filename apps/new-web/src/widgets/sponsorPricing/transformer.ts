@@ -2,6 +2,15 @@ import { ResolutionContext } from "inversify";
 import { SponsorPricingSectionProps } from "react-components/sections/SponsorPricingSection";
 import { CustomTemplateParser } from "react-utils";
 
+interface CtaButton {
+  fields: {
+    text: string;
+    href: string;
+    isDisabled?: boolean;
+    isHidden?: boolean;
+  }
+}
+
 interface SponsorPackage {
   fields: {
     title: string;
@@ -9,6 +18,7 @@ interface SponsorPackage {
     price: string;
     tier: string;
     benefits: string[];
+    ctaButton?: CtaButton;
   }
 }
 
@@ -24,14 +34,13 @@ interface MediaKitLink {
 interface TransformerProps {
   title: string;
   description: string;
-  ctaHref: string;
-  ctaText: string;
   sponsorPackages: SponsorPackage[];
   mediaKitLinks?: MediaKitLink[];
+  ctaButton?: CtaButton;
 }
 
 const transformer = (
-  { ctaHref, ctaText, description, sponsorPackages, title, mediaKitLinks }: TransformerProps,
+  { description, sponsorPackages, title, mediaKitLinks, ctaButton }: TransformerProps,
   ctx: ResolutionContext
 ): SponsorPricingSectionProps => {
   const parser = ctx.get(CustomTemplateParser)
@@ -40,21 +49,39 @@ const transformer = (
   const newProps = {
     title,
     description: parsedDescription,
-    ctaHref,
-    ctaText,
-    pricingTiers: sponsorPackages.map((sponsorPackage) => ({
-      name: sponsorPackage.fields.title,
-      description: sponsorPackage.fields.description,
-      price: sponsorPackage.fields.price,
-      tier: sponsorPackage.fields.tier as 'bronze' | 'silver' | 'gold',
-      benefits: sponsorPackage.fields.benefits,
-    })),
+    pricingTiers: sponsorPackages.map((sponsorPackage) => {
+
+      const {
+        title,
+        description,
+        price,
+        tier,
+        benefits,
+        ctaButton,
+      } = sponsorPackage.fields
+
+      return {
+        name: title,
+        description,
+        price,
+        tier: tier as 'bronze' | 'silver' | 'gold' | 'violet' | 'silveGray',
+        benefits,
+        ctaText: ctaButton?.fields.text,
+        ctaHref: ctaButton?.fields.href,
+        showCta: ctaButton && !ctaButton.fields.isHidden,
+        disableCta: ctaButton?.fields.isDisabled,
+      }
+    }),
     mediaKitLinks: mediaKitLinks?.map((link) => ({
       text: link.fields.text,
       href: link.fields.href,
       iconName: link.fields.iconName,
       isHidden: link.fields.isHidden,
     })),
+    ctaHref: ctaButton?.fields.href,
+    ctaText: ctaButton?.fields.text,
+    showCta: ctaButton && !ctaButton.fields.isHidden,
+    ctaDisabled: ctaButton?.fields.isDisabled,
   }
 
   return newProps

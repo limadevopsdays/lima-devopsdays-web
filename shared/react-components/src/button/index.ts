@@ -1,6 +1,5 @@
 import { createResponsiveStyled } from '@dyesthetics-lab/react-tv-variants-creators';
 
-
 const Button = createResponsiveStyled({
   tag: 'button',
   preset: {
@@ -25,6 +24,10 @@ const Button = createResponsiveStyled({
         text: [
           "text-button-foreground-secondary",
           "hover:bg-button-background-secondary-hover"
+        ],
+        silveGray: [
+          "bg-gray-1 text-button-foreground-primary",
+          "hover:bg-button-background-primary-hover"
         ]
       },
       width: {
@@ -34,6 +37,12 @@ const Button = createResponsiveStyled({
         small: ["text-sm py-1 px-2"],
         medium: ["text-base py-2 px-4"],
         large: ["text-lg py-3 px-6"]
+      },
+      disabled: {
+        true: [
+          "cursor-not-allowed pointer-events-none opacity-80"
+        ],
+        false: []
       }
     },
   }
