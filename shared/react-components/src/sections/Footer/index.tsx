@@ -1,40 +1,7 @@
+
 import Paragraph from '../../paragraph';
-
-export interface LinkItem {
-  text: string;
-  url: string;
-}
-
-export interface AboutSection {
-  title: string;
-  description: string;
-}
-
-export interface LinksSection {
-  title: string;
-  items: LinkItem[];
-}
-
-export interface ContactSection {
-  title: string;
-  location: string;
-  email: string;
-}
-
-export interface SocialSection {
-  title: string;
-  location: string;
-  email: string;
-}
-
-export interface FooterProps {
-  about: AboutSection;
-  links: LinksSection;
-  contact: ContactSection;
-  social: SocialSection;
-  copyright: string;
-  legalLinks: LinkItem[];
-}
+import { iconsByName, socials } from './constants';
+import { FooterProps } from './interface';
 
 export default function Footer({
   about,
@@ -78,10 +45,23 @@ export default function Footer({
 
           <div>
             <Paragraph color="tertiary" size="xl" className="mb-4">{social.title}</Paragraph>
-            <Paragraph className="mb-2">{social.location}</Paragraph>
-            <Paragraph as="a" href={`mailto:${social.email}`} className="hover:text-gray-300 transition-colors">
-              {social.email}
-            </Paragraph>
+            <div className='flex gap-6 items-baseline'>
+              {socials.map(({ url, iconName }) => {
+                const Icon = iconsByName[iconName];
+
+                return (
+                  <a
+                    key={url}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white"
+                  >
+                    {Icon && <Icon width={32} height={32} />}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
 

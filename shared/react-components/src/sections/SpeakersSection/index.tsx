@@ -13,7 +13,7 @@ export interface Speaker {
     url: string;
     iconName: string;
   }[];
-  tags: string[];
+  tags?: string[];
 }
 
 export interface SpeakersSectionProps {
@@ -54,7 +54,7 @@ export default function SpeakersSection({
                 title={speaker.title}
                 description={speaker.description}
                 socialNetworks={socialNetworks}
-                tags={speaker.tags}
+                tags={speaker.tags ?? []}
               />
             )
           })}
