@@ -34,10 +34,10 @@ export default function SpeakersSection({
 
   return (
     <section className="bg-gray-4">
-      <div className="flex flex-col items-center gap-8 container-custom py-12">
+      <div className="flex flex-col items-center gap-8 container-custom py-12 px-4">
         <Subtitle weight="light" size="lg">{title}</Subtitle>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 md:gap-5">
           {speakers?.map((speaker) => {
             const socialNetworks: SocialNetwork[] = speaker.socialNetworks.map(({ url, iconName }) => {
               const Icon = iconsByName[iconName]
