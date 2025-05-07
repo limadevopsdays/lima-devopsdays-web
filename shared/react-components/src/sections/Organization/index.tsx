@@ -1,15 +1,7 @@
-import InstagramIcon from "../../icons/Instagram";
-import LinkedinIcon from "../../icons/Linkedin";
 import OrganizationMemberCard from "../../org-member-card";
-import Paragraph from "../../paragraph";
-import { OrganizationProps } from "./interface";
+import { OrganizationProps } from 'react-components/sections/Organization';
 
-const iconsByName: Record<string, typeof InstagramIcon> = {
-  "Instagram": InstagramIcon,
-  "Linkedin": LinkedinIcon
-}
-
-export default function Organization({ title, description, speakerProfile, coreValue, email }: OrganizationProps) {
+export default function Organization({ title, speakerProfile }: OrganizationProps) {
 
   return (
     <section className="bg-gray-4">
@@ -25,30 +17,8 @@ export default function Organization({ title, description, speakerProfile, coreV
             />
           ))}
         </div>
-        <div className="flex mt-24 justify-between flex-col items-center gap-4 md:flex-row ">
-          <Paragraph className="text-button-background-primary" size="xl">{description}</Paragraph>
-          <div className="socials flex items-center gap-3 sm:gap-6">
-            {coreValue.map(({ url, iconName }) => {
-              const Icon = iconsByName[iconName];
-
-              return (
-                <a
-                  key={url}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white"
-                >
-                  {Icon && <Icon width={32} height={32} />}
-                </a>
-              );
-            })}
-            <Paragraph color="primary" size="xl">{email}</Paragraph>
-          </div>
-        </div>
       </div>
     </section>
   )
 }
-
 export * from './interface';
