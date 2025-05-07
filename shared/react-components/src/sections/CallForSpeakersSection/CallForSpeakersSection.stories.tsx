@@ -24,5 +24,7 @@ export const Default: Story = {
       ['Infrastructure as Code', 'Site Reliability Engineering', 'AI & MLOps'],
       ['Platform Engineering', 'CloudOps', 'Culture Transformation'],
     ],
+    ctaText: 'Submit your proposal',
+    ctaHref: 'https://example.com',
   },
 };
