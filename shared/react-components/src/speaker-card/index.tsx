@@ -22,15 +22,16 @@ export default function SpeakerCard({
   socialNetworks,
   tags
 }: SpeakerCardProps) {
+
   return (
     <article className="flex flex-col gap-2">
-      <picture className="rounded-3xl w-2xs h-72" >
+      <picture className="rounded-3xl w-72 md:w-56 aspect-square" >
         <img className="rounded-3xl object-cover w-full h-full" src={imageSrc} alt={title} />
       </picture>
 
       <div>
         <div className="flex justify-between items-center">
-          <Subtitle className='truncate' weight='medium' size="md">{title}</Subtitle>
+          <Subtitle className='truncate text-lg' weight='medium'>{title}</Subtitle>
           <div className="flex gap-2">
             {socialNetworks.map(({ url, icon }, index) => (
               <a key={index} href={url} target="_blank" rel="noopener noreferrer">
@@ -40,7 +41,7 @@ export default function SpeakerCard({
           </div>
         </div>
 
-        <Paragraph size="xl" >{description}</Paragraph>
+        <Paragraph size="md" color='secondary' >{description}</Paragraph>
 
         {tags.length > 0 && (
           <div className="mt-3 flex gap-2">

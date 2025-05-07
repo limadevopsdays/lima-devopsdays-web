@@ -3,7 +3,7 @@ import { createResponsiveStyled } from '@dyesthetics-lab/react-tv-variants-creat
 const Tag = createResponsiveStyled({
   tag: 'span',
   preset: {
-    base: ["inline-block", "rounded-md", "px-3", "py-1", "text-2xl leading-[30px]", "bg-cyan-base"],
+    base: ["inline-block", "rounded-md", "px-3", "text-sm leading-[30px]", "bg-cyan-base"],
     variants: {
     }
   }
