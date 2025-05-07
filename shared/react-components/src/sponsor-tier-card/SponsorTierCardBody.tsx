@@ -8,7 +8,9 @@ const SponsorTierCardBody = createResponsiveStyled({
       tier: {
         bronze: 'border-b border-l border-r border-[#44422E]',
         silver: 'border-b border-l border-r border-[#565656]',
+        silveGray: 'border-b border-l border-r border-[#565656]',
         gold: 'border-b border-l border-r border-[#5A4F25]',
+        violet: 'border-b border-l border-r border-[#B87BED]',
       },
     }
   },

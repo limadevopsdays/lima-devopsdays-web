@@ -67,3 +67,54 @@ export const Default: Story = {
     ],
   },
 };
+
+
+export const BuyTickets: Story = {
+  args: {
+    title: 'Adquiere tu entrada',
+    description: "¡Únete a la revolución tecnológica y sé el protagonista del cambio!",
+    showCta: false,
+    pricingTiers: [
+      {
+        name: 'Early Bird',
+        description: '¡Aprovecha el precio más bajo! Solo 100 entradas.',
+        price: '$45 USD',
+        tier: 'violet',
+        benefits: [
+          'Acceso general al evento',
+          'Acceso al área de networking',
+          'Acceso a los talleres',
+          'Lanyard del evento',
+          'Polo exclusivo del evento',
+          'Sorteo exclusivo',
+          'Merchandise oficial',
+          'Acceso a productos y servicios exclusivos',
+        ],
+        showCta: true,
+        ctaText: 'Comprar entrada',
+        ctaHref: '#',
+        disableCta: false,
+      },
+      {
+        name: 'Entrada Normal',
+        description: '¡No pierdas la oportunidad de ser parte del evento!',
+        price: '$60 USD',
+        tier: 'silveGray',
+        benefits: [
+          'Acceso general al evento',
+          'Acceso al área de networking',
+          'Acceso a los talleres',
+          'Lanyard del evento',
+          'Polo exclusivo del evento',
+          'Sorteo exclusivo',
+          'Merchandise oficial',
+          'Acceso a productos y servicios exclusivos',
+        ],
+        showCta: true,
+        ctaText: 'Comprar entrada',
+        ctaHref: '#',
+        disableCta: true,
+      },
+    ],
+  },
+};
