@@ -97,8 +97,6 @@ export interface SocialNetworkField {
   url: string;
 }
 
-/*  props.speakerProfile[0].fields.socialNetworks.fields */
-
 export interface FieldsImage {
   metadata: Metadata;
   sys: CoreValueSys;
