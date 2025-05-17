@@ -3,6 +3,8 @@ import Paragraph from '../../paragraph';
 import { iconsByName, socials } from './constants';
 import { FooterProps } from './interface';
 
+export type * from './interface';
+
 export default function Footer({
   about,
   links,
