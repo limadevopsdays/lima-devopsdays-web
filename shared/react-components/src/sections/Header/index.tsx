@@ -57,7 +57,7 @@ export default function Header({
         className="mobile-navbar top-16 fixed left-0 w-full z-10 text-white bg-gray-4 text-center py-4 transition-transform duration-300 -translate-y-full peer-checked:translate-y-0 flex flex-col gap-0 sm:hidden"
       >
         {navItems.map(({ href, text, variant }, index) => (
-          <Fragment key={href+index}>
+          <Fragment key={href + index}>
             <Button
 
               as="a"
