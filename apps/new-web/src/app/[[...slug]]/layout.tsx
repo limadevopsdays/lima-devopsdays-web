@@ -59,7 +59,7 @@ export default async function RootLayout({
     .get<IGlobalConfig>(ContainerIdentifiers.IGlobalConfig)
     .getGlobalConfig()
 
-  const { name, paymentExternalLink } = globalConfig.fields;
+  const { name, paymentExternalLink, gtmId } = globalConfig.fields;
 
   //TODO: we need to express intention, rahter abstract the navbar configuration/rendering
   const currentPage = pages.find((page) => {
@@ -74,8 +74,6 @@ export default async function RootLayout({
       showCta ?
         [{ text: ctaText ?? name, href: ctaHref ?? paymentExternalLink ?? "/pago", variant: "secondary" }] : []
     )
-
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
     <html lang="en">
