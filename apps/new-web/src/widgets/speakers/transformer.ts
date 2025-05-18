@@ -4,7 +4,7 @@ interface SocialNetwork {
   fields: {
     iconName: string;
     url: string;
-  }
+  };
 }
 
 interface SpeakerProfile {
@@ -17,24 +17,30 @@ interface SpeakerProfile {
         file: {
           url: string;
         };
-      }
-    },
+      };
+    };
     companies: string[];
     socialNetworks: SocialNetwork[];
-  },
+  };
   sys: {
     id: string;
-  }
+  };
 }
 
 interface TransformerProps {
   title: string;
+  description?: string;
   speakerProfiles: SpeakerProfile[];
 }
 
-const transformer = ({ title, speakerProfiles }: TransformerProps): SpeakersSectionProps => {
+const transformer = ({
+  title,
+  speakerProfiles,
+  description,
+}: TransformerProps): SpeakersSectionProps => {
   const newProps = {
     title,
+    description,
     speakers: speakerProfiles?.map(({ fields, sys }, index) => {
       const { name, role, image, companies, socialNetworks } = fields;
       const imageSrc = image.fields.file.url;
@@ -50,10 +56,10 @@ const transformer = ({ title, speakerProfiles }: TransformerProps): SpeakersSect
         socialNetworks: socialNetworks?.map(({ fields }) => ({
           url: fields.url,
           iconName: fields.iconName,
-        }))
+        })),
       };
     }),
-  }
+  };
 
   return newProps;
 };
