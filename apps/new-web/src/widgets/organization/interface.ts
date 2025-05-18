@@ -1,40 +1,40 @@
 export interface OrganizationPropsDefault {
-  title:          string;
+  title: string;
   speakerProfile: SpeakerProfileDefault[];
-  coreValue:      CoreValueDefault[];
-  description:    string;
-  email:          string;
+  coreValue: CoreValueDefault[];
+  description: string;
+  email: string;
 }
 
 export interface CoreValueDefault {
   metadata: Metadata;
-  sys:      CoreValueSys;
-  fields:   CoreValueFields;
+  sys: CoreValueSys;
+  fields: CoreValueFields;
 }
 
 export interface CoreValueFields {
-  iconName:    string;
-  title:       string;
+  iconName: string;
+  title: string;
   description: string;
-  url:         string;
+  url: string;
 }
 
 export interface Metadata {
-  tags:     any[];
+  tags: any[];
   concepts: any[];
 }
 
 export interface CoreValueSys {
-  space:            ContentType;
-  id:               string;
-  type:             FluffyType;
-  createdAt:        Date;
-  updatedAt:        Date;
-  environment:      ContentType;
+  space: ContentType;
+  id: string;
+  type: FluffyType;
+  createdAt: Date;
+  updatedAt: Date;
+  environment: ContentType;
   publishedVersion: number;
-  revision:         number;
-  contentType?:     ContentType;
-  locale:           Locale;
+  revision: number;
+  contentType?: ContentType;
+  locale: Locale;
 }
 
 export interface ContentType {
@@ -42,9 +42,9 @@ export interface ContentType {
 }
 
 export interface ContentTypeSys {
-  type:     PurpleType;
+  type: PurpleType;
   linkType: LinkType;
-  id:       ID;
+  id: ID;
 }
 
 export enum ID {
@@ -75,41 +75,53 @@ export enum FluffyType {
 
 export interface SpeakerProfileDefault {
   metadata: Metadata;
-  sys:      CoreValueSys;
-  fields:   SpeakerProfileFields;
+  sys: CoreValueSys;
+  fields: SpeakerProfileFields;
 }
 
 export interface SpeakerProfileFields {
-  name:  string;
-  role:  string;
+  name: string;
+  role: string[];
   image: FieldsImage;
+  socialNetworks: SocialNetworkDefault[];
+}
+
+export interface SocialNetworkDefault {
+  metadata: Metadata;
+  sys: CoreValueSys;
+  fields: SocialNetworkField;
+}
+
+export interface SocialNetworkField {
+  iconName: string;
+  url: string;
 }
 
 export interface FieldsImage {
   metadata: Metadata;
-  sys:      CoreValueSys;
-  fields:   ImageFields;
+  sys: CoreValueSys;
+  fields: ImageFields;
 }
 
 export interface ImageFields {
-  title:       string;
+  title: string;
   description: string;
-  file:        File;
+  file: File;
 }
 
 export interface File {
-  url:         string;
-  details:     Details;
-  fileName:    string;
+  url: string;
+  details: Details;
+  fileName: string;
   contentType: string;
 }
 
 export interface Details {
-  size:  number;
+  size: number;
   image: DetailsImage;
 }
 
 export interface DetailsImage {
-  width:  number;
+  width: number;
   height: number;
 }

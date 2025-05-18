@@ -5,6 +5,12 @@ export interface OrganizationProps {
 
 export interface SpeakerProfile {
   name: string;
-  role: string;
+  role: string[];
   imageUrl: string;
+  socialNetworks?: SocialNetwork[];
+}
+
+export interface SocialNetwork {
+  iconName: string;
+  url: string;
 }
