@@ -24,7 +24,7 @@ export default function Organization({ title, speakerProfile }: OrganizationProp
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-7 gap-8">
           {speakerProfile?.map((member) => {
             const { name, imageUrl, role } = member
-            const socialNetworks: SocialNetwork[] | undefined = member.socialNetworks?.map(({ url, iconName }) => {
+            const socialNetworks: SocialNetwork[] | undefined = member.socialNetworks?.filter(({ url }) => url)?.map(({ url, iconName }) => {
               const Icon = iconsByName[iconName]
               return {
                 url,
