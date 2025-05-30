@@ -37,18 +37,21 @@ interface TransformerProps {
   sponsorPackages: SponsorPackage[];
   mediaKitLinks?: MediaKitLink[];
   ctaButton?: CtaButton;
+  enterpriseContactMe?: string;
 }
 
 const transformer = (
-  { description, sponsorPackages, title, mediaKitLinks, ctaButton }: TransformerProps,
+  { description, sponsorPackages, title, mediaKitLinks, ctaButton,enterpriseContactMe }: TransformerProps,
   ctx: ResolutionContext
 ): SponsorPricingSectionProps => {
   const parser = ctx.get(CustomTemplateParser)
   const parsedDescription = parser.parse(description)
+  const parsedEnterpriseContactMe = enterpriseContactMe && parser.parse(enterpriseContactMe)
 
   const newProps = {
     title,
     description: parsedDescription,
+    enterpriseContactMe: parsedEnterpriseContactMe,
     pricingTiers: sponsorPackages.map((sponsorPackage) => {
 
       const {

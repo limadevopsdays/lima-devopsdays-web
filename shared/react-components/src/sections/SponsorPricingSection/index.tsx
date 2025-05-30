@@ -29,6 +29,7 @@ export interface Link {
 export interface SponsorPricingSectionProps {
   title: string;
   description: ReactNode;
+  enterpriseContactMe?: ReactNode;
   pricingTiers: SponsorTier[];
   ctaText?: string;
   ctaHref?: string;
@@ -49,7 +50,8 @@ export default function SponsorPricingSection({
   ctaHref,
   showCta,
   disableCta,
-  mediaKitLinks
+  mediaKitLinks,
+  enterpriseContactMe,
 }: Readonly<SponsorPricingSectionProps>) {
   return (
     <section className='bg-gray-4'>
@@ -117,6 +119,7 @@ export default function SponsorPricingSection({
             <Button disabled={disableCta as any} className='text-center w-fit' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
           )}
         </div>
+       {enterpriseContactMe && <p className='text-center text-white'>{enterpriseContactMe}</p>}
       </div>
     </section>
   );
