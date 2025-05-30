@@ -47,7 +47,7 @@ const transformer = (
   const parser = ctx.get(CustomTemplateParser)
   const parsedDescription = parser.parse(description)
   const parsedEnterpriseContactMe = enterpriseContactMe && parser.parse(enterpriseContactMe)
-  console.log(enterpriseContactMe)
+
   const newProps = {
     title,
     description: parsedDescription,
