@@ -52,12 +52,12 @@ export default function CurrentSponsorsSection({
             return (
               <CardSurface variant='primary' className='flex flex-col gap-6 px-8 py-4 items-center' key={`${index}-${sys.id}`}>
                 <Subtitle className='text-center' weight='light' size="lg">{title}</Subtitle>
-                <div className={`flex justify-center items-baseline ${isCenter ? 'md:justify-center' : "md:md:justify-start"} flex-wrap gap-5 w-full`}>
+                <div className={`flex justify-center ${isCenter ? 'md:justify-center' : "md:md:justify-start"} flex-wrap gap-5 w-full`}>
                   {sponsors.map(({ fields, sys }, index) => {
                     const { title, file } = fields;
                     return (
                       <picture key={`${index}-${sys.id}`}>
-                        <img src={file.url} alt={title} className='max-h-[80px] max-w-[200px]' />
+                        <img src={file.url} alt={title} height={130} width={250} />
                       </picture>
                     )
                   })}
