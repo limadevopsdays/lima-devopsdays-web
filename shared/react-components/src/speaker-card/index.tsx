@@ -25,8 +25,8 @@ export default function SpeakerCard({
 
   return (
     <article className="flex flex-col gap-2">
-      <picture className="rounded-3xl w-72 md:w-56 aspect-square" >
-        <img className="rounded-3xl object-cover w-full h-full" src={imageSrc} alt={title} />
+      <picture>
+        <img className="rounded-3xl object-cover w-72 h-full" src={imageSrc} alt={title} />
       </picture>
 
       <div>
