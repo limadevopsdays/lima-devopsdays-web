@@ -15,6 +15,7 @@ export interface SponsorTier {
   tier: 'bronze' | 'silver' | 'gold' | 'violet' | 'silveGray';
   ctaText?: string;
   ctaHref?: string;
+  ctaClass?: string;
   showCta?: boolean;
   disableCta?: boolean;
 }
@@ -66,7 +67,8 @@ export default function SponsorPricingSection({
         <div className='flex flex-col md:flex-row items-stretch justify-center gap-6 w-full mb-6'>
           {pricingTiers.map(({
             name, benefits, description, price,
-            tier, ctaHref, ctaText, showCta, disableCta
+            tier, ctaHref, ctaText, showCta, disableCta,
+            ctaClass
           }) => {
             return (
               <SponsorTierCard key={name} >
@@ -83,7 +85,7 @@ export default function SponsorPricingSection({
                   </ul>
 
                   {showCta && (
-                    <Button className='text-center' variant={disableCta ? "silveGray" : "primary"} size="large" as="a" href={ctaHref} disabled={disableCta as any}>
+                    <Button className={'text-center '.concat(ctaClass ?? "")} variant={disableCta ? "silveGray" : "primary"} size="large" as="a" href={ctaHref} disabled={disableCta as any}>
                       {ctaText}
                     </Button>
                   )}
@@ -116,10 +118,10 @@ export default function SponsorPricingSection({
 
           </div>
           {showCta && (
-            <Button disabled={disableCta as any} className='text-center w-fit' as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
+            <Button disabled={disableCta as any} className={'text-center w-fit '.concat(ctaClassName ?? "")} as="a" href={ctaHref} size="large" variant='primary'>{ctaText}</Button>
           )}
         </div>
-       {enterpriseContactMe && <p className='text-center text-white'>{enterpriseContactMe}</p>}
+        {enterpriseContactMe && <p className='text-center text-white'>{enterpriseContactMe}</p>}
       </div>
     </section>
   );

@@ -8,6 +8,7 @@ interface CtaButton {
     href: string;
     isDisabled?: boolean;
     isHidden?: boolean;
+    class?: string;
   }
 }
 
@@ -41,7 +42,7 @@ interface TransformerProps {
 }
 
 const transformer = (
-  { description, sponsorPackages, title, mediaKitLinks, ctaButton,enterpriseContactMe }: TransformerProps,
+  { description, sponsorPackages, title, mediaKitLinks, ctaButton, enterpriseContactMe }: TransformerProps,
   ctx: ResolutionContext
 ): SponsorPricingSectionProps => {
   const parser = ctx.get(CustomTemplateParser)
@@ -73,6 +74,7 @@ const transformer = (
         ctaHref: ctaButton?.fields.href,
         showCta: ctaButton && !ctaButton.fields.isHidden,
         disableCta: ctaButton?.fields.isDisabled,
+        ctaClass: ctaButton?.fields.class
       }
     }),
     mediaKitLinks: mediaKitLinks?.map((link) => ({
