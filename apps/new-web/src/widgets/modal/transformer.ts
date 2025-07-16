@@ -5,7 +5,7 @@ const transformer = (props: any,  ctx: ResolutionContext) => {
   const { id, image, title, buttonText, richText } = props;
 
   const parser = ctx.get(CustomTemplateParser)
-  const parsedRichText = parser.parse(richText);
+  const parsedRichText = richText && parser.parse(richText);
 
   return {
     id,

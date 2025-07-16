@@ -1,4 +1,5 @@
 import Button from "../button";
+import ArrowRight from "../icons/ArrowRight";
 import CloseIcon from "../icons/CloseIcon";
 import Subtitle from "../subtitle";
 
@@ -24,11 +25,11 @@ export default function Modal({ id, image, title, buttonText, richText, buttonLi
             </label>
           </div>
           <div className="flex flex-col md:flex-row gap-12">
-            <img className="md:w-4/12" src={image} alt={id} />
+            <img className="md:w-4/12 object-contain" src={image} alt={id} />
             <div className="md:w-4/6 flex flex-col gap-4">
               <Subtitle size='lg'>{title}</Subtitle>
               <p>{richText}</p>
-              {buttonText && <Button className="mt-4 max-w-[200px] text-center" variant="primary" as="a" href={buttonLink}>{buttonText}</Button>}
+              {buttonText && <Button className="mt-4 max-w-[200px] text-center flex justify-center items-center gap-2" variant="primary" as="a" href={buttonLink}>{buttonText} <ArrowRight /></Button>}
             </div>
           </div>
         </div>
