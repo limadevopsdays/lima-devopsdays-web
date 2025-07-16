@@ -29,7 +29,7 @@ export default function Modal({ id, image, title, buttonText, richText, buttonLi
             <div className="md:w-4/6 flex flex-col gap-4">
               <Subtitle size='lg'>{title}</Subtitle>
               <p>{richText}</p>
-              {buttonText && <Button className="mt-4 max-w-[200px] text-center flex justify-center items-center gap-2" variant="primary" as="a" href={buttonLink}>{buttonText} <ArrowRight /></Button>}
+              {buttonText && <Button className="mt-4 max-w-[200px] text-center flex justify-center items-center gap-2" variant="primary" as="a" href={buttonLink} target="_blank">{buttonText} <ArrowRight /></Button>}
             </div>
           </div>
         </div>

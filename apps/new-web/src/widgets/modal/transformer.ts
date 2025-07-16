@@ -2,7 +2,7 @@ import { ResolutionContext } from "inversify";
 import { CustomTemplateParser } from "react-utils";
 
 const transformer = (props: any,  ctx: ResolutionContext) => {
-  const { id, image, title, buttonText, richText } = props;
+  const { id, image, title, buttonText, richText,buttonLink } = props;
 
   const parser = ctx.get(CustomTemplateParser)
   const parsedRichText = richText && parser.parse(richText);
@@ -13,6 +13,7 @@ const transformer = (props: any,  ctx: ResolutionContext) => {
     title,
     buttonText,
     richText:parsedRichText,
+    buttonLink
   };
 }
 
