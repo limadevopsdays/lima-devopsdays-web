@@ -83,20 +83,32 @@ export default async function Page({ params }: PageProps) {
   const contentDataService = container
     .get<IContentData>(ContainerIdentifiers.IContentData)
 
-  const sections = await contentDataService.getSectionsBySlug({
-    slug: slug.join("/") || "/",
-    meta:{
-      include: 4,
-    }
-  });
+
+  const [sections, modals] = await Promise.all([
+    contentDataService.getSectionsBySlug({
+      slug: slug.join("/") || "/",
+      meta: {
+        include: 4,
+      }
+    }),
+    contentDataService.getModals({
+      meta: {
+        include: 4,
+      }
+    })
+  ]);
 
   //TODO: could we do this with a  Promise.all?
   for (const section of sections) {
     await processAssetsRecursively(section);
   }
 
+  for (const modal of modals) {
+    await processAssetsRecursively(modal);
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return sections?.map((section: any) => {
+  const sectionsElements = sections?.map((section: any) => {
     //TODO: the sections.sys.contentType.sys.id is too specific to the data source, revaluate this
     // as an alternative, I am thinking on levering another function to get the component name
     // the problem is that the component name is not always the same as the content type
@@ -107,7 +119,7 @@ export default async function Page({ params }: PageProps) {
       .getComponent(sectionType);
     const shouldRenderWarning = isDev && !Component;
 
-    if(shouldRenderWarning)
+    if (shouldRenderWarning)
       return <div className="text-4xl text-center p-4 bg-button-border-tertiary text-cyan-base" key={key}>
         <p>
           Component <span className="text-gray-3">{sectionType}</span> not found , check if it exist in widgets folder
@@ -119,10 +131,43 @@ export default async function Page({ params }: PageProps) {
 
     if (!Component) return null;
 
-     //TODO: the sections.fields is too specific to the data source, revaluate this
+    //TODO: the sections.fields is too specific to the data source, revaluate this
     return <Component
       key={key}
       {...section.fields}
     />;
   });
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const modalsElements = modals?.map((modal: any) => {
+    const modalType = modal.sys.contentType.sys.id;
+    const key = modal.sys.id;
+    const Component = componentRegistry
+      .getComponent(modalType);
+    const shouldRenderWarning = isDev && !Component;
+
+    if (shouldRenderWarning)
+      return <div className="text-4xl text-center p-4 bg-button-border-tertiary text-cyan-base" key={key}>
+        <p>
+          Modal Component <span className="text-gray-3">{modalType}</span> not found , check if it exist in widgets folder
+        </p>
+        <p>
+          This is a development warning, in production this will not be shown
+        </p>
+      </div>
+
+    if (!Component) return null;
+
+    return <Component
+      key={key}
+      {...modal.fields}
+    />;
+  });
+
+  return (
+    <>
+      {sectionsElements}
+      {modalsElements}
+    </>
+  );
 }
