@@ -60,6 +60,7 @@
     "./Paragraph": "./src/paragraph/index.tsx",
     "./DevopsDaysLogoIcon": "./src/icons/DevopsDaysLogo.tsx",
     "./Button": "./src/button/index.tsx",
+    "./Modal": "./src/modal/index.tsx",
     "./sections/Hero": "./src/sections/Hero/index.tsx",
     "./sections/AboutUsSection": "./src/sections/AboutUsSection/index.tsx",
     "./sections/AgendaSection": "./src/sections/AgendaSection/index.tsx",

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ContentfulClientApi } from "contentful";
-import { GetPagesSectionOptions, IContentData } from "./IContentData";
+import { GetPagesSectionOptions, GetModalsOptions, IContentData } from "./IContentData";
 import { inject, injectable } from "inversify";
 import { ContainerIdentifiers } from "@/globals/identifiers";
 
@@ -9,6 +9,7 @@ import { ContainerIdentifiers } from "@/globals/identifiers";
 @injectable()
 export class ContentDataContenful implements IContentData {
   private pagesCache: any[] | null = null;
+  private modalsCache: any[] | null = null;
 
   constructor(
     @inject(ContainerIdentifiers.IContentfulClient)
@@ -46,6 +47,26 @@ export class ContentDataContenful implements IContentData {
 
     const { items } = pages;
     this.pagesCache = items;
+
+    return items;
+  }
+
+  async getModals(options: GetModalsOptions<{
+    include?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  }> = {}): Promise<any[]> {
+    if (this.modalsCache) {
+      return Promise.resolve(this.modalsCache);
+    }
+
+    const { meta = { include: 2 } } = options;
+
+    const modalsData = await this.client.getEntries({
+      content_type: "modal",
+      include: meta.include,
+    });
+
+    const { items } = modalsData;
+    this.modalsCache = items;
 
     return items;
   }

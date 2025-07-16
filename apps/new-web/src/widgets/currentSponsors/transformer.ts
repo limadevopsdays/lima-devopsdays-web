@@ -9,7 +9,7 @@ const transformer = (props: any, ctx: ResolutionContext): CurrentSponsorsSection
 
   return {
     ...props,
-    description
+    description,
   }
 };
 export default transformer;
