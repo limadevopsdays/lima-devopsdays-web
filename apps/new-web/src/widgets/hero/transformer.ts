@@ -16,6 +16,14 @@ interface RawProps {
         url: string;
       }
     }
+  },
+  mainImage: {
+    fields: {
+      title: string;
+      file: {
+        url: string;
+      }
+    }
   }
 }
 
@@ -27,7 +35,7 @@ export default async function transform(
   const globalConfig = await getGlobalConfig.getGlobalConfig()
   const { paymentExternalLink, name } = globalConfig.fields;
 
-  const { logo, ...rest } = rawProps;
+  const { logo, mainImage,...rest } = rawProps;
 
   return {
     ...rest,
@@ -35,5 +43,6 @@ export default async function transform(
     logoTitle: logo.fields.title,
     ctaText: rest.ctaText ?? name,
     ctaHref: rest.ctaHref ?? paymentExternalLink,
+    mainImageURL: mainImage.fields.file.url,
   }
 }

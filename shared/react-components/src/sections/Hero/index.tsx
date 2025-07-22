@@ -11,6 +11,7 @@ export interface HeroSectionProps {
   logoTitle?: string;
   ctaHref: string;
   showCta?: boolean;
+  mainImageURL?: string;
 }
 
 function formatDate(dateString: string) {
@@ -38,21 +39,17 @@ export default function HeroSection({
   date,
   placeText,
   ctaText,
-  imgURL,
   logoTitle,
   ctaHref,
-  showCta
+  showCta,
+  mainImageURL
 }: Readonly<HeroSectionProps>) {
 
   return (
     <section className='bg-gray-4'>
-      <div className="flex flex-col gap-4 max-w-[1200px] mx-auto px-6 pb-[120px] pt-[80px]">
-        <picture>
-          <img src={imgURL} alt={logoTitle} width={204} height={151} />
-        </picture>
-
+      <div className="flex flex-col-reverse md:flex-row md:items-center gap-4 max-w-[1200px] mx-auto px-6 pb-[120px] pt-[80px]">
         <div className='flex flex-col gap-6'>
-          <h1 className='text-3xl md:text-8xl bg-linear-[90deg,#A150BF,#7B50BF,#2DABD1,#DAF7FB] text-transparent bg-clip-text font-bold'>{title}</h1>
+          <h1 className='text-3xl md:text-6xl lg:text-8xl bg-linear-[90deg,#A150BF,#7B50BF,#2DABD1,#DAF7FB] text-transparent bg-clip-text font-bold'>{title}</h1>
 
           <div>
             <Paragraph className='text-base leading-5 md:text-2xl md:leading-8'>{formatDate(date)}</Paragraph>
@@ -68,6 +65,9 @@ export default function HeroSection({
             )
           }
         </div>
+        <picture>
+          <img src={mainImageURL} alt={logoTitle} className='w-full max-w-[525px] min-w-[344px]' />
+        </picture>
       </div>
     </section>
   );
