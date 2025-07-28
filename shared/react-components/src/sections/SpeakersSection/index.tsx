@@ -49,7 +49,7 @@ export default function SpeakersSection({
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 md:gap-12">
 
           {speakers?.map((speaker) => {
-            const socialNetworks: SocialNetwork[] = speaker.socialNetworks.map(({ url, iconName }) => {
+            const socialNetworks: SocialNetwork[] = speaker.socialNetworks?.map(({ url, iconName }) => {
               const Icon = iconsByName[iconName]
               return {
                 url,
