@@ -1,6 +1,7 @@
 import "reflect-metadata";
 
 import { ContentDataContenful } from "@/services/ContentDataContenful";
+import { AgendaDataService } from "@/services/agenda/AgendaDataService";
 import { Container } from "inversify";
 
 import { createClient } from "contentful"
@@ -29,6 +30,11 @@ container
 container
   .bind(ContainerIdentifiers.IContentData)
   .to(ContentDataContenful)
+  .inSingletonScope();
+
+container
+  .bind(ContainerIdentifiers.IAgendaData)
+  .to(AgendaDataService)
   .inSingletonScope();
 
 container

@@ -6,10 +6,12 @@ import Header, { NavItem } from "react-components/sections/Header";
 import container from "@/globals/container";
 import { IContentData } from "@/services/IContentData";
 import { ContainerIdentifiers } from "@/globals/identifiers";
-import Footer, { LinkItem } from "react-components/sections/Footer";
+import Footer from "react-components/sections/Footer";
+
 import { IGlobalConfig } from "@/services/IGlobalConfig";
 
 import "../globals.css";
+import { LinkItem } from "react-components/sections/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -67,7 +69,7 @@ export default async function RootLayout({
     return pageSlug.join("/") === slug.join("/");
   });
 
-  const { logoText, ctaText, ctaHref, showCta } = currentPage.fields.theme?.fields ?? {};
+  const { logoText, ctaText, ctaHref, showCta } = currentPage?.fields?.theme?.fields ?? {};
 
   const newNavItems = navItems
     .concat(
