@@ -4,7 +4,7 @@ import type { ComponentType, ReactElement } from "react";
 
 export type RegisterOptions<T extends (props: any)=>ReactElement> = {
   Component: T
-  transformer?: (props: any) => any;
+  transformer?: (props: any, ctx: ResolutionContext) => any;
 };
 
 export class ContainerRegistry {

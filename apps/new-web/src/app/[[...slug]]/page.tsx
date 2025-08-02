@@ -79,14 +79,17 @@ async function processAssetsRecursively(item: any): Promise<void> {
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug ?? [];
+  const slugString = slug.join("/") || "/";
 
-  const contentDataService = container
-    .get<IContentData>(ContainerIdentifiers.IContentData)
-
+  let contentDataService: IContentData;
+  contentDataService = container.get<IContentData>(ContainerIdentifiers.IContentData);
+  if (slugString === "agenda") {
+    contentDataService = container.get<IContentData>(ContainerIdentifiers.IAgendaData);
+  }
 
   const [sections, modals] = await Promise.all([
     contentDataService.getSectionsBySlug({
-      slug: slug.join("/") || "/",
+      slug: slugString,
       meta: {
         include: 4,
       }

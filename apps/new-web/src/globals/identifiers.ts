@@ -3,4 +3,5 @@ export const enum ContainerIdentifiers {
   IContentData = "IContentData",
   IGlobalConfig = "IGlobalConfig",
   CustomTemplateParser = "CustomTemplateParser",
+  IAgendaData = "IAgendaData",
 }

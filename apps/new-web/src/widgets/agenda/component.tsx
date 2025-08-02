@@ -1,1 +1,3 @@
-export { default } from 'react-components/sections/AgendaSection';
+import AgendaSection from "react-components/sections/AgendaSection";
+
+export default AgendaSection;
