@@ -11,7 +11,7 @@ import Footer from "react-components/sections/Footer";
 import { IGlobalConfig } from "@/services/IGlobalConfig";
 
 import "../globals.css";
-import { LinkItem } from "../../../../../shared/react-components/src/sections/Footer/interface";
+import { LinkItem } from "react-components/sections/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
