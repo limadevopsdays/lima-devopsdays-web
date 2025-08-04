@@ -37,3 +37,5 @@ export default function Modal({ id, image, title, buttonText, richText, buttonLi
     </div>
   );
 }
+
+export { SpeakerModal } from './SpeakerModal';

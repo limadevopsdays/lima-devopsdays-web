@@ -1,5 +1,19 @@
 import type { SpeakersSectionProps } from "react-components/sections/SpeakersSection";
 
+interface SpeakerWithTalk {
+  id: string;
+  name: string;
+  imageSrc: string;
+  talkTitle: string;
+  talkAbstract?: string;
+}
+
+interface ApiTransformerProps {
+  title: string;
+  description?: string;
+  speakers: SpeakerWithTalk[];
+}
+
 interface SocialNetwork {
   fields: {
     iconName: string;
@@ -27,41 +41,57 @@ interface SpeakerProfile {
   };
 }
 
-interface TransformerProps {
+interface ContentfulTransformerProps {
   title: string;
   description?: string;
   speakerProfiles: SpeakerProfile[];
 }
 
-const transformer = ({
-  title,
-  speakerProfiles,
-  description,
-}: TransformerProps): SpeakersSectionProps => {
-  const newProps = {
-    title,
-    description,
-    speakers: speakerProfiles?.map(({ fields, sys }, index) => {
-      const { name, role, image, companies, socialNetworks } = fields;
-      const imageSrc = image.fields.file.url;
+type TransformerProps = ApiTransformerProps | ContentfulTransformerProps;
 
-      const tags = companies?.map((company) => company);
+const isContentfulTransformer = (props: TransformerProps): props is ContentfulTransformerProps => {
+  return 'speakerProfiles' in props;
+};
 
-      return {
-        id: `${index}${sys.id}`,
-        imageSrc,
-        title: name,
-        description: role,
-        tags,
-        socialNetworks: socialNetworks?.map(({ fields }) => ({
-          url: fields.url,
-          iconName: fields.iconName,
-        })),
-      };
-    }),
-  };
+//TODO: Deberías tener un transformer por data source.
+const transformer = (props: TransformerProps): SpeakersSectionProps => {
+  const { title, description } = props;
 
-  return newProps;
+  if (isContentfulTransformer(props)) {
+    const { speakerProfiles } = props;
+
+    return {
+      title,
+      description,
+      speakers: speakerProfiles?.map(({ fields, sys }, index) => {
+        const { name, role, image, companies, socialNetworks } = fields;
+        const imageSrc = image.fields.file.url;
+        const tags = companies?.map((company) => company);
+
+        return {
+           id: `${index}${sys.id}`,
+           imageSrc,
+           name: name,
+           talkTitle: role,
+           talkAbstract: companies?.join(', '),
+         };
+      }),
+    };
+  } else {
+    const { speakers } = props;
+
+    return {
+      title,
+      description,
+      speakers: speakers?.map((speaker) => ({
+        id: speaker.id,
+        imageSrc: speaker.imageSrc,
+        name: speaker.name,
+        talkTitle: speaker.talkTitle,
+        talkAbstract: speaker.talkAbstract,
+      })),
+    };
+  }
 };
 
 export default transformer;
