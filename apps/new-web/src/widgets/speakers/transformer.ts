@@ -53,6 +53,7 @@ const isContentfulTransformer = (props: TransformerProps): props is ContentfulTr
   return 'speakerProfiles' in props;
 };
 
+//TODO: Deberías tener un transformer por data source.
 const transformer = (props: TransformerProps): SpeakersSectionProps => {
   const { title, description } = props;
 
