@@ -85,6 +85,8 @@ export default async function Page({ params }: PageProps) {
   contentDataService = container.get<IContentData>(ContainerIdentifiers.IContentData);
   if (slugString === "agenda") {
     contentDataService = container.get<IContentData>(ContainerIdentifiers.IAgendaData);
+  } else if (slugString === "speakers") {
+    contentDataService = container.get<IContentData>(ContainerIdentifiers.ISpeakersData);
   }
 
   const [sections, modals] = await Promise.all([
