@@ -37,38 +37,40 @@ export class SpeakersDataService implements IContentData {
 
   private extractSpeakersWithTalks(scheduleData: ApiScheduleData): SpeakerWithTalk[] {
     const speakersMap = new Map<string, any>();
+    const talksMap = new Map<string, any>();
     
     scheduleData.speakers.forEach(speaker => {
       speakersMap.set(speaker.code, speaker);
     });
 
-    const speakersWithTalks: SpeakerWithTalk[] = [];
-    const processedSpeakers = new Set<string>();
-
     scheduleData.talks.forEach(talk => {
       if (talk.speakers && talk.speakers.length > 0) {
         talk.speakers.forEach(speakerCode => {
-          if (!processedSpeakers.has(speakerCode)) {
-            const speaker = speakersMap.get(speakerCode);
-            if (speaker) {
-              const talkTitle = typeof talk.title === 'string' 
-                ? talk.title 
-                : talk.title?.es || talk.title?.en || 'Sin título';
-
-              speakersWithTalks.push({
-                id: speaker.code,
-                name: speaker.name,
-                imageSrc: speaker.avatar || speaker.avatar_thumbnail_default || speaker.avatar_thumbnail_tiny || '',
-                talkTitle,
-                talkAbstract: talk.abstract
-              });
-              
-              processedSpeakers.add(speakerCode);
-            }
+          if (!talksMap.has(speakerCode)) {
+            talksMap.set(speakerCode, talk);
           }
         });
       }
     });
+
+    const speakersWithTalks: SpeakerWithTalk[] = [];
+
+    for (const [speakerCode, talk] of talksMap) {
+      const speaker = speakersMap.get(speakerCode);
+      if (speaker) {
+        const talkTitle = typeof talk.title === 'string' 
+          ? talk.title 
+          : talk.title?.es || talk.title?.en || 'Sin título';
+
+        speakersWithTalks.push({
+          id: speaker.code,
+          name: speaker.name,
+          imageSrc: speaker.avatar || speaker.avatar_thumbnail_default || speaker.avatar_thumbnail_tiny || '',
+          talkTitle,
+          talkAbstract: talk.abstract
+        });
+      }
+    }
 
     return speakersWithTalks;
   }

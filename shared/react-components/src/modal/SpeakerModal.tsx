@@ -13,15 +13,15 @@ export const SpeakerModal: React.FC<SpeakerModalProps> = ({ id, imageSrc, name, 
   return (
     <div>
       <input type="checkbox" id={id} className="peer hidden" />
-      <div className="z-50 fixed inset-0 items-center justify-center peer-checked:flex hidden">
-        <div className="w-[90%] md:max-w-4xl bg-gray-4 text-white p-6 shadow-lg rounded-2xl shadow-button-background-tertiary-hover">
+      <div className="z-50 fixed inset-0 items-center justify-center peer-checked:flex hidden bg-[#000000d4]">
+        <div className="w-[90%] md:max-w-4xl bg-gray-4 text-white p-6 shadow-lg rounded-2xl shadow-button-background-tertiary-hover ">
           <div className="flex justify-end">
             <label htmlFor={id} className="cursor-pointer">
               <CloseIcon />
             </label>
           </div>
           <div className="flex flex-col md:flex-row gap-6">
-            {/* Speaker Image */}
+
             <div className="flex-shrink-0">
               <div className="relative w-48 h-48 rounded-lg overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg mx-auto">
                 {imageSrc ? (
