@@ -52,7 +52,7 @@ const iconByName = {
   'Campaign': CampaignIcon
 };
 
-export default function AgendaSectionAsync({ talksByRoom }: AgendaSectionAsyncProps) {
+export default function PresentationAgendaSection({ talksByRoom }: AgendaSectionAsyncProps) {
   const tabLabels = Object.keys(talksByRoom);
   const [currentTabActive, setCurrentTabActive] = useState<string>(tabLabels[0] || '');
 
@@ -93,7 +93,7 @@ export default function AgendaSectionAsync({ talksByRoom }: AgendaSectionAsyncPr
                     <div className='bg-[#1F1F1F] py-4 pl-7 rounded-xl grid grid-cols-[auto_1fr] gap-2 md:gap-[80px]' key={talkIdx}>
                       <Paragraph as="span" size="lg" color="secondary">{convertISOToSimpleTime(talk.date)}</Paragraph>
 
-                      <div className="flex gap-4 items-start justify-start">
+                      <div className="flex gap-4 items-start md:items-center">
                         {talk.speakers?.length && (
                           <div className="flex gap-2 flex-col md:flex-row">
                             {talk.speakers.map((speaker, speakerIdx) => (
