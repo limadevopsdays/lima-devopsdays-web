@@ -77,9 +77,21 @@ export default async function RootLayout({
         [{ text: ctaText ?? name, href: ctaHref ?? paymentExternalLink ?? "/pago", variant: "secondary" }] : []
     )
 
-  return (
+  const isAgenda = slug.join('').includes('agenda');
+
+    return (
     <html lang="en">
       <head>
+        {isAgenda && 
+          <script
+             dangerouslySetInnerHTML={{
+               __html: `
+                 window.location.href = 'https://devopsdays.org/events/2025-lima/schedule'
+               `
+             }}
+            ></script>
+  
+        }
         {gtmId && (
           <>
             <Script
