@@ -1,0 +1,77 @@
+{
+  "name": "react-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "@dyesthetics-lab/react-component-creators": "^0.2",
+    "@dyesthetics-lab/react-tv-variants-creators": "^7",
+    "@dyesthetics-lab/react-types": "0.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-global-config": "workspace:*",
+    "tailwindcss": "^4",
+    "react-hooks": "workspace:*",
+    "react-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-onboarding": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@tailwindcss/vite": "^4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "dayjs": "^1.11.13",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-storybook": "^0.12.0",
+    "globals": "^16.0.0",
+    "storybook": "^8.6.12",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  },
+  "license": "MIT",
+  "exports": {
+    "./PanelGrid": "./src/panel-grid/index.tsx",
+    "./PanelGridRoot": "./src/panel-grid/PanelGridRoot.tsx",
+    "./PanelRow": "./src/panel-grid/PanelRow.tsx",
+    "./Panel": "./src/panel/index.tsx",
+    "./Paragraph": "./src/paragraph/index.tsx",
+    "./DevopsDaysLogoIcon": "./src/icons/DevopsDaysLogo.tsx",
+    "./Button": "./src/button/index.tsx",
+    "./Modal": "./src/modal/index.tsx",
+    "./sections/Hero": "./src/sections/Hero/index.tsx",
+    "./sections/AboutUsSection": "./src/sections/AboutUsSection/index.tsx",
+    "./sections/AgendaSection": "./src/sections/AgendaSection/index.tsx",
+    "./sections/CallForSpeakersSection": "./src/sections/CallForSpeakersSection/index.tsx",
+    "./sections/CurrentSponsorsSection": "./src/sections/CurrentSponsorsSection/index.tsx",
+    "./sections/Footer": "./src/sections/Footer/index.tsx",
+    "./sections/Header": "./src/sections/Header/index.tsx",
+    "./sections/SpeakersSection": "./src/sections/SpeakersSection/index.tsx",
+    "./sections/SponsorPricingSection": "./src/sections/SponsorPricingSection/index.tsx",
+    "./sections/Organization": "./src/sections/Organization/index.tsx",
+    "./sections/LocationSection": "./src/sections/LocationSection/index.tsx",
+    "./sections/SponsorPricingTableSection": "./src/sections/SponsorPricingTableSection/index.tsx"
+  }
+}

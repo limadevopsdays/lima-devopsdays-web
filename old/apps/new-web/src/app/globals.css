@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@source "../../node_modules/**/*.{tsx,ts,css}";
+
+@theme inline{
+  --font-default: var(--font-space-grotesk);
+}
+
+body{
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+@import "tailwind-global-config";
+
+main, footer{
+  max-width: 100vw;
+}
