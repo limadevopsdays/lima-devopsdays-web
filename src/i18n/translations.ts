@@ -174,7 +174,7 @@ const es: Record<TranslationKey, string> = {
   'hero.kicker': 'Conferencia de comunidad',
   'hero.ariaLabel': 'Hero',
   'hero.subtitle':
-    'Lima Centro de Conversiones - LCC',
+    'Lima Centro de Convenciones - LCC',
   'hero.cta.viewSchedule': 'Ver agenda',
   'hero.cta.meetSpeakers': 'Conoce a los speakers',
   'hero.cta.buyTickets': 'Comprar entradas',
@@ -232,7 +232,7 @@ const es: Record<TranslationKey, string> = {
   'schedule.speaker.organizers': 'Organizadores',
 
   'venue.eyebrow': 'Ubicación',
-  'venue.title': 'Lima Centro de Conversiones - LCC',
+  'venue.title': 'Lima Centro de Convenciones - LCC',
   'venue.lead': 'Nos vemos en Lima para dos días de charlas y comunidad.',
   'venue.card.addressLine1': 'Av. De la Arqueología 206',
   'venue.card.addressLine2': 'San Borja, Lima, Perú',
@@ -263,7 +263,7 @@ const es: Record<TranslationKey, string> = {
   'faq.listLabel': 'Preguntas frecuentes',
   'faq.q1': 'DevOpsDays Lima es presencial?',
   'faq.a1':
-    'Sí. DevOpsDays Lima 2026 se realizará en Lima, Perú, en el Lima Centro de Conversiones - LCC (Av. De la Arqueología 206, San Borja). Puedes llegar en taxi/ride share o transporte público; revisa la sección Ubicación para ver el mapa y obtener indicaciones.',
+    'Sí. DevOpsDays Lima 2026 se realizará en Lima, Perú, en el Lima Centro de Convenciones - LCC (Av. De la Arqueología 206, San Borja). Puedes llegar en taxi/ride share o transporte público; revisa la sección Ubicación para ver el mapa y obtener indicaciones.',
   'faq.q2': 'En qué idioma serán las charlas?',
   'faq.a2':
     'Las charlas serán principalmente en español. En los próximos días confirmaremos si algunas sesiones serán en inglés; la agenda indicará el idioma.',
