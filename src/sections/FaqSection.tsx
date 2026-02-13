@@ -5,6 +5,26 @@ import { useI18n } from '../i18n/useI18n'
 export function FaqSection() {
   const { t } = useI18n()
 
+  function renderAnswer(aKey: (typeof faq)[number]['aKey']) {
+    if (aKey !== 'faq.a1') return t(aKey)
+
+    const answer = t(aKey)
+    const venueName = t('venue.title')
+    const index = answer.indexOf(venueName)
+    if (index < 0) return answer
+
+    const before = answer.slice(0, index)
+    const after = answer.slice(index + venueName.length)
+
+    return (
+      <>
+        {before}
+        <strong>{venueName}</strong>
+        {after}
+      </>
+    )
+  }
+
   return (
     <Section
       id="faq"
@@ -37,7 +57,7 @@ export function FaqSection() {
                 </svg>
               </summary>
               <div id={panelId} className="faq__panel" role="region" aria-labelledby={summaryId}>
-                <p>{t(item.aKey)}</p>
+                <p>{renderAnswer(item.aKey)}</p>
               </div>
             </details>
           )
