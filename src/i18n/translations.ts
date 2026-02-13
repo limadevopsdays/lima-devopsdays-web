@@ -33,14 +33,14 @@ const en = {
   'hero.kicker': 'Community conference',
   'hero.ariaLabel': 'Hero',
   'hero.subtitle':
-    'Lima Convention Center',
+    'Lima Convention Center - LCC',
   'hero.cta.viewSchedule': 'View schedule',
   'hero.cta.meetSpeakers': 'Meet speakers',
   'hero.cta.buyTickets': 'Buy tickets',
   'hero.meta.location': 'Location: Lima, Peru',
   'hero.meta.locationLabel': 'Location',
   'hero.meta.datesLabel': 'Dates',
-  'hero.meta.dates': 'Join us on\nAug 28-29, 2026',
+  'hero.meta.dates': 'Join us on\nAug 27-28, 2026',
   'hero.metaLabel': 'Event details',
   'hero.visualLabel': 'Conference cover',
   'hero.visualAlt': 'Community photo from DevOpsDays Lima.',
@@ -91,7 +91,7 @@ const en = {
   'schedule.speaker.organizers': 'Organizers',
 
   'venue.eyebrow': 'Venue',
-  'venue.title': 'Lima Convention Center',
+  'venue.title': 'Lima Convention Center - LCC',
   'venue.lead': 'See you in Lima for two days of talks and community.',
   'venue.card.addressLine1': 'Av. De la Arqueología 206',
   'venue.card.addressLine2': 'San Borja, Lima, Peru',
@@ -122,7 +122,7 @@ const en = {
   'faq.listLabel': 'Frequently asked questions',
   'faq.q1': 'Is DevOpsDays Lima an in-person event?',
   'faq.a1':
-    'Yes. DevOpsDays Lima 2026 will be held in Lima, Peru, at the Lima Convention Center (Av. De la Arqueología 206, San Borja). You can arrive by taxi/ride share or public transportation—see the Venue section for the map and directions.',
+    'Yes. DevOpsDays Lima 2026 will be held in Lima, Peru, at the Lima Convention Center - LCC (Av. De la Arqueología 206, San Borja). You can arrive by taxi/ride share or public transportation—see the Venue section for the map and directions.',
   'faq.q2': 'What language will the talks be in?',
   'faq.a2':
     'Talks will be primarily in Spanish. In the next few days we’ll confirm whether some sessions will be in English; the schedule will specify the language.',
@@ -174,14 +174,14 @@ const es: Record<TranslationKey, string> = {
   'hero.kicker': 'Conferencia de comunidad',
   'hero.ariaLabel': 'Hero',
   'hero.subtitle':
-    'Centro de Convenciones de Lima',
+    'Lima Centro de Conversiones - LCC',
   'hero.cta.viewSchedule': 'Ver agenda',
   'hero.cta.meetSpeakers': 'Conoce a los speakers',
   'hero.cta.buyTickets': 'Comprar entradas',
   'hero.meta.location': 'Ubicación: Lima, Perú',
   'hero.meta.locationLabel': 'Ubicación',
   'hero.meta.datesLabel': 'Fechas',
-  'hero.meta.dates': 'Acompáñanos\nel 28-29 de agosto de 2026',
+  'hero.meta.dates': 'Acompáñanos\nel 27-28 de agosto de 2026',
   'hero.metaLabel': 'Detalles del evento',
   'hero.visualLabel': 'Portada de conferencia',
   'hero.visualAlt': 'Foto de la comunidad de DevOpsDays Lima.',
@@ -232,7 +232,7 @@ const es: Record<TranslationKey, string> = {
   'schedule.speaker.organizers': 'Organizadores',
 
   'venue.eyebrow': 'Ubicación',
-  'venue.title': 'Centro de Convenciones de Lima',
+  'venue.title': 'Lima Centro de Conversiones - LCC',
   'venue.lead': 'Nos vemos en Lima para dos días de charlas y comunidad.',
   'venue.card.addressLine1': 'Av. De la Arqueología 206',
   'venue.card.addressLine2': 'San Borja, Lima, Perú',
@@ -263,7 +263,7 @@ const es: Record<TranslationKey, string> = {
   'faq.listLabel': 'Preguntas frecuentes',
   'faq.q1': 'DevOpsDays Lima es presencial?',
   'faq.a1':
-    'Sí. DevOpsDays Lima 2026 se realizará en Lima, Perú, en el Centro de Convenciones de Lima (Av. De la Arqueología 206, San Borja). Puedes llegar en taxi/ride share o transporte público; revisa la sección Ubicación para ver el mapa y obtener indicaciones.',
+    'Sí. DevOpsDays Lima 2026 se realizará en Lima, Perú, en el Lima Centro de Conversiones - LCC (Av. De la Arqueología 206, San Borja). Puedes llegar en taxi/ride share o transporte público; revisa la sección Ubicación para ver el mapa y obtener indicaciones.',
   'faq.q2': 'En qué idioma serán las charlas?',
   'faq.a2':
     'Las charlas serán principalmente en español. En los próximos días confirmaremos si algunas sesiones serán en inglés; la agenda indicará el idioma.',

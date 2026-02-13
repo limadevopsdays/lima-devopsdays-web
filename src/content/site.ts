@@ -8,6 +8,6 @@ export const navItems = [
 export const ticketsUrl: string | undefined = import.meta.env.VITE_TICKETS_URL
 
 export const socialLinks = [
-  { href: 'https://www.linkedin.com', label: 'LinkedIn', icon: 'linkedin' },
-  { href: 'https://www.instagram.com', label: 'Instagram', icon: 'instagram' },
+  { href: 'https://www.linkedin.com/company/devops-days-lima/', label: 'LinkedIn', icon: 'linkedin' },
+  { href: 'https://www.instagram.com/devopsdayslima/', label: 'Instagram', icon: 'instagram' },
 ] as const

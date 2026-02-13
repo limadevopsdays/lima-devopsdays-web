@@ -531,7 +531,7 @@ textarea {
   width: min(420px, 92vw);
   background: var(--site-panel-bg);
   border-left: 1px solid var(--site-border);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -750,7 +750,7 @@ textarea {
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.32);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
 }
 
 .hero__info .hero__subtitle {
@@ -782,7 +782,7 @@ textarea {
   inset: 0;
   opacity: 0.48;
   background-image: url('/assets/hero/community.png');
-  background-image: image-set(url('/assets/hero/community.png') 1x, url('/assets/hero/community-lima.jpeg') 2x);
+  background-image: image-set(url('/assets/hero/community.png') 1x, url('/assets/hero/community.png') 2x);
   background-size: cover;
   background-position: center 50%;
   pointer-events: none;
@@ -1102,6 +1102,22 @@ textarea {
 .sponsorItem > * {
   position: relative;
   z-index: 1;
+}
+
+.sponsorItem__link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+}
+
+.sponsorItem__link:focus-visible {
+  outline: 2px solid var(--site-focus);
+  outline-offset: 2px;
 }
 
 :root[data-theme='light'] .sponsorItem {
