@@ -65,7 +65,7 @@ export function SiteHeader() {
           <div className="header__actions">
             {ticketsUrl ? (
               <div className="header__tickets">
-                <Button as="a" href={ticketsUrl} variant="primary">
+                <Button as="a" href={ticketsUrl} target="_blank" rel="noopener noreferrer" variant="primary">
                   {t('header.cta.buyTickets')}
                 </Button>
               </div>
@@ -111,7 +111,7 @@ export function SiteHeader() {
             </div>
             {ticketsUrl ? (
               <div className="mobileMenu__cta">
-                <a className="btn btn--primary" href={ticketsUrl} onClick={() => setOpen(false)}>
+                <a className="btn btn--primary" href={ticketsUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
                   {t('header.cta.buyTickets')}
                 </a>
               </div>

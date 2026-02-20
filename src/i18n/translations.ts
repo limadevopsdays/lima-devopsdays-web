@@ -151,7 +151,7 @@ const es: Record<TranslationKey, string> = {
   'header.menu': 'Menú',
   'header.close': 'Cerrar',
   'header.switchLanguage': 'Cambiar idioma',
-  'header.cta.buyTickets': 'Comprar entradas',
+  'header.cta.buyTickets': 'Adquirir tickets',
 
   'language.label': 'Idioma',
   'language.en': 'English',
@@ -177,7 +177,7 @@ const es: Record<TranslationKey, string> = {
     'Lima Centro de Convenciones - LCC',
   'hero.cta.viewSchedule': 'Ver agenda',
   'hero.cta.meetSpeakers': 'Conoce a los speakers',
-  'hero.cta.buyTickets': 'Comprar entradas',
+  'hero.cta.buyTickets': 'Adquirir tickets',
   'hero.meta.location': 'Ubicación: Lima, Perú',
   'hero.meta.locationLabel': 'Ubicación',
   'hero.meta.datesLabel': 'Fechas',
