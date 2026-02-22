@@ -1,7 +1,7 @@
 export function Logo() {
   return (
     <a
-      className="logo"
+      className="inline-flex gap-[10px] items-center no-underline shrink-0"
       href="#top"
       aria-label="DevOpsDays Lima home"
       onClick={(event) => {
@@ -12,10 +12,15 @@ export function Logo() {
     >
       <picture>
         <source srcSet="/logo.svg" type="image/svg+xml" />
-        <img className="logo__mark" src="/logo.png" alt="" />
+        <img
+          className="h-[34px] w-auto [filter:drop-shadow(0_8px_20px_rgba(var(--site-accent-rgb),0.22))]"
+          src="/logo.png"
+          alt=""
+        />
       </picture>
-      <span className="logo__text">
-        <span className="logo__name">DevOpsDays Lima</span> <span className="logo__year">2026</span>
+      <span className="font-bold tracking-[-0.01em]">
+        <span className="logo__name">{/* gradient text via @supports in CSS */}DevOpsDays Lima</span>{' '}
+        <span className="logo__year">2026</span>
       </span>
     </a>
   )

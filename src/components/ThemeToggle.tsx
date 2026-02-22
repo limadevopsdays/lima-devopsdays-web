@@ -28,6 +28,9 @@ function applyTheme(theme: Theme) {
   }
 }
 
+const TOGGLE_CLASS =
+  'w-[42px] h-[42px] rounded-full bg-site-surface border border-site-border-strong cursor-pointer inline-flex items-center justify-center text-site-icon transition-[transform,background,border-color,color,box-shadow] duration-[120ms] ease hover:text-site-text hover:border-site-border-stronger hover:shadow-[0_0_0_1px_rgba(var(--site-accent-2-rgb),0.18)] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--site-focus)]'
+
 export function ThemeToggle() {
   const { t } = useI18n()
   const [theme, setTheme] = useState<Theme>(() => getDocumentTheme())
@@ -55,7 +58,7 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      className="themeToggle"
+      className={TOGGLE_CLASS}
       aria-label={label}
       title={label}
       aria-pressed={theme === 'light'}
@@ -66,7 +69,7 @@ export function ThemeToggle() {
     >
       {nextTheme === 'light' ? (
         <svg
-          className="themeToggle__icon"
+          className="block"
           width="18"
           height="18"
           viewBox="0 0 24 24"
@@ -90,7 +93,7 @@ export function ThemeToggle() {
         </svg>
       ) : (
         <svg
-          className="themeToggle__icon"
+          className="block"
           width="18"
           height="18"
           viewBox="0 0 24 24"
