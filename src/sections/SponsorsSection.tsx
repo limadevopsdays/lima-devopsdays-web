@@ -1,5 +1,6 @@
 import { Button } from "../components/Button";
 import { Section } from "../components/Section";
+import type { TranslationKey } from "../i18n/translations";
 import { useI18n } from "../i18n/useI18n";
 
 type Sponsor = {
@@ -7,6 +8,7 @@ type Sponsor = {
   logoSrcDark?: string;
   logoSrcLight?: string;
   href?: string;
+  descKey?: TranslationKey;
 };
 
 const dynatraceLogoSrcForDarkTheme = "/assets/sponsors/dark/Dynatrace.svg";
@@ -21,6 +23,7 @@ const sponsors = [
         logoSrcDark: dynatraceLogoSrcForDarkTheme,
         logoSrcLight: dynatraceLogoSrcForLightTheme,
         href: "https://www.dynatrace.com/",
+        descKey: "sponsors.desc.dynatrace",
       },
     ] satisfies Sponsor[],
   },
@@ -202,7 +205,7 @@ export function SponsorsSection() {
                       sponsor.logoSrcDark || sponsor.logoSrcLight ? (
                         <div
                           key={sponsor.name}
-                          className="sponsorItem"
+                          className="sponsorItem sponsorItem--hasDesc"
                           role="listitem"
                         >
                           {sponsor.href ? (
@@ -257,6 +260,9 @@ export function SponsorsSection() {
                               ) : null}
                             </>
                           )}
+                          {sponsor.descKey ? (
+                            <p className="sponsorItem__desc">{t(sponsor.descKey)}</p>
+                          ) : null}
                         </div>
                       ) : (
                         <div
@@ -282,7 +288,14 @@ export function SponsorsSection() {
                       ),
                     )}
                   </div>
-                ) : null}
+                ) : (
+                  <a className="sponsorPlaceholder" href="mailto:lima@devopsdays.org">
+                    <svg className="sponsorPlaceholder__icon" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm0 16H5V5h14v14Zm-7-2h2v-4h4v-2h-4V7h-2v4H8v2h4v4Z" />
+                    </svg>
+                    <span className="sponsorPlaceholder__text">{t("sponsors.becomeSponsor", { tier: tierName })}</span>
+                  </a>
+                )}
               </div>
             );
           })}

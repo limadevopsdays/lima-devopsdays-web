@@ -52,14 +52,25 @@ export function PastEventsSection() {
 
       <div className="pastEvents__video">
         <h3 className="pastEvents__videoTitle">{t('pastEvents.videoTitle')}</h3>
-        <div className="pastEvents__embed">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title={t('pastEvents.videoTitle')}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-          />
+        <div className="pastEvents__videos">
+          <div className="pastEvents__embed">
+            <iframe
+              src="https://www.youtube.com/embed/OOYWupGVhqA?start=5"
+              title={t('pastEvents.videoTitle')}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          <div className="pastEvents__embed">
+            <iframe
+              src="https://www.youtube.com/embed/5k0J_PuuObE"
+              title={t('pastEvents.videoTitle')}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </Section>

@@ -3,7 +3,8 @@ export const navItems = [
   { href: '#sponsors', labelKey: 'nav.sponsors' },
   { href: '#speakers', labelKey: 'nav.speakers' },
   { href: '#tickets', labelKey: 'nav.tickets' },
-  { href: '#past-events', labelKey: 'nav.pastEvents' },
+  { href: '#venue', labelKey: 'nav.venue' },
+  { href: '#explore', labelKey: 'nav.explore' },
   { href: '#faq', labelKey: 'nav.faq' },
 ] as const
 

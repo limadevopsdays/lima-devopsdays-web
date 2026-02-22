@@ -3,11 +3,11 @@ import { HeroBackground } from './components/HeroBackground'
 import { SiteHeader } from './components/SiteHeader'
 import { AboutSection } from './sections/AboutSection'
 import { CodeOfConductSection } from './sections/CodeOfConductSection'
+import { ExploreSection } from './sections/ExploreSection'
 import { FaqSection } from './sections/FaqSection'
 import { HeroSection } from './sections/HeroSection'
 import { OrganizersSection } from './sections/OrganizersSection'
 import { PastEventsSection } from './sections/PastEventsSection'
-import { ScheduleSection } from './sections/ScheduleSection'
 import { SpeakersSection } from './sections/SpeakersSection'
 import { SponsorsSection } from './sections/SponsorsSection'
 import { TicketsSection } from './sections/TicketsSection'
@@ -30,12 +30,12 @@ function App() {
         <SponsorsSection />
         <SpeakersSection />
         <TicketsSection />
-        <PastEventsSection />
-        <FaqSection />
-        <ScheduleSection />
         <VenueSection />
+        <ExploreSection />
         <OrganizersSection />
+        <PastEventsSection />
         <CodeOfConductSection />
+        <FaqSection />
       </main>
       <SiteFooter />
     </div>

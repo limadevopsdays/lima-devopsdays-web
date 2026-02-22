@@ -1236,6 +1236,27 @@ textarea {
   outline-offset: 2px;
 }
 
+.sponsorItem--hasDesc {
+  flex-direction: column;
+}
+.sponsorItem__desc {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--site-text-muted);
+  text-align: center;
+  margin: 0;
+  padding: 0 12px 12px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 300ms ease, opacity 300ms ease, padding 300ms ease;
+}
+.sponsorItem--hasDesc:hover .sponsorItem__desc {
+  max-height: 80px;
+  opacity: 1;
+  padding: 8px 12px 12px;
+}
+
 :root[data-theme='light'] .sponsorItem {
   border-color: var(--site-border);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.55));
@@ -1301,6 +1322,34 @@ textarea {
   .sponsorTier__names {
     grid-template-columns: 1fr;
   }
+}
+
+.sponsorPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  border: 2px dashed var(--site-border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--site-text-muted);
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.sponsorPlaceholder:hover {
+  border-color: var(--site-accent);
+  color: var(--site-accent);
+}
+.sponsorPlaceholder__icon {
+  opacity: 0.5;
+}
+.sponsorPlaceholder:hover .sponsorPlaceholder__icon {
+  opacity: 1;
+}
+.sponsorPlaceholder__text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 .sponsorCurrent {
@@ -2385,6 +2434,17 @@ textarea {
   margin: 0 0 14px;
 }
 
+.pastEvents__videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 700px) {
+  .pastEvents__videos {
+    grid-template-columns: 1fr;
+  }
+}
+
 .pastEvents__embed {
   position: relative;
   padding-bottom: 56.25%;
@@ -2401,6 +2461,44 @@ textarea {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* ── Explore Section ── */
+
+.exploreCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 32px 24px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.exploreCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+.exploreCard__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--site-accent);
+  color: #fff;
+  margin-bottom: 16px;
+}
+.exploreCard__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+.exploreCard__desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 /* ── Code of Conduct Section ── */
