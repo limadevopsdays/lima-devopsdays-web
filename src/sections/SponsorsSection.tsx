@@ -9,9 +9,6 @@ type Sponsor = {
   href?: string;
 };
 
-// Theme mapping:
-// - Dark theme should use the "dark" asset
-// - Light theme should use the "light" asset
 const dynatraceLogoSrcForDarkTheme = "/assets/sponsors/dark/Dynatrace.svg";
 const dynatraceLogoSrcForLightTheme = "/assets/sponsors/light/Dynatrace.svg";
 const sponsors = [
@@ -44,6 +41,13 @@ const sponsors = [
   },
 ] as const;
 
+const tierPricing = [
+  { key: "platinum", passes: "12", stand: "5m\u00d73m", highlight: true },
+  { key: "gold", passes: "8", stand: "3m\u00d72m", highlight: false },
+  { key: "silver", passes: "4", stand: "1m\u00d71m", highlight: false },
+  { key: "bronze", passes: "2", stand: "\u2014", highlight: false },
+] as const;
+
 export function SponsorsSection() {
   const { t } = useI18n();
 
@@ -54,6 +58,120 @@ export function SponsorsSection() {
       title={t("sponsors.title")}
       lead={t("sponsors.lead")}
     >
+      {/* Sponsorship tiers with pricing */}
+      <div className="sponsorPricing">
+        <h3 className="sponsorPricing__title">{t("sponsors.wantTitle")}</h3>
+        <p className="sponsorPricing__discount">{t("sponsors.discount")}</p>
+        <div className="grid grid--4">
+          {tierPricing.map(({ key, passes, stand, highlight }) => (
+            <div key={key} className={`card sponsorPricing__card${highlight ? " sponsorPricing__card--highlight" : ""}`}>
+              <h4 className="sponsorPricing__tierName">{t(`sponsors.tier.${key}`)}</h4>
+              <div className="sponsorPricing__price">
+                <span className="sponsorPricing__discountPrice">{t(`sponsors.tier.${key}.discountPrice`)}</span>
+                <span className="sponsorPricing__regularPrice">{t(`sponsors.tier.${key}.price`)}</span>
+              </div>
+              <p className="sponsorPricing__note muted">{t("sponsors.priceNote")}</p>
+              <ul className="sponsorPricing__benefits">
+                <li>{t("sponsors.passes", { count: passes })}</li>
+                {stand !== "\u2014" ? <li>{t("sponsors.stand", { size: stand })}</li> : null}
+                <li>{t("sponsors.benefit.logoEvent")}</li>
+                <li>{t("sponsors.benefit.logoMedia")}</li>
+                <li>{t("sponsors.benefit.nfc")}</li>
+              </ul>
+              <p className="sponsorPricing__summary muted">{t(`sponsors.tierBenefits.${key}`)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="card sponsorCta">
+        <p className="muted" style={{ margin: 0 }}>
+          {t("sponsors.wantBody")}
+        </p>
+        <div className="sponsorCta__actions">
+          <div
+            className="sponsorCta__brochures"
+            aria-label={t("sponsors.brochureLabel")}
+          >
+            <Button
+              as="a"
+              href="/assets/pdf/sponsors-es-devopsdayslima-2026.pdf"
+              target="_blank"
+              rel="noreferrer noopener"
+              variant="ghost"
+              ariaLabel={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
+              title={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z"
+                />
+              </svg>
+              {t("sponsors.brochure.es")}
+            </Button>
+            <Button
+              as="a"
+              href="/assets/pdf/sponsors-en-devopsdayslima-2026.pdf"
+              target="_blank"
+              rel="noreferrer noopener"
+              variant="ghost"
+              ariaLabel={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
+              title={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z"
+                />
+              </svg>
+              {t("sponsors.brochure.en")}
+            </Button>
+          </div>
+          <div className="sponsorCta__contact">
+            <Button
+              as="a"
+              href="mailto:lima@devopsdays.org"
+              variant="primary"
+              ariaLabel={t("sponsors.contact")}
+              title={t("sponsors.contact")}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M20 4H4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-1.25 2L12 10.73L5.25 6h13.5ZM4 18a1 1 0 0 1-1-1V7.87l8.43 5.9a1 1 0 0 0 1.14 0L21 7.87V17a1 1 0 0 1-1 1H4Z"
+                />
+              </svg>
+              {t("sponsors.contact")}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Current sponsors */}
+      <div className="sponsorCurrent">
+        <h3 className="sponsorCurrent__title">{t("sponsors.currentTitle")}</h3>
+        <p className="sponsorCurrent__desc muted">{t("sponsors.currentDesc")}</p>
+      </div>
       <div className="card sponsorBox">
         <div
           className="sponsorBox__tiers"
@@ -168,98 +286,6 @@ export function SponsorsSection() {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      <div className="card sponsorCta">
-        <h3
-          style={{
-            margin: 0,
-            fontSize: 16,
-            fontWeight: 650,
-            letterSpacing: "-0.01em",
-          }}
-        >
-          {t("sponsors.wantTitle")}
-        </h3>
-        <p className="muted" style={{ margin: 0 }}>
-          {t("sponsors.wantBody")}
-        </p>
-        <div className="sponsorCta__actions">
-          <div
-            className="sponsorCta__brochures"
-            aria-label={t("sponsors.brochureLabel")}
-          >
-            <Button
-              as="a"
-              href="/assets/pdf/sponsors-es-devopsdayslima-2026.pdf"
-              target="_blank"
-              rel="noreferrer noopener"
-              variant="ghost"
-              ariaLabel={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
-              title={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill="currentColor"
-                  d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z"
-                />
-              </svg>
-              {t("sponsors.brochure.es")}
-            </Button>
-            <Button
-              as="a"
-              href="/assets/pdf/sponsors-en-devopsdayslima-2026.pdf"
-              target="_blank"
-              rel="noreferrer noopener"
-              variant="ghost"
-              ariaLabel={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
-              title={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill="currentColor"
-                  d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z"
-                />
-              </svg>
-              {t("sponsors.brochure.en")}
-            </Button>
-          </div>
-          <div className="sponsorCta__contact">
-            <Button
-              as="a"
-              href="mailto:sponsors@devopsdays.pe"
-              variant="primary"
-              ariaLabel={t("sponsors.contact")}
-              title={t("sponsors.contact")}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill="currentColor"
-                  d="M20 4H4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-1.25 2L12 10.73L5.25 6h13.5ZM4 18a1 1 0 0 1-1-1V7.87l8.43 5.9a1 1 0 0 0 1.14 0L21 7.87V17a1 1 0 0 1-1 1H4Z"
-                />
-              </svg>
-              {t("sponsors.contact")}
-            </Button>
-          </div>
         </div>
       </div>
     </Section>

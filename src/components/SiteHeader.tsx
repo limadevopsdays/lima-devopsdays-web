@@ -26,6 +26,8 @@ export function SiteHeader() {
   const { t } = useI18n()
   const items = useMemo(() => navItems, [])
 
+  const ticketsHref = ticketsUrl || '#tickets'
+
   useEffect(() => {
     let ticking = false
 
@@ -63,13 +65,11 @@ export function SiteHeader() {
           </nav>
 
           <div className="header__actions">
-            {ticketsUrl ? (
-              <div className="header__tickets">
-                <Button as="a" href={ticketsUrl} variant="primary">
-                  {t('header.cta.buyTickets')}
-                </Button>
-              </div>
-            ) : null}
+            <div className="header__tickets">
+              <Button as="a" href={ticketsHref} variant="primary">
+                {t('header.cta.buyTickets')}
+              </Button>
+            </div>
             <ThemeToggle />
             <LanguageToggle />
             <button
@@ -109,13 +109,11 @@ export function SiteHeader() {
                 </a>
               ))}
             </div>
-            {ticketsUrl ? (
-              <div className="mobileMenu__cta">
-                <a className="btn btn--primary" href={ticketsUrl} onClick={() => setOpen(false)}>
-                  {t('header.cta.buyTickets')}
-                </a>
-              </div>
-            ) : null}
+            <div className="mobileMenu__cta">
+              <a className="btn btn--primary" href={ticketsHref} onClick={() => setOpen(false)}>
+                {t('header.cta.buyTickets')}
+              </a>
+            </div>
           </div>
         </div>
       ) : null}

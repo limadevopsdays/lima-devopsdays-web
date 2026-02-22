@@ -6,6 +6,8 @@ import { useI18n } from '../i18n/useI18n'
 export function HeroSection() {
   const { t } = useI18n()
 
+  const ticketsHref = ticketsUrl || '#tickets'
+
   return (
     <section className="hero" aria-label={t('hero.ariaLabel')}>
       <div className="hero__stage">
@@ -20,26 +22,29 @@ export function HeroSection() {
                 </h1>
               </div>
 
-              <div className="hero__info">
-                <div className="hero__meta hero__meta--below" aria-label={t('hero.metaLabel')}>
-                  <dl className="hero__metaText">
-                    <dt className="hero__metaLabel">{t('hero.meta.datesLabel')}</dt>
-                    <dd className="hero__metaValue">{t('hero.meta.dates')}</dd>
-                  </dl>
+              <div className="hero__bottom">
+                <div className="hero__info">
+                  <div className="hero__infoRow">
+                    <div className="hero__meta hero__meta--below" aria-label={t('hero.metaLabel')}>
+                      <dl className="hero__metaText">
+                        <dt className="hero__metaLabel">{t('hero.meta.datesLabel')}</dt>
+                        <dd className="hero__metaValue">{t('hero.meta.dates')}</dd>
+                      </dl>
+                    </div>
+                    <div className="hero__subtitle">
+                      <div className="hero__metaLabel">{t('hero.meta.locationLabel')}</div>
+                      <div className="hero__locationValue">{t('hero.subtitle')}</div>
+                    </div>
+                  </div>
+                  <p className="hero__tagline">{t('hero.tagline')}</p>
                 </div>
-                <div className="hero__subtitle">
-                  <div className="hero__metaLabel">{t('hero.meta.locationLabel')}</div>
-                  <div className="hero__locationValue">{t('hero.subtitle')}</div>
-                </div>
-              </div>
 
-              {ticketsUrl ? (
                 <div className="hero__tickets">
-                  <Button as="a" href={ticketsUrl} variant="primary">
+                  <Button as="a" href={ticketsHref} variant="primary">
                     {t('hero.cta.buyTickets')}
                   </Button>
                 </div>
-              ) : null}
+              </div>
             </div>
           </Container>
         </div>
