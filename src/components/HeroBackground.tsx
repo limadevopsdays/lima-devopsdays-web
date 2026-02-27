@@ -221,8 +221,12 @@ export function HeroBackground({ height = '100vh' }: { height?: number | string 
   }, [])
 
   return (
-    <div className="heroSparks" aria-hidden="true" style={{ height }}>
-      <canvas ref={canvasRef} className="heroSparks__canvas" />
+    <div
+      className="absolute inset-x-0 top-0 z-[-1] pointer-events-none overflow-hidden mix-blend-screen opacity-[0.95] [:root[data-theme=light]_&]:mix-blend-multiply [:root[data-theme=light]_&]:opacity-[0.85] [:root[data-theme=light]_&]:[filter:saturate(1.15)_contrast(1.05)]"
+      aria-hidden="true"
+      style={{ height }}
+    >
+      <canvas ref={canvasRef} className="w-full h-full block" />
     </div>
   )
 }
