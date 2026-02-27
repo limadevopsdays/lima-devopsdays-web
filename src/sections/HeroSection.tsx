@@ -33,13 +33,11 @@ export function HeroSection() {
                 </div>
               </div>
 
-              {ticketsUrl ? (
-                <div className="hero__tickets">
-                  <Button as="a" href={ticketsUrl} variant="primary">
-                    {t('hero.cta.buyTickets')}
-                  </Button>
-                </div>
-              ) : null}
+              <div className="hero__tickets">
+                <Button as="a" href={ticketsUrl} target="_blank" rel="noopener noreferrer" variant="primary">
+                  {t('hero.cta.buyTickets')}
+                </Button>
+              </div>
             </div>
           </Container>
         </div>
