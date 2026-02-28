@@ -1,13 +1,22 @@
+import { useLocation, useNavigate } from 'react-router-dom'
+
 export function Logo() {
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+
   return (
     <a
       className="logo"
-      href="#top"
+      href="/"
       aria-label="DevOpsDays Lima home"
       onClick={(event) => {
         event.preventDefault()
-        const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
-        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
+        if (pathname === '/') {
+          const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+          window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
+        } else {
+          navigate('/')
+        }
       }}
     >
       <picture>
