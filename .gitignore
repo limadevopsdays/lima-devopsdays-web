@@ -3,3 +3,5 @@ out
 storybook-static
 dist
 .DS_Store*
+package-lock.json
+.claude
