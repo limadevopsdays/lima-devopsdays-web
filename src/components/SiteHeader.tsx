@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { navItems, ticketsUrl } from '../content/site'
 import { Button } from './Button'
 import { Container } from './Container'
@@ -6,6 +7,48 @@ import { LanguageToggle } from './LanguageToggle'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 import { useI18n } from '../i18n/useI18n'
+
+function NavAnchor({
+  href,
+  className,
+  children,
+  onClick,
+}: {
+  href: string
+  className: string
+  children: React.ReactNode
+  onClick?: () => void
+}) {
+  const navigate = useNavigate()
+
+  if (!href.startsWith('/#')) {
+    return (
+      <Link to={href} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    )
+  }
+
+  const id = href.slice(2) // '/#speakers' → 'speakers'
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+      window.history.pushState(null, '', href)
+    } else {
+      navigate({ pathname: '/', hash: `#${id}` })
+    }
+    onClick?.()
+  }
+
+  return (
+    <a href={href} className={className} onClick={handleClick}>
+      {children}
+    </a>
+  )
+}
 
 function useLockBodyScroll(locked: boolean) {
   useEffect(() => {
@@ -56,9 +99,9 @@ export function SiteHeader() {
 
           <nav className="nav" aria-label={t('header.primaryNav')}>
             {items.map((item) => (
-              <a key={item.href} className="nav__link" href={item.href}>
+              <NavAnchor key={item.href} href={item.href} className="nav__link">
                 {t(item.labelKey)}
-              </a>
+              </NavAnchor>
             ))}
           </nav>
 
@@ -99,14 +142,14 @@ export function SiteHeader() {
             </div>
             <div className="mobileMenu__links">
               {items.map((item) => (
-                <a
+                <NavAnchor
                   key={item.href}
-                  className="mobileMenu__link"
                   href={item.href}
+                  className="mobileMenu__link"
                   onClick={() => setOpen(false)}
                 >
                   {t(item.labelKey)}
-                </a>
+                </NavAnchor>
               ))}
             </div>
             {ticketsUrl ? (
