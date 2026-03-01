@@ -1,3 +1,4 @@
+import { FiChevronDown } from 'react-icons/fi'
 import { Section } from '../components/Section'
 import { faq } from '../content/faq'
 import { useI18n } from '../i18n/useI18n'
@@ -42,19 +43,7 @@ export function FaqSection() {
             <details key={item.qKey} role="listitem">
               <summary id={summaryId} aria-controls={panelId}>
                 <span>{t(item.qKey)}</span>
-                <svg
-                  className="faq__icon"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M12 15.5a1 1 0 0 1-.7-.3l-6-6a1 1 0 1 1 1.4-1.4l5.3 5.3 5.3-5.3a1 1 0 1 1 1.4 1.4l-6 6a1 1 0 0 1-.7.3Z"
-                  />
-                </svg>
+                <FiChevronDown className="faq__icon" aria-hidden="true" />
               </summary>
               <div id={panelId} className="faq__panel" role="region" aria-labelledby={summaryId}>
                 <p>{renderAnswer(item.aKey)}</p>
