@@ -153,9 +153,13 @@ export function SpeakersSection() {
       <Section id="speakers" eyebrow={s.cfpEyebrow} title={s.cfpTitle}>
         {cfpOpen && <CfpCard />}
       </Section>
-      <Section id="speakers-list" eyebrow={s.eyebrow} title={s.title}>
-        {speakersVisible && <SpeakersPreview />}
-      </Section>
+      {
+        speakersVisible && (
+          <Section id="speakers-list" eyebrow={s.eyebrow} title={s.title}>
+            <SpeakersPreview />
+          </Section>
+        )
+      }
     </>
   )
 }
