@@ -1050,12 +1050,38 @@ textarea {
   color: rgba(0, 0, 0, 0.82);
 }
 
+.sponsorBox__empty {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.sponsorBox__emptyText {
+  font-size: 16px;
+  color: var(--site-text-secondary);
+  font-style: italic;
+}
+
+:root[data-theme='light'] .sponsorBox__emptyText {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .sponsorTier__names {
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(4, minmax(175px, 1fr));
   gap: 10px;
   align-items: center;
+}
+
+.sponsorTier__empty {
+  margin-top: 10px;
+  color: var(--site-text-secondary);
+  font-style: italic;
+  font-size: 14px;
+}
+
+:root[data-theme='light'] .sponsorTier__empty {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .sponsorItem {
@@ -1186,66 +1212,6 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
-
-.sponsorBox {
-  display: grid;
-  gap: 18px;
-}
-
-.sponsorBox__tiers {
-  display: grid;
-}
-
-.sponsorBox__tier {
-  padding: 14px 0;
-  border-top-width: 1px;
-  border-top-style: dashed;
-  border-top-color: var(--site-border-subtle);
-}
-
-.sponsorBox__tier + .sponsorBox__tier {
-  padding-top: 28px;
-}
-
-:root[data-theme='light'] .sponsorBox__tier {
-  border-top-color: var(--site-border);
-}
-
-.sponsorBox__tier:first-child {
-  padding-top: 0;
-  border-top: 0;
-}
-
-.sponsorBox__tier:last-child {
-  padding-bottom: 0;
-}
-
-.sponsorBox__footer {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 8px;
-  border-top: 1px dashed var(--site-border-subtle);
-}
-
-:root[data-theme='light'] .sponsorBox__footer {
-  border-top-color: var(--site-border);
-}
-
-.sponsorBox__detailsLink {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--site-accent);
-  text-decoration: none;
-}
-
-.sponsorBox__detailsLink:hover {
-  text-decoration: underline;
-}
-
-#sponsors .sponsorBox {
-  transition: none;
-}
-
 #sponsors .card::after {
   content: none;
 }
@@ -1314,15 +1280,7 @@ textarea {
   outline-offset: 2px;
 }
 
-#sponsors .sponsorBox:hover {
-  transform: none;
-  border-color: rgba(255, 255, 255, 0.09);
-  box-shadow: none;
-}
 
-:root[data-theme='light'] #sponsors .sponsorBox:hover {
-  border-color: rgba(0, 0, 0, 0.1);
-}
 
 .hero__visual {
   border-radius: calc(var(--site-radius) + 6px);
@@ -2914,7 +2872,8 @@ textarea {
 .sponsorStack {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
+  margin-top: 72px;
 }
 
 /* ─── Sponsor: Why sponsor ─────────────────────────────────────────────────── */
@@ -3348,7 +3307,27 @@ textarea {
 .sponsorCtaLayout {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 32px;
+}
+
+/* ─── SponsorsCta: tier section ────────────────────────────────────────────── */
+
+.sponsorCtaTier {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sponsorCtaTier__label {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--site-text-secondary);
+}
+
+:root[data-theme='light'] .sponsorCtaTier__label {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /* ─── SponsorsCta: logo marquee ─────────────────────────────────────────────── */
