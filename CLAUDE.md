@@ -33,6 +33,7 @@ React 19 + TypeScript + Vite app with React Router v6.
 | Path | Component | Source |
 |---|---|---|
 | `/` | `HomePage` | `src/pages/HomePage.tsx` |
+| `/speakers` | `SpeakersPage` | `src/pages/SpeakersPage.tsx` |
 | `/sponsors` | `SponsorsSection` | `src/pages/SponsorsPage.tsx` |
 
 **GitHub Pages SPA routing:** `public/404.html` encodes the path into the query string on 404; `index.html` has a receiver script that restores it via `history.replaceState` before React hydrates.
@@ -49,24 +50,52 @@ React 19 + TypeScript + Vite app with React Router v6.
 
 Each section uses the `Section` component (`src/components/Section.tsx`) which provides a consistent `<section id="...">` wrapper with eyebrow/title/lead header pattern and a `Container` for max-width layout.
 
+**`SpeakersSection`** (home, `src/sections/SpeakersSection.tsx`) is a compact teaser linking to `/speakers`. Both flags are independent and can be combined:
+- `cfpOpen = true` → shows a centered CFP card (mic icon, tagline, CTA linking to `/speakers#become-speaker`).
+- `speakersVisible = true` → shows a 3-speaker horizontal scroll preview with "View all →" link.
+- Both false → shows a coming-soon note.
+
+**`SpeakersPage`** (`/speakers`, `src/pages/SpeakersPage.tsx`) has two sections:
+1. Speaker grid — enriched cards (portrait photo, format badge, country flag, LinkedIn button, talk topic). Shows coming-soon note when `speakersVisible = false`.
+2. Call for Speakers section (`#become-speaker`) — full CFP detail (lead text, topics 2-col list, CTA). Only rendered when `cfpOpen = true`.
+
+To control visibility: edit `cfpOpen` and `speakersVisible` in `src/content/speakers.ts`. Populate `speakers[]` with real data before setting `speakersVisible = true`.
+
 ### Internationalization
 
 Custom i18n with two locales: `en` and `es`. All strings live in `src/i18n/translations.ts` as flat key/value maps. The `t(key, params?)` function supports `{placeholder}` interpolation.
 
 - `I18nProvider` (`src/i18n/I18nProvider.tsx`) — manages locale state, persists to `localStorage`, and sets `document.documentElement.lang`. Auto-detects Spanish via `navigator.language`.
-- `useI18n()` hook (`src/i18n/useI18n.ts`) — used in every component that needs translated strings.
+- `useI18n()` hook (`src/i18n/useI18n.ts`) — **only called inside content hooks** (see Content Rules below), never directly in UI components.
 - `TranslationKey` type is derived from the `en` object, so TypeScript enforces that every key exists in both locales.
 
 To add a new string: add the key/value to both `en` and `es` objects in `translations.ts`.
+
+### Content Rules — **MUST follow at all times**
+
+These rules govern the boundary between data, i18n, and UI:
+
+1. **All static text lives in `translations.ts`.**
+   Every visible string — labels, headings, body copy, button text, ARIA labels — must have a key in both `en` and `es`. No hardcoded strings in components.
+
+2. **Each content domain exposes a `use*Strings()` hook in its `src/content/*.ts` file.**
+   The hook calls `useI18n()` internally and returns a plain object of already-translated strings. Keys are organised by semantic group (section, cfp, topics, formats, cta…). Example: `useSpeakerStrings()` in `src/content/speakers.ts`.
+
+3. **UI components must never import `useI18n` or `TranslationKey` directly.**
+   Components consume strings only through the domain hook (`useSpeakerStrings`, etc.). Translation key strings (e.g. `'speakers.cfpTitle'`) must not appear anywhere inside `src/sections/` or `src/pages/`.
 
 ### Content Data
 
 Static data for dynamic sections lives in `src/content/`:
 
-- `speakers.ts` — `Speaker[]` with name, role, topic, imageSrc
+- `speakers.ts` — `Speaker[]` with name, role, topic, imageSrc, linkedin, country, format; also exports:
+  - `cfpOpen` (bool) — controls visibility of the CFP invitation card
+  - `speakersVisible` (bool) — controls visibility of the speaker list (independent of `cfpOpen`)
+  - `speakerTopics` (`SpeakerTopic[]`) — array of `{ key: TranslationKey; icon: string }` (internal use only)
+  - `useSpeakerStrings()` — **domain hook** returning all translated strings for the speakers domain; the only way UI components should access speaker-related copy
 - `organizers.ts` — `Organizer[]` with name, bio, employer, and optional social links
 - `faq.ts` — `FaqItem[]` referencing translation keys (questions/answers live in `translations.ts`)
-- `site.ts` — nav items, `ticketsUrl` (from env), social links, `sponsorContactEmail`, `sponsorBrochures`
+- `site.ts` — nav items, `ticketsUrl` (from `VITE_TICKETS_URL`), `registrationUrl` (from `VITE_REGISTRATION_URL`), social links, `sponsorContactEmail`, `sponsorBrochures`
 - `sponsors.ts` — all sponsor-related data in one file:
   - `sponsorTiers` — tier definitions (`platinum | gold | silver | bronze`) with `id`, `featured`, `labelKey`
   - `TIERS` — derived array of tier IDs, used to iterate columns in the comparison table

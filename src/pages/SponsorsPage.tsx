@@ -1,6 +1,7 @@
 import { Button } from "../components/Button";
 import { Section } from "../components/Section";
 import { useI18n } from "../i18n/useI18n";
+import { FiMail, FiFileText } from 'react-icons/fi';
 import type { TranslationKey } from "../i18n/translations";
 import {
   sponsorTiers,
@@ -31,9 +32,7 @@ function SponsorBecomeCta() {
             ariaLabel={t("sponsors.become.cta")}
             title={t("sponsors.become.cta")}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M20 4H4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-1.25 2L12 10.73L5.25 6h13.5ZM4 18a1 1 0 0 1-1-1V7.87l8.43 5.9a1 1 0 0 0 1.14 0L21 7.87V17a1 1 0 0 1-1 1H4Z" />
-            </svg>
+            <FiMail size={18} aria-hidden="true" />
             {t("sponsors.become.cta")}
           </Button>
           <div className="sponsorHero__brochures" aria-label={t("sponsors.brochureLabel")}>
@@ -46,9 +45,7 @@ function SponsorBecomeCta() {
               ariaLabel={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
               title={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z" />
-              </svg>
+              <FiFileText size={18} aria-hidden="true" />
               {t("sponsors.brochure.es")}
             </Button>
             <Button
@@ -60,9 +57,7 @@ function SponsorBecomeCta() {
               ariaLabel={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
               title={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z" />
-              </svg>
+              <FiFileText size={18} aria-hidden="true" />
               {t("sponsors.brochure.en")}
             </Button>
           </div>
