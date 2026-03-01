@@ -68,7 +68,6 @@ function SpeakersFull() {
 
 function RegistrationCard() {
   const s = useSpeakerStrings()
-  if (!registrationUrl) return null
   const isExternal = /^https?:\/\//.test(registrationUrl) || registrationUrl.startsWith('//')
   return (
     <div className="registrationCard">
