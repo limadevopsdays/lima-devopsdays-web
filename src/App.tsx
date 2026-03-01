@@ -6,6 +6,7 @@ import { SiteHeader } from './components/SiteHeader'
 import { useI18n } from './i18n/useI18n'
 import { HomePage } from './pages/HomePage'
 import { SponsorsSection } from './pages/SponsorsPage'
+import { SpeakersPage } from './pages/SpeakersPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -27,6 +28,7 @@ function App() {
       <main id="content" className="main" tabIndex={-1}>
         <Routes>
           <Route index element={<HomePage />} />
+          <Route path="speakers" element={<SpeakersPage />} />
           <Route path="sponsors" element={<SponsorsSection />} />
         </Routes>
       </main>
