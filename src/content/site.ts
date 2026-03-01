@@ -7,6 +7,12 @@ export const navItems = [
 
 export const ticketsUrl: string | undefined = import.meta.env.VITE_TICKETS_URL
 
+/**
+ * Registration form URL for the CfP. Can be an internal path (/apply) or
+ * an external URL (https://…). When set, the CTA button appears in the CFP card.
+ */
+export const registrationUrl = "https://docs.google.com/forms"
+
 export const socialLinks = [
   { href: 'https://www.linkedin.com/company/devops-days-lima/', label: 'LinkedIn', icon: 'linkedin' },
   { href: 'https://www.instagram.com/devopsdayslima/', label: 'Instagram', icon: 'instagram' },
