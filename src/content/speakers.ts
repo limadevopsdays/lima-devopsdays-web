@@ -15,7 +15,7 @@ export type Speaker = {
 export const cfpOpen = true
 
 /** Controls the speaker list. Set to true once speakers are confirmed and ready to show. */
-export const speakersVisible = true
+export const speakersVisible = false
 
 export type SpeakerTopic = {
   key: TranslationKey
