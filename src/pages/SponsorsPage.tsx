@@ -8,7 +8,6 @@ import {
   sponsorBenefits,
   sponsorFootnotes,
   type TierValue,
-  sponsors,
   sponsorStats,
 } from "../content/sponsors";
 import { sponsorContactEmail, sponsorBrochures } from "../content/site";
