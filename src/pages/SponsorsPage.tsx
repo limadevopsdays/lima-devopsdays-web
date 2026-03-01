@@ -1,17 +1,17 @@
 import { Button } from "../components/Button";
 import { Section } from "../components/Section";
 import { useI18n } from "../i18n/useI18n";
+import { FiMail, FiFileText } from 'react-icons/fi';
 import type { TranslationKey } from "../i18n/translations";
 import {
   sponsorTiers,
   sponsorBenefits,
   sponsorFootnotes,
-  TIERS,
   type TierValue,
-  sponsors,
   sponsorStats,
 } from "../content/sponsors";
 import { sponsorContactEmail, sponsorBrochures } from "../content/site";
+import { CurrentSponsorsGrid } from "../sections/CurrentSponsorsSection";
 
 function SponsorBecomeCta() {
   const { t } = useI18n();
@@ -31,9 +31,7 @@ function SponsorBecomeCta() {
             ariaLabel={t("sponsors.become.cta")}
             title={t("sponsors.become.cta")}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M20 4H4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-1.25 2L12 10.73L5.25 6h13.5ZM4 18a1 1 0 0 1-1-1V7.87l8.43 5.9a1 1 0 0 0 1.14 0L21 7.87V17a1 1 0 0 1-1 1H4Z" />
-            </svg>
+            <FiMail size={18} aria-hidden="true" />
             {t("sponsors.become.cta")}
           </Button>
           <div className="sponsorHero__brochures" aria-label={t("sponsors.brochureLabel")}>
@@ -46,9 +44,7 @@ function SponsorBecomeCta() {
               ariaLabel={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
               title={`${t("sponsors.brochure.es")} (${t("common.opensNewTab")})`}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z" />
-              </svg>
+              <FiFileText size={18} aria-hidden="true" />
               {t("sponsors.brochure.es")}
             </Button>
             <Button
@@ -60,9 +56,7 @@ function SponsorBecomeCta() {
               ariaLabel={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
               title={`${t("sponsors.brochure.en")} (${t("common.opensNewTab")})`}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z" />
-              </svg>
+              <FiFileText size={18} aria-hidden="true" />
               {t("sponsors.brochure.en")}
             </Button>
           </div>
@@ -88,6 +82,12 @@ export function SponsorsSection() {
       title={t("sponsors.title")}
       lead={t("sponsors.lead")}
     >
+
+        {/* Current sponsors */}
+        <div className="card">
+          <CurrentSponsorsGrid />
+        </div>
+
       <div className="sponsorStack">
         {/* Become a sponsor CTA — top */}
         <SponsorBecomeCta />
@@ -134,7 +134,7 @@ export function SponsorsSection() {
                       scope="col"
                       className={`sponsorTable__colTier${tier.featured ? " sponsorTable__colTier--featured" : ""}`}
                     >
-                      <span className="sponsorTable__tierName">{t(tier.labelKey as TranslationKey)}</span>
+                      <span className="sponsorTable__tierName">{tier.label}</span>
                     </th>
                   ))}
                 </tr>
@@ -153,7 +153,7 @@ export function SponsorsSection() {
                         <span className="sponsorTable__benefitSubtitle">{benefit.subtitle}</span>
                       )}
                     </td>
-                    {TIERS.map((tierId) => (
+                    {sponsorTiers.map((tier) => tier.id).map((tierId) => (
                       <td
                         key={tierId}
                         className={`sponsorTable__valueCell${tierId === "platinum" ? " sponsorTable__valueCell--featured" : ""}`}
@@ -178,90 +178,7 @@ export function SponsorsSection() {
           )}
         </div>
 
-        {/* Current sponsors */}
-        <div className="card sponsorBox">
-          <div
-            className="sponsorBox__tiers"
-            role="list"
-            aria-label={t("sponsors.tiersLabel")}
-          >
-            {sponsors.map((group) => {
-              const tierDef = sponsorTiers.find((tier) => tier.id === group.tier)!;
-              const tierName = t(tierDef.labelKey as TranslationKey);
-              const headingId = `sponsors-tier-${group.tier}`;
 
-              return (
-                <div
-                  key={group.tier}
-                  className="sponsorBox__tier"
-                  role="listitem"
-                  aria-labelledby={headingId}
-                >
-                  <h3 id={headingId} className="sponsorTier__label">
-                    {tierName}
-                  </h3>
-                  {group.items.length > 0 ? (
-                    <div
-                      className="sponsorTier__names"
-                      role="list"
-                      aria-label={t("sponsors.logosLabel", { tier: tierName })}
-                    >
-                      {group.items.map((sponsor) =>
-                        sponsor.logoSrcDark || sponsor.logoSrcLight ? (
-                          <div key={sponsor.name} className="sponsorItem" role="listitem">
-                            {sponsor.href ? (
-                              <a
-                                className="sponsorItem__link"
-                                href={sponsor.href}
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                aria-label={`${sponsor.name} (${t("common.opensNewTab")})`}
-                                title={`${sponsor.name} (${t("common.opensNewTab")})`}
-                              >
-                                {sponsor.logoSrcDark ? (
-                                  <img src={sponsor.logoSrcDark} alt={sponsor.name} loading="lazy" decoding="async" className="sponsorItem__img sponsorItem__img--dark" />
-                                ) : null}
-                                {sponsor.logoSrcLight ? (
-                                  <img src={sponsor.logoSrcLight} alt={sponsor.logoSrcDark ? "" : sponsor.name} aria-hidden={Boolean(sponsor.logoSrcDark)} loading="lazy" decoding="async" className="sponsorItem__img sponsorItem__img--light" />
-                                ) : null}
-                              </a>
-                            ) : (
-                              <>
-                                {sponsor.logoSrcDark ? (
-                                  <img src={sponsor.logoSrcDark} alt={sponsor.name} loading="lazy" decoding="async" className="sponsorItem__img sponsorItem__img--dark" />
-                                ) : null}
-                                {sponsor.logoSrcLight ? (
-                                  <img src={sponsor.logoSrcLight} alt={sponsor.logoSrcDark ? "" : sponsor.name} aria-hidden={Boolean(sponsor.logoSrcDark)} loading="lazy" decoding="async" className="sponsorItem__img sponsorItem__img--light" />
-                                ) : null}
-                              </>
-                            )}
-                          </div>
-                        ) : (
-                          <div key={sponsor.name} className="sponsorItem" role="listitem">
-                            {sponsor.href ? (
-                              <a
-                                className="sponsorItem__link"
-                                href={sponsor.href}
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                aria-label={`${sponsor.name} (${t("common.opensNewTab")})`}
-                                title={`${sponsor.name} (${t("common.opensNewTab")})`}
-                              >
-                                <span className="pill">{sponsor.name}</span>
-                              </a>
-                            ) : (
-                              <span className="pill">{sponsor.name}</span>
-                            )}
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
     </Section>
   );

@@ -3,13 +3,11 @@
 export type TierValue = true | false | string
 
 export const sponsorTiers = [
-  { id: 'platinum' as const, featured: true, labelKey: 'sponsors.tier.platinum' },
-  { id: 'gold' as const, labelKey: 'sponsors.tier.gold' },
-  { id: 'silver' as const, labelKey: 'sponsors.tier.silver' },
-  { id: 'bronze' as const, labelKey: 'sponsors.tier.bronze' },
+  { id: 'platinum' as const, featured: true, label: 'Platinum' },
+  { id: 'gold' as const, label: 'Gold' },
+  { id: 'silver' as const, label: 'Silver' },
+  { id: 'bronze' as const, label: 'Bronze' },
 ]
-
-export const TIERS = sponsorTiers.map((tier) => tier.id)
 
 // ─── Benefits comparison table ────────────────────────────────────────────────
 
