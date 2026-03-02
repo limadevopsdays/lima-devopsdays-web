@@ -113,6 +113,24 @@ Dark/light theme is toggled via `ThemeToggle` component, which sets `data-theme=
 
 Sponsor logos must supply both dark and light variants stored at `public/assets/sponsors/dark/` and `public/assets/sponsors/light/`. Logo paths are set in `src/content/sponsors.ts` (`logoSrcDark` / `logoSrcLight` fields).
 
+### Icons
+
+Use **`react-icons`** (v5, already installed) for all icons. Never write inline SVGs in components.
+
+Preferred subsets:
+- `react-icons/fi` — Feather Icons: general UI (copy, check, x, external-link, map-pin, etc.)
+- `react-icons/md` — Material Design: domain-specific icons (transit, maps, devices, etc.)
+
+Usage pattern:
+```tsx
+import { FiCheck, FiExternalLink } from 'react-icons/fi'
+import { MdTrain } from 'react-icons/md'
+
+<FiCheck size={16} aria-hidden />
+```
+
+Always pass `aria-hidden` on decorative icons. Size is set via the `size` prop (number, in px). Apply BEM class names via `className` when the icon needs CSS-targeted styling (e.g. `className="venueTransit__icon"`).
+
 ### Styling
 
 Plain CSS only — no Tailwind or CSS-in-JS. All styles are in `src/index.css` using CSS custom properties defined on `:root`. BEM-like class naming (`section__header`, `sponsorBox__tiers`, etc.).
