@@ -1,7 +1,7 @@
 export const navItems = [
-  { href: '/speakers', labelKey: 'nav.speakers' },
+  { href: '/speakers/', labelKey: 'nav.speakers' },
   { href: '/#schedule', labelKey: 'nav.schedule' },
-  { href: '/sponsors', labelKey: 'nav.sponsors' },
+  { href: '/sponsors/', labelKey: 'nav.sponsors' },
   { href: '/#faq', labelKey: 'nav.faq' },
 ] as const
 

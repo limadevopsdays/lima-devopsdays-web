@@ -3145,6 +3145,30 @@ textarea {
   box-shadow: var(--site-shadow);
 }
 
+/* Sponsors route: remove box-shadows from page components */
+.main--sponsors .card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.main--sponsors .card:active {
+  transform: none;
+}
+
+.main--sponsors .sponsorTableWrap:hover,
+.main--sponsors .sponsorTableWrap:focus-within {
+  box-shadow: none;
+}
+
+.main--sponsors .btn--primary {
+  box-shadow: none;
+}
+
+.main--sponsors .btn--secondary:hover,
+.main--sponsors .btn--ghost:hover {
+  box-shadow: none;
+}
+
 .sponsorTableScroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;

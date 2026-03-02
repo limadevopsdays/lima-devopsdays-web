@@ -78,7 +78,7 @@ export function SponsorsCta() {
           <p className="sponsorCtaBanner__body">{t('sponsors.become.body')}</p>
           <div className="sponsorCtaBanner__actions">
             <a
-              href="/sponsors"
+              href="/sponsors/"
               className="btn btn--primary"
               onClick={(e) => { e.preventDefault(); navigate('/sponsors') }}
             >
