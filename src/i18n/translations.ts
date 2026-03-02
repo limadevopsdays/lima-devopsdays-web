@@ -110,7 +110,7 @@ const en = {
   'schedule.speaker.organizers': 'Organizers',
 
   'venue.eyebrow': 'Venue',
-  'venue.title': 'Lima Convention Center - LCC',
+  'venue.title': 'Lima Convention Center (LCC)',
   'venue.lead': 'See you in Lima for two days of talks and community.',
   'venue.card.addressLine1': 'Av. De la Arqueología 206',
   'venue.card.addressLine2': 'San Borja, Lima, Peru',
@@ -314,7 +314,7 @@ const es: Record<TranslationKey, string> = {
   'schedule.speaker.organizers': 'Organizadores',
 
   'venue.eyebrow': 'Ubicación',
-  'venue.title': 'Lima Centro de Convenciones - LCC',
+  'venue.title': 'Lima Centro de Convenciones (LCC)',
   'venue.lead': 'Nos vemos en Lima para dos días de charlas y comunidad.',
   'venue.card.addressLine1': 'Av. De la Arqueología 206',
   'venue.card.addressLine2': 'San Borja, Lima, Perú',

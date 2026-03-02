@@ -110,7 +110,9 @@ export function SponsorsSection() {
             <div className="sponsorWhy__stats" aria-label={t("sponsors.why.statsLabel")}>
               {sponsorStats.map((stat) => (
                 <div key={stat.labelKey} className="sponsorStat">
-                  <span className="sponsorStat__value">{stat.value}</span>
+                  <span className={`sponsorStat__value${'valueKey' in stat ? ' sponsorStat__value--text' : ''}`}>
+                    {'valueKey' in stat ? t(stat.valueKey as TranslationKey) : stat.value}
+                  </span>
                   <span className="sponsorStat__label">{t(stat.labelKey as TranslationKey)}</span>
                 </div>
               ))}
