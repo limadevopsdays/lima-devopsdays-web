@@ -19,7 +19,6 @@ function SponsorBecomeCta() {
     <div className="sponsorHero">
       <div className="sponsorHero__inner">
         <div className="sponsorHero__content">
-          <p className="sponsorHero__earlyBird">{t("sponsors.hero.earlyBird")}</p>
           <h3 className="sponsorHero__title">{t("sponsors.become.title")}</h3>
           <p className="sponsorHero__body">{t("sponsors.become.body")}</p>
         </div>

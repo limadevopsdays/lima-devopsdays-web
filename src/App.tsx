@@ -16,6 +16,8 @@ function ScrollToTop() {
 
 function App() {
   const { t } = useI18n()
+  const { pathname } = useLocation()
+  const isSponsorsRoute = pathname === '/sponsors' || pathname.startsWith('/sponsors/')
 
   return (
     <div className="app">
@@ -25,7 +27,7 @@ function App() {
       </a>
       <ScrollToTop />
       <SiteHeader />
-      <main id="content" className="main" tabIndex={-1}>
+      <main id="content" className={`main${isSponsorsRoute ? ' main--sponsors' : ''}`} tabIndex={-1}>
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="speakers" element={<SpeakersPage />} />

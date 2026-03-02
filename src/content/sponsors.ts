@@ -176,7 +176,7 @@ export const sponsors = [
 ]
 
 export const sponsorStats = [
-  { value: '450+', labelKey: 'sponsors.stat.professionals' },
+  { value: '+800', labelKey: 'sponsors.stat.professionals' },
   { value: '2',    labelKey: 'sponsors.stat.days' },
   { value: '3ra',  labelKey: 'sponsors.stat.edition' },
   { value: 'Lima', labelKey: 'sponsors.stat.location' },

@@ -137,7 +137,7 @@ const en = {
   'sponsors.contact': 'Contact sponsors',
 
   'sponsors.why.title': 'Why sponsor DevOpsDays Lima?',
-  'sponsors.why.p1': 'Reach 450+ decision-makers, engineers, and tech leaders in one place. DevOpsDays Lima is Peru\'s leading DevOps community conference — two days of real talks, real people, and real impact.',
+  'sponsors.why.p1': 'Reach +800 decision-makers, engineers, and tech leaders in one place. DevOpsDays Lima is Peru\'s leading DevOps community conference — two days of real talks, real people, and real impact.',
   'sponsors.why.benefitsLabel': 'Sponsorship benefits',
   'sponsors.why.benefit1': 'Visibility across website and social media before, during, and after the event',
   'sponsors.why.benefit2': 'Opportunity to present at the official program (tier-dependent)',
@@ -148,7 +148,6 @@ const en = {
   'sponsors.stat.days': 'days of content',
   'sponsors.stat.edition': 'edition',
   'sponsors.stat.location': 'Lima, Peru',
-  'sponsors.hero.earlyBird': 'Early bird ends Mar 30, 2026 — save 20%',
 
   'sponsors.table.label': 'Sponsorship tiers comparison',
   'sponsors.table.colBenefits': 'BENEFICIOS',
@@ -342,7 +341,7 @@ const es: Record<TranslationKey, string> = {
   'sponsors.contact': 'Contactar sponsors',
 
   'sponsors.why.title': '¿Por qué patrocinar DevOpsDays Lima?',
-  'sponsors.why.p1': 'Llega a más de 450 tomadores de decisión, ingenieros y líderes tech en un solo lugar. DevOpsDays Lima es la conferencia DevOps líder de la comunidad peruana — dos días de charlas reales, personas reales e impacto real.',
+  'sponsors.why.p1': 'Llega a más de +800 tomadores de decisión, ingenieros y líderes tech en un solo lugar. DevOpsDays Lima es la conferencia DevOps líder de la comunidad peruana — dos días de charlas reales, personas reales e impacto real.',
   'sponsors.why.benefitsLabel': 'Beneficios de patrocinio',
   'sponsors.why.benefit1': 'Visibilidad en web y redes sociales antes, durante y después del evento',
   'sponsors.why.benefit2': 'Oportunidad de presentar en el programa oficial (según nivel)',
@@ -353,7 +352,6 @@ const es: Record<TranslationKey, string> = {
   'sponsors.stat.days': 'días de contenido',
   'sponsors.stat.edition': 'edición',
   'sponsors.stat.location': 'Lima, Perú',
-  'sponsors.hero.earlyBird': 'Early bird hasta el 30 de mar 2026 — ahorra 20%',
 
   'sponsors.table.label': 'Comparativa de niveles de patrocinio',
   'sponsors.table.colBenefits': 'BENEFICIOS',

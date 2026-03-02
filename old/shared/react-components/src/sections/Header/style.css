@@ -1,9 +1,0 @@
-.devops-days-navbar{
-  border-image: linear-gradient(90deg,#A150BF,#7B50BF,#2DABD1,#DAF7FB) 100;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-}
-
-.mobile-navbar {
-  height: calc(100vh - 12px);
-}
