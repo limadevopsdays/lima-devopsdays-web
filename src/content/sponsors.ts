@@ -178,6 +178,6 @@ export const sponsors = [
 export const sponsorStats = [
   { value: '+800', labelKey: 'sponsors.stat.professionals' },
   { value: '2',    labelKey: 'sponsors.stat.days' },
-  { value: '3ra',  labelKey: 'sponsors.stat.edition' },
-  { value: 'Lima', labelKey: 'sponsors.stat.location' },
+  { value: '2ra',  labelKey: 'sponsors.stat.edition' },
+  { valueKey: 'venue.title', labelKey: 'sponsors.stat.location' },
 ] as const
