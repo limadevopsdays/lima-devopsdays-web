@@ -15,7 +15,7 @@ export const sponsorBenefits = [
   {
     id: 'regularPrice',
     title: 'Regular price',
-    subtitle: 'Tax not included',
+    subtitle: 'USD - Tax not included',
     platinum: '$10,000' as TierValue,
     gold: '$7,000' as TierValue,
     silver: '$4,000' as TierValue,
@@ -24,7 +24,7 @@ export const sponsorBenefits = [
   {
     id: 'discountedPrice',
     title: 'Discounted price (20%)',
-    subtitle: 'Until MAR 30th 2026 · Tax not included',
+    subtitle: 'Until MAR 30th 2026 · USD - Tax not included',
     platinum: '$8,000' as TierValue,
     gold: '$5,600' as TierValue,
     silver: '$3,200' as TierValue,
