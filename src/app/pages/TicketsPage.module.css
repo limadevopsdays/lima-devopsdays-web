@@ -1,0 +1,741 @@
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-top: 64px;
+}
+
+/* ============================================
+   INTRO SECTION - HERO BANNER FULL-WIDTH
+   ============================================ */
+.introSection {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.introSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.88) 0%, rgba(124, 58, 237, 0.82) 100%);
+  z-index: 1;
+}
+
+.introContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+/* Intro Badge */
+.introBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem 0;
+}
+
+.introTitle {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 900; /* UNIFORMIZADO: De 800 a 900 */
+  line-height: 1.15; /* UNIFORMIZADO: De 1.2 a 1.15 */
+  color: #ffffff; /* Adaptado para overlay oscuro */
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.02em;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.introDescription {
+  font-size: 1.125rem; /* UNIFORMIZADO: De 1.0625rem a 1.125rem */
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95); /* Adaptado para overlay oscuro */
+  margin: 0 0 2rem 0;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Intro CTA */
+.introCta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.introCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8125rem 1.25rem;
+  background: #ffffff;
+  color: #7c3aed;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.introCtaButton:hover {
+  background: #f8fafc;
+  border-color: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.introCtaNote {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.introCtaNote strong {
+  color: #fde047;
+  font-weight: 700;
+}
+
+.introCtaSubnote {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  max-width: 42rem;
+}
+
+.introCtaSubnote strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ============================================
+   GROUP DISCOUNTS SECTION
+   ============================================ */
+.groupDiscountsSection {
+  padding: 4rem 0;
+  background: #ffffff;
+}
+
+.discountsTable {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.discountsRow {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.4fr) 110px 90px 120px 120px 120px 120px;
+  min-width: 880px;
+}
+
+.discountsHeader {
+  background: transparent;
+  min-width: 880px;
+}
+
+.discountsHeaderTop {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  justify-content: end;
+  background: transparent;
+}
+
+.discountsHeaderBottom {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.4fr) 110px 90px 120px 120px 120px 120px;
+  background: transparent;
+}
+
+.discountsHeaderCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 20px 12px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #334155;
+  text-align: center;
+}
+
+.discountsHeaderCell[data-row="bottom"] {
+  background: #f1f5f9;
+}
+
+.discountHeaderStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.discountHeaderGroup {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #334155;
+}
+
+.discountHeaderLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #334155;
+}
+
+.ticketTableLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.ticketTableIcon {
+  flex-shrink: 0;
+}
+
+.discountsHeaderCell[data-col="tier"] {
+  justify-content: flex-start;
+  padding-left: 1.25rem;
+  color: #334155;
+}
+
+.discountsHeaderCell[data-col="quantity"],
+.discountsHeaderCell[data-col="discount"],
+.discountsHeaderCell[data-col="general-group"],
+.discountsHeaderCell[data-col="vip-group"] {
+  color: #334155;
+}
+
+.discountsHeaderCell[data-col="general-group"] {
+  grid-column: 1 / span 2;
+  border-left: 2px solid #e2e8f0;
+  border-top: 2px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  border-top-left-radius: 10px;
+  background: #f1f5f9;
+}
+
+.discountsHeaderCell[data-col="general-group"] .ticketTableLabel,
+.discountsHeaderCell[data-col="general-group"] .ticketTableIcon {
+  color: #8c8c8c;
+}
+
+.discountsHeaderCell[data-col="vip-group"] {
+  grid-column: 3 / span 2;
+  border-top: 2px solid #e2e8f0;
+  border-right: 2px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  border-top-right-radius: 10px;
+  background: #f1f5f9;
+}
+
+.discountsHeaderCell[data-col="tier"][data-row="bottom"],
+.discountsHeaderCell[data-col="quantity"][data-row="bottom"],
+.discountsHeaderCell[data-col="discount"][data-row="bottom"] {
+  border-top: 2px solid #e2e8f0;
+}
+
+.discountsHeaderCell[data-col="tier"][data-row="bottom"] {
+  border-left: 2px solid #e2e8f0;
+  border-top-left-radius: 10px;
+}
+
+.discountsHeaderCell[data-col="vip-regular"][data-row="bottom"] {
+  border-right: 2px solid #e2e8f0;
+}
+
+.discountsHeaderCell[data-col="vip-group"] .ticketTableLabel,
+.discountsHeaderCell[data-col="vip-group"] .ticketTableIcon {
+  color: #f2b950;
+}
+
+.discountsRow {
+  position: relative;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  gap: 0;
+  padding: 0;
+}
+
+.discountsRow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--row-accent-width, 0px);
+  background: var(--row-accent, #7c3aed);
+}
+
+.discountsRow:hover {
+  background: color-mix(in srgb, var(--row-accent, #7c3aed) 4%, white);
+}
+
+.discountsCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 16px 12px;
+  font-size: 0.9375rem;
+  color: #1e293b;
+  text-align: center;
+}
+
+.discountsCell[data-col="tier"] {
+  justify-content: flex-start;
+  border-left: 2px solid #e2e8f0;
+  padding-left: 1.25rem;
+}
+
+.discountsCell[data-col="vip-regular"] {
+  border-right: 2px solid #e2e8f0;
+}
+
+.discountsCell[data-col="early"],
+.discountsCell[data-col="regular"] {
+  background: color-mix(in srgb, #8c8c8c 10%, white);
+  color: #334155;
+}
+
+.discountsCell[data-col="vip-early"],
+.discountsCell[data-col="vip-regular"] {
+  background: color-mix(in srgb, #f2b950 16%, white);
+  color: #5b4a12;
+}
+
+.tierName {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  color: #1e293b;
+}
+
+.discountPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--color-green);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.earlyBirdBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #f97316;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ============================================
+   BENEFITS SECTION
+   ============================================ */
+.benefitsSection {
+  padding: 4rem 0;
+  background: var(--color-slate-50);
+  margin: 0;
+}
+
+.container {
+  max-width: 80rem; /* UNIFORMIZADO: De 1200px a 80rem (igual que SponsorsPage) */
+  margin: 0 auto;
+  padding: 0 1.5rem; /* UNIFORMIZADO: Padding interno en container */
+}
+
+/* Text Links - Controles de expand/collapse */
+.tableControls {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #7c3aed; /* Morado del sistema */
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.textLink:hover {
+  color: #6d28d9; /* Morado oscuro */
+  text-decoration: underline;
+}
+
+.textLink:active {
+  transform: scale(0.98);
+}
+
+/* Benefits Table */
+.benefitsTable {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: visible;
+}
+
+/* Responsive: Scroll horizontal en móvil */
+@media (max-width: 768px) {
+  .benefitsTable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tableHeader,
+  .tableRow,
+  .categoryTitle {
+    min-width: 600px;
+  }
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 180px 180px;
+  background: #f1f5f9;
+  padding: 20px 24px;
+  gap: 16px;
+  border-bottom: 2px solid #e2e8f0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tableHeaderCell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tableHeaderCell span {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.05em;
+  color: #334155;
+}
+
+.tableHeaderCell[data-col="benefit"] {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.tableHeaderCell[data-col="general"],
+.tableHeaderCell[data-col="vip"] {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.tableHeaderCell[data-col="general"] > span:first-child {
+  color: #8c8c8c;
+}
+
+.tableHeaderCell[data-col="vip"] > span:first-child {
+  color: #f2b950;
+}
+
+/* Progress Info */
+.progressInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.progressCount {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.progressFill[data-type="general"] {
+  background: #8c8c8c;
+}
+
+.progressFill[data-type="vip"] {
+  background: #f2b950;
+}
+
+/* Category Block */
+.categoryBlock {
+  border-bottom: 2px solid #e2e8f0;
+  position: relative;
+  z-index: 1;
+}
+
+.categoryBlock:last-child {
+  border-bottom: none;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-left: 4px solid var(--category-color, #7c3aed);
+  cursor: pointer;
+}
+
+.categoryTitleContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.05em;
+  color: #334155;
+  text-transform: uppercase;
+}
+
+.categoryIcon {
+  color: var(--category-color, #7c3aed);
+}
+
+.benefitCount {
+  font-size: 0.8125rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: color-mix(in srgb, var(--category-color, #7c3aed) 45%, #475569);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1);
+  color: var(--category-color, #7c3aed);
+}
+
+.toggleButton:focus-visible {
+  outline: 2px solid var(--category-color, #7c3aed);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Table Row */
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 180px 180px;
+  padding: 16px 24px;
+  gap: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s ease;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+}
+
+.tableCell {
+  display: flex;
+  align-items: center;
+}
+
+.tableCell[data-col="benefit"] {
+  justify-content: flex-start;
+}
+
+.tableCell[data-col="general"],
+.tableCell[data-col="vip"] {
+  justify-content: center;
+}
+
+.benefitName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.categoryBlock .tableRow:first-of-type {
+  border-top: 1px solid color-mix(in srgb, var(--category-color, #7c3aed) 18%, #e2e8f0);
+}
+
+.checkIcon {
+  width: 28px;
+  height: 28px;
+  stroke-width: 3;
+}
+
+.checkIcon[data-type="general"] {
+  color: #8c8c8c;
+}
+
+.checkIcon[data-type="vip"] {
+  color: #f2b950;
+}
+
+.xIcon {
+  width: 20px;
+  height: 20px;
+  color: #cbd5e1;
+}
+
+/* ============================================
+   PRICING SECTION
+   ============================================ */
+.pricingSection {
+  padding: 4rem 1.5rem;
+  background: #ffffff;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 968px) {
+  .introContainer {
+    padding: 3.5rem 1.5rem; /* REDUCIDO: Para tablet */
+  }
+
+  .introTitle {
+    max-width: 100%;
+  }
+
+  .introDescription {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .introContainer {
+    padding: 3rem 1.5rem; /* REDUCIDO: Para móvil */
+  }
+
+  .groupDiscountsSection {
+    padding: 3rem 0;
+  }
+
+  .benefitsSection {
+    padding: 3rem 0;
+  }
+
+  .discountsHeaderCell {
+    font-size: 0.75rem;
+    padding: 0.875rem 0.625rem;
+  }
+
+  .discountsCell {
+    min-height: 48px;
+    padding: 0.75rem 0.625rem;
+    font-size: 0.875rem;
+  }
+
+  .tierName {
+    font-size: 0.875rem;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 100px 100px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .tableHeaderCell span {
+    font-size: 0.75rem;
+  }
+
+  .benefitName {
+    font-size: 0.8125rem;
+  }
+
+  .checkIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .xIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .categoryTitle {
+    padding: 16px;
+  }
+
+  .categoryTitleContent {
+    font-size: 0.75rem;
+    gap: 8px;
+  }
+
+  .tableControls {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-end;
+  }
+}

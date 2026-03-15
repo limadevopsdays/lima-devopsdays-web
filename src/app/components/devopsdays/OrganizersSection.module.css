@@ -1,0 +1,152 @@
+/* OrganizersSection - CSS Nativo */
+
+.section {
+  background: var(--color-slate-50);
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    max-width: 300px;
+  }
+}
+
+.memberCard {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.avatarContainer {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.5), rgba(124, 58, 237, 0.44));
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.memberCard:hover .overlay {
+  opacity: 1;
+}
+
+.overlayInfo {
+  text-align: center;
+}
+
+.overlayName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.overlayRole {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.socialLink {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.cardInfo {
+  padding: 1rem;
+  background: #ffffff;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.memberCard:hover .cardInfo {
+  opacity: 0;
+}
+
+.cardName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.cardRole {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #7c3aed;
+  line-height: 1.4;
+}
