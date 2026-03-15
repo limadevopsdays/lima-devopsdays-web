@@ -191,7 +191,7 @@ export function SponsorsSection() {
 
                 <div className={styles.brochureButtons}>
                   <a
-                    href="/brochure-es.pdf"
+                    href={`${import.meta.env.BASE_URL}docs/sponsors-es-devopsdayslima-2026.pdf`}
                     download
                     className={styles.brochureButton}
                     data-track-name="descargar_brochure_es_home"
@@ -201,7 +201,7 @@ export function SponsorsSection() {
                   </a>
 
                   <a
-                    href="/brochure-en.pdf"
+                    href={`${import.meta.env.BASE_URL}docs/sponsors-en-devopsdayslima-2026.pdf`}
                     download
                     className={styles.brochureButton}
                     data-track-name="descargar_brochure_en_home"

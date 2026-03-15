@@ -346,7 +346,7 @@ export default function SponsorsPage() {
                 {/* Fila de brochures */}
                 <div className={styles.brochureRow}>
                   <a
-                    href="/brochure-es.pdf"
+                    href={`${import.meta.env.BASE_URL}docs/sponsors-es-devopsdayslima-2026.pdf`}
                     className={styles.contactSecondaryButton}
                     download
                     data-track-name="descargar_brochure_es_contact_sponsors"
@@ -355,7 +355,7 @@ export default function SponsorsPage() {
                     Brochure (ES)
                   </a>
                   <a
-                    href="/brochure-en.pdf"
+                    href={`${import.meta.env.BASE_URL}docs/sponsors-en-devopsdayslima-2026.pdf`}
                     className={styles.contactSecondaryButton}
                     download
                     data-track-name="descargar_brochure_en_contact_sponsors"
