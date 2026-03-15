@@ -1,0 +1,1000 @@
+/* SponsorsPage - CSS Modules */
+
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-top: 64px;
+}
+
+/* ============================================
+   INTRO SECTION - Now Main Hero
+   ============================================ */
+.introSection {
+  background: #f8fafc; /* slate-50 - gris muy suave */
+  padding: 5rem 0;
+  margin: 0;
+}
+
+.introContainer {
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+/* Intro Badge */
+.introBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7c3aed;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem 0;
+}
+
+.introTitle {
+  font-size: clamp(1.875rem, 4vw, 2.5rem); /* UNIFORMIZADO: Mismo que SectionHeader */
+  font-weight: 900; /* UNIFORMIZADO: Mismo que SectionHeader */
+  line-height: 1.15;
+  color: #0f172a;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.02em;
+  max-width: 55rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.introLead {
+  font-size: 1.125rem; /* UNIFORMIZADO: Mismo que SectionHeader */
+  line-height: 1.7;
+  color: #475569; /* UNIFORMIZADO: Mismo que SectionHeader */
+  margin: 0 0 3rem 0; /* Restaurado el margin original */
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Aumentado de 1.5rem a 2rem para más respiración */
+  margin-bottom: 3rem;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statCard {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  border: 2px solid #e2e8f0;
+  border-top: 4px solid var(--stat-color, #7c3aed);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--stat-color); /* Conecta con el color del icono */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+}
+
+.statValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem auto;
+  background: rgba(124, 58, 237, 0.08);
+  border-radius: 50%;
+}
+
+.statLabel {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.statSublabel {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+/* Intro CTA */
+.introCta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.introCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8125rem 1.25rem;
+  background: #7c3aed;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid #7c3aed;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.introCtaButton:hover {
+  background: #6d28d9;
+  border-color: #6d28d9;
+  transform: translateY(-2px);
+}
+
+.introCtaNote {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.introCtaNote strong {
+  color: #0f172a;
+}
+
+/* ============================================
+   CONTACT BANNER - Following Home/Speakers Style
+   ============================================ */
+.contactBanner {
+  position: relative;
+  background: var(--color-slate-800);
+  padding: 5rem 0;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.contactBannerBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 46%;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 0;
+  background-image: url('/images/sponsors/page/banner%201.jpg');
+}
+
+.contactBannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.75) 0%,
+    rgba(124, 58, 237, 0.55) 100%
+  );
+  z-index: 1;
+}
+
+.contactBannerContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contactBannerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .contactBannerGrid {
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+  }
+}
+
+.contactBannerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Badge with pulsating dot */
+.contactBadgeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.contactBadgeDot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background: var(--color-green);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
+
+.contactBadgeText {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--color-white);
+}
+
+.contactBannerTitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.contactBannerDescription {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  margin-bottom: 1.25rem;
+  max-width: 48rem;
+  color: var(--color-white);
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+.contactBannerDescription strong {
+  color: #fde047; /* Mantener color amarillo para el email */
+  font-weight: 700;
+}
+
+/* CTA Buttons */
+.contactButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .contactButtonsContainer {
+    align-items: flex-end;
+  }
+}
+
+.contactButtonsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .contactButtonsInner {
+    width: auto;
+    min-width: 280px;
+  }
+}
+
+.contactPrimaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.8125rem 1.25rem;
+  background: white;
+  color: #7c3aed;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.contactPrimaryButton:hover {
+  background: #f5f3ff;
+  transform: translateY(-2px);
+}
+
+.contactSecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.8125rem 1.25rem;
+  background: transparent;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.contactSecondaryButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Brochure Row - 2 botones lado a lado */
+.brochureRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .brochureRow {
+    min-width: 280px;
+  }
+}
+
+/* Venue Info */
+.venueInfo {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.venueName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #14b8a6;
+  margin-bottom: 0.25rem;
+}
+
+.venueLocation {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+/* Key Benefits */
+.keyBenefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.keyBenefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.75rem;
+  border: 2px solid #e2e8f0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #475569;
+  transition: all 0.3s ease;
+}
+
+.keyBenefit:hover {
+  border-color: #7c3aed;
+  transform: translateX(4px);
+}
+
+.keyBenefitIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* ============================================
+   BENEFITS TABLE SECTION
+   ============================================ */
+.benefitsSection {
+  background: #ffffff;
+  padding: 5rem 0;
+  margin: 0;
+}
+
+.benefitsContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Pricing Table */
+.pricingTable {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: visible;
+}
+
+/* Wrapper for horizontal scroll on mobile */
+.tableWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricingHeader {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr); /* FIXED: Alineado con pricingRow */
+  background: #f1f5f9;
+  padding: 20px 24px;
+  gap: 16px;
+  border-bottom: 2px solid #e2e8f0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.pricingHeaderLabel {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #334155;
+  display: flex;
+  align-items: center;
+}
+
+.pricingHeaderTier {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tierName {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tier-color, #334155);
+  margin-bottom: 8px;
+}
+
+/* Pricing Rows */
+.pricingRow {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+.pricingRow:last-child {
+  border-bottom: none;
+}
+
+.pricingRow:hover {
+  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+}
+
+/* Highlighted Pricing Row (Early Bird) */
+.pricingRowHighlighted {
+  background: rgba(249, 115, 22, 0.04) !important;
+  border-left: 4px solid #f97316 !important;
+}
+
+.pricingRowHighlighted:hover {
+  background: rgba(249, 115, 22, 0.06) !important;
+}
+
+/* Early Bird Badge */
+.earlyBirdBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #f97316;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  margin-right: 8px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pricingRowLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: center;
+  padding: 16px 24px;
+}
+
+.benefitLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.benefitSublabel {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.pricingCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+}
+
+/* Cell Content */
+.checkIcon {
+  width: 28px;
+  height: 28px;
+  stroke-width: 3;
+}
+
+.xIcon {
+  width: 20px;
+  height: 20px;
+  color: #cbd5e1;
+}
+
+.dashIcon {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  font-weight: 300;
+}
+
+/* Pricing Values */
+.priceRegular {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+}
+
+.priceDiscounted {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  color: #1e293b !important;
+  letter-spacing: -0.01em;
+}
+
+.priceDetails {
+  font-size: 0.8125rem !important;
+  font-weight: 400 !important;
+  color: #64748b !important;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.valueText {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+/* Category Headers */
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.5rem;
+  background: #f1f5f9;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+  grid-column: 1 / -1;
+}
+
+.categoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text Links - Controles de expand/collapse */
+.tableControls {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #7c3aed;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.textLink:hover {
+  color: #6d28d9;
+  text-decoration: underline;
+}
+
+.textLink:active {
+  transform: scale(0.98);
+}
+
+/* Category Block */
+.categoryBlock {
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.categoryBlock:last-child {
+  border-bottom: none;
+}
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-left: 4px solid var(--category-color, #7c3aed);
+  cursor: pointer;
+  transition: all 0.2s ease; /* MEJORA: Agregada transición suave */
+}
+
+/* MEJORA: Hover state completo para category title */
+.categoryTitle:hover {
+  background: #f1f5f9; /* Más oscuro que #f8fafc */
+  border-left-width: 6px; /* Aumenta de 4px a 6px */
+}
+
+/* MEJORA: Focus visible para accesibilidad */
+.categoryTitle:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+.categoryTitleContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.05em;
+  color: #334155;
+  text-transform: uppercase;
+}
+
+.categoryIconInline {
+  color: var(--category-color, #7c3aed);
+}
+
+.benefitCount {
+  font-size: 0.8125rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1);
+  color: #7c3aed;
+}
+
+.toggleButton:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Progress Info */
+.progressInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-width: 120px;
+}
+
+.progressCount {
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progressFill[data-type="platinum"] {
+  background: #858DA6;
+}
+
+.progressFill[data-type="gold"] {
+  background: #f2b950;
+}
+
+.progressFill[data-type="silver"] {
+  background: #BDBFBF;
+}
+
+.progressFill[data-type="bronze"] {
+  background: #BF834E;
+}
+
+/* Footnotes */
+.footnotes {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.footnote {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+}
+
+.footnote:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.ctaSection {
+  background: #f8fafc;
+  padding: 5rem 0;
+  margin: 0;
+}
+
+.ctaContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(1.875rem, 4vw, 2.5rem); /* UNIFORMIZADO: De 1.75rem a 1.875rem - mismo que todas las páginas */
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  line-height: 1.15; /* UNIFORMIZADO: De 1.2 a 1.15 - mismo que SectionHeader */
+}
+
+.ctaDescription {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 2rem 0;
+}
+
+.ctaDescription strong {
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.8125rem 1.25rem;
+  background: #7c3aed;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid #7c3aed;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  background: #6d28d9;
+  border-color: #6d28d9;
+  transform: translateY(-2px);
+}
+
+.ctaButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.8125rem 1.25rem;
+  background: white;
+  color: #7c3aed;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid #7c3aed;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ctaButtonSecondary:hover {
+  background: #f5f3ff;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .pricingHeader,
+  .pricingRow {
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+  }
+
+  .pricingHeaderLabel,
+  .pricingRowLabel {
+    padding: 1rem;
+  }
+
+  .pricingCell {
+    padding: 1rem 0.5rem;
+  }
+
+  .benefitLabel {
+    font-size: 0.875rem;
+  }
+
+  .benefitSublabel {
+    font-size: 0.75rem;
+  }
+
+  .tierName {
+    font-size: 0.75rem;
+  }
+
+  .valueText {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding: 2rem 0;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .keyBenefits {
+    grid-template-columns: 1fr;
+  }
+
+  .benefitsSection {
+    padding: 2rem 0;
+  }
+
+  .pricingTable {
+    overflow-x: auto;
+  }
+
+  .pricingHeader,
+  .pricingRow {
+    min-width: 800px;
+  }
+
+  .categoryTitle {
+    min-width: 800px;
+  }
+
+  .categoryBlock {
+    min-width: 800px;
+  }
+
+  .tableControls {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-end;
+  }
+
+  .ctaSection {
+    padding: 3rem 0;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    width: 100%;
+  }
+}

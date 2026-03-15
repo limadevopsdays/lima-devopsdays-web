@@ -1,0 +1,428 @@
+/* VenueSection - CSS Nativo */
+
+.section {
+  background: var(--color-white);
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.eyebrowContainer {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  color: var(--color-purple);
+  background: var(--color-purple-bg);
+  border: 1px solid var(--color-purple-border);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 0;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 2px solid var(--color-slate-200); /* UNIFORMIZADO: De 1.5px a 2px */
+  min-height: 480px;
+}
+
+.mapContainer {
+  position: relative;
+  min-height: 320px;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.5rem;
+  background: var(--color-white);
+  border-left: 1.5px solid var(--color-slate-200);
+}
+
+.venueTitle {
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-slate-900);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.addressContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.addressText {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.addressPrimary {
+  color: var(--color-slate-700);
+  font-weight: 500;
+}
+
+.addressSecondary {
+  color: var(--color-slate-400);
+}
+
+.mapsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  transition: all 0.2s ease;
+  color: var(--color-white);
+  background: var(--color-purple);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.mapsButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-slate-100);
+}
+
+.twoColGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  color: var(--color-slate-300);
+}
+
+.transitList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.transitItem {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+}
+
+.transitIcon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Los colores se aplican dinámicamente con CSS variables */
+  background: var(--transit-bg);
+}
+
+.transitName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-slate-800);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.transitStop {
+  font-size: 0.7rem;
+  color: var(--color-slate-400);
+  margin: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-slate-900);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  color: var(--color-slate-400);
+  letter-spacing: 0.02em;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.galleryButton {
+  position: relative;
+  height: 90px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  cursor: zoom-in;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.galleryButton:hover {
+  opacity: 0.75;
+  transform: scale(0.95);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+.counter {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.counterText {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: var(--color-white);
+}
+
+.navButton {
+  position: absolute;
+  z-index: 10;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.navButton:hover {
+  transform: scale(1.1);
+}
+
+.prevButton {
+  left: 1.5rem;
+}
+
+.nextButton {
+  right: 1.5rem;
+}
+
+.imageContainer {
+  position: relative;
+  max-width: 80rem;
+  max-height: 90vh;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 6rem;
+}
+
+.lightboxImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+  max-height: 90vh;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.captionText {
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Icon styles */
+.mapPinIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+  color: var(--color-purple);
+}
+
+.arrowIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.transitIconMetro {
+  color: var(--color-metro);
+}
+
+.transitIconBus {
+  color: var(--color-bus);
+}
+
+.transitIconCar {
+  color: var(--color-car);
+}
+
+.closeIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.chevronIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .mapContainer {
+    min-height: 360px;
+  }
+
+  .infoPanel {
+    border-left: none;
+    border-top: 1.5px solid var(--color-slate-200);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .mainGrid {
+    border-radius: 1rem;
+  }
+
+  .mapContainer {
+    min-height: 300px;
+  }
+
+  .infoPanel {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .twoColGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
