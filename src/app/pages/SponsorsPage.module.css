@@ -438,6 +438,308 @@
   padding: 0 1.5rem;
 }
 
+.mobileBenefitsExplorer {
+  display: none;
+  margin-top: 1.5rem;
+}
+
+.desktopBenefitsExplorer {
+  display: block;
+}
+
+.mobileTabs {
+  gap: 1rem;
+}
+
+.mobileTabsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.mobileTabsTrigger {
+  flex: 1 1 calc(50% - 0.375rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4375rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  background: #ffffff;
+}
+
+.mobileTabsTriggerIcon {
+  flex-shrink: 0;
+}
+
+.mobileTabsTrigger[data-state='active'] {
+  color: color-mix(in srgb, var(--tier-color, #7c3aed) 72%, #111827);
+  background: color-mix(in srgb, var(--tier-color, #7c3aed) 14%, white);
+  border-color: color-mix(in srgb, var(--tier-color, #7c3aed) 28%, #e2e8f0);
+  box-shadow: none;
+}
+
+.mobileTabsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobileTierCoverage {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.earlyBirdBadge,
+.mobileEarlyBirdBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  margin-right: 8px;
+  border-radius: 6px;
+  background: #f97316;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mobileEarlyBirdBadge {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 520px) and (max-width: 768px) {
+  .mobileTabsTrigger {
+    flex-basis: calc(25% - 0.5625rem);
+  }
+}
+
+.mobileTierProgress {
+  margin-top: 0.875rem;
+}
+
+.mobileTierControls {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+  margin-bottom: 0.375rem;
+}
+
+.mobileBenefitsTable {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.mobileTierHeader {
+  padding: 0.5rem 0 0;
+}
+
+.mobileTierHeaderTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobilePricingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.mobilePricingRow:hover {
+  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+}
+
+.mobilePricingRowHighlighted {
+  background: rgba(249, 115, 22, 0.04) !important;
+  border-left: 4px solid #f97316 !important;
+  padding-left: calc(1rem - 4px);
+}
+
+.mobilePricingRowHighlighted:hover {
+  background: rgba(249, 115, 22, 0.06) !important;
+}
+
+.mobilePricingLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.mobilePricingDetail {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.mobilePricingValue {
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.mobilePricingValueStrong {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.mobileCategoryCard {
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.mobileCategoryCard:last-child {
+  border-bottom: none;
+}
+
+.mobileCategoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1rem 1rem 1.25rem;
+  background: #f8fafc;
+  border: none;
+  border-left: 4px solid var(--category-color, #7c3aed);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #334155;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.mobileCategoryTitle:hover {
+  background: #f1f5f9;
+  border-left-width: 6px;
+}
+
+.mobileCategoryTitleMain {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.mobileCategoryTitle:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: -2px;
+}
+
+.mobileCategoryIcon {
+  color: var(--category-color, #7c3aed);
+}
+
+.mobileCategoryCount {
+  margin-left: auto;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.mobileBenefitList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileBenefitItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+.mobileBenefitItem:first-child {
+  border-top: none;
+}
+
+.mobileBenefitItem:hover {
+  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+}
+
+.mobileBenefitLabel {
+  flex: 1;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.mobileBenefitBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.375rem 0.625rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--tier-color, #7c3aed) 14%, white);
+  color: var(--tier-color, #7c3aed);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mobileBenefitBadgeMuted {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.375rem;
+  border-radius: 9999px;
+  background: #f8fafc;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mobileBenefitValue {
+  flex-shrink: 0;
+  max-width: 44%;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #0f172a;
+  text-align: right;
+}
+
 /* Pricing Table */
 .pricingTable {
   margin-top: 1.5rem;
@@ -519,22 +821,6 @@
   background: rgba(249, 115, 22, 0.06) !important;
 }
 
-/* Early Bird Badge */
-.earlyBirdBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  background: #f97316;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 6px;
-  margin-right: 8px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
 .pricingRowLabel {
   display: flex;
   flex-direction: column;
@@ -595,6 +881,12 @@
   font-weight: 800 !important;
   color: #1e293b !important;
   letter-spacing: -0.01em;
+}
+
+@media (min-width: 769px) {
+  .priceDiscounted {
+    font-size: 1.875rem !important;
+  }
 }
 
 .priceDetails {
@@ -961,27 +1253,16 @@
     padding: 2rem 0;
   }
 
-  .pricingTable {
-    overflow-x: auto;
+  .mobileBenefitsExplorer {
+    display: block;
   }
 
-  .pricingHeader,
-  .pricingRow {
-    min-width: 800px;
+  .desktopBenefitsExplorer {
+    display: none;
   }
 
-  .categoryTitle {
-    min-width: 800px;
-  }
-
-  .categoryBlock {
-    min-width: 800px;
-  }
-
-  .tableControls {
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: flex-end;
+  .mobileTierControls {
+    justify-content: flex-end;
   }
 
   .ctaSection {
