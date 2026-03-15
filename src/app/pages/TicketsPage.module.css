@@ -383,12 +383,174 @@
   padding: 0 1.5rem; /* UNIFORMIZADO: Padding interno en container */
 }
 
+.mobileBenefitsExplorer {
+  display: none;
+}
+
+.desktopBenefitsExplorer {
+  display: block;
+}
+
 /* Text Links - Controles de expand/collapse */
+.benefitsToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ticketTierSwitch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.ticketTierButton {
+  flex: 1 1 calc(50% - 0.375rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4375rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ticketTierButton[data-state="active"][data-tier="general"] {
+  background: color-mix(in srgb, #8c8c8c 14%, white);
+  color: #4b5563;
+  border-color: color-mix(in srgb, #8c8c8c 28%, #e2e8f0);
+}
+
+.ticketTierButton[data-state="active"][data-tier="vip"] {
+  background: color-mix(in srgb, #f2b950 20%, white);
+  color: #7c5a13;
+  border-color: color-mix(in srgb, #f2b950 28%, #e2e8f0);
+}
+
+.ticketTierButtonIcon {
+  flex-shrink: 0;
+}
+
+.mobileTierHeader {
+  margin-top: 1rem;
+  padding: 0.5rem 0 0;
+}
+
+.mobileTierHeaderTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileTierCoverage {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.mobileTierProgress {
+  margin-top: 0.875rem;
+}
+
+.mobileTierControls {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  margin-bottom: 0.375rem;
+}
+
+.mobileCategoryTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1rem 1rem 1.25rem;
+  background: #f8fafc;
+  border: none;
+  border-left: 4px solid var(--category-color, #7c3aed);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #334155;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.mobileCategoryTitle:hover {
+  background: #f1f5f9;
+  border-left-width: 6px;
+}
+
+.mobileCategoryTitleMain {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.mobileCategoryTitle:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: -2px;
+}
+
+.mobileCategoryIcon {
+  color: var(--category-color, #7c3aed);
+}
+
+.mobileCategoryCount {
+  margin-left: auto;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.mobileBenefitList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileBenefitItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+.mobileBenefitItem:first-child {
+  border-top: none;
+}
+
+.mobileBenefitItem:hover {
+  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+}
+
 .tableControls {
   display: flex;
   gap: 1.5rem;
   justify-content: flex-end;
-  margin-bottom: 1.5rem;
 }
 
 .textLink {
@@ -424,20 +586,6 @@
   overflow: visible;
 }
 
-/* Responsive: Scroll horizontal en móvil */
-@media (max-width: 768px) {
-  .benefitsTable {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .tableHeader,
-  .tableRow,
-  .categoryTitle {
-    min-width: 600px;
-  }
-}
-
 .tableHeader {
   display: grid;
   grid-template-columns: 1fr 180px 180px;
@@ -469,7 +617,8 @@
 }
 
 .tableHeaderCell[data-col="general"],
-.tableHeaderCell[data-col="vip"] {
+.tableHeaderCell[data-col="vip"],
+.tableHeaderCell[data-col="ticket"] {
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -483,6 +632,14 @@
   color: #f2b950;
 }
 
+.tableHeaderCell[data-col="ticket"][data-tier="general"] > span:first-child {
+  color: #8c8c8c;
+}
+
+.tableHeaderCell[data-col="ticket"][data-tier="vip"] > span:first-child {
+  color: #f2b950;
+}
+
 /* Progress Info */
 .progressInfo {
   display: flex;
@@ -492,22 +649,22 @@
 }
 
 .progressCount {
-  font-size: 0.75rem !important;
+  font-size: 0.8125rem !important;
   font-weight: 600 !important;
   color: #64748b !important;
 }
 
 .progressBar {
   width: 100%;
-  height: 6px;
+  height: 8px;
   background: #e2e8f0;
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: width 0.5s ease;
 }
 
@@ -538,6 +695,17 @@
   background: #f8fafc;
   border-left: 4px solid var(--category-color, #7c3aed);
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryTitle:hover {
+  background: #f1f5f9;
+  border-left-width: 6px;
+}
+
+.categoryTitle:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
 }
 
 .categoryTitleContent {
@@ -566,7 +734,7 @@
   border: none;
   padding: 4px;
   cursor: pointer;
-  color: color-mix(in srgb, var(--category-color, #7c3aed) 45%, #475569);
+  color: #64748b;
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
@@ -574,11 +742,11 @@
 
 .toggleButton:hover {
   transform: scale(1.1);
-  color: var(--category-color, #7c3aed);
+  color: #7c3aed;
 }
 
 .toggleButton:focus-visible {
-  outline: 2px solid var(--category-color, #7c3aed);
+  outline: 2px solid #7c3aed;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -611,15 +779,75 @@
 }
 
 .tableCell[data-col="general"],
-.tableCell[data-col="vip"] {
+.tableCell[data-col="vip"],
+.tableCell[data-col="ticket"] {
   justify-content: center;
 }
 
 .benefitName {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #1e293b;
+  color: #475569;
   line-height: 1.5;
+}
+
+.mobileBenefitLabel {
+  flex: 1 1 0%;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgb(71, 85, 105);
+}
+
+.mobileBenefitStatus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobileBenefitBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.375rem 0.625rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--tier-color, #7c3aed) 14%, white);
+  color: var(--tier-color, #7c3aed);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mobileBenefitBadgeMuted {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.375rem;
+  border-radius: 9999px;
+  background: #f8fafc;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mobileBenefitIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.mobileBenefitIconMuted {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .categoryBlock .tableRow:first-of-type {
@@ -684,6 +912,35 @@
     padding: 3rem 0;
   }
 
+  .mobileBenefitsExplorer {
+    display: block;
+  }
+
+  .desktopBenefitsExplorer {
+    display: none;
+  }
+
+  .benefitsToolbar {
+    margin-bottom: 1rem;
+  }
+
+  .ticketTierSwitch {
+    width: 100%;
+  }
+
+  .ticketTierButton {
+    flex: 1 1 calc(50% - 0.375rem);
+    padding: 0.75rem 1rem;
+  }
+
+  .benefitsTable {
+    overflow: hidden;
+  }
+
+  .mobileTierCoverage {
+    font-size: 0.875rem;
+  }
+
   .discountsHeaderCell {
     font-size: 0.75rem;
     padding: 0.875rem 0.625rem;
@@ -699,9 +956,23 @@
     font-size: 0.875rem;
   }
 
-  .tableHeader,
-  .tableRow {
-    grid-template-columns: 1fr 100px 100px;
+  .tableControls {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-end;
+  }
+
+  .mobileTierControls {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .mobileBenefitsExplorer .tableHeader,
+  .mobileBenefitsExplorer .tableRow {
+    grid-template-columns: 1fr 112px;
     padding: 16px;
     gap: 12px;
   }
@@ -711,7 +982,8 @@
   }
 
   .benefitName {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
   }
 
   .checkIcon {
@@ -725,17 +997,36 @@
   }
 
   .categoryTitle {
-    padding: 16px;
+    padding: 1rem 1rem 1rem 1.25rem;
   }
 
   .categoryTitleContent {
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .benefitCount {
     font-size: 0.75rem;
-    gap: 8px;
+    font-weight: 700;
+  }
+
+  .categoryTitle:focus-visible {
+    outline-offset: -2px;
   }
 
   .tableControls {
     flex-direction: column;
     gap: 0.75rem;
     align-items: flex-end;
+  }
+
+  .mobileTierControls {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
   }
 }

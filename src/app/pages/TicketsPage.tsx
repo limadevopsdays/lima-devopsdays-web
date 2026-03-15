@@ -5,6 +5,7 @@ import { TicketsSection } from '../components/devopsdays/TicketsSection'
 import styles from './TicketsPage.module.css'
 
 const SHOW_TICKET_SHOWCASE = false
+type TicketTier = 'general' | 'vip'
 
 const GROUP_DISCOUNTS = [
   {
@@ -241,6 +242,7 @@ export default function TicketsPage() {
   const [expandedCategories, setExpandedCategories] = useState<number[]>(
     BENEFITS_BY_CATEGORY.map((_, idx) => idx) // [0, 1, 2, 3, 4] - todas expandidas
   )
+  const [activeTicketTier, setActiveTicketTier] = useState<TicketTier>('general')
 
   const toggleCategory = (index: number) => {
     setExpandedCategories(prev => 
@@ -276,6 +278,21 @@ export default function TicketsPage() {
     (sum, cat) => sum + cat.items.filter(item => item.vip).length, 
     0
   )
+  const activeTicketMeta = activeTicketTier === 'general'
+    ? {
+        label: 'GENERAL',
+        Icon: Ticket,
+        color: '#8c8c8c',
+        count: totalGeneralBenefits,
+        progress: (totalGeneralBenefits / totalBenefits) * 100,
+      }
+    : {
+        label: 'VIP',
+        Icon: Sparkles,
+        color: '#f2b950',
+        count: totalVipBenefits,
+        progress: (totalVipBenefits / totalBenefits) * 100,
+      }
 
   return (
     <div className={styles.page}>
@@ -403,131 +420,254 @@ export default function TicketsPage() {
             lead="Compara el alcance de cada ticket y elige la experiencia que mejor se ajuste a tu objetivo: asistir, conectar o vivir el evento con beneficios ampliados."
           />
 
-          {/* Text Links para expandir/colapsar todo */}
-          <div className={styles.tableControls}>
-            <button
-              className={styles.textLink}
-              onClick={expandAll}
-              data-track-name="expandir_tabla_benefits_tickets"
-            >
-              <ChevronsDown size={16} />
-              Expandir todo
-            </button>
-            <button className={styles.textLink} onClick={collapseAll} data-track-name="colapsar_tabla_benefits_tickets">
-              <ChevronsUp size={16} />
-              Colapsar todo
-            </button>
-          </div>
+          <div className={styles.mobileBenefitsExplorer}>
+            <div className={styles.ticketTierSwitch} role="tablist" aria-label="Selecciona tipo de ticket">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTicketTier === 'general'}
+                className={styles.ticketTierButton}
+                data-state={activeTicketTier === 'general' ? 'active' : 'inactive'}
+                data-tier="general"
+                onClick={() => setActiveTicketTier('general')}
+              >
+                <Ticket size={16} className={styles.ticketTierButtonIcon} />
+                General
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTicketTier === 'vip'}
+                className={styles.ticketTierButton}
+                data-state={activeTicketTier === 'vip' ? 'active' : 'inactive'}
+                data-tier="vip"
+                onClick={() => setActiveTicketTier('vip')}
+              >
+                <Sparkles size={16} className={styles.ticketTierButtonIcon} />
+                VIP
+              </button>
+            </div>
 
-          <div className={styles.benefitsTable}>
-            {/* Header de la tabla con progress bars */}
-            <div className={styles.tableHeader}>
-              <div className={styles.tableHeaderCell} data-col="benefit">
-                <span>BENEFICIOS</span>
-              </div>
-              <div className={styles.tableHeaderCell} data-col="general">
-                <span className={styles.ticketTableLabel}>
-                  <Ticket size={16} className={styles.ticketTableIcon} />
-                  GENERAL
-                </span>
-                <div className={styles.progressInfo}>
-                  <span className={styles.progressCount}>{totalGeneralBenefits}/{totalBenefits}</span>
-                  <div className={styles.progressBar}>
-                    <div 
-                      className={styles.progressFill} 
-                      data-type="general"
-                      style={{ width: `${(totalGeneralBenefits / totalBenefits) * 100}%` }}
-                    ></div>
-                  </div>
+            <div className={styles.mobileTierHeader} data-tier={activeTicketTier}>
+              <div className={styles.mobileTierHeaderTop}>
+                <div className={styles.mobileTierCoverage}>
+                  Beneficios ({activeTicketMeta.count}/{totalBenefits})
                 </div>
               </div>
-              <div className={styles.tableHeaderCell} data-col="vip">
-                <span className={styles.ticketTableLabel}>
-                  <Sparkles size={16} className={styles.ticketTableIcon} />
-                  VIP
-                </span>
-                <div className={styles.progressInfo}>
-                  <span className={styles.progressCount}>{totalVipBenefits}/{totalBenefits}</span>
-                  <div className={styles.progressBar}>
-                    <div 
-                      className={styles.progressFill} 
-                      data-type="vip"
-                      style={{ width: `${(totalVipBenefits / totalBenefits) * 100}%` }}
-                    ></div>
-                  </div>
+
+              <div className={styles.mobileTierProgress}>
+                <div className={styles.progressBar}>
+                  <div
+                    className={styles.progressFill}
+                    data-type={activeTicketTier}
+                    style={{ width: `${activeTicketMeta.progress}%` }}
+                  ></div>
                 </div>
               </div>
             </div>
 
-            {/* Categorías */}
-            {BENEFITS_BY_CATEGORY.map((category, catIdx) => {
-              const CategoryIcon = category.icon
-              const benefitCount = category.items.length
-              return (
-                <div 
-                  key={catIdx} 
-                  className={styles.categoryBlock}
-                  style={{ '--category-color': category.color } as React.CSSProperties}
+            <div className={styles.benefitsToolbar}>
+              <div className={`${styles.tableControls} ${styles.mobileTierControls}`}>
+                <button
+                  className={styles.textLink}
+                  onClick={expandAll}
+                  data-track-name="expandir_tabla_benefits_tickets"
                 >
-                  <div 
-                    className={styles.categoryTitle}
-                    onClick={() => toggleCategory(catIdx)}
-                    onKeyDown={(e) => handleCategoryKeyDown(catIdx, e)}
-                    role="button"
-                    tabIndex={0}
-                    data-track-name="toggle_categoria_benefits_tickets"
+                  <ChevronsDown size={16} />
+                  Expandir todo
+                </button>
+                <button className={styles.textLink} onClick={collapseAll} data-track-name="colapsar_tabla_benefits_tickets">
+                  <ChevronsUp size={16} />
+                  Colapsar todo
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.benefitsTable}>
+              {BENEFITS_BY_CATEGORY.map((category, catIdx) => {
+                const CategoryIcon = category.icon
+                const benefitCount = category.items.length
+                return (
+                  <div
+                    key={`mobile-${catIdx}`}
+                    className={styles.categoryBlock}
+                    style={{ '--category-color': category.color } as React.CSSProperties}
                   >
-                    <div className={styles.categoryTitleContent}>
-                      <CategoryIcon size={20} className={styles.categoryIcon} />
-                      <span>{category.title}</span>
-                      <span className={styles.benefitCount}>({benefitCount})</span>
-                    </div>
                     <button
-                      className={styles.toggleButton}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        toggleCategory(catIdx)
-                      }}
-                      aria-label={expandedCategories.includes(catIdx) ? 'Colapsar' : 'Expandir'}
+                      type="button"
+                      className={styles.mobileCategoryTitle}
+                      onClick={() => toggleCategory(catIdx)}
+                      aria-label={expandedCategories.includes(catIdx) ? 'Colapsar categoria' : 'Expandir categoria'}
                       aria-expanded={expandedCategories.includes(catIdx)}
-                      data-track-name="toggle_categoria_icon_benefits_tickets"
+                      data-track-name="toggle_categoria_benefits_tickets"
                     >
-                      {expandedCategories.includes(catIdx) ? (
-                        <ChevronUp size={20} />
-                      ) : (
-                        <ChevronDown size={20} />
-                      )}
+                      <div className={styles.mobileCategoryTitleMain}>
+                        <CategoryIcon size={18} className={styles.mobileCategoryIcon} />
+                        <span>{category.title}</span>
+                        <span className={styles.mobileCategoryCount}>({benefitCount})</span>
+                      </div>
+                      {expandedCategories.includes(catIdx) ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                     </button>
+
+                    {expandedCategories.includes(catIdx) && (
+                      <div className={styles.mobileBenefitList}>
+                        {category.items.map((item, itemIdx) => (
+                          <div key={`mobile-${catIdx}-${itemIdx}`} className={styles.mobileBenefitItem}>
+                            <div className={styles.mobileBenefitLabel}>
+                              {item.name}
+                            </div>
+                            <div className={styles.mobileBenefitStatus}>
+                              {(activeTicketTier === 'general' ? item.general : item.vip) ? (
+                                <div
+                                  className={styles.mobileBenefitBadge}
+                                  style={{ '--tier-color': activeTicketMeta.color } as React.CSSProperties}
+                                  title="Incluido"
+                                  aria-label="Incluido"
+                                >
+                                  <Check className={styles.mobileBenefitIcon} data-type={activeTicketTier} strokeWidth={3} />
+                                </div>
+                              ) : (
+                                <div className={styles.mobileBenefitBadgeMuted} title="No incluido" aria-label="No incluido">
+                                  <X className={styles.mobileBenefitIconMuted} strokeWidth={2} />
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  
-                  {expandedCategories.includes(catIdx) && (
-                    category.items.map((item, itemIdx) => (
-                      <div key={itemIdx} className={styles.tableRow}>
-                        <div className={styles.tableCell} data-col="benefit">
-                          <div className={styles.benefitName}>
-                            {item.name}
+                )
+              })}
+            </div>
+          </div>
+
+          <div className={styles.desktopBenefitsExplorer}>
+            <div className={styles.tableControls}>
+              <button
+                className={styles.textLink}
+                onClick={expandAll}
+                data-track-name="expandir_tabla_benefits_tickets"
+              >
+                <ChevronsDown size={16} />
+                Expandir todo
+              </button>
+              <button className={styles.textLink} onClick={collapseAll} data-track-name="colapsar_tabla_benefits_tickets">
+                <ChevronsUp size={16} />
+                Colapsar todo
+              </button>
+            </div>
+
+            <div className={styles.benefitsTable}>
+              {/* Header de la tabla con progress bars */}
+              <div className={styles.tableHeader}>
+                <div className={styles.tableHeaderCell} data-col="benefit">
+                  <span>BENEFICIOS</span>
+                </div>
+                <div className={styles.tableHeaderCell} data-col="general">
+                  <span className={styles.ticketTableLabel}>
+                    <Ticket size={16} className={styles.ticketTableIcon} />
+                    GENERAL
+                  </span>
+                  <div className={styles.progressInfo}>
+                    <span className={styles.progressCount}>{totalGeneralBenefits}/{totalBenefits}</span>
+                    <div className={styles.progressBar}>
+                      <div
+                        className={styles.progressFill}
+                        data-type="general"
+                        style={{ width: `${(totalGeneralBenefits / totalBenefits) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.tableHeaderCell} data-col="vip">
+                  <span className={styles.ticketTableLabel}>
+                    <Sparkles size={16} className={styles.ticketTableIcon} />
+                    VIP
+                  </span>
+                  <div className={styles.progressInfo}>
+                    <span className={styles.progressCount}>{totalVipBenefits}/{totalBenefits}</span>
+                    <div className={styles.progressBar}>
+                      <div
+                        className={styles.progressFill}
+                        data-type="vip"
+                        style={{ width: `${(totalVipBenefits / totalBenefits) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Categorías */}
+              {BENEFITS_BY_CATEGORY.map((category, catIdx) => {
+                const CategoryIcon = category.icon
+                const benefitCount = category.items.length
+                return (
+                  <div
+                    key={`desktop-${catIdx}`}
+                    className={styles.categoryBlock}
+                    style={{ '--category-color': category.color } as React.CSSProperties}
+                  >
+                    <div
+                      className={styles.categoryTitle}
+                      onClick={() => toggleCategory(catIdx)}
+                      onKeyDown={(e) => handleCategoryKeyDown(catIdx, e)}
+                      role="button"
+                      tabIndex={0}
+                      data-track-name="toggle_categoria_benefits_tickets"
+                    >
+                      <div className={styles.categoryTitleContent}>
+                        <CategoryIcon size={20} className={styles.categoryIcon} />
+                        <span>{category.title}</span>
+                        <span className={styles.benefitCount}>({benefitCount})</span>
+                      </div>
+                      <button
+                        className={styles.toggleButton}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          toggleCategory(catIdx)
+                        }}
+                        aria-label={expandedCategories.includes(catIdx) ? 'Colapsar' : 'Expandir'}
+                        aria-expanded={expandedCategories.includes(catIdx)}
+                        data-track-name="toggle_categoria_icon_benefits_tickets"
+                      >
+                        {expandedCategories.includes(catIdx) ? (
+                          <ChevronUp size={20} />
+                        ) : (
+                          <ChevronDown size={20} />
+                        )}
+                      </button>
+                    </div>
+
+                    {expandedCategories.includes(catIdx) && (
+                      category.items.map((item, itemIdx) => (
+                        <div key={`desktop-${catIdx}-${itemIdx}`} className={styles.tableRow}>
+                          <div className={styles.tableCell} data-col="benefit">
+                            <div className={styles.benefitName}>
+                              {item.name}
+                            </div>
+                          </div>
+                          <div className={styles.tableCell} data-col="general">
+                            {item.general ? (
+                              <Check className={styles.checkIcon} data-type="general" strokeWidth={3} />
+                            ) : (
+                              <X className={styles.xIcon} strokeWidth={2} />
+                            )}
+                          </div>
+                          <div className={styles.tableCell} data-col="vip">
+                            {item.vip ? (
+                              <Check className={styles.checkIcon} data-type="vip" strokeWidth={3} />
+                            ) : (
+                              <X className={styles.xIcon} strokeWidth={2} />
+                            )}
                           </div>
                         </div>
-                        <div className={styles.tableCell} data-col="general">
-                          {item.general ? (
-                            <Check className={styles.checkIcon} data-type="general" strokeWidth={3} />
-                          ) : (
-                            <X className={styles.xIcon} strokeWidth={2} />
-                          )}
-                        </div>
-                        <div className={styles.tableCell} data-col="vip">
-                          {item.vip ? (
-                            <Check className={styles.checkIcon} data-type="vip" strokeWidth={3} />
-                          ) : (
-                            <X className={styles.xIcon} strokeWidth={2} />
-                          )}
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              )
-            })}
+                      ))
+                    )}
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>

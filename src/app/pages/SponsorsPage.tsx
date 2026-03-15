@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Check, X, Mail, Download, Users, Calendar, MapPin, Eye, Presentation, Video, List, Info, Gift, UserPlus, Maximize2, Radio, ChevronDown, ChevronUp, ChevronsDown, ChevronsUp, Handshake, Zap, Rocket } from 'lucide-react'
+import { Award, Check, Crown, Mail, Download, Medal, Shield, Users, Calendar, Eye, Presentation, Gift, UserPlus, ChevronDown, ChevronUp, ChevronsDown, ChevronsUp, Handshake, Rocket, X } from 'lucide-react'
 import { SectionHeader } from '../components/devopsdays/SectionHeader'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import styles from './SponsorsPage.module.css'
 
 // Métricas principales
@@ -23,14 +24,6 @@ const MAIN_STATS = [
     icon: Rocket,
     color: '#7c3aed' 
   },
-]
-
-// Beneficios clave
-const KEY_BENEFITS = [
-  'Visibilidad en web y redes sociales antes, durante y después del evento',
-  'Oportunidad de presentar en el programa oficial (según nivel)',
-  'Conexión genuina con la comunidad tech en crecimiento de Perú',
-  'Lista opt-in de asistentes y pases exclusivos al evento'
 ]
 
 // Sponsorship tiers
@@ -64,6 +57,16 @@ const TIERS = [
     price: '$2,000',
   },
 ]
+
+const TIER_KEYS = ['platinum', 'gold', 'silver', 'bronze'] as const
+type TierKey = (typeof TIER_KEYS)[number]
+
+const TIER_DECORATION: Record<TierKey, { label: string; icon: typeof Crown }> = {
+  platinum: { label: 'Platinum', icon: Crown },
+  gold: { label: 'Gold', icon: Award },
+  silver: { label: 'Silver', icon: Medal },
+  bronze: { label: 'Bronze', icon: Shield },
+}
 
 // Beneficios detallados con iconos y colores por categoría
 const DETAILED_BENEFITS = [
@@ -181,11 +184,24 @@ const DETAILED_BENEFITS = [
   },
 ]
 
+type TierBenefitItem = (typeof DETAILED_BENEFITS)[number]['items'][number]
+
+const getTierValue = (item: TierBenefitItem, tierKey: TierKey) => item[tierKey]
+
+const hasTierBenefit = (item: TierBenefitItem, tierKey: TierKey) => {
+  const value = getTierValue(item, tierKey)
+  return typeof value === 'boolean' ? value : value !== '—'
+}
+
+const formatTierBenefit = (item: TierBenefitItem, tierKey: TierKey) => {
+  const value = getTierValue(item, tierKey)
+  return typeof value === 'boolean' ? 'Incluido' : value
+}
+
 export default function SponsorsPage() {
   const [openCategories, setOpenCategories] = useState<Set<string>>(
     new Set(["Pases y stands"]) // CAMBIADO: Abre "Pases y stands" por defecto (más relevante para corporativos)
   );
-  const [expandedTiers, setExpandedTiers] = useState<Set<string>>(new Set());
 
   // Discount deadline logic
   const DISCOUNT_DEADLINE = new Date('2026-03-30T23:59:59');
@@ -210,18 +226,6 @@ export default function SponsorsPage() {
     }
   }
 
-  const toggleTier = (tierId: string) => {
-    setExpandedTiers(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(tierId)) {
-        newSet.delete(tierId);
-      } else {
-        newSet.add(tierId);
-      }
-      return newSet;
-    });
-  }
-
   // Functions to expand/collapse all
   const expandAll = () => {
     setOpenCategories(new Set(DETAILED_BENEFITS.map((cat) => cat.category)));
@@ -233,30 +237,41 @@ export default function SponsorsPage() {
 
   // Calculate total benefits per tier
   const totalBenefits = DETAILED_BENEFITS.reduce((sum, cat) => sum + cat.items.length, 0);
-  const totalPlatinum = DETAILED_BENEFITS.reduce(
-    (sum, cat) => sum + cat.items.filter(item => 
-      typeof item.platinum === 'boolean' ? item.platinum : true
-    ).length, 
-    0
+  const tierBenefitCounts = TIER_KEYS.map((tierKey) =>
+    DETAILED_BENEFITS.reduce(
+      (sum, cat) => sum + cat.items.filter((item) => hasTierBenefit(item, tierKey)).length,
+      0
+    )
   );
-  const totalGold = DETAILED_BENEFITS.reduce(
-    (sum, cat) => sum + cat.items.filter(item => 
-      typeof item.gold === 'boolean' ? item.gold : true
-    ).length, 
-    0
-  );
-  const totalSilver = DETAILED_BENEFITS.reduce(
-    (sum, cat) => sum + cat.items.filter(item => 
-      typeof item.silver === 'boolean' ? item.silver : true
-    ).length, 
-    0
-  );
-  const totalBronze = DETAILED_BENEFITS.reduce(
-    (sum, cat) => sum + cat.items.filter(item => 
-      typeof item.bronze === 'boolean' ? item.bronze : item.bronze !== '—'
-    ).length, 
-    0
-  );
+  const tierMeta = TIERS.map((tier, idx) => ({
+    ...tier,
+    key: TIER_KEYS[idx],
+    displayName: TIER_DECORATION[TIER_KEYS[idx]].label,
+    Icon: TIER_DECORATION[TIER_KEYS[idx]].icon,
+    includedBenefits: tierBenefitCounts[idx],
+    progressPercent: (tierBenefitCounts[idx] / totalBenefits) * 100,
+  }));
+
+  const renderBooleanBenefitBadge = (tierKey: TierKey, tierColor: string, included: boolean) => {
+    if (included) {
+      return (
+        <div
+          className={styles.mobileBenefitBadge}
+          style={{ '--tier-color': tierColor } as React.CSSProperties}
+          title="Incluido"
+          aria-label="Incluido"
+        >
+          <Check size={14} strokeWidth={3.5} />
+        </div>
+      )
+    }
+
+    return (
+      <div className={styles.mobileBenefitBadgeMuted} title="No incluido" aria-label="No incluido">
+        <X size={14} strokeWidth={1} />
+      </div>
+    )
+  }
 
   return (
     <div className={styles.page}>
@@ -378,175 +393,290 @@ export default function SponsorsPage() {
             lead="Revisa el alcance de cada sponsorship y elige la combinación adecuada para tus objetivos de marca, networking y presencia técnica."
           />
 
-          {/* Text Links para expandir/colapsar todo */}
-          <div className={styles.tableControls}>
-            <button className={styles.textLink} onClick={expandAll} data-track-name="expandir_tabla_benefits_sponsors">
-              <ChevronsDown size={16} />
-              Expandir todo
-            </button>
-            <button className={styles.textLink} onClick={collapseAll} data-track-name="colapsar_tabla_benefits_sponsors">
-              <ChevronsUp size={16} />
-              Colapsar todo
-            </button>
+          <div className={styles.mobileBenefitsExplorer}>
+            <Tabs defaultValue={tierMeta[0].key} className={styles.mobileTabs}>
+              <TabsList className={styles.mobileTabsList}>
+                {tierMeta.map((tier) => (
+                  <TabsTrigger
+                    key={tier.key}
+                    value={tier.key}
+                    className={styles.mobileTabsTrigger}
+                    style={{ '--tier-color': tier.color } as React.CSSProperties}
+                  >
+                    <tier.Icon className={styles.mobileTabsTriggerIcon} size={15} />
+                    {tier.displayName}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {tierMeta.map((tier) => (
+                <TabsContent
+                  key={tier.key}
+                  value={tier.key}
+                  className={styles.mobileTabsContent}
+                  style={{ '--tier-color': tier.color } as React.CSSProperties}
+                >
+                  <div
+                    className={styles.mobileTierHeader}
+                    style={{ '--tier-color': tier.color } as React.CSSProperties}
+                  >
+                    <div className={styles.mobileTierHeaderTop}>
+                      <div className={styles.mobileTierCoverage}>
+                        Beneficios ({tier.includedBenefits}/{totalBenefits})
+                      </div>
+                    </div>
+
+                    <div className={styles.mobileTierProgress}>
+                      <div className={styles.progressBar}>
+                        <div
+                          className={styles.progressFill}
+                          data-type={tier.key}
+                          style={{ width: `${tier.progressPercent}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={styles.mobileTierControls}>
+                    <button className={styles.textLink} onClick={expandAll} data-track-name={`expandir_tab_${tier.key}_benefits_sponsors`}>
+                      <ChevronsDown size={16} />
+                      Expandir todo
+                    </button>
+                    <button className={styles.textLink} onClick={collapseAll} data-track-name={`colapsar_tab_${tier.key}_benefits_sponsors`}>
+                      <ChevronsUp size={16} />
+                      Colapsar todo
+                    </button>
+                  </div>
+
+                  <div className={styles.mobileBenefitsTable}>
+                    <div className={styles.mobilePricingRow}>
+                      <div>
+                        <div className={styles.mobilePricingLabel}>Regular price</div>
+                        <div className={styles.mobilePricingDetail}>USD - Tax not included</div>
+                      </div>
+                      <div className={styles.mobilePricingValue}>{tier.price}</div>
+                    </div>
+
+                    <div className={`${styles.mobilePricingRow} ${isDiscountActive ? styles.mobilePricingRowHighlighted : ''}`}>
+                      <div>
+                        <div className={styles.mobilePricingLabel}>
+                          {isDiscountActive && (
+                            <span className={styles.mobileEarlyBirdBadge}>⏰ EARLY BIRD</span>
+                          )}
+                          Discounted price (20%)
+                        </div>
+                        <div className={styles.mobilePricingDetail}>
+                          Until MAR 30th 2026 · USD - Tax not included
+                        </div>
+                      </div>
+                      <div className={styles.mobilePricingValueStrong}>{tier.discountedPrice}</div>
+                    </div>
+
+                    {DETAILED_BENEFITS.map((category) => {
+                      const isExpanded = openCategories.has(category.category);
+
+                      return (
+                        <div
+                          key={`${tier.key}-${category.category}`}
+                          className={styles.mobileCategoryCard}
+                          style={{ '--category-color': category.color } as React.CSSProperties}
+                        >
+                          <button
+                            type="button"
+                            className={styles.mobileCategoryTitle}
+                            onClick={() => toggleCategory(category.category)}
+                            aria-label={isExpanded ? 'Colapsar categoria' : 'Expandir categoria'}
+                            aria-expanded={isExpanded}
+                          >
+                            <div className={styles.mobileCategoryTitleMain}>
+                              <category.icon size={18} className={styles.mobileCategoryIcon} />
+                              <span>{category.category}</span>
+                              <span className={styles.mobileCategoryCount}>({category.items.length})</span>
+                            </div>
+                            {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                          </button>
+
+                          {isExpanded && (
+                            <div className={styles.mobileBenefitList}>
+                              {category.items.map((item) => {
+                                const tierValue = getTierValue(item, tier.key);
+                                const isBooleanBenefit = typeof tierValue === 'boolean';
+
+                                return (
+                                  <div key={`${tier.key}-${category.category}-${item.label}`} className={styles.mobileBenefitItem}>
+                                    <div className={styles.mobileBenefitLabel}>{item.label}</div>
+                                    {isBooleanBenefit ? (
+                                      renderBooleanBenefitBadge(tier.key, tier.color, tierValue)
+                                    ) : (
+                                      <div className={styles.mobileBenefitValue}>
+                                        {formatTierBenefit(item, tier.key)}
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </TabsContent>
+              ))}
+            </Tabs>
           </div>
 
-          {/* Pricing Header */}
-          <div className={styles.pricingTable}>
-            <div className={styles.pricingHeader}>
-              <div className={styles.pricingHeaderLabel}>BENEFICIOS</div>
-              {TIERS.map((tier, idx) => {
-                const tierCounts = [totalPlatinum, totalGold, totalSilver, totalBronze];
-                const tierTypes = ['platinum', 'gold', 'silver', 'bronze'];
-                return (
+          <div className={styles.desktopBenefitsExplorer}>
+            {/* Text Links para expandir/colapsar todo */}
+            <div className={styles.tableControls}>
+              <button className={styles.textLink} onClick={expandAll} data-track-name="expandir_tabla_benefits_sponsors">
+                <ChevronsDown size={16} />
+                Expandir todo
+              </button>
+              <button className={styles.textLink} onClick={collapseAll} data-track-name="colapsar_tabla_benefits_sponsors">
+                <ChevronsUp size={16} />
+                Colapsar todo
+              </button>
+            </div>
+
+            {/* Pricing Header */}
+            <div className={styles.pricingTable}>
+              <div className={styles.pricingHeader}>
+                <div className={styles.pricingHeaderLabel}>BENEFICIOS</div>
+                {tierMeta.map((tier) => (
                   <div 
                     key={tier.name} 
                     className={styles.pricingHeaderTier}
                     style={{ '--tier-color': tier.color } as React.CSSProperties}
                   >
-                    <div className={styles.tierName}>{tier.name}</div>
+                    <div className={styles.tierName}>{tier.displayName}</div>
                     <div className={styles.progressInfo}>
-                      <span className={styles.progressCount}>{tierCounts[idx]}/{totalBenefits}</span>
+                      <span className={styles.progressCount}>{tier.includedBenefits}/{totalBenefits}</span>
                       <div className={styles.progressBar}>
                         <div 
                           className={styles.progressFill} 
-                          data-type={tierTypes[idx]}
-                          style={{ width: `${(tierCounts[idx] / totalBenefits) * 100}%` }}
+                          data-type={tier.key}
+                          style={{ width: `${tier.progressPercent}%` }}
                         ></div>
                       </div>
                     </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Regular Price Row */}
+              <div className={styles.pricingRow}>
+                <div className={styles.pricingRowLabel}>
+                  <div className={styles.benefitLabel}>Regular price</div>
+                  <div className={styles.priceDetails}>
+                    USD - Tax not included
+                  </div>
+                </div>
+                {tierMeta.map((tier) => (
+                  <div key={tier.name} className={styles.pricingCell}>
+                    <div className={styles.priceRegular}>
+                      {tier.price}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Discounted Price Row */}
+              <div 
+                className={`${styles.pricingRow} ${isDiscountActive ? styles.pricingRowHighlighted : ''}`}
+              >
+                <div className={styles.pricingRowLabel}>
+                  <div className={styles.benefitLabel}>
+                    {isDiscountActive && (
+                      <span className={styles.earlyBirdBadge}>⏰ EARLY BIRD</span>
+                    )}
+                    Discounted price (20%)
+                  </div>
+                  <div className={styles.priceDetails}>
+                    Until MAR 30th 2026 · USD - Tax not included
+                  </div>
+                </div>
+                {tierMeta.map((tier) => (
+                  <div key={tier.name} className={styles.pricingCell}>
+                    <div className={styles.priceDiscounted}>
+                      {tier.discountedPrice}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Detailed Benefits */}
+              {DETAILED_BENEFITS.map((category) => {
+                const categoryKey = `category-${category.category}`;
+                const isExpanded = openCategories.has(category.category);
+                const itemCount = category.items.length;
+                return (
+                  <div key={categoryKey} className={styles.categoryBlock}>
+                    {/* Category Title - Clickable */}
+                    <div 
+                      className={styles.categoryTitle}
+                      style={{ '--category-color': category.color } as React.CSSProperties}
+                      onClick={() => toggleCategory(category.category)}
+                      onKeyDown={(e) => handleCategoryKeyDown(category.category, e)}
+                      role="button"
+                      tabIndex={0}
+                      data-track-name="toggle_categoria_benefits_sponsors"
+                    >
+                      <div className={styles.categoryTitleContent}>
+                        <category.icon size={20} className={styles.categoryIconInline} />
+                        <span>{category.category}</span>
+                        <span className={styles.benefitCount}>({itemCount})</span>
+                      </div>
+                      <button 
+                        className={styles.toggleButton} 
+                        aria-label={isExpanded ? 'Colapsar' : 'Expandir'}
+                        aria-expanded={isExpanded}
+                        data-track-name="toggle_categoria_icon_benefits_sponsors"
+                      >
+                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                      </button>
+                    </div>
+
+                    {/* Category Items - Collapsible */}
+                    {isExpanded && category.items.map((item, itemIdx) => (
+                      <div key={itemIdx} className={styles.pricingRow}>
+                        <div className={styles.pricingRowLabel}>
+                          <div className={styles.benefitLabel}>{item.label}</div>
+                        </div>
+                        <div className={styles.pricingCell}>
+                          {typeof item.platinum === 'boolean' ? (
+                            renderBooleanBenefitBadge('platinum', TIERS[0].color, item.platinum)
+                          ) : (
+                            <span className={styles.valueText}>{item.platinum}</span>
+                          )}
+                        </div>
+                        <div className={styles.pricingCell}>
+                          {typeof item.gold === 'boolean' ? (
+                            renderBooleanBenefitBadge('gold', TIERS[1].color, item.gold)
+                          ) : (
+                            <span className={styles.valueText}>{item.gold}</span>
+                          )}
+                        </div>
+                        <div className={styles.pricingCell}>
+                          {typeof item.silver === 'boolean' ? (
+                            renderBooleanBenefitBadge('silver', TIERS[2].color, item.silver)
+                          ) : (
+                            <span className={styles.valueText}>{item.silver}</span>
+                          )}
+                        </div>
+                        <div className={styles.pricingCell}>
+                          {typeof item.bronze === 'boolean' ? (
+                            renderBooleanBenefitBadge('bronze', TIERS[3].color, item.bronze)
+                          ) : (
+                            <span className={styles.valueText}>{item.bronze}</span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 );
               })}
             </div>
-
-            {/* Regular Price Row */}
-            <div className={styles.pricingRow}>
-              <div className={styles.pricingRowLabel}>
-                <div className={styles.benefitLabel}>Regular price</div>
-                <div className={styles.priceDetails}>
-                  USD - Tax not included
-                </div>
-              </div>
-              {TIERS.map((tier) => (
-                <div key={tier.name} className={styles.pricingCell}>
-                  <div className={styles.priceRegular}>
-                    {tier.price}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Discounted Price Row */}
-            <div 
-              className={`${styles.pricingRow} ${isDiscountActive ? styles.pricingRowHighlighted : ''}`}
-            >
-              <div className={styles.pricingRowLabel}>
-                <div className={styles.benefitLabel}>
-                  {isDiscountActive && (
-                    <span className={styles.earlyBirdBadge}>⏰ EARLY BIRD</span>
-                  )}
-                  Discounted price (20%)
-                </div>
-                <div className={styles.priceDetails}>
-                  Until MAR 30th 2026 · USD - Tax not included
-                </div>
-              </div>
-              {TIERS.map((tier) => (
-                <div key={tier.name} className={styles.pricingCell}>
-                  <div className={styles.priceDiscounted}>
-                    {tier.discountedPrice}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Detailed Benefits */}
-            {DETAILED_BENEFITS.map((category) => {
-              const categoryKey = `category-${category.category}`;
-              const isExpanded = openCategories.has(category.category);
-              const itemCount = category.items.length;
-              return (
-                <div key={categoryKey} className={styles.categoryBlock}>
-                  {/* Category Title - Clickable */}
-                  <div 
-                    className={styles.categoryTitle}
-                    style={{ '--category-color': category.color } as React.CSSProperties}
-                    onClick={() => toggleCategory(category.category)}
-                    onKeyDown={(e) => handleCategoryKeyDown(category.category, e)}
-                    role="button"
-                    tabIndex={0}
-                    data-track-name="toggle_categoria_benefits_sponsors"
-                  >
-                    <div className={styles.categoryTitleContent}>
-                      <category.icon size={20} className={styles.categoryIconInline} />
-                      <span>{category.category}</span>
-                      <span className={styles.benefitCount}>({itemCount})</span>
-                    </div>
-                    <button 
-                      className={styles.toggleButton} 
-                      aria-label={isExpanded ? 'Colapsar' : 'Expandir'}
-                      aria-expanded={isExpanded}
-                      data-track-name="toggle_categoria_icon_benefits_sponsors"
-                    >
-                      {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                    </button>
-                  </div>
-
-                  {/* Category Items - Collapsible */}
-                  {isExpanded && category.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className={styles.pricingRow}>
-                      <div className={styles.pricingRowLabel}>
-                        <div className={styles.benefitLabel}>{item.label}</div>
-                      </div>
-                      <div className={styles.pricingCell}>
-                        {typeof item.platinum === 'boolean' ? (
-                          item.platinum ? (
-                            <Check className={styles.checkIcon} style={{ color: TIERS[0].color }} />
-                          ) : (
-                            <X className={styles.xIcon} />
-                          )
-                        ) : (
-                          <span className={styles.valueText}>{item.platinum}</span>
-                        )}
-                      </div>
-                      <div className={styles.pricingCell}>
-                        {typeof item.gold === 'boolean' ? (
-                          item.gold ? (
-                            <Check className={styles.checkIcon} style={{ color: TIERS[1].color }} />
-                          ) : (
-                            <X className={styles.xIcon} />
-                          )
-                        ) : (
-                          <span className={styles.valueText}>{item.gold}</span>
-                        )}
-                      </div>
-                      <div className={styles.pricingCell}>
-                        {typeof item.silver === 'boolean' ? (
-                          item.silver ? (
-                            <Check className={styles.checkIcon} style={{ color: TIERS[2].color }} />
-                          ) : (
-                            <X className={styles.xIcon} />
-                          )
-                        ) : (
-                          <span className={styles.valueText}>{item.silver}</span>
-                        )}
-                      </div>
-                      <div className={styles.pricingCell}>
-                        {typeof item.bronze === 'boolean' ? (
-                          item.bronze ? (
-                            <Check className={styles.checkIcon} style={{ color: TIERS[3].color }} />
-                          ) : (
-                            <X className={styles.xIcon} />
-                          )
-                        ) : (
-                          <span className={styles.valueText}>{item.bronze}</span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
           </div>
 
           {/* Footnotes */}
