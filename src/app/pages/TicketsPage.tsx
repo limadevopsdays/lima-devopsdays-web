@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Ticket, Sparkles, Check, ChevronDown, ChevronUp, ChevronsDown, ChevronsUp, User, Gift, Coffee, FileText, Zap, X } from 'lucide-react'
 import { SectionHeader } from '../components/devopsdays/SectionHeader'
 import { TicketsSection } from '../components/devopsdays/TicketsSection'
+import { isTicketSaleOpen, TICKET_SALE_START_LABEL } from '../lib/tickets'
 import styles from './TicketsPage.module.css'
 
 const SHOW_TICKET_SHOWCASE = false
@@ -293,6 +294,7 @@ export default function TicketsPage() {
         count: totalVipBenefits,
         progress: (totalVipBenefits / totalBenefits) * 100,
       }
+  const ticketSaleOpen = isTicketSaleOpen()
 
   return (
     <div className={styles.page}>
@@ -328,7 +330,8 @@ export default function TicketsPage() {
               Comprar tickets
             </a>
             <p className={styles.introCtaNote}>
-              Inicio de venta: <strong>23 de marzo de 2026</strong>
+              {ticketSaleOpen ? 'Venta iniciada: ' : 'Inicio de venta: '}
+              <strong>{TICKET_SALE_START_LABEL}</strong>
             </p>
             <p className={styles.introCtaSubnote}>
               Si tu equipo necesita más tickets o una coordinación especial, puedes escribirnos a <strong>tickets@devopsdays.pe</strong>.
