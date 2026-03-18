@@ -2,12 +2,12 @@ import { Crown, Ticket, Zap, Clock, MapPin } from 'lucide-react'
 import { Link } from 'react-router'
 import { SectionHeader } from './SectionHeader'
 import styles from './TicketsSection.module.css'
+import { isTicketSaleOpen, TICKET_SALE_START_LABEL } from '../../lib/tickets'
 import hummingbirdBg from 'figma:asset/9c8f57f0fc822b0d19c16eaaa81441ccf07debb9.png'
 
 const GENERAL_IMAGE = hummingbirdBg
 const VIP_IMAGE = hummingbirdBg
 const HUMMINGBIRD_MARK = '/images/tickets/colibri.png'
-const pricingAnnounced = false
 
 type TicketsSectionProps = {
   variant?: 'home' | 'page'
@@ -15,6 +15,7 @@ type TicketsSectionProps = {
 
 export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
   const WrapperTag = variant === 'page' ? 'section' : 'div'
+  const pricingAnnounced = isTicketSaleOpen()
 
   return (
     <WrapperTag
@@ -89,7 +90,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                       </div>
                       <div className={styles.priceValidity}>
                         <Clock className={styles.validityIcon} />
-                        Inicio de venta: 23 de marzo de 2026
+                        Inicio de venta: {TICKET_SALE_START_LABEL}
                       </div>
                     </div>
                   )}
@@ -109,7 +110,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                       
                       <div className={styles.priceValidity}>
                         <Clock className={styles.validityIcon} />
-                        Inicio de venta: 23 de marzo de 2026
+                        Venta iniciada: {TICKET_SALE_START_LABEL}
                       </div>
                     </>
                   )}
@@ -177,7 +178,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                       </div>
                       <div className={styles.priceValidity}>
                         <Clock className={styles.validityIcon} />
-                        Inicio de venta: 23 de marzo de 2026
+                        Inicio de venta: {TICKET_SALE_START_LABEL}
                       </div>
                     </div>
                   )}
@@ -197,7 +198,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                       
                       <div className={styles.priceValidity}>
                         <Clock className={styles.validityIcon} />
-                        Inicio de venta: 23 de marzo de 2026
+                        Venta iniciada: {TICKET_SALE_START_LABEL}
                       </div>
                     </>
                   )}
