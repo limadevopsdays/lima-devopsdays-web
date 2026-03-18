@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X, Images } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ImageWithFallback } from '../figma/ImageWithFallback'
 import styles from './GallerySection.module.css'
@@ -139,10 +139,11 @@ export function GallerySection() {
   }
 
   return (
-    <section className={styles.gallery}>
+    <div className={styles.gallery}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.badge}>
+            <Images className={styles.badgeIcon} />
             <span className={styles.badgeText}>DevOpsDays Perú 2025</span>
           </div>
           <p className={styles.mission}>
@@ -254,6 +255,6 @@ export function GallerySection() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </div>
   )
 }
