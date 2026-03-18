@@ -1,4 +1,4 @@
-import { Crown, Ticket, Zap, Clock } from 'lucide-react'
+import { Crown, Ticket, Zap, Clock, MapPin } from 'lucide-react'
 import { Link } from 'react-router'
 import { SectionHeader } from './SectionHeader'
 import styles from './TicketsSection.module.css'
@@ -14,10 +14,12 @@ type TicketsSectionProps = {
 }
 
 export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
+  const WrapperTag = variant === 'page' ? 'section' : 'div'
+
   return (
-    <section
+    <WrapperTag
       id="tickets"
-      className={`${styles.section} ${variant === 'page' ? styles.sectionPage : ''}`.trim()}
+      className={variant === 'page' ? `${styles.section} ${styles.sectionPage}`.trim() : styles.sectionHome}
     >
       <div className={styles.container}>
         <SectionHeader 
@@ -58,6 +60,12 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                   
                   <div className={styles.ticketEvent}>
                     <div className={styles.ticketLogo}>DevOpsDays</div>
+                    <div className={styles.ticketLocation}>
+                      <MapPin className={styles.ticketIcon} />
+                      <div className={styles.ticketLocationText}>
+                        <span>Lima Centro de Convenciones</span>
+                      </div>
+                    </div>
                   </div>
                   
                   <div className={styles.ticketMeta}>
@@ -140,6 +148,12 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                   
                   <div className={styles.ticketEvent}>
                     <div className={styles.ticketLogo}>DevOpsDays</div>
+                    <div className={styles.ticketLocation}>
+                      <MapPin className={styles.ticketIcon} />
+                      <div className={styles.ticketLocationText}>
+                        <span>Lima Centro de Convenciones</span>
+                      </div>
+                    </div>
                   </div>
                   
                   <div className={styles.ticketMeta}>
@@ -196,6 +210,6 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
         {/* DIVIDER */}
         <div className={styles.divider}></div>
       </div>
-    </section>
+    </WrapperTag>
   )
 }

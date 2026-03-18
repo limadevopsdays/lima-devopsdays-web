@@ -1,6 +1,5 @@
 .gallery {
-  padding: 1.5rem 0 3rem 0;
-  background-color: var(--color-white);
+  margin: 2.5rem 0 0;
   position: relative;
 }
 
@@ -18,11 +17,18 @@
 .badge {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   padding: 6px 16px;
   border-radius: 9999px;
-  background-color: #f1f0ff;
+  background-color: #ffffff;
   border: 1px solid #c4b5fd;
   margin-bottom: 20px;
+}
+
+.badgeIcon {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #7c3aed;
 }
 
 .badgeText {
@@ -52,6 +58,12 @@
   padding-bottom: 6px;
   margin-top: -6px;
   margin-bottom: -6px;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    margin-top: 2rem;
+  }
 }
 
 .slideWrapper {

@@ -1,10 +1,10 @@
 import { Send, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router'
-import { SectionHeader } from './SectionHeader'
 import styles from './SpeakersSection.module.css'
 
 // Imagen hero de speaker - Ruta portable para exportación
 const speakerEdition2025 = '/images/speakers/speakers%201.jpg'
+const keynoteMarcHornbeek = '/images/speakers/keynotes/marc_hornbeek.jpeg'
 
 // Speakers destacados de ediciones pasadas
 const PAST_SPEAKERS = [
@@ -24,16 +24,66 @@ const tracks = [
   { name: 'IA y Estrategia de Datos', color: '#a78bfa' }, // Morado claro: discovery e inteligencia sin competir con el color de marca
 ]
 
+const keynoteSpeakers = [
+  {
+    name: 'Marc Hornbeek',
+    role: 'CEO y consultor principal',
+    imageSrc: keynoteMarcHornbeek,
+    alt: 'Marc Hornbeek, keynote speaker invitado en DevOpsDays Lima',
+    linkedin: 'https://www.linkedin.com/in/marchornbeek/',
+  },
+]
+
 export function SpeakersSection() {
   return (
     <section id="speakers" className={styles.section}>
       {/* SOCIAL PROOF - Foto + Lista de speakers */}
       <div className={styles.socialProofSection}>
         <div className={styles.container}>
-          <SectionHeader
-            eyebrow="Speakers"
-            eyebrowColor="#7c3aed"
-          />
+          <div className={styles.speakersHeader}>
+            <div className={styles.keynoteIntroBadge}>
+              SPEAKERS
+            </div>
+            <h2 className={styles.speakersTitle}>
+              Keynote Speakers
+            </h2>
+            <p className={styles.speakersLead}>
+              Líderes de la industria tech compartiendo sus experiencias en producción.
+            </p>
+          </div>
+          <div className={styles.keynotePanel}>
+            <div className={styles.keynotePanelContent}>
+              <div className={styles.keynoteShowcase}>
+                {keynoteSpeakers.map((speaker) => (
+                  <article key={speaker.name} className={styles.keynoteCard}>
+                  <div className={styles.keynoteImageFrame}>
+                    <a
+                      href={speaker.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.keynoteImageLink}
+                      aria-label={`Ver perfil de LinkedIn de ${speaker.name}`}
+                      data-track-name="ver_linkedin_keynote_home"
+                    >
+                      <img
+                        className={styles.keynoteImage}
+                        src={speaker.imageSrc}
+                        alt={speaker.alt}
+                        loading="lazy"
+                      />
+                      <div className={styles.keynoteImageOverlay} aria-hidden="true" />
+                    </a>
+                  </div>
+
+                  <div className={styles.keynoteMeta}>
+                    <h3 className={styles.keynoteName}>{speaker.name}</h3>
+                    <p className={styles.keynoteRole}>{speaker.role}</p>
+                  </div>
+                </article>
+              ))}
+              </div>
+            </div>
+          </div>
           <div className={styles.socialProofCard}>
             <div className={styles.socialProofGrid}>
               <div

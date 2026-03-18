@@ -2,7 +2,11 @@
 
 .section {
   background: var(--color-white);
-  padding: 3rem 0 1.5rem 0;
+  padding: 3rem 0;
+  margin: 0;
+}
+
+.sectionHome {
   margin: 0;
 }
 

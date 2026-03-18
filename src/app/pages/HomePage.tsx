@@ -17,7 +17,7 @@ export default function HomePage() {
       <CountdownSection />
       <AboutSection />
       <SponsorsSection />
-      <section className={styles.ticketsGalleryBlock} aria-label="Tickets y galeria">
+      <section className={styles.ticketsGalleryBlock} aria-label="Tickets y galería">
         <TicketsSection />
         <GallerySection />
       </section>
