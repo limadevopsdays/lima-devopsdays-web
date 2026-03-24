@@ -89,7 +89,7 @@ export function HeroSection() {
           <div className={styles.metaInfo}>
             <div className={styles.metaBadge}>
               <Calendar className={styles.iconPurple} />
-              27 – 28 de Agosto, 2026
+              27 – 28 de agosto, 2026
             </div>
             <div className={styles.metaBadge}>
               <MapPin className={styles.iconOrange} />
