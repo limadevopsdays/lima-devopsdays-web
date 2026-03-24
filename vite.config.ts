@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+import { copyFile } from 'fs/promises'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
@@ -47,6 +48,27 @@ const figmaAssetPlugin = () => ({
   },
 })
 
+const spaPagesFallbackPlugin = () => {
+  let root = process.cwd()
+  let outDir = 'dist'
+
+  return {
+    name: 'spa-pages-fallback',
+    apply: 'build' as const,
+    configResolved(config: { root: string; build: { outDir: string } }) {
+      root = config.root
+      outDir = config.build.outDir
+    },
+    async closeBundle() {
+      const distDir = path.resolve(root, outDir)
+      const indexPath = path.join(distDir, 'index.html')
+      const fallbackPath = path.join(distDir, '404.html')
+
+      await copyFile(indexPath, fallbackPath)
+    },
+  }
+}
+
 export default defineConfig({
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
@@ -54,6 +76,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     figmaAssetPlugin(),
+    spaPagesFallbackPlugin(),
   ],
   resolve: {
     alias: {
