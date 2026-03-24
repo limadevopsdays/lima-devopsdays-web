@@ -1,10 +1,12 @@
 // ─── Mock content mirroring the real site's data structure ───────────────────
 
+export const TICKETS_REGISTER_URL = 'https://tickets.devopsdays.pe/event/devopsdays-lima-2026-1/register/'
+
 export const siteContent = {
   eventName: 'DevOpsDays Lima',
   year: '2026',
-  ticketsUrl: 'https://tickets.devopsdays.pe/',
-  registrationUrl: 'https://tickets.devopsdays.pe/',
+  ticketsUrl: TICKETS_REGISTER_URL,
+  registrationUrl: TICKETS_REGISTER_URL,
   sponsorContactEmail: 'sponsors@devopsdays.pe',
   linkedin: 'https://www.linkedin.com/company/devops-days-lima/',
   instagram: 'https://www.instagram.com/devopsdayslima/',
@@ -163,6 +165,7 @@ export const sponsorTiers = [
   { id: 'platinum', label: 'Platinum' },
   { id: 'gold', label: 'Gold' },
   { id: 'silver', label: 'Silver' },
+  { id: 'bronze', label: 'Bronze' },
   { id: 'community', label: 'Community' },
 ]
 
@@ -179,6 +182,16 @@ export const sponsors = [
         name: 'CleverIT', 
         href: 'https://cleveritgroup.com/',
         logo: '/images/sponsors/platinium/cleverit.png'
+      },
+    ],
+  },
+  {
+    tier: 'bronze',
+    items: [
+      {
+        name: 'Orexe',
+        href: 'https://orexe.pe/',
+        logo: '/images/sponsors/bronze/orexe.png'
       },
     ],
   },
@@ -272,7 +285,7 @@ export const faq = [
   },
   { 
     q: '¿Cómo puedo registrarme? ¿Cuánto cuestan los tickets?', 
-    a: 'Puedes registrarte desde la sección de tickets en la web o directamente en **https://tickets.devopsdays.pe/**. Actualmente contamos con dos modalidades de entrada: **General y VIP**. El inicio de venta está programado para el **23 de marzo de 2026**. Si tu equipo necesita más tickets o una coordinación especial, puedes escribirnos a **tickets@devopsdays.pe**.' 
+    a: 'Puedes registrarte desde la sección de tickets en la web o directamente en **https://tickets.devopsdays.pe/event/devopsdays-lima-2026-1/register/**. Actualmente contamos con dos modalidades de entrada: **General y VIP**. El inicio de venta está programado para el **23 de marzo de 2026**. Si tu equipo necesita más tickets o una coordinación especial, puedes escribirnos a **tickets@devopsdays.pe**.' 
   },
   { 
     q: '¿Qué tipo de formato tiene el evento?', 

@@ -2,10 +2,11 @@ import { useState, useEffect, type MouseEvent } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router'
 import styles from './NavbarSection.module.css'
+import { siteContent } from '../../data/mockContent'
 
 const navLinks = [
   { label: 'Sponsors', hash: '#sponsors' },
-  { label: 'Tickets', hash: '#tickets' },
+  { label: 'Tickets', href: siteContent.registrationUrl, external: true },
   { label: 'Speakers', hash: '#speakers' },
   { label: 'Ubicación', hash: '#venue' },
 ]
@@ -89,20 +90,32 @@ export function NavbarSection() {
         <ul className={styles.desktopMenu}>
           {navLinks.map((l) => {
             const isActive =
+              !l.external &&
               location.pathname === '/' &&
               (location.hash === l.hash || (!location.hash && l.hash === '#hero'))
 
             return (
               <li key={l.label}>
-                <Link
-                  to={`/${l.hash}`}
-                  onClick={handleSectionClick(l.hash)}
-                  className={`${styles.navLink} ${isActive ? styles.active : ''}`}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  {l.label}
-                  {isActive && <span className={styles.activeIndicator} aria-hidden="true" />}
-                </Link>
+                {l.external ? (
+                  <a
+                    href={l.href}
+                    className={styles.navLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={`/${l.hash}`}
+                    onClick={handleSectionClick(l.hash!)}
+                    className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {l.label}
+                    {isActive && <span className={styles.activeIndicator} aria-hidden="true" />}
+                  </Link>
+                )}
               </li>
             )
           })}
@@ -110,7 +123,7 @@ export function NavbarSection() {
 
         {/* CTA */}
         <a
-          href="https://tickets.devopsdays.pe/"
+          href={siteContent.registrationUrl}
           className={styles.ctaButton}
           aria-label="Comprar tickets para DevOpsDays Lima 2026"
           target="_blank"
@@ -137,18 +150,30 @@ export function NavbarSection() {
           <ul className={styles.mobileMenuList}>
             {navLinks.map((l) => (
               <li key={l.label}>
-                <Link
-                  to={`/${l.hash}`}
-                  className={styles.mobileMenuLink}
-                  onClick={handleSectionClick(l.hash)}
-                >
-                  {l.label}
-                </Link>
+                {l.external ? (
+                  <a
+                    href={l.href}
+                    className={styles.mobileMenuLink}
+                    onClick={() => setMenuOpen(false)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    to={`/${l.hash}`}
+                    className={styles.mobileMenuLink}
+                    onClick={handleSectionClick(l.hash!)}
+                  >
+                    {l.label}
+                  </Link>
+                )}
               </li>
             ))}
             <li className={styles.mobileMenuCta}>
               <a
-                href="https://tickets.devopsdays.pe/"
+                href={siteContent.registrationUrl}
                 className={styles.mobileCtaButton}
                 onClick={() => setMenuOpen(false)}
                 target="_blank"

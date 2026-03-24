@@ -1,7 +1,7 @@
-import { Download, CheckCircle, Award, Handshake } from 'lucide-react'
+import { Download, CheckCircle, Handshake, Crown, Award, Medal, Shield } from 'lucide-react'
 import { Link } from 'react-router'
 import { SectionHeader } from './SectionHeader'
-import { sponsors } from '../../data/mockContent'
+import { sponsors, sponsorTiers } from '../../data/mockContent'
 import styles from './SponsorsSection.module.css'
 
 const SOCIAL_PROOF_IMAGE = '/images/sponsors/sponsors%201.jpg'
@@ -9,9 +9,25 @@ const SOCIAL_PROOF_IMAGE = '/images/sponsors/sponsors%201.jpg'
 const PAST_SPONSORS = ['Dynatrace', 'AWS', 'Google Cloud', 'Microsoft', 'Red Hat', 'HashiCorp']
 const TIERS = ['Platinum', 'Gold', 'Silver', 'Bronze']
 const TIER_COLORS = ['#858DA6', '#f2b950', '#BDBFBF', '#BF834E']
+const TIER_DECORATION = {
+  platinum: { Icon: Crown, color: '#858DA6' },
+  gold: { Icon: Award, color: '#f2b950' },
+  silver: { Icon: Medal, color: '#BDBFBF' },
+  bronze: { Icon: Shield, color: '#BF834E' },
+  community: { Icon: Handshake, color: '#7c3aed' },
+} as const
+
 export function SponsorsSection() {
   const platinumGroup = sponsors.find((g) => g.tier === 'platinum')
   const platinumItems = platinumGroup?.items || []
+  const platinumDecoration = TIER_DECORATION.platinum
+  const activeSecondaryTiers = sponsorTiers
+    .filter((tier) => tier.id !== 'platinum')
+    .map((tier) => ({
+      ...tier,
+      items: sponsors.find((group) => group.tier === tier.id)?.items || [],
+    }))
+    .filter((tier) => tier.items.length > 0)
 
   return (
     <section id="sponsors" className={styles.section}>
@@ -28,7 +44,10 @@ export function SponsorsSection() {
           <div className={styles.platinumCard}>
             <div className={styles.platinumContent}>
               <div className={styles.platinumBadge}>
-                <Award className={styles.platinumBadgeIcon} />
+                <platinumDecoration.Icon
+                  className={styles.platinumBadgeIcon}
+                  style={{ color: platinumDecoration.color }}
+                />
                 <span className={styles.platinumBadgeText}>
                   {platinumItems.length > 1 ? 'Platinum Sponsors' : 'Platinum Sponsor'}
                 </span>
@@ -100,6 +119,60 @@ export function SponsorsSection() {
                 Estamos en conversaciones con líderes tecnológicos de la región. Mantente atento a nuestros canales para conocer quién impulsará DevOpsDays Lima 2026.
               </p>
             </div>
+          </div>
+        )}
+
+        {activeSecondaryTiers.length > 0 && (
+          <div className={styles.secondaryTiers}>
+            {activeSecondaryTiers.map((tier) => {
+              const decoration = TIER_DECORATION[tier.id as keyof typeof TIER_DECORATION] ?? TIER_DECORATION.community
+
+              return (
+              <div key={tier.id} className={`${styles.platinumCard} ${styles.secondaryTierCard}`}>
+                <div className={styles.platinumContent}>
+                  <div className={styles.platinumBadge}>
+                    <decoration.Icon
+                      className={styles.platinumBadgeIcon}
+                      style={{ color: decoration.color }}
+                    />
+                    <span className={styles.platinumBadgeText}>
+                      {tier.items.length > 1 ? `${tier.label} Sponsors` : `${tier.label} Sponsor`}
+                    </span>
+                  </div>
+
+                  <div className={styles.logosGrid}>
+                    {tier.items.map((sponsor) => (
+                      <div key={sponsor.name} className={styles.logoContainer}>
+                        <a
+                          href={sponsor.href || '#'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.logoLink}
+                          data-track-name="ver_sponsor_logo_home"
+                        >
+                          <img
+                            src={sponsor.logo}
+                            alt={`Logo ${sponsor.name}`}
+                            className={styles.logo}
+                          />
+                        </a>
+                        {sponsor.href && (
+                          <a
+                            href={sponsor.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.learnMoreLink}
+                            data-track-name="conocer_sponsor_home"
+                          >
+                            Conocer más sobre {sponsor.name} →
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )})}
           </div>
         )}
       </div>

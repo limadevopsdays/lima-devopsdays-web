@@ -211,6 +211,40 @@
   line-height: 1.6;
 }
 
+.secondaryTiers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+}
+
+.secondaryTierCard {
+  width: 100%;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.secondaryTierCard .platinumContent {
+  padding-top: 1.25rem;
+}
+
+.secondaryTierCard .logosGrid {
+  max-width: 30rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.secondaryTierCard .logoContainer {
+  min-height: 168px;
+  padding: 2rem 2rem 1.25rem;
+}
+
+.secondaryTierCard .logo {
+  max-height: 88px;
+}
+
 /* Social Proof */
 .socialProofSection {
   background: var(--color-slate-50);
