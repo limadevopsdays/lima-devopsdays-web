@@ -208,6 +208,18 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
           </Link>
         </div>
 
+        {variant === 'home' && (
+          <div className={styles.secondaryPageCta}>
+            <Link
+              to="/tickets"
+              className={styles.secondaryPageButton}
+              data-track-name="ver_detalles_tickets_section_home"
+            >
+              Ver detalles y beneficios de tickets
+            </Link>
+          </div>
+        )}
+
         {/* DIVIDER */}
         <div className={styles.divider}></div>
       </div>

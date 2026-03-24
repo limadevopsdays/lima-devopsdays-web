@@ -4,6 +4,7 @@ import { SectionHeader } from '../components/devopsdays/SectionHeader'
 import { TicketsSection } from '../components/devopsdays/TicketsSection'
 import { isTicketSaleOpen, TICKET_SALE_START_LABEL } from '../lib/tickets'
 import styles from './TicketsPage.module.css'
+import { siteContent } from '../data/mockContent'
 
 const SHOW_TICKET_SHOWCASE = false
 type TicketTier = 'general' | 'vip'
@@ -320,7 +321,7 @@ export default function TicketsPage() {
           {/* CTA */}
           <div className={styles.introCta}>
             <a
-              href="https://tickets.devopsdays.pe/"
+              href={siteContent.registrationUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.introCtaButton}

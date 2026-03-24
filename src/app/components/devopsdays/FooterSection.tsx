@@ -24,7 +24,7 @@ export function FooterSection() {
             <Link to="/#sponsors" className={styles.navLink}>
               Sponsors
             </Link>
-            <Link to="/#tickets" className={styles.navLink}>
+            <Link to="/tickets" className={styles.navLink}>
               Tickets
             </Link>
             <Link to="/#speakers" className={styles.navLink}>

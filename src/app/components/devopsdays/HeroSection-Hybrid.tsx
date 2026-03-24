@@ -115,7 +115,7 @@ export function HeroSectionHybrid() {
           <div className="flex flex-wrap items-center gap-3 mb-10">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: '#ffffff', border: '1px solid #e2e8f0', color: '#334155' }}>
               <Calendar className="w-4 h-4" style={{ color: '#7c3aed' }} />
-              20 – 21 de Agosto, 2026
+              20 – 21 de agosto, 2026
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: '#ffffff', border: '1px solid #e2e8f0', color: '#334155' }}>
               <MapPin className="w-4 h-4" style={{ color: '#f97316' }} />

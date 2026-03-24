@@ -20,7 +20,7 @@ export default function NotFoundPage() {
             Volver al Inicio
           </Link>
           
-          <Link to="/#tickets" className={styles.secondaryButton} data-track-name="ver_tickets_actions_not_found">
+          <Link to="/tickets" className={styles.secondaryButton} data-track-name="ver_tickets_actions_not_found">
             <Search className="w-5 h-5" />
             Ver Tickets
           </Link>

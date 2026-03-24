@@ -27,7 +27,7 @@ export function Footer() {
             </p>
             <div className="inline-flex items-center gap-2 text-xs text-slate-600 bg-white/3 border border-white/8 rounded-full px-3 py-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
-              Lima, Perú · Agosto 2025
+              Lima, Perú · agosto 2025
             </div>
           </div>
 

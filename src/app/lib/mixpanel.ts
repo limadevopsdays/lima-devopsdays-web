@@ -17,6 +17,7 @@ export function initMixpanel() {
       pageview: false,
     },
     record_sessions_percent: 100,
+    record_heatmap_data: true,
     debug: import.meta.env.DEV,
   })
 

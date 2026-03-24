@@ -52,7 +52,7 @@ export function CountdownSection() {
                     ¡El evento ya comenzó! 🎉
                   </p>
                   <p className={styles.messageSubtitle}>
-                    27 de Agosto, 2026 · 08:00 AM
+                    27 de agosto, 2026 · 08:00 AM
                   </p>
                 </>
               ) : (
@@ -61,7 +61,7 @@ export function CountdownSection() {
                     El evento comienza en
                   </p>
                   <p className={styles.messageSubtitle}>
-                    27 de Agosto, 2026 · 08:00 AM
+                    27 de agosto, 2026 · 08:00 AM
                   </p>
                 </>
               )}

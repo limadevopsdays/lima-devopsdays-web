@@ -39,6 +39,35 @@
   }
 }
 
+.secondaryPageCta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.secondaryPageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.875rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  background: var(--color-purple);
+  border: 2px solid var(--color-purple);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondaryPageButton:hover {
+  background: var(--color-purple-dark);
+  border-color: var(--color-purple-dark);
+  transform: translateY(-2px);
+}
+
 /* ==========================================
    TICKET WRAPPER - Contenedor con efecto 3D
    ========================================== */
