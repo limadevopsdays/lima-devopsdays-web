@@ -139,7 +139,7 @@ export function GallerySection() {
   }
 
   return (
-    <div className={styles.gallery}>
+    <div id="gallery" className={styles.gallery}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.badge}>

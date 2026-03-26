@@ -104,6 +104,7 @@
     0 4px 8px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   height: 100%; /* ALTURA UNIFORME - todos los tickets ocupan el mismo alto */
+  isolation: isolate;
 }
 
 .ticketWrapper:hover .ticketCard {
@@ -115,10 +116,75 @@
 
 .ticketWrapper[data-type="general"] .ticketCard {
   border-color: #8c8c8c;
+  background:
+    linear-gradient(145deg, rgba(31, 41, 55, 0.98), rgba(15, 23, 42, 0.98));
 }
 
 .ticketWrapper[data-type="vip"] .ticketCard {
   border-color: #f2b950;
+  background:
+    linear-gradient(145deg, rgba(43, 29, 5, 0.98), rgba(14, 10, 2, 0.98));
+}
+
+.ticketCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ticketCard::after {
+  content: '';
+  position: absolute;
+  top: -35%;
+  bottom: -35%;
+  width: 42%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(-160%) rotate(14deg);
+}
+
+.ticketWrapper:hover .ticketCard::after {
+  opacity: 1;
+  animation: ticketShimmer 1.8s ease forwards;
+}
+
+.ticketWrapper[data-type="general"] .ticketCard::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(226, 232, 240, 0.18), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(148, 163, 184, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 36%, rgba(203, 213, 225, 0.1) 62%, transparent 100%);
+}
+
+.ticketWrapper[data-type="vip"] .ticketCard::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 216, 132, 0.2), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(255, 196, 72, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 36%, rgba(242, 185, 80, 0.12) 62%, transparent 100%);
+}
+
+.ticketWrapper[data-type="general"] .ticketCard::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(191, 219, 254, 0.08) 10%,
+    rgba(255, 255, 255, 0.68) 50%,
+    rgba(191, 219, 254, 0.08) 90%,
+    transparent 100%
+  );
+}
+
+.ticketWrapper[data-type="vip"] .ticketCard::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 214, 120, 0.08) 10%,
+    rgba(255, 242, 201, 0.72) 50%,
+    rgba(255, 214, 120, 0.08) 90%,
+    transparent 100%
+  );
 }
 
 /* ==========================================
@@ -193,6 +259,8 @@
   flex-direction: row;
   align-items: stretch;
   height: 100%; /* OCUPAR TODO EL ALTO DEL CARD */
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -271,11 +339,15 @@
 }
 
 .ticketWrapper[data-type="general"] .ticketHeaderOverlay {
-  background: linear-gradient(135deg, rgba(140, 140, 140, 0.88) 0%, rgba(255, 255, 255, 0.34) 100%);
+  background:
+    radial-gradient(circle at top left, rgba(226, 232, 240, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(30, 41, 59, 0.96) 0%, rgba(148, 163, 184, 0.82) 45%, rgba(51, 65, 85, 0.94) 100%);
 }
 
 .ticketWrapper[data-type="vip"] .ticketHeaderOverlay {
-  background: linear-gradient(135deg, rgba(242, 185, 80, 0.9) 0%, rgba(255, 255, 255, 0.32) 100%);
+  background:
+    radial-gradient(circle at top left, rgba(255, 233, 172, 0.28), transparent 32%),
+    linear-gradient(135deg, rgba(58, 39, 5, 0.96) 0%, rgba(242, 185, 80, 0.8) 45%, rgba(120, 78, 10, 0.94) 100%);
 }
 
 /* Event Info */
@@ -292,6 +364,7 @@
   font-weight: 900;
   color: var(--color-white);
   letter-spacing: -0.02em;
+  text-shadow: 0 1px 10px rgba(15, 23, 42, 0.2);
 }
 
 .ticketLocation {
@@ -327,10 +400,11 @@
 
 .ticketDate {
   padding: 0.5rem 0.75rem;
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.96);
   border-radius: 0.375rem;
   text-align: center;
   flex-shrink: 0; /* EVITA QUE SE COMPRIMA */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .ticketDateDay {
@@ -363,15 +437,17 @@
 }
 
 .ticketType[data-color="general"] {
-  color: #6b7280;
-  background: var(--color-white);
-  border-color: #8c8c8c;
+  color: #475569;
+  background: rgba(241, 245, 249, 0.96);
+  border-color: #94a3b8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 .ticketType[data-color="vip"] {
-  color: #b98515;
-  background: var(--color-white);
+  color: #8a6111;
+  background: rgba(255, 248, 224, 0.96);
   border-color: #f2b950;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 .ticketTypeIcon {
@@ -414,6 +490,19 @@
   padding: 1.25rem 1.5rem;
   flex: 0 0 60%;
   background: var(--color-slate-50);
+  overflow: hidden;
+}
+
+.ticketWrapper[data-type="general"] .ticketPricing {
+  background:
+    radial-gradient(circle at top right, rgba(226, 232, 240, 0.16), transparent 28%),
+    linear-gradient(145deg, #1f2937 0%, #334155 48%, #0f172a 100%);
+}
+
+.ticketWrapper[data-type="vip"] .ticketPricing {
+  background:
+    radial-gradient(circle at top right, rgba(255, 226, 163, 0.2), transparent 28%),
+    linear-gradient(145deg, #1f1605 0%, #332409 48%, #120d02 100%);
 }
 
 @media (max-width: 768px) {
@@ -449,10 +538,14 @@
 
 .priceStamp[data-color="general"] {
   color: #6b7280;
+  background: rgba(241, 245, 249, 0.16);
+  box-shadow: 0 8px 24px rgba(148, 163, 184, 0.16);
 }
 
 .priceStamp[data-color="vip"] {
   color: #b98515;
+  background: rgba(255, 248, 224, 0.18);
+  box-shadow: 0 8px 24px rgba(242, 185, 80, 0.18);
 }
 
 /* Badge Early Bird */
@@ -471,13 +564,17 @@
 }
 
 .priceBadge[data-color="general"] {
-  background: #8c8c8c;
-  border-color: #8c8c8c;
+  background: linear-gradient(135deg, #cbd5e1, #94a3b8 58%, #475569);
+  border-color: #94a3b8;
+  color: #f8fafc;
+  box-shadow: 0 10px 28px rgba(148, 163, 184, 0.14);
 }
 
 .priceBadge[data-color="vip"] {
-  background: #f2b950;
+  background: linear-gradient(135deg, #f6d37a, #d89d1d 58%, #8f6512);
   border-color: #f2b950;
+  color: #fffdf7;
+  box-shadow: 0 10px 28px rgba(242, 185, 80, 0.16);
 }
 
 .priceBadgeIcon {
@@ -509,11 +606,13 @@
 }
 
 .priceMain[data-color="general"] {
-  color: #6b7280;
+  color: #dbe4ee;
+  text-shadow: 0 0 18px rgba(203, 213, 225, 0.14);
 }
 
 .priceMain[data-color="vip"] {
-  color: #b98515;
+  color: #f7d983;
+  text-shadow: 0 0 18px rgba(242, 185, 80, 0.18);
 }
 
 .priceStrikethrough {
@@ -542,6 +641,35 @@
   font-size: 0.8125rem;
   color: var(--color-slate-600);
   font-weight: 600;
+}
+
+.ticketWrapper[data-type="general"] .priceValidity,
+.ticketWrapper[data-type="general"] .priceStrikethrough {
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.ticketWrapper[data-type="general"] .discountBadge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.2);
+}
+
+.ticketWrapper[data-type="vip"] .priceValidity,
+.ticketWrapper[data-type="vip"] .priceStrikethrough {
+  color: rgba(255, 244, 214, 0.78);
+}
+
+.ticketWrapper[data-type="vip"] .discountBadge {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 244, 214, 0.22);
+}
+
+@keyframes ticketShimmer {
+  0% {
+    transform: translateX(-160%) rotate(14deg);
+  }
+  100% {
+    transform: translateX(420%) rotate(14deg);
+  }
 }
 
 .validityIcon {

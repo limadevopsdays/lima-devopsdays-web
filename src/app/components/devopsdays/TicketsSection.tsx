@@ -31,94 +31,6 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
         />
 
         <div className={styles.ticketsGrid}>
-          {/* ENTRADA GENERAL */}
-          <Link
-            to="/tickets"
-            className={styles.ticketWrapper}
-            data-type="general"
-            aria-label="Ver detalles del ticket General"
-            data-track-name={variant === 'page' ? 'ver_ticket_general_tickets_section_tickets' : 'ver_ticket_general_tickets_section_home'}
-          >
-            <div className={styles.ticketCard}>
-              {/* Perforaciones arriba y abajo (ticket horizontal) */}
-              <div className={styles.perforations} data-side="top"></div>
-              <div className={styles.perforations} data-side="bottom"></div>
-              
-              {/* Container flex horizontal */}
-              <div className={styles.ticketContent}>
-                {/* IZQUIERDA: Header del ticket */}
-                <div className={styles.ticketHeader}>
-                  <div 
-                    className={styles.ticketHeaderBg}
-                    style={{ backgroundImage: `url(${GENERAL_IMAGE})` }}
-                  ></div>
-                  <div
-                    className={styles.ticketHeaderMark}
-                    style={{ backgroundImage: `url(${HUMMINGBIRD_MARK})` }}
-                    aria-hidden="true"
-                  ></div>
-                  <div className={styles.ticketHeaderOverlay}></div>
-                  
-                  <div className={styles.ticketEvent}>
-                    <div className={styles.ticketLogo}>DevOpsDays</div>
-                    <div className={styles.ticketLocation}>
-                      <MapPin className={styles.ticketIcon} />
-                      <div className={styles.ticketLocationText}>
-                        <span>Lima Centro de Convenciones</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className={styles.ticketMeta}>
-                    <div className={styles.ticketDate}>
-                      <div className={styles.ticketDateDay}>27-28</div>
-                      <div className={styles.ticketDateMonth}>AGO 2026</div>
-                    </div>
-                    <div className={styles.ticketType} data-color="general">
-                      <Ticket className={styles.ticketTypeIcon} />
-                      <span>GENERAL</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* DERECHA: Pricing compacto */}
-                <div className={styles.ticketPricing}>
-                  {!pricingAnnounced && (
-                    <div className={styles.comingSoonBlock}>
-                      <div className={styles.priceStamp} data-color="general">
-                        PRÓXIMAMENTE
-                      </div>
-                      <div className={styles.priceValidity}>
-                        <Clock className={styles.validityIcon} />
-                        Inicio de venta: {TICKET_SALE_START_LABEL}
-                      </div>
-                    </div>
-                  )}
-
-                  {pricingAnnounced && (
-                    <>
-                      <div className={styles.priceBadge} data-color="general">
-                        <Zap className={styles.priceBadgeIcon} />
-                        <span>EARLY BIRD</span>
-                        <span className={styles.discountBadge}>-30%</span>
-                      </div>
-
-                      <div className={styles.priceGroup}>
-                        <div className={styles.priceMain} data-color="general">$69.90</div>
-                        <div className={styles.priceStrikethrough}>$99.90</div>
-                      </div>
-                      
-                      <div className={styles.priceValidity}>
-                        <Clock className={styles.validityIcon} />
-                        Venta iniciada: {TICKET_SALE_START_LABEL}
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </Link>
-
           {/* ENTRADA VIP */}
           <Link
             to="/tickets"
@@ -194,6 +106,94 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                       <div className={styles.priceGroup}>
                         <div className={styles.priceMain} data-color="vip">$119.90</div>
                         <div className={styles.priceStrikethrough}>$149.90</div>
+                      </div>
+                      
+                      <div className={styles.priceValidity}>
+                        <Clock className={styles.validityIcon} />
+                        Venta iniciada: {TICKET_SALE_START_LABEL}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* ENTRADA GENERAL */}
+          <Link
+            to="/tickets"
+            className={styles.ticketWrapper}
+            data-type="general"
+            aria-label="Ver detalles del ticket General"
+            data-track-name={variant === 'page' ? 'ver_ticket_general_tickets_section_tickets' : 'ver_ticket_general_tickets_section_home'}
+          >
+            <div className={styles.ticketCard}>
+              {/* Perforaciones arriba y abajo (ticket horizontal) */}
+              <div className={styles.perforations} data-side="top"></div>
+              <div className={styles.perforations} data-side="bottom"></div>
+              
+              {/* Container flex horizontal */}
+              <div className={styles.ticketContent}>
+                {/* IZQUIERDA: Header del ticket */}
+                <div className={styles.ticketHeader}>
+                  <div 
+                    className={styles.ticketHeaderBg}
+                    style={{ backgroundImage: `url(${GENERAL_IMAGE})` }}
+                  ></div>
+                  <div
+                    className={styles.ticketHeaderMark}
+                    style={{ backgroundImage: `url(${HUMMINGBIRD_MARK})` }}
+                    aria-hidden="true"
+                  ></div>
+                  <div className={styles.ticketHeaderOverlay}></div>
+                  
+                  <div className={styles.ticketEvent}>
+                    <div className={styles.ticketLogo}>DevOpsDays</div>
+                    <div className={styles.ticketLocation}>
+                      <MapPin className={styles.ticketIcon} />
+                      <div className={styles.ticketLocationText}>
+                        <span>Lima Centro de Convenciones</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className={styles.ticketMeta}>
+                    <div className={styles.ticketDate}>
+                      <div className={styles.ticketDateDay}>27-28</div>
+                      <div className={styles.ticketDateMonth}>AGO 2026</div>
+                    </div>
+                    <div className={styles.ticketType} data-color="general">
+                      <Ticket className={styles.ticketTypeIcon} />
+                      <span>GENERAL</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* DERECHA: Pricing compacto */}
+                <div className={styles.ticketPricing}>
+                  {!pricingAnnounced && (
+                    <div className={styles.comingSoonBlock}>
+                      <div className={styles.priceStamp} data-color="general">
+                        PRÓXIMAMENTE
+                      </div>
+                      <div className={styles.priceValidity}>
+                        <Clock className={styles.validityIcon} />
+                        Inicio de venta: {TICKET_SALE_START_LABEL}
+                      </div>
+                    </div>
+                  )}
+
+                  {pricingAnnounced && (
+                    <>
+                      <div className={styles.priceBadge} data-color="general">
+                        <Zap className={styles.priceBadgeIcon} />
+                        <span>EARLY BIRD</span>
+                        <span className={styles.discountBadge}>-30%</span>
+                      </div>
+
+                      <div className={styles.priceGroup}>
+                        <div className={styles.priceMain} data-color="general">$69.90</div>
+                        <div className={styles.priceStrikethrough}>$99.90</div>
                       </div>
                       
                       <div className={styles.priceValidity}>

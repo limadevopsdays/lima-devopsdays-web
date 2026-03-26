@@ -76,6 +76,7 @@ export function SpeakersSection() {
                   </div>
 
                   <div className={styles.keynoteMeta}>
+                    <span className={styles.keynoteTag}>INTERNACIONAL</span>
                     <h3 className={styles.keynoteName}>{speaker.name}</h3>
                     <p className={styles.keynoteRole}>{speaker.role}</p>
                   </div>
@@ -159,14 +160,26 @@ export function SpeakersSection() {
 
             {/* Columna derecha: Fechas y CTA */}
             <div className={styles.dates}>
-              <Link
-                to="/speakers"
-                className={styles.ctaButton}
-                data-track-name="call_for_speakers_banner_home"
-              >
-                <Send className={styles.ctaIcon} />
-                Call for Speakers
-              </Link>
+              <div className={styles.ctaActions}>
+                <a
+                  href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.ctaButton}
+                  data-track-name="call_for_speakers_banner_home"
+                >
+                  <Send className={styles.ctaIcon} />
+                  Call for Speakers
+                </a>
+
+                <Link
+                  to="/speakers"
+                  className={styles.ctaSecondaryButton}
+                  data-track-name="ver_detalles_beneficios_speakers_home"
+                >
+                  Ver detalles y beneficios
+                </Link>
+              </div>
 
               <div>
                 <p className={styles.dateText}>
