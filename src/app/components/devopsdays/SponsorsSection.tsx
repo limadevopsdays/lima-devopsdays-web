@@ -1,4 +1,5 @@
 import { Download, CheckCircle, Handshake, Crown, Award, Medal, Shield } from 'lucide-react'
+import type { CSSProperties } from 'react'
 import { Link } from 'react-router'
 import { SectionHeader } from './SectionHeader'
 import { sponsors, sponsorTiers } from '../../data/mockContent'
@@ -56,7 +57,11 @@ export function SponsorsSection() {
               {/* Grid de logos */}
               <div className={styles.logosGrid}>
                 {platinumItems.map((sponsor, idx) => (
-                  <div key={idx} className={styles.logoContainer}>
+                  <div
+                    key={idx}
+                    className={styles.logoContainer}
+                    style={{ '--sponsor-hover-color': platinumDecoration.color } as CSSProperties}
+                  >
                     {sponsor.logo ? (
                       <>
                         <a
@@ -80,7 +85,7 @@ export function SponsorsSection() {
                             className={styles.learnMoreLink}
                             data-track-name="conocer_sponsor_home"
                           >
-                            Conocer más sobre {sponsor.name} →
+                            Conocer más →
                           </a>
                         )}
                       </>
@@ -128,7 +133,10 @@ export function SponsorsSection() {
               const decoration = TIER_DECORATION[tier.id as keyof typeof TIER_DECORATION] ?? TIER_DECORATION.community
 
               return (
-              <div key={tier.id} className={`${styles.platinumCard} ${styles.secondaryTierCard}`}>
+              <div
+                key={tier.id}
+                className={`${styles.platinumCard} ${styles.secondaryTierCard} ${tier.items.length === 2 ? styles.secondaryTierCardTwoUp : ''}`}
+              >
                 <div className={styles.platinumContent}>
                   <div className={styles.platinumBadge}>
                     <decoration.Icon
@@ -142,7 +150,11 @@ export function SponsorsSection() {
 
                   <div className={styles.logosGrid}>
                     {tier.items.map((sponsor) => (
-                      <div key={sponsor.name} className={styles.logoContainer}>
+                      <div
+                        key={sponsor.name}
+                        className={styles.logoContainer}
+                        style={{ '--sponsor-hover-color': decoration.color } as CSSProperties}
+                      >
                         <a
                           href={sponsor.href || '#'}
                           target="_blank"
@@ -164,7 +176,7 @@ export function SponsorsSection() {
                             className={styles.learnMoreLink}
                             data-track-name="conocer_sponsor_home"
                           >
-                            Conocer más sobre {sponsor.name} →
+                            Conocer más →
                           </a>
                         )}
                       </div>

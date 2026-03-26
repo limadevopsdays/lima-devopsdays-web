@@ -63,6 +63,8 @@
 }
 
 .logoContainer {
+  --sponsor-border-color: var(--color-slate-200);
+  --sponsor-hover-color: var(--color-purple);
   background: var(--color-white);
   padding: 2.5rem 3rem 1.5rem;
   border-radius: 1.25rem;
@@ -70,10 +72,10 @@
   grid-template-rows: minmax(0, 1fr) auto;
   align-items: stretch;
   min-height: 200px;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   background-image: 
     linear-gradient(var(--color-white), var(--color-white)),
-    linear-gradient(135deg, var(--color-purple) 0%, var(--color-cyan) 50%, var(--color-teal) 100%);
+    linear-gradient(var(--sponsor-border-color), var(--sponsor-border-color));
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.4s ease;
@@ -83,10 +85,10 @@
 .logoContainer::before {
   content: '';
   position: absolute;
-  inset: -3px;
+  inset: -2px;
   border-radius: 1.25rem;
-  padding: 3px;
-  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-cyan) 50%, var(--color-teal) 100%);
+  padding: 2px;
+  background: var(--sponsor-border-color);
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
@@ -98,8 +100,9 @@
 }
 
 .logoContainer:hover {
+  --sponsor-border-color: var(--sponsor-hover-color);
   transform: translateY(-4px);
-  border-width: 3px;
+  border-width: 2px;
 }
 
 .logoContainer:hover::before {
@@ -162,12 +165,11 @@
   color: var(--color-purple);
   font-weight: 700;
   text-decoration: none;
-  transition: color 0.2s ease;
   text-align: center;
 }
 
 .learnMoreLink:hover {
-  color: var(--color-cyan);
+  color: var(--color-purple);
 }
 
 /* Empty State */
@@ -243,6 +245,14 @@
 
 .secondaryTierCard .logo {
   max-height: 88px;
+}
+
+@media (min-width: 768px) {
+  .secondaryTierCardTwoUp .logosGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 44rem;
+    justify-content: center;
+  }
 }
 
 /* Social Proof */

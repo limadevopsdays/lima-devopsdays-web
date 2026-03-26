@@ -189,6 +189,11 @@ export const sponsors = [
     tier: 'bronze',
     items: [
       {
+        name: 'NTT DATA',
+        href: 'https://pe.nttdata.com/',
+        logo: '/images/sponsors/bronze/nttdata.png'
+      },
+      {
         name: 'Orexe',
         href: 'https://orexe.pe/',
         logo: '/images/sponsors/bronze/orexe.png'
