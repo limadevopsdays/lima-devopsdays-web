@@ -76,6 +76,7 @@ export function SpeakersSection() {
                   </div>
 
                   <div className={styles.keynoteMeta}>
+                    <span className={styles.keynoteTag}>INTERNACIONAL</span>
                     <h3 className={styles.keynoteName}>{speaker.name}</h3>
                     <p className={styles.keynoteRole}>{speaker.role}</p>
                   </div>

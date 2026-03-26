@@ -317,6 +317,17 @@
   cursor: pointer;
 }
 
+.galleryButton {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
 .galleryImage {
   width: 100%;
   height: 100%;
@@ -324,7 +335,8 @@
   transition: transform 0.5s ease;
 }
 
-.galleryItem:hover .galleryImage {
+.galleryItem:hover .galleryImage,
+.galleryButton:focus-visible .galleryImage {
   transform: scale(1.1);
 }
 
@@ -335,8 +347,46 @@
   transition: opacity 0.3s ease;
 }
 
-.galleryItem:hover .galleryOverlay {
+.galleryItem:hover .galleryOverlay,
+.galleryButton:focus-visible .galleryOverlay {
   opacity: 1;
+}
+
+.galleryHint {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.74);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.galleryHintIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.galleryItem:hover .galleryHint,
+.galleryButton:focus-visible .galleryHint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.galleryButton:focus-visible {
+  outline: 3px solid #7c3aed;
+  outline-offset: -3px;
 }
 
 .overlayPurple {
@@ -353,6 +403,127 @@
 
 .overlayOrange {
   background: linear-gradient(to top, rgba(249, 115, 22, 0.7), transparent);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 23, 0.94);
+  backdrop-filter: blur(10px);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.closeButton:hover {
+  transform: scale(1.08);
+}
+
+.closeIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.counter {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.counterText {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.navButton:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prevButton {
+  left: 1.5rem;
+}
+
+.nextButton {
+  right: 1.5rem;
+}
+
+.chevronIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.lightboxImageContainer {
+  position: relative;
+  width: min(92vw, 78rem);
+  max-height: 90vh;
+}
+
+.lightboxImage {
+  display: block;
+  width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.88), transparent);
+}
+
+.captionText {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 @media (max-width: 1024px) {
@@ -375,5 +546,39 @@
       radial-gradient(circle at center, rgba(248, 250, 252, 0) 34%, rgba(248, 250, 252, 0.5) 72%, rgba(248, 250, 252, 0.94) 100%),
       linear-gradient(180deg, rgba(248, 250, 252, 0.82) 0%, rgba(248, 250, 252, 0.2) 24%, rgba(248, 250, 252, 0.24) 72%, rgba(248, 250, 252, 0.88) 100%),
       linear-gradient(90deg, rgba(248, 250, 252, 0.78) 0%, rgba(248, 250, 252, 0.14) 18%, rgba(248, 250, 252, 0.14) 82%, rgba(248, 250, 252, 0.78) 100%);
+  }
+
+  .navButton {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .prevButton {
+    left: 0.75rem;
+  }
+
+  .nextButton {
+    right: 0.75rem;
+  }
+
+  .closeButton,
+  .counter {
+    top: 1rem;
+  }
+
+  .closeButton {
+    right: 1rem;
+  }
+
+  .counter {
+    left: 1rem;
+  }
+
+  .lightboxImageContainer {
+    width: min(100vw - 2rem, 78rem);
+  }
+
+  .caption {
+    padding: 1.25rem 1rem;
   }
 }

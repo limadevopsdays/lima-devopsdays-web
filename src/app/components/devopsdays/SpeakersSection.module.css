@@ -274,11 +274,21 @@
   width: min(100%, 24rem);
   background: var(--color-white);
   border-radius: 1.25rem;
+  border: 2px solid #e2e8f0;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   align-items: stretch;
   text-align: left;
   overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.keynoteCard:hover,
+.keynoteCard:focus-within {
+  transform: translateY(-4px);
+  border-color: #7c3aed;
 }
 
 @media (max-width: 968px) {
@@ -305,6 +315,7 @@
   display: block;
   color: inherit;
   text-decoration: none;
+  outline: none;
 }
 
 .keynoteImage {
@@ -314,6 +325,7 @@
   object-fit: cover;
   transform: scale(1);
   filter: grayscale(1) brightness(1.08);
+  transition: filter 0.45s ease;
 }
 
 .keynoteImageOverlay {
@@ -322,13 +334,53 @@
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.02) 0%,
-    rgba(15, 23, 42, 0.08) 100%
+    rgba(15, 23, 42, 0.08) 56%,
+    rgba(37, 99, 235, 0.18) 100%
   );
+  opacity: 0.72;
+  transition: opacity 0.35s ease;
+}
+
+.keynoteCard:hover .keynoteImage,
+.keynoteCard:focus-within .keynoteImage {
+  filter: grayscale(0.2) brightness(1.02) saturate(1.06);
+}
+
+.keynoteCard:hover .keynoteImageOverlay,
+.keynoteCard:focus-within .keynoteImageOverlay {
+  opacity: 1;
+}
+
+.keynoteImageLink:focus-visible {
+  box-shadow: inset 0 0 0 3px rgba(37, 99, 235, 0.85);
 }
 
 .keynoteMeta {
   margin-top: 0;
   padding: 1rem 1.25rem 1.25rem;
+}
+
+.keynoteTag {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background 0.28s ease,
+    color 0.28s ease;
+}
+
+.keynoteCard:hover .keynoteTag,
+.keynoteCard:focus-within .keynoteTag {
+  background: #2563eb;
+  color: #ffffff;
 }
 
 .keynoteName {
@@ -338,6 +390,12 @@
   letter-spacing: 0.01em;
   color: var(--color-slate-900);
   line-height: 1.2;
+  transition: color 0.28s ease;
+}
+
+.keynoteCard:hover .keynoteName,
+.keynoteCard:focus-within .keynoteName {
+  color: #1d4ed8;
 }
 
 .keynoteRole,

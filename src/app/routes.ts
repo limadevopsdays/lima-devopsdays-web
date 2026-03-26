@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, Navigate } from 'react-router'
 import { RootLayout } from './layouts/RootLayout'
 import HomePage from './pages/HomePage'
 import SponsorsPage from './pages/SponsorsPage'
@@ -7,6 +7,10 @@ import SpeakersPage from './pages/SpeakersPage'
 import CodeOfConductPage from './pages/CodeOfConductPage'
 import NotFoundPage from './pages/NotFoundPage'
 import HomeSpacingMockupsPage from './pages/HomeSpacingMockupsPage'
+
+function LegacyCodeOfConductRedirect() {
+  return Navigate({ to: '/code-of-conduct', replace: true })
+}
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +34,12 @@ export const router = createBrowserRouter([
         Component: SpeakersPage 
       },
       { 
-        path: 'codigo-de-conducta', 
-        Component: CodeOfConductPage 
+        path: 'code-of-conduct',
+        Component: CodeOfConductPage
+      },
+      {
+        path: 'codigo-de-conducta',
+        Component: LegacyCodeOfConductRedirect,
       },
       {
         path: 'mockups/home-spacing',
