@@ -174,11 +174,11 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center 22%;
+  background-position: center 44%;
   background-repeat: no-repeat;
   opacity: 1;
   z-index: 0;
-  background-image: url('/images/speakers/speakers%202.png');
+  background-image: url('/images/speakers/speakers%202.jpg');
 }
 
 .ctaBannerOverlay {
@@ -477,10 +477,21 @@
   align-items: flex-start;
 }
 
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  align-items: center;
+}
+
 @media (min-width: 1024px) {
   .dates {
     text-align: right;
     align-items: flex-end;
+  }
+
+  .ctaActions {
+    justify-content: flex-end;
   }
 }
 
@@ -554,6 +565,29 @@
 
 .ctaButton:hover {
   background: #f5f3ff;
+  transform: translateY(-2px);
+}
+
+.ctaSecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.8125rem 1.25rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ctaSecondaryButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
