@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { SectionHeader } from './SectionHeader'
 import styles from './TicketsSection.module.css'
 import { isTicketSaleOpen, TICKET_SALE_START_LABEL } from '../../lib/tickets'
+import { TICKETS_REGISTER_URL } from '../../data/mockContent'
 import hummingbirdBg from 'figma:asset/9c8f57f0fc822b0d19c16eaaa81441ccf07debb9.png'
 
 const GENERAL_IMAGE = hummingbirdBg
@@ -32,11 +33,13 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
 
         <div className={styles.ticketsGrid}>
           {/* ENTRADA VIP */}
-          <Link
-            to="/tickets"
+          <a
+            href={TICKETS_REGISTER_URL}
+            target="_blank"
+            rel="noreferrer"
             className={styles.ticketWrapper}
             data-type="vip"
-            aria-label="Ver detalles del ticket VIP"
+            aria-label="Comprar ticket VIP"
             data-track-name={variant === 'page' ? 'ver_ticket_vip_tickets_section_tickets' : 'ver_ticket_vip_tickets_section_home'}
           >
             <div className={styles.ticketCard}>
@@ -117,14 +120,16 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* ENTRADA GENERAL */}
-          <Link
-            to="/tickets"
+          <a
+            href={TICKETS_REGISTER_URL}
+            target="_blank"
+            rel="noreferrer"
             className={styles.ticketWrapper}
             data-type="general"
-            aria-label="Ver detalles del ticket General"
+            aria-label="Comprar ticket General"
             data-track-name={variant === 'page' ? 'ver_ticket_general_tickets_section_tickets' : 'ver_ticket_general_tickets_section_home'}
           >
             <div className={styles.ticketCard}>
@@ -205,7 +210,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </div>
 
         {variant === 'home' && (
