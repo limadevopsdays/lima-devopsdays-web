@@ -580,6 +580,8 @@
   gap: 1rem;
   justify-content: center;
   align-items: flex-start;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .ctaActions {
@@ -587,6 +589,7 @@
   flex-direction: column;
   gap: 0.875rem;
   align-items: flex-start;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -670,7 +673,7 @@
 
 .ctaButton,
 .ctaSecondaryButton {
-  width: min(100%, 18rem);
+  width: 100%;
   box-sizing: border-box;
 }
 
