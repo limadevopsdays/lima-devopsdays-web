@@ -125,6 +125,16 @@
   transition: all 0.3s ease;
 }
 
+@media (min-width: 1024px) {
+  .platinumCard .logoLink {
+    min-height: 148px;
+  }
+
+  .platinumCard .logo {
+    max-height: 148px;
+  }
+}
+
 .logo:hover {
   transform: scale(1.05);
 }
@@ -241,6 +251,12 @@
 .secondaryTierCard .logoContainer {
   min-height: 168px;
   padding: 2rem 2rem 1.25rem;
+}
+
+.secondaryTierCard .logoContainerSubtle {
+  min-height: 136px;
+  padding-top: 1.25rem;
+  padding-bottom: 0.875rem;
 }
 
 .secondaryTierCard .logo {
@@ -374,9 +390,9 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.75) 0%,
-    rgba(124, 58, 237, 0.55) 100%
+    30deg,
+    rgba(15, 23, 42, 0.82) 0%,
+    rgba(124, 58, 237, 0.62) 100%
   );
   z-index: 1;
 }
@@ -494,7 +510,7 @@
   font-size: 0.8125rem;
   padding: 0.4rem 0.875rem;
   border-radius: 0.5rem;
-  font-weight: 700;
+  font-weight: 500;
   background: transparent;
   color: var(--color-white);
   cursor: default;

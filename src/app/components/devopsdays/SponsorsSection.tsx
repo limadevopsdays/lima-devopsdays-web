@@ -152,7 +152,7 @@ export function SponsorsSection() {
                     {tier.items.map((sponsor) => (
                       <div
                         key={sponsor.name}
-                        className={styles.logoContainer}
+                        className={sponsor.name === 'Orexe' ? `${styles.logoContainer} ${styles.logoContainerSubtle}` : styles.logoContainer}
                         style={{ '--sponsor-hover-color': decoration.color } as CSSProperties}
                       >
                         <a

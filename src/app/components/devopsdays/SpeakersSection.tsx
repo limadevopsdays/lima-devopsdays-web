@@ -34,6 +34,17 @@ const keynoteSpeakers = [
   },
 ]
 
+const upcomingKeynotes = [
+  {
+    id: 'upcoming-1',
+    imageSrc: speakerEdition2025,
+  },
+  {
+    id: 'upcoming-2',
+    imageSrc: speakerEdition2025,
+  },
+]
+
 export function SpeakersSection() {
   return (
     <section id="speakers" className={styles.section}>
@@ -82,6 +93,36 @@ export function SpeakersSection() {
                   </div>
                 </article>
               ))}
+
+                {upcomingKeynotes.map((speaker, idx) => (
+                  <article
+                    key={speaker.id}
+                    className={styles.keynoteTeaserCard}
+                    aria-label={`Keynote por anunciar ${idx + 1}`}
+                    style={
+                      {
+                        '--teaser-rotate': idx % 2 === 0 ? '-4deg' : '4deg',
+                        '--teaser-shift': idx % 2 === 0 ? '0.75rem' : '1.5rem',
+                      } as React.CSSProperties
+                    }
+                  >
+                    <div className={styles.keynoteTeaserAvatar}>
+                      <img
+                        className={styles.keynoteTeaserImage}
+                        src={speaker.imageSrc}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                      />
+                      <div className={styles.keynoteTeaserOverlay} aria-hidden="true" />
+                    </div>
+                    <div className={styles.keynoteTeaserMeta}>
+                      <span className={styles.keynoteTeaserTag}>Proximamente</span>
+                      <p className={styles.keynoteTeaserText}>Nuevo keynote en anuncio</p>
+                      <span className={styles.keynoteTeaserHint}>Revelaremos nuevos nombres pronto</span>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
@@ -161,6 +202,14 @@ export function SpeakersSection() {
             {/* Columna derecha: Fechas y CTA */}
             <div className={styles.dates}>
               <div className={styles.ctaActions}>
+                <Link
+                  to="/speakers"
+                  className={styles.ctaSecondaryButton}
+                  data-track-name="ver_detalles_beneficios_speakers_home"
+                >
+                  Ver detalles y beneficios
+                </Link>
+
                 <a
                   href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
                   target="_blank"
@@ -171,14 +220,6 @@ export function SpeakersSection() {
                   <Send className={styles.ctaIcon} />
                   Call for Speakers
                 </a>
-
-                <Link
-                  to="/speakers"
-                  className={styles.ctaSecondaryButton}
-                  data-track-name="ver_detalles_beneficios_speakers_home"
-                >
-                  Ver detalles y beneficios
-                </Link>
               </div>
 
               <div>

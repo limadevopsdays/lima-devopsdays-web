@@ -7,8 +7,8 @@ import styles from './SponsorsPage.module.css'
 // Métricas principales
 const MAIN_STATS = [
   { 
-    title: 'La comunidad tech más grande de Perú', 
-    subtitle: 'Se espera +800 Ingenieros de Software, Arquitectos, Líderes Técnicos, Ingenieros DevOps, Ingenieros de seguridad, CTOs y CIOs',
+    title: 'La comunidad más grande de Perú', 
+    subtitle: 'Se esperan +800 participantes',
     icon: Users,
     color: '#7c3aed' 
   },
