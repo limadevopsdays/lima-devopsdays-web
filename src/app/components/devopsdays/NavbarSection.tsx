@@ -6,7 +6,7 @@ import { siteContent } from '../../data/mockContent'
 
 const navLinks = [
   { label: 'Sponsors', hash: '#sponsors' },
-  { label: 'Tickets', href: siteContent.registrationUrl, external: true },
+  { label: 'Tickets', hash: '#tickets' },
   { label: 'Speakers', hash: '#speakers' },
   { label: 'Ubicación', hash: '#venue' },
 ]

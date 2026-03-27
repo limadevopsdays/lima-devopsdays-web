@@ -15,8 +15,8 @@ const missionText =
 const storytellingStats = [
   { 
     icon: Users, 
-    title: 'La comunidad tech más grande de Perú', 
-    subtitle: 'Se espera +800 Ingenieros de Software, Arquitectos, Líderes Técnicos, Ingenieros DevOps, Ingenieros de seguridad, CTOs y CIOs',
+    title: 'La comunidad más grande de Perú', 
+    subtitle: 'Se esperan +800 participantes',
     color: '#7c3aed'
   },
   { 
@@ -103,7 +103,9 @@ export function AboutSection() {
                     className={styles.statCard}
                     style={{ '--stat-color': stat.color } as React.CSSProperties}
                   >
-                    <Icon className={styles.statIcon} />
+                    <div className={styles.statIconWrap}>
+                      <Icon className={styles.statIcon} />
+                    </div>
                     <h3 className={styles.statTitle}>
                       {stat.title}
                     </h3>

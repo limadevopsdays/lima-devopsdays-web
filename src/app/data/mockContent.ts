@@ -183,16 +183,16 @@ export const sponsors = [
         href: 'https://cleveritgroup.com/',
         logo: '/images/sponsors/platinium/cleverit.png'
       },
+      {
+        name: 'NTT DATA',
+        href: 'https://pe.nttdata.com/',
+        logo: '/images/sponsors/platinium/nttdata.png'
+      },
     ],
   },
   {
     tier: 'bronze',
     items: [
-      {
-        name: 'NTT DATA',
-        href: 'https://pe.nttdata.com/',
-        logo: '/images/sponsors/bronze/nttdata.png'
-      },
       {
         name: 'Orexe',
         href: 'https://orexe.pe/',
