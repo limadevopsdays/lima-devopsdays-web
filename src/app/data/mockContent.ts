@@ -188,6 +188,11 @@ export const sponsors = [
         href: 'https://pe.nttdata.com/',
         logo: '/images/sponsors/platinium/nttdata.png'
       },
+      {
+        name: 'Port',
+        href: 'https://www.port.io/',
+        logo: '/images/sponsors/platinium/port.png'
+      },
     ],
   },
   {
