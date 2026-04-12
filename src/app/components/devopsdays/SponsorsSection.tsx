@@ -55,7 +55,7 @@ export function SponsorsSection() {
               </div>
 
               {/* Grid de logos */}
-              <div className={styles.logosGrid}>
+              <div className={styles.logosGrid} data-count={platinumItems.length}>
                 {platinumItems.map((sponsor, idx) => (
                   <div
                     key={idx}
@@ -136,6 +136,7 @@ export function SponsorsSection() {
               <div
                 key={tier.id}
                 className={`${styles.platinumCard} ${styles.secondaryTierCard} ${tier.items.length === 2 ? styles.secondaryTierCardTwoUp : ''}`}
+                data-tier={tier.id}
               >
                 <div className={styles.platinumContent}>
                   <div className={styles.platinumBadge}>
@@ -148,7 +149,7 @@ export function SponsorsSection() {
                     </span>
                   </div>
 
-                  <div className={styles.logosGrid}>
+                  <div className={styles.logosGrid} data-count={tier.items.length}>
                     {tier.items.map((sponsor) => (
                       <div
                         key={sponsor.name}
