@@ -193,6 +193,11 @@ export const sponsors = [
         href: 'https://www.port.io/',
         logo: '/images/sponsors/platinium/port.png'
       },
+      {
+        name: 'Thoughtworks',
+        href: 'https://www.thoughtworks.com/',
+        logo: '/images/sponsors/platinium/thoughtworks.png'
+      },
     ],
   },
   {

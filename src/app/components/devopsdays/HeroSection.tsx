@@ -183,7 +183,6 @@ export function HeroSection() {
                 />
                 <div className={`${styles.galleryOverlay} ${image.overlayClass}`} />
                 <div className={styles.galleryHint}>
-                  Ampliar foto
                   <ArrowRight className={styles.galleryHintIcon} />
                 </div>
               </button>
