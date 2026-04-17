@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Tickets', hash: '#tickets' },
   { label: 'Speakers', hash: '#speakers' },
   { label: 'Ubicación', hash: '#venue' },
+  { label: 'FAQ', hash: '#faq' },
 ]
 
 function getHeaderOffset() {
@@ -23,7 +24,11 @@ function scrollToSection(hash: string, behavior: ScrollBehavior = 'smooth') {
   if (!element) return false
 
   const headerOffset = getHeaderOffset()
-  const top = element.getBoundingClientRect().top + window.scrollY - headerOffset
+  const extraOffset =
+    id === 'tickets'
+      ? Number.parseFloat(window.getComputedStyle(element).scrollMarginTop || '0') || 0
+      : 0
+  const top = element.getBoundingClientRect().top + window.scrollY - headerOffset - extraOffset
 
   window.scrollTo({ top, behavior })
   return true
@@ -46,12 +51,27 @@ export function NavbarSection() {
 
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
-      requestAnimationFrame(() => {
-        scrollToSection(location.hash, 'auto')
-        window.setTimeout(() => {
+      const applyHashScroll = () => {
+        requestAnimationFrame(() => {
           scrollToSection(location.hash, 'auto')
-        }, 120)
-      })
+          window.setTimeout(() => {
+            scrollToSection(location.hash, 'auto')
+          }, 120)
+          window.setTimeout(() => {
+            scrollToSection(location.hash, 'auto')
+          }, 360)
+        })
+      }
+
+      applyHashScroll()
+
+      if (document.readyState !== 'complete') {
+        window.addEventListener('load', applyHashScroll, { once: true })
+
+        return () => {
+          window.removeEventListener('load', applyHashScroll)
+        }
+      }
     }
   }, [location.pathname, location.hash])
 
@@ -62,7 +82,25 @@ export function NavbarSection() {
 
     e.preventDefault()
     window.history.replaceState(null, '', `/${hash}`)
-    scrollToSection(hash)
+    requestAnimationFrame(() => {
+      window.setTimeout(() => {
+        scrollToSection(hash)
+      }, 120)
+    })
+  }
+
+  const handleLogoClick = (e: MouseEvent) => {
+    setMenuOpen(false)
+
+    if (location.pathname !== '/') return
+
+    e.preventDefault()
+    window.history.replaceState(null, '', '/')
+    requestAnimationFrame(() => {
+      window.setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 120)
+    })
   }
 
   return (
@@ -73,7 +111,12 @@ export function NavbarSection() {
     >
       <div className={styles.navbarInner}>
         {/* Logo */}
-        <Link to="/" className={styles.logoLink} aria-label="DevOpsDays Lima - Ir al inicio">
+        <Link
+          to="/"
+          className={styles.logoLink}
+          aria-label="DevOpsDays Lima - Ir al inicio"
+          onClick={handleLogoClick}
+        >
           <div className={styles.logoIcon}>
             <img
               src="/images/brand/logo.png"
