@@ -37,7 +37,7 @@
 }
 
 .platinumBadgeText {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -245,6 +245,10 @@
   margin-bottom: 2rem;
 }
 
+.secondaryTiers > :last-child {
+  margin-bottom: 0;
+}
+
 .secondaryTierCard {
   width: 100%;
   max-width: 42rem;
@@ -277,6 +281,28 @@
   max-height: 88px;
 }
 
+.secondaryTierCard[data-tier="gold"] {
+  max-width: 100%;
+}
+
+.secondaryTierCard[data-tier="gold"] .platinumContent {
+  padding: 2rem 0 1rem;
+}
+
+.secondaryTierCard[data-tier="gold"] .logosGrid {
+  max-width: none;
+  gap: 2rem;
+}
+
+.secondaryTierCard[data-tier="gold"] .logoContainer {
+  min-height: 200px;
+  padding: 2.5rem 3rem 1.5rem;
+}
+
+.secondaryTierCard[data-tier="gold"] .logo {
+  max-height: 120px;
+}
+
 .secondaryTierCard[data-tier="bronze"] {
   max-width: 100%;
 }
@@ -302,6 +328,10 @@
 }
 
 @media (min-width: 768px) {
+  .secondaryTierCard[data-tier="gold"] .logosGrid {
+    gap: 3rem;
+  }
+
   .secondaryTierCardTwoUp .logosGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 44rem;
@@ -318,6 +348,22 @@
 }
 
 @media (min-width: 1024px) {
+  .secondaryTierCard[data-tier="gold"] .logosGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .secondaryTierCard[data-tier="gold"] .logosGrid[data-count="1"] > :first-child {
+    grid-column: 2;
+  }
+
+  .secondaryTierCard[data-tier="gold"] .logoLink {
+    min-height: 148px;
+  }
+
+  .secondaryTierCard[data-tier="gold"] .logo {
+    max-height: 148px;
+  }
+
   .secondaryTierCard[data-tier="bronze"] .logoContainer {
     width: calc((100% - 4.5rem) / 4);
   }
