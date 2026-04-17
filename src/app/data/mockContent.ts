@@ -201,6 +201,16 @@ export const sponsors = [
     ],
   },
   {
+    tier: 'gold',
+    items: [
+      {
+        name: 'ManageEngine',
+        href: 'https://www.manageengine.com/es/',
+        logo: '/images/sponsors/gold/manageengine.png'
+      },
+    ],
+  },
+  {
     tier: 'bronze',
     items: [
       {
