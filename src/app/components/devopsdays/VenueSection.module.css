@@ -34,7 +34,7 @@
   gap: 0;
   border-radius: 1.5rem;
   overflow: hidden;
-  border: 2px solid var(--color-slate-200); /* UNIFORMIZADO: De 1.5px a 2px */
+  border: 1px solid var(--color-slate-200);
   min-height: 480px;
 }
 

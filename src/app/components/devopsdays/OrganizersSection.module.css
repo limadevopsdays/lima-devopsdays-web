@@ -132,10 +132,6 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.memberCard:hover .cardInfo {
-  opacity: 0;
-}
-
 .cardName {
   font-size: 0.875rem;
   font-weight: 700;

@@ -277,7 +277,7 @@
   width: min(100%, 24rem);
   background: var(--color-white);
   border-radius: 1.25rem;
-  border: 2px solid #e2e8f0;
+  border: 1px solid #e2e8f0;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   align-items: stretch;

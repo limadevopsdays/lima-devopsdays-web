@@ -42,9 +42,16 @@ export function SponsorsSection() {
 
         {/* HERO CARD PLATINUM */}
         {platinumItems.length > 0 ? (
-          <div className={styles.platinumCard}>
-            <div className={styles.platinumContent}>
-              <div className={styles.platinumBadge}>
+            <div className={styles.platinumCard}>
+              <div className={styles.platinumContent}>
+              <div
+                className={styles.platinumBadge}
+                style={{
+                  '--tier-color': platinumDecoration.color,
+                  '--tier-bg': `${platinumDecoration.color}18`,
+                  '--tier-border': `${platinumDecoration.color}30`,
+                } as CSSProperties}
+              >
                 <platinumDecoration.Icon
                   className={styles.platinumBadgeIcon}
                   style={{ color: platinumDecoration.color }}
@@ -63,9 +70,9 @@ export function SponsorsSection() {
                     style={{ '--sponsor-hover-color': platinumDecoration.color } as CSSProperties}
                   >
                     {sponsor.logo ? (
-                      <>
+                      sponsor.href ? (
                         <a
-                          href={sponsor.href || '#'}
+                          href={sponsor.href}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={styles.logoLink}
@@ -77,18 +84,15 @@ export function SponsorsSection() {
                             className={styles.logo}
                           />
                         </a>
-                        {sponsor.href && (
-                          <a
-                            href={sponsor.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.learnMoreLink}
-                            data-track-name="conocer_sponsor_home"
-                          >
-                            Conocer más →
-                          </a>
-                        )}
-                      </>
+                      ) : (
+                        <div className={styles.logoLink}>
+                          <img
+                            src={sponsor.logo}
+                            alt={`Logo ${sponsor.name}`}
+                            className={styles.logo}
+                          />
+                        </div>
+                      )
                     ) : (
                       <span className={styles.logoText}>{sponsor.name}</span>
                     )}
@@ -139,7 +143,14 @@ export function SponsorsSection() {
                 data-tier={tier.id}
               >
                 <div className={styles.platinumContent}>
-                  <div className={styles.platinumBadge}>
+                  <div
+                    className={styles.platinumBadge}
+                    style={{
+                      '--tier-color': decoration.color,
+                      '--tier-bg': `${decoration.color}18`,
+                      '--tier-border': `${decoration.color}30`,
+                    } as CSSProperties}
+                  >
                     <decoration.Icon
                       className={styles.platinumBadgeIcon}
                       style={{ color: decoration.color }}
@@ -156,29 +167,28 @@ export function SponsorsSection() {
                         className={sponsor.name === 'Orexe' ? `${styles.logoContainer} ${styles.logoContainerSubtle}` : styles.logoContainer}
                         style={{ '--sponsor-hover-color': decoration.color } as CSSProperties}
                       >
-                        <a
-                          href={sponsor.href || '#'}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.logoLink}
-                          data-track-name="ver_sponsor_logo_home"
-                        >
-                          <img
-                            src={sponsor.logo}
-                            alt={`Logo ${sponsor.name}`}
-                            className={styles.logo}
-                          />
-                        </a>
-                        {sponsor.href && (
+                        {sponsor.href ? (
                           <a
                             href={sponsor.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={styles.learnMoreLink}
-                            data-track-name="conocer_sponsor_home"
+                            className={styles.logoLink}
+                            data-track-name="ver_sponsor_logo_home"
                           >
-                            Conocer más →
+                            <img
+                              src={sponsor.logo}
+                              alt={`Logo ${sponsor.name}`}
+                              className={styles.logo}
+                            />
                           </a>
+                        ) : (
+                          <div className={styles.logoLink}>
+                            <img
+                              src={sponsor.logo}
+                              alt={`Logo ${sponsor.name}`}
+                              className={styles.logo}
+                            />
+                          </div>
                         )}
                       </div>
                     ))}

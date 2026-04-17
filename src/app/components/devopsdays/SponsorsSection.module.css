@@ -24,24 +24,32 @@
 
 .platinumBadge {
   margin-bottom: 2rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 9999px;
+  border: 1px solid var(--tier-border, var(--color-purple));
+  background: var(--tier-bg, var(--color-purple-bg));
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .platinumBadgeIcon {
-  width: 2.25rem;
-  height: 2.25rem;
-  color: var(--color-purple);
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  color: var(--tier-color, var(--color-purple)) !important;
 }
 
 .platinumBadgeText {
-  font-size: 1.25rem;
-  font-weight: 900;
+  font-size: 1.125rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-purple);
+  color: var(--tier-color, var(--color-purple));
+  line-height: 1.2;
 }
 
 /* Grid para logos Platinum - múltiples sponsors en fila */
@@ -80,13 +88,13 @@
   --sponsor-border-color: var(--color-slate-200);
   --sponsor-hover-color: var(--color-purple);
   background: var(--color-white);
-  padding: 2.5rem 3rem 1.5rem;
+  padding: 1.5rem 3rem;
   border-radius: 1.25rem;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   align-items: stretch;
   min-height: 200px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background-image: 
     linear-gradient(var(--color-white), var(--color-white)),
     linear-gradient(var(--sponsor-border-color), var(--sponsor-border-color));
@@ -99,9 +107,9 @@
 .logoContainer::before {
   content: '';
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   border-radius: 1.25rem;
-  padding: 2px;
+  padding: 1px;
   background: var(--sponsor-border-color);
   -webkit-mask: 
     linear-gradient(#fff 0 0) content-box, 
@@ -116,7 +124,7 @@
 .logoContainer:hover {
   --sponsor-border-color: var(--sponsor-hover-color);
   transform: translateY(-4px);
-  border-width: 2px;
+  border-width: 1px;
 }
 
 .logoContainer:hover::before {
@@ -268,7 +276,7 @@
 
 .secondaryTierCard .logoContainer {
   min-height: 168px;
-  padding: 2rem 2rem 1.25rem;
+  padding: 1.5rem 2rem;
 }
 
 .secondaryTierCard .logoContainerSubtle {
@@ -289,24 +297,7 @@
   padding: 2rem 0 1rem;
 }
 
-.secondaryTierCard[data-tier="gold"] .logosGrid {
-  max-width: none;
-  gap: 2rem;
-}
-
-.secondaryTierCard[data-tier="gold"] .logoContainer {
-  min-height: 200px;
-  padding: 2.5rem 3rem 1.5rem;
-}
-
-.secondaryTierCard[data-tier="gold"] .logo {
-  max-height: 120px;
-}
-
-.secondaryTierCard[data-tier="bronze"] {
-  max-width: 100%;
-}
-
+.secondaryTierCard[data-tier="gold"] .logosGrid,
 .secondaryTierCard[data-tier="bronze"] .logosGrid {
   display: flex;
   flex-wrap: wrap;
@@ -316,54 +307,44 @@
   gap: 1.5rem;
 }
 
+.secondaryTierCard[data-tier="gold"],
+.secondaryTierCard[data-tier="bronze"] {
+  max-width: 100%;
+}
+
+.secondaryTierCard[data-tier="gold"] .logoContainer,
 .secondaryTierCard[data-tier="bronze"] .logoContainer {
   width: 100%;
   max-width: none;
   min-height: 144px;
-  padding: 1.5rem 1.5rem 1rem;
+  padding: 1.5rem;
 }
 
+.secondaryTierCard[data-tier="gold"] .logo,
 .secondaryTierCard[data-tier="bronze"] .logo {
   max-height: 72px;
 }
 
 @media (min-width: 768px) {
-  .secondaryTierCard[data-tier="gold"] .logosGrid {
-    gap: 3rem;
-  }
-
   .secondaryTierCardTwoUp .logosGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 44rem;
     justify-content: center;
   }
 
+  .secondaryTierCard[data-tier="gold"] .logosGrid,
   .secondaryTierCard[data-tier="bronze"] .logosGrid {
     justify-content: center;
   }
 
+  .secondaryTierCard[data-tier="gold"] .logoContainer,
   .secondaryTierCard[data-tier="bronze"] .logoContainer {
     width: calc((100% - 3rem) / 3);
   }
 }
 
 @media (min-width: 1024px) {
-  .secondaryTierCard[data-tier="gold"] .logosGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .secondaryTierCard[data-tier="gold"] .logosGrid[data-count="1"] > :first-child {
-    grid-column: 2;
-  }
-
-  .secondaryTierCard[data-tier="gold"] .logoLink {
-    min-height: 148px;
-  }
-
-  .secondaryTierCard[data-tier="gold"] .logo {
-    max-height: 148px;
-  }
-
+  .secondaryTierCard[data-tier="gold"] .logoContainer,
   .secondaryTierCard[data-tier="bronze"] .logoContainer {
     width: calc((100% - 4.5rem) / 4);
   }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router'
 import { ChevronUp } from 'lucide-react'
 import { NavbarSection } from '../components/devopsdays/NavbarSection'
@@ -57,8 +57,9 @@ const routeSeo: Record<
 function ScrollToTop() {
   const location = useLocation()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (location.hash) {
+      window.scrollTo({ top: 0, behavior: 'auto' })
       return
     }
 

@@ -25,12 +25,12 @@
 
 .faqItem.open {
   background: #faf5ff;
-  border: 2px solid #ddd6fe; /* UNIFORMIZADO: De 1.5px a 2px */
+  border: 1px solid #ddd6fe;
 }
 
 .faqItem.closed {
   background: #ffffff;
-  border: 2px solid #e2e8f0; /* UNIFORMIZADO: De 1.5px a 2px */
+  border: 1px solid #e2e8f0;
 }
 
 .faqButton {
