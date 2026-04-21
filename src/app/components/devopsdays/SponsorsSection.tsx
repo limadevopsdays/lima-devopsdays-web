@@ -175,19 +175,27 @@ export function SponsorsSection() {
                             className={styles.logoLink}
                             data-track-name="ver_sponsor_logo_home"
                           >
-                            <img
-                              src={sponsor.logo}
-                              alt={`Logo ${sponsor.name}`}
-                              className={styles.logo}
-                            />
+                            {sponsor.logo ? (
+                              <img
+                                src={sponsor.logo}
+                                alt={`Logo ${sponsor.name}`}
+                                className={styles.logo}
+                              />
+                            ) : (
+                              <span className={styles.logoText}>{sponsor.name}</span>
+                            )}
                           </a>
                         ) : (
                           <div className={styles.logoLink}>
-                            <img
-                              src={sponsor.logo}
-                              alt={`Logo ${sponsor.name}`}
-                              className={styles.logo}
-                            />
+                            {sponsor.logo ? (
+                              <img
+                                src={sponsor.logo}
+                                alt={`Logo ${sponsor.name}`}
+                                className={styles.logo}
+                              />
+                            ) : (
+                              <span className={styles.logoText}>{sponsor.name}</span>
+                            )}
                           </div>
                         )}
                       </div>

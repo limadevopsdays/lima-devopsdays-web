@@ -12,10 +12,6 @@
   padding: 0 1.5rem;
 }
 
-/* Platinum Card */
-.platinumCard {
-  margin-bottom: 2rem;
-}
 
 .platinumContent {
   padding: 2rem 0 1rem;
@@ -298,7 +294,8 @@
 }
 
 .secondaryTierCard[data-tier="gold"] .logosGrid,
-.secondaryTierCard[data-tier="bronze"] .logosGrid {
+.secondaryTierCard[data-tier="bronze"] .logosGrid,
+.secondaryTierCard[data-tier="community"] .logosGrid {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -308,12 +305,14 @@
 }
 
 .secondaryTierCard[data-tier="gold"],
-.secondaryTierCard[data-tier="bronze"] {
+.secondaryTierCard[data-tier="bronze"],
+.secondaryTierCard[data-tier="community"] {
   max-width: 100%;
 }
 
 .secondaryTierCard[data-tier="gold"] .logoContainer,
-.secondaryTierCard[data-tier="bronze"] .logoContainer {
+.secondaryTierCard[data-tier="bronze"] .logoContainer,
+.secondaryTierCard[data-tier="community"] .logoContainer {
   width: 100%;
   max-width: none;
   min-height: 144px;
@@ -325,6 +324,14 @@
   max-height: 72px;
 }
 
+.secondaryTierCard[data-tier="community"] .logo {
+  max-height: 96px;
+}
+
+.secondaryTierCard[data-tier="community"] .logo[src*="hackemate.png"] {
+  max-height: 116px;
+}
+
 @media (min-width: 768px) {
   .secondaryTierCardTwoUp .logosGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -333,19 +340,22 @@
   }
 
   .secondaryTierCard[data-tier="gold"] .logosGrid,
-  .secondaryTierCard[data-tier="bronze"] .logosGrid {
+  .secondaryTierCard[data-tier="bronze"] .logosGrid,
+  .secondaryTierCard[data-tier="community"] .logosGrid {
     justify-content: center;
   }
 
   .secondaryTierCard[data-tier="gold"] .logoContainer,
-  .secondaryTierCard[data-tier="bronze"] .logoContainer {
+  .secondaryTierCard[data-tier="bronze"] .logoContainer,
+  .secondaryTierCard[data-tier="community"] .logoContainer {
     width: calc((100% - 3rem) / 3);
   }
 }
 
 @media (min-width: 1024px) {
   .secondaryTierCard[data-tier="gold"] .logoContainer,
-  .secondaryTierCard[data-tier="bronze"] .logoContainer {
+  .secondaryTierCard[data-tier="bronze"] .logoContainer,
+  .secondaryTierCard[data-tier="community"] .logoContainer {
     width: calc((100% - 4.5rem) / 4);
   }
 }
@@ -353,7 +363,10 @@
 /* Social Proof */
 .socialProofSection {
   background: var(--color-slate-50);
-  padding: 3rem 0;
+  padding-top: 0rem;
+  padding-right: 0px;
+  padding-bottom: 3rem;
+  padding-left: 0px;
 }
 
 .socialProofCard {
