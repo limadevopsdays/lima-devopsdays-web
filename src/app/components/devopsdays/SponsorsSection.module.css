@@ -143,6 +143,10 @@
   transition: all 0.3s ease;
 }
 
+.logo[src*="ibm.png"] {
+  max-height: 96px;
+}
+
 @media (min-width: 1024px) {
   .platinumCard .logoLink {
     min-height: 148px;
@@ -150,6 +154,10 @@
 
   .platinumCard .logo {
     max-height: 148px;
+  }
+
+  .platinumCard .logo[src*="ibm.png"] {
+    max-height: 120px;
   }
 }
 
