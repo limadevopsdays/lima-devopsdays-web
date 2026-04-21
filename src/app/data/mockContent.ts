@@ -193,6 +193,11 @@ export const sponsors = [
         href: 'https://www.port.io/',
         logo: '/images/sponsors/platinium/port.png'
       },
+      {
+        name: 'IBM',
+        href: 'https://www.ibm.com/es-es',
+        logo: '/images/sponsors/platinium/ibm.png'
+      },
     ],
   },
   {
@@ -217,6 +222,16 @@ export const sponsors = [
         name: 'Orexe',
         href: 'https://orexe.pe/',
         logo: '/images/sponsors/bronze/orexe.png'
+      },
+    ],
+  },
+  {
+    tier: 'community',
+    items: [
+      {
+        name: 'Hackemate',
+        href: 'https://www.youtube.com/@hackemate',
+        logo: '/images/sponsors/community/hackemate.png'
       },
     ],
   },

@@ -6,17 +6,17 @@
      ============================================ */
   
   /* Brand Colors - Primary */
-  --color-purple: #7c3aed;           /* Morado protagonista */
-  --color-purple-light: #a78bfa;     /* Morado claro */
-  --color-purple-dark: #6d28d9;      /* Morado oscuro */
-  --color-purple-bg: #faf5ff;        /* Background morado suave */
-  --color-purple-border: #ddd6fe;    /* Border morado suave */
+  --color-purple: #6b51ef;           /* Morado protagonista */
+  --color-purple-light: #9b8cff;     /* Morado claro */
+  --color-purple-dark: #5436e6;      /* Morado oscuro */
+  --color-purple-bg: #f4f1ff;        /* Background morado suave */
+  --color-purple-border: #d9d1ff;    /* Border morado suave */
   
   /* Brand Colors - Co-Primary */
-  --color-cyan: #06b6d4;             /* Turquesa co-protagonista */
-  --color-cyan-light: #67e8f9;       /* Turquesa claro */
-  --color-cyan-dark: #0891b2;        /* Turquesa oscuro */
-  --color-cyan-bg: #e0f2fe;          /* Background turquesa suave */
+  --color-cyan: #93e279;             /* Verde lima co-protagonista */
+  --color-cyan-light: #b6f0a4;       /* Verde lima claro */
+  --color-cyan-dark: #6fca51;        /* Verde lima oscuro */
+  --color-cyan-bg: #f1fde9;          /* Background verde lima suave */
   
   /* Supporting Colors */
   --color-teal: #14b8a6;             /* Teal */
@@ -43,7 +43,7 @@
   --color-success: #10b981;          /* Verde success */
   --color-warning: #f97316;          /* Naranja warning */
   --color-error: #ef4444;            /* Rojo error */
-  --color-info: #06b6d4;             /* Cyan info */
+  --color-info: #93e279;             /* Co-primary info */
   
   /* Social Media Colors */
   --color-linkedin: #0077b5;
@@ -51,9 +51,9 @@
   --color-twitter: #334155;
   
   /* Transit Colors */
-  --color-metro: #06b6d4;            /* Cyan para metro */
+  --color-metro: #93e279;            /* Co-primary para metro */
   --color-bus: #fb923c;              /* Naranja claro para bus */
-  --color-car: #7c3aed;              /* Morado para auto */
+  --color-car: #6b51ef;              /* Morado para auto */
   
   /* ============================================
      RADIX UI TOKENS (Existentes)
@@ -65,8 +65,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
+  --primary: #6b51ef;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.95 0.0058 264.53);
   --secondary-foreground: #030213;
   --muted: #ececf0;
@@ -90,8 +90,8 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: #6b51ef;
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
