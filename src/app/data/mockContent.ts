@@ -213,6 +213,11 @@ export const sponsors = [
         href: 'https://www.manageengine.com/es/',
         logo: '/images/sponsors/gold/manageengine.png'
       },
+      {
+        name: 'Fluid Attacks',
+        href: 'https://fluidattacks.com/es/',
+        logo: '/images/sponsors/gold/fluid.png'
+      },
     ],
   },
   {
