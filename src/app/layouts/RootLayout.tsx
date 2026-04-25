@@ -31,6 +31,13 @@ const routeSeo: Record<
     canonicalPath: '/tickets',
     robots: 'index,follow,max-image-preview:large',
   },
+  '/sorteo-entradas': {
+    title: 'Sorteo de entradas | DevOpsDays Lima 2026',
+    description:
+      'Carga un CSV de participantes y ejecuta el sorteo de entradas de DevOpsDays Lima 2026 con validación básica y selección aleatoria.',
+    canonicalPath: '/sorteo-entradas',
+    robots: 'noindex,follow',
+  },
   '/speakers': {
     title: 'Speakers | DevOpsDays Lima 2026',
     description:
