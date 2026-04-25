@@ -7,6 +7,7 @@ import SpeakersPage from './pages/SpeakersPage'
 import CodeOfConductPage from './pages/CodeOfConductPage'
 import NotFoundPage from './pages/NotFoundPage'
 import HomeSpacingMockupsPage from './pages/HomeSpacingMockupsPage'
+import SorteoEntradasPage from './pages/SorteoEntradasPage'
 
 function LegacyCodeOfConductRedirect() {
   return Navigate({ to: '/code-of-conduct', replace: true })
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       { 
         path: 'tickets', 
         Component: TicketsPage 
+      },
+      {
+        path: 'sorteo-entradas',
+        Component: SorteoEntradasPage,
       },
       { 
         path: 'speakers', 
