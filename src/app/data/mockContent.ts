@@ -206,7 +206,7 @@ export const sponsors = [
       {
         name: 'Thoughtworks',
         href: 'https://www.thoughtworks.com/',
-        logo: '/images/sponsors/platinium/thoughtworks.png'
+        logo: '/images/sponsors/gold/thoughtworks.png'
       },
       {
         name: 'ManageEngine',
@@ -217,6 +217,11 @@ export const sponsors = [
         name: 'Fluid Attacks',
         href: 'https://fluidattacks.com/es/',
         logo: '/images/sponsors/gold/fluid.png'
+      },
+      {
+        name: 'Kyndryl',
+        href: 'https://www.kyndryl.com/pe/es',
+        logo: '/images/sponsors/gold/kyndryl.png'
       },
     ],
   },
