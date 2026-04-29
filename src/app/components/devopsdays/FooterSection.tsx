@@ -8,8 +8,9 @@ export function FooterSection() {
       <div className={styles.container}>
         {/* Logo + Year */}
         <div className={styles.logoContainer}>
-          <h2 className={styles.logoText}>DevOpsDays Lima</h2>
-          <span className={styles.logoYear}>2026</span>
+          <h2 className={styles.logoText}>
+            devopsdays <span className={styles.logoCity}>lima</span>
+          </h2>
         </div>
 
         {/* Copyright | Links | Social */}
