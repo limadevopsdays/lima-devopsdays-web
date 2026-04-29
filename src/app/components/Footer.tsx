@@ -14,7 +14,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#7c3aed] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#6B51EF] flex items-center justify-center">
                 <Terminal className="w-4 h-4 text-white" strokeWidth={2.5} />
               </div>
               <span className="text-white font-black" style={{ fontSize: "1rem" }}>

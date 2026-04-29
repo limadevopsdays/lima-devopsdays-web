@@ -89,7 +89,7 @@
   gap: 0.5rem;
   padding: 0.8125rem 1.25rem;
   background: #ffffff;
-  color: #7c3aed;
+  color: #6B51EF;
   font-weight: 700;
   font-size: 1rem;
   line-height: 1;
@@ -292,11 +292,11 @@
   top: 0;
   bottom: 0;
   width: var(--row-accent-width, 0px);
-  background: var(--row-accent, #7c3aed);
+  background: var(--row-accent, #6B51EF);
 }
 
 .discountsRow:hover {
-  background: color-mix(in srgb, var(--row-accent, #7c3aed) 4%, white);
+  background: color-mix(in srgb, var(--row-accent, #6B51EF) 4%, white);
 }
 
 .discountsCell {
@@ -485,7 +485,7 @@
   padding: 1rem 1rem 1rem 1.25rem;
   background: #f8fafc;
   border: none;
-  border-left: 4px solid var(--category-color, #7c3aed);
+  border-left: 4px solid var(--category-color, #6B51EF);
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 800;
@@ -508,12 +508,12 @@
 }
 
 .mobileCategoryTitle:focus-visible {
-  outline: 2px solid #7c3aed;
+  outline: 2px solid #6B51EF;
   outline-offset: -2px;
 }
 
 .mobileCategoryIcon {
-  color: var(--category-color, #7c3aed);
+  color: var(--category-color, #6B51EF);
 }
 
 .mobileCategoryCount {
@@ -544,7 +544,7 @@
 }
 
 .mobileBenefitItem:hover {
-  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+  background: color-mix(in srgb, var(--category-color, #6B51EF) 5%, white);
 }
 
 .tableControls {
@@ -560,7 +560,7 @@
   background: none;
   border: none;
   padding: 0;
-  color: #7c3aed; /* Morado del sistema */
+  color: #6B51EF; /* Morado del sistema */
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
@@ -569,7 +569,7 @@
 }
 
 .textLink:hover {
-  color: #6d28d9; /* Morado oscuro */
+  color: #5436E6; /* Morado oscuro */
   text-decoration: underline;
 }
 
@@ -693,7 +693,7 @@
   justify-content: space-between;
   padding: 20px 24px;
   background: #f8fafc;
-  border-left: 4px solid var(--category-color, #7c3aed);
+  border-left: 4px solid var(--category-color, #6B51EF);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -704,7 +704,7 @@
 }
 
 .categoryTitle:focus-visible {
-  outline: 2px solid #7c3aed;
+  outline: 2px solid #6B51EF;
   outline-offset: 2px;
 }
 
@@ -720,7 +720,7 @@
 }
 
 .categoryIcon {
-  color: var(--category-color, #7c3aed);
+  color: var(--category-color, #6B51EF);
 }
 
 .benefitCount {
@@ -742,11 +742,11 @@
 
 .toggleButton:hover {
   transform: scale(1.1);
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .toggleButton:focus-visible {
-  outline: 2px solid #7c3aed;
+  outline: 2px solid #6B51EF;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -766,7 +766,7 @@
 }
 
 .tableRow:hover {
-  background: color-mix(in srgb, var(--category-color, #7c3aed) 5%, white);
+  background: color-mix(in srgb, var(--category-color, #6B51EF) 5%, white);
 }
 
 .tableCell {
@@ -815,8 +815,8 @@
   min-height: 2rem;
   padding: 0.375rem 0.625rem;
   border-radius: 9999px;
-  background: color-mix(in srgb, var(--tier-color, #7c3aed) 14%, white);
-  color: var(--tier-color, #7c3aed);
+  background: color-mix(in srgb, var(--tier-color, #6B51EF) 14%, white);
+  color: var(--tier-color, #6B51EF);
   font-size: 0.75rem;
   font-weight: 700;
   white-space: nowrap;
@@ -851,7 +851,7 @@
 }
 
 .categoryBlock .tableRow:first-of-type {
-  border-top: 1px solid color-mix(in srgb, var(--category-color, #7c3aed) 18%, #e2e8f0);
+  border-top: 1px solid color-mix(in srgb, var(--category-color, #6B51EF) 18%, #e2e8f0);
 }
 
 .checkIcon {

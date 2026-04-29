@@ -16,7 +16,7 @@ const testimonials = [
     author: "Patricia Quispe",
     role: "DevOps Engineer · BCP",
     avatar: "PQ",
-    color: "#7c3aed",
+    color: "#6B51EF",
   },
   {
     quote:

@@ -26,7 +26,7 @@ export function FaqSection() {
       <div className={styles.container}>
         <SectionHeader
           eyebrow="FAQ"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="Preguntas frecuentes"
           lead="Todo lo que necesitas saber antes de unirte a la comunidad."
         />

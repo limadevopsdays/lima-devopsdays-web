@@ -30,7 +30,7 @@
 .logoYear {
   font-size: 1.75rem;
   font-weight: 900;
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .footerContent {
@@ -83,7 +83,7 @@
 }
 
 .navLink:hover {
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .socialLinks {
@@ -107,8 +107,8 @@
 }
 
 .socialLink:hover {
-  background: #7c3aed;
-  border-color: #7c3aed;
+  background: #6B51EF;
+  border-color: #6B51EF;
 }
 
 .socialIcon {

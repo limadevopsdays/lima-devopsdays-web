@@ -32,7 +32,7 @@ export function OrganizersSection() {
       <div className={styles.container}>
         <SectionHeader
           eyebrow="Organizadores"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="El equipo detrás del evento"
           lead="Un grupo de voluntarios apasionados por la comunidad DevOps de Perú que trabajan todo el año para hacer posible este evento."
         />

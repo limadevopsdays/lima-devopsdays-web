@@ -283,7 +283,7 @@
 .reportingIcon {
   width: 64px;
   height: 64px;
-  color: #7c3aed;
+  color: #6B51EF;
   display: block;
   margin: 0 auto 24px;
 }
@@ -313,7 +313,7 @@
 .optionTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #7c3aed;
+  color: #6B51EF;
   margin-bottom: 12px;
 }
 
@@ -325,14 +325,14 @@
 }
 
 .emailLink {
-  color: #7c3aed;
+  color: #6B51EF;
   font-weight: 700;
   text-decoration: underline;
   transition: color 0.2s;
 }
 
 .emailLink:hover {
-  color: #6d28d9;
+  color: #5436E6;
 }
 
 .reportingNote {
@@ -410,7 +410,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #7c3aed;
+  color: #6B51EF;
   font-weight: 700;
   font-size: 18px;
 }
@@ -420,7 +420,7 @@
    ============================================ */
 .ctaSection {
   padding: 5rem 1.5rem; /* UNIFORMIZADO: De 80px 24px a 5rem 1.5rem - consistente con otras páginas */
-  background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%);
   position: relative;
   overflow: hidden;
 }
@@ -474,7 +474,7 @@
   justify-content: center;
   padding: 13px 20px;
   background: white;
-  color: #7c3aed;
+  color: #6B51EF;
   font-weight: 700;
   font-size: 18px;
   line-height: 1;

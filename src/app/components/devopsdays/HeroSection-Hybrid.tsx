@@ -39,7 +39,7 @@ export function HeroSectionHybrid() {
           className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: 
-              'repeating-linear-gradient(45deg, transparent, transparent 60px, #7c3aed 60px, #7c3aed 61px)',
+              'repeating-linear-gradient(45deg, transparent, transparent 60px, #6B51EF 60px, #6B51EF 61px)',
           }}
         />
         
@@ -56,7 +56,7 @@ export function HeroSectionHybrid() {
         <div
           className="absolute inset-0 opacity-[0.12]"
           style={{
-            backgroundImage: 'radial-gradient(circle, #7c3aed 1.5px, transparent 1.5px)',
+            backgroundImage: 'radial-gradient(circle, #6B51EF 1.5px, transparent 1.5px)',
             backgroundSize: '64px 64px',
           }}
         />
@@ -96,8 +96,8 @@ export function HeroSectionHybrid() {
             className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full w-fit"
             style={{ background: '#f3e8ff', border: '1px solid #e9d5ff' }}
           >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
-            <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#7c3aed' }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#6B51EF' }} />
+            <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#6B51EF' }}>
               Lima, Perú · 20–21 ago 2026
             </span>
           </div>
@@ -105,7 +105,7 @@ export function HeroSectionHybrid() {
           <h1 style={{ fontSize: 'clamp(2.5rem,7vw,5.5rem)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.03em', margin: '0 0 1.5rem' }}>
             <span style={{ color: '#0f172a' }}>DevOpsDays</span>
             <br />
-            <span style={{ color: '#7c3aed' }}>Lima 2026</span>
+            <span style={{ color: '#6B51EF' }}>Lima 2026</span>
           </h1>
 
           <p className="text-xl mb-8 max-w-xl" style={{ color: '#475569' }}>
@@ -114,7 +114,7 @@ export function HeroSectionHybrid() {
 
           <div className="flex flex-wrap items-center gap-3 mb-10">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: '#ffffff', border: '1px solid #e2e8f0', color: '#334155' }}>
-              <Calendar className="w-4 h-4" style={{ color: '#7c3aed' }} />
+              <Calendar className="w-4 h-4" style={{ color: '#6B51EF' }} />
               20 – 21 de agosto, 2026
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: '#ffffff', border: '1px solid #e2e8f0', color: '#334155' }}>
@@ -127,7 +127,7 @@ export function HeroSectionHybrid() {
             <a
               href={siteContent.ticketsUrl}
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-full font-black tracking-wide transition-all duration-200 hover:-translate-y-0.5 text-white"
-              style={{ background: '#7c3aed' }}
+              style={{ background: '#6B51EF' }}
             >
               Comprar Entradas
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

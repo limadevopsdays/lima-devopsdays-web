@@ -23,7 +23,7 @@ export function SpeakersMockupsV2() {
           <div className="flex gap-3 justify-center flex-wrap mt-4">
             <span
               className="px-3 py-1 rounded-lg text-xs font-bold"
-              style={{ background: '#7c3aed', color: '#ffffff' }}
+              style={{ background: '#6B51EF', color: '#ffffff' }}
             >
               Morado sólido
             </span>
@@ -51,12 +51,12 @@ export function SpeakersMockupsV2() {
         {/* Grid de mockups */}
         <div className="space-y-12">
           {/* OPCIÓN A: Color Sólido Morado */}
-          <MockupContainer title="OPCIÓN A: Card Morado Sólido + Grid 2×2" badge="LIMPIO" badgeColor="#7c3aed">
+          <MockupContainer title="OPCIÓN A: Card Morado Sólido + Grid 2×2" badge="LIMPIO" badgeColor="#6B51EF">
             <div style={{ background: '#ffffff', padding: '2rem', borderRadius: '1rem' }}>
               <div
                 className="rounded-2xl p-10 relative overflow-hidden"
                 style={{
-                  background: '#7c3aed',
+                  background: '#6B51EF',
                   color: '#ffffff',
                 }}
               >
@@ -87,7 +87,7 @@ export function SpeakersMockupsV2() {
                   <div className="flex gap-4">
                     <button
                       className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-                      style={{ background: '#ffffff', color: '#7c3aed' }}
+                      style={{ background: '#ffffff', color: '#6B51EF' }}
                     >
                       <Send className="w-5 h-5" />
                       Enviar propuesta
@@ -123,8 +123,8 @@ export function SpeakersMockupsV2() {
               >
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-2 mb-4">
-                    <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
-                    <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#7c3aed' }}>
+                    <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#6B51EF' }} />
+                    <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#6B51EF' }}>
                       CFP ABIERTO
                     </span>
                   </div>
@@ -138,7 +138,7 @@ export function SpeakersMockupsV2() {
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   {tracks.map((track, idx) => {
-                    const colors = ['#7c3aed', '#06b6d4', '#14b8a6', '#f97316']
+                    const colors = ['#6B51EF', '#06b6d4', '#14b8a6', '#f97316']
                     const bgColors = ['#faf5ff', '#ecfeff', '#f0fdfa', '#fff7ed']
                     return (
                       <div
@@ -160,13 +160,13 @@ export function SpeakersMockupsV2() {
                 <div className="text-center">
                   <button
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black transition-all duration-200 hover:-translate-y-1 mb-3"
-                    style={{ background: '#7c3aed', color: '#ffffff' }}
+                    style={{ background: '#6B51EF', color: '#ffffff' }}
                   >
                     <Send className="w-5 h-5" />
                     Enviar propuesta
                   </button>
                   <p className="text-sm">
-                    <a href="#" className="font-bold hover:underline" style={{ color: '#7c3aed' }}>
+                    <a href="#" className="font-bold hover:underline" style={{ color: '#6B51EF' }}>
                       Ver guía completa del CFP →
                     </a>
                   </p>
@@ -226,7 +226,7 @@ export function SpeakersMockupsV2() {
                     </div>
                     <button
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-                      style={{ background: '#7c3aed', color: '#ffffff' }}
+                      style={{ background: '#6B51EF', color: '#ffffff' }}
                     >
                       <Send className="w-4 h-4" />
                       Enviar propuesta
@@ -237,7 +237,7 @@ export function SpeakersMockupsV2() {
                 {/* Cards laterales */}
                 <div className="space-y-4">
                   <div className="rounded-2xl p-6" style={{ background: '#faf5ff', border: '1.5px solid #ddd6fe' }}>
-                    <Sparkles className="w-8 h-8 mb-3" style={{ color: '#7c3aed' }} />
+                    <Sparkles className="w-8 h-8 mb-3" style={{ color: '#6B51EF' }} />
                     <h3 className="font-black mb-2" style={{ color: '#0f172a' }}>
                       Experiencias reales
                     </h3>
@@ -353,7 +353,7 @@ export function SpeakersMockupsV2() {
               <div
                 className="rounded-2xl p-8 md:p-10 relative overflow-hidden"
                 style={{
-                  background: '#7c3aed',
+                  background: '#6B51EF',
                   color: '#ffffff',
                 }}
               >
@@ -396,7 +396,7 @@ export function SpeakersMockupsV2() {
                   <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                     <button
                       className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-                      style={{ background: '#ffffff', color: '#7c3aed' }}
+                      style={{ background: '#ffffff', color: '#6B51EF' }}
                     >
                       <Send className="w-5 h-5" />
                       Enviar propuesta
@@ -431,7 +431,7 @@ export function SpeakersMockupsV2() {
                   <div className="flex items-center gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: '#7c3aed' }}
+                      style={{ background: '#6B51EF' }}
                     >
                       <Send className="w-6 h-6" />
                     </div>
@@ -452,7 +452,7 @@ export function SpeakersMockupsV2() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button
                       className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black whitespace-nowrap transition-all duration-200 hover:-translate-y-1"
-                      style={{ background: '#7c3aed', color: '#ffffff' }}
+                      style={{ background: '#6B51EF', color: '#ffffff' }}
                     >
                       <Send className="w-4 h-4" />
                       Enviar propuesta
@@ -490,7 +490,7 @@ export function SpeakersMockupsV2() {
           <div className="flex flex-wrap gap-3 justify-center">
             <span
               className="px-4 py-2 rounded-lg text-sm font-bold"
-              style={{ background: '#7c3aed', color: '#ffffff' }}
+              style={{ background: '#6B51EF', color: '#ffffff' }}
             >
               A & E: Morado sólido
             </span>

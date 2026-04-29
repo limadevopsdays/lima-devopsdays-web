@@ -17,7 +17,7 @@ export function SponsorsSectionFinal() {
       <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem 3rem 1.5rem' }}>
         <SectionHeader
           eyebrow="Sponsors"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="Empresas que hacen posible este evento"
           lead="Su apoyo nos permite mantener el evento accesible y de alta calidad para toda la comunidad DevOps de Perú y LATAM."
         />
@@ -37,14 +37,14 @@ export function SponsorsSectionFinal() {
           >
             {/* Badge Platinum */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}>
-              <Award style={{ width: '1.5rem', height: '1.5rem', color: '#7c3aed', marginRight: '0.5rem' }} />
+              <Award style={{ width: '1.5rem', height: '1.5rem', color: '#6B51EF', marginRight: '0.5rem' }} />
               <span
                 style={{
                   fontSize: '0.75rem',
                   fontWeight: 900,
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
-                  color: '#7c3aed',
+                  color: '#6B51EF',
                 }}
               >
                 Platinum Sponsor
@@ -83,7 +83,7 @@ export function SponsorsSectionFinal() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-0.5rem) scale(1.02)'
                     e.currentTarget.style.boxShadow = '0 20px 50px rgba(124, 58, 237, 0.2)'
-                    e.currentTarget.style.borderColor = '#7c3aed'
+                    e.currentTarget.style.borderColor = '#6B51EF'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0) scale(1)'
@@ -105,7 +105,7 @@ export function SponsorsSectionFinal() {
                       }}
                     />
                   ) : (
-                    <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#7c3aed' }}>{sponsor.name}</span>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#6B51EF' }}>{sponsor.name}</span>
                   )}
                 </a>
               ))}

@@ -26,7 +26,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
       <div className={styles.container}>
         <SectionHeader 
           eyebrow={variant === 'page' ? undefined : 'Tickets'}
-          eyebrowColor={variant === 'page' ? undefined : '#7c3aed'}
+          eyebrowColor={variant === 'page' ? undefined : '#6B51EF'}
           title="Elige el ticket ideal para tu experiencia"
           lead="Dos modalidades pensadas para distintos niveles de acceso y networking. Ambos tickets te conectan con la comunidad DevOps. El ticket VIP amplía la experiencia con beneficios premium."
         />

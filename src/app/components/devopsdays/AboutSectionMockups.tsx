@@ -12,7 +12,7 @@ const stats = [
 
 const features = [
   { icon: Globe, label: 'Movimiento global', desc: 'Parte de la red mundial con +100 ciudades.', color: '#0ea5e9' },
-  { icon: Users, label: 'Open Spaces', desc: 'La agenda la construyen los asistentes en vivo.', color: '#7c3aed' },
+  { icon: Users, label: 'Open Spaces', desc: 'La agenda la construyen los asistentes en vivo.', color: '#6B51EF' },
   { icon: Zap, label: 'Ignite Talks', desc: '5 minutos, 20 slides, ideas que cambian perspectivas.', color: '#f97316' },
 ]
 
@@ -82,7 +82,7 @@ function MockupSection({ option }: { option: typeof textOptions[0] }) {
         <span
           className="px-4 py-1.5 rounded-full text-xs"
           style={{
-            background: option.id === 1 ? '#7c3aed' : '#f8fafc',
+            background: option.id === 1 ? '#6B51EF' : '#f8fafc',
             color: option.id === 1 ? '#ffffff' : '#64748b',
             fontWeight: 700,
             border: option.id === 1 ? 'none' : '1px solid #e2e8f0',
@@ -95,7 +95,7 @@ function MockupSection({ option }: { option: typeof textOptions[0] }) {
       {/* Section Header */}
       <SectionHeader
         eyebrow="¡Regresamos este 2026!"
-        eyebrowColor="#7c3aed"
+        eyebrowColor="#6B51EF"
         title="¿Qué es DevOpsDays Lima?"
         lead={option.lead}
       />
@@ -198,7 +198,7 @@ export function AboutSectionMockups() {
         <div className="mb-16 text-center">
           <div
             className="inline-flex px-4 py-1.5 rounded-full mb-4"
-            style={{ background: '#7c3aed', color: '#ffffff', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em' }}
+            style={{ background: '#6B51EF', color: '#ffffff', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em' }}
           >
             MOCKUPS DE OPCIONES DE TEXTO
           </div>

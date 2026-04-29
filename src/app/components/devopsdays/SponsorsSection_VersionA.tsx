@@ -4,7 +4,7 @@ import { sponsors, sponsorTiers, siteContent } from '../../data/mockContent'
 
 // Estilos minimalistas por tier
 const tierStyles: Record<string, { color: string; badge: string }> = {
-  platinum: { color: '#7c3aed', badge: '#f3e8ff' },
+  platinum: { color: '#6B51EF', badge: '#f3e8ff' },
   gold: { color: '#f97316', badge: '#ffedd5' },
   silver: { color: '#94a3b8', badge: '#f1f5f9' },
   community: { color: '#06b6d4', badge: '#cffafe' },
@@ -24,7 +24,7 @@ export function SponsorsSectionVersionA() {
       <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }}>
         <SectionHeader
           eyebrow="Sponsors"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="Empresas que hacen posible este evento"
           lead="Su apoyo nos permite mantener el evento accesible y de alta calidad para toda la comunidad DevOps de Perú y LATAM."
         />
@@ -152,7 +152,7 @@ export function SponsorsSectionVersionA() {
           style={{
             borderRadius: '1.5rem',
             padding: '3rem',
-            background: 'linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)',
+            background: 'linear-gradient(135deg, #6B51EF 0%, #a78bfa 100%)',
             marginBottom: '3rem',
             position: 'relative',
             overflow: 'hidden',

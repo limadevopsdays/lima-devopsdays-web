@@ -57,7 +57,7 @@
 }
 
 .logoDomain {
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 /* Desktop Menu */
@@ -87,11 +87,11 @@
 }
 
 .navLink:hover {
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .navLink.active {
-  color: #7c3aed;
+  color: #6B51EF;
   font-weight: 700;
 }
 
@@ -101,7 +101,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #7c3aed;
+  background: #6B51EF;
   border-radius: 2px;
 }
 
@@ -120,10 +120,10 @@
   min-height: 2.5rem;
   white-space: nowrap;
   transition: all 0.2s ease;
-  background: #7c3aed;
+  background: #6B51EF;
   color: white;
   text-decoration: none;
-  border: 2px solid #7c3aed;
+  border: 2px solid #6B51EF;
   cursor: pointer;
 }
 
@@ -134,8 +134,8 @@
 }
 
 .ctaButton:hover {
-  background: #6d28d9; /* UNIFORMIZADO: Agregado cambio de color */
-  border-color: #6d28d9;
+  background: #5436E6; /* UNIFORMIZADO: Agregado cambio de color */
+  border-color: #5436E6;
   transform: translateY(-2px);
 }
 
@@ -194,7 +194,7 @@
 }
 
 .mobileMenuLink:hover {
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .mobileMenuCta {
@@ -214,14 +214,14 @@
   min-height: 2.75rem;
   white-space: nowrap;
   color: white;
-  background: #7c3aed;
-  border: 2px solid #7c3aed;
+  background: #6B51EF;
+  border: 2px solid #6B51EF;
   text-decoration: none;
   transition: all 0.2s ease; /* UNIFORMIZADO: Agregada transición */
 }
 
 .mobileCtaButton:hover {
-  background: #6d28d9;
-  border-color: #6d28d9; /* UNIFORMIZADO: Agregado cambio de border */
+  background: #5436E6;
+  border-color: #5436E6; /* UNIFORMIZADO: Agregado cambio de border */
   transform: translateY(-2px); /* UNIFORMIZADO: Agregado feedback de elevación */
 }

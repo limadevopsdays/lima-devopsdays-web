@@ -13,7 +13,7 @@ const features = [
     icon: Users,
     title: "Open Spaces",
     desc: "Formato participativo donde la agenda la construyen los asistentes en tiempo real.",
-    color: "#7c3aed",
+    color: "#6B51EF",
   },
   {
     icon: Zap,
@@ -63,10 +63,10 @@ export function About() {
                 alt="Lima, Perú"
                 className="w-full h-80 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 to-[#7c3aed]/10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/10 to-[#6B51EF]/10" />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-5 -right-5 bg-gradient-to-br from-[#00d4ff] to-[#7c3aed] rounded-2xl p-4 shadow-xl text-white text-center">
+            <div className="absolute -bottom-5 -right-5 bg-gradient-to-br from-[#00d4ff] to-[#6B51EF] rounded-2xl p-4 shadow-xl text-white text-center">
               <div style={{ fontSize: "1.8rem", fontWeight: 900, lineHeight: 1 }}>5ta</div>
               <div className="text-xs opacity-90 mt-0.5">Edición</div>
             </div>

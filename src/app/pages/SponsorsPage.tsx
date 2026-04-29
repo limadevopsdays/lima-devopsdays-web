@@ -10,19 +10,19 @@ const MAIN_STATS = [
     title: 'La comunidad más grande de Perú', 
     subtitle: 'Se esperan +800 participantes',
     icon: Users,
-    color: '#7c3aed' 
+    color: '#6B51EF' 
   },
   { 
     title: 'Dos días completos de aprendizaje', 
     subtitle: 'Charlas + Talleres + Open Spaces + Networking',
     icon: Calendar,
-    color: '#7c3aed' 
+    color: '#6B51EF' 
   },
   { 
     title: 'Regresamos en el 2026', 
     subtitle: '2da edición del evento en Lima Centro de Convenciones (LCC)',
     icon: Rocket,
-    color: '#7c3aed' 
+    color: '#6B51EF' 
   },
 ]
 
@@ -73,7 +73,7 @@ const DETAILED_BENEFITS = [
   {
     category: 'Presentaciones',
     icon: Presentation,
-    color: '#7c3aed', // Morado - UNIFORME
+    color: '#6B51EF', // Morado - UNIFORME
     items: [
       {
         label: 'Presentation (5min)',
@@ -101,7 +101,7 @@ const DETAILED_BENEFITS = [
   {
     category: 'Acceso a participantes',
     icon: UserPlus,
-    color: '#7c3aed', // Morado - UNIFORME (antes turquesa)
+    color: '#6B51EF', // Morado - UNIFORME (antes turquesa)
     items: [
       {
         label: 'Participant opt-in list',
@@ -122,7 +122,7 @@ const DETAILED_BENEFITS = [
   {
     category: 'Visibilidad',
     icon: Eye,
-    color: '#7c3aed', // Morado - UNIFORME (antes verde)
+    color: '#6B51EF', // Morado - UNIFORME (antes verde)
     items: [
       {
         label: 'Raffles for audience',
@@ -150,7 +150,7 @@ const DETAILED_BENEFITS = [
   {
     category: 'Pases y stands',
     icon: Gift,
-    color: '#7c3aed', // Morado - UNIFORME (antes naranja)
+    color: '#6B51EF', // Morado - UNIFORME (antes naranja)
     items: [
       {
         label: 'Full access pass',

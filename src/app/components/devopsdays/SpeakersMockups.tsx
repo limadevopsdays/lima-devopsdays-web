@@ -34,7 +34,7 @@ export function SpeakersMockups() {
               <div
                 className="rounded-2xl p-10 relative overflow-hidden"
                 style={{
-                  background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+                  background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
                   color: '#ffffff',
                 }}
               >
@@ -65,7 +65,7 @@ export function SpeakersMockups() {
                   <div className="flex gap-4">
                     <button
                       className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black"
-                      style={{ background: '#ffffff', color: '#7c3aed' }}
+                      style={{ background: '#ffffff', color: '#6B51EF' }}
                     >
                       <Send className="w-5 h-5" />
                       Enviar propuesta
@@ -80,12 +80,12 @@ export function SpeakersMockups() {
           </MockupContainer>
 
           {/* OPCIÓN B */}
-          <MockupContainer title="OPCIÓN B: Timeline Horizontal Minimalista" badge="RECOMENDADA" badgeColor="#7c3aed">
+          <MockupContainer title="OPCIÓN B: Timeline Horizontal Minimalista" badge="RECOMENDADA" badgeColor="#6B51EF">
             <div style={{ background: '#f8fafc', padding: '2rem', borderRadius: '1rem' }}>
               <div className="text-center mb-10">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
-                  <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#7c3aed' }}>
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#6B51EF' }} />
+                  <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#6B51EF' }}>
                     CFP ABIERTO
                   </span>
                 </div>
@@ -101,12 +101,12 @@ export function SpeakersMockups() {
                 <div
                   className="absolute top-6 left-0 right-0 h-0.5"
                   style={{
-                    background: 'linear-gradient(90deg, #7c3aed 0%, #06b6d4 50%, #14b8a6 75%, #f97316 100%)',
+                    background: 'linear-gradient(90deg, #6B51EF 0%, #06b6d4 50%, #14b8a6 75%, #f97316 100%)',
                   }}
                 />
                 <div className="grid grid-cols-4 gap-4 relative">
                   {tracks.map((track, idx) => {
-                    const colors = ['#7c3aed', '#06b6d4', '#14b8a6', '#f97316']
+                    const colors = ['#6B51EF', '#06b6d4', '#14b8a6', '#f97316']
                     return (
                       <div key={idx} className="flex flex-col items-center">
                         <div
@@ -127,7 +127,7 @@ export function SpeakersMockups() {
               <div className="text-center">
                 <button
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black"
-                  style={{ background: '#7c3aed', color: '#ffffff' }}
+                  style={{ background: '#6B51EF', color: '#ffffff' }}
                 >
                   <Send className="w-5 h-5" />
                   Enviar tu propuesta
@@ -144,7 +144,7 @@ export function SpeakersMockups() {
                 <div
                   className="lg:col-span-2 rounded-2xl p-8 relative overflow-hidden"
                   style={{
-                    background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+                    background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
                     color: '#ffffff',
                   }}
                 >
@@ -173,7 +173,7 @@ export function SpeakersMockups() {
                     </div>
                     <button
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black"
-                      style={{ background: '#ffffff', color: '#7c3aed' }}
+                      style={{ background: '#ffffff', color: '#6B51EF' }}
                     >
                       <Send className="w-4 h-4" />
                       Enviar propuesta
@@ -183,7 +183,7 @@ export function SpeakersMockups() {
 
                 <div className="space-y-4">
                   <div className="rounded-2xl p-6" style={{ background: '#faf5ff', border: '1.5px solid #ddd6fe' }}>
-                    <Sparkles className="w-8 h-8 mb-3" style={{ color: '#7c3aed' }} />
+                    <Sparkles className="w-8 h-8 mb-3" style={{ color: '#6B51EF' }} />
                     <h3 className="font-black mb-2" style={{ color: '#0f172a' }}>
                       Experiencias reales
                     </h3>
@@ -215,8 +215,8 @@ export function SpeakersMockups() {
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="p-10">
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
-                      <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#7c3aed' }}>
+                      <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#6B51EF' }} />
+                      <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#6B51EF' }}>
                         CFP ABIERTO
                       </span>
                     </div>
@@ -234,7 +234,7 @@ export function SpeakersMockups() {
                             className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xs"
                             style={{
                               background: '#faf5ff',
-                              color: '#7c3aed',
+                              color: '#6B51EF',
                               border: '1.5px solid #ddd6fe',
                             }}
                           >
@@ -249,7 +249,7 @@ export function SpeakersMockups() {
                     <div className="flex gap-3">
                       <button
                         className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black"
-                        style={{ background: '#7c3aed', color: '#ffffff' }}
+                        style={{ background: '#6B51EF', color: '#ffffff' }}
                       >
                         <Send className="w-4 h-4" />
                         Enviar propuesta
@@ -257,7 +257,7 @@ export function SpeakersMockups() {
                       <button
                         className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black"
                         style={{
-                          color: '#7c3aed',
+                          color: '#6B51EF',
                           border: '1.5px solid #ddd6fe',
                           background: '#faf5ff',
                         }}
@@ -270,7 +270,7 @@ export function SpeakersMockups() {
                   <div
                     className="p-10 flex flex-col items-center justify-center text-center relative overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+                      background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
                       color: '#ffffff',
                     }}
                   >
@@ -292,7 +292,7 @@ export function SpeakersMockups() {
               <div
                 className="rounded-2xl p-8 md:p-10"
                 style={{
-                  background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+                  background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
                   color: '#ffffff',
                 }}
               >
@@ -338,7 +338,7 @@ export function SpeakersMockups() {
                 <div className="flex gap-4 items-center justify-center">
                   <button
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black"
-                    style={{ background: '#ffffff', color: '#7c3aed' }}
+                    style={{ background: '#ffffff', color: '#6B51EF' }}
                   >
                     <Send className="w-5 h-5" />
                     Enviar propuesta
@@ -360,7 +360,7 @@ export function SpeakersMockups() {
                   <div className="flex items-center gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: '#7c3aed' }}
+                      style={{ background: '#6B51EF' }}
                     >
                       <Send className="w-6 h-6" />
                     </div>
@@ -381,7 +381,7 @@ export function SpeakersMockups() {
                   <div className="flex gap-3">
                     <button
                       className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black whitespace-nowrap"
-                      style={{ background: '#7c3aed', color: '#ffffff' }}
+                      style={{ background: '#6B51EF', color: '#ffffff' }}
                     >
                       <Send className="w-4 h-4" />
                       Enviar propuesta
@@ -401,7 +401,7 @@ export function SpeakersMockups() {
                 </div>
               </div>
               <div className="text-center mt-3">
-                <button className="text-xs font-bold" style={{ color: '#7c3aed' }}>
+                <button className="text-xs font-bold" style={{ color: '#6B51EF' }}>
                   Ver los 4 ejes temáticos completos ↓
                 </button>
               </div>
@@ -424,7 +424,7 @@ export function SpeakersMockups() {
           <div className="flex flex-wrap gap-3 justify-center">
             <span
               className="px-4 py-2 rounded-lg text-sm font-bold"
-              style={{ background: '#faf5ff', color: '#7c3aed', border: '1.5px solid #ddd6fe' }}
+              style={{ background: '#faf5ff', color: '#6B51EF', border: '1.5px solid #ddd6fe' }}
             >
               ⭐ Recomendada: Opción C (Bento Grid)
             </span>

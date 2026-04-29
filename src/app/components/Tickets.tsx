@@ -7,8 +7,8 @@ const plans = [
     priceNote: "Limitado",
     desc: "Para quienes más lo necesitan: estudiantes y contribuidores open source.",
     icon: Users,
-    color: "#7c3aed",
-    gradient: "from-[#7c3aed] to-[#9f67ff]",
+    color: "#6B51EF",
+    gradient: "from-[#6B51EF] to-[#9f67ff]",
     features: [
       "Acceso a los 2 días",
       "Open Spaces",
