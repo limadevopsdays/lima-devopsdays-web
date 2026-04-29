@@ -182,37 +182,14 @@
 }
 
 .title {
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
   margin: 0 0 1.5rem;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.titlePrimaryGroup {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.titlePrimary {
-  color: var(--color-slate-900);
   display: block;
 }
 
-.titlePrimaryCentered {
-  color: var(--color-slate-900);
+.titleLogo {
   display: block;
-}
-
-.titleAccent {
-  color: #53099E;
-  display: block;
-  font-size: 0.62em;
-  margin-top: 0.08em;
+  width: min(100%, 29rem);
+  height: auto;
 }
 
 .description {
@@ -297,14 +274,14 @@
 
 .ctaSecondary {
   background: rgba(255, 255, 255, 0.92);
-  border-color: var(--color-cyan);
-  color: var(--color-cyan-dark);
+  color: var(--color-purple);
+  border-color: var(--color-purple);
 }
 
 .ctaSecondary:hover {
   background: #ffffff;
-  border-color: var(--color-cyan-dark);
-  color: var(--color-cyan-dark);
+  color: var(--color-purple-dark);
+  border-color: var(--color-purple-dark);
 }
 
 /* Right Gallery Grid */
