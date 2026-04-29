@@ -14,7 +14,7 @@
 .pulseDot {
   width: 8px;
   height: 8px;
-  background-color: #7c3aed;
+  background-color: #6B51EF;
   border-radius: 50%;
   position: relative;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -25,7 +25,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background-color: #7c3aed;
+  background-color: #6B51EF;
   opacity: 0.75;
   animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

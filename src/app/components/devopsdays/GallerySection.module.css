@@ -28,7 +28,7 @@
 .badgeIcon {
   width: 0.95rem;
   height: 0.95rem;
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .badgeText {
@@ -36,7 +36,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 900;
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .mission {
@@ -84,7 +84,7 @@
 }
 
 .imageContainer:hover {
-  border-color: #7c3aed;
+  border-color: #6B51EF;
   transform: translateY(-4px);
 }
 
@@ -223,7 +223,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #7c3aed;
+  background-color: #6B51EF;
   color: #ffffff;
   border: none;
   border-radius: 50%;
@@ -237,7 +237,7 @@
 }
 
 .arrow:hover {
-  background-color: #6d28d9;
+  background-color: #5436E6;
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -292,7 +292,7 @@
 }
 
 :global(.slick-dots li.slick-active button) {
-  background-color: #7c3aed;
+  background-color: #6B51EF;
   width: 48px;
 }
 

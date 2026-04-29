@@ -3,7 +3,7 @@ import { SectionHeader } from './SectionHeader'
 import { sponsors, sponsorTiers, siteContent } from '../../data/mockContent'
 
 const tierStyles: Record<string, { color: string; bg: string; border: string }> = {
-  platinum: { color: '#7c3aed', bg: '#faf5ff', border: '#e9d5ff' },
+  platinum: { color: '#6B51EF', bg: '#faf5ff', border: '#e9d5ff' },
   gold: { color: '#f97316', bg: '#fff7ed', border: '#fed7aa' },
   silver: { color: '#94a3b8', bg: '#f8fafc', border: '#e2e8f0' },
   community: { color: '#06b6d4', bg: '#ecfeff', border: '#cffafe' },
@@ -20,7 +20,7 @@ export function SponsorsSectionVersionB() {
       <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }}>
         <SectionHeader
           eyebrow="Sponsors"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="Empresas que hacen posible este evento"
           lead="Su apoyo nos permite mantener el evento accesible y de alta calidad para toda la comunidad DevOps de Perú y LATAM."
         />
@@ -40,14 +40,14 @@ export function SponsorsSectionVersionB() {
           >
             {/* Badge Platinum */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}>
-              <Award style={{ width: '1.5rem', height: '1.5rem', color: '#7c3aed', marginRight: '0.5rem' }} />
+              <Award style={{ width: '1.5rem', height: '1.5rem', color: '#6B51EF', marginRight: '0.5rem' }} />
               <span
                 style={{
                   fontSize: '0.75rem',
                   fontWeight: 900,
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
-                  color: '#7c3aed',
+                  color: '#6B51EF',
                 }}
               >
                 Platinum Sponsor
@@ -86,7 +86,7 @@ export function SponsorsSectionVersionB() {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-0.5rem) scale(1.02)'
                     e.currentTarget.style.boxShadow = '0 20px 50px rgba(124, 58, 237, 0.2)'
-                    e.currentTarget.style.borderColor = '#7c3aed'
+                    e.currentTarget.style.borderColor = '#6B51EF'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0) scale(1)'
@@ -108,7 +108,7 @@ export function SponsorsSectionVersionB() {
                       }}
                     />
                   ) : (
-                    <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#7c3aed' }}>{sponsor.name}</span>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 900, color: '#6B51EF' }}>{sponsor.name}</span>
                   )}
                 </a>
               ))}
@@ -249,7 +249,7 @@ export function SponsorsSectionVersionB() {
           }}
         >
           {/* Contenido superior */}
-          <div style={{ padding: '3rem', background: 'linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)' }}>
+          <div style={{ padding: '3rem', background: 'linear-gradient(135deg, #6B51EF 0%, #a78bfa 100%)' }}>
             <h3
               style={{
                 fontSize: '2rem',

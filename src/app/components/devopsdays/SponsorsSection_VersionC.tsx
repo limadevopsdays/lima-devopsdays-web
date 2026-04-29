@@ -3,7 +3,7 @@ import { SectionHeader } from './SectionHeader'
 import { sponsors, sponsorTiers, siteContent } from '../../data/mockContent'
 
 const tierStyles: Record<string, { color: string; bg: string; icon: any }> = {
-  platinum: { color: '#7c3aed', bg: '#faf5ff', icon: Star },
+  platinum: { color: '#6B51EF', bg: '#faf5ff', icon: Star },
   gold: { color: '#f97316', bg: '#fff7ed', icon: Target },
   silver: { color: '#94a3b8', bg: '#f8fafc', icon: Building },
   community: { color: '#06b6d4', bg: '#ecfeff', icon: Heart },
@@ -15,7 +15,7 @@ export function SponsorsSectionVersionC() {
       <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }}>
         <SectionHeader
           eyebrow="Sponsors"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="Empresas que hacen posible este evento"
           lead="Su apoyo nos permite mantener el evento accesible y de alta calidad para toda la comunidad DevOps de Perú y LATAM."
         />

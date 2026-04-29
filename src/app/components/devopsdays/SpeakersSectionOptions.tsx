@@ -19,7 +19,7 @@ export function SpeakersSectionOptionA() {
         <div
           className="rounded-2xl p-10 relative overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+            background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
             color: '#ffffff',
           }}
         >
@@ -57,7 +57,7 @@ export function SpeakersSectionOptionA() {
               <a
                 href="#call-for-speakers"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-                style={{ background: '#ffffff', color: '#7c3aed' }}
+                style={{ background: '#ffffff', color: '#6B51EF' }}
               >
                 <Send className="w-5 h-5" />
                 Enviar propuesta
@@ -95,8 +95,8 @@ export function SpeakersSectionOptionB() {
         {/* Header compacto */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
-            <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#7c3aed' }}>
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#6B51EF' }} />
+            <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#6B51EF' }}>
               CFP ABIERTO
             </span>
           </div>
@@ -114,14 +114,14 @@ export function SpeakersSectionOptionB() {
           <div
             className="absolute top-6 left-0 right-0 h-0.5"
             style={{
-              background: 'linear-gradient(90deg, #7c3aed 0%, #06b6d4 50%, #14b8a6 75%, #f97316 100%)',
+              background: 'linear-gradient(90deg, #6B51EF 0%, #06b6d4 50%, #14b8a6 75%, #f97316 100%)',
             }}
           />
 
           {/* Tracks como timeline */}
           <div className="grid grid-cols-4 gap-4 relative">
             {tracks.map((track, idx) => {
-              const colors = ['#7c3aed', '#06b6d4', '#14b8a6', '#f97316']
+              const colors = ['#6B51EF', '#06b6d4', '#14b8a6', '#f97316']
               return (
                 <div key={idx} className="flex flex-col items-center">
                   <div
@@ -144,14 +144,14 @@ export function SpeakersSectionOptionB() {
           <a
             href="#call-for-speakers"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-            style={{ background: '#7c3aed', color: '#ffffff' }}
+            style={{ background: '#6B51EF', color: '#ffffff' }}
           >
             <Send className="w-5 h-5" />
             Enviar tu propuesta
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-sm mt-4" style={{ color: '#64748b' }}>
-            <a href="#call-for-speakers" className="font-bold hover:underline" style={{ color: '#7c3aed' }}>
+            <a href="#call-for-speakers" className="font-bold hover:underline" style={{ color: '#6B51EF' }}>
               Ver guía completa del CFP
             </a>
           </p>
@@ -175,7 +175,7 @@ export function SpeakersSectionOptionC() {
           <div
             className="lg:col-span-2 rounded-2xl p-8 relative overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+              background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
               color: '#ffffff',
             }}
           >
@@ -210,7 +210,7 @@ export function SpeakersSectionOptionC() {
               <a
                 href="#call-for-speakers"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-                style={{ background: '#ffffff', color: '#7c3aed' }}
+                style={{ background: '#ffffff', color: '#6B51EF' }}
               >
                 <Send className="w-4 h-4" />
                 Enviar propuesta
@@ -224,7 +224,7 @@ export function SpeakersSectionOptionC() {
               className="rounded-2xl p-6"
               style={{ background: '#faf5ff', border: '1.5px solid #ddd6fe' }}
             >
-              <Sparkles className="w-8 h-8 mb-3" style={{ color: '#7c3aed' }} />
+              <Sparkles className="w-8 h-8 mb-3" style={{ color: '#6B51EF' }} />
               <h3 className="font-black mb-2" style={{ color: '#0f172a' }}>
                 Experiencias reales
               </h3>
@@ -253,7 +253,7 @@ export function SpeakersSectionOptionC() {
           <a
             href="#call-for-speakers"
             className="text-sm font-bold transition-colors hover:underline"
-            style={{ color: '#7c3aed' }}
+            style={{ color: '#6B51EF' }}
           >
             Ver guía completa del CFP →
           </a>
@@ -279,8 +279,8 @@ export function SpeakersSectionOptionD() {
             {/* Left: Contenido */}
             <div className="p-10">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#7c3aed' }} />
-                <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#7c3aed' }}>
+                <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#6B51EF' }} />
+                <span className="text-xs tracking-widest uppercase font-black" style={{ color: '#6B51EF' }}>
                   CFP ABIERTO
                 </span>
               </div>
@@ -301,7 +301,7 @@ export function SpeakersSectionOptionD() {
                       className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xs"
                       style={{
                         background: '#faf5ff',
-                        color: '#7c3aed',
+                        color: '#6B51EF',
                         border: '1.5px solid #ddd6fe',
                       }}
                     >
@@ -318,7 +318,7 @@ export function SpeakersSectionOptionD() {
                 <a
                   href="#call-for-speakers"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-                  style={{ background: '#7c3aed', color: '#ffffff' }}
+                  style={{ background: '#6B51EF', color: '#ffffff' }}
                 >
                   <Send className="w-4 h-4" />
                   Enviar propuesta
@@ -327,7 +327,7 @@ export function SpeakersSectionOptionD() {
                   href="#call-for-speakers"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black transition-colors"
                   style={{
-                    color: '#7c3aed',
+                    color: '#6B51EF',
                     border: '1.5px solid #ddd6fe',
                     background: '#faf5ff',
                   }}
@@ -341,7 +341,7 @@ export function SpeakersSectionOptionD() {
             <div
               className="p-10 flex flex-col items-center justify-center text-center relative overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+                background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
                 color: '#ffffff',
               }}
             >
@@ -380,7 +380,7 @@ export function SpeakersSectionOptionE() {
         <div
           className="rounded-2xl p-8 md:p-10"
           style={{
-            background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)',
+            background: 'linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%)',
             color: '#ffffff',
           }}
         >
@@ -428,7 +428,7 @@ export function SpeakersSectionOptionE() {
             <a
               href="#call-for-speakers"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black transition-all duration-200 hover:-translate-y-1"
-              style={{ background: '#ffffff', color: '#7c3aed' }}
+              style={{ background: '#ffffff', color: '#6B51EF' }}
             >
               <Send className="w-5 h-5" />
               Enviar propuesta
@@ -464,7 +464,7 @@ export function SpeakersSectionOptionF() {
             <div className="flex items-center gap-4">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: '#7c3aed' }}
+                style={{ background: '#6B51EF' }}
               >
                 <Send className="w-6 h-6" />
               </div>
@@ -487,7 +487,7 @@ export function SpeakersSectionOptionF() {
               <a
                 href="#call-for-speakers"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-black transition-all duration-200 hover:-translate-y-1 whitespace-nowrap"
-                style={{ background: '#7c3aed', color: '#ffffff' }}
+                style={{ background: '#6B51EF', color: '#ffffff' }}
               >
                 <Send className="w-4 h-4" />
                 Enviar propuesta
@@ -512,7 +512,7 @@ export function SpeakersSectionOptionF() {
             className="absolute top-0 right-0 w-64 h-full opacity-5"
             style={{
               background:
-                'linear-gradient(90deg, transparent 0%, #7c3aed 50%, #06b6d4 100%)',
+                'linear-gradient(90deg, transparent 0%, #6B51EF 50%, #06b6d4 100%)',
             }}
           />
         </div>
@@ -521,7 +521,7 @@ export function SpeakersSectionOptionF() {
         <div className="mt-3 text-center">
           <button
             className="text-xs font-bold transition-colors hover:underline"
-            style={{ color: '#7c3aed' }}
+            style={{ color: '#6B51EF' }}
             onClick={() => {
               document.querySelector('#call-for-speakers')?.scrollIntoView({ behavior: 'smooth' })
             }}

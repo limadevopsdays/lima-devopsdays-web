@@ -15,7 +15,7 @@ const TIER_DECORATION = {
   gold: { Icon: Award, color: '#f2b950' },
   silver: { Icon: Medal, color: '#BDBFBF' },
   bronze: { Icon: Shield, color: '#BF834E' },
-  community: { Icon: Handshake, color: '#7c3aed' },
+  community: { Icon: Handshake, color: '#6B51EF' },
 } as const
 
 export function SponsorsSection() {
@@ -35,7 +35,7 @@ export function SponsorsSection() {
       <div className={styles.container}>
         <SectionHeader
           eyebrow="Sponsors"
-          eyebrowColor="#7c3aed"
+          eyebrowColor="#6B51EF"
           title="Nuestros Sponsors 2026"
           lead="Nuestros sponsors hacen posible una experiencia de alto nivel para la comunidad DevOps de LATAM, conectando marcas, líderes técnicos y equipos que están moviendo la industria."
         />

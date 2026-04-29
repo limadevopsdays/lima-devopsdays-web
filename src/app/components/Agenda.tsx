@@ -101,7 +101,7 @@ const typeConfig: Record<SessionType, { label: string; color: string; bg: string
   keynote: { label: "Keynote", color: "#f97316", bg: "#f9731615", icon: Mic },
   talk: { label: "Charla", color: "#00d4ff", bg: "#00d4ff15", icon: Mic },
   workshop: { label: "Workshop", color: "#10b981", bg: "#10b98115", icon: BookOpen },
-  openspace: { label: "Open Space", color: "#7c3aed", bg: "#7c3aed15", icon: Users },
+  openspace: { label: "Open Space", color: "#6B51EF", bg: "#6B51EF15", icon: Users },
   break: { label: "Pausa", color: "#6b7280", bg: "#6b728015", icon: Coffee },
 };
 
@@ -203,7 +203,7 @@ export function Agenda() {
               style={
                 activeDay === i
                   ? {
-                      background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
+                      background: "linear-gradient(135deg, #00d4ff, #6B51EF)",
                       color: "white",
                     }
                   : { color: "#6b7280" }

@@ -21,7 +21,7 @@ const speakers = [
     topic: "Platform Engineering: construyendo el futuro de la IDP",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
     tags: ["Platform Eng.", "Kubernetes"],
-    color: "#7c3aed",
+    color: "#6B51EF",
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ export function Speakers() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-[#7c3aed] text-xs tracking-widest uppercase font-black mb-3 px-4 py-1.5 bg-[#7c3aed]/10 border border-[#7c3aed]/20 rounded-full">
+          <span className="inline-block text-[#6B51EF] text-xs tracking-widest uppercase font-black mb-3 px-4 py-1.5 bg-[#6B51EF]/10 border border-[#6B51EF]/20 rounded-full">
             Speakers Confirmados
           </span>
           <h2
@@ -186,7 +186,7 @@ export function Speakers() {
           <p className="text-slate-500 mb-4 text-sm">¿Tienes algo valioso para compartir?</p>
           <a
             href="#"
-            className="inline-flex items-center gap-2 border border-[#7c3aed]/50 text-[#7c3aed] hover:bg-[#7c3aed]/10 px-6 py-3 rounded-full text-sm font-black tracking-wide transition-all duration-200"
+            className="inline-flex items-center gap-2 border border-[#6B51EF]/50 text-[#6B51EF] hover:bg-[#6B51EF]/10 px-6 py-3 rounded-full text-sm font-black tracking-wide transition-all duration-200"
           >
             Proponer una Charla (CFP)
           </a>

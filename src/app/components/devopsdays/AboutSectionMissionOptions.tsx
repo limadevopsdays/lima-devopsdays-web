@@ -33,7 +33,7 @@ function Option1() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: Centrado + mb-14 (3.5rem / 56px) */}
         <div className="max-w-4xl mx-auto mb-14">
@@ -68,7 +68,7 @@ function Option2() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: Centrado + mb-10 (2.5rem / 40px) */}
         <div className="max-w-4xl mx-auto mb-10">
@@ -103,7 +103,7 @@ function Option3() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: Centrado + mb-20 (5rem / 80px) */}
         <div className="max-w-4xl mx-auto mb-20">
@@ -138,7 +138,7 @@ function Option4() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: LEFT align + mb-14 */}
         <div className="max-w-4xl mb-14">
@@ -173,7 +173,7 @@ function Option5() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: JUSTIFY + mb-14 */}
         <div className="max-w-4xl mx-auto mb-14">
@@ -208,7 +208,7 @@ function Option6() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: Centrado + CARD con fondo + mb-14 */}
         <div className="max-w-4xl mx-auto mb-14">
@@ -245,10 +245,10 @@ function Option7() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: LEFT + Borde morado izquierdo + mb-14 */}
-        <div className="max-w-4xl mb-14" style={{ borderLeft: '4px solid #7c3aed', paddingLeft: '2rem' }}>
+        <div className="max-w-4xl mb-14" style={{ borderLeft: '4px solid #6B51EF', paddingLeft: '2rem' }}>
           <p
             className="text-left"
             style={{
@@ -280,7 +280,7 @@ function Option8() {
   return (
     <section id="about" style={{ background: '#ffffff', padding: '6rem 0' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Mission: Centrado + mb-8 (2rem / 32px) - MUY COMPACTO */}
         <div className="max-w-4xl mx-auto mb-8">
@@ -330,7 +330,7 @@ function VideoCard({ onClick }: { onClick: () => void }) {
       <div className="absolute inset-0 flex items-center justify-center">
         <div
           className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-          style={{ background: '#7c3aed', boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)' }}
+          style={{ background: '#6B51EF', boxShadow: '0 8px 32px rgba(107, 81, 239, 0.4)' }}
         >
           <Play className="w-8 h-8 ml-1" style={{ color: '#ffffff' }} fill="#ffffff" />
         </div>
@@ -340,7 +340,7 @@ function VideoCard({ onClick }: { onClick: () => void }) {
         style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', border: '1px solid #e2e8f0' }}
       >
         <span className="text-sm font-black flex items-center gap-2" style={{ color: '#0f172a' }}>
-          <Play className="w-3.5 h-3.5" style={{ color: '#7c3aed' }} />
+          <Play className="w-3.5 h-3.5" style={{ color: '#6B51EF' }} />
           Ver video · 1ra Edición
         </span>
       </div>
@@ -432,7 +432,7 @@ export function AboutSectionMissionOptions() {
           <div
             className="inline-flex px-4 py-1.5 rounded-full mb-5"
             style={{
-              background: '#7c3aed',
+              background: '#6B51EF',
               color: '#ffffff',
               fontSize: '0.75rem',
               fontWeight: 700,
@@ -453,7 +453,7 @@ export function AboutSectionMissionOptions() {
             <div className="p-5 rounded-xl text-left" style={{ background: '#f8fafc', border: '1.5px solid #e2e8f0' }}>
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
-                style={{ background: '#7c3aed', color: '#ffffff', fontWeight: 900, fontSize: '0.85rem' }}
+                style={{ background: '#6B51EF', color: '#ffffff', fontWeight: 900, fontSize: '0.85rem' }}
               >
                 1
               </div>
@@ -719,7 +719,7 @@ export function AboutSectionMissionOptions() {
             </div>
           </div>
 
-          <div className="p-8 rounded-2xl" style={{ background: '#7c3aed14', border: '1.5px solid #7c3aed' }}>
+          <div className="p-8 rounded-2xl" style={{ background: '#6B51EF14', border: '1.5px solid #6B51EF' }}>
             <p className="text-xl mb-4" style={{ fontWeight: 800, color: '#0f172a' }}>
               💡 Recomendación
             </p>

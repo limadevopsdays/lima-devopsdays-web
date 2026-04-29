@@ -31,7 +31,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#7c3aed] flex items-center justify-center">
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#6B51EF] flex items-center justify-center">
             <Terminal className="w-5 h-5 text-white" strokeWidth={2.5} />
           </div>
           <div className="leading-none">

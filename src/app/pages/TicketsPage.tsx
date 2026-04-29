@@ -18,7 +18,7 @@ const GROUP_DISCOUNTS = [
     regular: '$86',
     vipEarlyBird: '$115',
     vipRegular: '$134',
-    accent: '#7c3aed',
+    accent: '#6B51EF',
   },
   {
     name: 'Tramo 2 — Deploy',
@@ -28,7 +28,7 @@ const GROUP_DISCOUNTS = [
     regular: '$83',
     vipEarlyBird: '$110',
     vipRegular: '$129',
-    accent: '#7c3aed',
+    accent: '#6B51EF',
   },
   {
     name: 'Tramo 3 — Release',
@@ -38,7 +38,7 @@ const GROUP_DISCOUNTS = [
     regular: '$79',
     vipEarlyBird: '$106',
     vipRegular: '$123',
-    accent: '#7c3aed',
+    accent: '#6B51EF',
   },
   {
     name: 'Tramo 4 — Scale',
@@ -48,7 +48,7 @@ const GROUP_DISCOUNTS = [
     regular: '$76',
     vipEarlyBird: '$102',
     vipRegular: '$119',
-    accent: '#7c3aed',
+    accent: '#6B51EF',
   },
   {
     name: 'Sponsor Platinum',
@@ -97,7 +97,7 @@ const BENEFITS_BY_CATEGORY = [
   {
     title: 'ACCESO AL EVENTO',
     icon: User,
-    color: '#7c3aed',
+    color: '#6B51EF',
     items: [
       {
         name: 'Acceso completo por dos días',
@@ -134,7 +134,7 @@ const BENEFITS_BY_CATEGORY = [
   {
     title: 'KIT DEL ASISTENTE',
     icon: Gift,
-    color: '#7c3aed',
+    color: '#6B51EF',
     items: [
       {
         name: 'Lanyard y fotocheck oficial del evento',
@@ -159,7 +159,7 @@ const BENEFITS_BY_CATEGORY = [
   {
     title: 'ALIMENTACIÓN',
     icon: Coffee,
-    color: '#7c3aed',
+    color: '#6B51EF',
     items: [
       {
         name: 'Coffee breaks — ambos días',
@@ -184,7 +184,7 @@ const BENEFITS_BY_CATEGORY = [
   {
     title: 'CONTENIDO Y CERTIFICACIÓN',
     icon: FileText,
-    color: '#7c3aed',
+    color: '#6B51EF',
     items: [
       {
         name: 'Material digital de todas las sesiones',
@@ -203,7 +203,7 @@ const BENEFITS_BY_CATEGORY = [
   {
     title: 'EXPERIENCIA VIP EXCLUSIVA',
     icon: Sparkles,
-    color: '#7c3aed',
+    color: '#6B51EF',
     items: [
       {
         name: 'Priority Pass — registro y acceso prioritario',
@@ -348,7 +348,7 @@ export default function TicketsPage() {
         <div className={styles.container}>
           <SectionHeader
             eyebrow="Tickets"
-            eyebrowColor="#7c3aed"
+            eyebrowColor="#6B51EF"
             title="Descuentos grupales y patrocinadores"
             lead="Si vienes con tu equipo o participas como sponsor, aquí puedes revisar los precios por tramo para General y VIP."
           />

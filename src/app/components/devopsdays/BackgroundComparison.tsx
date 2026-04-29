@@ -24,7 +24,7 @@ export function BackgroundComparison() {
           onClick={() => setSelected('hexagons')}
           className="px-6 py-3 rounded-xl font-black text-sm transition-all duration-200"
           style={{
-            background: selected === 'hexagons' ? '#7c3aed' : 'transparent',
+            background: selected === 'hexagons' ? '#6B51EF' : 'transparent',
             color: selected === 'hexagons' ? '#ffffff' : '#64748b',
           }}
         >
@@ -63,7 +63,7 @@ export function BackgroundComparison() {
       >
         {selected === 'hexagons' && (
           <p className="text-sm" style={{ color: '#475569' }}>
-            <strong style={{ color: '#7c3aed' }}>Hexágonos:</strong> Patrón tech futurista con estructura en panal. Ideal para eventos tecnológicos.
+            <strong style={{ color: '#6B51EF' }}>Hexágonos:</strong> Patrón tech futurista con estructura en panal. Ideal para eventos tecnológicos.
           </p>
         )}
         {selected === 'gradient' && (

@@ -74,7 +74,7 @@
 .socialProofBadgeIcon {
   width: 20px;
   height: 20px;
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .socialProofBadgeText {
@@ -82,7 +82,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 .introTitle {
@@ -118,7 +118,7 @@
 
 .benefitItem::before {
   content: '•';
-  color: #7c3aed;
+  color: #6B51EF;
   margin-right: 0.625rem;
   flex-shrink: 0;
   opacity: 0.9;
@@ -465,7 +465,7 @@
   gap: 0.625rem;
   padding: 0.8125rem 1.25rem;
   background: white;
-  color: #7c3aed;
+  color: #6B51EF;
   text-decoration: none;
   border-radius: 9999px;
   font-weight: 700;
@@ -523,16 +523,16 @@
 .topicCard {
   padding: 1.75rem;
   border: 2px solid var(--color-slate-200);
-  border-top: 4px solid var(--topic-color, #7c3aed);
+  border-top: 4px solid var(--topic-color, #6B51EF);
   border-radius: 12px;
   transition: all 0.3s ease;
   background-color: white;
 }
 
 .topicCard:hover {
-  border-color: var(--topic-color, #7c3aed);
+  border-color: var(--topic-color, #6B51EF);
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px color-mix(in srgb, var(--topic-color, #7c3aed) 16%, transparent);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--topic-color, #6B51EF) 16%, transparent);
 }
 
 .topicIcon {
@@ -541,9 +541,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: color-mix(in srgb, var(--topic-color, #7c3aed) 10%, white);
+  background-color: color-mix(in srgb, var(--topic-color, #6B51EF) 10%, white);
   border-radius: 12px;
-  color: var(--topic-color, #7c3aed);
+  color: var(--topic-color, #6B51EF);
   margin-bottom: 1rem;
 }
 

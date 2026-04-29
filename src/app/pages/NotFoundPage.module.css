@@ -15,7 +15,7 @@
 .errorCode {
   font-size: 120px;
   font-weight: 800;
-  background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #6B51EF 0%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,20 +50,20 @@
   gap: 8px;
   justify-content: center;
   padding: 13px 20px;
-  background: #7c3aed;
+  background: #6B51EF;
   color: white;
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
   min-height: 44px;
   border-radius: 9999px;
-  border: 2px solid #7c3aed;
+  border: 2px solid #6B51EF;
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .primaryButton:hover {
-  background: #6d28d9;
+  background: #5436E6;
   transform: translateY(-2px);
 }
 
@@ -74,13 +74,13 @@
   justify-content: center;
   padding: 13px 20px;
   background: white;
-  color: #7c3aed;
+  color: #6B51EF;
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
   min-height: 44px;
   border-radius: 9999px;
-  border: 2px solid #7c3aed;
+  border: 2px solid #6B51EF;
   text-decoration: none;
   transition: all 0.2s;
 }
@@ -105,7 +105,7 @@
 }
 
 .backButton:hover {
-  color: #7c3aed;
+  color: #6B51EF;
 }
 
 @media (max-width: 768px) {

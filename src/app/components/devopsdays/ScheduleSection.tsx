@@ -15,7 +15,7 @@ const typeConfig: Record<SessionType, TypeConfig> = {
   keynote: { label: 'Keynote',    color: '#f97316', bg: '#f9731618', Icon: Mic },
   talk:    { label: 'Charla',     color: '#00d4ff', bg: '#00d4ff12', Icon: Mic },
   workshop:{ label: 'Workshop',   color: '#10b981', bg: '#10b98112', Icon: BookOpen },
-  openspace:{ label: 'Open Space',color: '#7c3aed', bg: '#7c3aed12', Icon: Users },
+  openspace:{ label: 'Open Space',color: '#6B51EF', bg: '#6B51EF12', Icon: Users },
   ignite:  { label: 'Ignite',     color: '#f59e0b', bg: '#f59e0b12', Icon: Zap },
   break:   { label: 'Pausa',      color: '#475569', bg: '#47556918', Icon: Coffee },
 }
@@ -23,7 +23,7 @@ const typeConfig: Record<SessionType, TypeConfig> = {
 // ─── Track pill ────────────────────────────────────────────────────────────────
 const trackColors: Record<string, string> = {
   'Track A': '#00d4ff',
-  'Track B': '#7c3aed',
+  'Track B': '#6B51EF',
   'Workshop': '#10b981',
 }
 

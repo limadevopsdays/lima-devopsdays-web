@@ -82,7 +82,7 @@ export function SponsorMockups() {
                   borderRadius: '1rem',
                   display: 'inline-block',
                   border: hoveredOption === 2 ? '3px solid #06b6d4' : '2px solid #e2e8f0',
-                  outline: hoveredOption === 2 ? '2px solid #7c3aed' : 'none',
+                  outline: hoveredOption === 2 ? '2px solid #6B51EF' : 'none',
                   outlineOffset: '3px',
                   transition: 'all 0.3s ease',
                   cursor: 'pointer',
@@ -256,7 +256,7 @@ export function SponsorMockups() {
               <div
                 style={{
                   background: hoveredOption === 6 
-                    ? 'linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, #06b6d4, #7c3aed) border-box'
+                    ? 'linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, #06b6d4, #6B51EF) border-box'
                     : '#f8fafc',
                   padding: '2rem 3rem',
                   borderRadius: '1rem',

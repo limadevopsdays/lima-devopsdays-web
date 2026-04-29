@@ -17,19 +17,19 @@ const storytellingStats = [
     icon: Users, 
     title: 'La comunidad más grande de Perú', 
     subtitle: 'Se esperan +800 participantes',
-    color: '#7c3aed'
+    color: '#6B51EF'
   },
   { 
     icon: Calendar, 
     title: 'Dos días completos de aprendizaje', 
     subtitle: 'Charlas + Talleres + Open Spaces + Networking',
-    color: '#7c3aed'
+    color: '#6B51EF'
   },
   { 
     icon: Rocket, 
     title: 'Regresamos en el 2026', 
     subtitle: '2da edición del evento en Lima Centro de Convenciones (LCC)',
-    color: '#7c3aed'
+    color: '#6B51EF'
   },
 ]
 

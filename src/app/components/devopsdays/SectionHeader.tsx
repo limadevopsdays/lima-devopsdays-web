@@ -10,7 +10,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({
   eyebrow,
-  eyebrowColor = '#7c3aed',
+  eyebrowColor = '#6B51EF',
   title,
   lead,
   showDot = false,

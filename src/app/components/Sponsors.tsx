@@ -49,8 +49,8 @@ const tierConfig = {
   },
   community: {
     label: "Community",
-    color: "#7c3aed",
-    glow: "#7c3aed15",
+    color: "#6B51EF",
+    glow: "#6B51EF15",
     size: "h-8",
     textSize: "text-sm",
     badge: "bg-gradient-to-r from-violet-600 to-purple-500 text-white",

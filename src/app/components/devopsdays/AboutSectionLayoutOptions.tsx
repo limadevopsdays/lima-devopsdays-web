@@ -36,7 +36,7 @@ function Option1() {
     <section id="about" style={{ padding: '5rem 0', background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header sin lead text */}
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         {/* Two-col: video + content */}
         <div className="grid lg:grid-cols-2 gap-10 items-start mb-10">
@@ -60,7 +60,7 @@ function Option1() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                style={{ background: '#7c3aed', boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)' }}
+                style={{ background: '#6B51EF', boxShadow: '0 8px 32px rgba(107, 81, 239, 0.4)' }}
               >
                 <Play className="w-8 h-8 ml-1" style={{ color: '#ffffff' }} fill="#ffffff" />
               </div>
@@ -70,7 +70,7 @@ function Option1() {
               style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', border: '1px solid #e2e8f0' }}
             >
               <span className="text-sm font-black flex items-center gap-2" style={{ color: '#0f172a' }}>
-                <Play className="w-3.5 h-3.5" style={{ color: '#7c3aed' }} />
+                <Play className="w-3.5 h-3.5" style={{ color: '#6B51EF' }} />
                 Ver video · 2da Edición
               </span>
             </div>
@@ -172,7 +172,7 @@ function Option2() {
   return (
     <section id="about" style={{ padding: '5rem 0', background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           {/* Video thumbnail */}
@@ -195,7 +195,7 @@ function Option2() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                style={{ background: '#7c3aed', boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)' }}
+                style={{ background: '#6B51EF', boxShadow: '0 8px 32px rgba(107, 81, 239, 0.4)' }}
               >
                 <Play className="w-8 h-8 ml-1" style={{ color: '#ffffff' }} fill="#ffffff" />
               </div>
@@ -205,7 +205,7 @@ function Option2() {
               style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', border: '1px solid #e2e8f0' }}
             >
               <span className="text-sm font-black flex items-center gap-2" style={{ color: '#0f172a' }}>
-                <Play className="w-3.5 h-3.5" style={{ color: '#7c3aed' }} />
+                <Play className="w-3.5 h-3.5" style={{ color: '#6B51EF' }} />
                 Ver video · 2da Edición
               </span>
             </div>
@@ -305,7 +305,7 @@ function Option3() {
   return (
     <section id="about" style={{ padding: '5rem 0', background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         <div className="grid lg:grid-cols-2 gap-10 items-start mb-8">
           {/* Video thumbnail */}
@@ -328,7 +328,7 @@ function Option3() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                style={{ background: '#7c3aed', boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)' }}
+                style={{ background: '#6B51EF', boxShadow: '0 8px 32px rgba(107, 81, 239, 0.4)' }}
               >
                 <Play className="w-8 h-8 ml-1" style={{ color: '#ffffff' }} fill="#ffffff" />
               </div>
@@ -338,7 +338,7 @@ function Option3() {
               style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', border: '1px solid #e2e8f0' }}
             >
               <span className="text-sm font-black flex items-center gap-2" style={{ color: '#0f172a' }}>
-                <Play className="w-3.5 h-3.5" style={{ color: '#7c3aed' }} />
+                <Play className="w-3.5 h-3.5" style={{ color: '#6B51EF' }} />
                 Ver video · 2da Edición
               </span>
             </div>
@@ -379,7 +379,7 @@ function Option3() {
               key={label}
               className="rounded-2xl p-6 text-center"
               style={{
-                background: i === 1 ? '#7c3aed' : '#ffffff',
+                background: i === 1 ? '#6B51EF' : '#ffffff',
                 border: i === 1 ? 'none' : '1.5px solid #e2e8f0',
               }}
             >
@@ -448,7 +448,7 @@ function Option4() {
   return (
     <section id="about" style={{ padding: '5rem 0', background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#7c3aed" title="¿Qué es DevOpsDays Lima?" />
+        <SectionHeader eyebrow="¡Regresamos este 2026!" eyebrowColor="#6B51EF" title="¿Qué es DevOpsDays Lima?" />
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           {/* Left column: Video */}
@@ -471,7 +471,7 @@ function Option4() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                style={{ background: '#7c3aed', boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)' }}
+                style={{ background: '#6B51EF', boxShadow: '0 8px 32px rgba(107, 81, 239, 0.4)' }}
               >
                 <Play className="w-8 h-8 ml-1" style={{ color: '#ffffff' }} fill="#ffffff" />
               </div>
@@ -481,7 +481,7 @@ function Option4() {
               style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', border: '1px solid #e2e8f0' }}
             >
               <span className="text-sm font-black flex items-center gap-2" style={{ color: '#0f172a' }}>
-                <Play className="w-3.5 h-3.5" style={{ color: '#7c3aed' }} />
+                <Play className="w-3.5 h-3.5" style={{ color: '#6B51EF' }} />
                 Ver video · 2da Edición
               </span>
             </div>
@@ -528,7 +528,7 @@ function Option4() {
                   fontSize: '2.5rem',
                   fontWeight: 900,
                   lineHeight: 1,
-                  color: '#7c3aed',
+                  color: '#6B51EF',
                   display: 'block',
                   marginBottom: '0.5rem',
                 }}
@@ -587,7 +587,7 @@ export function AboutSectionLayoutOptions() {
           <div
             className="inline-flex px-4 py-1.5 rounded-full mb-5"
             style={{
-              background: '#7c3aed',
+              background: '#6B51EF',
               color: '#ffffff',
               fontSize: '0.75rem',
               fontWeight: 700,
@@ -615,7 +615,7 @@ export function AboutSectionLayoutOptions() {
             <div className="p-5 rounded-xl text-left" style={{ background: '#ffffff', border: '1.5px solid #e2e8f0' }}>
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
-                style={{ background: '#7c3aed', color: '#ffffff', fontWeight: 900 }}
+                style={{ background: '#6B51EF', color: '#ffffff', fontWeight: 900 }}
               >
                 1
               </div>
@@ -684,7 +684,7 @@ export function AboutSectionLayoutOptions() {
             </h2>
             <span
               className="px-4 py-1.5 rounded-full text-xs"
-              style={{ background: '#7c3aed', color: '#ffffff', fontWeight: 700 }}
+              style={{ background: '#6B51EF', color: '#ffffff', fontWeight: 700 }}
             >
               LIMPIA Y DIRECTA
             </span>
@@ -767,7 +767,7 @@ export function AboutSectionLayoutOptions() {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { num: '1', label: 'Stats Abajo', color: '#7c3aed' },
+              { num: '1', label: 'Stats Abajo', color: '#6B51EF' },
               { num: '2', label: 'Stats Integradas', color: '#0ea5e9' },
               { num: '3', label: 'Stats Cards', color: '#f97316' },
               { num: '4', label: 'Stats Full Width', color: '#10b981' },

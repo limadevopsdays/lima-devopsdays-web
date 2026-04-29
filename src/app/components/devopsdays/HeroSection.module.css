@@ -187,14 +187,32 @@
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin: 0 0 1.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titlePrimaryGroup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .titlePrimary {
   color: var(--color-slate-900);
+  display: block;
+}
+
+.titlePrimaryCentered {
+  color: var(--color-slate-900);
+  display: block;
 }
 
 .titleAccent {
-  color: var(--color-purple);
+  color: #53099E;
+  display: block;
+  font-size: 0.62em;
+  margin-top: 0.08em;
 }
 
 .description {
@@ -382,7 +400,7 @@
 }
 
 .galleryButton:focus-visible {
-  outline: 3px solid #7c3aed;
+  outline: 3px solid #6B51EF;
   outline-offset: -3px;
 }
 

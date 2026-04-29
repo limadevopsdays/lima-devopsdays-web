@@ -12,7 +12,7 @@ const stats = [
 
 const features = [
   { icon: Globe, label: 'Movimiento global', desc: 'Parte de la red mundial con +100 ciudades.', color: '#0ea5e9' },
-  { icon: Users, label: 'Open Spaces', desc: 'La agenda la construyen los asistentes en vivo.', color: '#7c3aed' },
+  { icon: Users, label: 'Open Spaces', desc: 'La agenda la construyen los asistentes en vivo.', color: '#6B51EF' },
   { icon: Zap, label: 'Ignite Talks', desc: '5 minutos, 20 slides, ideas que cambian perspectivas.', color: '#f97316' },
 ]
 
@@ -42,7 +42,7 @@ function MediaSection({ type, title, badge }: { type: 'image' | 'video'; title: 
         <span
           className="px-4 py-1.5 rounded-full text-xs"
           style={{
-            background: type === 'video' ? '#7c3aed' : '#f8fafc',
+            background: type === 'video' ? '#6B51EF' : '#f8fafc',
             color: type === 'video' ? '#ffffff' : '#64748b',
             fontWeight: 700,
             border: type === 'video' ? 'none' : '1px solid #e2e8f0',
@@ -55,7 +55,7 @@ function MediaSection({ type, title, badge }: { type: 'image' | 'video'; title: 
       {/* Section Header */}
       <SectionHeader
         eyebrow="¡Regresamos este 2026!"
-        eyebrowColor="#7c3aed"
+        eyebrowColor="#6B51EF"
         title="¿Qué es DevOpsDays Lima?"
         lead={selectedText.lead}
       />
@@ -177,7 +177,7 @@ export function AboutSectionMediaComparison() {
         <div className="mb-16 text-center">
           <div
             className="inline-flex px-4 py-1.5 rounded-full mb-4"
-            style={{ background: '#7c3aed', color: '#ffffff', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em' }}
+            style={{ background: '#6B51EF', color: '#ffffff', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em' }}
           >
             COMPARACIÓN: IMAGEN vs VIDEO
           </div>
@@ -224,11 +224,11 @@ export function AboutSectionMediaComparison() {
             </div>
 
             {/* Video */}
-            <div className="rounded-2xl p-6 text-left" style={{ background: '#7c3aed14', border: '1.5px solid #7c3aed' }}>
+            <div className="rounded-2xl p-6 text-left" style={{ background: '#6B51EF14', border: '1.5px solid #6B51EF' }}>
               <div className="flex items-center gap-2 mb-4">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: '#7c3aed', border: '1px solid #7c3aed' }}
+                  style={{ background: '#6B51EF', border: '1px solid #6B51EF' }}
                 >
                   <Play className="w-5 h-5" style={{ color: '#ffffff' }} />
                 </div>
@@ -268,7 +268,7 @@ export function AboutSectionMediaComparison() {
                 {/* Play button */}
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: '#7c3aed', boxShadow: '0 8px 32px rgba(124, 58, 237, 0.4)' }}
+                  style={{ background: '#6B51EF', boxShadow: '0 8px 32px rgba(107, 81, 239, 0.4)' }}
                 >
                   <Play className="w-8 h-8 ml-1" style={{ color: '#ffffff' }} />
                 </div>
@@ -315,7 +315,7 @@ export function AboutSectionMediaComparison() {
             <span className="px-4 py-2 rounded-lg" style={{ background: '#ffffff', border: '1px solid #e2e8f0' }}>
               🎬 Opción B: Video embebido
             </span>
-            <span className="px-4 py-2 rounded-lg" style={{ background: '#7c3aed', color: '#ffffff', fontWeight: 700 }}>
+            <span className="px-4 py-2 rounded-lg" style={{ background: '#6B51EF', color: '#ffffff', fontWeight: 700 }}>
               🎯 Opción C: Imagen + Play (Recomendada)
             </span>
           </div>

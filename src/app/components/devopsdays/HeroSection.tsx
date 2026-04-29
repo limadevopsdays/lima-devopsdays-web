@@ -113,8 +113,10 @@ export function HeroSection() {
           </div>
 
           <h1 className={styles.title}>
-            <span className={styles.titlePrimary}>DevOpsDays</span>
-            <br />
+            <span className={styles.titlePrimaryGroup}>
+              <span className={styles.titlePrimary}>DevOps</span>
+              <span className={styles.titlePrimaryCentered}>Days</span>
+            </span>
             <span className={styles.titleAccent}>Lima 2026</span>
           </h1>
 

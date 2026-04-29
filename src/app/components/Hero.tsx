@@ -26,7 +26,7 @@ export function Hero() {
         <div
           className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full opacity-15"
           style={{
-            background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)",
+            background: "radial-gradient(circle, #6B51EF 0%, transparent 70%)",
             animation: "pulse 10s ease-in-out infinite 2s",
           }}
         />
@@ -72,7 +72,7 @@ export function Hero() {
             devops
             <span
               style={{
-                background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
+                background: "linear-gradient(135deg, #00d4ff, #6B51EF)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -143,7 +143,7 @@ export function Hero() {
           <div
             className="absolute inset-0 rounded-2xl opacity-60"
             style={{
-              background: "linear-gradient(135deg, #00d4ff20, #7c3aed20)",
+              background: "linear-gradient(135deg, #00d4ff20, #6B51EF20)",
               transform: "rotate(-2deg) scale(1.02)",
             }}
           />
@@ -157,7 +157,7 @@ export function Hero() {
             {/* Floating card */}
             <div className="absolute bottom-6 left-6 right-6 bg-[#0a0e1a]/80 backdrop-blur-md border border-white/10 rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#7c3aed] flex items-center justify-center text-white text-xs font-black">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#6B51EF] flex items-center justify-center text-white text-xs font-black">
                   500+
                 </div>
                 <div>
