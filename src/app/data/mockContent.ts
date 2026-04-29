@@ -198,6 +198,11 @@ export const sponsors = [
         href: 'https://www.ibm.com/es-es',
         logo: '/images/sponsors/platinium/ibm.png'
       },
+      {
+        name: 'Credicorp',
+        href: 'https://grupocredicorp.com/',
+        logo: '/images/sponsors/platinium/credicorp.png'
+      },
     ],
   },
   {
@@ -222,6 +227,11 @@ export const sponsors = [
         name: 'Kyndryl',
         href: 'https://www.kyndryl.com/pe/es',
         logo: '/images/sponsors/gold/kyndryl.png'
+      },
+      {
+        name: 'Interbank',
+        href: 'https://interbank.pe/',
+        logo: '/images/sponsors/gold/interbank.png'
       },
     ],
   },
