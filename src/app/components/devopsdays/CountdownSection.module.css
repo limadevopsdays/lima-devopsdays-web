@@ -71,11 +71,6 @@
   line-height: 1.2;
 }
 
-.messageSubtitle {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
-}
-
 /* Countdown */
 .countdown {
   display: flex;

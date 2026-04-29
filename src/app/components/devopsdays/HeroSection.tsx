@@ -105,13 +105,6 @@ export function HeroSection() {
           transition={{ duration: 0.7 }}
           className={styles.content}
         >
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            <span className={styles.badgeText}>
-              Lima, Perú · 27–28 ago 2026
-            </span>
-          </div>
-
           <h1 className={styles.title}>
             <img
               src="/images/brand/logotipo.png"

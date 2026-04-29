@@ -51,17 +51,11 @@ export function CountdownSection() {
                   <p className={styles.messageTitle}>
                     ¡El evento ya comenzó! 🎉
                   </p>
-                  <p className={styles.messageSubtitle}>
-                    27 de agosto, 2026 · 08:00 AM
-                  </p>
                 </>
               ) : (
                 <>
                   <p className={styles.messageTitle}>
                     El evento comienza en
-                  </p>
-                  <p className={styles.messageSubtitle}>
-                    27 de agosto, 2026 · 08:00 AM
                   </p>
                 </>
               )}
