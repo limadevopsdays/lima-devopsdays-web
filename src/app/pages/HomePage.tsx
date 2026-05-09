@@ -7,6 +7,7 @@ import { TicketsSection } from '../components/devopsdays/TicketsSection'
 import { GallerySection } from '../components/devopsdays/GallerySection'
 import { SpeakersSection } from '../components/devopsdays/SpeakersSection'
 import { VenueSection } from '../components/devopsdays/VenueSection'
+import { TurismSection } from '../components/devopsdays/TurismSection'
 import { OrganizersSection } from '../components/devopsdays/OrganizersSection'
 import { FaqSection } from '../components/devopsdays/FaqSection'
 import styles from './HomePage.module.css'
@@ -25,6 +26,7 @@ export default function HomePage() {
       </section>
       <SpeakersSection />
       <VenueSection />
+      <TurismSection />
       <OrganizersSection />
       <FaqSection />
     </>

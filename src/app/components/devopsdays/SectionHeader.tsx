@@ -4,7 +4,9 @@ interface SectionHeaderProps {
   eyebrow?: string
   eyebrowColor?: string
   title?: string
+  titleColor?: string
   lead?: string
+  leadColor?: string
   showDot?: boolean
 }
 
@@ -12,7 +14,9 @@ export function SectionHeader({
   eyebrow,
   eyebrowColor = '#6B51EF',
   title,
+  titleColor,
   lead,
+  leadColor,
   showDot = false,
 }: SectionHeaderProps) {
   return (
@@ -31,12 +35,12 @@ export function SectionHeader({
         </span>
       )}
       {title && (
-        <h2 className={styles.title}>
+        <h2 className={styles.title} style={titleColor ? { color: titleColor } : undefined}>
           {title}
         </h2>
       )}
       {lead && (
-        <p className={styles.lead}>
+        <p className={styles.lead} style={leadColor ? { color: leadColor } : undefined}>
           {lead}
         </p>
       )}
