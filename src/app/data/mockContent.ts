@@ -203,6 +203,11 @@ export const sponsors = [
         href: 'https://grupocredicorp.com/',
         logo: '/images/sponsors/platinium/credicorp.png'
       },
+      {
+        name: 'Indra Group',
+        href: 'https://www.coforge.com/',
+        logo: '/images/sponsors/platinium/indra.png'
+      },
     ],
   },
   {
@@ -232,6 +237,11 @@ export const sponsors = [
         name: 'Interbank',
         href: 'https://interbank.pe/',
         logo: '/images/sponsors/gold/interbank.png'
+      },
+      {
+        name: 'Coforge',
+        href: 'https://www.coforge.com/',
+        logo: '/images/sponsors/gold/coforge.png'
       },
     ],
   },
