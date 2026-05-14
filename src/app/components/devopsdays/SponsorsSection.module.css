@@ -75,6 +75,10 @@
     grid-column: 2;
   }
 
+  .platinumCard .logosGrid[data-count="7"] > :last-child {
+    grid-column: 2;
+  }
+
   .secondaryTierCard .logosGrid {
     grid-template-columns: 1fr;
   }

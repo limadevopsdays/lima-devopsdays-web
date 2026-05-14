@@ -1,6 +1,6 @@
 // ─── Mock content mirroring the real site's data structure ───────────────────
 
-export const TICKETS_REGISTER_URL = 'https://tickets.devopsdays.pe/event/devopsdays-lima-2026-1/register/'
+export const TICKETS_REGISTER_URL = 'https://entradas.devopsdays.pe/'
 
 export const siteContent = {
   eventName: 'DevOpsDays Lima',
@@ -203,6 +203,11 @@ export const sponsors = [
         href: 'https://grupocredicorp.com/',
         logo: '/images/sponsors/platinium/credicorp.png'
       },
+      {
+        name: 'Indra Group',
+        href: 'https://www.coforge.com/',
+        logo: '/images/sponsors/platinium/indra.png'
+      },
     ],
   },
   {
@@ -232,6 +237,11 @@ export const sponsors = [
         name: 'Interbank',
         href: 'https://interbank.pe/',
         logo: '/images/sponsors/gold/interbank.png'
+      },
+      {
+        name: 'Coforge',
+        href: 'https://www.coforge.com/',
+        logo: '/images/sponsors/gold/coforge.png'
       },
     ],
   },
@@ -345,7 +355,7 @@ export const faq = [
   },
   { 
     q: '¿Cómo puedo registrarme? ¿Cuánto cuestan los tickets?', 
-    a: 'Puedes registrarte desde la sección de tickets en la web o directamente en **https://tickets.devopsdays.pe/event/devopsdays-lima-2026-1/register/**. Actualmente contamos con dos modalidades de entrada: **General y VIP**. El inicio de venta está programado para el **23 de marzo de 2026**. Si tu equipo necesita más tickets o una coordinación especial, puedes escribirnos a **tickets@devopsdays.pe**.' 
+    a: 'Puedes registrarte desde la sección de tickets en la web o directamente en **https://entradas.devopsdays.pe/**. Actualmente contamos con dos modalidades de entrada: **General y VIP**. El inicio de venta está programado para el **23 de marzo de 2026**. Si tu equipo necesita más tickets o una coordinación special, puedes escribirnos a **tickets@devopsdays.pe**.' 
   },
   { 
     q: '¿Qué tipo de formato tiene el evento?', 

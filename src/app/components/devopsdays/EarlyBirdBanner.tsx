@@ -7,7 +7,7 @@ export function EarlyBirdBanner() {
   return (
     <div className={styles.banner}>
       <a
-        href="https://tickets.devopsdays.pe/event/devopsdays-lima-2026-1/register"
+        href="https://entradas.devopsdays.pe/"
         className={styles.bannerLink}
         data-track-name="ver_ofertas_early_bird_home"
         aria-label="Ver ofertas Early Bird"
