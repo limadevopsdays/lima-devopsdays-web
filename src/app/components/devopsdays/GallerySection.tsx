@@ -142,12 +142,8 @@ export function GallerySection() {
     <div id="gallery" className={styles.gallery}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.badge}>
-            <Images className={styles.badgeIcon} />
-            <span className={styles.badgeText}>DevOpsDays Perú 2025</span>
-          </div>
           <p className={styles.mission}>
-            En DevOpsDays Perú 2025 fue nuestra primera edición exitosa con más de 450 participantes, 
+            En <span className={styles.devopsText}>DevOps</span><span className={styles.daysText}>Days Lima 2025</span> fue nuestra primera edición exitosa con más de 450 participantes,
             reuniendo a profesionales de tecnología, líderes de la industria y entusiastas de DevOps 
             en un evento memorable que marcó el inicio de esta comunidad en el país.
           </p>

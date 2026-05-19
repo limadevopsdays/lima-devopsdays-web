@@ -1,7 +1,7 @@
 /* FaqSection - CSS Nativo */
 
 .section {
-  background: var(--color-white);
+  background: var(--color-slate-50);
   padding: 3rem 0;
 }
 
@@ -47,18 +47,13 @@
 }
 
 .faqQuestion {
-  font-weight: 600;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
   transition: color 0.2s ease;
-}
-
-.faqQuestion.open {
-  color: #0f172a;
-}
-
-.faqQuestion.closed {
-  color: #1e293b;
 }
 
 .faqIcon {
@@ -106,12 +101,19 @@
 }
 
 .faqAnswer {
-  font-size: 0.875rem;
-  color: #475569;
-  line-height: 1.8;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-text-muted);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .faqAnswer strong {
-  color: #0f172a;
-  font-weight: 700;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
 }

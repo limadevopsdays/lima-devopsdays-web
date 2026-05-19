@@ -1,4 +1,4 @@
-import { Download, CheckCircle, Handshake, Crown, Award, Medal, Shield } from 'lucide-react'
+import { Download, CheckCircle, Handshake, Crown, Award, Medal, Shield, Users } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router'
 import { SectionHeader } from './SectionHeader'
@@ -11,24 +11,49 @@ const PAST_SPONSORS = ['Dynatrace', 'AWS', 'Google Cloud', 'Microsoft', 'Red Hat
 const TIERS = ['Platinum', 'Gold', 'Silver', 'Bronze']
 const TIER_COLORS = ['#858DA6', '#f2b950', '#BDBFBF', '#BF834E']
 const TIER_DECORATION = {
-  platinum: { Icon: Crown, color: '#858DA6' },
-  gold: { Icon: Award, color: '#f2b950' },
+  platinum: { Icon: Crown, color: '#8FA4C4' },
+  gold: { Icon: Award, color: '#F2B950' },
   silver: { Icon: Medal, color: '#BDBFBF' },
-  bronze: { Icon: Shield, color: '#BF834E' },
-  community: { Icon: Handshake, color: '#6B51EF' },
+  bronze: { Icon: Shield, color: '#A97155' },
+  community: { Icon: Users, color: '#84CC16' },
+} as const
+const DISPLAYED_TIER_IDS = ['platinum', 'gold', 'bronze', 'community'] as const
+const TIER_CLASS_NAMES = {
+  platinum: {
+    content: 'platinumContent',
+    badgeText: 'platinumBadgeText',
+    logosGrid: 'platinumLogosGrid',
+    logoContainer: 'platinumLogoContainer',
+  },
+  gold: {
+    content: 'goldContent',
+    badgeText: 'goldBadgeText',
+    logosGrid: 'goldLogosGrid',
+    logoContainer: 'goldLogoContainer',
+  },
+  bronze: {
+    content: 'bronzeContent',
+    badgeText: 'bronzeBadgeText',
+    logosGrid: 'bronzeLogosGrid',
+    logoContainer: 'bronzeLogoContainer',
+  },
+  community: {
+    content: 'communityContent',
+    badgeText: 'communityBadgeText',
+    logosGrid: 'communityLogosGrid',
+    logoContainer: 'communityLogoContainer',
+  },
 } as const
 
 export function SponsorsSection() {
-  const platinumGroup = sponsors.find((g) => g.tier === 'platinum')
-  const platinumItems = platinumGroup?.items || []
-  const platinumDecoration = TIER_DECORATION.platinum
-  const activeSecondaryTiers = sponsorTiers
-    .filter((tier) => tier.id !== 'platinum')
+  const displayedTiers = sponsorTiers
+    .filter((tier): tier is (typeof sponsorTiers)[number] & { id: (typeof DISPLAYED_TIER_IDS)[number] } =>
+      DISPLAYED_TIER_IDS.includes(tier.id as (typeof DISPLAYED_TIER_IDS)[number]),
+    )
     .map((tier) => ({
       ...tier,
       items: sponsors.find((group) => group.tier === tier.id)?.items || [],
     }))
-    .filter((tier) => tier.items.length > 0)
 
   return (
     <section id="sponsors" className={styles.section}>
@@ -36,115 +61,29 @@ export function SponsorsSection() {
         <SectionHeader
           eyebrow="Sponsors"
           eyebrowColor="#6B51EF"
-          title="Nuestros Sponsors 2026"
+          title={
+            <>
+              Nuestros Sponsors <span className={styles.titleYear}>2026</span>
+            </>
+          }
           lead="Nuestros sponsors hacen posible una experiencia de alto nivel para la comunidad DevOps de LATAM, conectando marcas, líderes técnicos y equipos que están moviendo la industria."
         />
 
-        {/* HERO CARD PLATINUM */}
-        {platinumItems.length > 0 ? (
-            <div className={styles.platinumCard}>
-              <div className={styles.platinumContent}>
-              <div
-                className={styles.platinumBadge}
-                style={{
-                  '--tier-color': platinumDecoration.color,
-                  '--tier-bg': `${platinumDecoration.color}18`,
-                  '--tier-border': `${platinumDecoration.color}30`,
-                } as CSSProperties}
-              >
-                <platinumDecoration.Icon
-                  className={styles.platinumBadgeIcon}
-                  style={{ color: platinumDecoration.color }}
-                />
-                <span className={styles.platinumBadgeText}>
-                  {platinumItems.length > 1 ? 'Platinum Sponsors' : 'Platinum Sponsor'}
-                </span>
-              </div>
+        {displayedTiers.map((tier) => {
+          const decoration = TIER_DECORATION[tier.id] ?? TIER_DECORATION.community
+          const isPlatinum = tier.id === 'platinum'
+          const tierClasses = TIER_CLASS_NAMES[tier.id]
 
-              {/* Grid de logos */}
-              <div className={styles.logosGrid} data-count={platinumItems.length}>
-                {platinumItems.map((sponsor, idx) => (
-                  <div
-                    key={idx}
-                    className={styles.logoContainer}
-                    style={{ '--sponsor-hover-color': platinumDecoration.color } as CSSProperties}
-                  >
-                    {sponsor.logo ? (
-                      sponsor.href ? (
-                        <a
-                          href={sponsor.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.logoLink}
-                          data-track-name="ver_sponsor_logo_home"
-                        >
-                          <img
-                            src={sponsor.logo}
-                            alt={`Logo ${sponsor.name}`}
-                            className={styles.logo}
-                          />
-                        </a>
-                      ) : (
-                        <div className={styles.logoLink}>
-                          <img
-                            src={sponsor.logo}
-                            alt={`Logo ${sponsor.name}`}
-                            className={styles.logo}
-                          />
-                        </div>
-                      )
-                    ) : (
-                      <span className={styles.logoText}>{sponsor.name}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Descripción compartida */}
-              <div className={styles.descriptionContainer}>
-                <p className={styles.descriptionTitle}>
-                  Impulsando DevOpsDays Lima 2026
-                </p>
-
-                <p className={styles.descriptionText}>
-                  {platinumItems.length > 1 
-                    ? 'Nuestros Platinum Sponsors impulsan la experiencia, la comunidad y la calidad de DevOpsDays Lima 2026.' 
-                    : 'Nuestro Platinum Sponsor impulsa la experiencia, la comunidad y la calidad de DevOpsDays Lima 2026.'}
-                </p>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* Empty State */
-          <div className={styles.emptyState}>
-            <div className={styles.emptyStateContent}>
-              <div className={styles.emptyStateIcon}>
-                <span>🚀</span>
-              </div>
-              <h3 className={styles.emptyStateTitle}>
-                Pronto anunciaremos a nuestro Platinum Sponsor
-              </h3>
-              <p className={styles.emptyStateText}>
-                Estamos en conversaciones con líderes tecnológicos de la región. Mantente atento a nuestros canales para conocer quién impulsará DevOpsDays Lima 2026.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {activeSecondaryTiers.length > 0 && (
-          <div className={styles.secondaryTiers}>
-            {activeSecondaryTiers.map((tier) => {
-              const decoration = TIER_DECORATION[tier.id as keyof typeof TIER_DECORATION] ?? TIER_DECORATION.community
-
-              return (
-              <div
-                key={tier.id}
-                className={`${styles.platinumCard} ${styles.secondaryTierCard} ${tier.items.length === 2 ? styles.secondaryTierCardTwoUp : ''}`}
-                data-tier={tier.id}
-              >
-                <div className={styles.platinumContent}>
-                  <div
-                    className={styles.platinumBadge}
+          return (
+            <div
+              key={tier.id}
+              className={isPlatinum ? styles.platinumCard : `${styles.platinumCard} ${styles.secondaryTierCard}`}
+              data-tier={tier.id}
+            >
+              {tier.items.length > 0 ? (
+                <div className={styles[tierClasses.content]}>
+                  <span
+                    className={styles[tierClasses.badgeText]}
                     style={{
                       '--tier-color': decoration.color,
                       '--tier-bg': `${decoration.color}18`,
@@ -155,17 +94,23 @@ export function SponsorsSection() {
                       className={styles.platinumBadgeIcon}
                       style={{ color: decoration.color }}
                     />
-                    <span className={styles.platinumBadgeText}>
-                      {tier.items.length > 1 ? `${tier.label} Sponsors` : `${tier.label} Sponsor`}
-                    </span>
-                  </div>
+                    {tier.items.length > 1 ? `${tier.label} Sponsors` : `${tier.label} Sponsor`}
+                  </span>
 
-                  <div className={styles.logosGrid} data-count={tier.items.length}>
+                  <div className={styles[tierClasses.logosGrid]} data-count={tier.items.length}>
                     {tier.items.map((sponsor) => (
                       <div
                         key={sponsor.name}
-                        className={sponsor.name === 'Orexe' ? `${styles.logoContainer} ${styles.logoContainerSubtle}` : styles.logoContainer}
-                        style={{ '--sponsor-hover-color': decoration.color } as CSSProperties}
+                        data-sponsor={sponsor.name.toLowerCase()}
+                        className={
+                          sponsor.name === 'Orexe'
+                            ? `${styles[tierClasses.logoContainer]} ${styles.logoContainerSubtle}`
+                            : styles[tierClasses.logoContainer]
+                        }
+                        style={{
+                          '--sponsor-border-color': decoration.color,
+                          '--sponsor-hover-color': decoration.color,
+                        } as CSSProperties}
                       >
                         {sponsor.href ? (
                           <a
@@ -202,10 +147,27 @@ export function SponsorsSection() {
                     ))}
                   </div>
                 </div>
-              </div>
-            )})}
-          </div>
-        )}
+              ) : (
+                <div className={styles.emptyState}>
+                  <div className={styles.emptyStateContent}>
+                    <div className={styles.emptyStateIcon}>
+                      <span>🚀</span>
+                    </div>
+                    <h3 className={styles.emptyStateTitle}>
+                      {tier.id === 'platinum'
+                        ? 'Pronto anunciaremos a nuestro Platinum Sponsor'
+                        : `Pronto anunciaremos sponsors ${tier.label}`}
+                    </h3>
+                    <p className={styles.emptyStateText}>
+                      Mantente atento a nuestros canales para conocer las marcas que se sumarán a
+                      DevOpsDays Lima 2026.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          )
+        })}
       </div>
 
       {/* SOCIAL PROOF */}

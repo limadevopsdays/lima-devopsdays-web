@@ -1,5 +1,4 @@
 .gallery {
-  margin: 2.5rem 0 0;
   position: relative;
 }
 
@@ -40,12 +39,25 @@
 }
 
 .mission {
-  font-size: clamp(0.9375rem, 1.8vw, 1.125rem);
-  color: #475569;
   text-align: center;
   max-width: 56rem;
   margin: 0 auto;
-  line-height: 1.7;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-text-muted);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.devopsText {
+  color: var(--color-lima);
+  font-weight: var(--brand-text-weight-600);
+}
+
+.daysText {
+  color: var(--color-purple-additional);
+  font-weight: var(--brand-text-weight-600);
 }
 
 .carouselWrapper {
@@ -314,10 +326,6 @@
   
   .header {
     margin-bottom: 40px;
-  }
-  
-  .mission {
-    font-size: 16px;
   }
   
   .imageContainer {

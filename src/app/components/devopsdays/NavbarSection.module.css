@@ -18,7 +18,8 @@
 .navbarInner {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
+  min-height: 5.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,6 +27,8 @@
 
 /* Logo */
 .logoLink {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -33,31 +36,28 @@
 }
 
 .logoIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 0.5rem;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
 }
 
 .logoImage {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 80%;
+  bottom: -2rem;
+  width: 6.5rem;
+  height: auto;
+  max-width: none;
+  transform: translateX(-50%);
   object-fit: contain;
   display: block;
-}
-
-.logoText {
-  font-weight: 900;
-  font-size: 1rem;
-  color: #0f172a;
-}
-
-.logoDomain {
-  color: #53099E;
 }
 
 /* Desktop Menu */
@@ -77,22 +77,122 @@
 }
 
 .navLink {
-  color: #475569;
+  font-family: var(--brand-header-link-fontFamily);
+  font-weight: var(--brand-header-link-fontWeight);
+  font-size: var(--brand-header-link-fontSize);
+  font-style: normal;
+  line-height: var(--brand-header-link-lineHeight);
+  letter-spacing: var(--brand-header-link-letterSpacing);
+  text-transform: uppercase;
   text-decoration: none;
   transition: color 0.2s ease;
-  font-size: 0.875rem;
-  letter-spacing: 0.025em;
   position: relative;
-  font-weight: 400;
+  color: var(--brand-header-link-color);
 }
 
 .navLink:hover {
-  color: #6B51EF;
+  color: var(--brand-header-link-hoverColor);
+}
+
+.navLinkTourism {
+  isolation: isolate;
+  position: relative;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.18rem 1.7rem 0.18rem 1.45rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #c1121f 0%, #f59e0b 52%, #0f766e 100%);
+  box-shadow:
+    0 10px 24px rgba(193, 18, 31, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+    0 0 0 3px rgba(255, 255, 255, 0.1) inset,
+    0 0 18px rgba(245, 158, 11, 0.2),
+    0 0 30px rgba(15, 118, 110, 0.18);
+  animation: tourismWeavePulse 4.6s ease-in-out infinite;
+  text-shadow:
+    0 1px 0 rgba(85, 10, 10, 0.22),
+    0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+.navLinkTourism::before {
+  content: '🦙';
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.05rem;
+  animation: llamaBob 2.8s ease-in-out infinite;
+}
+
+.navLinkTourism::after {
+  content: '🇵🇪';
+  position: absolute;
+  right: 0.05rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  font-size: 1.15rem;
+  animation: peruFlagWave 1.9s ease-in-out infinite;
+}
+
+.navLinkTourism:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+@keyframes tourismWeavePulse {
+  0%,
+  100% {
+    filter: saturate(1);
+    box-shadow:
+      0 10px 24px rgba(193, 18, 31, 0.24),
+      0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+      0 0 18px rgba(245, 158, 11, 0.2),
+      0 0 30px rgba(15, 118, 110, 0.18);
+  }
+
+  50% {
+    filter: saturate(1.22);
+    box-shadow:
+      0 12px 28px rgba(193, 18, 31, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+      0 0 22px rgba(245, 158, 11, 0.26),
+      0 0 36px rgba(15, 118, 110, 0.24);
+  }
+}
+
+@keyframes llamaBob {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 1px)) rotate(-4deg);
+  }
+}
+
+@keyframes peruFlagWave {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg) skewY(0deg) scaleX(1);
+  }
+
+  25% {
+    transform: translateY(-50%) rotate(4deg) skewY(-4deg) scaleX(1.04);
+  }
+
+  50% {
+    transform: translateY(-50%) rotate(-2deg) skewY(3deg) scaleX(0.98);
+  }
+
+  75% {
+    transform: translateY(-50%) rotate(3deg) skewY(-2deg) scaleX(1.03);
+  }
 }
 
 .navLink.active {
-  color: #6B51EF;
-  font-weight: 700;
+  color: var(--brand-header-link-activeColor);
 }
 
 .activeIndicator {
@@ -101,29 +201,29 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #6B51EF;
+  background: var(--brand-header-indicator-color);
   border-radius: 2px;
 }
 
-/* CTA Button */
 .ctaButton {
   display: none;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--brand-header-cta-gap);
   padding: 0.6875rem 1.125rem;
-  border-radius: 9999px;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: normal;
-  line-height: 1;
-  min-height: 2.5rem;
+  border-radius: var(--brand-header-cta-borderRadius);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
+  min-height: var(--brand-hero-cta-minHeight);
   white-space: nowrap;
-  transition: all 0.2s ease;
-  background: #6B51EF;
-  color: white;
+  transition: var(--brand-header-cta-transition);
+  background: var(--brand-header-cta-background);
+  color: var(--brand-header-cta-textColor);
   text-decoration: none;
-  border: 2px solid #6B51EF;
+  border: var(--brand-header-cta-borderWidth) solid var(--brand-header-cta-borderColor);
   cursor: pointer;
 }
 
@@ -134,9 +234,15 @@
 }
 
 .ctaButton:hover {
-  background: #5436E6; /* UNIFORMIZADO: Agregado cambio de color */
-  border-color: #5436E6;
+  background: var(--brand-header-cta-hoverBackground);
+  border-color: var(--brand-header-cta-hoverBorderColor);
   transform: translateY(-2px);
+}
+
+.ctaIcon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
 }
 
 /* Mobile Toggle */
@@ -145,8 +251,8 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
-  color: #334155;
-  background: #f1f5f9;
+  color: var(--brand-header-mobileToggle-color);
+  background: var(--brand-header-mobileToggle-background);
   border: none;
   cursor: pointer;
 }
@@ -158,15 +264,15 @@
 }
 
 .mobileToggle:hover {
-  background: #e2e8f0;
+  background: var(--brand-header-mobileToggle-hoverBackground);
 }
 
 /* Mobile Menu */
 .mobileMenu {
   display: block;
   padding: 1rem 1.5rem;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
+  background: var(--brand-header-mobileMenu-background);
+  border-top: 1px solid var(--brand-header-mobileMenu-borderColor);
 }
 
 @media (min-width: 768px) {
@@ -187,14 +293,35 @@
 .mobileMenuLink {
   display: block;
   padding: 0.25rem 0;
-  font-size: 0.875rem;
+  font-family: var(--brand-header-link-fontFamily);
+  font-weight: var(--brand-header-link-fontWeight);
+  font-size: var(--brand-header-link-fontSize);
+  font-style: normal;
+  line-height: var(--brand-header-link-lineHeight);
+  letter-spacing: var(--brand-header-link-letterSpacing);
+  text-transform: uppercase;
   transition: color 0.2s ease;
-  color: #475569;
+  color: var(--brand-header-link-color);
   text-decoration: none;
 }
 
 .mobileMenuLink:hover {
-  color: #6B51EF;
+  color: var(--brand-header-link-hoverColor);
+}
+
+.mobileMenuLinkTourism {
+  color: #ffffff;
+  background: linear-gradient(135deg, #c1121f 0%, #f59e0b 52%, #0f766e 100%);
+  border-radius: 0.9rem;
+  padding: 0.45rem 1rem 0.45rem 0.85rem;
+  box-shadow:
+    0 8px 18px rgba(193, 18, 31, 0.22),
+    0 0 12px rgba(245, 158, 11, 0.18),
+    0 0 18px rgba(15, 118, 110, 0.18);
+}
+
+.mobileMenuLinkTourism:hover {
+  color: #ffffff;
 }
 
 .mobileMenuCta {
@@ -205,23 +332,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--brand-header-cta-gap);
   padding: 0.8125rem 1.25rem;
-  border-radius: 9999px;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  line-height: 1;
+  border-radius: var(--brand-header-cta-borderRadius);
+  font-family: var(--brand-header-cta-fontFamily);
+  font-size: var(--brand-header-cta-fontSize);
+  font-weight: var(--brand-header-cta-fontWeight);
+  line-height: var(--brand-header-cta-lineHeight);
   min-height: 2.75rem;
   white-space: nowrap;
-  color: white;
-  background: #6B51EF;
-  border: 2px solid #6B51EF;
+  color: var(--brand-header-cta-textColor);
+  background: var(--brand-header-cta-background);
+  border: var(--brand-header-cta-borderWidth) solid var(--brand-header-cta-borderColor);
   text-decoration: none;
-  transition: all 0.2s ease; /* UNIFORMIZADO: Agregada transición */
+  transition: var(--brand-header-cta-transition);
 }
 
 .mobileCtaButton:hover {
-  background: #5436E6;
-  border-color: #5436E6; /* UNIFORMIZADO: Agregado cambio de border */
-  transform: translateY(-2px); /* UNIFORMIZADO: Agregado feedback de elevación */
+  background: var(--brand-header-cta-hoverBackground);
+  border-color: var(--brand-header-cta-hoverBorderColor);
+  transform: translateY(-2px);
 }

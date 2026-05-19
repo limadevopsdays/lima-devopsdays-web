@@ -1,6 +1,7 @@
 import { Send, CheckCircle } from 'lucide-react'
 import { Link } from 'react-router'
 import styles from './SpeakersSection.module.css'
+import { SectionHeader } from './SectionHeader'
 
 // Imagen hero de speaker - Ruta portable para exportación
 const speakerEdition2025 = '/images/speakers/speakers%201.jpg'
@@ -48,20 +49,14 @@ const upcomingKeynotes = [
 export function SpeakersSection() {
   return (
     <section id="speakers" className={styles.section}>
-      {/* SOCIAL PROOF - Foto + Lista de speakers */}
-      <div className={styles.socialProofSection}>
+      <div className={styles.keynoteSection}>
         <div className={styles.container}>
-          <div className={styles.speakersHeader}>
-            <div className={styles.keynoteIntroBadge}>
-              SPEAKERS
-            </div>
-            <h2 className={styles.speakersTitle}>
-              Keynote Speakers
-            </h2>
-            <p className={styles.speakersLead}>
-              Líderes de la industria tech compartiendo sus experiencias en producción.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Speakers"
+            eyebrowColor="#6B51EF"
+            title="Keynote Speakers"
+            lead="Líderes de la industria tech compartiendo sus experiencias en producción."
+          />
           <div className={styles.keynotePanel}>
             <div className={styles.keynotePanelContent}>
               <div className={styles.keynoteShowcase}>
@@ -126,12 +121,22 @@ export function SpeakersSection() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className={styles.socialProofSection}>
+        <div className={styles.container}>
           <div className={styles.socialProofCard}>
             <div className={styles.socialProofGrid}>
-              <div
-                className={styles.socialProofImage}
-                style={{ '--social-proof-bg': `url(${speakerEdition2025})` } as React.CSSProperties}
-              />
+              <div className={styles.socialProofImage}>
+                <img
+                  src={speakerEdition2025}
+                  alt="Speakers destacados y asistentes en DevOpsDays Lima"
+                  className={styles.socialProofImageMedia}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
 
               <div className={styles.socialProofContent}>
                 <div className={styles.socialProofBadge}>
@@ -171,7 +176,7 @@ export function SpeakersSection() {
                 </div>
 
                 <h2 className={styles.title}>
-                  Call for Speakers
+                  Call for Speakers 2026
                 </h2>
 
                 <p className={styles.description}>

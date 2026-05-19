@@ -70,34 +70,104 @@
 }
 
 .title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
   color: var(--color-slate-900);
   margin: 0;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+}
+
+.titleMain {
+  display: block;
+}
+
+.heartPulse {
+  display: inline-block;
+  transform-origin: center;
+  animation: heartPulse 2.1s ease-in-out infinite;
+}
+
+.titleSubtitle {
+  display: block;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-600);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
 }
 
 .highlightPurple {
   color: var(--color-purple);
 }
 
+@keyframes heartPulse {
+  0%,
+  18%,
+  100% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.08);
+  }
+
+  42% {
+    transform: scale(0.99);
+  }
+
+  56% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatingBadgeDrift {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+  }
+
+  50% {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(249, 115, 22, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heartPulse {
+    animation: none;
+  }
+
+  .floatingBadge {
+    animation: none;
+  }
+}
+
 .description {
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  color: var(--color-slate-700);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  color: var(--color-slate-600);
   margin: 0;
-  line-height: 1.5;
-  font-weight: 500;
+  line-height: var(--brand-text-lineHeight-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
 }
 
 .ctaLink {
   display: inline-block;
   width: fit-content;
   padding: 0.25rem 0;
-  border-bottom: 2px solid var(--color-purple);
+  font-family: var(--brand-body-fontFamily);
   color: var(--color-purple);
-  font-size: 0.8125rem;
-  font-weight: 900;
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -138,12 +208,16 @@
   background: #f97316;
   color: var(--color-white);
   border-radius: 2rem;
-  font-size: 0.625rem;
-  font-weight: 900;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-25);
+  font-weight: var(--brand-text-weight-600);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
   z-index: 2;
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+  transform-origin: center;
+  animation: floatingBadgeDrift 2.8s ease-in-out infinite;
 }
 
 .floatingBadgeIcon {
@@ -152,7 +226,7 @@
 }
 
 .floatingBadgeText {
-  line-height: 1;
+  line-height: var(--brand-text-lineHeight-solid);
 }
 
 .discountCard {
@@ -195,40 +269,41 @@
 }
 
 .cardHeaderText {
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
   color: var(--color-white);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
 }
 
 .cardDiscount {
   display: flex;
   align-items: baseline;
   gap: 0.25rem;
-  line-height: 1;
+  font-weight: var(--brand-text-weight-900);
 }
 
 .cardDiscountNumber {
-  font-size: 4rem;
-  font-weight: 900;
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
   color: var(--color-white);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
+  line-height: var(--brand-text-lineHeight-compressed);
+  letter-spacing: var(--brand-text-letterSpacing-tightDisplay);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 768px) {
   .cardDiscountNumber {
-    font-size: 4.5rem;
+    font-size: var(--brand-text-size-1200);
   }
 }
 
 .cardDiscountPercent {
-  font-size: 2rem;
-  font-weight: 900;
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
   color: var(--color-white);
-  line-height: 1;
+  line-height: var(--brand-text-lineHeight-compressed);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -240,18 +315,14 @@
   background: var(--color-white);
   border-radius: 2rem;
   margin-top: 0.5rem;
-}
-
-.cardFooterIcon {
-  width: 1rem;
-  height: 1rem;
-  color: var(--color-purple);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  color: var(--color-white);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
 }
 
 .cardFooterText {
-  font-size: 0.75rem;
-  font-weight: 700;
   color: var(--color-purple);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }

@@ -84,7 +84,7 @@ export function Hero() {
             <span className="text-white">Perú 2025</span>
           </h1>
 
-          <p className="text-slate-400 mb-8 max-w-lg" style={{ fontSize: "1.1rem", lineHeight: 1.7 }}>
+          <p className="hero-description text-slate-400 mb-8 max-w-lg">
             El evento más grande de DevOps, SRE y cultura DevSecOps en el Perú. Dos días de
             aprendizaje, networking y colaboración con expertos de la región y del mundo.
           </p>

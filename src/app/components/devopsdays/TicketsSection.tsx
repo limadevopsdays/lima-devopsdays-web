@@ -67,7 +67,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                     <div className={styles.ticketLocation}>
                       <MapPin className={styles.ticketIcon} />
                       <div className={styles.ticketLocationText}>
-                        <span>Lima Centro de Convenciones</span>
+                        <span>Lima Centro de Convenciones (LCC)</span>
                       </div>
                     </div>
                   </div>
@@ -157,7 +157,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                     <div className={styles.ticketLocation}>
                       <MapPin className={styles.ticketIcon} />
                       <div className={styles.ticketLocationText}>
-                        <span>Lima Centro de Convenciones</span>
+                        <span>Lima Centro de Convenciones (LCC)</span>
                       </div>
                     </div>
                   </div>

@@ -12,7 +12,11 @@
   --color-purple-bg: #f4f1ff;        /* Background morado suave */
   --color-purple-border: #d9d1ff;    /* Border morado suave */
   
+  --color-purple-additional: #53099E;
+  --color-blue-additional: #147CFF;
+
   /* Brand Colors - Co-Primary */
+  --color-lima: #93e279;             /* Verde lima principal */
   --color-cyan: #93e279;             /* Verde lima co-protagonista */
   --color-cyan-light: #b6f0a4;       /* Verde lima claro */
   --color-cyan-dark: #6fca51;        /* Verde lima oscuro */
@@ -44,6 +48,113 @@
   --color-warning: #f97316;          /* Naranja warning */
   --color-error: #ef4444;            /* Rojo error */
   --color-info: #93e279;             /* Co-primary info */
+  --brand-color-success-fg: var(--color-success);
+  --brand-color-success-emphasis: var(--color-success);
+  --brand-color-success-muted: color-mix(in srgb, var(--color-success) 60%, transparent);
+  --brand-color-success-subtle: var(--color-cyan-bg);
+  --brand-color-danger-fg: var(--color-error);
+  --brand-color-danger-emphasis: var(--color-error);
+  --brand-color-danger-muted: color-mix(in srgb, var(--color-error) 60%, transparent);
+  --brand-color-danger-subtle: color-mix(in srgb, var(--color-error) 12%, var(--color-white));
+  --brand-color-error-fg: var(--brand-color-danger-fg);
+  --brand-color-error-emphasis: var(--brand-color-danger-emphasis);
+  --brand-color-error-muted: var(--brand-color-danger-muted);
+  --brand-color-error-subtle: var(--brand-color-danger-subtle);
+  --brand-color-accent-primary: var(--color-cyan);
+  --brand-color-accent-secondary: var(--color-orange);
+  --brand-color-text-default: var(--color-slate-900);
+  --brand-color-text-muted: var(--color-slate-600);
+  --brand-color-text-subtle: var(--color-slate-500);
+  --brand-color-text-onEmphasis: var(--color-white);
+  --brand-color-text-emphasized: var(--color-purple);
+  --brand-color-text-link-rest: var(--color-purple);
+  --brand-color-text-link-pressed: var(--color-purple-dark);
+  --brand-color-text-danger: var(--color-error);
+  --brand-color-text-error: var(--brand-color-text-danger);
+  --brand-color-neutral-emphasisPlus: var(--color-slate-800);
+  --brand-color-neutral-emphasis: var(--color-slate-600);
+  --brand-color-neutral-muted: color-mix(in srgb, var(--color-slate-400) 60%, transparent);
+  --brand-color-neutral-subtle: var(--color-slate-100);
+  --brand-color-canvas-default: var(--color-white);
+  --brand-color-canvas-overlay: var(--color-white);
+  --brand-color-canvas-inset: var(--color-slate-50);
+  --brand-color-canvas-subtle: var(--color-slate-50);
+  --brand-color-canvas-muted: var(--color-slate-50);
+  --brand-color-border-default: var(--color-slate-300);
+  --brand-color-border-muted: var(--color-slate-200);
+  --brand-color-border-subtle: var(--color-slate-100);
+  --brand-color-focus: var(--color-purple);
+  --brand-hero-accent-color: var(--color-purple-additional);
+  --brand-hero-supportingText-color: var(--brand-color-text-muted);
+  --brand-hero-descriptionPromptStart-color: var(--brand-hero-accent-color);
+  --brand-hero-descriptionPromptActive-color: var(--color-lima);
+  --brand-hero-title-fontFamily: var(--font-accent);
+  --brand-hero-title-fontSize: clamp(2.75rem, 8vw, 5.5rem);
+  --brand-hero-title-lineHeight: 0.88;
+  --brand-hero-title-letterSpacing: 0.04em;
+  --brand-hero-subtitle-fontFamily: var(--brand-body-fontFamily);
+  --brand-hero-subtitle-fontWeight: var(--brand-text-weight-400);
+  --brand-hero-subtitle-fontSize: var(--brand-text-size-500);
+  --brand-hero-subtitle-lineHeight: var(--brand-text-lineHeight-300);
+  --brand-hero-metaBadge-fontFamily: var(--brand-body-fontFamily);
+  --brand-hero-metaBadge-fontWeight: var(--brand-text-weight-400);
+  --brand-hero-metaBadge-fontSize: var(--brand-text-size-100);
+  --brand-hero-metaBadge-lineHeight: var(--brand-text-lineHeight-100);
+  --brand-hero-metaBadge-letterSpacing: var(--brand-text-letterSpacing-100);
+  --brand-hero-metaBadge-background: var(--brand-color-canvas-default);
+  --brand-hero-metaBadge-borderColor: var(--brand-color-border-muted);
+  --brand-hero-metaBadge-textColor: var(--brand-hero-supportingText-color);
+  --brand-hero-cta-fontFamily: var(--brand-body-fontFamily);
+  --brand-hero-cta-fontWeight: var(--brand-text-weight-600);
+  --brand-hero-cta-fontSize: var(--brand-text-size-300);
+  --brand-hero-cta-lineHeight: 1;
+  --brand-hero-cta-letterSpacing: 0;
+  --brand-hero-cta-gap: 0.5rem;
+  --brand-hero-cta-paddingY: 1rem;
+  --brand-hero-cta-paddingX: 1.625rem;
+  --brand-hero-cta-borderRadius: 9999px;
+  --brand-hero-cta-borderWidth: 2px;
+  --brand-hero-cta-minHeight: 3.125rem;
+  --brand-hero-cta-transition: all 0.2s ease;
+  --brand-hero-cta-primary-background: var(--color-purple);
+  --brand-hero-cta-primary-borderColor: var(--color-purple);
+  --brand-hero-cta-primary-textColor: var(--brand-color-text-onEmphasis);
+  --brand-hero-cta-primary-hoverBackground: var(--color-purple-dark);
+  --brand-hero-cta-primary-hoverBorderColor: var(--color-purple-dark);
+  --brand-hero-cta-secondary-background: rgba(255, 255, 255, 0.92);
+  --brand-hero-cta-secondary-borderColor: var(--color-purple);
+  --brand-hero-cta-secondary-textColor: var(--color-purple);
+  --brand-hero-cta-secondary-hoverBackground: var(--color-white);
+  --brand-hero-cta-secondary-hoverBorderColor: var(--color-purple-dark);
+  --brand-hero-cta-secondary-hoverTextColor: var(--color-purple-dark);
+  --brand-header-link-fontFamily: var(--brand-body-fontFamily);
+  --brand-header-link-fontWeight: var(--brand-text-weight-500);
+  --brand-header-link-fontSize: var(--brand-text-size-200);
+  --brand-header-link-lineHeight: 1;
+  --brand-header-link-letterSpacing: 2px;
+  --brand-header-link-color: var(--brand-hero-supportingText-color);
+  --brand-header-link-hoverColor: var(--color-purple);
+  --brand-header-link-activeColor: var(--color-purple);
+  --brand-header-indicator-color: var(--color-purple);
+  --brand-header-cta-fontFamily: var(--brand-hero-cta-fontFamily);
+  --brand-header-cta-fontWeight: var(--brand-hero-cta-fontWeight);
+  --brand-header-cta-fontSize: var(--brand-text-size-100);
+  --brand-header-cta-lineHeight: var(--brand-hero-cta-lineHeight);
+  --brand-header-cta-letterSpacing: var(--brand-hero-cta-letterSpacing);
+  --brand-header-cta-gap: var(--brand-hero-cta-gap);
+  --brand-header-cta-borderRadius: var(--brand-hero-cta-borderRadius);
+  --brand-header-cta-borderWidth: var(--brand-hero-cta-borderWidth);
+  --brand-header-cta-transition: var(--brand-hero-cta-transition);
+  --brand-header-cta-textColor: var(--brand-hero-cta-primary-textColor);
+  --brand-header-cta-background: var(--brand-hero-cta-primary-background);
+  --brand-header-cta-borderColor: var(--brand-hero-cta-primary-borderColor);
+  --brand-header-cta-hoverBackground: var(--brand-hero-cta-primary-hoverBackground);
+  --brand-header-cta-hoverBorderColor: var(--brand-hero-cta-primary-hoverBorderColor);
+  --brand-header-mobileToggle-color: var(--color-slate-700);
+  --brand-header-mobileToggle-background: var(--color-slate-100);
+  --brand-header-mobileToggle-hoverBackground: var(--color-slate-200);
+  --brand-header-mobileMenu-background: var(--color-white);
+  --brand-header-mobileMenu-borderColor: var(--color-slate-200);
   
   /* Social Media Colors */
   --color-linkedin: #0077b5;
@@ -189,7 +300,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--brand-body-fontFamily);
   }
 
   /* Smooth scroll para secciones con ID */
@@ -203,42 +314,49 @@
   */
 
   h1 {
+    font-family: var(--brand-heading-fontFamily);
     font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
+    font-weight: 800;
     line-height: 1.5;
   }
 
   h2 {
+    font-family: var(--brand-heading-fontFamily);
     font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
+    font-weight: 700;
     line-height: 1.5;
   }
 
   h3 {
+    font-family: var(--brand-heading-fontFamily);
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   h4 {
+    font-family: var(--brand-heading-fontFamily);
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   label {
+    font-family: var(--brand-body-fontFamily);
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   button {
+    font-family: var(--brand-body-fontFamily);
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   input {
+    font-family: var(--brand-body-fontFamily);
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;

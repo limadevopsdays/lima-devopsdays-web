@@ -4,6 +4,7 @@ import { MdTrain, MdDirectionsBus } from 'react-icons/md'
 import { motion, AnimatePresence } from 'motion/react'
 import { venue } from '../../data/mockContent'
 import styles from './VenueSection.module.css'
+import { SectionHeader } from './SectionHeader'
 
 const stats = [
   { value: '800 - 1000', label: 'Capacidad' },
@@ -50,9 +51,12 @@ export function VenueSection() {
   return (
     <section id="venue" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.eyebrowContainer}>
-          <span className={styles.eyebrow}>Ubicación</span>
-        </div>
+        <SectionHeader
+          eyebrow="Ubicación"
+          eyebrowColor="#6B51EF"
+          title="Venue y cómo llegar"
+          lead="Nos encontramos en Lima Centro de Convenciones, un espacio preparado para charlas, networking y una experiencia cómoda para toda la comunidad."
+        />
 
         <div className={styles.mainGrid}>
           {/* Map */}

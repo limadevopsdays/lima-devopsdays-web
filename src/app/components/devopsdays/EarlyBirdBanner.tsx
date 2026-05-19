@@ -7,7 +7,7 @@ export function EarlyBirdBanner() {
   return (
     <div className={styles.banner}>
       <a
-        href="https://tickets.devopsdays.pe/event/devopsdays-lima-2026-1/register"
+        href="https://entradas.devopsdays.pe"
         className={styles.bannerLink}
         data-track-name="ver_ofertas_early_bird_home"
         aria-label="Ver ofertas Early Bird"
@@ -18,7 +18,12 @@ export function EarlyBirdBanner() {
         <div className={styles.container}>
           <div className={styles.contentLeft}>
             <h2 className={styles.title}>
-              ¡Early Bird! ❤️‍🔥 Hasta <span className={styles.highlightPurple}>30% dcto.</span> en entradas
+              <span className={styles.titleMain}>
+                Early Bird <span className={styles.heartPulse}>❤️‍🔥</span>
+              </span>
+              <span className={styles.titleSubtitle}>
+                Hasta <span className={styles.highlightPurple}>30% dcto.</span> en entradas
+              </span>
             </h2>
 
             <p className={styles.description}>
@@ -46,7 +51,7 @@ export function EarlyBirdBanner() {
                     d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className={styles.cardHeaderText}>Ahorra Hasta</span>
+                <span className={styles.cardHeaderText}>Ahorra hasta</span>
               </div>
 
               <div className={styles.cardDiscount}>
@@ -55,15 +60,7 @@ export function EarlyBirdBanner() {
               </div>
 
               <div className={styles.cardFooter}>
-                <svg className={styles.cardFooterIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-                <span className={styles.cardFooterText}>¡DIAS LIMITADOS!</span>
+                <span className={styles.cardFooterText}>¡Días limitados!</span>
               </div>
             </div>
           </div>

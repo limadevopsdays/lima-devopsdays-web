@@ -1,7 +1,7 @@
 /* SpeakersSection - CSS Nativo */
 
 .section {
-  background: var(--color-slate-50);
+  background: var(--color-white);
   padding: 3rem 0;
   margin: 0;
 }
@@ -13,13 +13,12 @@
   position: relative;
 }
 
-/* ============================================
-   SOCIAL PROOF SECTION - Foto + Lista de speakers
-   ============================================ */
-
 .socialProofSection {
-  background: var(--color-slate-50);
-  padding: 0 0 5.5rem 0;
+  background: var(--color-white);
+  padding-right: 0px;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  padding-left: 0px;
 }
 
 .speakersHeader {
@@ -73,14 +72,17 @@
 
 .socialProofCard {
   background: var(--color-white);
-  border-radius: 1.5rem; /* UNIFORMIZADO: De 1rem a 1.5rem - Card grande */
+  border: 1px solid var(--color-slate-200);
+  border-radius: 1rem;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.18);
 }
 
 .socialProofGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
+  
 }
 
 @media (min-width: 1024px) {
@@ -92,17 +94,31 @@
 /* Imagen grande a la izquierda */
 .socialProofImage {
   position: relative;
+  overflow: hidden;
+  min-height: 0;
+  height: 220px;
+}
+
+.socialProofImageMedia {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-height: 260px;
-  background-image: var(--social-proof-bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+@media (min-width: 1024px) {
+  .socialProofImage {
+    height: auto;
+  }
 }
 
 /* Contenido de texto - Columna derecha */
 .socialProofContent {
   padding: 2.5rem 2rem;
+  background-color: var(--color-slate-50);
 }
 
 .socialProofBadge {
@@ -119,25 +135,34 @@
 }
 
 .socialProofBadgeText {
-  font-size: 0.875rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-green);
+    text-transform: uppercase;
+    color: var(--color-green);
+    font-family: var(--brand-body-fontFamily);
+    font-size: var(--brand-text-size-200);
+    font-weight: var(--brand-text-weight-600);
+    letter-spacing: var(--brand-text-letterSpacing-300);
+    line-height: var(--brand-text-lineHeight-300);
 }
 
 .socialProofTitle {
-  font-size: 1.75rem;
-  font-weight: 900;
   color: var(--color-slate-900);
   margin-bottom: 0.875rem;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .socialProofDescription {
-  font-size: 1rem;
-  color: var(--color-slate-500);
   margin-bottom: 1.5rem;
-  line-height: 1.6;
+  color: var(--brand-color-text-muted);
+  margin-bottom: 0.875rem;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 /* Lista de speakers - igual que companyList de Sponsors */
@@ -256,11 +281,13 @@
 }
 
 .badgeText {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 900;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--color-white);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .keynoteShowcase {
@@ -435,51 +462,47 @@
   z-index: 1;
 }
 
-.keynoteTag {
+.keynoteTag,
+.keynoteTeaserTag {
   display: inline-flex;
   align-items: center;
   margin-bottom: 0.75rem;
   padding: 0.35rem 0.7rem;
   border-radius: 9999px;
   background: rgba(148, 163, 184, 0.18);
-  color: #475569;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition:
     background 0.28s ease,
     color 0.28s ease;
+  font-family: var(--brand-body-fontFamily);
+  font-weight: var(--brand-text-weight-600);
+  font-size: var(--brand-text-size-25);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  border: 1px solid var(--brand-color-border-muted);
+  color: var(--brand-color-text-muted);
 }
 
 .keynoteTeaserTag {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 0.45rem;
-  padding: 0.28rem 0.6rem;
-  border-radius: 9999px;
-  background: rgba(124, 58, 237, 0.12);
-  color: #6B51EF;
-  font-size: 0.65rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .keynoteCard:hover .keynoteTag,
 .keynoteCard:focus-within .keynoteTag {
-  background: #334155;
-  color: #ffffff;
+  background: var(--brand-color-text-muted);
+  color: var(--color-white);
 }
 
-.keynoteName {
+.keynoteName,
+.keynoteTeaserText {
   margin: 0;
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  color: var(--color-slate-900);
-  line-height: 1.2;
   transition: color 0.28s ease;
+  color: var(--color-slate-900);
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .keynoteCard:hover .keynoteName,
@@ -488,12 +511,15 @@
 }
 
 .keynoteRole,
-.keynoteCompany {
+.keynoteCompany,
+.keynoteTeaserHint {
   margin: 0;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--color-slate-600);
-  line-height: 1.45;
+  color: var(--brand-color-text-muted);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .keynoteRole {
@@ -505,47 +531,47 @@
 }
 
 .keynoteTeaserText {
-  margin: 0;
   max-width: 9rem;
-  font-size: 0.84rem;
-  line-height: 1.35;
-  color: var(--color-slate-700);
-  font-weight: 600;
+  text-align: center;
 }
 
 .keynoteTeaserHint {
   margin-top: 0.35rem;
-  font-size: 0.72rem;
-  line-height: 1.35;
-  color: var(--color-slate-500);
+  text-align: center;
 }
 
 .title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 900;
   margin-bottom: 0.75rem;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--color-white);
-  line-height: 1.2;
+  line-height: var(--brand-text-lineHeight-300);  
 }
 
 .description {
-  font-size: clamp(0.875rem, 2vw, 1rem);
   margin-bottom: 1.25rem;
   max-width: 48rem;
-  color: var(--color-white);
   opacity: 0.95;
-  line-height: 1.7;
+  color: var(--color-white);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);  
 }
 
 /* Label para ejes temáticos */
 .tracksLabel {
-  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--color-white);
-  opacity: 0.8;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);  
 }
 
 /* Ejes temáticos en fila horizontal con wrap */
@@ -556,16 +582,18 @@
 }
 
 .trackPill {
-  font-size: 0.8125rem;
   padding: 0.4rem 0.875rem;
   border-radius: 0.5rem;
-  font-weight: 500;
   background: transparent;
   color: var(--color-white);
   cursor: default;
   transition: all 0.2s ease;
   border: 2px solid var(--track-color);
-  line-height: 1.4;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .trackPill:hover {
@@ -659,16 +687,18 @@
   gap: 0.625rem;
   padding: 0 1.25rem;
   border-radius: 9999px;
-  font-weight: 700;
-  font-size: 1rem;
   background: white;
   color: #6B51EF;
   text-decoration: none;
   white-space: nowrap;
-  line-height: 1;
   height: 3rem;
   transition: all 0.2s ease;
   border: 2px solid white;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300); 
 }
 
 .ctaButton,
@@ -692,11 +722,13 @@
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.72);
   color: var(--color-white);
-  font-size: 0.95rem;
-  font-weight: 800;
-  line-height: 1;
   text-decoration: none;
   transition: all 0.2s ease;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);  
 }
 
 .ctaSecondaryButton:hover {
@@ -711,14 +743,21 @@
 }
 
 .dateText {
-  font-size: 0.875rem;
-  color: var(--color-white);
   opacity: 0.9;
   margin: 0;
-  line-height: 1.5;
+  color: var(--color-white);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);  
 }
 
 .dateText strong {
   color: #fde047;
-  font-weight: 700;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);  
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect, type MouseEvent } from 'react'
-import { Menu, X } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router'
 import styles from './NavbarSection.module.css'
 import { siteContent } from '../../data/mockContent'
@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Tickets', hash: '#tickets' },
   { label: 'Speakers', hash: '#speakers' },
   { label: 'Ubicación', hash: '#venue' },
+  { label: 'Turismo', hash: '#turismo', accent: true },
   { label: 'FAQ', hash: '#faq' },
 ]
 
@@ -124,9 +125,6 @@ export function NavbarSection() {
               className={styles.logoImage}
             />
           </div>
-          <span className={styles.logoText}>
-            devopsdays <span className={styles.logoDomain}>lima</span>
-          </span>
         </Link>
 
         {/* Desktop links */}
@@ -142,7 +140,7 @@ export function NavbarSection() {
                 {l.external ? (
                   <a
                     href={l.href}
-                    className={styles.navLink}
+                    className={`${styles.navLink} poppins-medium`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -152,7 +150,7 @@ export function NavbarSection() {
                   <Link
                     to={`/${l.hash}`}
                     onClick={handleSectionClick(l.hash!)}
-                    className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                    className={`${styles.navLink} ${l.accent ? styles.navLinkTourism : ''} poppins-medium ${isActive ? styles.active : ''}`}
                     aria-current={isActive ? 'page' : undefined}
                   >
                     {l.label}
@@ -171,8 +169,10 @@ export function NavbarSection() {
           aria-label="Comprar tickets para DevOpsDays Lima 2026"
           target="_blank"
           rel="noreferrer"
+          data-track-name="comprar_tickets_navbar_home"
         >
-          Comprar Tickets →
+          <span>Comprar Tickets</span>
+          <ArrowRight className={styles.ctaIcon} aria-hidden="true" />
         </a>
 
         {/* Mobile toggle */}
@@ -196,7 +196,7 @@ export function NavbarSection() {
                 {l.external ? (
                   <a
                     href={l.href}
-                    className={styles.mobileMenuLink}
+                    className={`${styles.mobileMenuLink} poppins-medium`}
                     onClick={() => setMenuOpen(false)}
                     target="_blank"
                     rel="noreferrer"
@@ -206,7 +206,7 @@ export function NavbarSection() {
                 ) : (
                   <Link
                     to={`/${l.hash}`}
-                    className={styles.mobileMenuLink}
+                    className={`${styles.mobileMenuLink} ${l.accent ? styles.mobileMenuLinkTourism : ''} poppins-medium`}
                     onClick={handleSectionClick(l.hash!)}
                   >
                     {l.label}
@@ -221,8 +221,10 @@ export function NavbarSection() {
                 onClick={() => setMenuOpen(false)}
                 target="_blank"
                 rel="noreferrer"
+                data-track-name="comprar_tickets_navbar_home"
               >
-                Comprar Tickets →
+                <span>Comprar Tickets</span>
+                <ArrowRight className={styles.ctaIcon} aria-hidden="true" />
               </a>
             </li>
           </ul>

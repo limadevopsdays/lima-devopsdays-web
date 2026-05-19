@@ -1,7 +1,5 @@
-/* SponsorsSection - CSS Nativo */
-
 .section {
-  background: var(--color-slate-50);
+  background: var(--color-white);
   padding: 3rem 0;
   margin: 0;
 }
@@ -12,153 +10,204 @@
   padding: 0 1.5rem;
 }
 
+.platinumCard[data-tier] {
+  --tier-divider-color: 133, 141, 166;
+  --tier-divider-width: min(100%, 26rem);
+  position: relative;
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+}
 
-.platinumContent {
+.platinumCard[data-tier="platinum"] {
+  --tier-divider-color: 143, 164, 196;
+}
+
+.platinumCard[data-tier="gold"] {
+  --tier-divider-color: 242, 185, 80;
+}
+
+.platinumCard[data-tier="bronze"] {
+  --tier-divider-color: 169, 113, 85;
+}
+
+.platinumCard[data-tier="community"] {
+  --tier-color: #84cc16;
+  --tier-divider-color: 132, 204, 22;
+}
+
+.platinumCard[data-tier="community"]::after {
+  content: none;
+  display: none;
+}
+
+
+.platinumCard[data-tier]::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: var(--tier-divider-width);
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(var(--tier-divider-color), 0.18) 12%,
+      rgba(var(--tier-divider-color), 0.75) 50%,
+      rgba(var(--tier-divider-color), 0.18) 88%,
+      transparent 100%
+    );
+  box-shadow:
+    0 0 10px rgba(var(--tier-divider-color), 0.18),
+    0 0 22px rgba(var(--tier-divider-color), 0.1);
+}
+
+.secondaryTierCard {
+  --tier-divider-width: min(100%, 26rem);
+}
+
+.titleYear {
+  display: inline-block;
+  color: var(--color-purple);
+  letter-spacing: var(--brand-text-letterSpacing-wide);
+  text-shadow:
+    0 0 5px rgba(107, 81, 239, 0.22),
+    0 0 12px rgba(107, 81, 239, 0.14),
+    0 0 20px rgba(107, 81, 239, 0.08);
+  animation: titleYearGlow 2.1s ease-in-out infinite;
+}
+
+@keyframes titleYearGlow {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px rgba(107, 81, 239, 0.22),
+      0 0 12px rgba(107, 81, 239, 0.14),
+      0 0 20px rgba(107, 81, 239, 0.08);
+  }
+
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 7px rgba(107, 81, 239, 0.28),
+      0 0 15px rgba(107, 81, 239, 0.18),
+      0 0 24px rgba(107, 81, 239, 0.1);
+  }
+}
+
+.platinumContent,
+.goldContent,
+.bronzeContent,
+.communityContent {
   padding: 2rem 0 1rem;
   text-align: center;
 }
 
-.platinumBadge {
+.platinumBadgeIcon {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  color: var(--tier-color, var(--color-purple));
+  filter:
+    drop-shadow(0 0 5px color-mix(in srgb, var(--tier-color, var(--color-purple)) 22%, transparent))
+    drop-shadow(0 0 12px color-mix(in srgb, var(--tier-color, var(--color-purple)) 14%, transparent))
+    drop-shadow(0 0 20px color-mix(in srgb, var(--tier-color, var(--color-purple)) 8%, transparent));
+  animation: platinumBadgeGlow 2.1s ease-in-out infinite;
+}
+
+.platinumBadgeText,
+.goldBadgeText,
+.bronzeBadgeText,
+.communityBadgeText {
   margin-bottom: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.7rem 1.35rem;
-  border-radius: 9999px;
-  border: 1px solid var(--tier-border, var(--color-purple));
-  background: var(--tier-bg, var(--color-purple-bg));
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.platinumBadgeIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex: 0 0 auto;
-  color: var(--tier-color, var(--color-purple)) !important;
-}
-
-.platinumBadgeText {
-  font-size: 1.125rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  gap: 0.5rem;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-900);
   color: var(--tier-color, var(--color-purple));
-  line-height: 1.2;
+  text-shadow:
+    0 0 5px color-mix(in srgb, var(--tier-color, var(--color-purple)) 22%, transparent),
+    0 0 12px color-mix(in srgb, var(--tier-color, var(--color-purple)) 14%, transparent),
+    0 0 20px color-mix(in srgb, var(--tier-color, var(--color-purple)) 8%, transparent);
+  animation: platinumBadgeGlow 2.1s ease-in-out infinite;
+  line-height: var(--brand-text-lineHeight-300);
 }
 
-/* Grid para logos Platinum - múltiples sponsors en fila */
-.logosGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
+@keyframes platinumBadgeGlow {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px color-mix(in srgb, var(--tier-color, var(--color-purple)) 22%, transparent),
+      0 0 12px color-mix(in srgb, var(--tier-color, var(--color-purple)) 14%, transparent),
+      0 0 20px color-mix(in srgb, var(--tier-color, var(--color-purple)) 8%, transparent);
+  }
 
-@media (min-width: 768px) {
-  .logosGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 7px color-mix(in srgb, var(--tier-color, var(--color-purple)) 28%, transparent),
+      0 0 15px color-mix(in srgb, var(--tier-color, var(--color-purple)) 18%, transparent),
+      0 0 24px color-mix(in srgb, var(--tier-color, var(--color-purple)) 10%, transparent);
   }
 }
 
-@media (min-width: 1024px) {
-  .platinumCard .logosGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .platinumCard .logosGrid[data-count="4"] > :last-child {
-    grid-column: 2;
-  }
-
-  .secondaryTierCard .logosGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.logoContainer {
-  --sponsor-border-color: var(--color-slate-200);
-  --sponsor-hover-color: var(--color-purple);
-  background: var(--color-white);
-  padding: 1.5rem 3rem;
-  border-radius: 1.25rem;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  align-items: stretch;
-  min-height: 200px;
-  border: 1px solid transparent;
-  background-image: 
-    linear-gradient(var(--color-white), var(--color-white)),
-    linear-gradient(var(--sponsor-border-color), var(--sponsor-border-color));
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.logoContainer::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 1.25rem;
-  padding: 1px;
-  background: var(--sponsor-border-color);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.6;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.logoContainer:hover {
-  --sponsor-border-color: var(--sponsor-hover-color);
-  transform: translateY(-4px);
-  border-width: 1px;
-}
-
-.logoContainer:hover::before {
-  opacity: 1;
-}
-
-.logoLink {
+.logosGrid,
+.platinumLogosGrid,
+.goldLogosGrid,
+.bronzeLogosGrid,
+.communityLogosGrid {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
   width: 100%;
-  min-height: 0;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.logoContainer,
+.platinumLogoContainer,
+.goldLogoContainer,
+.bronzeLogoContainer,
+.communityLogoContainer {
+  background: var(--color-white);
+  flex: 0 1 18rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--sponsor-border-color);
+  transition: all 0.3s ease;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.goldLogoContainer,
+.bronzeLogoContainer,
+.communityLogoContainer {
+  flex-basis: 15rem;
+  min-height: 150px;
+  max-height: 150px;
+  padding: 1.5rem;
+}
+
+.goldContent,
+.bronzeContent,
+.communityContent {
+  padding: 1.5rem 0 0.75rem;
+}
+
 .logo {
-  max-height: 120px;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   display: block;
+  object-fit: contain;
   transition: all 0.3s ease;
-}
-
-.logo[src*="ibm.png"] {
-  max-height: 96px;
-}
-
-@media (min-width: 1024px) {
-  .platinumCard .logoLink {
-    min-height: 148px;
-  }
-
-  .platinumCard .logo {
-    max-height: 148px;
-  }
-
-  .platinumCard .logo[src*="ibm.png"] {
-    max-height: 120px;
-  }
 }
 
 .logo:hover {
@@ -169,26 +218,6 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: var(--color-slate-900);
-}
-
-.descriptionContainer {
-  max-width: 42rem;
-  margin: 0 auto;
-}
-
-.descriptionTitle {
-  font-size: 1.25rem;
-  color: var(--color-slate-900);
-  font-weight: 900;
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
-}
-
-.descriptionText {
-  font-size: 0.95rem;
-  color: var(--color-slate-500);
-  margin-bottom: 1rem;
-  line-height: 1.7;
 }
 
 .learnMoreLink {
@@ -202,6 +231,14 @@
   font-weight: 700;
   text-decoration: none;
   text-align: center;
+}
+
+.logoLink {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .learnMoreLink:hover {
@@ -245,142 +282,25 @@
 
 .emptyStateText {
   font-size: 1rem;
-  color: var(--color-slate-500);
+  color: var(--brand-color-text-muted);
   line-height: 1.6;
 }
 
-.secondaryTiers {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  margin-bottom: 2rem;
-}
-
-.secondaryTiers > :last-child {
-  margin-bottom: 0;
-}
-
-.secondaryTierCard {
-  width: 100%;
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.secondaryTierCard .platinumContent {
-  padding-top: 1.25rem;
-}
-
-.secondaryTierCard .logosGrid {
-  max-width: 30rem;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.secondaryTierCard .logoContainer {
-  min-height: 168px;
-  padding: 1.5rem 2rem;
-}
-
-.secondaryTierCard .logoContainerSubtle {
-  min-height: 136px;
-  padding-top: 1.25rem;
-  padding-bottom: 0.875rem;
-}
-
-.secondaryTierCard .logo {
-  max-height: 88px;
-}
-
-.secondaryTierCard[data-tier="gold"] {
-  max-width: 100%;
-}
-
-.secondaryTierCard[data-tier="gold"] .platinumContent {
-  padding: 2rem 0 1rem;
-}
-
-.secondaryTierCard[data-tier="gold"] .logosGrid,
-.secondaryTierCard[data-tier="bronze"] .logosGrid,
-.secondaryTierCard[data-tier="community"] .logosGrid {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: none;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.secondaryTierCard[data-tier="gold"],
-.secondaryTierCard[data-tier="bronze"],
-.secondaryTierCard[data-tier="community"] {
-  max-width: 100%;
-}
-
-.secondaryTierCard[data-tier="gold"] .logoContainer,
-.secondaryTierCard[data-tier="bronze"] .logoContainer,
-.secondaryTierCard[data-tier="community"] .logoContainer {
-  width: 100%;
-  max-width: none;
-  min-height: 144px;
-  padding: 1.5rem;
-}
-
-.secondaryTierCard[data-tier="gold"] .logo,
-.secondaryTierCard[data-tier="bronze"] .logo {
-  max-height: 72px;
-}
-
-.secondaryTierCard[data-tier="community"] .logo {
-  max-height: 96px;
-}
-
-.secondaryTierCard[data-tier="community"] .logo[src*="hackemate.png"] {
-  max-height: 116px;
-}
-
-@media (min-width: 768px) {
-  .secondaryTierCardTwoUp .logosGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 44rem;
-    justify-content: center;
-  }
-
-  .secondaryTierCard[data-tier="gold"] .logosGrid,
-  .secondaryTierCard[data-tier="bronze"] .logosGrid,
-  .secondaryTierCard[data-tier="community"] .logosGrid {
-    justify-content: center;
-  }
-
-  .secondaryTierCard[data-tier="gold"] .logoContainer,
-  .secondaryTierCard[data-tier="bronze"] .logoContainer,
-  .secondaryTierCard[data-tier="community"] .logoContainer {
-    width: calc((100% - 3rem) / 3);
-  }
-}
-
-@media (min-width: 1024px) {
-  .secondaryTierCard[data-tier="gold"] .logoContainer,
-  .secondaryTierCard[data-tier="bronze"] .logoContainer,
-  .secondaryTierCard[data-tier="community"] .logoContainer {
-    width: calc((100% - 4.5rem) / 4);
-  }
-}
-
-/* Social Proof */
 .socialProofSection {
-  background: var(--color-slate-50);
+  background: var(--color-white);
   padding-top: 0rem;
   padding-right: 0px;
   padding-bottom: 3rem;
+  padding-top: 3rem;
   padding-left: 0px;
 }
 
 .socialProofCard {
   background: var(--color-white);
-  border-radius: 1.5rem;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 1rem;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.18);
 }
 
 .socialProofGrid {
@@ -420,6 +340,7 @@
 
 .socialProofContent {
   padding: 2.5rem 2rem;
+  background-color: var(--color-slate-50);
 }
 
 .socialProofBadge {
@@ -430,25 +351,34 @@
 }
 
 .socialProofBadgeText {
-  font-size: 0.875rem;
-  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--color-green);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .socialProofTitle {
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: var(--color-slate-900);
   margin-bottom: 0.875rem;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
+  color: var(--color-slate-900);
 }
 
 .socialProofDescription {
-  font-size: 1rem;
-  color: var(--color-slate-500);
   margin-bottom: 1.5rem;
   line-height: 1.6;
+  color: var(--brand-color-text-muted);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .companyList {
@@ -559,44 +489,55 @@
 }
 
 .ctaBadgeText {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 900;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--color-white);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .ctaBannerTitle {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 900;
   margin-bottom: 0.75rem;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--color-white);
-  line-height: 1.2;
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .ctaBannerDescription {
-  font-size: clamp(0.875rem, 2vw, 1rem);
   margin-bottom: 1.25rem;
   max-width: 48rem;
   color: var(--color-white);
-  opacity: 0.95;
-  line-height: 1.7;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .ctaBannerDescription strong {
   color: #fde047;
-  font-weight: 700;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 /* Label para tiers */
 .tiersLabel {
-  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--color-white);
-  opacity: 0.8;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 /* Tiers en fila horizontal con wrap */
@@ -607,17 +548,18 @@
 }
 
 .tierBadge {
-  font-size: 0.8125rem;
   padding: 0.4rem 0.875rem;
   border-radius: 0.5rem;
-  font-weight: 500;
   background: transparent;
   color: var(--color-white);
   cursor: default;
   transition: all 0.2s ease;
-  /* Los colores del border se aplican dinámicamente con CSS variables */
   border: 2px solid var(--tier-color);
-  line-height: 1.4;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .tierBadge:hover {
@@ -662,9 +604,6 @@
   gap: 0.625rem;
   padding: 0.8125rem 1.25rem;
   border-radius: 9999px;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1;
   min-height: 2.75rem;
   background: white;
   color: #6B51EF;
@@ -672,6 +611,11 @@
   white-space: nowrap;
   transition: all 0.2s ease;
   border: 2px solid white;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .primaryButton:hover {
@@ -699,9 +643,6 @@
   gap: 0.625rem;
   padding: 0.8125rem 1.25rem;
   border-radius: 9999px;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1;
   min-height: 2.75rem;
   background: transparent;
   color: var(--color-white);
@@ -709,6 +650,11 @@
   white-space: nowrap;
   border: 2px solid white;
   transition: all 0.2s ease;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .brochureButton:hover {

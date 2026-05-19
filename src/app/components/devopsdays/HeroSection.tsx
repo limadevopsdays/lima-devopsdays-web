@@ -3,35 +3,67 @@ import { Calendar, MapPin, ArrowRight, ChevronLeft, ChevronRight, X } from 'luci
 import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router'
 import styles from './HeroSection.module.css'
+import { getHeroSectionCopy } from './HeroSection.i18n'
 
 // Imágenes para Grid 2x2 - DevOpsDays Lima REALES
 const galleryImages = [
   {
     src: '/images/hero/hero%201.jpg',
-    alt: 'Comunidad DevOpsDays Lima 2025 reunida con letras LIMA - Primera edición',
     overlayClass: styles.overlayPurple
   },
   {
     src: '/images/hero/hero%202.jpg',
-    alt: 'Presentación keynote en auditorio DevOpsDays Lima con speaker en escenario principal',
     overlayClass: styles.overlayCyan
   },
   {
     src: '/images/hero/hero%203.jpg',
-    alt: 'Speaker presentando en DevOpsDays Lima con audiencia tech profesional',
     overlayClass: styles.overlayGreen
   },
   {
     src: '/images/hero/hero%204.jpg',
-    alt: 'Audiencia DevOpsDays Lima enfocada en charla técnica sobre DevOps',
     overlayClass: styles.overlayOrange
   }
 ]
 
-// ─── Component ────────────────────────────────────────────────────────────────
+function splitPromptSegment(text: string, targetSegment: string) {
+  const trimmedText = text.trim()
+  const segmentIndex = trimmedText.lastIndexOf(targetSegment)
+
+  if (segmentIndex === -1) {
+    return {
+      leadingText: trimmedText,
+      promptText: '',
+      promptEnd: '',
+    }
+  }
+
+  const leadingText = trimmedText.slice(0, segmentIndex).trimEnd()
+  const trailingText = trimmedText.slice(segmentIndex + targetSegment.length)
+  const promptEnd = trailingText.match(/^[.,;:!?]+/)?.[0] ?? ''
+
+  return {
+    leadingText,
+    promptText: targetSegment,
+    promptEnd,
+  }
+}
+
 export function HeroSection() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const copy = getHeroSectionCopy(
+    typeof document !== 'undefined' ? document.documentElement.lang || navigator.language : 'es',
+  )
+
+  const localizedGalleryImages = galleryImages.map((image, index) => ({
+    ...image,
+    ...copy.galleryImages[index],
+  }))
+  const promptTarget =
+    copy.description.includes('negocio y plataforma')
+      ? 'negocio y plataforma'
+      : 'business and platform'
+  const { leadingText, promptText, promptEnd } = splitPromptSegment(copy.description, promptTarget)
 
   useEffect(() => {
     if (!lightboxOpen) {
@@ -69,69 +101,47 @@ export function HeroSection() {
     <section
       id="hero"
       className={styles.hero}
-      aria-label="Hero DevOpsDays Lima 2026"
+      aria-label={copy.sectionAriaLabel}
     >
-      <div className={styles.videoLayer} aria-hidden="true">
-        <video
-          className={styles.videoBackground}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          <source src="/videos/hero/hummingbird.mp4" type="video/mp4" />
-        </video>
-        <div className={styles.videoFade} />
-      </div>
-
-      {/* Background decoration - HÍBRIDO DIAGONAL + DOTS */}
-      <div className={styles.bgDecoration}>
-        <div className={styles.diagonalLines} />
-        <div className={styles.diagonalLinesInverse} />
-        <div className={styles.dots} />
-        <div className={styles.dotsSecondary} />
-        <div className={styles.glowBlobTop} />
-        <div className={styles.glowBlobBottom} />
-      </div>
-
-      {/* Main Grid */}
       <div className={styles.mainGrid}>
-        
-        {/* Left: Content */}
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
           className={styles.content}
         >
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            <span className={styles.badgeText}>
-              Lima, Perú · 27–28 ago 2026
-            </span>
-          </div>
-
           <h1 className={styles.title}>
-            <img
-              src="/images/brand/logotipo.png"
-              alt="DevOpsDays Lima 2026"
-              className={styles.titleLogo}
-            />
+            <span className={styles.titleText}>
+              <span className={styles.titleMainLine}>
+                <span className={styles.titleDevOps}>DevOps</span>{' '}
+                <span className={styles.titleDays}>Days</span>
+              </span>
+              <span className={styles.titleSubline}>Lima 2026</span>
+            </span>
           </h1>
 
+          <div className={styles.mascotBetween}>
+            <img
+              src="/images/brand/mascota.png"
+              alt=""
+              className={styles.mascotDescription}
+              aria-hidden="true"
+            />
+          </div>
+
           <p className={styles.description}>
-            El punto de encuentro para Ingenieros de Software, Arquitectos, Líderes Técnicos, Ingenieros DevOps, Ingenieros de seguridad, CTOs y CIOs. Conecta con la comunidad, aprende de casos reales y acelera decisiones que impactan negocio y plataforma.
+            {leadingText}
+            {promptText ? ` ${promptText}${promptEnd}` : null}
           </p>
 
           <div className={styles.metaInfo}>
             <div className={styles.metaBadge}>
               <Calendar className={styles.iconPurple} />
-              27 – 28 de agosto, 2026
+              {copy.date}
             </div>
             <div className={styles.metaBadge}>
               <MapPin className={styles.iconOrange} />
-              Lima Centro de Convenciones (LCC)
+              {copy.location}
             </div>
           </div>
 
@@ -141,7 +151,7 @@ export function HeroSection() {
               className={`${styles.ctaButton} ${styles.ctaPrimary}`}
               data-track-name="comprar_tickets_hero_home"
             >
-              Comprar Tickets
+              {copy.primaryCta}
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
@@ -149,20 +159,19 @@ export function HeroSection() {
               className={`${styles.ctaButton} ${styles.ctaSecondary}`}
               data-track-name="call_for_speakers_hero_home"
             >
-              Call for Speakers
+              {copy.secondaryCta}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </motion.div>
 
-        {/* Right: GRID 2x2 */}
         <motion.div 
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className={styles.gallery}
         >
-          {galleryImages.map((image, idx) => (
+          {localizedGalleryImages.map((image, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -174,7 +183,7 @@ export function HeroSection() {
                 type="button"
                 className={styles.galleryButton}
                 onClick={() => openLightbox(idx)}
-                aria-label={`Abrir imagen del hero. ${image.alt}`}
+                aria-label={image.openAriaLabel}
                 data-track-name="abrir_imagen_hero_home"
               >
                 <img
@@ -207,7 +216,7 @@ export function HeroSection() {
               type="button"
               onClick={() => setLightboxOpen(false)}
               className={styles.closeButton}
-              aria-label="Cerrar imagen"
+              aria-label={copy.closeImageAriaLabel}
               data-track-name="cerrar_lightbox_hero_home"
             >
               <X className={styles.closeIcon} />
@@ -219,7 +228,7 @@ export function HeroSection() {
               </p>
             </div>
 
-            {galleryImages.length > 1 && (
+            {localizedGalleryImages.length > 1 && (
               <>
                 <button
                   type="button"
@@ -228,7 +237,7 @@ export function HeroSection() {
                     prevImage()
                   }}
                   className={`${styles.navButton} ${styles.prevButton}`}
-                  aria-label="Imagen anterior"
+                  aria-label={copy.previousImageAriaLabel}
                   data-track-name="anterior_lightbox_hero_home"
                 >
                   <ChevronLeft className={styles.chevronIcon} />
@@ -240,7 +249,7 @@ export function HeroSection() {
                     nextImage()
                   }}
                   className={`${styles.navButton} ${styles.nextButton}`}
-                  aria-label="Siguiente imagen"
+                  aria-label={copy.nextImageAriaLabel}
                   data-track-name="siguiente_lightbox_hero_home"
                 >
                   <ChevronRight className={styles.chevronIcon} />
@@ -258,13 +267,13 @@ export function HeroSection() {
               onClick={(event) => event.stopPropagation()}
             >
               <img
-                src={galleryImages[lightboxIndex].src}
-                alt={galleryImages[lightboxIndex].alt}
+                src={localizedGalleryImages[lightboxIndex].src}
+                alt={localizedGalleryImages[lightboxIndex].alt}
                 className={styles.lightboxImage}
               />
 
               <div className={styles.caption}>
-                <p className={styles.captionText}>{galleryImages[lightboxIndex].alt}</p>
+                <p className={styles.captionText}>{localizedGalleryImages[lightboxIndex].alt}</p>
               </div>
             </motion.div>
           </motion.div>
