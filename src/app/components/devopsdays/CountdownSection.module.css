@@ -1,0 +1,126 @@
+/* CountdownSection - CSS Nativo */
+
+.section {
+  position: relative;
+  background: #1e293b;
+  padding: 2.5rem 0; /* HOMOLOGADO: De 2rem a 2.5rem (40px) - mismo que CTAs con imagen */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 27%;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 0;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.7), rgba(30, 41, 59, 0.75));
+  z-index: 1;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+  }
+}
+
+/* Message */
+.message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.messageIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.messageTitle {
+  font-family: var(--brand-heading-fontFamily);
+  color: white;
+  font-weight: var(--brand-text-weight-600);
+  font-size: var(--brand-text-size-400);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-lineHeight-300);
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.countdownUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdownBox {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  will-change: contents;
+}
+
+.countdownNumber {
+  font-family: var(--brand-heading-fontFamily);
+  color: var(--color-white);
+  font-weight: var(--brand-text-weight-600);
+  font-size: var(--brand-text-size-400);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-lineHeight-300);
+}
+
+.countdownLabel {
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  font-family: var(--brand-body-fontFamily);
+  color: var(--color-slate-50);
+  font-weight: var(--brand-text-weight-400);
+  font-size: var(--brand-text-size-100);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-lineHeight-300);
+}
+
+.countdownSeparator {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 900;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}

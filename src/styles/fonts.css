@@ -1,0 +1,241 @@
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron/Orbitron-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron/Orbitron-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron/Orbitron-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron/Orbitron-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron/Orbitron-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/orbitron/Orbitron-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins/Poppins-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nico Moji';
+  src: url('/fonts/nicomoji/NicoMoji-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-primary: 'Orbitron', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+  --font-accent: 'Nico Moji', sans-serif;
+
+  --brand-fontStack-monospace: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --brand-fontStack-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --brand-heading-fontFamily: var(--font-primary);
+  --brand-body-fontFamily: var(--font-secondary);
+
+  --brand-text-size-1200: 4.5rem;
+  --brand-text-size-1100: 4rem;
+  --brand-text-size-800: 2rem;
+  --brand-text-size-700: 1.75rem;
+  --brand-text-size-500: 1.375rem;
+  --brand-text-size-400: 1.25rem;
+  --brand-text-size-300: 1.125rem;
+  --brand-text-size-200: 1rem;
+  --brand-text-size-100: 0.875rem;
+  --brand-text-size-25: 0.625rem;
+
+  --brand-text-weight-900: 800;
+  --brand-text-weight-700: 700;
+  --brand-text-weight-600: 600;
+  --brand-text-weight-500: 500;
+  --brand-text-weight-400: 400;
+  --brand-text-weight-300: 300;
+
+  --brand-text-lineHeight-900: 1.2;
+  --brand-text-lineHeight-800: 1.2;
+  --brand-text-lineHeight-400: 1.4;
+  --brand-text-lineHeight-300: 1.5;
+  --brand-text-lineHeight-solid: 1;
+  --brand-text-lineHeight-compressed: 0.85;
+
+  --brand-text-letterSpacing-300: 0.18px;
+  --brand-text-letterSpacing-100: 0.21px;
+  --brand-text-letterSpacing-wide: 0.1em;
+  --brand-text-letterSpacing-uppercase: 0.05em;
+  --brand-text-letterSpacing-tightDisplay: -0.04em;
+}
+
+@layer utilities {
+  .font-primary {
+    font-family: var(--brand-heading-fontFamily);
+  }
+
+  .font-secondary {
+    font-family: var(--brand-body-fontFamily);
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  .orbitron-regular {
+    font-family: var(--font-primary);
+    font-weight: 400;
+  }
+
+  .orbitron-medium {
+    font-family: var(--font-primary);
+    font-weight: 500;
+  }
+
+  .orbitron-semibold {
+    font-family: var(--font-primary);
+    font-weight: 600;
+  }
+
+  .orbitron-bold {
+    font-family: var(--font-primary);
+    font-weight: 700;
+  }
+
+  .orbitron-extrabold {
+    font-family: var(--font-primary);
+    font-weight: 800;
+  }
+
+  .orbitron-black {
+    font-family: var(--font-primary);
+    font-weight: 900;
+  }
+
+  .poppins-regular {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+  }
+
+  .poppins-medium {
+    font-family: var(--font-secondary);
+    font-weight: 500;
+  }
+
+  .poppins-semibold {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+  }
+
+  .poppins-bold {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+  }
+
+  .poppins-extrabold {
+    font-family: var(--font-secondary);
+    font-weight: 800;
+  }
+
+  .poppins-black {
+    font-family: var(--font-secondary);
+    font-weight: 900;
+  }
+
+  .nicomoji-regular {
+    font-family: var(--font-accent);
+    font-weight: 400;
+  }
+
+  /* Combined Classes */
+  .hero-description {
+    font-family: var(--brand-body-fontFamily);
+    font-weight: var(--brand-text-weight-300);
+    font-size: var(--brand-text-size-300);
+    line-height: var(--brand-text-lineHeight-300);
+    letter-spacing: var(--brand-text-letterSpacing-300);
+  }
+}

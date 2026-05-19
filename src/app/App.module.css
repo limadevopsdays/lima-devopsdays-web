@@ -1,0 +1,7 @@
+/* App - CSS Nativo */
+
+.app {
+  font-family: var(--brand-body-fontFamily);
+  background: #f8fafc;
+  min-height: 100vh;
+}

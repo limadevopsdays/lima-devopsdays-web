@@ -1,0 +1,87 @@
+/* SectionHeader - CSS Nativo */
+
+.container {
+  margin-bottom: 2.5rem;
+}
+
+.eyebrowContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background-color: #6B51EF;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulseDot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #6B51EF;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background: var(--color-purple-bg);
+  border: 1px solid var(--color-purple-border);
+  font-family: var(--brand-body-fontFamily);
+  font-weight: var(--brand-text-weight-600);
+  font-size: var(--brand-text-size-100);
+  line-height: var(--brand-text-lineHeight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-purple);
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.lead {
+  max-width: 42rem;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-text-muted);
+  line-height: var(--brand-text-lineHeight-300);
+}

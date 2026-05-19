@@ -1,0 +1,317 @@
+/* AboutSection - CSS Nativo */
+
+.section {
+  background: var(--color-slate-50);
+  padding: 3rem 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  position: relative;
+}
+
+/* Background */
+.bgImage {
+  display: none;
+}
+
+.bgOverlay {
+  display: none;
+}
+
+/* Content */
+.content {
+  position: relative;
+  padding: 0;
+  z-index: 1;
+}
+
+.eyebrowContainer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background: var(--color-purple-bg);
+  border: 1px solid var(--color-purple-border);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-purple);
+  line-height: var(--brand-text-lineHeight-300);
+  font-family: var(--brand-body-fontFamily);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-800);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.titleBrandLima {
+  color: var(--color-lima);
+}
+
+.titleBrandPurple {
+  color: var(--color-purple-additional);
+}
+
+.titleBrandYear {
+  color: var(--color-purple-additional);
+}
+
+.mission {
+  text-align: center;
+  max-width: 56rem;
+  margin: 0 auto 1.5rem auto;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
+  font-weight: var(--brand-text-weight-300);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-text-muted);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+/* Video */
+.videoContainer {
+  max-width: 48rem;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  aspect-ratio: 16 / 9;
+  background: var(--color-black);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.videoContainer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+}
+
+.videoPreviewIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  pointer-events: none;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.68) 0%, rgba(15, 23, 42, 0.14) 55%, rgba(15, 23, 42, 0.04) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.videoContainer:hover .videoOverlay {
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.74) 0%, rgba(15, 23, 42, 0.22) 55%, rgba(15, 23, 42, 0.08) 100%);
+}
+
+.playButton {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: var(--color-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.videoContainer:hover .playButton {
+  transform: scale(1.1);
+}
+
+.videoBadge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-slate-900);
+  border: none;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.statCard {
+  background: var(--color-white);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid var(--color-slate-200);
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--stat-color) 42%, var(--color-slate-200));
+}
+
+.statCardPrimary {
+  border-color: var(--color-purple);
+}
+
+.statCardPrimary:hover {
+  transform: none;
+  border-color: var(--color-purple);
+}
+
+.statCardLima {
+  border-color: var(--color-lima);
+}
+
+.statCardLima:hover {
+  transform: none;
+  border-color: var(--color-lima);
+}
+
+.statCardBlue {
+  border-color: var(--color-blue-additional);
+}
+
+.statCardBlue:hover {
+  transform: none;
+  border-color: var(--color-blue-additional);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.statIconWrap {
+  width: 3.75rem;
+  height: 3.75rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: none;
+}
+
+.statEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.statTitle {
+  margin: 0;
+  text-align: left;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-200);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.statSubtitle {
+  text-align: center;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-text-muted);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+/* Video Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 80rem;
+  aspect-ratio: 16/9;
+  background: var(--color-black);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.modalCloseButton:hover {
+  opacity: 0.8;
+}
+
+.modalIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.modalIframe :global(iframe) {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Icon styles */
+.playIcon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-white);
+  margin-left: 0.25rem;
+}
+
+.closeIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

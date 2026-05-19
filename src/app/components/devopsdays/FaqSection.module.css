@@ -1,0 +1,119 @@
+/* FaqSection - CSS Nativo */
+
+.section {
+  background: var(--color-slate-50);
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faqItem.open {
+  background: #faf5ff;
+  border: 1px solid #ddd6fe;
+}
+
+.faqItem.closed {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.faqButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.faqQuestion {
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
+  transition: color 0.2s ease;
+}
+
+.faqIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.faqIcon.open {
+  background: #6B51EF;
+  border: 1px solid #6B51EF;
+}
+
+.faqIcon.closed {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.faqPanel {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faqPanel.open {
+  max-height: 500px;
+}
+
+.faqPanel.closed {
+  max-height: 0;
+}
+
+.faqPanelContent {
+  padding: 0 1.5rem 1.25rem 1.5rem;
+}
+
+.faqDivider {
+  height: 1px;
+  margin-bottom: 1rem;
+  background: #e2e8f0;
+}
+
+.faqAnswer {
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--brand-color-text-muted);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.faqAnswer strong {
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-slate-900);
+  line-height: var(--brand-text-lineHeight-300);
+}

@@ -1,0 +1,197 @@
+/* FooterSection - CSS Nativo */
+
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 2.5rem 0 2rem 0;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 2rem;
+}
+
+.logoText {
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-900);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.logoDevOps {
+  color: var(--color-lima);
+}
+
+.logoDays {
+  color: var(--color-purple-additional);
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .footerContent {
+    flex-direction: row;
+  }
+}
+
+.copyright {
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
+  color: var(--brand-color-text-muted);
+}
+
+@media (min-width: 1024px) {
+  .copyright {
+    order: 1;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  order: 1;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    order: 2;
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100);
+  font-weight: var(--brand-text-weight-400);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  line-height: var(--brand-text-lineHeight-300);
+  color: var(--brand-color-text-muted);
+  text-transform: uppercase;
+}
+
+.navLink:hover {
+  color: #6B51EF;
+}
+
+.navLinkTourism {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.42rem 1.75rem 0.42rem 1.8rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #c1121f 0%, #f59e0b 52%, #0f766e 100%);
+  box-shadow:
+    0 10px 22px rgba(193, 18, 31, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+    0 0 0 3px rgba(255, 255, 255, 0.08) inset,
+    0 0 16px rgba(245, 158, 11, 0.18),
+    0 0 26px rgba(15, 118, 110, 0.16);
+  text-shadow:
+    0 1px 0 rgba(85, 10, 10, 0.22),
+    0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+.navLinkTourism::before {
+  content: '🦙';
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.navLinkTourism::after {
+  content: '🇵🇪';
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  font-size: 1.15rem;
+  animation: peruFlagWave 1.9s ease-in-out infinite;
+}
+
+.navLinkTourism:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #d61f2f 0%, #ffb11f 52%, #129285 100%);
+  transform: translateY(-1px);
+}
+
+@keyframes peruFlagWave {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg) skewY(0deg) scaleX(1);
+  }
+
+  25% {
+    transform: translateY(-50%) rotate(4deg) skewY(-4deg) scaleX(1.04);
+  }
+
+  50% {
+    transform: translateY(-50%) rotate(-2deg) skewY(3deg) scaleX(0.98);
+  }
+
+  75% {
+    transform: translateY(-50%) rotate(3deg) skewY(-2deg) scaleX(1.03);
+  }
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  order: 3;
+}
+
+.socialLink {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: #6B51EF;
+  border-color: #6B51EF;
+}
+
+.socialIcon {
+  width: 1rem;
+  height: 1rem;
+  transition: color 0.2s ease;
+  color: #64748b;
+}
+
+.socialLink:hover .socialIcon {
+  color: #ffffff;
+}
