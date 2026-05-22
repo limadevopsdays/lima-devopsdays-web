@@ -33,19 +33,19 @@ const storytellingStats = [
   { 
     emoji: '🎉',
     title: 'La comunidad más grande de Perú', 
-    subtitle: 'Se esperan +800 participantes',
+    subtitle: 'Se esperan +800 participantes entre Ingenieros DevOps, Ingenieros de seguridad, CTOs y CIOs',
     color: '#6B51EF'
   },
   { 
     emoji: '✨',
     title: 'Dos días completos de aprendizaje', 
-    subtitle: 'Charlas + Talleres + Open Spaces + Networking',
+    subtitle: 'Charlas (Keynotes, speakers) + Talleres + Open Spaces + Networking',
     color: '#93e279'
   },
   { 
     emoji: '🥳',
     title: 'Regresamos en el 2026', 
-    subtitle: '2da edición del evento en Lima Centro de Convenciones (LCC)',
+    subtitle: 'Con nuestra 2da edición del evento en Lima Centro de Convenciones (LCC)',
     color: 'var(--color-blue-additional)'
   },
 ]
