@@ -229,8 +229,8 @@
 .statTitle {
   margin: 0;
   text-align: left;
-  font-family: var(--brand-heading-fontFamily);
-  font-size: var(--brand-text-size-200);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--brand-color-slate-900);

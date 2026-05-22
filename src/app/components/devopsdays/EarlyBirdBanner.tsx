@@ -1,4 +1,4 @@
-import { Zap } from 'lucide-react'
+import { CalendarDays, Sparkles, Zap } from 'lucide-react'
 import styles from './EarlyBirdBanner.module.css'
 
 export function EarlyBirdBanner() {
@@ -39,6 +39,22 @@ export function EarlyBirdBanner() {
             <div className={styles.floatingBadge}>
               <Zap className={styles.floatingBadgeIcon} />
               <span className={styles.floatingBadgeText}>¡SOLO POR POCOS DIAS!</span>
+            </div>
+
+            <div className={styles.floatingBadgeSecondary}>
+              <div className={styles.floatingBadgeSecondaryItem}>
+                <CalendarDays className={styles.floatingBadgeSecondaryIcon} />
+                <span className={styles.floatingBadgeText}>
+                  Se amplia hasta el <span className={styles.floatingBadgeHighlight}>15 de junio</span>
+                </span>
+              </div>
+
+              <div className={styles.floatingBadgeSecondaryItem}>
+                <Sparkles className={styles.floatingBadgeSecondaryIcon} />
+                <span className={styles.floatingBadgeText}>
+                  Nos vemos este <span className={styles.floatingBadgeHighlight}>27 y 28 de agosto</span>
+                </span>
+              </div>
             </div>
 
             <div className={styles.discountCard}>

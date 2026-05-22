@@ -89,7 +89,12 @@
 .heartPulse {
   display: inline-block;
   transform-origin: center;
-  animation: heartPulse 2.1s ease-in-out infinite;
+  text-shadow:
+    0 0 0 rgba(253, 224, 71, 0),
+    0 0 10px rgba(253, 224, 71, 0.18);
+  animation:
+    heartPulse 2.1s ease-in-out infinite,
+    highlightPulse 2.2s ease-in-out infinite;
 }
 
 .titleSubtitle {
@@ -138,12 +143,71 @@
   }
 }
 
+@keyframes highlightPulse {
+  0%,
+  100% {
+    color: #fde047;
+    text-shadow:
+      0 0 0 rgba(253, 224, 71, 0),
+      0 0 10px rgba(253, 224, 71, 0.18);
+  }
+
+  50% {
+    color: #fef08a;
+    text-shadow:
+      0 0 10px rgba(253, 224, 71, 0.38),
+      0 0 22px rgba(253, 224, 71, 0.34),
+      0 0 34px rgba(253, 224, 71, 0.22);
+  }
+}
+
+@keyframes whiteHighlightPulse {
+  0%,
+  100% {
+    color: var(--color-white);
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      0 0 0 rgba(255, 255, 255, 0),
+      0 0 8px rgba(255, 255, 255, 0.12);
+  }
+
+  50% {
+    color: #ffffff;
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      0 0 10px rgba(255, 255, 255, 0.28),
+      0 0 22px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes discountSparkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(18deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .heartPulse {
     animation: none;
   }
 
   .floatingBadge {
+    animation: none;
+  }
+
+  .floatingBadgeHighlight {
+    animation: none;
+  }
+
+  .cardDiscount::before,
+  .cardDiscount::after {
     animation: none;
   }
 }
@@ -180,7 +244,7 @@
   position: relative;
   min-height: 160px;
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,7 +275,6 @@
   font-family: var(--brand-body-fontFamily);
   font-size: var(--brand-text-size-25);
   font-weight: var(--brand-text-weight-600);
-  text-transform: uppercase;
   line-height: var(--brand-text-lineHeight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
   z-index: 2;
@@ -227,6 +290,73 @@
 
 .floatingBadgeText {
   line-height: var(--brand-text-lineHeight-solid);
+}
+
+.floatingBadgeSecondary {
+  position: absolute;
+  top: 3.9rem;
+  left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: 21rem;
+  text-transform: none;
+  text-shadow:
+    0 2px 0 rgba(15, 23, 42, 0.42),
+    0 10px 22px rgba(15, 23, 42, 0.48),
+    0 0 28px rgba(255, 255, 255, 0.2);
+  animation: none;
+  z-index: 2;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: var(--brand-text-size-400);
+  font-weight: var(--brand-text-weight-600);
+  letter-spacing: var(--brand-text-letterSpacing-300);
+  color: var(--color-white);
+  line-height: var(--brand-text-lineHeight-300);
+}
+
+.floatingBadgeSecondaryItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.floatingBadgeSecondaryIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  color: #fde68a;
+  filter: drop-shadow(0 6px 14px rgba(15, 23, 42, 0.35));
+}
+
+.floatingBadgeSecondary .floatingBadgeText {
+  display: block;
+  line-height: 1.05;
+}
+
+.floatingBadgeHighlight {
+  color: #fde047;
+  display: inline-block;
+  animation: highlightPulse 2.2s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+  .floatingBadgeSecondary {
+    top: 3.85rem;
+    max-width: 15rem;
+    font-size: var(--brand-text-size-200);
+    line-height: 1.1;
+  }
+
+  .floatingBadgeSecondaryItem {
+    gap: 0.5rem;
+  }
+
+  .floatingBadgeSecondaryIcon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
 }
 
 .discountCard {
@@ -278,10 +408,37 @@
 }
 
 .cardDiscount {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 0.25rem;
   font-weight: var(--brand-text-weight-900);
+}
+
+.cardDiscount::before,
+.cardDiscount::after {
+  content: '✦';
+  position: absolute;
+  color: #fde047;
+  line-height: 1;
+  text-shadow:
+    0 0 10px rgba(253, 224, 71, 0.6),
+    0 0 18px rgba(255, 255, 255, 0.28);
+  animation: discountSparkle 1.9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cardDiscount::before {
+  top: 0.1rem;
+  left: -1rem;
+  font-size: 1rem;
+}
+
+.cardDiscount::after {
+  right: -0.9rem;
+  bottom: 0.25rem;
+  font-size: 0.8rem;
+  animation-delay: 0.8s;
 }
 
 .cardDiscountNumber {
@@ -290,7 +447,10 @@
   color: var(--color-white);
   line-height: var(--brand-text-lineHeight-compressed);
   letter-spacing: var(--brand-text-letterSpacing-tightDisplay);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 8px rgba(253, 224, 71, 0.12);
+  animation: whiteHighlightPulse 2.2s ease-in-out infinite;
 }
 
 @media (min-width: 768px) {
@@ -304,7 +464,10 @@
   font-weight: var(--brand-text-weight-900);
   color: var(--color-white);
   line-height: var(--brand-text-lineHeight-compressed);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 8px rgba(253, 224, 71, 0.12);
+  animation: whiteHighlightPulse 2.2s ease-in-out infinite;
 }
 
 .cardFooter {
