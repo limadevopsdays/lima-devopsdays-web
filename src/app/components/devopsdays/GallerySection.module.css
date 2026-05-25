@@ -72,6 +72,19 @@
   margin-bottom: -6px;
 }
 
+.carouselWrapper :global(.slick-track) {
+  display: flex !important;
+}
+
+.carouselWrapper :global(.slick-slide) {
+  flex-shrink: 0;
+  height: inherit !important;
+}
+
+.carouselWrapper :global(.slick-slide > div) {
+  height: 100%;
+}
+
 @media (max-width: 768px) {
   .gallery {
     margin-top: 2rem;
@@ -80,6 +93,7 @@
 
 .slideWrapper {
   padding: 0 12px;
+  height: 100%;
 }
 
 .imageContainer {
@@ -274,8 +288,8 @@
   justify-content: center;
   gap: 8px;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 :global(.slick-dots li) {
@@ -315,7 +329,7 @@
   }
   
   .carouselWrapper {
-    padding: 0 40px;
+    padding: 0 0 3rem;
   }
 }
 
@@ -340,7 +354,7 @@
 
 @media (max-width: 640px) {
   .carouselWrapper {
-    padding: 0 30px;
+    padding: 0 0 3rem;
   }
   
   .imageContainer {
@@ -355,6 +369,10 @@
   .arrow svg {
     width: 20px;
     height: 20px;
+  }
+
+  .slideWrapper {
+    padding: 0;
   }
 
   .lightboxImageContainer {

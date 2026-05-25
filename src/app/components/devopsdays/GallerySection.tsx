@@ -78,6 +78,35 @@ function PrevArrow(props: any) {
 export function GallerySection() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [visibleGallerySlides, setVisibleGallerySlides] = useState(3)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 1024px)')
+
+    const syncVisibleSlides = () => {
+      setVisibleGallerySlides(mediaQuery.matches ? 1 : 3)
+    }
+
+    syncVisibleSlides()
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', syncVisibleSlides)
+
+      return () => {
+        mediaQuery.removeEventListener('change', syncVisibleSlides)
+      }
+    }
+
+    mediaQuery.addListener(syncVisibleSlides)
+
+    return () => {
+      mediaQuery.removeListener(syncVisibleSlides)
+    }
+  }, [])
 
   useEffect(() => {
     if (!lightboxOpen) return
@@ -113,29 +142,14 @@ export function GallerySection() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: visibleGallerySlides,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
+    arrows: visibleGallerySlides > 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
   }
 
   return (
