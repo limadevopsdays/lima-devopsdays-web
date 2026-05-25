@@ -3,6 +3,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { ChevronLeft, ChevronRight, Send, Github, Linkedin } from 'lucide-react'
 import { Link } from 'react-router'
+import { useEffect, useState } from 'react'
 import styles from './SpeakersSection.module.css'
 import { SectionHeader } from './SectionHeader'
 
@@ -216,37 +217,48 @@ function InvitedPrevArrow(props: any) {
 }
 
 export function SpeakersSection() {
+  const [visibleInvitedSlides, setVisibleInvitedSlides] = useState(4)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 1199px)')
+
+    const syncVisibleSlides = () => {
+      setVisibleInvitedSlides(mediaQuery.matches ? 1 : 4)
+    }
+
+    syncVisibleSlides()
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', syncVisibleSlides)
+
+      return () => {
+        mediaQuery.removeEventListener('change', syncVisibleSlides)
+      }
+    }
+
+    mediaQuery.addListener(syncVisibleSlides)
+
+    return () => {
+      mediaQuery.removeListener(syncVisibleSlides)
+    }
+  }, [])
+
   const invitedCarouselSettings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: visibleInvitedSlides,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
+    arrows: visibleInvitedSlides > 1,
     nextArrow: <InvitedNextArrow />,
     prevArrow: <InvitedPrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
   }
 
   return (
