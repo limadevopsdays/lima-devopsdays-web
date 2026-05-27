@@ -6,8 +6,6 @@ import TicketsPage from './pages/TicketsPage'
 import SpeakersPage from './pages/SpeakersPage'
 import CodeOfConductPage from './pages/CodeOfConductPage'
 import NotFoundPage from './pages/NotFoundPage'
-import HomeSpacingMockupsPage from './pages/HomeSpacingMockupsPage'
-import SorteoEntradasPage from './pages/SorteoEntradasPage'
 
 function LegacyCodeOfConductRedirect() {
   return Navigate({ to: '/code-of-conduct', replace: true })
@@ -26,15 +24,11 @@ export const router = createBrowserRouter([
         path: 'sponsors', 
         Component: SponsorsPage 
       },
-      { 
-        path: 'tickets', 
-        Component: TicketsPage 
+      {
+        path: 'tickets',
+        Component: TicketsPage
       },
       {
-        path: 'sorteo-entradas',
-        Component: SorteoEntradasPage,
-      },
-      { 
         path: 'speakers', 
         Component: SpeakersPage 
       },
@@ -47,10 +41,6 @@ export const router = createBrowserRouter([
         Component: LegacyCodeOfConductRedirect,
       },
       {
-        path: 'mockups/home-spacing',
-        Component: HomeSpacingMockupsPage,
-      },
-      { 
         path: '*', 
         Component: NotFoundPage 
       },
