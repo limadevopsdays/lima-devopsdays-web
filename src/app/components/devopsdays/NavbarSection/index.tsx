@@ -129,7 +129,7 @@ export function NavbarSection() {
           })}
         </ul>
 
-        {/* Lang toggle — desktop */}
+        {/* Lang toggle — desktop: variante A (pill solo activo) */}
         <div className={styles.langToggle} role="group" aria-label="Idioma / Language">
           <button
             type="button"

@@ -354,18 +354,11 @@
   transform: translateY(-2px);
 }
 
-/* Lang Toggle — desktop
-   El hero tiene background blanco, así que usamos estilo violeta
-   en ambos estados (no-scrolled y scrolled). */
+/* Lang Toggle — desktop: variante A (pill solo en opción activa, sin contenedor) */
 .langToggle {
   display: none;
   align-items: center;
   gap: 0;
-  padding: 0.18rem 0.3rem;
-  border-radius: 9999px;
-  background: rgba(107, 81, 239, 0.08);
-  border: 1px solid rgba(107, 81, 239, 0.22);
-  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -375,7 +368,7 @@
 }
 
 .langOption {
-  padding: 0.18rem 0.5rem;
+  padding: 0.18rem 0.55rem;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -397,6 +390,10 @@
   font-weight: 800;
 }
 
+.langOptionActive:hover {
+  color: #ffffff;
+}
+
 .langDivider {
   color: rgba(0, 0, 0, 0.2);
   font-size: 0.6rem;
@@ -405,12 +402,7 @@
   line-height: 1;
 }
 
-/* Scrolled state — mismos colores, borde ligeramente más definido */
-.navbar.scrolled .langToggle {
-  background: rgba(107, 81, 239, 0.07);
-  border-color: rgba(107, 81, 239, 0.18);
-}
-
+/* Scrolled state: sin cambios visuales, el pill ya funciona sobre blanco */
 .navbar.scrolled .langOption {
   color: rgba(0, 0, 0, 0.55);
 }
@@ -421,6 +413,10 @@
 
 .navbar.scrolled .langOptionActive {
   background: #6B51EF;
+  color: #ffffff;
+}
+
+.navbar.scrolled .langOptionActive:hover {
   color: #ffffff;
 }
 
