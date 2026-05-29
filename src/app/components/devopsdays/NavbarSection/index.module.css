@@ -99,7 +99,7 @@
   position: relative;
   color: #ffffff;
   font-weight: 700;
-  padding: 0.18rem 1.7rem 0.18rem 1.45rem;
+  padding: 0.18rem 0.95rem;
   border-radius: 0.9rem;
   background: linear-gradient(135deg, #c1121f 0%, #f59e0b 52%, #0f766e 100%);
   box-shadow:
@@ -112,27 +112,6 @@
   text-shadow:
     0 1px 0 rgba(85, 10, 10, 0.22),
     0 0 12px rgba(255, 255, 255, 0.18);
-}
-
-.navLinkTourism::before {
-  content: '🦙';
-  position: absolute;
-  left: 0.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.05rem;
-  animation: llamaBob 2.8s ease-in-out infinite;
-}
-
-.navLinkTourism::after {
-  content: '🇵🇪';
-  position: absolute;
-  right: 0.05rem;
-  top: 50%;
-  transform: translateY(-50%);
-  transform-origin: left center;
-  font-size: 1.15rem;
-  animation: peruFlagWave 1.9s ease-in-out infinite;
 }
 
 .navLinkTourism:hover {
@@ -158,36 +137,6 @@
       0 0 0 1px rgba(255, 255, 255, 0.28) inset,
       0 0 22px rgba(245, 158, 11, 0.26),
       0 0 36px rgba(15, 118, 110, 0.24);
-  }
-}
-
-@keyframes llamaBob {
-  0%,
-  100% {
-    transform: translateY(-50%) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(calc(-50% - 1px)) rotate(-4deg);
-  }
-}
-
-@keyframes peruFlagWave {
-  0%,
-  100% {
-    transform: translateY(-50%) rotate(0deg) skewY(0deg) scaleX(1);
-  }
-
-  25% {
-    transform: translateY(-50%) rotate(4deg) skewY(-4deg) scaleX(1.04);
-  }
-
-  50% {
-    transform: translateY(-50%) rotate(-2deg) skewY(3deg) scaleX(0.98);
-  }
-
-  75% {
-    transform: translateY(-50%) rotate(3deg) skewY(-2deg) scaleX(1.03);
   }
 }
 
