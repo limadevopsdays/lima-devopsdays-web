@@ -26,6 +26,10 @@
   --tier-divider-color: 242, 185, 80;
 }
 
+.platinumCard[data-tier="silver"] {
+  --tier-divider-color: 141, 145, 145;
+}
+
 .platinumCard[data-tier="bronze"] {
   --tier-divider-color: 169, 113, 85;
 }
@@ -99,6 +103,7 @@
 
 .platinumContent,
 .goldContent,
+.silverContent,
 .bronzeContent,
 .communityContent {
   padding: 2rem 0 1rem;
@@ -119,6 +124,7 @@
 
 .platinumBadgeText,
 .goldBadgeText,
+.silverBadgeText,
 .bronzeBadgeText,
 .communityBadgeText {
   margin-bottom: 2rem;
@@ -136,6 +142,42 @@
     0 0 20px color-mix(in srgb, var(--tier-color, var(--color-purple)) 8%, transparent);
   animation: platinumBadgeGlow 2.1s ease-in-out infinite;
   line-height: var(--brand-text-lineHeight-300);
+}
+
+.silverBadgeText {
+  color: #7d8181;
+  text-shadow:
+    0 0 5px rgba(125, 129, 129, 0.2),
+    0 0 12px rgba(125, 129, 129, 0.14),
+    0 0 20px rgba(125, 129, 129, 0.08);
+  animation: silverBadgeGlow 2.1s ease-in-out infinite;
+}
+
+.silverBadgeText .platinumBadgeIcon {
+  color: #8f9494 !important;
+  filter:
+    drop-shadow(0 0 5px rgba(143, 148, 148, 0.22))
+    drop-shadow(0 0 12px rgba(143, 148, 148, 0.14))
+    drop-shadow(0 0 18px rgba(143, 148, 148, 0.08));
+}
+
+@keyframes silverBadgeGlow {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px rgba(125, 129, 129, 0.2),
+      0 0 12px rgba(125, 129, 129, 0.14),
+      0 0 20px rgba(125, 129, 129, 0.08);
+  }
+
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 7px rgba(125, 129, 129, 0.28),
+      0 0 15px rgba(125, 129, 129, 0.18),
+      0 0 24px rgba(125, 129, 129, 0.1);
+  }
 }
 
 @keyframes platinumBadgeGlow {
@@ -160,6 +202,7 @@
 .logosGrid,
 .platinumLogosGrid,
 .goldLogosGrid,
+.silverLogosGrid,
 .bronzeLogosGrid,
 .communityLogosGrid {
   display: flex;
@@ -174,6 +217,7 @@
 .logoContainer,
 .platinumLogoContainer,
 .goldLogoContainer,
+.silverLogoContainer,
 .bronzeLogoContainer,
 .communityLogoContainer {
   background: var(--color-white);
@@ -188,6 +232,7 @@
 }
 
 .goldLogoContainer,
+.silverLogoContainer,
 .bronzeLogoContainer,
 .communityLogoContainer {
   flex-basis: 15rem;
@@ -197,6 +242,7 @@
 }
 
 .goldContent,
+.silverContent,
 .bronzeContent,
 .communityContent {
   padding: 1.5rem 0 0.75rem;

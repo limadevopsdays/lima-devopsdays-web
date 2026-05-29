@@ -19,7 +19,6 @@ const TIER_DECORATION = {
   bronze: { Icon: Shield, color: '#A97155' },
   community: { Icon: Users, color: '#84CC16' },
 } as const
-const DISPLAYED_TIER_IDS = ['platinum', 'gold', 'bronze', 'community'] as const
 const TIER_CLASS_NAMES = {
   platinum: {
     content: 'platinumContent',
@@ -32,6 +31,12 @@ const TIER_CLASS_NAMES = {
     badgeText: 'goldBadgeText',
     logosGrid: 'goldLogosGrid',
     logoContainer: 'goldLogoContainer',
+  },
+  silver: {
+    content: 'silverContent',
+    badgeText: 'silverBadgeText',
+    logosGrid: 'silverLogosGrid',
+    logoContainer: 'silverLogoContainer',
   },
   bronze: {
     content: 'bronzeContent',
@@ -50,8 +55,8 @@ const TIER_CLASS_NAMES = {
 export function SponsorsSection() {
   const t = useI18n(sponsorsI18n)
   const displayedTiers = sponsorTiers
-    .filter((tier): tier is (typeof sponsorTiers)[number] & { id: (typeof DISPLAYED_TIER_IDS)[number] } =>
-      DISPLAYED_TIER_IDS.includes(tier.id as (typeof DISPLAYED_TIER_IDS)[number]),
+    .filter((tier): tier is (typeof sponsorTiers)[number] & { id: keyof typeof TIER_CLASS_NAMES } =>
+      tier.id in TIER_CLASS_NAMES,
     )
     .map((tier) => ({
       ...tier,

@@ -11,7 +11,11 @@ import {
 export type KeynoteSpeaker = {
   name: string
   tag: string
+  country: string
+  company?: string
   role: string
+  thematicAxis?: string
+  thematicAxisColor?: string
   topic: string
   topicSecondLine?: string
   imageSrc: string
@@ -37,7 +41,11 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
     {
       name: 'Marc Hornbeek',
       tag: 'INTERNACIONAL',
-      role: 'CEO y consultor principal',
+      country: 'Estados Unidos',
+      company: 'DevOps Institute',
+      role: 'DevOps Senior Advisor, and Subject Matter Expert',
+      thematicAxis: 'Seguridad y Transformación Tecnológica',
+      thematicAxisColor: '#f97316',
       topic: 'Beyond DevSecOps: The Era of Intelligent Continuous Security',
       imageSrc: '/images/speakers/keynotes/marc_hornbeek.jpg',
       imagePosition: 'center center',
@@ -46,24 +54,30 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
       linkedin: 'https://www.linkedin.com/in/marchornbeek/',
     },
     {
-      name: 'Xavier Rene-Corail',
+      name: 'Xavier René-Corail',
       tag: 'INTERNACIONAL',
-      role: 'Lider de Github Security Labs',
-      topic: 'Seguridad en pipelines de CI/CD, integrada de extremo a extremo.',
-      topicSecondLine: 'Proteccion de la cadena de suministro de software (supply chain security).',
-      imageSrc: '/images/speakers/keynotes/xavier_rene.jpeg',
-      imagePosition: 'center bottom',
-      imageFit: 'contain',
-      alt: 'Xavier Rene-Corail, keynote speaker invitado en DevOpsDays Lima',
+      country: 'Estados Unidos',
+      company: 'GitHub',
+      role: 'Senior Director, GitHub Security Lab',
+      thematicAxis: 'IA Empresarial y Estrategia de Datos',
+      thematicAxisColor: '#a78bfa',
+      topic: 'Open source security in the AI era',
+      imageSrc: '/images/speakers/keynotes/rene-corail.jpeg',
+      imagePosition: 'center center',
+      imageFit: 'cover',
+      alt: 'Xavier René-Corail, keynote speaker invitado en DevOpsDays Lima',
       linkedin: 'https://www.linkedin.com/in/xavier-ren%C3%A9-corail-2428431?trk=public_post-text',
-      github: 'https://github.com/xcorail',
     },
   ],
   en: [
     {
       name: 'Marc Hornbeek',
       tag: 'INTERNATIONAL',
-      role: 'CEO and Principal Consultant',
+      country: 'United States',
+      company: 'DevOps Institute',
+      role: 'DevOps Senior Advisor, and Subject Matter Expert',
+      thematicAxis: 'Security & Technology Transformation',
+      thematicAxisColor: '#f97316',
       topic: 'Beyond DevSecOps: The Era of Intelligent Continuous Security',
       imageSrc: '/images/speakers/keynotes/marc_hornbeek.jpg',
       imagePosition: 'center center',
@@ -72,17 +86,19 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
       linkedin: 'https://www.linkedin.com/in/marchornbeek/',
     },
     {
-      name: 'Xavier Rene-Corail',
+      name: 'Xavier René-Corail',
       tag: 'INTERNATIONAL',
-      role: 'Head of GitHub Security Labs',
-      topic: 'Seguridad en pipelines de CI/CD, integrada de extremo a extremo.',
-      topicSecondLine: 'Proteccion de la cadena de suministro de software (supply chain security).',
-      imageSrc: '/images/speakers/keynotes/xavier_rene.jpeg',
-      imagePosition: 'center bottom',
-      imageFit: 'contain',
-      alt: 'Xavier Rene-Corail, keynote speaker at DevOpsDays Lima',
+      country: 'United States',
+      company: 'GitHub',
+      role: 'Senior Director, GitHub Security Lab',
+      thematicAxis: 'Enterprise AI & Data Strategy',
+      thematicAxisColor: '#a78bfa',
+      topic: 'Open source security in the AI era',
+      imageSrc: '/images/speakers/keynotes/rene-corail.jpeg',
+      imagePosition: 'center center',
+      imageFit: 'cover',
+      alt: 'Xavier René-Corail, keynote speaker at DevOpsDays Lima',
       linkedin: 'https://www.linkedin.com/in/xavier-ren%C3%A9-corail-2428431?trk=public_post-text',
-      github: 'https://github.com/xcorail',
     },
   ],
 }
@@ -98,7 +114,7 @@ export const invitedSpeakersI18n: Record<Locale, InvitedSpeaker[]> = {
     { name: 'Emma Flores',         role: 'Digital Architecture Manager en NTT DATA',                                           country: 'Perú',      topic: 'De la automatización a la inteligencia operacional',                                                                                      imageSrc: '/images/speakers/speakers/emma_flores.png',           alt: 'Emma Flores, speaker invitado en DevOpsDays Lima' },
     { name: 'Sebastian Rojas',     role: 'Field Software Engineer en CANONICAL',                                               country: 'Perú',      topic: 'Convirtiendo baremetal en Nube: Despliega cualquier servidor físico con MAAS.',                                                          imageSrc: '/images/speakers/speakers/sebastian_rojas.png',       alt: 'Sebastian Rojas, speaker invitado en DevOpsDays Lima' },
     { name: 'Francisco Lopez',     role: 'Director Arquitectura y Estrategia - Risk & Compliance en Royal Bank de Canada',     country: 'Perú',      topic: 'Entrenar en la Nube, Desplegar en Casa: Estrategia Empresarial Híbrida para LLMs y modelos ML.',                                       imageSrc: '/images/speakers/speakers/francisco_lopez.png',       alt: 'Francisco Lopez, speaker invitado en DevOpsDays Lima' },
-    { name: 'Ricardo Amarilla',    role: 'Senior Solutions Architect en GITLAB',                                               country: 'Paraguay',  topic: 'De Reactivo a Proactivo: Escalando DevSecOps con Agentes de IA.',                                                                        imageSrc: '/images/speakers/speakers/ricardo_amarilla .png',     alt: 'Ricardo Amarilla, speaker invitado en DevOpsDays Lima' },
+    { name: 'Ricardo Amarilla',    role: 'Senior Solutions Architect en GITLAB',                                               country: 'Paraguay',  topic: 'De Reactivo a Proactivo: Escalando DevSecOps con Agentes de IA.',                                                                        imageSrc: '/images/speakers/speakers/ricardo_amarilla.png',      alt: 'Ricardo Amarilla, speaker invitado en DevOpsDays Lima' },
     { name: 'Angelo Leva',         role: 'GDG Lead en TRANZACT',                                                               country: 'Perú',      topic: 'Specs antes que prompts: Spec Driven Development para Agentic Coding.',                                                                   imageSrc: '/images/speakers/speakers/angelo_leva.png',           alt: 'Angelo Leva, speaker invitado en DevOpsDays Lima' },
     { name: 'Carlos Gallardo',     role: 'CTO en CLEVERIT',                                                                    country: 'Chile',     topic: 'El AI Orchestrator cómo el SDLC debe cambiar.',                                                                                          imageSrc: '/images/speakers/speakers/carlos_gallardo.png',       alt: 'Carlos Gallardo, speaker invitado en DevOpsDays Lima' },
     { name: 'Victor Alvarez',      role: 'Systems Reliability Officer en Scotiabank',                                          country: 'Perú',      topic: 'De la reacción a la resiliencia: Escalando SRE del incidente a la decisión ejecutiva.',                                                  imageSrc: '/images/speakers/speakers/victor_alvarez.png',        alt: 'Victor Alvarez, speaker invitado en DevOpsDays Lima' },
@@ -114,7 +130,7 @@ export const invitedSpeakersI18n: Record<Locale, InvitedSpeaker[]> = {
     { name: 'Emma Flores',         role: 'Digital Architecture Manager at NTT DATA',                                           country: 'Perú',      topic: 'De la automatización a la inteligencia operacional',                                                                                      imageSrc: '/images/speakers/speakers/emma_flores.png',           alt: 'Emma Flores, invited speaker at DevOpsDays Lima' },
     { name: 'Sebastian Rojas',     role: 'Field Software Engineer at CANONICAL',                                               country: 'Perú',      topic: 'Convirtiendo baremetal en Nube: Despliega cualquier servidor físico con MAAS.',                                                          imageSrc: '/images/speakers/speakers/sebastian_rojas.png',       alt: 'Sebastian Rojas, invited speaker at DevOpsDays Lima' },
     { name: 'Francisco Lopez',     role: 'Architecture & Strategy Director - Risk & Compliance at Royal Bank of Canada',       country: 'Perú',      topic: 'Entrenar en la Nube, Desplegar en Casa: Estrategia Empresarial Híbrida para LLMs y modelos ML.',                                       imageSrc: '/images/speakers/speakers/francisco_lopez.png',       alt: 'Francisco Lopez, invited speaker at DevOpsDays Lima' },
-    { name: 'Ricardo Amarilla',    role: 'Senior Solutions Architect at GITLAB',                                               country: 'Paraguay',  topic: 'De Reactivo a Proactivo: Escalando DevSecOps con Agentes de IA.',                                                                        imageSrc: '/images/speakers/speakers/ricardo_amarilla .png',     alt: 'Ricardo Amarilla, invited speaker at DevOpsDays Lima' },
+    { name: 'Ricardo Amarilla',    role: 'Senior Solutions Architect at GITLAB',                                               country: 'Paraguay',  topic: 'De Reactivo a Proactivo: Escalando DevSecOps con Agentes de IA.',                                                                        imageSrc: '/images/speakers/speakers/ricardo_amarilla.png',      alt: 'Ricardo Amarilla, invited speaker at DevOpsDays Lima' },
     { name: 'Angelo Leva',         role: 'GDG Lead at TRANZACT',                                                               country: 'Perú',      topic: 'Specs antes que prompts: Spec Driven Development para Agentic Coding.',                                                                   imageSrc: '/images/speakers/speakers/angelo_leva.png',           alt: 'Angelo Leva, invited speaker at DevOpsDays Lima' },
     { name: 'Carlos Gallardo',     role: 'CTO at CLEVERIT',                                                                    country: 'Chile',     topic: 'El AI Orchestrator cómo el SDLC debe cambiar.',                                                                                          imageSrc: '/images/speakers/speakers/carlos_gallardo.png',       alt: 'Carlos Gallardo, invited speaker at DevOpsDays Lima' },
     { name: 'Victor Alvarez',      role: 'Systems Reliability Officer at Scotiabank',                                          country: 'Perú',      topic: 'De la reacción a la resiliencia: Escalando SRE del incidente a la decisión ejecutiva.',                                                  imageSrc: '/images/speakers/speakers/victor_alvarez.png',        alt: 'Victor Alvarez, invited speaker at DevOpsDays Lima' },
