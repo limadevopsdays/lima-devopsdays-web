@@ -13,6 +13,7 @@ type SpeakersI18n = {
   ariaGitHub: (name: string) => string
   invitedTitle: string
   invitedLead: string
+  talkLabel: string
   cfsAvailableBadge: string
   cfsTitle: string
   cfsDescription: string
@@ -38,6 +39,7 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     ariaGitHub: (name) => `Ver perfil de GitHub de ${name}`,
     invitedTitle: 'Speakers invitados',
     invitedLead: 'Una selección de speakers con experiencia en platform engineering, DevSecOps, SRE, IA y liderazgo técnico.',
+    talkLabel: 'Charla:',
     cfsAvailableBadge: 'CALL FOR SPEAKERS DISPONIBLE',
     cfsTitle: 'Call for Speakers 2026',
     cfsDescription:
@@ -67,6 +69,7 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     ariaGitHub: (name) => `View ${name}'s GitHub profile`,
     invitedTitle: 'Invited Speakers',
     invitedLead: 'A selection of speakers with expertise in platform engineering, DevSecOps, SRE, AI, and technical leadership.',
+    talkLabel: 'Talk:',
     cfsAvailableBadge: 'CALL FOR SPEAKERS OPEN',
     cfsTitle: 'Call for Speakers 2026',
     cfsDescription:

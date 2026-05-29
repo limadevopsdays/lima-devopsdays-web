@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import { ChevronLeft, ChevronRight, Send, Github, Linkedin } from 'lucide-react'
 import { Link } from 'react-router'
 import { useEffect, useState } from 'react'
+import type { CSSProperties } from 'react'
 import styles from './index.module.css'
 import { SectionHeader } from '../SectionHeader'
 import { useI18n } from '../../../i18n'
@@ -104,70 +105,95 @@ export function SpeakersSection() {
               <div className={styles.keynoteShowcase}>
                 {keynoteSpeakers.map((speaker) => (
                   <article key={speaker.name} className={styles.keynoteCard}>
-                  <div className={styles.keynoteImageFrame}>
-                    <a
-                      href={speaker.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.keynoteImageLink}
-                      aria-label={t.ariaLinkedIn(speaker.name)}
-                      data-track-name="ver_linkedin_keynote_home"
-                    >
-                      <img
-                        className={styles.keynoteImage}
-                        src={speaker.imageSrc}
-                        alt={speaker.alt}
-                        loading="lazy"
-                        style={{
-                          objectPosition: speaker.imagePosition,
-                          objectFit: speaker.imageFit,
-                        }}
-                      />
-                      <div className={styles.keynoteImageOverlay} aria-hidden="true" />
-                    </a>
-                  </div>
+                    <div className={styles.keynoteCardInner}>
+                      <div className={styles.keynoteProfileImageBio}>
+                        <div className={styles.keynoteProfileImageWrapper}>
+                          <a
+                            href={speaker.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.keynoteImageLink}
+                            aria-label={t.ariaLinkedIn(speaker.name)}
+                            data-track-name="ver_linkedin_keynote_home"
+                          >
+                            <img
+                              className={styles.keynoteImage}
+                              src={speaker.imageSrc}
+                              alt={speaker.alt}
+                              loading="lazy"
+                              style={{
+                                objectPosition: speaker.imagePosition,
+                                objectFit: speaker.imageFit,
+                              }}
+                            />
+                            <div className={styles.keynoteImageOverlay} aria-hidden="true" />
+                          </a>
+                          <span
+                            className={styles.keynoteCountryFlag}
+                            data-country={speaker.country}
+                            aria-label={speaker.country}
+                          />
+                        </div>
 
-                  <div className={styles.keynoteMeta}>
-                    <div className={styles.keynoteTagRow}>
-                      <span className={styles.keynoteTag}>
-                        {speaker.tag}
-                      </span>
-                      <a
-                        href={speaker.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.keynoteLinkedin}
-                        aria-label={t.ariaLinkedIn(speaker.name)}
-                        data-track-name="ver_linkedin_tag_keynote_home"
-                      >
-                        <Linkedin className={styles.keynoteLinkedinIcon} />
-                      </a>
-                      {speaker.github ? (
-                        <a
-                          href={speaker.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.keynoteGithub}
-                          aria-label={t.ariaGitHub(speaker.name)}
-                          data-track-name="ver_github_tag_keynote_home"
-                        >
-                          <Github className={styles.keynoteGithubIcon} />
-                        </a>
-                      ) : null}
+                        <div className={styles.keynoteMeta}>
+                          <div className={styles.keynoteTopRow}>
+                            <span className={styles.keynoteTag}>
+                              {speaker.company || speaker.tag}
+                            </span>
+
+                            <div className={styles.keynoteTagRow}>
+                              <a
+                                href={speaker.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.keynoteLinkedin}
+                                aria-label={t.ariaLinkedIn(speaker.name)}
+                                data-track-name="ver_linkedin_tag_keynote_home"
+                              >
+                                <Linkedin className={styles.keynoteLinkedinIcon} />
+                              </a>
+                              {speaker.github ? (
+                                <a
+                                  href={speaker.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className={styles.keynoteGithub}
+                                  aria-label={t.ariaGitHub(speaker.name)}
+                                  data-track-name="ver_github_tag_keynote_home"
+                                >
+                                  <Github className={styles.keynoteGithubIcon} />
+                                </a>
+                              ) : null}
+                            </div>
+                          </div>
+
+                          <h3 className={styles.keynoteName}>{speaker.name}</h3>
+                          {speaker.role ? <p className={styles.keynoteRole}>{speaker.role}</p> : null}
+
+                          <div className={styles.keynoteTopicBlock}>
+                            <p className={styles.keynoteTopicLabel}>{t.talkLabel}</p>
+                            <p className={styles.keynoteTopic}>
+                              <span>
+                                <span>{speaker.topic}</span>
+                                {speaker.topicSecondLine ? (
+                                  <span className={styles.keynoteTopicSecondLine}>{speaker.topicSecondLine}</span>
+                                ) : null}
+                              </span>
+                            </p>
+                            {speaker.thematicAxis ? (
+                              <p
+                                className={styles.keynoteTopicHashtag}
+                                style={{ '--track-color': speaker.thematicAxisColor || '#f97316' } as CSSProperties}
+                              >
+                                #{speaker.thematicAxis}
+                              </p>
+                            ) : null}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <h3 className={styles.keynoteName}>{speaker.name}</h3>
-                    {speaker.role ? <p className={styles.keynoteRole}>{speaker.role}</p> : null}
-                    <p className={styles.keynoteTopic}>
-                      <span>
-                        <span>{speaker.topic}</span>
-                        {speaker.topicSecondLine ? (
-                          <span className={styles.keynoteTopicSecondLine}>{speaker.topicSecondLine}</span>
-                        ) : null}
-                      </span>
-                    </p>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                ))}
               </div>
             </div>
           </div>

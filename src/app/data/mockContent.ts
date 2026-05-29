@@ -246,6 +246,16 @@ export const sponsors = [
     ],
   },
   {
+    tier: 'silver',
+    items: [
+      {
+        name: 'Inetum',
+        href: 'https://www.inetum.com/es/es.html',
+        logo: '/images/sponsors/silver/inetum.png'
+      },
+    ],
+  },
+  {
     tier: 'bronze',
     items: [
       {

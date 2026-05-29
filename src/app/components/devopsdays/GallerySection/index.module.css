@@ -286,8 +286,11 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
   list-style: none;
+  width: calc(100% - 2rem);
+  max-width: 100%;
   padding: 0 1rem;
   margin: 0 auto;
 }
@@ -330,6 +333,22 @@
   
   .carouselWrapper {
     padding: 0 0 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :global(.slick-dots) {
+    gap: 6px;
+    bottom: -44px;
+  }
+
+  :global(.slick-dots li button) {
+    width: 22px;
+    height: 7px;
+  }
+
+  :global(.slick-dots li.slick-active button) {
+    width: 34px;
   }
 }
 
