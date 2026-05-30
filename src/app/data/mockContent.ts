@@ -243,6 +243,11 @@ export const sponsors = [
         href: 'https://www.coforge.com/',
         logo: '/images/sponsors/gold/coforge.png'
       },
+      {
+        name: 'TSoft',
+        href: 'https://www.tsoftglobal.com/',
+        logo: '/images/sponsors/gold/tsoft.png'
+      },
     ],
   },
   {
