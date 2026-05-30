@@ -14,57 +14,39 @@
   --tier-divider-color: 133, 141, 166;
   --tier-divider-width: min(100%, 26rem);
   position: relative;
-  margin-bottom: 3rem;
-  padding-bottom: 2.5rem;
+  margin-bottom: 0rem;
+  padding-bottom: 0.5rem;
 }
 
 .platinumCard[data-tier="platinum"] {
   --tier-divider-color: 143, 164, 196;
+  --sponsor-card-size: 14.5rem;
 }
 
 .platinumCard[data-tier="gold"] {
   --tier-divider-color: 242, 185, 80;
+  --sponsor-card-size: 13.5rem;
 }
 
 .platinumCard[data-tier="silver"] {
   --tier-divider-color: 141, 145, 145;
+  --sponsor-card-size: 12rem;
 }
 
 .platinumCard[data-tier="bronze"] {
   --tier-divider-color: 169, 113, 85;
+  --sponsor-card-size: 10.5rem;
 }
 
 .platinumCard[data-tier="community"] {
   --tier-color: #84cc16;
   --tier-divider-color: 132, 204, 22;
+  --sponsor-card-size: 9.75rem;
 }
 
 .platinumCard[data-tier="community"]::after {
   content: none;
   display: none;
-}
-
-
-.platinumCard[data-tier]::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: var(--tier-divider-width);
-  height: 1px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(var(--tier-divider-color), 0.18) 12%,
-      rgba(var(--tier-divider-color), 0.75) 50%,
-      rgba(var(--tier-divider-color), 0.18) 88%,
-      transparent 100%
-    );
-  box-shadow:
-    0 0 10px rgba(var(--tier-divider-color), 0.18),
-    0 0 22px rgba(var(--tier-divider-color), 0.1);
 }
 
 .secondaryTierCard {
@@ -106,7 +88,7 @@
 .silverContent,
 .bronzeContent,
 .communityContent {
-  padding: 2rem 0 1rem;
+  padding: 0rem 0 1rem;
   text-align: center;
 }
 
@@ -206,12 +188,11 @@
 .bronzeLogosGrid,
 .communityLogosGrid {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   width: 100%;
   align-items: stretch;
-  justify-content: center;
 }
 
 .logoContainer,
@@ -221,24 +202,24 @@
 .bronzeLogoContainer,
 .communityLogoContainer {
   background: var(--color-white);
-  flex: 0 1 18rem;
-  padding: 2rem;
+  width: min(100%, var(--sponsor-card-size, 13.5rem));
+  height: var(--sponsor-card-size, 13.5rem);
+  padding: 1rem;
   border-radius: 1rem;
   border: 1px solid var(--sponsor-border-color);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
 }
 
 .goldLogoContainer,
 .silverLogoContainer,
 .bronzeLogoContainer,
 .communityLogoContainer {
-  flex-basis: 15rem;
-  min-height: 150px;
-  max-height: 150px;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .goldContent,
@@ -258,6 +239,12 @@
 
 .logo:hover {
   transform: scale(1.05);
+}
+
+.platinumLogoContainer[data-sponsor="indra"] .logo {
+  width: auto;
+  max-width: 100%;
+  height: 5.1875rem;
 }
 
 .logoText {
@@ -287,8 +274,29 @@
   justify-content: center;
 }
 
+.logoLink .logo,
+.logoLink .logoText {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .learnMoreLink:hover {
   color: var(--color-purple);
+}
+
+@media (max-width: 768px) {
+  .platinumCard[data-tier] {
+    --sponsor-card-size: min(11.5rem, calc(50vw - 2.75rem));
+  }
+
+  .logosGrid,
+  .platinumLogosGrid,
+  .goldLogosGrid,
+  .silverLogosGrid,
+  .bronzeLogosGrid,
+  .communityLogosGrid {
+    gap: 1rem;
+  }
 }
 
 /* Empty State */
