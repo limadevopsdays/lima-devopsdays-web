@@ -6,7 +6,16 @@
   left: 0;
   right: 0;
   z-index: 50;
-  transition: all 0.3s ease;
+  transform: translateY(0);
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar.hidden {
+  transform: translateY(calc(-100% - 0.75rem));
 }
 
 .navbar.scrolled {
@@ -18,8 +27,8 @@
 .navbarInner {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 1.25rem 1.5rem;
-  min-height: 5.5rem;
+  padding: 0 1.5rem;
+  min-height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,8 +45,8 @@
 }
 
 .logoIcon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 0.5rem;
   position: relative;
   z-index: 1;
@@ -50,9 +59,9 @@
 
 .logoImage {
   position: absolute;
-  left: 80%;
-  bottom: -2rem;
-  width: 6.5rem;
+  left: 70%;
+  bottom: -0.85rem;
+  width: 5.25rem;
   height: auto;
   max-width: none;
   transform: translateX(-50%);
@@ -70,7 +79,7 @@
   gap: 1.75rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .desktopMenu {
     display: flex;
   }
@@ -98,19 +107,21 @@
   isolation: isolate;
   position: relative;
   color: #ffffff;
-  font-weight: 700;
+  font-family: var(--font-primary) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em;
   padding: 0.18rem 0.95rem;
   border-radius: 0.9rem;
-  background: linear-gradient(135deg, #c1121f 0%, #f59e0b 52%, #0f766e 100%);
+  background: linear-gradient(135deg, #DC2626 0%, #F97316 50%, #7C3AED 100%);
   box-shadow:
-    0 10px 24px rgba(193, 18, 31, 0.24),
+    0 10px 24px rgba(220, 38, 38, 0.28),
     0 0 0 1px rgba(255, 255, 255, 0.22) inset,
     0 0 0 3px rgba(255, 255, 255, 0.1) inset,
-    0 0 18px rgba(245, 158, 11, 0.2),
-    0 0 30px rgba(15, 118, 110, 0.18);
+    0 0 18px rgba(249, 115, 22, 0.22),
+    0 0 30px rgba(124, 58, 237, 0.2);
   animation: tourismWeavePulse 4.6s ease-in-out infinite;
   text-shadow:
-    0 1px 0 rgba(85, 10, 10, 0.22),
+    0 1px 2px rgba(0, 0, 0, 0.4),
     0 0 12px rgba(255, 255, 255, 0.18);
 }
 
@@ -124,19 +135,19 @@
   100% {
     filter: saturate(1);
     box-shadow:
-      0 10px 24px rgba(193, 18, 31, 0.24),
+      0 10px 24px rgba(220, 38, 38, 0.28),
       0 0 0 1px rgba(255, 255, 255, 0.22) inset,
-      0 0 18px rgba(245, 158, 11, 0.2),
-      0 0 30px rgba(15, 118, 110, 0.18);
+      0 0 18px rgba(249, 115, 22, 0.22),
+      0 0 30px rgba(124, 58, 237, 0.2);
   }
 
   50% {
     filter: saturate(1.22);
     box-shadow:
-      0 12px 28px rgba(193, 18, 31, 0.3),
+      0 12px 28px rgba(220, 38, 38, 0.35),
       0 0 0 1px rgba(255, 255, 255, 0.28) inset,
-      0 0 22px rgba(245, 158, 11, 0.26),
-      0 0 36px rgba(15, 118, 110, 0.24);
+      0 0 22px rgba(249, 115, 22, 0.28),
+      0 0 36px rgba(124, 58, 237, 0.26);
   }
 }
 
@@ -176,7 +187,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .ctaButton {
     display: inline-flex;
   }
@@ -206,7 +217,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobileToggle {
     display: none;
   }
@@ -224,7 +235,7 @@
   border-top: 1px solid var(--brand-header-mobileMenu-borderColor);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobileMenu {
     display: none;
   }
@@ -260,13 +271,17 @@
 
 .mobileMenuLinkTourism {
   color: #ffffff;
-  background: linear-gradient(135deg, #c1121f 0%, #f59e0b 52%, #0f766e 100%);
+  font-family: var(--font-primary) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #DC2626 0%, #F97316 50%, #7C3AED 100%);
   border-radius: 0.9rem;
   padding: 0.45rem 1rem 0.45rem 0.85rem;
   box-shadow:
-    0 8px 18px rgba(193, 18, 31, 0.22),
-    0 0 12px rgba(245, 158, 11, 0.18),
-    0 0 18px rgba(15, 118, 110, 0.18);
+    0 8px 18px rgba(220, 38, 38, 0.22),
+    0 0 12px rgba(249, 115, 22, 0.18),
+    0 0 18px rgba(124, 58, 237, 0.18);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .mobileMenuLinkTourism:hover {
@@ -310,7 +325,7 @@
   gap: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .langToggle {
     display: inline-flex;
   }
@@ -415,4 +430,29 @@
   user-select: none;
   pointer-events: none;
   line-height: 1;
+}
+
+/* Intermediate responsive rules to prevent navbar crowding between tablet and desktop screen sizes */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .navbarInner {
+    padding: 0 1rem;
+  }
+  .desktopMenu {
+    gap: 1.15rem;
+  }
+  .navLink {
+    font-size: 0.8rem;
+  }
+  .navLinkTourism {
+    padding: 0.18rem 0.65rem;
+  }
+  .logoImage {
+    width: 4.85rem;
+    left: 65%;
+  }
+  .ctaButton {
+    padding: 0.55rem 0.875rem;
+    font-size: 0.8rem;
+    min-height: 2.5rem;
+  }
 }

@@ -1,8 +1,9 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Calendar, MapPin, ArrowRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router'
 import styles from './index.module.css'
+import { SmartCropImage } from '../../SmartCropImage'
 import { useI18n } from '../../../i18n'
 import { heroSectionI18n } from './i18n'
 
@@ -54,11 +55,126 @@ export function HeroSection() {
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const t = useI18n(heroSectionI18n)
 
+  // Page-Load Startup states
+  const [isLogoAnimating, setIsLogoAnimating] = useState(true)
+  const [shouldLoadMascot, setShouldLoadMascot] = useState(false)
+
+  useEffect(() => {
+    const logoTimer = setTimeout(() => {
+      setIsLogoAnimating(false)
+    }, 2000) // Startup completes in 2.0s
+
+    const mascotTimer = setTimeout(() => {
+      setShouldLoadMascot(true)
+    }, 2200) // Delay video loading by 2.2s to protect critical page interactive speeds
+
+    return () => {
+      clearTimeout(logoTimer)
+      clearTimeout(mascotTimer)
+    }
+  }, [])
+
+  // Title ref and Proximity mouse-tracking effect
+  const titleRef = useRef<HTMLHeadingElement | null>(null)
+
+  useEffect(() => {
+    // Only run proximity tracking on devices that support hover (desktop mouse cursor)
+    if (window.matchMedia('(hover: none)').matches) return
+
+    const titleElement = titleRef.current
+    if (!titleElement) return
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = titleElement.getBoundingClientRect()
+      const centerX = rect.left + rect.width / 2
+      const centerY = rect.top + rect.height / 2
+
+      const dx = e.clientX - centerX
+      const dy = e.clientY - centerY
+      const distance = Math.sqrt(dx * dx + dy * dy)
+
+      // Active range of 450px
+      const maxDistance = 450
+      const proximity = Math.max(0, 1 - distance / maxDistance)
+      // Exponential curve for a highly natural, soft physical light throw
+      const intensity = Math.pow(proximity, 1.8)
+
+      titleElement.style.setProperty('--proximity-intensity', intensity.toFixed(3))
+    }
+
+    titleElement.style.setProperty('--proximity-intensity', '0')
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
+
+  // Typewriter states
+  const [displayedPrompt, setDisplayedPrompt] = useState('')
+  const [isTypingComplete, setIsTypingComplete] = useState(false)
+  const [isColorReset, setIsColorReset] = useState(false)
+  const [cursorOpacity, setCursorOpacity] = useState(1)
+
   const localizedGalleryImages = galleryImages.map((image, index) => ({
     ...image,
     ...t.galleryImages[index],
   }))
   const { leadingText, promptText, promptEnd } = splitPromptSegment(t.description, t.promptTarget)
+  const remainingPrompt = promptText ? (promptText + promptEnd).slice(displayedPrompt.length) : ''
+
+  // Typewriter logic: types out character-by-character
+  useEffect(() => {
+    if (!promptText) return
+
+    // Reset states if the target text changes (e.g. language change)
+    setDisplayedPrompt('')
+    setIsTypingComplete(false)
+    setIsColorReset(false)
+    setCursorOpacity(1)
+
+    const fullPhrase = promptText + promptEnd
+    let currentIdx = 0
+    let typingTimer: NodeJS.Timeout
+
+    const typeNextChar = () => {
+      if (currentIdx < fullPhrase.length) {
+        setDisplayedPrompt(fullPhrase.slice(0, currentIdx + 1))
+        currentIdx++
+        typingTimer = setTimeout(typeNextChar, 60) // natural 60ms typing speed
+      } else {
+        setIsTypingComplete(true)
+      }
+    }
+
+    // Natural start delay for visual focus on page load
+    const startDelay = setTimeout(typeNextChar, 800)
+
+    return () => {
+      clearTimeout(startDelay)
+      clearTimeout(typingTimer)
+    }
+  }, [promptText, promptEnd])
+
+  // Sequential post-typing transitions
+  useEffect(() => {
+    if (!isTypingComplete) return
+
+    // 1. Smoothly fade out the cursor after a short pause
+    const cursorFadeTimer = setTimeout(() => {
+      setCursorOpacity(0)
+    }, 1500)
+
+    // 2. Smoothly fade text color to match the preceding description color
+    const colorResetTimer = setTimeout(() => {
+      setIsColorReset(true)
+    }, 2500)
+
+    return () => {
+      clearTimeout(cursorFadeTimer)
+      clearTimeout(colorResetTimer)
+    }
+  }, [isTypingComplete])
 
   useEffect(() => {
     if (!lightboxOpen) {
@@ -105,28 +221,57 @@ export function HeroSection() {
           transition={{ duration: 0.7 }}
           className={styles.content}
         >
-          <h1 className={styles.title}>
+          <h1 ref={titleRef} className={styles.title}>
             <span className={styles.titleText}>
               <span className={styles.titleMainLine}>
-                <span className={styles.titleDevOps}>DevOps</span>{' '}
-                <span className={styles.titleDays}>Days</span>
+                <span className={`${styles.titleDevOps} ${isLogoAnimating ? styles.logoStartupDevOps : ''}`}>
+                  DevOps
+                </span>{' '}
+                <span className={`${styles.titleDays} ${isLogoAnimating ? styles.logoStartupDays : ''}`}>
+                  Days
+                </span>
               </span>
-              <span className={styles.titleSubline}>Lima 2026</span>
+              <span className={`${styles.titleSubline} ${isLogoAnimating ? styles.logoStartupSubline : ''}`}>
+                Lima 2026
+              </span>
             </span>
           </h1>
 
-          <div className={styles.mascotBetween}>
-            <img
-              src="/images/brand/mascota.png"
-              alt=""
-              className={styles.mascotDescription}
-              aria-hidden="true"
-            />
+          <div className={`${styles.mascotBetween} ${styles.mascotContainer} ${shouldLoadMascot ? styles.mascotLoaded : ''}`}>
+            {shouldLoadMascot && (
+              <video
+                src="/videos/hero/mascota.mp4"
+                className={styles.mascotDescription}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-hidden="true"
+              />
+            )}
           </div>
 
           <p className={styles.description}>
-            {leadingText}
-            {promptText ? ` ${promptText}${promptEnd}` : null}
+            {leadingText}{' '}
+            {promptText ? (
+              <span className={`${styles.promptHighlight} ${isColorReset ? styles.colorReset : ''}`}>
+                {displayedPrompt}
+                <span
+                  className={`${styles.promptCursor} ${
+                    isTypingComplete && cursorOpacity > 0 ? styles.promptCursorBlink : ''
+                  }`}
+                  style={{
+                    opacity: cursorOpacity,
+                    transition: 'opacity 0.6s ease-out',
+                  }}
+                >
+                  █
+                </span>
+                <span className={styles.promptHiddenPlaceholder}>
+                  {remainingPrompt}
+                </span>
+              </span>
+            ) : null}
           </p>
 
           <div className={styles.metaInfo}>
@@ -181,11 +326,13 @@ export function HeroSection() {
                 aria-label={image.openAriaLabel}
                 data-track-name="abrir_imagen_hero_home"
               >
-                <img
+                <SmartCropImage
                   src={image.src}
                   alt={image.alt}
                   className={styles.galleryImage}
                   loading="lazy"
+                  cropWidth={800}
+                  cropHeight={600}
                 />
                 <div className={`${styles.galleryOverlay} ${image.overlayClass}`} />
                 <div className={styles.galleryHint}>
@@ -261,10 +408,12 @@ export function HeroSection() {
               className={styles.lightboxImageContainer}
               onClick={(event) => event.stopPropagation()}
             >
-              <img
+              <SmartCropImage
                 src={localizedGalleryImages[lightboxIndex].src}
                 alt={localizedGalleryImages[lightboxIndex].alt}
                 className={styles.lightboxImage}
+                cropWidth={1280}
+                cropHeight={960}
               />
 
               <div className={styles.caption}>

@@ -1,4 +1,4 @@
-﻿import type { Locale } from '../../../i18n'
+import type { Locale } from '../../../i18n'
 
 type Track = { name: string; color: string }
 
@@ -13,6 +13,9 @@ type SpeakersI18n = {
   ariaGitHub: (name: string) => string
   invitedTitle: string
   invitedLead: string
+  invitedFiltersLabel: string
+  invitedCountLabel: (visible: number, total: number) => string
+  invitedEmptyState: string
   talkLabel: string
   cfsAvailableBadge: string
   cfsTitle: string
@@ -25,6 +28,8 @@ type SpeakersI18n = {
   cfsDeadlineDate: string
   cfsNotification: string
   cfsNotificationDate: string
+  expandMore: string
+  expandLess: string
 }
 
 export const speakersI18n: Record<Locale, SpeakersI18n> = {
@@ -39,6 +44,9 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     ariaGitHub: (name) => `Ver perfil de GitHub de ${name}`,
     invitedTitle: 'Speakers invitados',
     invitedLead: 'Una selección de speakers con experiencia en platform engineering, DevSecOps, SRE, IA y liderazgo técnico.',
+    invitedFiltersLabel: 'Filtrar por eje temático',
+    invitedCountLabel: (visible, total) => `${visible} de ${total} speakers`,
+    invitedEmptyState: 'Activa al menos un eje temático para ver speakers invitados.',
     talkLabel: 'Charla:',
     cfsAvailableBadge: 'CALL FOR SPEAKERS DISPONIBLE',
     cfsTitle: 'Call for Speakers 2026',
@@ -57,6 +65,8 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     cfsDeadlineDate: '30 de mayo de 2026',
     cfsNotification: 'Notificación:',
     cfsNotificationDate: 'A partir del 15 de junio de 2026',
+    expandMore: 'Ver más',
+    expandLess: 'Ver menos',
   },
   en: {
     eyebrow: 'Speakers',
@@ -69,6 +79,9 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     ariaGitHub: (name) => `View ${name}'s GitHub profile`,
     invitedTitle: 'Invited Speakers',
     invitedLead: 'A selection of speakers with expertise in platform engineering, DevSecOps, SRE, AI, and technical leadership.',
+    invitedFiltersLabel: 'Filter by track',
+    invitedCountLabel: (visible, total) => `${visible} of ${total} speakers`,
+    invitedEmptyState: 'Enable at least one track to view invited speakers.',
     talkLabel: 'Talk:',
     cfsAvailableBadge: 'CALL FOR SPEAKERS OPEN',
     cfsTitle: 'Call for Speakers 2026',
@@ -87,5 +100,7 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     cfsDeadlineDate: 'May 30, 2026',
     cfsNotification: 'Notification:',
     cfsNotificationDate: 'From June 15, 2026',
+    expandMore: 'Read more',
+    expandLess: 'Read less',
   },
 }

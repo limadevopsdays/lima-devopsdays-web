@@ -6,10 +6,13 @@ type AboutI18n = {
   eyebrow: string
   title: string
   mission: string
-  videoBadge: string
   videoPreviewTitle: string
   videoAriaLabel: string
   closeLabel: string
+  pausePreviewLabel: string
+  playPreviewLabel: string
+  mutePreviewLabel: string
+  unmutePreviewLabel: string
   stats: Stat[]
 }
 
@@ -19,10 +22,13 @@ export const aboutI18n: Record<Locale, AboutI18n> = {
     title: '¿Qué es DevOpsDays Lima 2026?',
     mission:
       'Nuestra misión en DevOpsDays Lima es impulsar la evolución tecnológica con un evento que conecta a profesionales, fomenta el intercambio de conocimientos DevOps y refuerza una cultura de innovación continua basada en experiencias reales.',
-    videoBadge: '🎬 Reproduciendo · clic para abrir con audio',
     videoPreviewTitle: 'Vista previa automática del video DevOpsDays Lima',
     videoAriaLabel: 'DevOpsDays Lima - Video oficial',
     closeLabel: 'Cerrar',
+    pausePreviewLabel: 'Pausar video',
+    playPreviewLabel: 'Reanudar video',
+    mutePreviewLabel: 'Silenciar video',
+    unmutePreviewLabel: 'Activar audio',
     stats: [
       {
         emoji: '🎉',
@@ -49,10 +55,13 @@ export const aboutI18n: Record<Locale, AboutI18n> = {
     title: 'What is DevOpsDays Lima 2026?',
     mission:
       'Our mission at DevOpsDays Lima is to drive technological evolution with an event that connects professionals, fosters the exchange of DevOps knowledge, and reinforces a culture of continuous innovation based on real-world experiences.',
-    videoBadge: '🎬 Playing · click to open with audio',
     videoPreviewTitle: 'Automatic preview of the DevOpsDays Lima video',
     videoAriaLabel: 'DevOpsDays Lima - Official video',
     closeLabel: 'Close',
+    pausePreviewLabel: 'Pause video',
+    playPreviewLabel: 'Resume video',
+    mutePreviewLabel: 'Mute video',
+    unmutePreviewLabel: 'Enable audio',
     stats: [
       {
         emoji: '🎉',

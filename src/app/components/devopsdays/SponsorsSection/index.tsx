@@ -1,4 +1,4 @@
-﻿import { Download, CheckCircle, Handshake, Crown, Award, Medal, Shield, Users } from 'lucide-react'
+import { Download, Handshake, Crown, Award, Medal, Shield, Users } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router'
 import { SectionHeader } from '../SectionHeader'
@@ -6,8 +6,6 @@ import { sponsors, sponsorTiers } from '../../../data/mockContent'
 import styles from './index.module.css'
 import { useI18n } from '../../../i18n'
 import { sponsorsI18n } from './i18n'
-
-const SOCIAL_PROOF_IMAGE = '/images/sponsors/sponsors%201.jpg'
 
 const PAST_SPONSORS = ['Dynatrace', 'AWS', 'Google Cloud', 'Microsoft', 'Red Hat', 'HashiCorp']
 const TIERS = ['Platinum', 'Gold', 'Silver', 'Bronze']
@@ -69,7 +67,17 @@ export function SponsorsSection() {
         <SectionHeader
           eyebrow={t.eyebrow}
           eyebrowColor="#6B51EF"
-          title={t.title}
+          title={
+            t.title.includes('2026') ? (
+              <>
+                {t.title.split('2026')[0]}
+                <span className={styles.titleYear}>2026</span>
+                {t.title.split('2026')[1]}
+              </>
+            ) : (
+              t.title
+            )
+          }
           lead={t.lead}
         />
 
@@ -169,36 +177,6 @@ export function SponsorsSection() {
             </div>
           )
         })}
-      </div>
-
-      {/* SOCIAL PROOF */}
-      <div className={styles.socialProofSection}>
-        <div className={styles.container}>
-          <div className={styles.socialProofCard}>
-            <div className={styles.socialProofGrid}>
-              <div className={styles.socialProofImage}>
-                <img
-                  src={SOCIAL_PROOF_IMAGE}
-                  alt={t.altSocialProof}
-                  className={styles.socialProofImageMedia}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div className={styles.socialProofContent}>
-                <div className={styles.socialProofBadge}>
-                  <CheckCircle className={styles.checkIcon} />
-                  <span className={styles.socialProofBadgeText}>{t.socialProofBadge}</span>
-                </div>
-
-                <h2 className={styles.socialProofTitle}>{t.socialProofTitle}</h2>
-
-                <p className={styles.socialProofDescription}>{t.socialProofDescription}</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* BANNER CTA */}

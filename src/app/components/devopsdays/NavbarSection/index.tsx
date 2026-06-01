@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, type MouseEvent } from 'react'
+import { useState, useEffect, type MouseEvent } from 'react'
 import { ArrowRight, Menu, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router'
 import styles from './index.module.css'
@@ -8,7 +8,7 @@ import { navbarI18n } from './i18n'
 
 function getHeaderOffset() {
   const header = document.getElementById('site-header')
-  return header ? header.getBoundingClientRect().height + 16 : 96
+  return header ? header.getBoundingClientRect().height + 16 : 88
 }
 
 function scrollToSection(hash: string, behavior: ScrollBehavior = 'smooth') {
@@ -31,20 +31,43 @@ function scrollToSection(hash: string, behavior: ScrollBehavior = 'smooth') {
 export function NavbarSection() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [headerVisible, setHeaderVisible] = useState(true)
   const location = useLocation()
   const t = useI18n(navbarI18n)
   const locale = useLocale()
   const setLocale = useSetLocale()
 
   useEffect(() => {
+    let lastScrollY = window.scrollY
+
     const onScroll = () => {
-      setScrolled(window.scrollY > 40)
+      const currentScrollY = window.scrollY
+      const isNearTop = currentScrollY <= 40
+      const delta = currentScrollY - lastScrollY
+
+      setScrolled(currentScrollY > 40)
+
+      if (isNearTop) {
+        setHeaderVisible(true)
+      } else if (delta > 6) {
+        setHeaderVisible(false)
+      } else if (delta < -6) {
+        setHeaderVisible(true)
+      }
+
+      lastScrollY = currentScrollY
     }
 
     window.addEventListener('scroll', onScroll)
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (menuOpen) {
+      setHeaderVisible(true)
+    }
+  }, [menuOpen])
 
   useEffect(() => {
     if (location.pathname === '/' && location.hash) {
@@ -86,7 +109,7 @@ export function NavbarSection() {
   return (
     <nav
       id="site-header"
-      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
+      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${headerVisible || menuOpen ? styles.visible : styles.hidden}`}
       aria-label={t.ariaNav}
     >
       <div className={styles.navbarInner}>
@@ -140,7 +163,6 @@ export function NavbarSection() {
           >
             ES
           </button>
-          <span className={styles.langDivider} aria-hidden="true">|</span>
           <button
             type="button"
             className={`${styles.langOption} ${locale === 'en' ? styles.langOptionActive : ''}`}

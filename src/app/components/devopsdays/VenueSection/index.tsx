@@ -6,6 +6,7 @@ import { venue } from '../../../data/mockContent'
 import { venueTransitI18n, venueFeaturesI18n } from '../../../data/mockContent.i18n'
 import styles from './index.module.css'
 import { SectionHeader } from '../SectionHeader'
+import { SmartCropImage } from '../../SmartCropImage'
 import { useI18n } from '../../../i18n'
 import { venueI18n } from './i18n'
 
@@ -175,11 +176,13 @@ export function VenueSection() {
                     aria-label={photo.alt}
                     data-track-name="abrir_galeria_venue_home"
                   >
-                    <img
+                    <SmartCropImage
                       src={photo.src}
                       alt={photo.alt}
                       className={styles.galleryImage}
                       loading="lazy"
+                      cropWidth={640}
+                      cropHeight={480}
                     />
                   </button>
                 ))}
@@ -251,10 +254,12 @@ export function VenueSection() {
               className={styles.imageContainer}
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <SmartCropImage
                 src={venue.photos[lightboxIndex].src}
                 alt={venue.photos[lightboxIndex].alt}
                 className={styles.lightboxImage}
+                cropWidth={1440}
+                cropHeight={960}
               />
 
               <div className={styles.caption}>
