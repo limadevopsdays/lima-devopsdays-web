@@ -29,19 +29,6 @@ export function EarlyBirdBanner() {
               </span>
             </h2>
 
-            <p className={styles.description}>{t.description}</p>
-
-            <span className={styles.ctaLink}>{t.cta}</span>
-          </div>
-
-          <div className={styles.contentRight}>
-            <div className={styles.rightBg} style={{ backgroundImage: `url(${backgroundImageUrl})` }} />
-
-            <div className={styles.floatingBadge}>
-              <Zap className={styles.floatingBadgeIcon} />
-              <span className={styles.floatingBadgeText}>{t.badgeUrgency}</span>
-            </div>
-
             <div className={styles.floatingBadgeSecondary}>
               <div className={styles.floatingBadgeSecondaryItem}>
                 <CalendarDays className={styles.floatingBadgeSecondaryIcon} />
@@ -56,6 +43,19 @@ export function EarlyBirdBanner() {
                   {t.badgeDateEvent}
                 </span>
               </div>
+            </div>
+
+            <p className={styles.description}>{t.description}</p>
+
+            <span className={styles.ctaLink}>{t.cta}</span>
+          </div>
+
+          <div className={styles.contentRight}>
+            <div className={styles.rightBg} style={{ backgroundImage: `url(${backgroundImageUrl})` }} />
+
+            <div className={styles.floatingBadge}>
+              <Zap className={styles.floatingBadgeIcon} />
+              <span className={styles.floatingBadgeText}>{t.badgeUrgency}</span>
             </div>
 
             <div className={styles.discountCard}>

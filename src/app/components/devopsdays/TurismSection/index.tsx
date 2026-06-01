@@ -4,6 +4,7 @@ import { MdTrain, MdDirectionsBus } from 'react-icons/md'
 import { FaCar, FaWalking } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'motion/react'
 import { SectionHeader } from '../SectionHeader'
+import { SmartCropImage } from '../../SmartCropImage'
 import styles from './index.module.css'
 import { useI18n } from '../../../i18n'
 import { turismI18n } from './i18n'
@@ -85,7 +86,14 @@ export function TurismSection() {
               aria-label={t.ariaPlace(place.name)}
               data-track-name="abrir_lugar_turismo_home"
             >
-              <img src={place.src} alt={place.name} className={styles.cellImage} loading="lazy" />
+              <SmartCropImage
+                src={place.src}
+                alt={place.name}
+                className={styles.cellImage}
+                loading="lazy"
+                cropWidth={640}
+                cropHeight={480}
+              />
               <div className={styles.cellOverlay}>
                 <span className={styles.cellDistrict}>{place.district}</span>
                 <p className={styles.cellName}>{place.name}</p>
@@ -96,11 +104,13 @@ export function TurismSection() {
 
         <div className={styles.mpCallout}>
           <div className={styles.mpImageWrap}>
-            <img
+            <SmartCropImage
               src="/images/tourism/macchu-picchu.jpg"
               alt={t.imageMachuPicchuAlt}
               className={styles.mpImage}
               loading="lazy"
+              cropWidth={720}
+              cropHeight={540}
             />
           </div>
           <div className={styles.mpContent}>
@@ -143,7 +153,13 @@ export function TurismSection() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.modalImageWrap}>
-                <img src={active.src} alt={active.name} className={styles.modalImage} />
+                <SmartCropImage
+                  src={active.src}
+                  alt={active.name}
+                  className={styles.modalImage}
+                  cropWidth={1200}
+                  cropHeight={800}
+                />
               </div>
 
               <div className={styles.modalInfo}>

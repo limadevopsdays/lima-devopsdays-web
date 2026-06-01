@@ -2,6 +2,7 @@
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { SectionHeader } from '../SectionHeader'
+import { SmartCropImage } from '../../SmartCropImage'
 import { organizers } from '../../../data/mockContent'
 import styles from './index.module.css'
 import { useI18n } from '../../../i18n'
@@ -54,11 +55,13 @@ export function OrganizersSection() {
               >
                 {member.imageSrc && (
                   <div className={styles.avatarContainer}>
-                    <img
+                    <SmartCropImage
                       src={organizerImages[member.name] || member.imageSrc}
                       alt=""
                       className={styles.avatar}
                       loading="lazy"
+                      cropWidth={320}
+                      cropHeight={320}
                     />
 
                     <div className={styles.overlay}>

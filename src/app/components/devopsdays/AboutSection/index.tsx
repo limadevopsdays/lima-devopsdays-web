@@ -1,4 +1,4 @@
-﻿import { Play, X } from 'lucide-react'
+import { Pause, Play, Volume2, VolumeX, X } from 'lucide-react'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import styles from './index.module.css'
 import { useI18n } from '../../../i18n'
@@ -33,11 +33,92 @@ const bgImageUrl = 'https://images.unsplash.com/photo-1562577308-c8b2614b9b9a?cr
 
 export function AboutSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [isPreviewPaused, setIsPreviewPaused] = useState(false)
+  const [isPreviewMuted, setIsPreviewMuted] = useState(false)
+  const [isAboutIntersecting, setIsAboutIntersecting] = useState(false)
+  const [hasLoadedPreview, setHasLoadedPreview] = useState(false)
+  
   const playerContainerRef = useRef<HTMLDivElement | null>(null)
+  const previewIframeRef = useRef<HTMLIFrameElement | null>(null)
+  const currentVolumeRef = useRef(0)
   const t = useI18n(aboutI18n)
+
+  const postPreviewCommand = (func: string, args: any[] = []) => {
+    previewIframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({
+        event: 'command',
+        func,
+        args,
+      }),
+      '*',
+    )
+  }
+
+  // Observe the #about section visibility in the viewport
+  useEffect(() => {
+    const sectionElement = document.getElementById('about')
+    if (!sectionElement) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsAboutIntersecting(entry.isIntersecting)
+        // Once the user gets close to the section, lock the loading status to true
+        if (entry.isIntersecting) {
+          setHasLoadedPreview(true)
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when at least 10% of the section is visible
+        rootMargin: '200px', // Pre-fetch and compile the YouTube player when it is within 200px of entering viewport
+      }
+    )
+
+    observer.observe(sectionElement)
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  // Smoothly fade volume between 0 and 100 based on status
+  useEffect(() => {
+    const targetVolume = (isAboutIntersecting && !isVideoOpen && !isPreviewPaused && !isPreviewMuted) ? 100 : 0
+
+    const interval = setInterval(() => {
+      const current = currentVolumeRef.current
+      if (current === targetVolume) {
+        clearInterval(interval)
+        return
+      }
+
+      const step = 5
+      let nextVolume = current
+      if (current < targetVolume) {
+        nextVolume = Math.min(current + step, targetVolume)
+      } else {
+        nextVolume = Math.max(current - step, targetVolume)
+      }
+
+      currentVolumeRef.current = nextVolume
+      postPreviewCommand('setVolume', [nextVolume])
+
+      // Ensure iframe matches correct muted/unmuted state on transition thresholds
+      if (nextVolume > 0 && current === 0) {
+        postPreviewCommand('unMute')
+      }
+      if (nextVolume === 0) {
+        postPreviewCommand('mute')
+      }
+    }, 50) // Smooth update every 50ms (takes 1.0s to fade from 0 to 100)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [isAboutIntersecting, isVideoOpen, isPreviewPaused, isPreviewMuted])
 
   useEffect(() => {
     if (!isVideoOpen || !playerContainerRef.current) return
+
+    let volumeInterval: NodeJS.Timeout | null = null
 
     const initializePlayer = () => {
       if (!window.YT?.Player || !playerContainerRef.current) return
@@ -54,8 +135,20 @@ export function AboutSection() {
         },
         events: {
           onReady: (event) => {
-            event.target.setVolume(30)
+            event.target.setVolume(0)
             event.target.playVideo()
+
+            let currentVolume = 0
+            const targetVolume = 35
+            volumeInterval = setInterval(() => {
+              currentVolume += 2
+              if (currentVolume >= targetVolume) {
+                event.target.setVolume(targetVolume)
+                if (volumeInterval) clearInterval(volumeInterval)
+              } else {
+                event.target.setVolume(currentVolume)
+              }
+            }, 100)
           },
         },
       })
@@ -63,24 +156,25 @@ export function AboutSection() {
 
     if (window.YT?.Player) {
       initializePlayer()
-      return
-    }
+    } else {
+      const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]')
+      if (!existingScript) {
+        const script = document.createElement('script')
+        script.src = 'https://www.youtube.com/iframe_api'
+        document.body.appendChild(script)
+      }
 
-    const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]')
-    if (!existingScript) {
-      const script = document.createElement('script')
-      script.src = 'https://www.youtube.com/iframe_api'
-      document.body.appendChild(script)
-    }
-
-    const previousHandler = window.onYouTubeIframeAPIReady
-    window.onYouTubeIframeAPIReady = () => {
-      previousHandler?.()
-      initializePlayer()
+      const previousHandler = window.onYouTubeIframeAPIReady
+      window.onYouTubeIframeAPIReady = () => {
+        previousHandler?.()
+        initializePlayer()
+      }
     }
 
     return () => {
-      window.onYouTubeIframeAPIReady = previousHandler
+      if (volumeInterval) {
+        clearInterval(volumeInterval)
+      }
     }
   }, [isVideoOpen])
 
@@ -105,7 +199,20 @@ export function AboutSection() {
             </div>
 
             {/* Title */}
-            <h2 className={styles.title}>{t.title}</h2>
+            <h2 className={styles.title}>
+              {t.title.includes('DevOpsDays Lima 2026') ? (
+                <>
+                  {t.title.split('DevOpsDays Lima 2026')[0]}
+                  <span className={styles.logoText}>
+                    <span className={styles.logoDevOps}>DevOps</span>
+                    <span className={styles.logoDays}>Days Lima 2026</span>
+                  </span>
+                  {t.title.split('DevOpsDays Lima 2026')[1]}
+                </>
+              ) : (
+                t.title
+              )}
+            </h2>
 
             {/* Mission text */}
             <p className={styles.mission}>{t.mission}</p>
@@ -115,23 +222,64 @@ export function AboutSection() {
               className={styles.videoContainer}
               onClick={() => setIsVideoOpen(true)}
             >
-              <iframe
-                className={styles.videoPreviewIframe}
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&controls=0&rel=0&playlist=${videoId}&playsinline=1&modestbranding=1&iv_load_policy=3`}
-                title={t.videoPreviewTitle}
-                allow="autoplay; encrypted-media; picture-in-picture"
-                tabIndex={-1}
-              />
-              
-              {/* Play overlay */}
-              <div className={styles.videoOverlay}>
-                <div className={styles.playButton}>
-                  <Play className={styles.playIcon} fill="#ffffff" />
-                </div>
-              </div>
+              {hasLoadedPreview ? (
+                <>
+                  <iframe
+                    ref={previewIframeRef}
+                    className={styles.videoPreviewIframe}
+                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&controls=0&rel=0&playlist=${videoId}&playsinline=1&modestbranding=1&iv_load_policy=3&enablejsapi=1`}
+                    title={t.videoPreviewTitle}
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    tabIndex={-1}
+                  />
+                  
+                  <div className={styles.videoControls}>
+                    <button
+                      type="button"
+                      className={styles.videoControlButton}
+                      aria-label={isPreviewPaused ? t.playPreviewLabel : t.pausePreviewLabel}
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        if (isPreviewPaused) {
+                          postPreviewCommand('playVideo')
+                        } else {
+                          postPreviewCommand('pauseVideo')
+                        }
+                        setIsPreviewPaused((current) => !current)
+                      }}
+                    >
+                      {isPreviewPaused ? (
+                        <Play className={styles.videoControlIcon} />
+                      ) : (
+                        <Pause className={styles.videoControlIcon} />
+                      )}
+                    </button>
 
-              {/* Badge */}
-              <div className={styles.videoBadge}>{t.videoBadge}</div>
+                    <button
+                      type="button"
+                      className={styles.videoControlButton}
+                      aria-label={isPreviewMuted ? t.unmutePreviewLabel : t.mutePreviewLabel}
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        if (isPreviewMuted) {
+                          postPreviewCommand('unMute')
+                        } else {
+                          postPreviewCommand('mute')
+                        }
+                        setIsPreviewMuted((current) => !current)
+                      }}
+                    >
+                      {isPreviewMuted ? (
+                        <VolumeX className={styles.videoControlIcon} />
+                      ) : (
+                        <Volume2 className={styles.videoControlIcon} />
+                      )}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className={styles.videoPreviewPlaceholder} />
+              )}
             </div>
 
             {/* Storytelling Stats */}

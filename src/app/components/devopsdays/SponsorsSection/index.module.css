@@ -10,6 +10,15 @@
   padding: 0 1.5rem;
 }
 
+.titleYear {
+  color: var(--color-purple, #6B51EF);
+  letter-spacing: var(--brand-text-letterSpacing-wide);
+  text-shadow:
+    0 0 5px color-mix(in srgb, var(--color-purple) 22%, transparent),
+    0 0 12px color-mix(in srgb, var(--color-purple) 14%, transparent),
+    0 0 20px color-mix(in srgb, var(--color-purple) 8%, transparent);
+}
+
 .platinumCard[data-tier] {
   --tier-divider-color: 133, 141, 166;
   --tier-divider-width: min(100%, 26rem);
@@ -206,13 +215,31 @@
   height: var(--sponsor-card-size, 13.5rem);
   padding: 1rem;
   border-radius: 1rem;
-  border: 1px solid var(--sponsor-border-color);
-  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--sponsor-border-color) 28%, transparent);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
   box-sizing: border-box;
+}
+
+.logoContainer:hover,
+.logoContainer:focus-within,
+.platinumLogoContainer:hover,
+.platinumLogoContainer:focus-within,
+.goldLogoContainer:hover,
+.goldLogoContainer:focus-within,
+.silverLogoContainer:hover,
+.silverLogoContainer:focus-within,
+.bronzeLogoContainer:hover,
+.bronzeLogoContainer:focus-within,
+.communityLogoContainer:hover,
+.communityLogoContainer:focus-within {
+  border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
+  transform: translateY(-2px);
 }
 
 .goldLogoContainer,
