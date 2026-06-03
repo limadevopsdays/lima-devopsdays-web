@@ -48,8 +48,8 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     invitedCountLabel: (visible, total) => `${visible} de ${total} speakers`,
     invitedEmptyState: 'Activa al menos un eje temático para ver speakers invitados.',
     talkLabel: 'Charla:',
-    cfsAvailableBadge: 'CALL FOR SPEAKERS DISPONIBLE',
-    cfsTitle: 'Call for Speakers 2026',
+    cfsAvailableBadge: 'CALL FOR SPEAKERS CERRADO',
+    cfsTitle: 'Speakers 2026',
     cfsDescription:
       'Comparte experiencias reales de producción: decisiones difíciles, aprendizajes concretos y casos que hayan movido equipos, plataformas o resultados de negocio. DevOpsDays Lima es parte de una comunidad global, pero con foco local y conversaciones que sí aterrizan en la realidad de la región.',
     cfsTracksLabel: 'Ejes Temáticos',
@@ -83,8 +83,8 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     invitedCountLabel: (visible, total) => `${visible} of ${total} speakers`,
     invitedEmptyState: 'Enable at least one track to view invited speakers.',
     talkLabel: 'Talk:',
-    cfsAvailableBadge: 'CALL FOR SPEAKERS OPEN',
-    cfsTitle: 'Call for Speakers 2026',
+    cfsAvailableBadge: 'CALL FOR SPEAKERS CLOSED',
+    cfsTitle: 'Speakers 2026',
     cfsDescription:
       'Share real production experiences: tough decisions, concrete learnings, and cases that moved teams, platforms, or business results. DevOpsDays Lima is part of a global community, but with a local focus and conversations that truly reflect the reality of the region.',
     cfsTracksLabel: 'Tracks',

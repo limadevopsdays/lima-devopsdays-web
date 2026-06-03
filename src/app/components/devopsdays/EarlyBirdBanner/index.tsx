@@ -36,13 +36,6 @@ export function EarlyBirdBanner() {
                   {t.badgeDateExtended}
                 </span>
               </div>
-
-              <div className={styles.floatingBadgeSecondaryItem}>
-                <Sparkles className={styles.floatingBadgeSecondaryIcon} />
-                <span className={styles.floatingBadgeText}>
-                  {t.badgeDateEvent}
-                </span>
-              </div>
             </div>
 
             <p className={styles.description}>{t.description}</p>

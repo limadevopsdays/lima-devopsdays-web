@@ -23,12 +23,12 @@ export default function HomePage() {
       <EarlyBirdBanner />
       <CountdownSection />
       <AboutSection />
-      <SponsorsSection />
+      <SpeakersSection />
       <section className={styles.ticketsGalleryBlock} aria-label={t.ticketsGallerySectionLabel}>
         <TicketsSection />
         <GallerySection />
       </section>
-      <SpeakersSection />
+      <SponsorsSection />
       <VenueSection />
       <TurismSection />
       <OrganizersSection />

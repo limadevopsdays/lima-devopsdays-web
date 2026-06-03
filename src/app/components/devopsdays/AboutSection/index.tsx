@@ -3,6 +3,13 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import styles from './index.module.css'
 import { useI18n } from '../../../i18n'
 import { aboutI18n } from './i18n'
+const galleryImages = [
+  '/images/about/about-1.jpg',
+  '/images/about/about-2.jpg',
+  '/images/about/about-3.jpg',
+  '/images/about/about-4.jpg',
+]
+
 
 declare global {
   interface Window {
@@ -34,14 +41,37 @@ const bgImageUrl = 'https://images.unsplash.com/photo-1562577308-c8b2614b9b9a?cr
 export function AboutSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [isPreviewPaused, setIsPreviewPaused] = useState(false)
-  const [isPreviewMuted, setIsPreviewMuted] = useState(false)
+  const [isPreviewMuted, setIsPreviewMuted] = useState(true)
   const [isAboutIntersecting, setIsAboutIntersecting] = useState(false)
   const [hasLoadedPreview, setHasLoadedPreview] = useState(false)
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false)
   
   const playerContainerRef = useRef<HTMLDivElement | null>(null)
   const previewIframeRef = useRef<HTMLIFrameElement | null>(null)
   const currentVolumeRef = useRef(0)
   const t = useI18n(aboutI18n)
+
+  // Listen for user interaction to allow unmuting automatically
+  useEffect(() => {
+    const handleInteraction = () => {
+      setIsPreviewMuted(false)
+      cleanup()
+    }
+
+    const cleanup = () => {
+      window.removeEventListener('click', handleInteraction)
+      window.removeEventListener('keydown', handleInteraction)
+      window.removeEventListener('touchstart', handleInteraction)
+      window.removeEventListener('mousedown', handleInteraction)
+    }
+
+    window.addEventListener('click', handleInteraction, { once: true })
+    window.addEventListener('keydown', handleInteraction, { once: true })
+    window.addEventListener('touchstart', handleInteraction, { once: true })
+    window.addEventListener('mousedown', handleInteraction, { once: true })
+
+    return cleanup
+  }, [])
 
   const postPreviewCommand = (func: string, args: any[] = []) => {
     previewIframeRef.current?.contentWindow?.postMessage(
@@ -53,6 +83,35 @@ export function AboutSection() {
       '*',
     )
   }
+
+  // Listen for the YouTube iframe onReady event to know when the API is active
+  useEffect(() => {
+    if (!hasLoadedPreview) return
+
+    const handleMessage = (event: MessageEvent) => {
+      if (event.source !== previewIframeRef.current?.contentWindow) return
+      try {
+        const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data
+        if (data.event === 'onReady' || data.event === 'initialDelivery') {
+          setIsIframeLoaded(true)
+        }
+      } catch (e) {
+        // Ignore parsing errors
+      }
+    }
+
+    window.addEventListener('message', handleMessage)
+
+    // Fallback: set loaded to true after 1.5 seconds of mounting
+    const timer = setTimeout(() => {
+      setIsIframeLoaded(true)
+    }, 1500)
+
+    return () => {
+      window.removeEventListener('message', handleMessage)
+      clearTimeout(timer)
+    }
+  }, [hasLoadedPreview])
 
   // Observe the #about section visibility in the viewport
   useEffect(() => {
@@ -81,6 +140,8 @@ export function AboutSection() {
 
   // Smoothly fade volume between 0 and 100 based on status
   useEffect(() => {
+    if (!isIframeLoaded) return
+
     const targetVolume = (isAboutIntersecting && !isVideoOpen && !isPreviewPaused && !isPreviewMuted) ? 100 : 0
 
     const interval = setInterval(() => {
@@ -113,7 +174,7 @@ export function AboutSection() {
     return () => {
       clearInterval(interval)
     }
-  }, [isAboutIntersecting, isVideoOpen, isPreviewPaused, isPreviewMuted])
+  }, [isAboutIntersecting, isVideoOpen, isPreviewPaused, isPreviewMuted, isIframeLoaded])
 
   useEffect(() => {
     if (!isVideoOpen || !playerContainerRef.current) return
@@ -261,11 +322,6 @@ export function AboutSection() {
                       aria-label={isPreviewMuted ? t.unmutePreviewLabel : t.mutePreviewLabel}
                       onClick={(event) => {
                         event.stopPropagation()
-                        if (isPreviewMuted) {
-                          postPreviewCommand('unMute')
-                        } else {
-                          postPreviewCommand('mute')
-                        }
                         setIsPreviewMuted((current) => !current)
                       }}
                     >
@@ -281,34 +337,23 @@ export function AboutSection() {
                 <div className={styles.videoPreviewPlaceholder} />
               )}
             </div>
-
-            {/* Storytelling Stats */}
-            <div className={styles.statsGrid}>
-              {t.stats.map((stat, idx) => {
-                return (
-                  <div
-                    key={idx}
-                    className={`${styles.statCard} ${idx === 0 ? styles.statCardPrimary : ''} ${idx === 1 ? styles.statCardLima : ''} ${idx === 2 ? styles.statCardBlue : ''}`}
-                    style={{ '--stat-color': stat.color } as CSSProperties}
-                  >
-                    <div className={styles.statHeader}>
-                      <div className={styles.statIconWrap}>
-                        <span className={styles.statEmoji} aria-hidden="true">
-                          {stat.emoji}
-                        </span>
-                      </div>
-                      <h3 className={styles.statTitle}>
-                        {stat.title}
-                      </h3>
-                    </div>
-                    <p className={styles.statSubtitle}>
-                      {stat.subtitle}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Gallery Image Row */}
+      <div className={styles.imageRowContainer}>
+        <div className={styles.imageRowGrid}>
+          {galleryImages.map((image, idx) => (
+            <div key={idx} className={styles.imageRowItem}>
+              <img
+                src={image}
+                alt={`DevOpsDays Lima gallery ${idx + 1}`}
+                className={styles.imageRowImg}
+                loading="lazy"
+              />
+            </div>
+          ))}
         </div>
       </div>
 

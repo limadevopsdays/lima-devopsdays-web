@@ -688,6 +688,33 @@
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
+.invitedCountryFlag[data-country='Israel'] {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 12.5%,
+    #0038a8 12.5%,
+    #0038a8 27.5%,
+    #ffffff 27.5%,
+    #ffffff 72.5%,
+    #0038a8 72.5%,
+    #0038a8 87.5%,
+    #ffffff 87.5%,
+    #ffffff 100%
+  );
+}
+
+.invitedCountryFlag[data-country='Israel']::before {
+  content: '✡';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0038a8;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
 .invitedMemberJob {
   text-align: left;
   font-family: var(--brand-body-fontFamily);
@@ -830,81 +857,6 @@
   height: 100%;
 }
 
-@media (max-width: 968px) {
-  .keynoteShowcase {
-    max-width: none;
-    width: 100%;
-    grid-template-columns: 1fr;
-  }
-
-  .keynoteCard {
-    width: 100%;
-    max-width: none;
-  }
-
-  .keynoteCardInner,
-  .keynoteProfileImageBio {
-    flex-direction: column;
-  }
-
-  .keynoteProfileImageWrapper {
-    width: 100%;
-    min-width: 0;
-    aspect-ratio: 4 / 3;
-  }
-
-  .keynoteImageLink {
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .keynoteMeta {
-    padding: 1.6rem 1.25rem 1.35rem;
-  }
-
-  .keynoteTopRow {
-    gap: 0.65rem;
-  }
-
-  .keynoteTag {
-    font-size: 0.78rem;
-  }
-
-  .keynoteName {
-    margin-top: 0.65rem;
-    font-size: 1.45rem;
-    line-height: 1.15;
-  }
-
-  .keynoteRole {
-    margin-top: 0.2rem;
-    font-size: 0.98rem;
-    line-height: 1.45;
-  }
-
-  .keynoteTopicBlock {
-    margin-top: 0.95rem;
-    padding-top: 0.95rem;
-  }
-
-  .keynoteTopic {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .keynoteTopicHashtag {
-    font-size: 0.88rem;
-    line-height: 1.45;
-  }
-
-  .keynoteCountryFlag {
-    width: 2.45rem;
-    height: 2.45rem;
-    right: 0.85rem;
-    bottom: -1.2rem;
-  }
-}
-
 .keynoteProfileImageBio {
   display: flex;
   flex-direction: row;
@@ -1023,6 +975,33 @@
   height: 54%;
   background: #3c3b6e;
   border-top-left-radius: 9999px;
+}
+
+.keynoteCountryFlag[data-country='Israel'] {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 12.5%,
+    #0038a8 12.5%,
+    #0038a8 27.5%,
+    #ffffff 27.5%,
+    #ffffff 72.5%,
+    #0038a8 72.5%,
+    #0038a8 87.5%,
+    #ffffff 87.5%,
+    #ffffff 100%
+  );
+}
+
+.keynoteCountryFlag[data-country='Israel']::before {
+  content: '✡';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0038a8;
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .keynoteImage {
@@ -1388,6 +1367,21 @@
   }
 }
 
+@media (max-width: 968px) {
+  .keynoteShowcase {
+    max-width: none;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .keynoteCard {
+    width: 100%;
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+}
+
+
 @media (max-width: 640px) {
   .speakersHeader {
     margin-bottom: 1.25rem;
@@ -1415,10 +1409,10 @@
 
   .invitedCarouselWrapper :global(.slick-list) {
     overflow: hidden;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: -8px;
+    margin-bottom: -8px;
   }
 
   .invitedCarouselWrapper :global(.slick-slide) {
@@ -1477,20 +1471,75 @@
 
   .keynoteCard {
     width: 100%;
-    max-width: none;
+    max-width: 32rem;
+    margin: 0 auto;
+    height: auto;
+    min-height: auto;
+  }
+
+  .keynoteCardInner,
+  .keynoteProfileImageBio {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .keynoteProfileImageWrapper {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .keynoteImageLink {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .keynoteMeta {
+    padding: 1.6rem 1.25rem 3.5rem;
   }
 
   .keynoteTopRow {
     flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .keynoteTag {
+    font-size: 0.78rem;
   }
 
   .keynoteName {
+    margin-top: 0.65rem;
     font-size: 1.2rem;
+    line-height: 1.15;
   }
 
   .keynoteRole,
   .keynoteCompany {
+    margin-top: 0.2rem;
     font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .keynoteTopicBlock {
+    margin-top: 0.95rem;
+    padding-top: 0.95rem;
+  }
+
+  .keynoteTopic {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .keynoteTopicHashtag {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .keynoteCountryFlag {
+    width: 2.45rem;
+    height: 2.45rem;
+    right: 0.85rem;
+    bottom: 0.85rem;
   }
 
   .invitedArrow {

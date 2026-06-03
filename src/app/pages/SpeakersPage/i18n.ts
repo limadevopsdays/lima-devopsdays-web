@@ -30,7 +30,7 @@ export const speakersPageI18n: Record<Locale, SpeakersPageI18n> = {
   es: {
     dateLocale: 'es-PE',
     socialProofAlt: 'Speakers y comunidad en DevOpsDays Lima',
-    badgeText: 'Call for Speakers 2026',
+    badgeText: 'Speakers 2026',
     introTitle: 'Comparte tu experiencia con la comunidad DevOps',
     introDescription:
       'Buscamos speakers con experiencia real en transformación DevOps. Si tu aprendizaje nació en entornos reales y hoy puede ayudar a otros equipos a tomar mejores decisiones, queremos escucharte.',
@@ -56,7 +56,7 @@ export const speakersPageI18n: Record<Locale, SpeakersPageI18n> = {
         description: 'Te notificamos si tu charla fue seleccionada',
       },
     ],
-    ctaBadgeText: 'CALL FOR SPEAKERS DISPONIBLE',
+    ctaBadgeText: 'CALL FOR SPEAKERS CERRADO',
     ctaTitle: '¿Tienes una historia que contar?',
     ctaDescription:
       'Comparte experiencia aplicada, criterio técnico y aprendizajes que puedan elevar la conversación de la comunidad DevOps en Perú. Buscamos talks con sustancia, casos reales y lecciones que ayuden a otros equipos a ejecutar mejor.',
@@ -90,7 +90,7 @@ export const speakersPageI18n: Record<Locale, SpeakersPageI18n> = {
   en: {
     dateLocale: 'en-US',
     socialProofAlt: 'Speakers and community at DevOpsDays Lima',
-    badgeText: 'Call for Speakers 2026',
+    badgeText: 'Speakers 2026',
     introTitle: 'Share your experience with the DevOps community',
     introDescription:
       'We are looking for speakers with real DevOps transformation experience. If your learning was forged in real environments and can help other teams make better decisions, we want to hear you.',
@@ -116,7 +116,7 @@ export const speakersPageI18n: Record<Locale, SpeakersPageI18n> = {
         description: 'We will notify you if your talk was selected',
       },
     ],
-    ctaBadgeText: 'CALL FOR SPEAKERS AVAILABLE',
+    ctaBadgeText: 'CALL FOR SPEAKERS CLOSED',
     ctaTitle: 'Do you have a story to tell?',
     ctaDescription:
       'Share applied experience, technical judgment and lessons learned that can elevate the DevOps community conversation in Peru. We are looking for talks with substance, real-world cases and lessons that help other teams execute better.',

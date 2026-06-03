@@ -173,6 +173,7 @@ export default function SpeakersPage() {
             </div>
 
             <div className={styles.ctaRightContent}>
+              {/*
               <a
                 href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
                 target="_blank"
@@ -183,6 +184,7 @@ export default function SpeakersPage() {
                 <ClipboardPenLine size={20} className={styles.ctaButtonIcon} />
                 {t.ctaButton}
               </a>
+              */}
 
               <div className={styles.ctaDatesGroup}>
                 <p className={styles.ctaDeadline}>

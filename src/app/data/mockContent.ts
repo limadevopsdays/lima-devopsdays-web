@@ -278,6 +278,11 @@ export const sponsors = [
         href: 'https://www.youtube.com/@hackemate',
         logo: '/images/sponsors/community/hackemate.png'
       },
+      {
+        name: 'Practical DevSecOps',
+        href: 'https://www.practical-devsecops.com/',
+        logo: '/images/sponsors/community/practicaldevsecops.png'
+      },
     ],
   },
 ]
