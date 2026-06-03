@@ -456,16 +456,18 @@ export function SpeakersSection() {
                   {t.cfsSecondaryBtn}
                 </Link>
 
-                <a
-                  href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.ctaButton}
-                  data-track-name="call_for_speakers_banner_home"
-                >
-                  <Send className={styles.ctaIcon} />
-                  {t.cfsPrimaryBtn}
-                </a>
+                 {/*
+                 <a
+                   href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className={styles.ctaButton}
+                   data-track-name="call_for_speakers_banner_home"
+                 >
+                   <Send className={styles.ctaIcon} />
+                   {t.cfsPrimaryBtn}
+                 </a>
+                 */}
               </div>
 
               <div>
