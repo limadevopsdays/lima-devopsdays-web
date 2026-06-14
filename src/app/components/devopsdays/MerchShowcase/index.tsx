@@ -41,6 +41,8 @@ export function MerchShowcase({ items }: Props) {
   const outerRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const dragStartX = useRef<number | null>(null)
+  const hasDragged = useRef(false)   // true only after crossing the 6px threshold
+  const justDragged = useRef(false)  // blocks the click that follows a drag
   const isAnimating = useRef(false)
 
   // Returns card width, gap, and step (card + gap) based on current DOM state
@@ -111,14 +113,23 @@ export function MerchShowcase({ items }: Props) {
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (isAnimating.current) return
     dragStartX.current = e.clientX
-    e.currentTarget.setPointerCapture(e.pointerId)
-    e.currentTarget.style.cursor = 'grabbing'
-    setPaused(true)
+    hasDragged.current = false
+    // NOTE: no setPointerCapture here — it blocks clicks on child <a> tags.
+    // Capture is set in onPointerMove once the drag threshold is confirmed.
   }
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (dragStartX.current === null || !trackRef.current) return
     const delta = e.clientX - dragStartX.current
+
+    if (!hasDragged.current) {
+      if (Math.abs(delta) < 6) return // below drag threshold — still a potential tap
+      hasDragged.current = true
+      e.currentTarget.setPointerCapture(e.pointerId)
+      e.currentTarget.style.cursor = 'grabbing'
+      setPaused(true)
+    }
+
     const { stepW } = computeMetrics()
     trackRef.current.style.transition = 'none'
     trackRef.current.style.transform = `translateX(${-EXTRA * stepW + delta}px)`
@@ -137,13 +148,22 @@ export function MerchShowcase({ items }: Props) {
   const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     if (dragStartX.current === null) return
     const delta = e.clientX - dragStartX.current
+    const wasDragging = hasDragged.current
+
     e.currentTarget.style.cursor = ''
     dragStartX.current = null
+    hasDragged.current = false
+
+    if (!wasDragging) return // was a tap — let the click on the <a> propagate naturally
+
     setPaused(false)
+    // Block the synthetic click that browsers fire after pointerup
+    justDragged.current = true
+    setTimeout(() => { justDragged.current = false }, 200)
 
     const { stepW } = computeMetrics()
     const rawSnap = Math.round(Math.abs(delta) / stepW)
-    const snapCount = Math.min(rawSnap, EXTRA) // cap to available extra items
+    const snapCount = Math.min(rawSnap, EXTRA)
 
     if (snapCount === 0) {
       snapBack()
@@ -153,10 +173,23 @@ export function MerchShowcase({ items }: Props) {
   }
 
   const onPointerCancel = (e: React.PointerEvent<HTMLDivElement>) => {
+    const wasDragging = hasDragged.current
     e.currentTarget.style.cursor = ''
     dragStartX.current = null
-    setPaused(false)
-    snapBack()
+    hasDragged.current = false
+    if (wasDragging) {
+      setPaused(false)
+      snapBack()
+    }
+  }
+
+  // Intercept click in capture phase so drags never trigger <a> navigation
+  const onClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (justDragged.current) {
+      justDragged.current = false
+      e.preventDefault()
+      e.stopPropagation()
+    }
   }
 
   // Render EXTRA items on each side for the peek-during-drag effect
@@ -196,6 +229,7 @@ export function MerchShowcase({ items }: Props) {
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerCancel}
+          onClickCapture={onClickCapture}
         >
           <div ref={trackRef} className={styles.track}>
             {visibleItems.map(({ item, key }) => (
