@@ -6,6 +6,7 @@ import TicketsPage from './pages/TicketsPage'
 import SorteoEntradasPage from './pages/SorteoEntradasPage'
 import SpeakersPage from './pages/SpeakersPage'
 import CodeOfConductPage from './pages/CodeOfConductPage'
+import ShopPage from './pages/ShopPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function LegacyCodeOfConductRedirect() {
@@ -37,9 +38,13 @@ export const router = createBrowserRouter([
         path: 'speakers', 
         Component: SpeakersPage 
       },
-      { 
+      {
         path: 'code-of-conduct',
         Component: CodeOfConductPage
+      },
+      {
+        path: 'shop',
+        Component: ShopPage
       },
       {
         path: 'codigo-de-conducta',
