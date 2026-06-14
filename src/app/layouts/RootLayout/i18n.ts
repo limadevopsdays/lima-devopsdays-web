@@ -64,6 +64,13 @@ export const routeSeo: Record<Locale, Record<string, SeoEntry>> = {
       canonicalPath: '/code-of-conduct',
       robots: 'index,follow,max-image-preview:large',
     },
+    '/shop': {
+      title: 'Tienda Oficial | DevOpsDays Lima 2026',
+      description:
+        'Consigue el merch oficial de DevOpsDays Lima 2026 — polos, gorras, mochilas y más. Colección exclusiva 2026, edición limitada.',
+      canonicalPath: '/shop',
+      robots: 'index,follow,max-image-preview:large',
+    },
   },
   en: {
     '/': {
@@ -106,6 +113,13 @@ export const routeSeo: Record<Locale, Record<string, SeoEntry>> = {
       description:
         'Read the official Code of Conduct for DevOpsDays Lima 2026 for attendees, speakers, sponsors, and organizers.',
       canonicalPath: '/code-of-conduct',
+      robots: 'index,follow,max-image-preview:large',
+    },
+    '/shop': {
+      title: 'Official Merch Store | DevOpsDays Lima 2026',
+      description:
+        'Get the official DevOpsDays Lima 2026 merch — polos, caps, backpacks and more. Exclusive 2026 collection, limited edition.',
+      canonicalPath: '/shop',
       robots: 'index,follow,max-image-preview:large',
     },
   },
