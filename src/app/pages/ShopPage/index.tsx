@@ -5,7 +5,6 @@ import { isTicketSaleOpen } from '../../lib/tickets'
 import { useI18n, useLocale } from '../../i18n'
 import { shopI18n } from './i18n'
 import { MERCH_CATALOG, MERCH_SHOP_URL } from '../../data/merch'
-import { EarlyBirdBanner } from '../../components/devopsdays/EarlyBirdBanner'
 import { MerchShowcase } from '../../components/devopsdays/MerchShowcase'
 import styles from './index.module.css'
 
@@ -322,17 +321,6 @@ export default function ShopPage() {
 
       </section>
 
-      {/* ── Early Bird — sección con identidad visual ─────────── */}
-      <section className={styles.earlyBirdSection}>
-        <div className={styles.earlyBirdDivider}>
-          <span className={styles.earlyBirdDividerLine} />
-          <span className={styles.earlyBirdDividerLabel}>EARLY BIRD</span>
-          <span className={styles.earlyBirdDividerLine} />
-        </div>
-        <div className={styles.earlyBirdWrap}>
-          <EarlyBirdBanner />
-        </div>
-      </section>
 
       {/* ── Toda la Colección — carrusel ─────────────────────── */}
       <MerchShowcase items={MERCH_CATALOG} />

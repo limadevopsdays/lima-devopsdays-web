@@ -294,14 +294,7 @@ export function HeroSection() {
               {t.primaryCta}
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              to="/speakers"
-              className={`${styles.ctaButton} ${styles.ctaSecondary}`}
-              data-track-name="call_for_speakers_hero_home"
-            >
-              {t.secondaryCta}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+
           </div>
         </motion.div>
 

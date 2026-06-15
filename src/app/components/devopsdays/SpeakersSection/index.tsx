@@ -420,18 +420,14 @@ export function SpeakersSection() {
             {/* Columna izquierda: Contenido principal */}
             <div className={styles.content}>
               <div>
-                <div className={styles.badgeContainer}>
-                  <div className={styles.badgeDot} />
-                  <span className={styles.badgeText}>{t.cfsAvailableBadge}</span>
-                </div>
 
                 <h2 className={styles.title}>{t.cfsTitle}</h2>
 
                 <p className={styles.description}>{t.cfsDescription}</p>
 
-                <p className={styles.tracksLabel}>{t.cfsTracksLabel}</p>
+                <p className={styles.tracksLabel} style={{ display: 'none' }}>{t.cfsTracksLabel}</p>
 
-                <div className={styles.tracks}>
+                <div className={styles.tracks} style={{ display: 'none' }}>
                   {t.cfsTracks.map((track, idx) => (
                     <span
                       key={idx}
