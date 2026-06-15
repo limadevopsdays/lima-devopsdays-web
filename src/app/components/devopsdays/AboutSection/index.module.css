@@ -183,7 +183,6 @@
 
 /* Image Row Container */
 .imageRowContainer {
-  margin-top: 3rem;
   width: 100%;
   overflow: hidden;
   background: var(--color-white);

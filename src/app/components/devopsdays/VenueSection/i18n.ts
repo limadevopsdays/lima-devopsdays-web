@@ -19,7 +19,7 @@ type VenueI18n = {
 export const venueI18n: Record<Locale, VenueI18n> = {
   es: {
     eyebrow: 'Ubicación',
-    title: 'Venue y cómo llegar',
+    title: 'Cómo llegar',
     lead: 'Nos encontramos en Lima Centro de Convenciones, un espacio preparado para charlas, networking y una experiencia cómoda para toda la comunidad.',
     venueName: 'Lima Centro de Convenciones',
     mapsBtn: 'Ver en Maps',
@@ -34,7 +34,7 @@ export const venueI18n: Record<Locale, VenueI18n> = {
   },
   en: {
     eyebrow: 'Venue',
-    title: 'Venue & how to get there',
+    title: 'How to get there',
     lead: 'We are located at the Lima Convention Center, a space designed for talks, networking, and a comfortable experience for the entire community.',
     venueName: 'Lima Convention Center',
     mapsBtn: 'View on Maps',

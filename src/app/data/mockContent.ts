@@ -248,6 +248,11 @@ export const sponsors = [
         href: 'https://www.tsoftglobal.com/',
         logo: '/images/sponsors/gold/tsoft.png'
       },
+      {
+        name: 'MongoDB',
+        href: 'https://www.mongodb.com/es',
+        logo: '/images/sponsors/gold/mongodb.png'
+      },
     ],
   },
   {

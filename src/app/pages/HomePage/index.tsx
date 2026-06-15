@@ -1,5 +1,4 @@
 import { HeroSection } from '../../components/devopsdays/HeroSection'
-import { EarlyBirdBanner } from '../../components/devopsdays/EarlyBirdBanner'
 import { CountdownSection } from '../../components/devopsdays/CountdownSection'
 import { AboutSection } from '../../components/devopsdays/AboutSection'
 import { SponsorsSection } from '../../components/devopsdays/SponsorsSection'
@@ -20,15 +19,14 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <EarlyBirdBanner />
       <CountdownSection />
       <AboutSection />
       <SpeakersSection />
+      <SponsorsSection />
       <section className={styles.ticketsGalleryBlock} aria-label={t.ticketsGallerySectionLabel}>
         <TicketsSection />
         <GallerySection />
       </section>
-      <SponsorsSection />
       <VenueSection />
       <TurismSection />
       <OrganizersSection />

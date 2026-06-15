@@ -188,7 +188,7 @@ export function SponsorsSection() {
           <div className={styles.ctaBannerGrid}>
             <div className={styles.ctaBannerContent}>
               <div>
-                <div className={styles.ctaBadgeContainer}>
+                <div className={styles.ctaBadgeContainer} style={{ display: 'none' }}>
                   <div className={styles.ctaBadgeDot} />
                   <span className={styles.ctaBadgeText}>{t.ctaBadge}</span>
                 </div>
