@@ -8,6 +8,7 @@ import type { CSSProperties } from 'react'
 import styles from './index.module.css'
 import { SectionHeader } from '../SectionHeader'
 import { SmartCropImage } from '../../SmartCropImage'
+import { CountryFlag } from '../CountryFlag'
 import { useI18n } from '../../../i18n'
 import { speakersI18n } from './i18n'
 import {
@@ -129,10 +130,10 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
           </div>
         </div>
       </div>
-      <span
+      <CountryFlag
+        country={speaker.country}
         className={styles.keynoteCountryFlag}
-        data-country={speaker.country}
-        aria-label={speaker.country}
+        svgClassName={styles.countryFlagSvg}
       />
       <a
         href={speaker.linkedin}
@@ -182,10 +183,10 @@ function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: Return
                 cropWidth={320}
                 cropHeight={320}
               />
-              <span
+              <CountryFlag
+                country={speaker.country}
                 className={styles.invitedCountryFlag}
-                data-country={speaker.country}
-                aria-label={speaker.country}
+                svgClassName={styles.countryFlagSvg}
               />
             </div>
           </div>
@@ -253,10 +254,25 @@ function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: Return
 
 export function SpeakersSection() {
   const [visibleInvitedSlides, setVisibleInvitedSlides] = useState(4)
+  const [activeKeynoteTracks, setActiveKeynoteTracks] = useState<string[]>([])
   const [activeInvitedTracks, setActiveInvitedTracks] = useState<string[]>([])
   const t = useI18n(speakersI18n)
   const keynoteSpeakers = useI18n(keynoteSpeakersI18n)
   const invitedSpeakers = useI18n(invitedSpeakersI18n)
+
+  const keynoteTrackOptions = Array.from(
+    keynoteSpeakers.reduce((map, speaker) => {
+      if (speaker.thematicAxis) {
+        map.set(speaker.thematicAxis, {
+          name: speaker.thematicAxis,
+          color: speaker.thematicAxisColor || '#2563eb',
+        })
+      }
+
+      return map
+    }, new Map<string, { name: string; color: string }>())
+      .values()
+  )
 
   const invitedTrackOptions = Array.from(
     invitedSpeakers.reduce((map, speaker) => {
@@ -270,6 +286,13 @@ export function SpeakersSection() {
       return map
     }, new Map<string, { name: string; color: string }>())
       .values()
+  )
+
+  const filteredKeynoteSpeakers = keynoteSpeakers.filter(
+    (speaker) =>
+      activeKeynoteTracks.length === 0 ||
+      !speaker.thematicAxis ||
+      activeKeynoteTracks.includes(speaker.thematicAxis)
   )
 
   const filteredInvitedSpeakers = invitedSpeakers.filter(
@@ -315,6 +338,14 @@ export function SpeakersSection() {
     )
   }
 
+  function toggleKeynoteTrack(trackName: string) {
+    setActiveKeynoteTracks((currentTracks) =>
+      currentTracks.includes(trackName)
+        ? currentTracks.filter((track) => track !== trackName)
+        : [...currentTracks, trackName]
+    )
+  }
+
   const invitedSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, filteredInvitedSpeakers.length || 1))
   const canSlideInvited = filteredInvitedSpeakers.length > invitedSlidesToShow
 
@@ -337,18 +368,53 @@ export function SpeakersSection() {
       <div className={styles.keynoteSection}>
         <div className={styles.container}>
           <SectionHeader
+            className={styles.keynoteHeader}
             eyebrow={t.eyebrow}
             eyebrowColor="#6B51EF"
+          />
+          <SectionHeader
+            className={styles.keynoteTitleHeader}
             title={<><span className={styles.keynoteTitleAccent}>Keynote</span> Speakers</>}
             lead={t.lead}
           />
           <div className={styles.keynotePanel}>
             <div className={styles.keynotePanelContent}>
-              <div className={styles.keynoteShowcase}>
-                {keynoteSpeakers.map((speaker) => (
-                  <KeynoteSpeakerCard key={speaker.name} speaker={speaker} t={t} />
-                ))}
+              <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
+                {keynoteTrackOptions.map((track) => {
+                  const isActive = activeKeynoteTracks.includes(track.name)
+                  const trackSpeakerCount = keynoteSpeakers.filter(
+                    (speaker) => speaker.thematicAxis === track.name
+                  ).length
+
+                  return (
+                    <button
+                      key={track.name}
+                      type="button"
+                      className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
+                      style={{ '--track-color': track.color } as CSSProperties}
+                      onClick={() => toggleKeynoteTrack(track.name)}
+                      aria-pressed={isActive}
+                    >
+                      {track.name}
+                      {isActive && (
+                        <span className={styles.invitedFilterTabCount}>
+                          {trackSpeakerCount}
+                        </span>
+                      )}
+                    </button>
+                  )
+                })}
               </div>
+
+              {filteredKeynoteSpeakers.length > 0 ? (
+                <div className={styles.keynoteShowcase}>
+                  {filteredKeynoteSpeakers.map((speaker) => (
+                    <KeynoteSpeakerCard key={speaker.name} speaker={speaker} t={t} />
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+              )}
             </div>
           </div>
 
@@ -465,7 +531,7 @@ export function SpeakersSection() {
                  </a>
                  */}
               </div>
-
+              {/*
               <div>
                 <p className={styles.dateText}>
                   {t.cfsDeadline} <strong>{t.cfsDeadlineDate}</strong>
@@ -473,7 +539,7 @@ export function SpeakersSection() {
                 <p className={styles.dateText}>
                   {t.cfsNotification} <strong>{t.cfsNotificationDate}</strong>
                 </p>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>

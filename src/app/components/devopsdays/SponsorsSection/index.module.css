@@ -8,6 +8,7 @@
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .titleYear {
@@ -23,34 +24,35 @@
   --tier-divider-color: 133, 141, 166;
   --tier-divider-width: min(100%, 26rem);
   position: relative;
-  margin-bottom: 0rem;
+  margin-bottom: 2.25rem;
   padding-bottom: 0.5rem;
 }
 
 .platinumCard[data-tier="platinum"] {
   --tier-divider-color: 143, 164, 196;
-  --sponsor-card-size: 14.5rem;
+  --sponsor-card-size: 13rem;
 }
 
 .platinumCard[data-tier="gold"] {
   --tier-divider-color: 242, 185, 80;
-  --sponsor-card-size: 13.5rem;
+  --sponsor-card-size: 12rem;
 }
 
 .platinumCard[data-tier="silver"] {
   --tier-divider-color: 141, 145, 145;
-  --sponsor-card-size: 12rem;
+  --sponsor-card-size: 10.75rem;
 }
 
 .platinumCard[data-tier="bronze"] {
   --tier-divider-color: 169, 113, 85;
-  --sponsor-card-size: 10.5rem;
+  --sponsor-card-size: 9.5rem;
 }
 
 .platinumCard[data-tier="community"] {
   --tier-color: #84cc16;
   --tier-divider-color: 132, 204, 22;
-  --sponsor-card-size: 9.75rem;
+  --sponsor-card-size: 8.75rem;
+  margin-bottom: 0rem;
 }
 
 .platinumCard[data-tier="community"]::after {
@@ -102,15 +104,14 @@
 }
 
 .platinumBadgeIcon {
-  width: 1em;
-  height: 1em;
+  width: 1.15em;
+  height: 1.15em;
   flex: 0 0 auto;
   color: var(--tier-color, var(--color-purple));
   filter:
     drop-shadow(0 0 5px color-mix(in srgb, var(--tier-color, var(--color-purple)) 22%, transparent))
     drop-shadow(0 0 12px color-mix(in srgb, var(--tier-color, var(--color-purple)) 14%, transparent))
     drop-shadow(0 0 20px color-mix(in srgb, var(--tier-color, var(--color-purple)) 8%, transparent));
-  animation: platinumBadgeGlow 2.1s ease-in-out infinite;
 }
 
 .platinumBadgeText,
@@ -122,9 +123,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
   font-family: var(--brand-heading-fontFamily);
-  font-size: var(--brand-text-size-400);
+  font-size: 1.45rem;
   font-weight: var(--brand-text-weight-900);
   color: var(--tier-color, var(--color-purple));
   text-shadow:
@@ -212,10 +213,10 @@
 .communityLogoContainer {
   background: var(--color-white);
   width: min(100%, var(--sponsor-card-size, 13.5rem));
-  height: var(--sponsor-card-size, 13.5rem);
-  padding: 1rem;
+  height: calc(var(--sponsor-card-size, 13.5rem) * 0.62);
+  padding: 0.75rem 1.25rem;
   border-radius: 1rem;
-  border: 1px solid color-mix(in srgb, var(--sponsor-border-color) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sponsor-border-color) 55%, transparent);
   transition:
     border-color 0.3s ease,
     transform 0.3s ease;
@@ -246,7 +247,7 @@
 .silverLogoContainer,
 .bronzeLogoContainer,
 .communityLogoContainer {
-  padding: 1rem;
+  padding: 0.75rem 1.25rem;
 }
 
 .goldContent,

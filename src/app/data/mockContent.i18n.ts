@@ -87,6 +87,21 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
       alt: 'Zohar Einy, keynote speaker invitado en DevOpsDays Lima',
       linkedin: 'https://www.linkedin.com/in/zohar-einy/',
     },
+    {
+      name: 'Ricardo Martins',
+      tag: 'INTERNACIONAL',
+      country: 'Brasil',
+      company: 'IBM',
+      role: 'CTO',
+      thematicAxis: 'Platform Engineering & DevOps',
+      thematicAxisColor: '#2563eb',
+      topic: 'Del Código al Agente: El rol de Terraform y Platform Engineering en la Era de Agentic AI',
+      imageSrc: '/images/speakers/keynotes/ricardo-martins.jpeg',
+      imagePosition: 'center center',
+      imageFit: 'cover',
+      alt: 'Ricardo Martins, keynote speaker invitado en DevOpsDays Lima',
+      linkedin: 'https://www.linkedin.com/in/ricardo-martins-cto/',
+    },
   ],
   en: [
     {
@@ -134,6 +149,21 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
       alt: 'Zohar Einy, keynote speaker at DevOpsDays Lima',
       linkedin: 'https://www.linkedin.com/in/zohar-einy/',
     },
+    {
+      name: 'Ricardo Martins',
+      tag: 'INTERNATIONAL',
+      country: 'Brazil',
+      company: 'IBM',
+      role: 'CTO',
+      thematicAxis: 'Platform Engineering & DevOps',
+      thematicAxisColor: '#2563eb',
+      topic: 'Del Código al Agente: El rol de Terraform y Platform Engineering en la Era de Agentic AI',
+      imageSrc: '/images/speakers/keynotes/ricardo-martins.jpeg',
+      imagePosition: 'center center',
+      imageFit: 'cover',
+      alt: 'Ricardo Martins, keynote speaker at DevOpsDays Lima',
+      linkedin: 'https://www.linkedin.com/in/ricardo-martins-cto/',
+    },
   ],
 }
 
@@ -157,6 +187,7 @@ export const invitedSpeakersI18n: Record<Locale, InvitedSpeaker[]> = {
     { name: 'Sebastian Veliz',      company: 'Tenpo', role: 'Head of Cybersecurity',                                                country: 'Chile',     topic: 'Modelo de Wald aplicado a DevSecOps: decisiones estadísticas para despliegues seguros', thematicAxis: 'Security & Technology Transformation', thematicAxisColor: '#10b981', linkedin: 'https://www.linkedin.com/in/sebastianvelizdonoso/', imageSrc: '/images/speakers/speakers/sebastian_veliz.jpeg',      alt: 'Sebastian Veliz, speaker invitado en DevOpsDays Lima' },
     { name: 'Jefferson Riobueno',   company: 'NTT Data', role: 'Q Lead Architect',                                                 country: 'Ecuador',   topic: 'Agentes que prueban Agentes: el nuevo paradigma de QA en la era de la IA',             thematicAxis: 'Enterprise AI & Data Strategy', thematicAxisColor: '#a78bfa', linkedin: 'https://linkedin.com/in/jeffersonriobueno/', imageSrc: '/images/speakers/speakers/jefferson_riobueno.jpg',    alt: 'Jefferson Riobueno, speaker invitado en DevOpsDays Lima' },
     { name: 'Alexandra Zamora',     company: 'NTT Data', role: 'Manager Quality Services',                                         country: 'Ecuador',   topic: 'Agentes que prueban Agentes: el nuevo paradigma de QA en la era de la IA',             thematicAxis: 'Enterprise AI & Data Strategy', thematicAxisColor: '#a78bfa', linkedin: 'https://www.linkedin.com/in/alexandra-zamora-barzallo/', imageSrc: '/images/speakers/speakers/alexandra_zamora.jpg',   alt: 'Alexandra Zamora, speaker invitado en DevOpsDays Lima' },
+    { name: 'Esmira Bayramova',     company: 'CAST.AI', role: 'Dr. Manager of DevRel & DevOps',                                 country: 'Estados Unidos', topic: 'From Manual Scaling to Intelligent Automation: How Cost Visibility Saved Our Team', thematicAxis: 'Platform Engineering & DevOps', thematicAxisColor: '#2563eb', linkedin: 'https://www.linkedin.com/in/esmira-bayramova-37511a29/', imageSrc: '/images/speakers/speakers/esmira_bayramova.jpeg', alt: 'Esmira Bayramova, speaker invitada en DevOpsDays Lima' },
   ],
   en: [
     { name: 'Jimmy Florez',        company: 'Nequi', role: 'DevSecOps Lead',                                                   country: 'Colombia',  topic: 'De DevOps a Platform Engineering: El journey',                                         thematicAxis: 'Platform Engineering & DevOps', thematicAxisColor: '#2563eb', linkedin: 'https://www.linkedin.com/in/jimmy-florez-3668a372/', imageSrc: '/images/speakers/speakers/jimmy_florez.png',          alt: 'Jimmy Florez, invited speaker at DevOpsDays Lima' },
@@ -176,6 +207,7 @@ export const invitedSpeakersI18n: Record<Locale, InvitedSpeaker[]> = {
     { name: 'Sebastian Veliz',      company: 'Tenpo', role: 'Head of Cybersecurity',                                                country: 'Chile',     topic: 'Modelo de Wald applied to DevSecOps: statistical decisions for secure deployments',     thematicAxis: 'Security & Technology Transformation', thematicAxisColor: '#10b981', linkedin: 'https://www.linkedin.com/in/sebastianvelizdonoso/', imageSrc: '/images/speakers/speakers/sebastian_veliz.jpeg',      alt: 'Sebastian Veliz, invited speaker at DevOpsDays Lima' },
     { name: 'Jefferson Riobueno',   company: 'NTT Data', role: 'Q Lead Architect',                                                 country: 'Ecuador',   topic: 'Agents testing Agents: the new QA paradigm in the AI era',                             thematicAxis: 'Enterprise AI & Data Strategy', thematicAxisColor: '#a78bfa', linkedin: 'https://linkedin.com/in/jeffersonriobueno/', imageSrc: '/images/speakers/speakers/jefferson_riobueno.jpg',    alt: 'Jefferson Riobueno, invited speaker at DevOpsDays Lima' },
     { name: 'Alexandra Zamora',     company: 'NTT Data', role: 'Manager Quality Services',                                         country: 'Ecuador',   topic: 'Agents testing Agents: the new QA paradigm in the AI era',                             thematicAxis: 'Enterprise AI & Data Strategy', thematicAxisColor: '#a78bfa', linkedin: 'https://www.linkedin.com/in/alexandra-zamora-barzallo/', imageSrc: '/images/speakers/speakers/alexandra_zamora.jpg',   alt: 'Alexandra Zamora, invited speaker at DevOpsDays Lima' },
+    { name: 'Esmira Bayramova',     company: 'CAST.AI', role: 'Dr. Manager of DevRel & DevOps',                                 country: 'United States', topic: 'From Manual Scaling to Intelligent Automation: How Cost Visibility Saved Our Team', thematicAxis: 'Platform Engineering & DevOps', thematicAxisColor: '#2563eb', linkedin: 'https://www.linkedin.com/in/esmira-bayramova-37511a29/', imageSrc: '/images/speakers/speakers/esmira_bayramova.jpeg', alt: 'Esmira Bayramova, invited speaker at DevOpsDays Lima' },
   ],
 }
 

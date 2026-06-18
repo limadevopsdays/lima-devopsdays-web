@@ -1,0 +1,145 @@
+.tracksWrapper {
+  margin: 1.5rem 0 3.5rem 0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.titleAccent {
+  color: var(--color-purple, #6B51EF);
+  margin-left: 0.5rem;
+}
+
+/* Accordion Container: Single boxed layout holding stacked items with no gap */
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white, #ffffff);
+  border: 1px solid var(--color-slate-200, #e2e8f0);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.02),
+    0 1px 3px rgba(0, 0, 0, 0.01);
+}
+
+/* Accordion Items stacked seamlessly */
+.accordionItem {
+  background: var(--color-white, #ffffff);
+  border: none;
+  border-bottom: 1px solid var(--color-slate-200, #e2e8f0);
+  border-left: 4px solid transparent;
+  transition: 
+    background-color 0.25s ease,
+    border-left-color 0.25s ease;
+}
+
+.accordionItem:last-child {
+  border-bottom: none;
+}
+
+.accordionItem:hover {
+  background: var(--color-slate-50, #f8fafc);
+}
+
+.accordionItemActive {
+  background: color-mix(in srgb, var(--track-color) 4%, #ffffff);
+  border-left-color: var(--track-color);
+}
+
+.accordionItemActive:hover {
+  background: color-mix(in srgb, var(--track-color) 6%, #ffffff);
+}
+
+/* Accordion Header */
+.accordionHeader {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+  outline: none;
+}
+
+.accordionHeaderTitleGroup {
+  display: flex;
+  align-items: center;
+}
+
+.accordionTitle {
+  font-family: var(--brand-heading-fontFamily);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-slate-800, #1e293b);
+  transition: color 0.25s ease;
+}
+
+.accordionItemActive .accordionTitle {
+  color: var(--color-slate-900, #0f172a);
+}
+
+.chevron {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-slate-400, #94a3b8);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--track-color);
+}
+
+/* Accordion Body & Description */
+.accordionBodyWrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.accordionBodyOpen {
+  max-height: 500px; /* Safe upper bound for description height */
+  opacity: 1;
+}
+
+.accordionBody {
+  padding: 0 1.5rem 1.25rem 1.5rem; /* Aligned nicely without icon indentation */
+}
+
+.description {
+  font-family: var(--brand-body-fontFamily);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-slate-600, #475569);
+  margin: 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .accordionHeader {
+    padding: 1rem 1.15rem;
+  }
+  
+  .accordionBody {
+    padding: 0 1.15rem 1.15rem 1.15rem;
+  }
+
+  .accordionTitle {
+    font-size: 1.05rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}

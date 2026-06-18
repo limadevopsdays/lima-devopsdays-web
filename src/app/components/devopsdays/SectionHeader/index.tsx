@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import styles from './index.module.css'
 
 interface SectionHeaderProps {
+  className?: string
   eyebrow?: string
   eyebrowColor?: string
   title?: ReactNode
@@ -12,6 +13,7 @@ interface SectionHeaderProps {
 }
 
 export function SectionHeader({
+  className,
   eyebrow,
   eyebrowColor = '#6B51EF',
   title,
@@ -21,7 +23,7 @@ export function SectionHeader({
   showDot = false,
 }: SectionHeaderProps) {
   return (
-    <div className={styles.container}>
+    <div className={[styles.container, className].filter(Boolean).join(' ')}>
       {eyebrow && (
         <span
           className={styles.eyebrow}
