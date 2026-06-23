@@ -1,4 +1,4 @@
-﻿import type { Locale } from '../../../i18n'
+import type { Locale } from '../../../i18n'
 
 type TicketsI18n = {
   eyebrow: string
@@ -8,6 +8,7 @@ type TicketsI18n = {
   ariaVip: string
   ariaGeneral: string
   earlyBird: string
+  onSale: string
   comingSoon: string
   saleStart: (date: string) => string
   saleStarted: (date: string) => string
@@ -24,6 +25,7 @@ export const ticketsI18n: Record<Locale, TicketsI18n> = {
     ariaVip: 'Comprar ticket VIP',
     ariaGeneral: 'Comprar ticket General',
     earlyBird: 'EARLY BIRD',
+    onSale: 'DISPONIBLE',
     comingSoon: 'PRÓXIMAMENTE',
     saleStart: (date) => `Inicio de venta: ${date}`,
     saleStarted: (date) => `Venta iniciada: ${date}`,
@@ -38,6 +40,7 @@ export const ticketsI18n: Record<Locale, TicketsI18n> = {
     ariaVip: 'Buy VIP ticket',
     ariaGeneral: 'Buy General ticket',
     earlyBird: 'EARLY BIRD',
+    onSale: 'ON SALE',
     comingSoon: 'COMING SOON',
     saleStart: (date) => `Sale starts: ${date}`,
     saleStarted: (date) => `Sale started: ${date}`,

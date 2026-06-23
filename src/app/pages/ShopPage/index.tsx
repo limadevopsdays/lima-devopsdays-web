@@ -205,13 +205,15 @@ export default function ShopPage() {
                           data-variant={p.variant}
                           data-track-name={`ver_ticket_${p.name.toLowerCase().replace(/\s/g, '_')}_shop_hero`}
                         >
-                          <div className={styles.ticketEarlyBirdRow}>
-                            <span className={styles.ticketEarlyBirdLabel}>
-                              <Zap size={7} />
-                              EARLY BIRD
-                            </span>
-                            <span className={styles.ticketDiscount}>{p.discount}</span>
-                          </div>
+                          {p.discount && (
+                            <div className={styles.ticketEarlyBirdRow}>
+                              <span className={styles.ticketEarlyBirdLabel}>
+                                <Zap size={7} />
+                                EARLY BIRD
+                              </span>
+                              <span className={styles.ticketDiscount}>{p.discount}</span>
+                            </div>
+                          )}
                           <div className={styles.ticketHorizDivider} />
                           <span className={styles.ticketName}>{p.name}</span>
                           <div className={styles.ticketPriceRow}>
@@ -219,7 +221,9 @@ export default function ShopPage() {
                               <span className={styles.ticketCurrency}>{p.price[0]}</span>
                               {p.price.slice(1)}
                             </span>
-                            <span className={styles.ticketPriceOriginal}>{p.originalPrice}</span>
+                            {p.originalPrice && (
+                              <span className={styles.ticketPriceOriginal}>{p.originalPrice}</span>
+                            )}
                           </div>
                           <p className={styles.ticketDesc}>{p.description}</p>
                         </a>
