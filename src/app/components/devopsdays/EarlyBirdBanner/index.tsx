@@ -1,9 +1,12 @@
-﻿import { CalendarDays, Sparkles, Zap } from 'lucide-react'
+import { isEarlyBird } from '../../../lib/tickets'
 import styles from './index.module.css'
 import { useI18n } from '../../../i18n'
 import { earlyBirdI18n } from './i18n'
+import { CalendarDays, Zap } from 'lucide-react'
 
 export function EarlyBirdBanner() {
+  if (!isEarlyBird()) return null
+
   const t = useI18n(earlyBirdI18n)
   const backgroundImageUrl = '/images/hero/banner/tickets.jpg'
 

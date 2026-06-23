@@ -263,6 +263,11 @@ export const sponsors = [
         href: 'https://www.inetum.com/es/es.html',
         logo: '/images/sponsors/silver/inetum.png'
       },
+      {
+        name: 'Soaint',
+        href: 'https://soaint.com/',
+        logo: '/images/sponsors/silver/soaint.png'
+      },
     ],
   },
   {
@@ -287,6 +292,11 @@ export const sponsors = [
         name: 'Practical DevSecOps',
         href: 'https://www.practical-devsecops.com/',
         logo: '/images/sponsors/community/practicaldevsecops.png'
+      },
+      {
+        name: 'Mitocode',
+        href: 'https://mitocode.com/',
+        logo: '/images/sponsors/community/mitocode.png'
       },
     ],
   },

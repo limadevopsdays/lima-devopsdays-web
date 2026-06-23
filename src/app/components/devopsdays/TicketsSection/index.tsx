@@ -1,8 +1,8 @@
-﻿import { Crown, Ticket, Zap, Clock, MapPin } from 'lucide-react'
+import { Crown, Ticket, Zap, Clock, MapPin } from 'lucide-react'
 import { Link } from 'react-router'
 import { SectionHeader } from '../SectionHeader'
 import styles from './index.module.css'
-import { isTicketSaleOpen, TICKET_SALE_START_LABEL } from '../../../lib/tickets'
+import { isTicketSaleOpen, isEarlyBird, TICKET_SALE_START_LABEL } from '../../../lib/tickets'
 import { TICKETS_REGISTER_URL } from '../../../data/mockContent'
 import hummingbirdBg from 'figma:asset/9c8f57f0fc822b0d19c16eaaa81441ccf07debb9.png'
 import { useI18n } from '../../../i18n'
@@ -19,6 +19,7 @@ type TicketsSectionProps = {
 export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
   const WrapperTag = variant === 'page' ? 'section' : 'div'
   const pricingAnnounced = isTicketSaleOpen()
+  const earlyBird = isEarlyBird()
   const t = useI18n(ticketsI18n)
 
   return (
@@ -103,15 +104,22 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
 
                   {pricingAnnounced && (
                     <>
-                      <div className={styles.priceBadge} data-color="vip">
-                        <Zap className={styles.priceBadgeIcon} />
-                        <span>{t.earlyBird}</span>
-                        <span className={styles.discountBadge}>-20%</span>
-                      </div>
+                      {earlyBird ? (
+                        <div className={styles.priceBadge} data-color="vip">
+                          <Zap className={styles.priceBadgeIcon} />
+                          <span>{t.earlyBird}</span>
+                          <span className={styles.discountBadge}>-20%</span>
+                        </div>
+                      ) : (
+                        <div className={styles.onSaleChip} data-color="vip">
+                          <Ticket className={styles.onSaleIcon} />
+                          <span>{t.onSale}</span>
+                        </div>
+                      )}
 
                       <div className={styles.priceGroup}>
-                        <div className={styles.priceMain} data-color="vip">$119.90</div>
-                        <div className={styles.priceStrikethrough}>$149.90</div>
+                        <div className={styles.priceMain} data-color="vip">{earlyBird ? '$119.90' : '$149.90'}</div>
+                        {earlyBird && <div className={styles.priceStrikethrough}>$149.90</div>}
                       </div>
                       
                       <div className={styles.priceValidity}>
@@ -193,15 +201,22 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
 
                   {pricingAnnounced && (
                     <>
-                      <div className={styles.priceBadge} data-color="general">
-                        <Zap className={styles.priceBadgeIcon} />
-                        <span>{t.earlyBird}</span>
-                        <span className={styles.discountBadge}>-30%</span>
-                      </div>
+                      {earlyBird ? (
+                        <div className={styles.priceBadge} data-color="general">
+                          <Zap className={styles.priceBadgeIcon} />
+                          <span>{t.earlyBird}</span>
+                          <span className={styles.discountBadge}>-30%</span>
+                        </div>
+                      ) : (
+                        <div className={styles.onSaleChip} data-color="general">
+                          <Ticket className={styles.onSaleIcon} />
+                          <span>{t.onSale}</span>
+                        </div>
+                      )}
 
                       <div className={styles.priceGroup}>
-                        <div className={styles.priceMain} data-color="general">$69.90</div>
-                        <div className={styles.priceStrikethrough}>$99.90</div>
+                        <div className={styles.priceMain} data-color="general">{earlyBird ? '$69.90' : '$99.90'}</div>
+                        {earlyBird && <div className={styles.priceStrikethrough}>$99.90</div>}
                       </div>
                       
                       <div className={styles.priceValidity}>

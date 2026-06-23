@@ -1,4 +1,4 @@
-import { Download, Handshake, Crown, Award, Medal, Shield, Users } from 'lucide-react'
+import { Download, Handshake, Crown, Award, Medal, Shield, HeartHandshake } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router'
 import { SectionHeader } from '../SectionHeader'
@@ -11,11 +11,11 @@ const PAST_SPONSORS = ['Dynatrace', 'AWS', 'Google Cloud', 'Microsoft', 'Red Hat
 const TIERS = ['Platinum', 'Gold', 'Silver', 'Bronze']
 const TIER_COLORS = ['#858DA6', '#f2b950', '#BDBFBF', '#BF834E']
 const TIER_DECORATION = {
-  platinum: { Icon: Crown, color: '#8FA4C4' },
-  gold: { Icon: Award, color: '#F2B950' },
-  silver: { Icon: Medal, color: '#BDBFBF' },
-  bronze: { Icon: Shield, color: '#A97155' },
-  community: { Icon: Users, color: '#84CC16' },
+  platinum: { Icon: Crown,         color: '#8FA4C4', suffix: 'Partners' },
+  gold:     { Icon: Award,         color: '#F2B950', suffix: 'Partners' },
+  silver:   { Icon: Medal,         color: '#BDBFBF', suffix: 'Partners' },
+  bronze:   { Icon: Shield,        color: '#A97155', suffix: 'Partners' },
+  community:{ Icon: HeartHandshake,color: '#6B51EF', suffix: 'Allies'   },
 } as const
 const TIER_CLASS_NAMES = {
   platinum: {
@@ -106,7 +106,7 @@ export function SponsorsSection() {
                       className={styles.platinumBadgeIcon}
                       style={{ color: decoration.color }}
                     />
-                    {tier.items.length > 1 ? `${tier.label} Sponsors` : `${tier.label} Sponsor`}
+                    {`${tier.label} ${decoration.suffix}`}
                   </span>
 
                   <div className={styles[tierClasses.logosGrid]} data-count={tier.items.length}>

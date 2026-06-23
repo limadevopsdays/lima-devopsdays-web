@@ -30,28 +30,28 @@
 
 .platinumCard[data-tier="platinum"] {
   --tier-divider-color: 143, 164, 196;
-  --sponsor-card-size: 13rem;
+  --sponsor-card-size: 14.5rem;
 }
 
 .platinumCard[data-tier="gold"] {
   --tier-divider-color: 242, 185, 80;
-  --sponsor-card-size: 12rem;
+  --sponsor-card-size: 13.5rem;
 }
 
 .platinumCard[data-tier="silver"] {
   --tier-divider-color: 141, 145, 145;
-  --sponsor-card-size: 10.75rem;
+  --sponsor-card-size: 12.25rem;
 }
 
 .platinumCard[data-tier="bronze"] {
   --tier-divider-color: 169, 113, 85;
-  --sponsor-card-size: 9.5rem;
+  --sponsor-card-size: 11rem;
 }
 
 .platinumCard[data-tier="community"] {
-  --tier-color: #84cc16;
-  --tier-divider-color: 132, 204, 22;
-  --sponsor-card-size: 8.75rem;
+  --tier-color: #6B51EF;
+  --tier-divider-color: 107, 81, 239;
+  --sponsor-card-size: 10.25rem;
   margin-bottom: 0rem;
 }
 
@@ -125,24 +125,17 @@
   justify-content: center;
   gap: 0.625rem;
   font-family: var(--brand-heading-fontFamily);
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: var(--brand-text-weight-900);
   color: var(--tier-color, var(--color-purple));
-  text-shadow:
-    0 0 5px color-mix(in srgb, var(--tier-color, var(--color-purple)) 22%, transparent),
-    0 0 12px color-mix(in srgb, var(--tier-color, var(--color-purple)) 14%, transparent),
-    0 0 20px color-mix(in srgb, var(--tier-color, var(--color-purple)) 8%, transparent);
-  animation: platinumBadgeGlow 2.1s ease-in-out infinite;
   line-height: var(--brand-text-lineHeight-300);
 }
 
+.platinumBadgeText { font-size: 1.75rem; }
+.goldBadgeText     { font-size: 1.55rem; }
+
 .silverBadgeText {
   color: #7d8181;
-  text-shadow:
-    0 0 5px rgba(125, 129, 129, 0.2),
-    0 0 12px rgba(125, 129, 129, 0.14),
-    0 0 20px rgba(125, 129, 129, 0.08);
-  animation: silverBadgeGlow 2.1s ease-in-out infinite;
 }
 
 .silverBadgeText .platinumBadgeIcon {
@@ -205,6 +198,11 @@
   align-items: stretch;
 }
 
+.platinumLogosGrid { gap: 2.5rem; }
+.silverLogosGrid,
+.bronzeLogosGrid,
+.communityLogosGrid { gap: 1.5rem; }
+
 .logoContainer,
 .platinumLogoContainer,
 .goldLogoContainer,
@@ -228,20 +226,75 @@
 }
 
 .logoContainer:hover,
-.logoContainer:focus-within,
-.platinumLogoContainer:hover,
-.platinumLogoContainer:focus-within,
-.goldLogoContainer:hover,
-.goldLogoContainer:focus-within,
-.silverLogoContainer:hover,
-.silverLogoContainer:focus-within,
-.bronzeLogoContainer:hover,
-.bronzeLogoContainer:focus-within,
-.communityLogoContainer:hover,
-.communityLogoContainer:focus-within {
+.logoContainer:focus-within {
   border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
   transform: translateY(-2px);
 }
+
+/* Platinum — hover más intenso: escala + glow fuerte */
+.platinumLogoContainer:hover,
+.platinumLogoContainer:focus-within {
+  border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
+  transform: translateY(-7px) scale(1.03);
+  box-shadow:
+    0 20px 40px rgba(143, 164, 196, 0.28),
+    0 0 0 1px rgba(143, 164, 196, 0.18);
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Gold — glow dorado cálido */
+.goldLogoContainer:hover,
+.goldLogoContainer:focus-within {
+  border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
+  transform: translateY(-5px) scale(1.015);
+  box-shadow:
+    0 14px 30px rgba(242, 185, 80, 0.22),
+    0 0 0 1px rgba(242, 185, 80, 0.15);
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Silver — sutil, frío */
+.silverLogoContainer:hover,
+.silverLogoContainer:focus-within {
+  border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(148, 163, 184, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Bronze — cálido moderado */
+.bronzeLogoContainer:hover,
+.bronzeLogoContainer:focus-within {
+  border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(169, 113, 85, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Community — glow purple suave */
+.communityLogoContainer:hover,
+.communityLogoContainer:focus-within {
+  border-color: var(--sponsor-hover-color, var(--sponsor-border-color));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(107, 81, 239, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
 
 .goldLogoContainer,
 .silverLogoContainer,
