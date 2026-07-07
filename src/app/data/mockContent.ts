@@ -253,6 +253,16 @@ export const sponsors = [
         href: 'https://www.mongodb.com/es',
         logo: '/images/sponsors/gold/mongodb.png'
       },
+      {
+        name: 'Nutanix',
+        href: 'https://www.nutanix.com/es',
+        logo: '/images/sponsors/gold/nutanix.png'
+      },
+      {
+        name: 'Seti',
+        href: 'https://seti.com.co/',
+        logo: '/images/sponsors/gold/seti.png'
+      },
     ],
   },
   {
@@ -267,6 +277,11 @@ export const sponsors = [
         name: 'Soaint',
         href: 'https://soaint.com/',
         logo: '/images/sponsors/silver/soaint.png'
+      },
+      {
+        name: 'Github',
+        href: 'https://github.com/?locale=es-419',
+        logo: '/images/sponsors/silver/github.png'
       },
     ],
   },
