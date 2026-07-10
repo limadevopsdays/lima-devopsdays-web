@@ -313,6 +313,11 @@ export const sponsors = [
         href: 'https://mitocode.com/',
         logo: '/images/sponsors/community/mitocode.png'
       },
+      {
+        name: 'Data Science',
+        href: 'https://www.datascience.pe/',
+        logo: '/images/sponsors/community/datascience.png'
+      },
     ],
   },
 ]
