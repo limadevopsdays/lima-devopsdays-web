@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { Play, Pause, Volume2, VolumeX, ChevronDown } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, ChevronDown, ChevronUp, X } from 'lucide-react'
 import styles from './index.module.css'
 
 export function MusicPlayer() {
@@ -13,6 +13,7 @@ export function MusicPlayer() {
   const [minimized, setMinimized] = useState(false)
   const [showVolume, setShowVolume] = useState(false)
   const [videoVolume, setVideoVolume] = useState(0)
+  const [showLightbox, setShowLightbox] = useState(false)
 
   /* sync volume with dynamic video ducking */
   useEffect(() => {
@@ -123,7 +124,12 @@ export function MusicPlayer() {
   }
 
   return (
-    <div className={`${styles.player} ${minimized ? styles.minimized : ''}`}>
+    <div
+      className={`${styles.player} ${minimized ? styles.minimized : ''}`}
+      onClick={minimized ? () => setMinimized(false) : undefined}
+      style={{ cursor: minimized ? 'pointer' : 'default' }}
+      title={minimized ? 'Expandir reproductor' : undefined}
+    >
       <audio
         ref={audioRef}
         src="/music/devopsdayslima_theme.mp3"
@@ -132,30 +138,62 @@ export function MusicPlayer() {
         onLoadedMetadata={handleTimeUpdate}
       />
 
-      {/* Album art — always visible */}
-      <img
-        src="/images/brand/mascota.png"
-        alt="DevOpsDays Lima mascota"
-        className={`${styles.albumArt} ${playing ? styles.albumArtPlaying : ''}`}
-      />
+      {/* Floating small-scale local preview popup */}
+      {showLightbox && !minimized && (
+        <div className={styles.albumPreviewPopup} onClick={(e) => e.stopPropagation()}>
+          <button 
+            className={styles.previewCloseBtn} 
+            onClick={() => setShowLightbox(false)}
+            aria-label="Cerrar vista previa"
+            title="Cerrar"
+          >
+            <X size={12} strokeWidth={2.5} />
+          </button>
+          <img 
+            src="/images/brand/album.jpg" 
+            alt="The DevOpssion Album Art - Vista previa" 
+            className={styles.previewImage}
+          />
+        </div>
+      )}
+
+      {/* Album art — click to open zoom lightbox */}
+      <div 
+        className={styles.albumArtContainer}
+        onClick={(e) => {
+          if (!minimized) {
+            e.stopPropagation()
+            setShowLightbox(!showLightbox)
+          }
+        }}
+        title={!minimized ? 'Ampliar carátula' : undefined}
+      >
+        <img
+          src="/images/brand/album.jpg"
+          alt="The DevOpssion Album Art"
+          className={`${styles.albumArt} ${playing ? styles.albumArtPlaying : ''}`}
+        />
+        {!minimized && (
+          <div className={styles.albumArtHoverOverlay}>
+            <span className={styles.zoomText}>🔍</span>
+          </div>
+        )}
+      </div>
 
       {/* Track info — right of album art */}
       {!minimized && (
         <div className={styles.trackInfo}>
-          <span className={styles.title}>Song Theme</span>
-          <span className={styles.subtitle}>DevOpsDays Lima</span>
+          <span className={styles.title}>The DevOpssion</span>
+          <span className={styles.subtitle}>DOD Lima</span>
         </div>
       )}
 
       {minimized ? (
         /* Minimized: click to expand */
-        <button
-          className={styles.minimizeBtn}
-          onClick={() => setMinimized(false)}
-          aria-label="Expandir reproductor"
-        >
-          <span className={styles.minimizeLabel}>DevOpsDays Lima Theme</span>
-        </button>
+        <div className={styles.minimizeBtn}>
+          <span className={styles.minimizeLabel}>The DevOpssion</span>
+          <ChevronUp size={16} strokeWidth={2.5} className={styles.expandIcon} />
+        </div>
       ) : (
         <div className={styles.controls}>
           {/* Play / Pause */}
