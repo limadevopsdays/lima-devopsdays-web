@@ -222,7 +222,7 @@ export function GallerySection() {
 
   useEffect(() => {
     if (!isIframeLoaded) return
-    const targetVolume = (isAboutIntersecting && !isVideoOpen && !isPreviewPaused && !isPreviewMuted) ? 100 : 0
+    const targetVolume = (isAboutIntersecting && !isVideoOpen && !isPreviewPaused && !isPreviewMuted) ? 50 : 0
     const interval = setInterval(() => {
       const current = currentVolumeRef.current
       if (current === targetVolume) { clearInterval(interval); return }
@@ -230,6 +230,7 @@ export function GallerySection() {
       const nextVolume = current < targetVolume ? Math.min(current + step, targetVolume) : Math.max(current - step, targetVolume)
       currentVolumeRef.current = nextVolume
       postPreviewCommand('setVolume', [nextVolume])
+      window.dispatchEvent(new CustomEvent('devopsdays:video-volume', { detail: { volume: nextVolume } }))
       if (nextVolume > 0 && current === 0) postPreviewCommand('unMute')
       if (nextVolume === 0) postPreviewCommand('mute')
     }, 50)

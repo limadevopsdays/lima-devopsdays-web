@@ -8,12 +8,12 @@ import { useI18n } from '../../../i18n'
 import { sponsorsI18n } from './i18n'
 
 const PAST_SPONSORS = ['Dynatrace', 'AWS', 'Google Cloud', 'Microsoft', 'Red Hat', 'HashiCorp']
-const TIERS = ['Platinum', 'Gold', 'Silver', 'Bronze']
-const TIER_COLORS = ['#858DA6', '#f2b950', '#BDBFBF', '#BF834E']
+const TIERS = ['Platinum', 'Gold', 'Silver']
+const TIER_COLORS = ['#858DA6', '#f2b950', '#A3A8B8']
 const TIER_DECORATION = {
   platinum: { Icon: Crown,         color: '#8FA4C4', suffix: 'Partners' },
   gold:     { Icon: Award,         color: '#F2B950', suffix: 'Partners' },
-  silver:   { Icon: Medal,         color: '#BDBFBF', suffix: 'Partners' },
+  silver:   { Icon: Medal,         color: '#A3A8B8', suffix: 'Partners' },
   bronze:   { Icon: Shield,        color: '#A97155', suffix: 'Partners' },
   community:{ Icon: HeartHandshake,color: '#6B51EF', suffix: 'Allies'   },
 } as const
@@ -82,6 +82,8 @@ export function SponsorsSection() {
         />
 
         {displayedTiers.map((tier) => {
+          if (tier.id === 'bronze' && tier.items.length === 0) return null
+
           const decoration = TIER_DECORATION[tier.id] ?? TIER_DECORATION.community
           const isPlatinum = tier.id === 'platinum'
           const tierClasses = TIER_CLASS_NAMES[tier.id]

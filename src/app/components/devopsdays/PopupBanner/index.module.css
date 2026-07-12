@@ -1,0 +1,116 @@
+/* PopupBanner – modal alert overlay */
+
+/* Dimmed backdrop */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1.5rem;
+}
+
+/* Modal card */
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(124, 58, 237, 0.18);
+}
+
+/* Close button */
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(124, 58, 237, 0.7);
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* Image link wrapper */
+.imageLink {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Image */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+  background: #0f172a;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Subtle gradient at bottom for polish */
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(10, 5, 25, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* Progress bar */
+.progressBar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #93e279);
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+@media (max-width: 480px) {
+  .banner {
+    border-radius: 1rem;
+  }
+
+  .closeBtn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

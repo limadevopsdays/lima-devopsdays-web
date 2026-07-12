@@ -1,4 +1,6 @@
 import { HeroSection } from '../../components/devopsdays/HeroSection'
+import { PopupBanner } from '../../components/devopsdays/PopupBanner'
+import { MusicPlayer } from '../../components/devopsdays/MusicPlayer'
 import { CountdownSection } from '../../components/devopsdays/CountdownSection'
 import { AboutSection } from '../../components/devopsdays/AboutSection'
 import { SponsorsSection } from '../../components/devopsdays/SponsorsSection'
@@ -18,6 +20,7 @@ export default function HomePage() {
 
   return (
     <>
+      <PopupBanner />
       <HeroSection />
       <CountdownSection />
       <AboutSection />
@@ -31,6 +34,7 @@ export default function HomePage() {
       <TurismSection />
       <OrganizersSection />
       <FaqSection />
+      <MusicPlayer />
     </>
   )
 }
