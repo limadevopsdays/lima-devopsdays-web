@@ -269,6 +269,11 @@ export const sponsors = [
     tier: 'silver',
     items: [
       {
+        name: 'Orexe',
+        href: 'https://orexe.pe/',
+        logo: '/images/sponsors/silver/orexe.png'
+      },
+      {
         name: 'Inetum',
         href: 'https://www.inetum.com/es/es.html',
         logo: '/images/sponsors/silver/inetum.png'
@@ -287,13 +292,7 @@ export const sponsors = [
   },
   {
     tier: 'bronze',
-    items: [
-      {
-        name: 'Orexe',
-        href: 'https://orexe.pe/',
-        logo: '/images/sponsors/bronze/orexe.png'
-      },
-    ],
+    items: [],
   },
   {
     tier: 'community',

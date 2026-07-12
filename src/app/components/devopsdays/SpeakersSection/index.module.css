@@ -386,11 +386,11 @@
   min-height: 15rem;
   height: 15rem;
   text-align: left;
-  overflow: hidden;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 .invitedCarouselWrapper {
@@ -445,7 +445,24 @@
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* Extend hover target area downwards to prevent flickering when translating upwards */
+.invitedCard::after,
+.keynoteCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.invitedCard:hover::after,
+.keynoteCard:hover::after {
+  pointer-events: auto;
+  bottom: -20px;
 }
 
 .invitedArrow {
@@ -534,6 +551,7 @@
 .invitedCard:focus-within {
   transform: translateY(-4px);
   border-color: #94a3b8;
+  filter: brightness(1.05) saturate(1.08);
 }
 
 .invitedCardInner {
@@ -642,6 +660,7 @@
   font-weight: var(--brand-text-weight-900);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
+  transition: filter 0.3s ease;
 }
 
 .invitedCountryFlag {
@@ -792,12 +811,15 @@
 .keynoteCard:focus-within {
   transform: translateY(-4px);
   border-color: #94a3b8;
+  filter: brightness(1.05) saturate(1.08);
 }
 
 .keynoteCardInner {
   position: relative;
   display: flex;
   height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
 }
 
 .keynoteProfileImageBio {
@@ -922,6 +944,10 @@
   inset: 0;
   z-index: 3;
   border-radius: inherit;
+}
+
+.keynoteCard:hover .keynoteCardLinkOverlay {
+  bottom: -20px;
 }
 
 .keynoteCardLinkOverlay:focus-visible {
@@ -1063,7 +1089,7 @@
 .keynoteName,
 .keynoteTeaserText {
   margin: 0.6rem 0 0.2rem;
-  transition: color 0.28s ease;
+  transition: color 0.28s ease, filter 0.28s ease;
   color: var(--color-slate-900);
   font-family: var(--brand-heading-fontFamily);
   font-size: var(--brand-text-size-400);
@@ -1075,6 +1101,12 @@
 .keynoteCard:hover .keynoteName,
 .keynoteCard:focus-within .keynoteName {
   color: #334155;
+  filter: brightness(1.05) saturate(1.08);
+}
+
+.invitedCard:hover .invitedMemberName,
+.invitedCard:focus-within .invitedMemberName {
+  filter: brightness(1.05) saturate(1.08);
 }
 
 .keynoteRole,
