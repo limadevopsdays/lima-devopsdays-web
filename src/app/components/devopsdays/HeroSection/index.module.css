@@ -72,48 +72,30 @@
 @keyframes cyberGlowLima {
   0%, 100% {
     text-shadow:
-      0 0 2px #ffffff,
-      0 0 2px #ffffff,
-      0 0 2px #ffffff,
-      0 0 2px #ffffff,
-      0 0 12px color-mix(in srgb, var(--color-lima) 60%, transparent),
-      0 0 24px color-mix(in srgb, var(--color-lima) 50%, transparent),
-      0 0 42px color-mix(in srgb, var(--color-lima) 30%, transparent);
+      0 0 4px #ffffff,
+      0 0 12px rgba(147, 226, 121, 0.65),
+      0 0 28px rgba(147, 226, 121, 0.35);
   }
   50% {
     text-shadow:
-      0 0 3px #ffffff,
-      0 0 3px #ffffff,
-      0 0 3px #ffffff,
-      0 0 3px #ffffff,
-      0 0 16px color-mix(in srgb, var(--color-lima) 60%, transparent),
-      0 0 32px color-mix(in srgb, var(--color-lima) 50%, transparent),
-      0 0 54px color-mix(in srgb, var(--color-lima) 30%, transparent),
-      0 0 76px color-mix(in srgb, var(--color-lima) 30%, transparent);
+      0 0 4px #ffffff,
+      0 0 16px rgba(147, 226, 121, 0.75),
+      0 0 36px rgba(147, 226, 121, 0.45);
   }
 }
 
 @keyframes cyberGlowPurple {
   0%, 100% {
     text-shadow:
-      0 0 2px #ffffff,
-      0 0 2px #ffffff,
-      0 0 2px #ffffff,
-      0 0 2px #ffffff,
-      0 0 12px color-mix(in srgb, var(--brand-hero-accent-color) 60%, transparent),
-      0 0 24px color-mix(in srgb, var(--brand-hero-accent-color) 50%, transparent),
-      0 0 42px color-mix(in srgb, var(--brand-hero-accent-color) 30%, transparent);
+      0 0 4px #ffffff,
+      0 0 12px rgba(124, 58, 237, 0.65),
+      0 0 28px rgba(124, 58, 237, 0.35);
   }
   50% {
     text-shadow:
-      0 0 3px #ffffff,
-      0 0 3px #ffffff,
-      0 0 3px #ffffff,
-      0 0 3px #ffffff,
-      0 0 16px color-mix(in srgb, var(--brand-hero-accent-color) 60%, transparent),
-      0 0 32px color-mix(in srgb, var(--brand-hero-accent-color) 50%, transparent),
-      0 0 54px color-mix(in srgb, var(--brand-hero-accent-color) 30%, transparent),
-      0 0 76px color-mix(in srgb, var(--brand-hero-accent-color) 30%, transparent);
+      0 0 4px #ffffff,
+      0 0 16px rgba(124, 58, 237, 0.75),
+      0 0 36px rgba(124, 58, 237, 0.45);
   }
 }
 
@@ -121,6 +103,9 @@
   display: inline-block; /* Enable CSS transforms for slide-up/bounce! */
   color: var(--color-lima);
   animation: cyberGlowLima 2.8s ease-in-out infinite alternate;
+  transform: translateZ(0);
+  will-change: text-shadow;
+  -webkit-font-smoothing: antialiased;
 }
 
 .titleDays {
@@ -128,6 +113,9 @@
   color: var(--brand-hero-accent-color);
   animation: cyberGlowPurple 2.8s ease-in-out infinite alternate;
   animation-delay: 0.4s;
+  transform: translateZ(0);
+  will-change: text-shadow;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Fallback / animation is constant now, removing hover media query fallback */
