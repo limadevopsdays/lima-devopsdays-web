@@ -87,6 +87,7 @@ export function PopupBanner() {
               rel="noopener noreferrer"
               aria-label="Comprar entradas DevOpsDays Lima 2026"
               className={styles.imageLink}
+              data-track-name="click_popup_banner_hero5"
             >
               <div className={styles.imageWrapper}>
                 <img
