@@ -30,6 +30,12 @@ function splitPromptSegment(text: string, targetSegment: string) {
 
 const AUTO_SLIDE_MS = 5000
 
+// Promo active until end of July 16, 2026 (Lima timezone is UTC-5)
+const isPromoOnlyActive = () => {
+  const deadline = new Date('2026-07-17T00:00:00-05:00')
+  return Date.now() < deadline.getTime()
+}
+
 function OuterPanel({ localizedGalleryImages, openLightbox }: {
   localizedGalleryImages: (typeof galleryImages[number] & { openAriaLabel: string; alt: string })[]
   openLightbox: (idx: number) => void
@@ -47,6 +53,10 @@ function OuterPanel({ localizedGalleryImages, openLightbox }: {
   }
 
   useEffect(() => {
+    if (isPromoOnlyActive()) {
+      if (timerRef.current) clearTimeout(timerRef.current)
+      return
+    }
     if (isPaused) {
       if (timerRef.current) clearTimeout(timerRef.current)
       return
@@ -55,7 +65,10 @@ function OuterPanel({ localizedGalleryImages, openLightbox }: {
     return () => { if (timerRef.current) clearTimeout(timerRef.current) }
   }, [slide, isPaused])
 
-  const goTo = (i: 0 | 1) => { setSlide(i) }
+  const goTo = (i: 0 | 1) => {
+    if (isPromoOnlyActive()) return
+    setSlide(i)
+  }
 
   return (
     <div className={styles.rightPanel}>
@@ -127,17 +140,19 @@ function OuterPanel({ localizedGalleryImages, openLightbox }: {
       </div>
 
       {/* Dots indicadores — sin texto */}
-      <div className={styles.carouselDots}>
-        {([0, 1] as const).map((i) => (
-          <button
-            key={i}
-            type="button"
-            className={`${styles.carouselDot} ${i === slide ? styles.carouselDotActive : ''}`}
-            onClick={() => goTo(i)}
-            aria-label={`Ir a slide ${i + 1}`}
-          />
-        ))}
-      </div>
+      {!isPromoOnlyActive() && (
+        <div className={styles.carouselDots}>
+          {([0, 1] as const).map((i) => (
+            <button
+              key={i}
+              type="button"
+              className={`${styles.carouselDot} ${i === slide ? styles.carouselDotActive : ''}`}
+              onClick={() => goTo(i)}
+              aria-label={`Ir a slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
