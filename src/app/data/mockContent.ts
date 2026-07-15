@@ -352,7 +352,7 @@ export const organizers = [
   },
   { 
     name: 'Gino Leon', 
-    role: 'Agile Chapter Lead', 
+    role: 'Gerente de transformación', 
     employer: 'Pacifico Seguros', 
     linkedin: 'https://www.linkedin.com/in/gino-leon-0217a23b/', 
     github: '', 
@@ -361,7 +361,7 @@ export const organizers = [
   },
   { 
     name: 'Fredy Hernandez', 
-    role: 'DevOps Engineer', 
+    role: 'SRE Lead', 
     employer: 'Tyba', 
     linkedin: 'https://www.linkedin.com/in/fredy-hernandez-huaricallo/', 
     github: '', 
@@ -379,7 +379,7 @@ export const organizers = [
   },
   { 
     name: 'Jhonnatan Correa', 
-    role: 'Cybersecurity Specialist', 
+    role: 'DevOps Engineer', 
     employer: 'SOAINT', 
     linkedin: 'https://www.linkedin.com/in/jhonnatancorrea/', 
     github: 'https://github.com/jhoncorrea', 
