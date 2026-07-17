@@ -222,6 +222,7 @@ export function GallerySection() {
 
   useEffect(() => {
     if (!isIframeLoaded) return
+    const isDucked = isVideoOpen || (isAboutIntersecting && !isPreviewPaused && !isPreviewMuted)
     const targetVolume = (isAboutIntersecting && !isVideoOpen && !isPreviewPaused && !isPreviewMuted) ? 50 : 0
     const interval = setInterval(() => {
       const current = currentVolumeRef.current
@@ -230,12 +231,22 @@ export function GallerySection() {
       const nextVolume = current < targetVolume ? Math.min(current + step, targetVolume) : Math.max(current - step, targetVolume)
       currentVolumeRef.current = nextVolume
       postPreviewCommand('setVolume', [nextVolume])
-      window.dispatchEvent(new CustomEvent('devopsdays:video-volume', { detail: { volume: nextVolume } }))
       if (nextVolume > 0 && current === 0) postPreviewCommand('unMute')
       if (nextVolume === 0) postPreviewCommand('mute')
     }, 50)
+
+    window.dispatchEvent(new CustomEvent('devopsdays:video-volume', { detail: { volume: isDucked ? 50 : 0 } }))
+
     return () => clearInterval(interval)
   }, [isAboutIntersecting, isVideoOpen, isPreviewPaused, isPreviewMuted, isIframeLoaded])
+
+  useEffect(() => {
+    if (isVideoOpen) {
+      postPreviewCommand('pauseVideo')
+    } else if (isAboutIntersecting && !isPreviewPaused) {
+      postPreviewCommand('playVideo')
+    }
+  }, [isVideoOpen, isAboutIntersecting, isPreviewPaused])
   // ─────────────────────────────────────────────────────────────────────────
 
   return (
@@ -424,6 +435,44 @@ export function GallerySection() {
                 </p>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className={aboutStyles.modal}
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <div 
+              style={{ position: 'relative', width: '100%', maxWidth: '80rem' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                className={aboutStyles.modalCloseButton}
+                onClick={() => setIsVideoOpen(false)}
+                aria-label={tAbout.closeLabel}
+              >
+                <X className={aboutStyles.closeIcon} />
+                <span>{tAbout.closeLabel}</span>
+              </button>
+              <div className={aboutStyles.modalContent}>
+                <iframe
+                  className={aboutStyles.modalIframe}
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`}
+                  title={tAbout.videoAriaLabel}
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,5 +1,4 @@
 import { HeroSection } from '../../components/devopsdays/HeroSection'
-import { PopupBanner } from '../../components/devopsdays/PopupBanner'
 import { MusicPlayer } from '../../components/devopsdays/MusicPlayer'
 import { CountdownSection } from '../../components/devopsdays/CountdownSection'
 import { AboutSection } from '../../components/devopsdays/AboutSection'
@@ -20,7 +19,6 @@ export default function HomePage() {
 
   return (
     <>
-      <PopupBanner />
       <HeroSection />
       <CountdownSection />
       <AboutSection />

@@ -26,136 +26,54 @@ function splitPromptSegment(text: string, targetSegment: string) {
   return { leadingText, promptText: targetSegment, promptEnd }
 }
 
-// ── Outer panel: carousel automático (Banner promo / Grid 2×2) ─────────────
-
-const AUTO_SLIDE_MS = 5000
-
-// Promo active until end of July 16, 2026 (Lima timezone is UTC-5)
-const isPromoOnlyActive = () => {
-  const deadline = new Date('2026-07-17T00:00:00-05:00')
-  return Date.now() < deadline.getTime()
-}
+// ── Outer panel: Solo la galería de 4 imágenes ─────────────
 
 function OuterPanel({ localizedGalleryImages, openLightbox }: {
   localizedGalleryImages: (typeof galleryImages[number] & { openAriaLabel: string; alt: string })[]
   openLightbox: (idx: number) => void
 }) {
-  const [slide, setSlide] = useState<0 | 1>(0)
-  const [isPaused, setIsPaused] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  // Resetea y arranca el timer de auto-avance
-  const scheduleNext = (current: 0 | 1) => {
-    if (timerRef.current) clearTimeout(timerRef.current)
-    timerRef.current = setTimeout(() => {
-      setSlide((current === 0 ? 1 : 0) as 0 | 1)
-    }, AUTO_SLIDE_MS)
-  }
-
-  useEffect(() => {
-    if (isPromoOnlyActive()) {
-      if (timerRef.current) clearTimeout(timerRef.current)
-      return
-    }
-    if (isPaused) {
-      if (timerRef.current) clearTimeout(timerRef.current)
-      return
-    }
-    scheduleNext(slide)
-    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
-  }, [slide, isPaused])
-
-  const goTo = (i: 0 | 1) => {
-    if (isPromoOnlyActive()) return
-    setSlide(i)
-  }
-
   return (
     <div className={styles.rightPanel}>
       <div className={styles.slideViewport}>
-        <AnimatePresence>
-          {slide === 0 ? (
-            <motion.div
-              key="banner"
-              className={`${styles.slideFull} ${styles.slidePromo}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              <a
-                href="https://entradas.devopsdays.pe"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.promoBannerSlide}
-                aria-label="Comprar entradas DevOpsDays Lima 2026"
-                data-track-name="click_promo_banner_hero"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+        <div className={styles.slideFull}>
+          <div className={styles.gallery}>
+            {localizedGalleryImages.map((image, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.45, delay: 0.05 + idx * 0.06 }}
+                className={styles.galleryItem}
               >
-                <img
-                  src="/images/hero/hero%205.webp"
-                  alt="DevOpsDays Lima 2026 - Promoción especial"
-                  className={styles.promoBannerImage}
-                />
-              </a>
-            </motion.div>
-          ) : (
-            <div key="grid" className={styles.slideFull}>
-              <div className={styles.gallery}>
-                {localizedGalleryImages.map((image, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.45, delay: 0.05 + idx * 0.06 }}
-                    className={styles.galleryItem}
-                  >
-                    <button
-                      type="button"
-                      className={styles.galleryButton}
-                      onClick={() => openLightbox(idx)}
-                      aria-label={image.openAriaLabel}
-                      data-track-name="abrir_imagen_hero_home"
-                    >
-                      <SmartCropImage
-                        src={image.src}
-                        alt={image.alt}
-                        className={styles.galleryImage}
-                        loading="lazy"
-                        cropWidth={800}
-                        cropHeight={600}
-                      />
-                      <div className={`${styles.galleryOverlay} ${image.overlayClass}`} />
-                      <div className={styles.galleryHint}>
-                        <ArrowRight className={styles.galleryHintIcon} />
-                      </div>
-                    </button>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Dots indicadores — sin texto */}
-      {!isPromoOnlyActive() && (
-        <div className={styles.carouselDots}>
-          {([0, 1] as const).map((i) => (
-            <button
-              key={i}
-              type="button"
-              className={`${styles.carouselDot} ${i === slide ? styles.carouselDotActive : ''}`}
-              onClick={() => goTo(i)}
-              aria-label={`Ir a slide ${i + 1}`}
-            />
-          ))}
+                <button
+                  type="button"
+                  className={styles.galleryButton}
+                  onClick={() => openLightbox(idx)}
+                  aria-label={image.openAriaLabel}
+                  data-track-name="abrir_imagen_hero_home"
+                >
+                  <SmartCropImage
+                    src={image.src}
+                    alt={image.alt}
+                    className={styles.galleryImage}
+                    loading="lazy"
+                    cropWidth={800}
+                    cropHeight={600}
+                  />
+                  <div className={`${styles.galleryOverlay} ${image.overlayClass}`} />
+                  <div className={styles.galleryHint}>
+                    <ArrowRight className={styles.galleryHintIcon} />
+                  </div>
+                </button>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }
+
 
 
 // ── Main HeroSection ─────────────────────────────────────────────────────────

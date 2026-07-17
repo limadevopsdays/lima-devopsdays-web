@@ -288,6 +288,11 @@ export const sponsors = [
         href: 'https://github.com/?locale=es-419',
         logo: '/images/sponsors/silver/github.png'
       },
+      {
+        name: 'Rumbo',
+        href: 'https://www.rumbo.la/',
+        logo: '/images/sponsors/silver/rumbo.png'
+      },
     ],
   },
   {

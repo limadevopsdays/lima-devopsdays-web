@@ -228,12 +228,7 @@
 }
 
 /* Extend hover target area downwards to prevent flickering when translating upwards */
-.logoContainer::after,
-.platinumLogoContainer::after,
-.goldLogoContainer::after,
-.silverLogoContainer::after,
-.bronzeLogoContainer::after,
-.communityLogoContainer::after {
+.logoLink::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -241,12 +236,7 @@
   pointer-events: none;
 }
 
-.logoContainer:hover::after,
-.platinumLogoContainer:hover::after,
-.goldLogoContainer:hover::after,
-.silverLogoContainer:hover::after,
-.bronzeLogoContainer:hover::after,
-.communityLogoContainer:hover::after {
+.logoLink:hover::after {
   pointer-events: auto;
   bottom: -20px;
 }
