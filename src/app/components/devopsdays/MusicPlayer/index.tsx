@@ -23,13 +23,29 @@ export function MusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(false)
-  const [volume, setVolume] = useState(0.5)
+  const [volume, setVolume] = useState(0.4)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
   const [minimized, setMinimized] = useState(false)
   const [showVolume, setShowVolume] = useState(false)
   const [videoVolume, setVideoVolume] = useState(0)
   const [showLightbox, setShowLightbox] = useState(false)
+  const autoplayActiveRef = useRef(true)
+  const cleanupRefs = useRef<{
+    cleanupGestureListeners: () => void
+    cleanupObserver: () => void
+  } | null>(null)
+
+  // Desactivar autoplay definitivamente una vez que comienza a reproducirse
+  useEffect(() => {
+    if (playing) {
+      autoplayActiveRef.current = false
+      if (cleanupRefs.current) {
+        cleanupRefs.current.cleanupGestureListeners()
+        cleanupRefs.current.cleanupObserver()
+      }
+    }
+  }, [playing])
 
   /* sync volume with dynamic video ducking */
   useEffect(() => {
@@ -53,23 +69,23 @@ export function MusicPlayer() {
     return () => window.removeEventListener('devopsdays:video-volume', handleVideoVolume)
   }, [])
 
-  /* autoplay when the promo banner is dismissed */
+  /* autoplay on page load, interaction, or when scrolling to sections */
   useEffect(() => {
-    let interactionListenersActive = false;
+    let interactionListenersActive = false
+    let observer: IntersectionObserver | null = null
 
     const playAudio = () => {
       const audio = audioRef.current
-      if (!audio || playing) return
+      if (!audio || !autoplayActiveRef.current || playing) return
 
       audio.play()
         .then(() => {
           setPlaying(true)
-          cleanupGestureListeners()
         })
-        .catch(() => {
-          // Autoplay blocked by browser policy (no user interaction yet).
-          // Register gesture listeners to trigger play on first interaction.
+        .catch((err) => {
+          console.warn('Autoplay blocked, waiting for interaction/scroll:', err.message)
           setupGestureListeners()
+          setupIntersectionObserver()
         })
     }
 
@@ -78,12 +94,15 @@ export function MusicPlayer() {
     }
 
     const setupGestureListeners = () => {
-      if (interactionListenersActive) return
+      if (interactionListenersActive || !autoplayActiveRef.current) return
       interactionListenersActive = true
       window.addEventListener('click', handleGesture, { once: true })
       window.addEventListener('keydown', handleGesture, { once: true })
       window.addEventListener('touchstart', handleGesture, { once: true })
       window.addEventListener('mousedown', handleGesture, { once: true })
+      window.addEventListener('scroll', handleGesture, { once: true })
+      window.addEventListener('wheel', handleGesture, { once: true })
+      window.addEventListener('touchmove', handleGesture, { once: true })
     }
 
     const cleanupGestureListeners = () => {
@@ -93,19 +112,55 @@ export function MusicPlayer() {
       window.removeEventListener('keydown', handleGesture)
       window.removeEventListener('touchstart', handleGesture)
       window.removeEventListener('mousedown', handleGesture)
+      window.removeEventListener('scroll', handleGesture)
+      window.removeEventListener('wheel', handleGesture)
+      window.removeEventListener('touchmove', handleGesture)
     }
 
-    const handleBannerClose = () => {
-      playAudio()
+    const setupIntersectionObserver = () => {
+      if (observer || !autoplayActiveRef.current) return
+      
+      const sections = ['about', 'speakers', 'sponsors', 'tickets', 'venue']
+      const targets = sections
+        .map(id => document.getElementById(id))
+        .filter((el): el is HTMLElement => el !== null)
+
+      if (targets.length === 0) return
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const isAnyVisible = entries.some(entry => entry.isIntersecting)
+          if (isAnyVisible && autoplayActiveRef.current) {
+            playAudio()
+          }
+        },
+        { threshold: 0.1 }
+      )
+
+      targets.forEach(target => observer?.observe(target))
     }
 
-    window.addEventListener('devopsdays:banner-closed', handleBannerClose)
+    const cleanupObserver = () => {
+      if (observer) {
+        observer.disconnect()
+        observer = null
+      }
+    }
+
+    cleanupRefs.current = {
+      cleanupGestureListeners,
+      cleanupObserver
+    }
+
+    // Try playing immediately on mount
+    playAudio()
 
     return () => {
-      window.removeEventListener('devopsdays:banner-closed', handleBannerClose)
       cleanupGestureListeners()
+      cleanupObserver()
+      cleanupRefs.current = null
     }
-  }, [playing])
+  }, [])
 
   /* handle track change */
   useEffect(() => {
@@ -306,7 +361,11 @@ export function MusicPlayer() {
           </div>
 
           {/* Volume */}
-          <div className={styles.volGroup} onClick={(e) => e.stopPropagation()}>
+          <div 
+            className={styles.volGroup} 
+            onClick={(e) => e.stopPropagation()}
+            onMouseLeave={() => setShowVolume(false)}
+          >
             <div className={styles.volPopup}>
               {showVolume && (
                 <div className={styles.volSliderWrap}>
@@ -331,7 +390,6 @@ export function MusicPlayer() {
               <button
                 className={styles.volBtn}
                 onClick={() => setShowVolume(!showVolume)}
-                onBlur={() => setTimeout(() => setShowVolume(false), 150)}
                 aria-label={showVolume ? 'Cerrar volumen' : 'Abrir volumen'}
               >
                 {muted || volume === 0 ? <VolumeX size={16} strokeWidth={2.5} /> : <Volume2 size={16} strokeWidth={2.5} />}
