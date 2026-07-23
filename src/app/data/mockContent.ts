@@ -263,6 +263,11 @@ export const sponsors = [
         href: 'https://seti.com.co/',
         logo: '/images/sponsors/gold/seti.png'
       },
+      {
+        name: 'Arkano',
+        href: 'https://arkanosoft.com/',
+        logo: '/images/sponsors/gold/arkano.png'
+      },
     ],
   },
   {
@@ -293,6 +298,11 @@ export const sponsors = [
         href: 'https://www.rumbo.la/',
         logo: '/images/sponsors/silver/rumbo.png'
       },
+      {
+        name: 'EKIS Cybersecurity',
+        href: 'https://ekiscyber.com/',
+        logo: '/images/sponsors/silver/ekis.png'
+      },
     ],
   },
   {
@@ -321,6 +331,11 @@ export const sponsors = [
         name: 'Data Science',
         href: 'https://www.datascience.pe/',
         logo: '/images/sponsors/community/datascience.png'
+      },
+      {
+        name: '.Impacto BCP',
+        href: 'https://www.viabcp.com/comunidadimpacto',
+        logo: '/images/sponsors/community/impacto.png'
       },
     ],
   },
