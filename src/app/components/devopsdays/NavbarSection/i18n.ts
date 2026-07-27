@@ -1,4 +1,4 @@
-﻿import type { Locale } from '../../../i18n'
+import type { Locale } from '../../../i18n'
 
 type NavLink = { label: string; hash: string; accent?: boolean }
 
@@ -24,6 +24,7 @@ export const navbarI18n: Record<Locale, NavbarI18n> = {
       { label: 'Sponsors', hash: '#sponsors' },
       { label: 'Tickets', hash: '#tickets' },
       { label: 'Speakers', hash: '#speakers' },
+      { label: 'Agenda', hash: '#schedule' },
       { label: 'Ubicación', hash: '#venue' },
       { label: 'Turismo', hash: '#turismo', accent: true },
       { label: 'FAQ', hash: '#faq' },
@@ -40,6 +41,7 @@ export const navbarI18n: Record<Locale, NavbarI18n> = {
       { label: 'Sponsors', hash: '#sponsors' },
       { label: 'Tickets', hash: '#tickets' },
       { label: 'Speakers', hash: '#speakers' },
+      { label: 'Schedule', hash: '#schedule' },
       { label: 'Venue', hash: '#venue' },
       { label: 'Tourism', hash: '#turismo', accent: true },
       { label: 'FAQ', hash: '#faq' },

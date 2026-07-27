@@ -522,8 +522,7 @@
 
 .topicCard {
   padding: 1.75rem;
-  border: 2px solid var(--color-slate-200);
-  border-top: 4px solid var(--topic-color, #6B51EF);
+  border: 1px solid #d0d7de;
   border-radius: 12px;
   transition: all 0.3s ease;
   background-color: white;

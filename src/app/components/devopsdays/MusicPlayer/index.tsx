@@ -120,7 +120,7 @@ export function MusicPlayer() {
     const setupIntersectionObserver = () => {
       if (observer || !autoplayActiveRef.current) return
       
-      const sections = ['about', 'speakers', 'sponsors', 'tickets', 'venue']
+      const sections = ['about', 'speakers', 'schedule', 'sponsors', 'tickets', 'venue']
       const targets = sections
         .map(id => document.getElementById(id))
         .filter((el): el is HTMLElement => el !== null)

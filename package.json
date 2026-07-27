@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
+    "update-schedule": "node scripts/update-schedule.js",
+    "prebuild": "node scripts/update-schedule.js",
     "build": "vite build"
   },
   "dependencies": {

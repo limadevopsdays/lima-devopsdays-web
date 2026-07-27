@@ -1,0 +1,1029 @@
+/* ScheduleSection.module.css */
+
+.section {
+  background: var(--color-slate);
+  padding: 5rem 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Day Tabs */
+.tabsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+}
+
+.dayTabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.tabButtonFav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tabButtonFav:hover {
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+.tabButtonFavActive {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #d97706;
+}
+
+.favBadge {
+  background: #d97706;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #94a3b8;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tabButton:hover {
+  color: #475569;
+}
+
+.tabButtonActive {
+  color: var(--color-purple);
+}
+
+.tabButtonActive::after {
+  content: '';
+  position: absolute;
+  bottom: -0.875rem;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-purple);
+  border-radius: 9999px;
+}
+
+/* Filters Bar */
+.filtersBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-slate-50);
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filterLabel {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.filterSelect {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.filterSelect:hover, .filterSelect:focus {
+  border-color: var(--color-purple);
+  box-shadow: 0 0 0 2px rgba(107, 81, 239, 0.15);
+}
+
+/* Board & Scroll Container */
+.board {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+}
+
+/* Timetable Grid */
+.scheduleGrid {
+  display: grid;
+  grid-template-columns: 80px repeat(6, minmax(170px, 1fr));
+  grid-template-rows: auto repeat(126, minmax(8px, auto));
+  position: relative;
+  min-width: 1200px;
+  padding: 1.5rem 1.5rem 1.5rem 0.5rem;
+}
+
+/* Column headers (Rooms) */
+.roomHeader {
+  grid-row: 1;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+  z-index: 5;
+}
+
+.roomHeaderName {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #334155;
+  letter-spacing: 0.01em;
+}
+
+/* Time Ticks */
+.gridTimeTick {
+  grid-column: 1;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-align: right;
+  padding-right: 1rem;
+  transform: translateY(-8px);
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Horizontal Grid Lines */
+.gridRowLine {
+  border-top: 1px solid #f1f5f9;
+  height: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cards positioning */
+.cardCellWrapper {
+  padding: 2px 4px;
+  height: 100%;
+  z-index: 3;
+}
+
+/* Clean Session Card */
+.sessionCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.sessionCard:hover {
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sessionCardActive {
+  border-color: var(--track-color, var(--color-purple));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Left Colored Time block */
+.cardLeftBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  flex-shrink: 0;
+  background: var(--track-color, var(--color-purple));
+  padding: 8px 4px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.cardLeftTime {
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cardLeftDuration {
+  font-size: 0.58rem;
+  font-weight: 700;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* Right Content Block */
+.cardRightBlock {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+  gap: 6px;
+  position: relative;
+}
+
+.cardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.starIcon {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: #cbd5e1;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.starIconActive {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.cardTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardSpeakers {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: auto;
+}
+
+.speakerAvatar {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+}
+
+.speakerName {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackText {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--track-color, var(--color-purple));
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Break / Receso Card */
+.sessionCardBreak {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.2s;
+}
+
+.sessionCardBreak:hover {
+  background: #e2e8f0;
+}
+
+.breakContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.breakDuration {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.05em;
+}
+
+.legendDot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 9999px;
+  background: var(--track-color);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+/* Modal Drawer Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modalContent {
+  background: #ffffff;
+  width: 100%;
+  max-width: 42rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1), 0 -8px 10px -6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .modalOverlay {
+    align-items: center;
+  }
+  .modalContent {
+    border-radius: 1rem;
+    max-height: 90vh;
+  }
+}
+
+/* Modal Title */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.modalTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modalTrackPill {
+  align-self: flex-start;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: var(--track-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.modalCloseButton {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.modalCloseButton:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+/* Modal Meta (Time, Room, etc) */
+.modalMetaList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  border: 1px solid #f1f5f9;
+}
+
+.modalMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.modalMetaIcon {
+  color: #94a3b8;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Modal Body */
+.modalAbstract {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #334155;
+  white-space: pre-line;
+}
+
+/* Modal Speakers */
+.modalSpeakersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1.5rem;
+}
+
+.modalSpeakersTitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.modalSpeakersList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalSpeakerCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modalSpeakerAvatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+}
+
+.modalSpeakerName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.modalMetaLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-purple);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.modalMetaLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .modalMetaLink {
+    margin-left: auto;
+  }
+}
+
+/* Room Filter Chips */
+.filterGroupRooms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .filterGroupRooms {
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.chipsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 992px) {
+  .chipsContainer {
+    margin-top: 0;
+  }
+}
+
+.chip {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  outline: none;
+}
+
+.chip:hover {
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+.chipActive {
+  background: var(--track-color, var(--color-purple));
+  border-color: var(--track-color, var(--color-purple));
+  color: #ffffff;
+}
+
+.chipActive:hover {
+  opacity: 0.95;
+  color: #ffffff;
+}
+
+/* Collapsed time gap cell */
+.collapsedGapCell {
+  padding: 4px;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.collapsedGapContent {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapsedGapText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collapsedGapText::before,
+.collapsedGapText::after {
+  content: '•••';
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+
+.chipDisabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.chipDisabled span {
+  background: #cbd5e1 !important;
+}
+
+/* Favorites filter toggle */
+.favoritesToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.favoritesToggleBtn:hover {
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+.favoritesToggleBtnActive {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #d97706;
+}
+
+.favoritesCountBadge {
+  background: #d97706;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.calendarButton:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+/* Mobile Chronological Feed Layout */
+.boardMobile {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.25rem 0;
+}
+
+/* Responsive Show/Hide Toggle */
+@media (max-width: 768px) {
+  .board {
+    display: none !important;
+  }
+  .boardMobile {
+    display: flex;
+  }
+}
+
+.mobileTimeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mobileTimeHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-purple);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #f8fafc;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.mobileCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-left: 0.25rem;
+}
+
+/* Break/Receso card on mobile */
+.mobileBreakCard {
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mobileBreakTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.mobileBreakDuration {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+/* Talk card on mobile */
+.mobileTalkCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.mobileTalkCard:active {
+  transform: scale(0.99);
+}
+
+.mobileCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mobileCardBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.mobileRoomBadge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  border-left: 3px solid var(--room-color, #cbd5e1);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+.mobileTrackBadge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--track-color, var(--color-purple));
+  background: color-mix(in srgb, var(--track-color) 8%, white);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+.mobileFavBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: #cbd5e1;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.mobileTalkTitle {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Speakers list */
+.mobileSpeakersList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+.mobileSpeaker {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mobileSpeakerAvatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mobileSpeakerAvatarPlaceholder {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #64748b;
+  font-size: 8px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.mobileSpeakerName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.mobileCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.mobileDurationText {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Calendar action container inside modal details popup */
+.calendarActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.calendarButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.calendarButton:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+/* Remove default focus outline/border rings from interactive buttons */
+button:focus,
+button:active,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+

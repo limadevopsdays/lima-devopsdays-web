@@ -9,6 +9,7 @@ type TicketsI18n = {
   ariaGeneral: string
   earlyBird: string
   onSale: string
+  soldOut: string
   comingSoon: string
   saleStart: (date: string) => string
   saleStarted: (date: string) => string
@@ -26,6 +27,7 @@ export const ticketsI18n: Record<Locale, TicketsI18n> = {
     ariaGeneral: 'Comprar ticket General',
     earlyBird: 'EARLY BIRD',
     onSale: 'DISPONIBLE',
+    soldOut: 'SOLD OUT',
     comingSoon: 'PRÓXIMAMENTE',
     saleStart: (date) => `Inicio de venta: ${date}`,
     saleStarted: (date) => `Venta iniciada: ${date}`,
@@ -41,6 +43,7 @@ export const ticketsI18n: Record<Locale, TicketsI18n> = {
     ariaGeneral: 'Buy General ticket',
     earlyBird: 'EARLY BIRD',
     onSale: 'ON SALE',
+    soldOut: 'SOLD OUT',
     comingSoon: 'COMING SOON',
     saleStart: (date) => `Sale starts: ${date}`,
     saleStarted: (date) => `Sale started: ${date}`,

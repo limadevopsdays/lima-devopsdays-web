@@ -6,6 +6,7 @@ import { SponsorsSection } from '../../components/devopsdays/SponsorsSection'
 import { TicketsSection } from '../../components/devopsdays/TicketsSection'
 import { GallerySection } from '../../components/devopsdays/GallerySection'
 import { SpeakersSection } from '../../components/devopsdays/SpeakersSection'
+import { ScheduleSection } from '../../components/devopsdays/ScheduleSection'
 import { VenueSection } from '../../components/devopsdays/VenueSection'
 import { TurismSection } from '../../components/devopsdays/TurismSection'
 import { OrganizersSection } from '../../components/devopsdays/OrganizersSection'
@@ -22,7 +23,8 @@ export default function HomePage() {
       <HeroSection />
       <CountdownSection />
       <AboutSection />
-      <SpeakersSection />
+      <SpeakersSection showCfpSpeakers={false} />
+      <ScheduleSection />
       <SponsorsSection />
       <section className={styles.ticketsGalleryBlock} aria-label={t.ticketsGallerySectionLabel}>
         <TicketsSection />
