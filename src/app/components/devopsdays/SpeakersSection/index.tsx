@@ -501,7 +501,7 @@ export function SpeakersSection({
         ) : (
           <div className={styles.seeAllInvitedContainer}>
             <Link to="/speakers#invited-speakers" className={styles.seeAllInvitedButton}>
-              {locale === 'es' ? 'Ver speakers invitados' : 'See invited speakers'}
+              {locale === 'es' ? 'Ver todos los speakers' : 'See all speakers'}
             </Link>
           </div>
         )}
