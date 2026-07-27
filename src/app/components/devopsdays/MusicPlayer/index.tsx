@@ -30,6 +30,7 @@ export function MusicPlayer() {
   const [showVolume, setShowVolume] = useState(false)
   const [videoVolume, setVideoVolume] = useState(0)
   const [showLightbox, setShowLightbox] = useState(false)
+  const [hiddenByOverlay, setHiddenByOverlay] = useState(false)
   const autoplayActiveRef = useRef(true)
   const cleanupRefs = useRef<{
     cleanupGestureListeners: () => void
@@ -67,6 +68,19 @@ export function MusicPlayer() {
     }
     window.addEventListener('devopsdays:video-volume', handleVideoVolume)
     return () => window.removeEventListener('devopsdays:video-volume', handleVideoVolume)
+  }, [])
+
+  useEffect(() => {
+    const handleVisibility = (e: Event) => {
+      const customEvent = e as CustomEvent<{ hidden?: boolean }>
+      setHiddenByOverlay(Boolean(customEvent.detail?.hidden))
+    }
+
+    window.addEventListener('devopsdays:music-player-visibility', handleVisibility)
+
+    return () => {
+      window.removeEventListener('devopsdays:music-player-visibility', handleVisibility)
+    }
   }, [])
 
   /* autoplay on page load, interaction, or when scrolling to sections */
@@ -222,9 +236,13 @@ export function MusicPlayer() {
   return (
     <div
       className={`${styles.player} ${minimized ? styles.minimized : ''}`}
+      style={{
+        display: hiddenByOverlay ? 'none' : undefined,
+        cursor: minimized ? 'pointer' : 'default',
+      }}
       onClick={minimized ? () => setMinimized(false) : undefined}
-      style={{ cursor: minimized ? 'pointer' : 'default' }}
       title={minimized ? 'Expandir reproductor' : undefined}
+      aria-hidden={hiddenByOverlay}
     >
       <audio
         ref={audioRef}
