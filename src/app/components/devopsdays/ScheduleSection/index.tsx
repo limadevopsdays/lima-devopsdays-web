@@ -129,6 +129,24 @@ export function ScheduleSection() {
     }
   }, [activeDay, selectedTrack, showOnlyFavorites, favorites])
 
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    window.dispatchEvent(
+      new CustomEvent('devopsdays:music-player-visibility', {
+        detail: { hidden: Boolean(selectedTalk) },
+      })
+    )
+
+    return () => {
+      window.dispatchEvent(
+        new CustomEvent('devopsdays:music-player-visibility', {
+          detail: { hidden: false },
+        })
+      )
+    }
+  }, [selectedTalk])
+
   // Room multi-select click handlers
   const handleRoomChipClick = (roomId: number) => {
     setSelectedRooms((prev) => {
