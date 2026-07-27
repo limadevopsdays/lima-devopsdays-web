@@ -337,6 +337,12 @@ export const sponsors = [
         href: 'https://www.viabcp.com/comunidadimpacto',
         logo: '/images/sponsors/community/impacto.png'
       },
+      {
+        name: 'CertDirectory',
+        href: 'https://certdirectory.io/'
+        ,
+        logo: '/images/sponsors/community/certdirectory.png'
+      },
     ],
   },
 ]
