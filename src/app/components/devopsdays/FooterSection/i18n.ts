@@ -1,4 +1,4 @@
-﻿import type { Locale } from '../../../i18n'
+import type { Locale } from '../../../i18n'
 
 type FooterLink = { label: string; to: string; accent?: boolean }
 
@@ -20,6 +20,7 @@ export const footerI18n: Record<Locale, FooterI18n> = {
       { label: 'Sponsors', to: '/#sponsors' },
       { label: 'Tickets', to: '/tickets' },
       { label: 'Speakers', to: '/#speakers' },
+      { label: 'Agenda', to: '/#schedule' },
       { label: 'Ubicación', to: '/#venue' },
       { label: 'Turismo', to: '/#turismo', accent: true },
     ],
@@ -33,6 +34,7 @@ export const footerI18n: Record<Locale, FooterI18n> = {
       { label: 'Sponsors', to: '/#sponsors' },
       { label: 'Tickets', to: '/tickets' },
       { label: 'Speakers', to: '/#speakers' },
+      { label: 'Schedule', to: '/#schedule' },
       { label: 'Venue', to: '/#venue' },
       { label: 'Tourism', to: '/#turismo', accent: true },
     ],

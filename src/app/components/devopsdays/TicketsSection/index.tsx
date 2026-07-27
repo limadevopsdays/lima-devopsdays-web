@@ -20,6 +20,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
   const WrapperTag = variant === 'page' ? 'section' : 'div'
   const pricingAnnounced = isTicketSaleOpen()
   const earlyBird = isEarlyBird()
+  const vipSoldOut = variant === 'home'
   const t = useI18n(ticketsI18n)
 
   return (
@@ -90,7 +91,19 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
 
                 {/* DERECHA: Pricing compacto */}
                 <div className={styles.ticketPricing}>
-                  {!pricingAnnounced && (
+                  {vipSoldOut && (
+                    <div className={styles.comingSoonBlock}>
+                      <div className={styles.priceStamp} data-color="vip">
+                        {t.soldOut}
+                      </div>
+                      <div className={styles.priceGroup}>
+                        <div className={styles.priceMain} data-color="vip">{earlyBird ? '$119.90' : '$149.90'}</div>
+                        {earlyBird && <div className={styles.priceStrikethrough}>$149.90</div>}
+                      </div>
+                    </div>
+                  )}
+
+                  {!vipSoldOut && !pricingAnnounced && (
                     <div className={styles.comingSoonBlock}>
                       <div className={styles.priceStamp} data-color="vip">
                         {t.comingSoon}
@@ -102,7 +115,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                     </div>
                   )}
 
-                  {pricingAnnounced && (
+                  {!vipSoldOut && pricingAnnounced && (
                     <>
                       {earlyBird ? (
                         <div className={styles.priceBadge} data-color="vip">

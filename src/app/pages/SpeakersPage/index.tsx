@@ -9,6 +9,7 @@ import { Server, Shield, ClipboardPenLine } from 'lucide-react'
 import { useI18n } from '../../i18n'
 import { speakersPageI18n } from './i18n'
 import styles from './index.module.css'
+import { SpeakersSection } from '../../components/devopsdays/SpeakersSection'
 
 // Configuración estática por tarjeta temática (iconos y colores, sin texto)
 const TOPIC_CARDS_CONFIG = [
@@ -77,127 +78,28 @@ export default function SpeakersPage() {
 
   return (
     <div className={styles.page}>
-      {/* Social Proof Hero */}
+      {/* Social Proof Hero — hidden for now
       <section className={styles.introSection}>
-        <div className={styles.introContainer}>
-          <div className={styles.socialProofCard}>
-            <div className={styles.socialProofGrid}>
-              <div className={styles.socialProofImage}>
-                <img
-                  src={socialProofImage}
-                  alt={t.socialProofAlt}
-                  className={styles.socialProofImageMedia}
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-
-              <div className={styles.socialProofContent}>
-                <div className={styles.socialProofBadge}>
-                  <Mic size={20} className={styles.socialProofBadgeIcon} />
-                  <span className={styles.socialProofBadgeText}>{t.badgeText}</span>
-                </div>
-
-                <h1 className={styles.introTitle}>{t.introTitle}</h1>
-
-                <p className={styles.introDescription}>{t.introDescription}</p>
-
-                <div className={styles.benefitsList}>
-                  {t.benefits.map((benefit, idx) => (
-                    <div key={idx} className={styles.benefitItem}>
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ...
       </section>
+      */}
 
-      {/* Important Dates */}
+      {/* Important Dates — hidden for now
       {cfpOpen && (
         <section className={styles.datesSection}>
-          <div className={styles.container}>
-            <h2 className={styles.datesSectionTitle}>{t.datesSectionTitle}</h2>
-
-            <p className={styles.datesSectionLead}>{t.datesSectionLead}</p>
-
-            <div className={styles.timeline}>
-              {timelineData.map((item, index) => (
-                <div key={index} style={{ display: 'contents' }}>
-                  <div className={styles.timelineItem}>
-                    <div className={`${styles.timelineDot} ${styles[`dot${statuses[index].charAt(0).toUpperCase() + statuses[index].slice(1)}`]}`}></div>
-                    <div className={`${styles.timelineCard} ${statuses[index] === 'past' ? styles.timelineCardActive : ''}`}>
-                      <div className={`${styles.timelineBadge} ${styles[`badge${statuses[index].charAt(0).toUpperCase() + statuses[index].slice(1)}`]}`}>
-                        {t.timeline[index].label}
-                      </div>
-                      <div className={styles.timelineDate}>
-                        {item.date.toLocaleDateString(t.dateLocale, { day: 'numeric', month: 'long' })}
-                      </div>
-                      <div className={styles.timelineYear}>
-                        {item.date.getFullYear()}
-                      </div>
-                      <div className={styles.timelineDescription}>
-                        {t.timeline[index].description}
-                      </div>
-                    </div>
-                  </div>
-
-                  {index < timelineData.length - 1 && (
-                    <div
-                      className={styles.timelineLine}
-                      style={{ '--progress': `${progressSegments[index]}%` } as React.CSSProperties}
-                    ></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          ...
         </section>
       )}
+      */}
 
-      {/* CTA Killer Section */}
+      {/* CTA Killer Section — hidden for now
       <section className={styles.ctaSection}>
-        <div className={styles.ctaContainer}>
-          <div className={styles.ctaContent}>
-            <div className={styles.ctaLeftContent}>
-              <div className={styles.ctaBadgeContainer}>
-                <div className={styles.ctaBadgeDot} />
-                <span className={styles.ctaBadgePillText}>{t.ctaBadgeText}</span>
-              </div>
-
-              <h2 className={styles.ctaTitle}>{t.ctaTitle}</h2>
-
-              <p className={styles.ctaDescription}>{t.ctaDescription}</p>
-            </div>
-
-            <div className={styles.ctaRightContent}>
-              {/*
-              <a
-                href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.ctaButton}
-                data-track-name="enviar_propuesta_cta_speakers"
-              >
-                <ClipboardPenLine size={20} className={styles.ctaButtonIcon} />
-                {t.ctaButton}
-              </a>
-              */}
-
-              <div className={styles.ctaDatesGroup}>
-                <p className={styles.ctaDeadline}>
-                  {t.ctaDeadline1Label}<strong>{t.ctaDeadline1Value}</strong>
-                </p>
-                <p className={styles.ctaDeadline}>
-                  {t.ctaDeadline2Label}<strong>{t.ctaDeadline2Value}</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ...
       </section>
+      */}
+
+      {/* Invited Speakers carousel */}
+      <SpeakersSection showInvited />
 
       {/* Ejes Temáticos Section */}
       {cfpOpen && (

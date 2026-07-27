@@ -9,7 +9,8 @@ import styles from './index.module.css'
 import { SectionHeader } from '../SectionHeader'
 import { SmartCropImage } from '../../SmartCropImage'
 import { CountryFlag } from '../CountryFlag'
-import { useI18n } from '../../../i18n'
+import { ScheduleSpeakersSection } from '../ScheduleSpeakersSection'
+import { useI18n, useLocale } from '../../../i18n'
 import { speakersI18n } from './i18n'
 import {
   keynoteSpeakersI18n,
@@ -252,13 +253,34 @@ function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: Return
   )
 }
 
-export function SpeakersSection() {
+interface SpeakersSectionProps {
+  showInvited?: boolean
+  showCfpSpeakers?: boolean
+}
+
+export function SpeakersSection({
+  showInvited = false,
+  showCfpSpeakers = true,
+}: SpeakersSectionProps) {
   const [visibleInvitedSlides, setVisibleInvitedSlides] = useState(4)
   const [activeKeynoteTracks, setActiveKeynoteTracks] = useState<string[]>([])
   const [activeInvitedTracks, setActiveInvitedTracks] = useState<string[]>([])
   const t = useI18n(speakersI18n)
+  const locale = useLocale() as 'es' | 'en'
   const keynoteSpeakers = useI18n(keynoteSpeakersI18n)
   const invitedSpeakers = useI18n(invitedSpeakersI18n)
+
+  // Scroll to invited section on mount if navigated with hash
+  useEffect(() => {
+    if (!showInvited) return
+    if (window.location.hash === '#invited-speakers') {
+      const el = document.getElementById('invited-speakers')
+      if (el) {
+        // Short delay so the page finishes rendering first
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120)
+      }
+    }
+  }, [showInvited])
 
   const keynoteTrackOptions = Array.from(
     keynoteSpeakers.reduce((map, speaker) => {
@@ -365,185 +387,133 @@ export function SpeakersSection() {
 
   return (
     <section id="speakers" className={styles.section}>
-      <div className={styles.keynoteSection}>
-        <div className={styles.container}>
-          <SectionHeader
-            className={styles.keynoteHeader}
-            eyebrow={t.eyebrow}
-            eyebrowColor="#6B51EF"
-          />
+      <div className={styles.container}>
+        <SectionHeader
+          className={styles.keynoteHeader}
+          eyebrow={t.eyebrow}
+          eyebrowColor="#6B51EF"
+        />
+
+        <div id="keynote-speakers">
           <SectionHeader
             className={styles.keynoteTitleHeader}
             title={<><span className={styles.keynoteTitleAccent}>Keynote</span> Speakers</>}
             lead={t.lead}
           />
+          <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
+            {keynoteTrackOptions.map((track) => {
+              const isActive = activeKeynoteTracks.includes(track.name)
+              const trackSpeakerCount = keynoteSpeakers.filter(
+                (speaker) => speaker.thematicAxis === track.name
+              ).length
+
+              return (
+                <button
+                  key={track.name}
+                  type="button"
+                  className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
+                  style={{ '--track-color': track.color } as CSSProperties}
+                  onClick={() => toggleKeynoteTrack(track.name)}
+                  aria-pressed={isActive}
+                >
+                  {track.name}
+                  {isActive && (
+                    <span className={styles.invitedFilterTabCount}>
+                      {trackSpeakerCount}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
+          </div>
+
           <div className={styles.keynotePanel}>
-            <div className={styles.keynotePanelContent}>
-              <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
-                {keynoteTrackOptions.map((track) => {
-                  const isActive = activeKeynoteTracks.includes(track.name)
-                  const trackSpeakerCount = keynoteSpeakers.filter(
-                    (speaker) => speaker.thematicAxis === track.name
-                  ).length
-
-                  return (
-                    <button
-                      key={track.name}
-                      type="button"
-                      className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
-                      style={{ '--track-color': track.color } as CSSProperties}
-                      onClick={() => toggleKeynoteTrack(track.name)}
-                      aria-pressed={isActive}
-                    >
-                      {track.name}
-                      {isActive && (
-                        <span className={styles.invitedFilterTabCount}>
-                          {trackSpeakerCount}
-                        </span>
-                      )}
-                    </button>
-                  )
-                })}
+            {filteredKeynoteSpeakers.length > 0 ? (
+              <div className={styles.keynoteShowcase}>
+                {filteredKeynoteSpeakers.map((speaker) => (
+                  <KeynoteSpeakerCard key={speaker.name} speaker={speaker} t={t} />
+                ))}
               </div>
+            ) : (
+              <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+            )}
+          </div>
+        </div>
 
-              {filteredKeynoteSpeakers.length > 0 ? (
-                <div className={styles.keynoteShowcase}>
-                  {filteredKeynoteSpeakers.map((speaker) => (
-                    <KeynoteSpeakerCard key={speaker.name} speaker={speaker} t={t} />
+        {showInvited ? (
+          <div
+            id="invited-speakers"
+            className={`${styles.speakersSubsection} ${styles.invitedPanel} ${styles.invitedPanelContent}`}
+          >
+            <SectionHeader
+              className={styles.keynoteTitleHeader}
+              title={
+                t.invitedTitle === 'Invited Speakers' ? (
+                  <><span className={styles.keynoteTitleAccent}>Invited</span> Speakers</>
+                ) : (
+                  <>Speakers <span className={styles.keynoteTitleAccent}>invitados</span></>
+                )
+              }
+              lead={t.invitedLead}
+            />
+
+            <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
+              {invitedTrackOptions.map((track) => {
+                const isActive = activeInvitedTracks.includes(track.name)
+                const trackSpeakerCount = invitedSpeakers.filter(
+                  (speaker) => speaker.thematicAxis === track.name
+                ).length
+
+                return (
+                  <button
+                    key={track.name}
+                    type="button"
+                    className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
+                    style={{ '--track-color': track.color } as CSSProperties}
+                    onClick={() => toggleInvitedTrack(track.name)}
+                    aria-pressed={isActive}
+                  >
+                    {track.name}
+                    {isActive && (
+                      <span className={styles.invitedFilterTabCount}>
+                        {trackSpeakerCount}
+                      </span>
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+
+            <div className={styles.invitedCarouselWrapper}>
+              {filteredInvitedSpeakers.length > 0 ? (
+                <Slider {...invitedCarouselSettings}>
+                  {filteredInvitedSpeakers.map((speaker) => (
+                    <div key={speaker.name} className={styles.invitedSlideWrapper}>
+                      <InvitedSpeakerCard speaker={speaker} t={t} />
+                    </div>
                   ))}
-                </div>
+                </Slider>
               ) : (
                 <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
               )}
             </div>
           </div>
-
-          <div className={styles.invitedPanel}>
-            <div className={styles.invitedPanelContent}>
-              <div className={styles.invitedPanelHeader}>
-                <h3 className={styles.invitedPanelTitle}>
-                  {t.invitedTitle === 'Invited Speakers' ? (
-                    <><span className={styles.keynoteTitleAccent}>Invited</span> Speakers</>
-                  ) : (
-                    <>Speakers <span className={styles.keynoteTitleAccent}>invitados</span></>
-                  )}
-                </h3>
-                <p className={styles.invitedPanelLead}>{t.invitedLead}</p>
-              </div>
-
-              <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
-                {invitedTrackOptions.map((track) => {
-                  const isActive = activeInvitedTracks.includes(track.name)
-                  const trackSpeakerCount = invitedSpeakers.filter(
-                    (speaker) => speaker.thematicAxis === track.name
-                  ).length
-
-                  return (
-                    <button
-                      key={track.name}
-                      type="button"
-                      className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
-                      style={{ '--track-color': track.color } as CSSProperties}
-                      onClick={() => toggleInvitedTrack(track.name)}
-                      aria-pressed={isActive}
-                    >
-                      {track.name}
-                      {isActive && (
-                        <span className={styles.invitedFilterTabCount}>
-                          {trackSpeakerCount}
-                        </span>
-                      )}
-                    </button>
-                  )
-                })}
-              </div>
-
-              <div className={styles.invitedCarouselWrapper}>
-                {filteredInvitedSpeakers.length > 0 ? (
-                  <Slider {...invitedCarouselSettings}>
-                    {filteredInvitedSpeakers.map((speaker) => (
-                      <div key={speaker.name} className={styles.invitedSlideWrapper}>
-                        <InvitedSpeakerCard speaker={speaker} t={t} />
-                      </div>
-                    ))}
-                  </Slider>
-                ) : (
-                  <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
-                )}
-              </div>
-            </div>
+        ) : (
+          <div className={styles.seeAllInvitedContainer}>
+            <Link to="/speakers#invited-speakers" className={styles.seeAllInvitedButton}>
+              {locale === 'es' ? 'Ver speakers invitados' : 'See invited speakers'}
+            </Link>
           </div>
-        </div>
+        )}
+
+        {showCfpSpeakers ? <ScheduleSpeakersSection as="div" id="cfp-speakers" /> : null}
       </div>
 
-      {/* BANNER CTA - Call for Speakers */}
+      {/* BANNER CTA "Speakers 2026" — hidden for later
       <div className={styles.ctaBanner}>
-        <div className={styles.ctaBannerBg} />
-        <div className={styles.ctaBannerOverlay} />
-
-        <div className={styles.ctaBannerContainer}>
-          <div className={styles.grid}>
-            {/* Columna izquierda: Contenido principal */}
-            <div className={styles.content}>
-              <div>
-
-                <h2 className={styles.title}>{t.cfsTitle}</h2>
-
-                <p className={styles.description}>{t.cfsDescription}</p>
-
-                <p className={styles.tracksLabel} style={{ display: 'none' }}>{t.cfsTracksLabel}</p>
-
-                <div className={styles.tracks} style={{ display: 'none' }}>
-                  {t.cfsTracks.map((track, idx) => (
-                    <span
-                      key={idx}
-                      className={styles.trackPill}
-                      style={{ '--track-color': track.color } as React.CSSProperties}
-                    >
-                      {track.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Columna derecha: Fechas y CTA */}
-            <div className={styles.dates}>
-              <div className={styles.ctaActions}>
-                <Link
-                  to="/speakers"
-                  className={styles.ctaSecondaryButton}
-                  data-track-name="ver_detalles_beneficios_speakers_home"
-                >
-                  {t.cfsSecondaryBtn}
-                </Link>
-
-                 {/*
-                 <a
-                   href="https://talks.devopsdays.org/devopsdays-lima-2026/cfp"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className={styles.ctaButton}
-                   data-track-name="call_for_speakers_banner_home"
-                 >
-                   <Send className={styles.ctaIcon} />
-                   {t.cfsPrimaryBtn}
-                 </a>
-                 */}
-              </div>
-              {/*
-              <div>
-                <p className={styles.dateText}>
-                  {t.cfsDeadline} <strong>{t.cfsDeadlineDate}</strong>
-                </p>
-                <p className={styles.dateText}>
-                  {t.cfsNotification} <strong>{t.cfsNotificationDate}</strong>
-                </p>
-              </div>*/}
-            </div>
-          </div>
-        </div>
+        ...
       </div>
+      */}
     </section>
   )
 }
