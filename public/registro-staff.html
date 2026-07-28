@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Staff — DevOpsDays Lima 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #6B51EF;
+      --green:  #93E279;
+      --dpurp:  #53099E;
+      --navy:   #030366;
+      --blue:   #147CFF;
+      --gold:   #FFD700;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(160deg, #0d0520 0%, #1a0a40 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: #fff;
+    }
+    .container { max-width: 680px; margin: 0 auto; }
+
+    .header {
+      background: linear-gradient(135deg, var(--navy), var(--dpurp), var(--purple));
+      border-radius: 16px 16px 0 0;
+      padding: 2rem;
+    }
+    .logo-devops { font-family: 'Orbitron', monospace; color: var(--green); font-size: 32px; font-weight: 900; line-height: 1; }
+    .logo-days   { font-family: 'Orbitron', monospace; color: #c4b0ff; font-size: 28px; font-weight: 700; }
+    .logo-tag    { font-family: 'Orbitron', monospace; font-size: 9px; letter-spacing: 3px; color: rgba(255,255,255,.45); margin-top: 4px; }
+    .header-desc { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 14px; line-height: 1.7; }
+    .header-desc strong { color: rgba(255,255,255,.9); }
+
+    .tier-pills { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .tier-pill  { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .pill-p { background: rgba(232,232,232,.12); color: #E8E8E8; border: 1px solid rgba(232,232,232,.35); }
+    .pill-g { background: rgba(255,215,0,.12); color: #FFD700; border: 1px solid rgba(255,215,0,.35); }
+    .pill-s { background: rgba(192,192,192,.12); color: #C0C0C0; border: 1px solid rgba(192,192,192,.35); }
+
+    .body {
+      background: rgba(255,255,255,.03);
+      border: 0.5px solid rgba(107,81,239,.25);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      padding: 2rem;
+    }
+    .section-title {
+      font-size: 10px; font-weight: 600; color: var(--green);
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 16px; padding-bottom: 8px;
+      border-bottom: 0.5px solid rgba(147,226,121,.2);
+    }
+    .divider { height: 1px; background: rgba(255,255,255,.07); margin: 24px 0; }
+
+    .field-group { margin-bottom: 16px; }
+    .field-group label { display: block; font-size: 11px; color: rgba(255,255,255,.55); margin-bottom: 6px; }
+    .field-group input,
+    .field-group select {
+      width: 100%;
+      background: rgba(255,255,255,.06);
+      border: 0.5px solid rgba(107,81,239,.4);
+      border-radius: 8px;
+      padding: 10px 13px;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .field-group input:focus,
+    .field-group select:focus { border-color: var(--purple); }
+    .field-group input::placeholder { color: rgba(255,255,255,.22); }
+    .field-group select option { background: #1a0a40; }
+
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* Tier select con colores */
+    #tier { cursor: pointer; }
+    #tier.sel-platinum { border-color: rgba(232,232,232,.6); color: #E8E8E8; }
+    #tier.sel-gold     { border-color: rgba(255,215,0,.6);   color: #FFD700; }
+    #tier.sel-silver   { border-color: rgba(192,192,192,.6); color: #C0C0C0; }
+
+    .tier-info {
+      border-radius: 10px; padding: 12px 16px;
+      margin-bottom: 16px; font-size: 12px; line-height: 1.6;
+      transition: all .25s;
+    }
+    .tier-none   { background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.1);   color: rgba(255,255,255,.4); }
+    .tier-plat   { background: rgba(232,232,232,.06); border: 1px solid rgba(232,232,232,.3);    color: #E8E8E8; }
+    .tier-gold   { background: rgba(255,215,0,.08);   border: 1px solid rgba(255,215,0,.3);     color: #FFD700; }
+    .tier-silver { background: rgba(192,192,192,.08); border: 1px solid rgba(192,192,192,.3);   color: #C0C0C0; }
+
+    /* Teléfono con prefijo */
+    .phone-wrap { display: flex; gap: 8px; }
+    .phone-prefix {
+      background: rgba(107,81,239,.2);
+      border: 0.5px solid rgba(107,81,239,.4);
+      border-radius: 8px;
+      padding: 10px 13px;
+      color: #c4b0ff;
+      font-size: 13px;
+      font-family: 'Poppins', sans-serif;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .phone-prefix select {
+      background: transparent;
+      border: none;
+      color: #c4b0ff;
+      font-size: 13px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      cursor: pointer;
+      padding: 0;
+      width: auto;
+    }
+    .phone-prefix select option { background: #1a0a40; color: #fff; }
+    .phone-input {
+      flex: 1;
+      background: rgba(255,255,255,.06);
+      border: 0.5px solid rgba(107,81,239,.4);
+      border-radius: 8px;
+      padding: 10px 13px;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      outline: none;
+    }
+    .phone-input::placeholder { color: rgba(255,255,255,.22); }
+    .phone-input:focus { border-color: var(--purple); }
+    .optional-tag {
+      font-size: 10px;
+      color: rgba(255,255,255,.3);
+      margin-left: 6px;
+      font-style: italic;
+    }
+
+    /* Staff */
+    .staff-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .counter {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 500;
+      padding: 4px 12px; border-radius: 20px;
+      background: rgba(107,81,239,.15); border: 0.5px solid rgba(107,81,239,.3);
+      color: #c4b0ff; transition: all .2s;
+    }
+    .counter.warn { background: rgba(255,180,0,.1);  border-color: rgba(255,180,0,.3);  color: #FFCC00; }
+    .counter.over { background: rgba(220,50,50,.1);  border-color: rgba(220,50,50,.3);  color: #ff8888; }
+
+    .rota-notice {
+      background: rgba(255,180,0,.07); border: 0.5px solid rgba(255,180,0,.25);
+      border-radius: 10px; padding: 12px 16px; margin-bottom: 14px;
+      font-size: 11px; color: rgba(255,200,0,.88); line-height: 1.6; display: none;
+    }
+
+    .person-card {
+      background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: 16px; margin-bottom: 10px; position: relative;
+    }
+    .person-num { font-size: 10px; font-weight: 600; color: var(--green); letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+    .remove-btn {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(220,50,50,.1); border: 0.5px solid rgba(220,50,50,.25);
+      border-radius: 6px; color: #ff8888; font-size: 11px;
+      padding: 4px 10px; cursor: pointer; font-family: 'Poppins', sans-serif;
+    }
+    .remove-btn:hover { background: rgba(220,50,50,.2); }
+
+    .add-btn {
+      width: 100%;
+      background: rgba(107,81,239,.08); border: 1px dashed rgba(107,81,239,.35);
+      border-radius: 10px; padding: 12px; color: #c4b0ff;
+      font-size: 13px; font-family: 'Poppins', sans-serif;
+      cursor: pointer; margin-bottom: 16px; transition: all .2s;
+    }
+    .add-btn:hover:not(:disabled) { background: rgba(107,81,239,.16); border-color: var(--purple); }
+    .add-btn:disabled { opacity: .3; cursor: not-allowed; }
+
+    .cred-box {
+      background: rgba(20,124,255,.07); border: 0.5px solid rgba(20,124,255,.3);
+      border-radius: 10px; padding: 14px 16px; margin-bottom: 16px;
+    }
+    .cred-title { font-size: 10px; font-weight: 600; color: var(--blue); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 7px; }
+    .cred-txt   { font-size: 11px; color: rgba(200,210,255,.72); line-height: 1.65; }
+    .cred-txt strong { color: rgba(200,220,255,.92); }
+
+    .check-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 0.5px solid rgba(255,255,255,.07);
+      font-size: 12px; color: rgba(255,255,255,.72); cursor: pointer; line-height: 1.5;
+    }
+    .check-item input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; accent-color: var(--purple); cursor: pointer; }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--purple), var(--dpurp));
+      border: none; border-radius: 10px; padding: 14px;
+      color: #fff; font-size: 14px; font-weight: 600;
+      font-family: 'Poppins', sans-serif; cursor: pointer;
+      letter-spacing: .5px; margin-top: 8px; transition: opacity .2s;
+    }
+    .submit-btn:hover { opacity: .88; }
+    .submit-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+    .loading { display: none; text-align: center; padding: 1rem 0; font-size: 13px; color: rgba(255,255,255,.5); }
+    .spinner {
+      display: inline-block; width: 20px; height: 20px;
+      border: 2px solid rgba(107,81,239,.3); border-top-color: var(--purple);
+      border-radius: 50%; animation: spin .7s linear infinite;
+      margin-right: 8px; vertical-align: -4px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .success-msg {
+      display: none;
+      background: rgba(147,226,121,.08); border: 1px solid rgba(147,226,121,.25);
+      border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+    }
+    .success-icon  { font-size: 48px; margin-bottom: 14px; }
+    .success-title { font-family: 'Orbitron', monospace; color: var(--green); font-size: 16px; margin-bottom: 10px; }
+    .success-txt   { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.8; }
+    .success-txt strong { color: var(--green); }
+    .success-txt a      { color: var(--blue); }
+
+    .error-box {
+      background: rgba(220,50,50,.08); border: 0.5px solid rgba(220,50,50,.25);
+      border-radius: 8px; padding: 10px 14px; font-size: 12px;
+      color: #ff8888; margin-bottom: 12px; display: none;
+    }
+
+    @media (max-width: 520px) {
+      .row2 { grid-template-columns: 1fr; }
+      .header, .body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo-devops">DevOps</div>
+    <div class="logo-days">Days</div>
+    <div class="logo-tag">Lima 2026 · Registro de Staff</div>
+    <div class="header-desc">
+      Registra al personal que estará en tu stand durante el evento.
+      Puedes inscribir más personas de tu límite para <strong>rotación</strong>,
+      pero no deberán estar más del límite simultáneo en ningún momento.
+    </div>
+    <div class="tier-pills">
+      <span class="tier-pill pill-p">🏆 Platinum — máx. 6</span>
+      <span class="tier-pill pill-g">🥇 Gold — máx. 4</span>
+      <span class="tier-pill pill-s">🥈 Silver — máx. 2</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <div id="form-content">
+
+      <!-- SECCIÓN 1: EMPRESA -->
+      <div class="section-title">Datos de la empresa</div>
+
+      <div class="field-group">
+        <label>Nombre de la empresa / sponsor *</label>
+        <input type="text" id="empresa" placeholder="Nombre de tu empresa">
+      </div>
+
+      <div class="field-group">
+        <label>Tipo de stand *</label>
+        <select id="tier" onchange="onTierChange()">
+          <option value="">Selecciona tu tier</option>
+          <option value="platinum">🏆 Platinum (3×5m) — Máx. 6 personas</option>
+          <option value="gold">🥈 Gold (3×2m) — Máx. 4 personas</option>
+          <option value="silver">🥉 Silver (2×1.5m) — Máx. 2 personas</option>
+        </select>
+      </div>
+
+      <div id="tier-box" class="tier-info tier-none">
+        Selecciona tu tipo de stand para ver el límite de personas simultáneas.
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECCIÓN 2: COORDINADOR -->
+      <div class="section-title">Datos del coordinador</div>
+
+      <div class="row2">
+        <div class="field-group">
+          <label>Nombre y apellido *</label>
+          <input type="text" id="nombre-coord" placeholder="Juan Pérez">
+        </div>
+        <div class="field-group">
+          <label>Correo electrónico *</label>
+          <input type="email" id="email" placeholder="coordinador@empresa.com">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>WhatsApp <span class="optional-tag">opcional</span></label>
+        <div class="phone-wrap">
+          <div class="phone-prefix">
+            <select id="phone-prefix">
+              <option value="+51">🇵🇪 +51</option>
+              <option value="+54">🇦🇷 +54</option>
+              <option value="+56">🇨🇱 +56</option>
+              <option value="+57">🇨🇴 +57</option>
+              <option value="+52">🇲🇽 +52</option>
+              <option value="+55">🇧🇷 +55</option>
+              <option value="+593">🇪🇨 +593</option>
+              <option value="+58">🇻🇪 +58</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+34">🇪🇸 +34</option>
+            </select>
+          </div>
+          <input class="phone-input" type="tel" id="wsp" placeholder="966 283 369">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECCIÓN 3: PERSONAL -->
+      <div class="staff-header">
+        <div class="section-title" style="margin:0;border:none;padding:0">Personal del stand</div>
+        <div class="counter" id="counter">0 personas</div>
+      </div>
+
+      <div id="rota-notice" class="rota-notice">
+        ⚡ <strong>Modo rotativo activado</strong> — Has superado el límite simultáneo.
+        El personal adicional puede asistir en rotación, asegurándote de no exceder
+        el máximo en ningún momento durante el evento.
+      </div>
+
+      <div id="persons-container"></div>
+
+      <button class="add-btn" id="add-btn" onclick="addPerson()" disabled>
+        + Agregar persona al stand
+      </button>
+
+      <div class="cred-box">
+        <div class="cred-title">📋 Sobre las credenciales de staff</div>
+        <div class="cred-txt">
+          Las credenciales son <strong>exclusivas para el equipo del sponsor</strong> y brindan
+          acceso únicamente a la <strong>Zona de Sponsors</strong> y la <strong>Zona de Networking</strong>.
+          No incluyen acceso a charlas ni conferencias.
+          Pueden usarse de forma <strong>rotativa</strong> siempre que no se supere el límite simultáneo.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECCIÓN 4: COMPROMISOS -->
+      <div class="section-title">Confirmación y compromisos</div>
+      <div>
+        
+        
+        <label class="check-item"><input type="checkbox" id="c3"> Entiendo que las credenciales no incluyen acceso a charlas ni conferencias</label>
+        <label class="check-item"><input type="checkbox" id="c4"> Me comprometo a respetar el límite simultáneo de personas en mi stand</label>
+        
+      </div>
+
+      <div id="error-box" class="error-box"></div>
+      <div class="loading" id="loading"><span class="spinner"></span>Enviando registro...</div>
+
+      <button class="submit-btn" onclick="submitForm()">Enviar registro de staff</button>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <div class="success-icon">✅</div>
+      <div class="success-title">¡Registro enviado!</div>
+      <div class="success-txt" id="success-detail">
+        Tu lista de staff ha sido registrada correctamente.<br>
+        Recibirás una confirmación en tu correo.<br><br>
+        Consultas: <a href="mailto:logistica@devopsdays.pe">logistica@devopsdays.pe</a><br>
+        WhatsApp: <a href="https://wa.me/51966283369">+51 966 283 369</a> — Jhonnatan Correa (Coordinador de logística)
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYItQMyKwH-jHXaPgu2Jxg-3pljMxVOX4oN1WCRlReaHsDcbbAMHA6CS7OO24YWxpdtw/exec';
+
+  const TIERS = {
+    platinum: { max: 6, label: 'Platinum', desc: 'Máximo 6 personas simultáneas · Stands P1–P7', cls: 'tier-plat',   selCls: 'sel-platinum' },
+    gold:     { max: 4, label: 'Gold',     desc: 'Máximo 4 personas simultáneas · Stands G1–G10', cls: 'tier-gold',   selCls: 'sel-gold' },
+    silver:   { max: 2, label: 'Silver',   desc: 'Máximo 2 personas simultáneas · Stands S1–S4',  cls: 'tier-silver', selCls: 'sel-silver' }
+  };
+
+  let persons = [], personId = 0;
+
+  function onTierChange() {
+    const t = document.getElementById('tier').value;
+    const box = document.getElementById('tier-box');
+    const sel = document.getElementById('tier');
+    const btn = document.getElementById('add-btn');
+
+    sel.className = '';
+    if (!t) {
+      box.className = 'tier-info tier-none';
+      box.textContent = 'Selecciona tu tipo de stand para ver el límite de personas simultáneas.';
+      btn.disabled = true;
+      return;
+    }
+    const d = TIERS[t];
+    sel.className = d.selCls;
+    box.className = 'tier-info ' + d.cls;
+    box.innerHTML = `<strong>${d.label}</strong> — ${d.desc}<br><span style="font-size:11px;opacity:.75">Puedes registrar más personas para rotación.</span>`;
+    btn.disabled = false;
+    updateCounter();
+  }
+
+  function addPerson() {
+    const id = ++personId;
+    persons.push(id);
+    const container = document.getElementById('persons-container');
+    const div = document.createElement('div');
+    div.className = 'person-card';
+    div.id = 'person-' + id;
+    div.innerHTML = `
+      <div class="person-num">👤 Persona ${persons.length}</div>
+      <button class="remove-btn" onclick="removePerson(${id})">✕ Quitar</button>
+      <div class="row2">
+        <div class="field-group" style="margin:0">
+          <label style="font-size:11px">Nombre completo *</label>
+          <input type="text" id="nom-${id}" placeholder="Nombre y apellidos">
+        </div>
+        <div class="field-group" style="margin:0">
+          <label style="font-size:11px">DNI / CE / Pasaporte <span class="optional-tag">opcional</span></label>
+          <input type="text" id="dni-${id}" placeholder="Ej: 12345678">
+        </div>
+      </div>`;
+    container.appendChild(div);
+    updateCounter();
+  }
+
+  function removePerson(id) {
+    persons = persons.filter(p => p !== id);
+    document.getElementById('person-' + id).remove();
+    document.querySelectorAll('.person-num').forEach((el, i) => {
+      el.textContent = `👤 Persona ${i + 1}`;
+    });
+    updateCounter();
+  }
+
+  function updateCounter() {
+    const t = document.getElementById('tier').value;
+    const n = persons.length;
+    const counter = document.getElementById('counter');
+    const notice = document.getElementById('rota-notice');
+    counter.textContent = n + ' persona' + (n !== 1 ? 's' : '');
+    counter.className = 'counter';
+    if (!t || n === 0) { notice.style.display = 'none'; return; }
+    const max = TIERS[t].max;
+    if (n > max) {
+      counter.className = 'counter over';
+      counter.textContent = n + ' personas · ' + (n - max) + ' en rotación';
+      notice.style.display = 'block';
+    } else if (n === max) {
+      counter.className = 'counter warn';
+      notice.style.display = 'none';
+    } else {
+      notice.style.display = 'none';
+    }
+  }
+
+  function showError(msg) {
+    const box = document.getElementById('error-box');
+    box.textContent = '⚠️ ' + msg;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function hideError() { document.getElementById('error-box').style.display = 'none'; }
+
+  async function submitForm() {
+    hideError();
+    const empresa    = document.getElementById('empresa').value.trim();
+    const tier       = document.getElementById('tier').value;
+    const nombreCoord= document.getElementById('nombre-coord').value.trim();
+    const email      = document.getElementById('email').value.trim();
+    const prefix     = document.getElementById('phone-prefix').value;
+    const wspNum     = document.getElementById('wsp').value.trim();
+    const wsp        = wspNum ? prefix + ' ' + wspNum : '';
+
+    if (!empresa)              { showError('Ingresa el nombre de tu empresa.'); return; }
+    if (!tier)                 { showError('Selecciona el tipo de stand.'); return; }
+    if (!nombreCoord)          { showError('Ingresa el nombre y apellido del coordinador.'); return; }
+    if (!email || !email.includes('@')) { showError('Ingresa un correo electrónico válido.'); return; }
+    if (persons.length === 0)  { showError('Agrega al menos una persona al stand.'); return; }
+
+    for (const id of persons) {
+      const nom = document.getElementById('nom-' + id)?.value.trim();
+      if (!nom) { showError('El nombre es obligatorio para todas las personas agregadas.'); return; }
+    }
+
+    const allChecked = ['c3','c4'].every(id => document.getElementById(id).checked);
+    if (!allChecked) { showError('Debes aceptar todos los compromisos para continuar.'); return; }
+
+    const personasData = persons.map(id => ({
+      nombre: document.getElementById('nom-' + id)?.value.trim() || '',
+      dni:    document.getElementById('dni-' + id)?.value.trim() || ''
+    }));
+
+    const payload = { empresa, tier, nombreCoord, email, whatsapp: wsp, personas: personasData };
+
+    const btn = document.getElementById('submit-btn') || document.querySelector('.submit-btn');
+    const loading = document.getElementById('loading');
+    if (btn) btn.disabled = true;
+    loading.style.display = 'block';
+
+    try {
+      const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
+      // Con no-cors no podemos leer la respuesta, asumimos éxito
+      const json = { success: true };
+      if (json.success) {
+        document.getElementById('form-content').style.display = 'none';
+        const rotacion = Math.max(0, persons.length - TIERS[tier].max);
+        document.getElementById('success-detail').innerHTML = `
+          Tu registro para el stand <strong style="color:#93E279">${tier.toUpperCase()}</strong>
+          ha sido enviado correctamente.<br>
+          Recibirás confirmación en <strong style="color:#93E279">${email}</strong>.<br><br>
+          ${rotacion > 0 ? `<span style="color:#FFCC00">⚡ Tienes ${rotacion} persona(s) en modo rotativo — no superar el límite de ${TIERS[tier].max} simultáneos.</span><br><br>` : ''}
+          
+          Consultas: <a href="mailto:logistica@devopsdays.pe" style="color:#147CFF">logistica@devopsdays.pe</a><br>WhatsApp: <a href="https://wa.me/51966283369" style="color:#93E279">+51 966 283 369</a> — Jhonnatan Correa (Coordinador de logística)`;
+        document.getElementById('success-msg').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error(json.message || 'Error desconocido');
+      }
+    } catch (err) {
+      showError('No se pudo enviar el registro. Intenta de nuevo o escribe a logistica@devopsdays.pe');
+      if (btn) btn.disabled = false;
+      loading.style.display = 'none';
+    }
+  }
+</script>
+</body>
+</html>
