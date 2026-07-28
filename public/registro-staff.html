@@ -253,7 +253,7 @@
       pero no deberán estar más del límite simultáneo en ningún momento.
     </div>
     <div class="tier-pills">
-      <span class="tier-pill pill-p">🏆 Platinum — máx. 6</span>
+      <span class="tier-pill pill-p">💎 Platinum — máx. 6</span>
       <span class="tier-pill pill-g">🥇 Gold — máx. 4</span>
       <span class="tier-pill pill-s">🥈 Silver — máx. 2</span>
     </div>
@@ -274,9 +274,9 @@
         <label>Tipo de stand *</label>
         <select id="tier" onchange="onTierChange()">
           <option value="">Selecciona tu tier</option>
-          <option value="platinum">🏆 Platinum (3×5m) — Máx. 6 personas</option>
-          <option value="gold">🥈 Gold (3×2m) — Máx. 4 personas</option>
-          <option value="silver">🥉 Silver (2×1.5m) — Máx. 2 personas</option>
+          <option value="platinum">💎 Platinum (3×5m) — Máx. 6 personas</option>
+          <option value="gold">🥇 Gold (3×2m) — Máx. 4 personas</option>
+          <option value="silver">🥈 Silver (1.5×1m) — Máx. 2 personas</option>
         </select>
       </div>
 
@@ -514,9 +514,11 @@
     loading.style.display = 'block';
 
     try {
-      const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
-      // Con no-cors no podemos leer la respuesta, asumimos éxito
-      const json = { success: true };
+      // Sin mode:'no-cors' para poder leer la respuesta real del Apps Script.
+      // No se define Content-Type a proposito: asi el navegador envia
+      // text/plain y evita el preflight OPTIONS, que Apps Script no maneja.
+      const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
+      const json = await res.json();
       if (json.success) {
         document.getElementById('form-content').style.display = 'none';
         const rotacion = Math.max(0, persons.length - TIERS[tier].max);
@@ -533,7 +535,7 @@
         throw new Error(json.message || 'Error desconocido');
       }
     } catch (err) {
-      showError('No se pudo enviar el registro. Intenta de nuevo o escribe a logistica@devopsdays.pe');
+      showError('No pudimos confirmar el registro. Antes de reintentar, revisa si te llego el correo de confirmacion — si llego, ya estas registrado. Si no llega en unos minutos, escribenos a logistica@devopsdays.pe');
       if (btn) btn.disabled = false;
       loading.style.display = 'none';
     }
