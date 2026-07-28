@@ -24,7 +24,7 @@ interface ScheduleSpeakersSectionProps {
 }
 
 const speakers = speakersRaw as ScheduleSpeaker[]
-const excludedSpeakerNames = new Set(['Sebastian Veliz Donoso'])
+const excludedSpeakerNames = new Set(['Sebastian Veliz Donoso', 'William Matos'])
 const trackColorMap: Record<string, string> = {
   'Platform Engineering & DevOps': '#2563eb',
   'Security & Technology Transformation': '#f97316',

@@ -18,11 +18,11 @@ export type KeynoteSpeaker = {
   thematicAxisColor?: string
   topic: string
   topicSecondLine?: string
-  imageSrc: string
+  imageSrc?: string
   imagePosition: string
   imageFit: string
   alt: string
-  linkedin: string
+  linkedin?: string
   github?: string
 }
 
@@ -117,6 +117,18 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
       alt: 'Yury Niño, keynote speaker invitado en DevOpsDays Lima',
       linkedin: 'https://www.linkedin.com/in/yurynino/',
     },
+    {
+      name: 'William Matos',
+      tag: 'KEYNOTE',
+      country: '',
+      role: '',
+      thematicAxis: 'IA Empresarial y Estrategia de Datos',
+      thematicAxisColor: '#a78bfa',
+      topic: 'TBD - aws - keynote',
+      imagePosition: 'center center',
+      imageFit: 'cover',
+      alt: 'William Matos, keynote speaker invitado en DevOpsDays Lima',
+    },
   ],
   en: [
     {
@@ -193,6 +205,18 @@ export const keynoteSpeakersI18n: Record<Locale, KeynoteSpeaker[]> = {
       imageFit: 'cover',
       alt: 'Yury Niño, keynote speaker at DevOpsDays Lima',
       linkedin: 'https://www.linkedin.com/in/yurynino/',
+    },
+    {
+      name: 'William Matos',
+      tag: 'KEYNOTE',
+      country: '',
+      role: '',
+      thematicAxis: 'Enterprise AI & Data Strategy',
+      thematicAxisColor: '#a78bfa',
+      topic: 'TBD - aws - keynote',
+      imagePosition: 'center center',
+      imageFit: 'cover',
+      alt: 'William Matos, keynote speaker at DevOpsDays Lima',
     },
   ],
 }

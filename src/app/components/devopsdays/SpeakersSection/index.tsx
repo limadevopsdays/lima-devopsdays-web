@@ -51,22 +51,36 @@ function InvitedPrevArrow({ onClick, ariaLabel }: { onClick?: () => void; ariaLa
 }
 
 function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: ReturnType<typeof useI18n<typeof speakersI18n>> }) {
+  const [imageFailed, setImageFailed] = useState(false)
+  const initials = speaker.name
+    .split(' ')
+    .filter(Boolean)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2)
+
   return (
     <article className={styles.keynoteCard}>
       <div className={styles.keynoteCardInner}>
         <div className={styles.keynoteProfileImageBio}>
           <div className={styles.keynoteProfileImageWrapper}>
             <div className={styles.keynoteImageLink} aria-hidden="true">
-              <SmartCropImage
-                className={styles.keynoteImage}
-                src={speaker.imageSrc}
-                alt={speaker.alt}
-                loading="lazy"
-                cropWidth={500}
-                cropHeight={400}
-                fallbackPosition={speaker.imagePosition}
-                style={{ objectFit: speaker.imageFit }}
-              />
+              {speaker.imageSrc && !imageFailed ? (
+                <SmartCropImage
+                  className={styles.keynoteImage}
+                  src={speaker.imageSrc}
+                  alt={speaker.alt}
+                  loading="lazy"
+                  cropWidth={500}
+                  cropHeight={400}
+                  fallbackPosition={speaker.imagePosition}
+                  style={{ objectFit: speaker.imageFit }}
+                  onError={() => setImageFailed(true)}
+                />
+              ) : (
+                <div className={styles.keynoteImageFallback}>{initials}</div>
+              )}
               <div className={styles.keynoteImageOverlay} aria-hidden="true" />
             </div>
           </div>
@@ -81,16 +95,18 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
                 className={styles.keynoteTagRow}
                 style={{ '--track-color': speaker.thematicAxisColor || '#2563eb' } as CSSProperties}
               >
-                <a
-                  href={speaker.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.keynoteLinkedin}
-                  aria-label={t.ariaLinkedIn(speaker.name)}
-                  data-track-name="ver_linkedin_tag_keynote_home"
-                >
-                  <Linkedin className={styles.keynoteLinkedinIcon} />
-                </a>
+                {speaker.linkedin ? (
+                  <a
+                    href={speaker.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.keynoteLinkedin}
+                    aria-label={t.ariaLinkedIn(speaker.name)}
+                    data-track-name="ver_linkedin_tag_keynote_home"
+                  >
+                    <Linkedin className={styles.keynoteLinkedinIcon} />
+                  </a>
+                ) : null}
                 {speaker.github ? (
                   <a
                     href={speaker.github}
@@ -136,14 +152,16 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
         className={styles.keynoteCountryFlag}
         svgClassName={styles.countryFlagSvg}
       />
-      <a
-        href={speaker.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.keynoteCardLinkOverlay}
-        aria-label={t.ariaLinkedIn(speaker.name)}
-        data-track-name="ver_linkedin_keynote_home"
-      />
+      {speaker.linkedin ? (
+        <a
+          href={speaker.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.keynoteCardLinkOverlay}
+          aria-label={t.ariaLinkedIn(speaker.name)}
+          data-track-name="ver_linkedin_keynote_home"
+        />
+      ) : null}
     </article>
   )
 }
@@ -500,9 +518,9 @@ export function SpeakersSection({
           </div>
         ) : (
           <div className={styles.seeAllInvitedContainer}>
-            <Link to="/speakers#invited-speakers" className={styles.seeAllInvitedButton}>
+            <a href="https://devopsdays.pe/speakers" className={styles.seeAllInvitedButton}>
               {locale === 'es' ? 'Ver todos los speakers' : 'See all speakers'}
-            </Link>
+            </a>
           </div>
         )}
 

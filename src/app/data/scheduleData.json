@@ -1502,7 +1502,7 @@
       "id": 230,
       "name": {
         "en": "lightning talk",
-        "es": "charla relampago"
+        "es": "charla relámpago"
       },
       "description": {
         "en": "Short, high-energy talks (5-10 minutes) on a single idea, tool, or lesson learned. Perfect for sharing a quick insight, a project update, or a spark of inspiration without the commitment of a full session.",
@@ -1682,9 +1682,9 @@
     {
       "code": "PVXRAU",
       "name": "Claudia Márquez",
-      "avatar": null,
-      "avatar_thumbnail_default": null,
-      "avatar_thumbnail_tiny": null
+      "avatar": "https://talks.devopsdays.org/media/avatars/TXRGNH_t3OIBYI.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TXRGNH_t3OIBYI_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TXRGNH_t3OIBYI_thumbnail_tiny.webp"
     },
     {
       "code": "FLLW7M",
@@ -1710,9 +1710,9 @@
     {
       "code": "SDTWPJ",
       "name": "Alan García Sánchez",
-      "avatar": null,
-      "avatar_thumbnail_default": null,
-      "avatar_thumbnail_tiny": null
+      "avatar": "https://talks.devopsdays.org/media/avatars/CYYZ3U_W9KbUc5.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CYYZ3U_W9KbUc5_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CYYZ3U_W9KbUc5_thumbnail_tiny.webp"
     },
     {
       "code": "8DKRD9",
