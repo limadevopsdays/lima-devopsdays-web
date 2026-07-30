@@ -1,7 +1,7 @@
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { ChevronLeft, ChevronRight, Send, Github, Linkedin } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Mic, Send, Github, Linkedin } from 'lucide-react'
 import { Link } from 'react-router'
 import { useEffect, useState, useRef } from 'react'
 import type { CSSProperties } from 'react'
@@ -519,7 +519,8 @@ export function SpeakersSection({
         ) : (
           <div className={styles.seeAllInvitedContainer}>
             <a href="https://devopsdays.pe/speakers" className={styles.seeAllInvitedButton}>
-              {locale === 'es' ? 'Ver todos los speakers' : 'See all speakers'}
+              <span>{locale === 'es' ? 'Ver todos los speakers' : 'See all speakers'}</span>
+              <Mic className={styles.seeAllInvitedButtonIcon} aria-hidden="true" />
             </a>
           </div>
         )}
