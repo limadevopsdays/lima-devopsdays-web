@@ -79,6 +79,8 @@ function buildScheduleSpeakers(parsed) {
         code: speaker.code,
         name: speaker.name,
         avatar: speaker.avatar ?? null,
+        avatar_thumbnail_default: speaker.avatar_thumbnail_default ?? null,
+        avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? null,
       },
     ])
   )

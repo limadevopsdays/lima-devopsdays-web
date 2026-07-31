@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useLocale } from '../../../i18n'
+import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerAvatars'
 import { SectionHeader } from '../SectionHeader'
 import shared from '../SpeakersSection/index.module.css'
 import own from './index.module.css'
+import scheduleData from '../../../data/scheduleData.json'
 import speakersRaw from '../../../data/scheduleSpeakers.json'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -11,6 +13,8 @@ interface ScheduleSpeaker {
   code: string
   name: string
   avatar: string | null
+  avatar_thumbnail_default?: string | null
+  avatar_thumbnail_tiny?: string | null
   topic: string | null
   trackName: string | null
   trackNameEn: string | null
@@ -23,7 +27,29 @@ interface ScheduleSpeakersSectionProps {
   id?: string
 }
 
-const speakers = speakersRaw as ScheduleSpeaker[]
+interface ScheduleDataSpeaker {
+  code: string
+  avatar: string | null
+  avatar_thumbnail_default?: string | null
+  avatar_thumbnail_tiny?: string | null
+}
+
+const scheduleSpeakerAvatars = new Map(
+  ((scheduleData as { speakers?: ScheduleDataSpeaker[] }).speakers || []).map((speaker) => [
+    speaker.code,
+    speaker,
+  ])
+)
+
+const speakers = (speakersRaw as ScheduleSpeaker[]).map((speaker) => {
+  const avatarData = scheduleSpeakerAvatars.get(speaker.code)
+
+  return {
+    ...speaker,
+    avatar_thumbnail_default: speaker.avatar_thumbnail_default ?? avatarData?.avatar_thumbnail_default ?? null,
+    avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? avatarData?.avatar_thumbnail_tiny ?? null,
+  }
+})
 const excludedSpeakerNames = new Set(['Sebastian Veliz Donoso', 'William Matos'])
 const trackColorMap: Record<string, string> = {
   'Platform Engineering & DevOps': '#2563eb',
@@ -58,7 +84,7 @@ function getUniqueTrackOptions(locale: 'es' | 'en') {
 
 // ─── Compact card ─────────────────────────────────────────────────────────────
 function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
-  const [imageFailed, setImageFailed] = useState(false)
+  const avatar = useSpeakerAvatar(getSpeakerAvatarSources(speaker, 'default'))
   const initials = speaker.name
     .split(' ')
     .filter(Boolean)
@@ -74,13 +100,13 @@ function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
     >
       {/* Avatar */}
       <div className={own.schSpeakerAvatarWrap}>
-        {speaker.avatar && !imageFailed ? (
+        {avatar.src ? (
           <img
-            src={speaker.avatar}
+            src={avatar.src}
             alt={speaker.name}
             className={own.schSpeakerAvatar}
             loading="lazy"
-            onError={() => setImageFailed(true)}
+            onError={avatar.handleError}
           />
         ) : (
           <div className={own.schSpeakerAvatarFallback}>{initials}</div>

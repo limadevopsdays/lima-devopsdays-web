@@ -3,6 +3,7 @@ import { Clock, MapPin, Calendar, Filter, Star, X, ExternalLink, ChevronDown } f
 import { motion, AnimatePresence } from 'motion/react'
 import { SectionHeader } from '../SectionHeader'
 import { useI18n, useLocale } from '../../../i18n'
+import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerAvatars'
 import { scheduleI18n } from './i18n'
 import styles from './index.module.css'
 import scheduleData from '../../../data/scheduleData.json'
@@ -45,6 +46,44 @@ interface SpeakerRaw {
   code: string
   name: string
   avatar: string | null
+  avatar_thumbnail_default?: string | null
+  avatar_thumbnail_tiny?: string | null
+}
+
+interface TalkSpeaker {
+  name: string
+  avatar: string | null
+  avatar_thumbnail_default?: string | null
+  avatar_thumbnail_tiny?: string | null
+}
+
+function TalkSpeakerAvatar({
+  speaker,
+  className,
+  fallbackClassName,
+}: {
+  speaker: TalkSpeaker
+  className: string
+  fallbackClassName: string
+}) {
+  const avatar = useSpeakerAvatar(getSpeakerAvatarSources(speaker, 'small'))
+
+  if (avatar.src) {
+    return (
+      <img
+        src={avatar.src}
+        alt={speaker.name}
+        className={className}
+        onError={avatar.handleError}
+      />
+    )
+  }
+
+  return (
+    <div className={fallbackClassName}>
+      {speaker.name.charAt(0)}
+    </div>
+  )
 }
 
 // ─── Parallel columns for rooms on Desktop ────────────────────────────────────
@@ -262,6 +301,8 @@ export function ScheduleSection() {
       return {
         name: sp ? sp.name : code,
         avatar: sp ? sp.avatar : null,
+        avatar_thumbnail_default: sp ? sp.avatar_thumbnail_default : null,
+        avatar_thumbnail_tiny: sp ? sp.avatar_thumbnail_tiny : null,
       }
     })
 
@@ -838,17 +879,11 @@ export function ScheduleSection() {
                           <div className={styles.cardSpeakers}>
                             {talk.speakersList.map((speaker, idx) => (
                               <div key={idx} className="flex items-center gap-1.5 min-w-0 mr-2">
-                                {speaker.avatar ? (
-                                  <img
-                                    src={speaker.avatar}
-                                    alt={speaker.name}
-                                    className={styles.speakerAvatar}
-                                  />
-                                ) : (
-                                  <div className={`${styles.speakerAvatar} flex items-center justify-center text-[8px] font-bold text-slate-400`}>
-                                    {speaker.name.charAt(0)}
-                                  </div>
-                                )}
+                                <TalkSpeakerAvatar
+                                  speaker={speaker}
+                                  className={styles.speakerAvatar}
+                                  fallbackClassName={`${styles.speakerAvatar} flex items-center justify-center text-[8px] font-bold text-slate-400`}
+                                />
                                 <span className={styles.speakerName}>{speaker.name}</span>
                               </div>
                             ))}
@@ -990,17 +1025,11 @@ export function ScheduleSection() {
                           <div className={styles.mobileSpeakersList}>
                             {talk.speakersList.map((speaker, idx) => (
                               <div key={idx} className={styles.mobileSpeaker}>
-                                {speaker.avatar ? (
-                                  <img
-                                    src={speaker.avatar}
-                                    alt={speaker.name}
-                                    className={styles.mobileSpeakerAvatar}
-                                  />
-                                ) : (
-                                  <div className={styles.mobileSpeakerAvatarPlaceholder}>
-                                    {speaker.name.charAt(0)}
-                                  </div>
-                                )}
+                                <TalkSpeakerAvatar
+                                  speaker={speaker}
+                                  className={styles.mobileSpeakerAvatar}
+                                  fallbackClassName={styles.mobileSpeakerAvatarPlaceholder}
+                                />
                                 <span className={styles.mobileSpeakerName}>{speaker.name}</span>
                               </div>
                             ))}
@@ -1167,17 +1196,11 @@ export function ScheduleSection() {
                   <div className={styles.modalSpeakersList}>
                     {selectedTalk.speakersList.map((speaker: any, idx: number) => (
                       <div key={idx} className={styles.modalSpeakerCard}>
-                        {speaker.avatar ? (
-                          <img
-                            src={speaker.avatar}
-                            alt={speaker.name}
-                            className={styles.modalSpeakerAvatar}
-                          />
-                        ) : (
-                          <div className={`${styles.modalSpeakerAvatar} flex items-center justify-center text-[12px] font-bold text-slate-400`}>
-                            {speaker.name.charAt(0)}
-                          </div>
-                        )}
+                        <TalkSpeakerAvatar
+                          speaker={speaker}
+                          className={styles.modalSpeakerAvatar}
+                          fallbackClassName={`${styles.modalSpeakerAvatar} flex items-center justify-center text-[12px] font-bold text-slate-400`}
+                        />
                         <span className={styles.modalSpeakerName}>{speaker.name}</span>
                       </div>
                     ))}
