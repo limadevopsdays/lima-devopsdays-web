@@ -112,7 +112,7 @@
   {
     "code": "7VNBNY",
     "name": "Luis Valdivia",
-    "avatar": null,
+    "avatar": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu.webp",
     "topic": "🎬 FAST Channels en AWS: Cómo construir una experiencia tipo Netflix en producción",
     "trackName": "Platform Engineering & DevOps",
     "trackNameEn": "Platform Engineering & DevOps",
@@ -371,7 +371,7 @@
   },
   {
     "code": "SENK3U",
-    "name": "Hassel",
+    "name": "Hassel Muñoz",
     "avatar": "https://talks.devopsdays.org/media/avatars/QU3JTZ_mKRGsn3.webp",
     "topic": "Infraestructura como Producto: Pipeline completo con Terraform, Actions y validaciones automatizadas",
     "trackName": "Platform Engineering & DevOps",
