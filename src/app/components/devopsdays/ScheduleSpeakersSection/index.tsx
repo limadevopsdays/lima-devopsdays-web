@@ -34,6 +34,11 @@ interface ScheduleDataSpeaker {
   avatar_thumbnail_tiny?: string | null
 }
 
+const localScheduleSpeakerAvatars: Record<string, string> = {
+  TCZJWH: new URL('../../../data/avatars/TCZJWH.jpeg', import.meta.url).href,
+  '9NFQKT': new URL('../../../data/avatars/9NFQKT.jpg', import.meta.url).href,
+}
+
 const scheduleSpeakerAvatars = new Map(
   ((scheduleData as { speakers?: ScheduleDataSpeaker[] }).speakers || []).map((speaker) => [
     speaker.code,
@@ -46,6 +51,7 @@ const speakers = (speakersRaw as ScheduleSpeaker[]).map((speaker) => {
 
   return {
     ...speaker,
+    avatar: localScheduleSpeakerAvatars[speaker.code] ?? speaker.avatar,
     avatar_thumbnail_default: speaker.avatar_thumbnail_default ?? avatarData?.avatar_thumbnail_default ?? null,
     avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? avatarData?.avatar_thumbnail_tiny ?? null,
   }
