@@ -1,25 +1,5 @@
 [
   {
-    "code": "TCZJWH",
-    "name": "Joseph Fernando López Parada",
-    "avatar": "https://talks.devopsdays.org/media/avatars/JW8GJP_gPpyFN4.JPEG",
-    "topic": "Más allá de los pipelines: CI/CD inteligente y autónomo",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true
-  },
-  {
-    "code": "9NQFHJ",
-    "name": "Jorge Ivan Hincapie Palacio",
-    "avatar": "https://talks.devopsdays.org/media/avatars/37DPFS_nsdv14d.webp",
-    "topic": "Transformación DevOps con Liderazgo Disruptivo y Automatización Inteligente",
-    "trackName": "Modern Leadership & Culture",
-    "trackNameEn": "Modern Leadership & Culture",
-    "trackColor": "#595555",
-    "hasTalk": true
-  },
-  {
     "code": "D9X8KE",
     "name": "Juan David Arguello Plata",
     "avatar": "https://talks.devopsdays.org/media/avatars/YG3UAT_RYrBYm7.webp",
@@ -40,13 +20,23 @@
     "hasTalk": true
   },
   {
-    "code": "ET3ZQC",
-    "name": "Christian Vargas",
-    "avatar": "https://talks.devopsdays.org/media/avatars/T7QXRF_8Xcyxps.webp",
-    "topic": "Oye K8s, ¿cómo está el cluster? - Operaciones conversacionales con IA y notificaciones inteligentes",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
+    "code": "9NQFHJ",
+    "name": "Jorge Ivan Hincapie Palacio",
+    "avatar": "https://talks.devopsdays.org/media/avatars/37DPFS_nsdv14d.webp",
+    "topic": "Transformación DevOps con Liderazgo Disruptivo y Automatización Inteligente",
+    "trackName": "Modern Leadership & Culture",
+    "trackNameEn": "Modern Leadership & Culture",
+    "trackColor": "#595555",
+    "hasTalk": true
+  },
+  {
+    "code": "TCZJWH",
+    "name": "Joseph Fernando López Parada",
+    "avatar": "https://talks.devopsdays.org/media/avatars/JW8GJP_gPpyFN4.JPEG",
+    "topic": "Más allá de los pipelines: CI/CD inteligente y autónomo",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
     "hasTalk": true
   },
   {
@@ -60,20 +50,10 @@
     "hasTalk": true
   },
   {
-    "code": "V93TJG",
-    "name": "Daniel Oh",
-    "avatar": "https://talks.devopsdays.org/media/avatars/WDG3MX_qPkMepQ.webp",
-    "topic": "From Static Rules to Reasoning Platforms: Scaling Intelligent Canary Delivery in 2026",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true
-  },
-  {
-    "code": "FFDYME",
-    "name": "Cristiam Espinoza",
-    "avatar": "https://talks.devopsdays.org/media/avatars/VDMMRY_vJtZQFU.webp",
-    "topic": "Gobernanza de AI con GitHub Copilot y Spec-Driven Development",
+    "code": "ET3ZQC",
+    "name": "Christian Vargas",
+    "avatar": "https://talks.devopsdays.org/media/avatars/T7QXRF_8Xcyxps.webp",
+    "topic": "Oye K8s, ¿cómo está el cluster? - Operaciones conversacionales con IA y notificaciones inteligentes",
     "trackName": "Enterprise AI & Data Strategy",
     "trackNameEn": "Enterprise AI & Data Strategy",
     "trackColor": "#00a86b",
@@ -100,10 +80,30 @@
     "hasTalk": true
   },
   {
+    "code": "FFDYME",
+    "name": "Cristiam Espinoza",
+    "avatar": "https://talks.devopsdays.org/media/avatars/VDMMRY_vJtZQFU.webp",
+    "topic": "Gobernanza de AI con GitHub Copilot y Spec-Driven Development",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
+    "hasTalk": true
+  },
+  {
     "code": "RPXQRN",
     "name": "Rodolfo Castelo",
     "avatar": "https://talks.devopsdays.org/media/avatars/D8JF8G_IaQrsVs.webp",
     "topic": "Tu agente de IA es stateless: lo que DevOps ya sabía sobre la memoria",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "V93TJG",
+    "name": "Daniel Oh",
+    "avatar": "https://talks.devopsdays.org/media/avatars/WDG3MX_qPkMepQ.webp",
+    "topic": "From Static Rules to Reasoning Platforms: Scaling Intelligent Canary Delivery in 2026",
     "trackName": "Platform Engineering & DevOps",
     "trackNameEn": "Platform Engineering & DevOps",
     "trackColor": "#8c51bf",
@@ -120,16 +120,6 @@
     "hasTalk": true
   },
   {
-    "code": "SFJW8Q",
-    "name": "Diana Alfaro",
-    "avatar": "https://talks.devopsdays.org/media/avatars/7FQLRB_DdSgXRr.webp",
-    "topic": "¿Quién usa qué en Terraform? Construyendo IaC Observability con Port + GitHub + TFC",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true
-  },
-  {
     "code": "MZEQFA",
     "name": "Rosa Torres",
     "avatar": "https://talks.devopsdays.org/media/avatars/ZBNKYE_o2wOPMK.webp",
@@ -140,20 +130,10 @@
     "hasTalk": true
   },
   {
-    "code": "73ETEU",
-    "name": "Luis Franco",
-    "avatar": "https://talks.devopsdays.org/media/avatars/YJCMF9_thuAqJ8.webp",
-    "topic": "AI Governance as Code: Controlando tus modelos de IA desde el pipeline antes de llegar a producción",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
-    "hasTalk": true
-  },
-  {
-    "code": "VBWLYQ",
-    "name": "Yembert Quintero Cortez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
-    "topic": "Has estado construyendo los pilares del futuro: Platform Egineer en Acción !",
+    "code": "SFJW8Q",
+    "name": "Diana Alfaro",
+    "avatar": "https://talks.devopsdays.org/media/avatars/7FQLRB_DdSgXRr.webp",
+    "topic": "¿Quién usa qué en Terraform? Construyendo IaC Observability con Port + GitHub + TFC",
     "trackName": "Platform Engineering & DevOps",
     "trackNameEn": "Platform Engineering & DevOps",
     "trackColor": "#8c51bf",
@@ -167,6 +147,26 @@
     "trackName": "Platform Engineering & DevOps",
     "trackNameEn": "Platform Engineering & DevOps",
     "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "VBWLYQ",
+    "name": "Yembert Quintero Cortez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
+    "topic": "Has estado construyendo los pilares del futuro: Platform Egineer en Acción !",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "73ETEU",
+    "name": "Luis Franco",
+    "avatar": "https://talks.devopsdays.org/media/avatars/YJCMF9_thuAqJ8.webp",
+    "topic": "AI Governance as Code: Controlando tus modelos de IA desde el pipeline antes de llegar a producción",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
     "hasTalk": true
   },
   {
@@ -190,6 +190,26 @@
     "hasTalk": true
   },
   {
+    "code": "KY8LNM",
+    "name": "José Vásquez Pereyra",
+    "avatar": "https://talks.devopsdays.org/media/avatars/UTV98V_FdgsdeR.webp",
+    "topic": "Beyond CI/CD: Cómo construir resiliencia operativa en organizaciones que no pueden fallar",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "KD8X9S",
+    "name": "Amaury Borges Souza",
+    "avatar": "https://talks.devopsdays.org/media/avatars/CAGHBF_YmmyApW.webp",
+    "topic": "Terraform at Scale: Security Without Friction",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true
+  },
+  {
     "code": "FLMCJF",
     "name": "Alison Duarte",
     "avatar": "https://talks.devopsdays.org/media/avatars/JL3KJK_AvLCBc2.webp",
@@ -210,10 +230,20 @@
     "hasTalk": true
   },
   {
-    "code": "KD8X9S",
-    "name": "Amaury Borges Souza",
-    "avatar": "https://talks.devopsdays.org/media/avatars/CAGHBF_YmmyApW.webp",
-    "topic": "Terraform at Scale: Security Without Friction",
+    "code": "UMUKRF",
+    "name": "Hugo Dominguez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/7CP9PU_2mdXBsd.webp",
+    "topic": "IA Agéntica en el ciclo de vida del desarrollo: De asistente a colaborador autónomo",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true
+  },
+  {
+    "code": "8K37TL",
+    "name": "Andrés Aguilar",
+    "avatar": "https://talks.devopsdays.org/media/avatars/HQWNJV_8EaqQMF.webp",
+    "topic": "IA Agéntica en el ciclo de vida del desarrollo: De asistente a colaborador autónomo",
     "trackName": "Security & Technology Transformation",
     "trackNameEn": "Security & Technology Transformation",
     "trackColor": "#1ebdd1",
@@ -230,40 +260,10 @@
     "hasTalk": true
   },
   {
-    "code": "KY8LNM",
-    "name": "José Vásquez Pereyra",
-    "avatar": "https://talks.devopsdays.org/media/avatars/UTV98V_FdgsdeR.webp",
-    "topic": "Beyond CI/CD: Cómo construir resiliencia operativa en organizaciones que no pueden fallar",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true
-  },
-  {
     "code": "WMST3D",
     "name": "Jorge Barreto",
     "avatar": "https://talks.devopsdays.org/media/avatars/XSGXSD_dBCquPv.webp",
     "topic": "Keyless no siempre es seguro: OIDC entre GitHub Actions y AWS",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true
-  },
-  {
-    "code": "UMUKRF",
-    "name": "Hugo Dominguez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/7CP9PU_2mdXBsd.webp",
-    "topic": "IA Agéntica en el ciclo de vida del desarrollo: De asistente a colaborador autónomo",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true
-  },
-  {
-    "code": "8K37TL",
-    "name": "Andrés Aguilar",
-    "avatar": null,
-    "topic": "IA Agéntica en el ciclo de vida del desarrollo: De asistente a colaborador autónomo",
     "trackName": "Security & Technology Transformation",
     "trackNameEn": "Security & Technology Transformation",
     "trackColor": "#1ebdd1",
@@ -287,16 +287,6 @@
     "trackName": "Security & Technology Transformation",
     "trackNameEn": "Security & Technology Transformation",
     "trackColor": "#1ebdd1",
-    "hasTalk": true
-  },
-  {
-    "code": "CREDAN",
-    "name": "Axel Labruna",
-    "avatar": "https://talks.devopsdays.org/media/avatars/83YSSV_eUL9xUe.webp",
-    "topic": "AgentsOps: construí autonomía para escalar",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
     "hasTalk": true
   },
   {
@@ -330,13 +320,23 @@
     "hasTalk": true
   },
   {
-    "code": "QD9DS9",
-    "name": "Cindy Prada",
-    "avatar": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx.webp",
-    "topic": "Del Discovery al Deploy: Testing Continuo en Acción",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
+    "code": "CREDAN",
+    "name": "Axel Labruna",
+    "avatar": "https://talks.devopsdays.org/media/avatars/83YSSV_eUL9xUe.webp",
+    "topic": "AgentsOps: construí autonomía para escalar",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "L9LVSJ",
+    "name": "Alfredo Ishikane",
+    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
+    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
     "hasTalk": true
   },
   {
@@ -360,13 +360,13 @@
     "hasTalk": true
   },
   {
-    "code": "L9LVSJ",
-    "name": "Alfredo Ishikane",
-    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
-    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
+    "code": "QD9DS9",
+    "name": "Cindy Prada",
+    "avatar": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx.webp",
+    "topic": "Del Discovery al Deploy: Testing Continuo en Acción",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
     "hasTalk": true
   },
   {
@@ -374,6 +374,16 @@
     "name": "Hassel",
     "avatar": "https://talks.devopsdays.org/media/avatars/QU3JTZ_mKRGsn3.webp",
     "topic": "Infraestructura como Producto: Pipeline completo con Terraform, Actions y validaciones automatizadas",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "PVXRAU",
+    "name": "Claudia Márquez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/TXRGNH_t3OIBYI.webp",
+    "topic": "Respuesta a incidentes en la era de la IA",
     "trackName": "Platform Engineering & DevOps",
     "trackNameEn": "Platform Engineering & DevOps",
     "trackColor": "#8c51bf",
@@ -390,26 +400,6 @@
     "hasTalk": true
   },
   {
-    "code": "SDTWPJ",
-    "name": "Alan García Sánchez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/CYYZ3U_W9KbUc5.webp",
-    "topic": "De MVP a producción con Vertex AI Search: lecciones reales de un asistente RAG universitario",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
-    "hasTalk": true
-  },
-  {
-    "code": "PVXRAU",
-    "name": "Claudia Márquez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/TXRGNH_t3OIBYI.webp",
-    "topic": "Respuesta a incidentes en la era de la IA",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true
-  },
-  {
     "code": "RLGLAY",
     "name": "Nestor Martinez",
     "avatar": "https://talks.devopsdays.org/media/avatars/L8TKNW_LRDjLqT.webp",
@@ -420,23 +410,13 @@
     "hasTalk": true
   },
   {
-    "code": "FLLW7M",
-    "name": "JUAN CARLOS PÉREZ GIL",
-    "avatar": "https://talks.devopsdays.org/media/avatars/B7QF9Y_1lFm5jI.webp",
-    "topic": "DevContainers para una nueva generación de desarrollo asistido por IA",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true
-  },
-  {
-    "code": "LFPVEB",
-    "name": "Julian Dario Luna Patiño",
-    "avatar": "https://talks.devopsdays.org/media/avatars/8FF7CY_rEK2abI.webp",
-    "topic": "Me ascendieron a arquitecto ¿y ahora qué?",
-    "trackName": "Modern Leadership & Culture",
-    "trackNameEn": "Modern Leadership & Culture",
-    "trackColor": "#595555",
+    "code": "SDTWPJ",
+    "name": "Alan García Sánchez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/CYYZ3U_W9KbUc5.webp",
+    "topic": "De MVP a producción con Vertex AI Search: lecciones reales de un asistente RAG universitario",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
     "hasTalk": true
   },
   {
@@ -454,6 +434,26 @@
     "name": "Víctor H. Vargas A.",
     "avatar": "https://talks.devopsdays.org/media/avatars/BNJZ9Q_f1ThNHc.webp",
     "topic": "Cuando integrar duele: de la fricción a una cultura DevSecOps en una multinacional financiera.",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true
+  },
+  {
+    "code": "LFPVEB",
+    "name": "Julian Dario Luna Patiño",
+    "avatar": "https://talks.devopsdays.org/media/avatars/8FF7CY_rEK2abI.webp",
+    "topic": "Me ascendieron a arquitecto ¿y ahora qué?",
+    "trackName": "Modern Leadership & Culture",
+    "trackNameEn": "Modern Leadership & Culture",
+    "trackColor": "#595555",
+    "hasTalk": true
+  },
+  {
+    "code": "FLLW7M",
+    "name": "JUAN CARLOS PÉREZ GIL",
+    "avatar": "https://talks.devopsdays.org/media/avatars/B7QF9Y_1lFm5jI.webp",
+    "topic": "DevContainers para una nueva generación de desarrollo asistido por IA",
     "trackName": "Platform Engineering & DevOps",
     "trackNameEn": "Platform Engineering & DevOps",
     "trackColor": "#8c51bf",
