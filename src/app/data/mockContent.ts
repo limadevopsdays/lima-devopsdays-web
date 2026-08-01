@@ -275,7 +275,7 @@ export const sponsors = [
     items: [
       {
         name: 'Orexe',
-        href: 'https://orexe.pe/',
+        href: 'https://orexe.io/',
         logo: '/images/sponsors/silver/orexe.png'
       },
       {
