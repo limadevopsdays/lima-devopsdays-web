@@ -100,22 +100,11 @@
 }
 
 .titleDevOps {
-  display: inline-block; /* Enable CSS transforms for slide-up/bounce! */
   color: var(--color-lima);
-  animation: cyberGlowLima 2.8s ease-in-out infinite alternate;
-  transform: translateZ(0);
-  will-change: text-shadow;
-  -webkit-font-smoothing: antialiased;
 }
 
 .titleDays {
-  display: inline-block; /* Enable CSS transforms for slide-up/bounce! */
   color: var(--brand-hero-accent-color);
-  animation: cyberGlowPurple 2.8s ease-in-out infinite alternate;
-  animation-delay: 0.4s;
-  transform: translateZ(0);
-  will-change: text-shadow;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* Fallback / animation is constant now, removing hover media query fallback */
@@ -128,8 +117,6 @@
   font-size: var(--brand-hero-subtitle-fontSize);
   line-height: var(--brand-hero-subtitle-lineHeight);
   color: var(--brand-hero-accent-color);
-  animation: cyberGlowPurple 2.8s ease-in-out infinite alternate;
-  animation-delay: 0.8s;
 }
 
 /* ----------------------------------------------------
