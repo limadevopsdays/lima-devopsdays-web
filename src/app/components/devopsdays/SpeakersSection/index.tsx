@@ -2,7 +2,6 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { ChevronLeft, ChevronRight, Mic, Send, Github, Linkedin } from 'lucide-react'
-import { AvatarZoomOverlay } from '../AvatarZoomOverlay'
 import { Link } from 'react-router'
 import { useEffect, useState, useRef } from 'react'
 import type { CSSProperties } from 'react'
@@ -122,7 +121,6 @@ function InvitedCarousel({
 
 function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: ReturnType<typeof useI18n<typeof speakersI18n>> }) {
   const [imageFailed, setImageFailed] = useState(false)
-  const [zoomed, setZoomed] = useState(false)
   const initials = speaker.name
     .split(' ')
     .filter(Boolean)
@@ -136,14 +134,7 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
       <div className={styles.keynoteCardInner}>
         <div className={styles.keynoteProfileImageBio}>
           <div className={styles.keynoteProfileImageWrapper}>
-            <div
-              className={styles.keynoteImageLink}
-              aria-label={`Ver foto de ${speaker.name}`}
-              onClick={() => setZoomed(true)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && setZoomed(true)}
-            >
+            <div className={styles.keynoteImageLink} aria-hidden="true">
               {speaker.imageSrc && !imageFailed ? (
                 <SmartCropImage
                   className={styles.keynoteImage}
@@ -162,15 +153,6 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
               <div className={styles.keynoteImageOverlay} aria-hidden="true" />
             </div>
           </div>
-          {zoomed && (
-            <AvatarZoomOverlay
-              src={!imageFailed ? (speaker.imageSrc || null) : null}
-              name={speaker.name}
-              initials={initials}
-              gradientColor={speaker.thematicAxisColor || '#7c3aed'}
-              onClose={() => setZoomed(false)}
-            />
-          )}
 
           <div className={styles.keynoteMeta}>
             <div className={styles.keynoteTopRow}>
@@ -257,7 +239,7 @@ function InvitedSpeakerCard({
   const metaRef = useRef<HTMLDivElement>(null)
 
   const [imageFailed, setImageFailed] = useState(false)
-  const [zoomed, setZoomed] = useState(false)
+
   const initials = speaker.name
     .split(' ')
     .filter(Boolean)
@@ -295,61 +277,45 @@ function InvitedSpeakerCard({
     <article className={`${styles.invitedCard} ${isExpanded ? styles.invitedCardExpanded : ''} ${className || ''}`}>
       <div className={styles.invitedCardInner}>
         <div className={styles.invitedProfileImageBio}>
-          <div
-              className={styles.invitedCircularProfileImageWrapper}
-              onClick={() => setZoomed(true)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Ver foto de ${cleanName}`}
-              onKeyDown={(e) => e.key === 'Enter' && setZoomed(true)}
-            >
-              <div className={styles.invitedProfileImageWrapper}>
-                {hasImage ? (
-                  <SmartCropImage
-                    className={styles.invitedProfileImage}
-                    src={speaker.imageSrc}
-                    alt={speaker.alt || cleanName}
-                    loading="lazy"
-                    cropWidth={320}
-                    cropHeight={320}
-                    onError={() => setImageFailed(true)}
-                  />
-                ) : (
-                  <div
-                    className={styles.invitedProfileImage}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: `linear-gradient(135deg, ${speaker.thematicAxisColor || '#6B51EF'} 0%, color-mix(in srgb, ${speaker.thematicAxisColor || '#6B51EF'} 55%, white) 100%)`,
-                      color: '#ffffff',
-                      fontFamily: 'var(--brand-heading-fontFamily)',
-                      fontSize: '2.25rem',
-                      fontWeight: 800,
-                      letterSpacing: '0.04em',
-                    }}
-                  >
-                    {initials}
-                  </div>
-                )}
-                {speaker.country ? (
-                  <CountryFlag
-                    country={speaker.country}
-                    className={styles.invitedCountryFlag}
-                    svgClassName={styles.countryFlagSvg}
-                  />
-                ) : null}
-              </div>
+          <div className={styles.invitedCircularProfileImageWrapper}>
+            <div className={styles.invitedProfileImageWrapper}>
+              {hasImage ? (
+                <SmartCropImage
+                  className={styles.invitedProfileImage}
+                  src={speaker.imageSrc}
+                  alt={speaker.alt || cleanName}
+                  loading="lazy"
+                  cropWidth={320}
+                  cropHeight={320}
+                  onError={() => setImageFailed(true)}
+                />
+              ) : (
+                <div
+                  className={styles.invitedProfileImage}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: `linear-gradient(135deg, ${speaker.thematicAxisColor || '#6B51EF'} 0%, color-mix(in srgb, ${speaker.thematicAxisColor || '#6B51EF'} 55%, white) 100%)`,
+                    color: '#ffffff',
+                    fontFamily: 'var(--brand-heading-fontFamily)',
+                    fontSize: '2.25rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  {initials}
+                </div>
+              )}
+              {speaker.country ? (
+                <CountryFlag
+                  country={speaker.country}
+                  className={styles.invitedCountryFlag}
+                  svgClassName={styles.countryFlagSvg}
+                />
+              ) : null}
             </div>
-            {zoomed && (
-              <AvatarZoomOverlay
-                src={hasImage ? (speaker.imageSrc || null) : null}
-                name={cleanName}
-                initials={initials}
-                gradientColor={speaker.thematicAxisColor || '#6B51EF'}
-                onClose={() => setZoomed(false)}
-              />
-            )}
+          </div>
 
           <div
             ref={metaRef}
@@ -680,7 +646,7 @@ export function SpeakersSection({
               return (
                 <div
                   id="panel-seguridad"
-                  className={`${styles.speakersSubsection} ${styles.panelSeguridad}`}
+                  className={`${styles.speakersSubsection} ${styles.invitedPanel}`}
                 >
                   <SectionHeader
                     className={styles.keynoteTitleHeader}
