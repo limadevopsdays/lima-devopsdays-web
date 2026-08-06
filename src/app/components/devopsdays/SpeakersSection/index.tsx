@@ -2,6 +2,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { ChevronLeft, ChevronRight, Mic, Send, Github, Linkedin } from 'lucide-react'
+import { AvatarZoomOverlay } from '../AvatarZoomOverlay'
 import { Link } from 'react-router'
 import { useEffect, useState, useRef } from 'react'
 import type { CSSProperties } from 'react'
@@ -9,7 +10,13 @@ import styles from './index.module.css'
 import { SectionHeader } from '../SectionHeader'
 import { SmartCropImage } from '../../SmartCropImage'
 import { CountryFlag } from '../CountryFlag'
-import { ScheduleSpeakersSection } from '../ScheduleSpeakersSection'
+import {
+  ScheduleSpeakersSection,
+  cfpScheduleSpeakers,
+  ScheduleSpeakerCard,
+  resolveTrackColor,
+} from '../ScheduleSpeakersSection'
+import ownStyles from '../ScheduleSpeakersSection/index.module.css'
 import { useI18n, useLocale } from '../../../i18n'
 import { speakersI18n } from './i18n'
 import {
@@ -22,13 +29,14 @@ import {
 // Imagen hero ediciones pasadas
 const speakerEdition2025 = '/images/speakers/speakers%201.jpg'
 
-function InvitedNextArrow({ onClick, ariaLabel }: { onClick?: () => void; ariaLabel: string }) {
+function InvitedNextArrow(props: any) {
+  const { onClick, ariaLabel } = props
   return (
     <button
       type="button"
       className={`${styles.invitedArrow} ${styles.invitedNextArrow}`}
       onClick={onClick}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel || 'Siguiente'}
       data-track-name="siguiente_speakers_invitados_home"
     >
       <ChevronRight className={styles.invitedArrowIcon} />
@@ -36,13 +44,14 @@ function InvitedNextArrow({ onClick, ariaLabel }: { onClick?: () => void; ariaLa
   )
 }
 
-function InvitedPrevArrow({ onClick, ariaLabel }: { onClick?: () => void; ariaLabel: string }) {
+function InvitedPrevArrow(props: any) {
+  const { onClick, ariaLabel } = props
   return (
     <button
       type="button"
       className={`${styles.invitedArrow} ${styles.invitedPrevArrow}`}
       onClick={onClick}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel || 'Anterior'}
       data-track-name="anterior_speakers_invitados_home"
     >
       <ChevronLeft className={styles.invitedArrowIcon} />
@@ -50,8 +59,70 @@ function InvitedPrevArrow({ onClick, ariaLabel }: { onClick?: () => void; ariaLa
   )
 }
 
+function InvitedCarousel({
+  speakers,
+  t,
+  slidesToShow,
+  canSlide,
+  cardClassName,
+}: {
+  speakers: InvitedSpeaker[]
+  t: ReturnType<typeof useI18n<typeof speakersI18n>>
+  slidesToShow: number
+  canSlide: boolean
+  cardClassName?: string
+}) {
+  const sliderRef = useRef<Slider | null>(null)
+
+  const settings = {
+    dots: true,
+    infinite: canSlide,
+    speed: 500,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    autoplay: canSlide,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    arrows: false,
+    appendDots: (dots: React.ReactNode) => (
+      <div className={styles.invitedControlsBar}>
+        <button
+          type="button"
+          className={`${styles.invitedArrow} ${styles.invitedPrevArrow}`}
+          onClick={() => sliderRef.current?.slickPrev()}
+          aria-label={t.ariaPrev}
+          data-track-name="anterior_speakers_invitados_home"
+        >
+          <ChevronLeft className={styles.invitedArrowIcon} />
+        </button>
+        <ul className={styles.invitedDotsList}>{dots}</ul>
+        <button
+          type="button"
+          className={`${styles.invitedArrow} ${styles.invitedNextArrow}`}
+          onClick={() => sliderRef.current?.slickNext()}
+          aria-label={t.ariaNext}
+          data-track-name="siguiente_speakers_invitados_home"
+        >
+          <ChevronRight className={styles.invitedArrowIcon} />
+        </button>
+      </div>
+    ),
+  }
+
+  return (
+    <Slider ref={sliderRef} {...settings}>
+      {speakers.map((speaker) => (
+        <div key={speaker.name} className={styles.invitedSlideWrapper}>
+          <InvitedSpeakerCard speaker={speaker} t={t} className={cardClassName} />
+        </div>
+      ))}
+    </Slider>
+  )
+}
+
 function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: ReturnType<typeof useI18n<typeof speakersI18n>> }) {
   const [imageFailed, setImageFailed] = useState(false)
+  const [zoomed, setZoomed] = useState(false)
   const initials = speaker.name
     .split(' ')
     .filter(Boolean)
@@ -65,7 +136,14 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
       <div className={styles.keynoteCardInner}>
         <div className={styles.keynoteProfileImageBio}>
           <div className={styles.keynoteProfileImageWrapper}>
-            <div className={styles.keynoteImageLink} aria-hidden="true">
+            <div
+              className={styles.keynoteImageLink}
+              aria-label={`Ver foto de ${speaker.name}`}
+              onClick={() => setZoomed(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setZoomed(true)}
+            >
               {speaker.imageSrc && !imageFailed ? (
                 <SmartCropImage
                   className={styles.keynoteImage}
@@ -84,6 +162,15 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
               <div className={styles.keynoteImageOverlay} aria-hidden="true" />
             </div>
           </div>
+          {zoomed && (
+            <AvatarZoomOverlay
+              src={!imageFailed ? (speaker.imageSrc || null) : null}
+              name={speaker.name}
+              initials={initials}
+              gradientColor={speaker.thematicAxisColor || '#7c3aed'}
+              onClose={() => setZoomed(false)}
+            />
+          )}
 
           <div className={styles.keynoteMeta}>
             <div className={styles.keynoteTopRow}>
@@ -152,24 +239,32 @@ function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: Return
         className={styles.keynoteCountryFlag}
         svgClassName={styles.countryFlagSvg}
       />
-      {speaker.linkedin ? (
-        <a
-          href={speaker.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.keynoteCardLinkOverlay}
-          aria-label={t.ariaLinkedIn(speaker.name)}
-          data-track-name="ver_linkedin_keynote_home"
-        />
-      ) : null}
     </article>
   )
 }
 
-function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: ReturnType<typeof useI18n<typeof speakersI18n>> }) {
+function InvitedSpeakerCard({
+  speaker,
+  t,
+  className,
+}: {
+  speaker: InvitedSpeaker
+  t: ReturnType<typeof useI18n<typeof speakersI18n>>
+  className?: string
+}) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isOverflowing, setIsOverflowing] = useState(false)
   const metaRef = useRef<HTMLDivElement>(null)
+
+  const [imageFailed, setImageFailed] = useState(false)
+  const [zoomed, setZoomed] = useState(false)
+  const initials = speaker.name
+    .split(' ')
+    .filter(Boolean)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2)
 
   useEffect(() => {
     const checkOverflow = () => {
@@ -188,27 +283,73 @@ function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: Return
     }
   }, [speaker.topic])
 
+  const hasImage = Boolean(speaker.imageSrc && speaker.imageSrc.trim() && !imageFailed)
+
+  const isModerator = Boolean(
+    (speaker.name && speaker.name.toLowerCase().includes('moderador')) ||
+    (speaker.company && speaker.company.toLowerCase().includes('moderador'))
+  )
+  const cleanName = speaker.name ? speaker.name.replace(/\s*-\s*\[\s*moderador\s*\]/i, '').trim() : ''
+
   return (
-    <article className={`${styles.invitedCard} ${isExpanded ? styles.invitedCardExpanded : ''}`}>
+    <article className={`${styles.invitedCard} ${isExpanded ? styles.invitedCardExpanded : ''} ${className || ''}`}>
       <div className={styles.invitedCardInner}>
         <div className={styles.invitedProfileImageBio}>
-          <div className={styles.invitedCircularProfileImageWrapper}>
-            <div className={styles.invitedProfileImageWrapper}>
-              <SmartCropImage
-                className={styles.invitedProfileImage}
-                src={speaker.imageSrc}
-                alt={speaker.alt}
-                loading="lazy"
-                cropWidth={320}
-                cropHeight={320}
-              />
-              <CountryFlag
-                country={speaker.country}
-                className={styles.invitedCountryFlag}
-                svgClassName={styles.countryFlagSvg}
-              />
+          <div
+              className={styles.invitedCircularProfileImageWrapper}
+              onClick={() => setZoomed(true)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Ver foto de ${cleanName}`}
+              onKeyDown={(e) => e.key === 'Enter' && setZoomed(true)}
+            >
+              <div className={styles.invitedProfileImageWrapper}>
+                {hasImage ? (
+                  <SmartCropImage
+                    className={styles.invitedProfileImage}
+                    src={speaker.imageSrc}
+                    alt={speaker.alt || cleanName}
+                    loading="lazy"
+                    cropWidth={320}
+                    cropHeight={320}
+                    onError={() => setImageFailed(true)}
+                  />
+                ) : (
+                  <div
+                    className={styles.invitedProfileImage}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: `linear-gradient(135deg, ${speaker.thematicAxisColor || '#6B51EF'} 0%, color-mix(in srgb, ${speaker.thematicAxisColor || '#6B51EF'} 55%, white) 100%)`,
+                      color: '#ffffff',
+                      fontFamily: 'var(--brand-heading-fontFamily)',
+                      fontSize: '2.25rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.04em',
+                    }}
+                  >
+                    {initials}
+                  </div>
+                )}
+                {speaker.country ? (
+                  <CountryFlag
+                    country={speaker.country}
+                    className={styles.invitedCountryFlag}
+                    svgClassName={styles.countryFlagSvg}
+                  />
+                ) : null}
+              </div>
             </div>
-          </div>
+            {zoomed && (
+              <AvatarZoomOverlay
+                src={hasImage ? (speaker.imageSrc || null) : null}
+                name={cleanName}
+                initials={initials}
+                gradientColor={speaker.thematicAxisColor || '#6B51EF'}
+                onClose={() => setZoomed(false)}
+              />
+            )}
 
           <div
             ref={metaRef}
@@ -220,16 +361,18 @@ function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: Return
               className={styles.invitedTopRow}
               style={{ '--track-color': speaker.thematicAxisColor || '#2563eb' } as CSSProperties}
             >
-              <span className={styles.invitedTag}>
-                {speaker.company || speaker.thematicAxis || speaker.country}
-              </span>
+              {speaker.company ? (
+                <span className={styles.invitedTag}>
+                  {speaker.company}
+                </span>
+              ) : null}
               {speaker.linkedin ? (
                 <a
                   href={speaker.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.invitedLinkedin}
-                  aria-label={t.ariaLinkedIn(speaker.name)}
+                  aria-label={t.ariaLinkedIn(cleanName)}
                   data-track-name="ver_linkedin_invitado_home"
                 >
                   <Linkedin className={styles.invitedLinkedinIcon} />
@@ -237,8 +380,12 @@ function InvitedSpeakerCard({ speaker, t }: { speaker: InvitedSpeaker; t: Return
               ) : null}
             </div>
 
-            <h3 className={styles.invitedMemberName}>{speaker.name}</h3>
-            <p className={styles.invitedMemberJob}>{speaker.role}</p>
+            <h3 className={styles.invitedMemberName}>{cleanName}</h3>
+            {isModerator ? (
+              <p className={`${styles.invitedMemberJob} ${styles.moderatorJob}`}>🎙️ Moderador</p>
+            ) : speaker.role ? (
+              <p className={styles.invitedMemberJob}>{speaker.role}</p>
+            ) : null}
 
             <div className={styles.invitedTopicBlock}>
               <p className={styles.invitedTopicLabel}>{t.talkLabel}</p>
@@ -342,6 +489,9 @@ export function SpeakersSection({
       activeInvitedTracks.includes(speaker.thematicAxis)
   )
 
+  const invitedSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, filteredInvitedSpeakers.length || 1))
+  const canSlideInvited = filteredInvitedSpeakers.length > invitedSlidesToShow
+
   useEffect(() => {
     if (typeof window === 'undefined') {
       return
@@ -386,22 +536,7 @@ export function SpeakersSection({
     )
   }
 
-  const invitedSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, filteredInvitedSpeakers.length || 1))
-  const canSlideInvited = filteredInvitedSpeakers.length > invitedSlidesToShow
 
-  const invitedCarouselSettings = {
-    dots: true,
-    infinite: canSlideInvited,
-    speed: 500,
-    slidesToShow: invitedSlidesToShow,
-    slidesToScroll: 1,
-    autoplay: canSlideInvited,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    arrows: canSlideInvited && invitedSlidesToShow > 1,
-    nextArrow: <InvitedNextArrow ariaLabel={t.ariaNext} />,
-    prevArrow: <InvitedPrevArrow ariaLabel={t.ariaPrev} />,
-  }
 
   return (
     <section id="speakers" className={styles.section}>
@@ -412,7 +547,7 @@ export function SpeakersSection({
           eyebrowColor="#6B51EF"
         />
 
-        <div id="keynote-speakers">
+        <div id="keynote-speakers" className={styles.keynoteSpeakers}>
           <SectionHeader
             className={styles.keynoteTitleHeader}
             title={<><span className={styles.keynoteTitleAccent}>Keynote</span> Speakers</>}
@@ -459,63 +594,232 @@ export function SpeakersSection({
         </div>
 
         {showInvited ? (
-          <div
-            id="invited-speakers"
-            className={`${styles.speakersSubsection} ${styles.invitedPanel} ${styles.invitedPanelContent}`}
-          >
-            <SectionHeader
-              className={styles.keynoteTitleHeader}
-              title={
-                t.invitedTitle === 'Invited Speakers' ? (
-                  <><span className={styles.keynoteTitleAccent}>Invited</span> Speakers</>
+          <>
+            <div
+              id="invited-speakers"
+              className={`${styles.speakersSubsection} ${styles.invitedPanel} ${styles.invitedPanelContent}`}
+            >
+              <SectionHeader
+                className={styles.keynoteTitleHeader}
+                title={
+                  t.invitedTitle === 'Invited Speakers' ? (
+                    <><span className={styles.keynoteTitleAccent}>Invited</span> Speakers</>
+                  ) : (
+                    <>Speakers <span className={styles.keynoteTitleAccent}>invitados</span></>
+                  )
+                }
+                lead={t.invitedLead}
+              />
+
+              <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
+                {invitedTrackOptions.map((track) => {
+                  const isActive = activeInvitedTracks.includes(track.name)
+                  const trackSpeakerCount = invitedSpeakers.filter(
+                    (speaker) => speaker.thematicAxis === track.name
+                  ).length
+
+                  return (
+                    <button
+                      key={track.name}
+                      type="button"
+                      className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
+                      style={{ '--track-color': track.color } as CSSProperties}
+                      onClick={() => toggleInvitedTrack(track.name)}
+                      aria-pressed={isActive}
+                    >
+                      {track.name}
+                      {isActive && (
+                        <span className={styles.invitedFilterTabCount}>
+                          {trackSpeakerCount}
+                        </span>
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
+
+              <div className={styles.invitedCarouselWrapper}>
+                {filteredInvitedSpeakers.length > 0 ? (
+                  <InvitedCarousel
+                    speakers={filteredInvitedSpeakers}
+                    t={t}
+                    slidesToShow={invitedSlidesToShow}
+                    canSlide={canSlideInvited}
+                  />
                 ) : (
-                  <>Speakers <span className={styles.keynoteTitleAccent}>invitados</span></>
-                )
-              }
-              lead={t.invitedLead}
-            />
-
-            <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
-              {invitedTrackOptions.map((track) => {
-                const isActive = activeInvitedTracks.includes(track.name)
-                const trackSpeakerCount = invitedSpeakers.filter(
-                  (speaker) => speaker.thematicAxis === track.name
-                ).length
-
-                return (
-                  <button
-                    key={track.name}
-                    type="button"
-                    className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
-                    style={{ '--track-color': track.color } as CSSProperties}
-                    onClick={() => toggleInvitedTrack(track.name)}
-                    aria-pressed={isActive}
-                  >
-                    {track.name}
-                    {isActive && (
-                      <span className={styles.invitedFilterTabCount}>
-                        {trackSpeakerCount}
-                      </span>
-                    )}
-                  </button>
-                )
-              })}
+                  <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                )}
+              </div>
             </div>
 
-            <div className={styles.invitedCarouselWrapper}>
-              {filteredInvitedSpeakers.length > 0 ? (
-                <Slider {...invitedCarouselSettings}>
-                  {filteredInvitedSpeakers.map((speaker) => (
-                    <div key={speaker.name} className={styles.invitedSlideWrapper}>
-                      <InvitedSpeakerCard speaker={speaker} t={t} />
+            {/* Panel de Seguridad */}
+            {(() => {
+              const securityPanelSpeakers = cfpScheduleSpeakers.filter(
+                (sp) => sp.topic && sp.topic.trim() === '[ Panel ] - Seguridad'
+              )
+              const mappedSpeakers: InvitedSpeaker[] = securityPanelSpeakers
+                .map((sp) => ({
+                  name: sp.name,
+                  company: '',
+                  role: '',
+                  country: '',
+                  topic: sp.topic || '',
+                  thematicAxis: sp.trackName || sp.trackNameEn || undefined,
+                  thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
+                  imageSrc: sp.avatar || '',
+                  alt: sp.name,
+                }))
+                .sort((a, b) => {
+                  const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
+                  const bMod = b.name.toLowerCase().includes('moderador') ? -1 : 1
+                  return aMod - bMod
+                })
+              const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
+              const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
+
+              return (
+                <div
+                  id="panel-seguridad"
+                  className={`${styles.speakersSubsection} ${styles.panelSeguridad}`}
+                >
+                  <SectionHeader
+                    className={styles.keynoteTitleHeader}
+                    title={
+                      <>
+                        Panel <span className={styles.keynoteTitleAccent}>Seguridad</span>
+                      </>
+                    }
+                    lead={t.panelSecurityLead}
+                  />
+                  {mappedSpeakers.length > 0 ? (
+                    <div className={styles.invitedCarouselWrapper}>
+                      <InvitedCarousel
+                        speakers={mappedSpeakers}
+                        t={t}
+                        slidesToShow={panelSlidesToShow}
+                        canSlide={canSlidePanel}
+                        cardClassName={styles.panelCardCompact}
+                      />
                     </div>
-                  ))}
-                </Slider>
-              ) : (
-                <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
-              )}
-            </div>
-          </div>
+                  ) : (
+                    <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                  )}
+                </div>
+              )
+            })()}
+
+            {/* Panel Fintech */}
+            {(() => {
+              const fintechPanelSpeakers = cfpScheduleSpeakers.filter(
+                (sp) => sp.topic && sp.topic.trim() === '[ Panel ] - Fintech'
+              )
+              const mappedSpeakers: InvitedSpeaker[] = fintechPanelSpeakers
+                .map((sp) => ({
+                  name: sp.name,
+                  company: '',
+                  role: '',
+                  country: '',
+                  topic: sp.topic || '',
+                  thematicAxis: sp.trackName || sp.trackNameEn || undefined,
+                  thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
+                  imageSrc: sp.avatar || '',
+                  alt: sp.name,
+                }))
+                .sort((a, b) => {
+                  const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
+                  const bMod = b.name.toLowerCase().includes('moderador') ? -1 : 1
+                  return aMod - bMod
+                })
+              const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
+              const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
+
+              return (
+                <div
+                  id="panel-fintech"
+                  className={`${styles.speakersSubsection} ${styles.invitedPanel}`}
+                >
+                  <SectionHeader
+                    className={styles.keynoteTitleHeader}
+                    title={
+                      <>
+                        Panel <span className={styles.keynoteTitleAccent}>Fintech</span>
+                      </>
+                    }
+                    lead={t.panelFintechLead}
+                  />
+                  {mappedSpeakers.length > 0 ? (
+                    <div className={styles.invitedCarouselWrapper}>
+                      <InvitedCarousel
+                        speakers={mappedSpeakers}
+                        t={t}
+                        slidesToShow={panelSlidesToShow}
+                        canSlide={canSlidePanel}
+                        cardClassName={styles.panelCardCompact}
+                      />
+                    </div>
+                  ) : (
+                    <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                  )}
+                </div>
+              )
+            })()}
+
+            {/* Panel Banca */}
+            {(() => {
+              const bankingPanelSpeakers = cfpScheduleSpeakers.filter(
+                (sp) => sp.topic && sp.topic.trim() === '[ Panel ] - Banca'
+              )
+              const mappedSpeakers: InvitedSpeaker[] = bankingPanelSpeakers
+                .map((sp) => ({
+                  name: sp.name,
+                  company: '',
+                  role: '',
+                  country: '',
+                  topic: sp.topic || '',
+                  thematicAxis: sp.trackName || sp.trackNameEn || undefined,
+                  thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
+                  imageSrc: sp.avatar || '',
+                  alt: sp.name,
+                }))
+                .sort((a, b) => {
+                  const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
+                  const bMod = b.name.toLowerCase().includes('moderador') ? -1 : 1
+                  return aMod - bMod
+                })
+              const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
+              const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
+
+              return (
+                <div
+                  id="panel-banca"
+                  className={`${styles.speakersSubsection} ${styles.invitedPanel}`}
+                >
+                  <SectionHeader
+                    className={styles.keynoteTitleHeader}
+                    title={
+                      <>
+                        Panel <span className={styles.keynoteTitleAccent}>Banca</span>
+                      </>
+                    }
+                    lead={t.panelBankingLead}
+                  />
+                  {mappedSpeakers.length > 0 ? (
+                    <div className={styles.invitedCarouselWrapper}>
+                      <InvitedCarousel
+                        speakers={mappedSpeakers}
+                        t={t}
+                        slidesToShow={panelSlidesToShow}
+                        canSlide={canSlidePanel}
+                        cardClassName={styles.panelCardCompact}
+                      />
+                    </div>
+                  ) : (
+                    <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                  )}
+                </div>
+              )
+            })()}
+          </>
         ) : (
           <div className={styles.seeAllInvitedContainer}>
             <a href="https://devopsdays.pe/speakers" className={styles.seeAllInvitedButton}>

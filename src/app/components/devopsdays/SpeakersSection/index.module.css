@@ -1,5 +1,115 @@
 /* SpeakersSection - CSS Nativo */
 
+/* ── Avatar Zoom Overlay ─────────────────────────────────── */
+.avatarZoomBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  cursor: zoom-out;
+  animation: avatarZoomFadeIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.avatarZoomBox {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1.5px rgba(255, 255, 255, 0.12);
+  animation: avatarZoomScaleIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  cursor: default;
+  max-width: min(480px, 85vw);
+  max-height: min(480px, 85vh);
+}
+
+.avatarZoomImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.avatarZoomFallback {
+  width: min(400px, 75vw);
+  height: min(400px, 75vw);
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.avatarZoomClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  z-index: 1;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.avatarZoomClose:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.avatarZoomName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.25rem 1rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+  color: #fff;
+  font-family: var(--brand-heading-fontFamily);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+  border-radius: 0 0 1.5rem 1.5rem;
+  pointer-events: none;
+}
+
+@keyframes avatarZoomFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes avatarZoomScaleIn {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* cursor zoom-in en los wrappers de imagen clickeables */
+.keynoteImageLink,
+.invitedCircularProfileImageWrapper {
+  cursor: zoom-in;
+}
+
 .section {
   background: var(--color-white);
   padding: 3rem 0;
@@ -27,21 +137,16 @@
   margin-bottom: 1rem;
 }
 
-.keynotePanel {
-  margin-bottom: 3.5rem;
+.keynoteSpeakers {
+  padding-bottom: 4rem;
 }
 
 .invitedPanel {
-  margin-bottom: 3.5rem;
+  padding-bottom: 4rem;
 }
 
 .keynotePanelContent {
   padding: 1rem 0 1rem;
-  text-align: left;
-}
-
-.invitedPanelContent {
-  padding: 0.5rem 0 1rem;
   text-align: left;
 }
 
@@ -400,18 +505,25 @@
     filter 0.3s ease;
 }
 
+.panelCardCompact .invitedMetaTruncated {
+  max-height: 9.5rem;
+}
+
 .invitedCarouselWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.invitedCarouselWrapper :global(.slick-slider) {
   position: relative;
-  margin-bottom: 2rem;
 }
 
 .invitedCarouselWrapper :global(.slick-list) {
   overflow-x: hidden;
   overflow-y: visible;
   padding-top: 6px;
-  padding-bottom: 6px;
-  margin-top: -6px;
-  margin-bottom: -6px;
+  padding-bottom: 16px;
 }
 
 .invitedCarouselWrapper :global(.slick-track) {
@@ -449,9 +561,10 @@
   position: relative;
   border-radius: 2rem;
   border: 1px solid #d0d7de;
-  min-height: 31.5rem;
-  height: auto;
+  height: 29.5rem;
   background: var(--color-white);
+  user-select: text !important;
+  -webkit-user-select: text !important;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -459,30 +572,32 @@
     filter 0.3s ease;
 }
 
-/* Extend hover target area downwards to prevent flickering when translating upwards */
-.invitedCard::after,
-.keynoteCard::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
+
+
+
+
+.invitedControlsBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2.75rem;
+  padding: 0 0.5rem;
 }
 
 .invitedArrow {
-  position: absolute;
-  top: calc(50% - 2.2rem);
-  z-index: 10;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border: 1px solid rgba(107, 81, 239, 0.18);
   border-radius: 9999px;
   background: rgba(107, 81, 239, 0.06);
   color: #6B51EF;
   cursor: pointer;
+  flex-shrink: 0;
   transition:
     transform 0.2s ease,
     background 0.2s ease,
@@ -490,19 +605,9 @@
 }
 
 .invitedArrow:hover {
-  transform: translateY(-50%) scale(1.05);
-  background: rgba(107, 81, 239, 0.12);
-  border-color: rgba(107, 81, 239, 0.3);
-}
-
-.invitedPrevArrow {
-  left: 0;
-  transform: translateY(-50%);
-}
-
-.invitedNextArrow {
-  right: 0;
-  transform: translateY(-50%);
+  transform: scale(1.08);
+  background: rgba(107, 81, 239, 0.14);
+  border-color: rgba(107, 81, 239, 0.35);
 }
 
 .invitedArrowIcon {
@@ -510,20 +615,49 @@
   height: 1rem;
 }
 
-.invitedCarouselWrapper :global(.slick-dots) {
+.invitedDotsList {
+  position: static !important;
+  bottom: auto !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 100% !important;
-  left: 0 !important;
-  right: 0 !important;
-  padding: 0 1rem !important;
-  margin: 0 auto !important;
-  position: absolute;
-  bottom: -2.5rem;
+  gap: 0.75rem;
   list-style: none !important;
+}
+
+.invitedDotsList li {
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+
+
+.invitedDotsList li button {
+  width: 2rem;
+  height: 0.5rem;
+  border: none;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.invitedDotsList li button:before {
+  display: none;
+}
+
+.invitedDotsList li.slick-active button {
+  width: 3rem;
+  background: #6B51EF;
+}
+
+.invitedCarouselWrapper :global(.slick-dots) {
+  position: static !important;
+  bottom: auto !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .invitedCarouselWrapper :global(.slick-dots li) {
@@ -623,6 +757,13 @@
   letter-spacing: var(--brand-text-letterSpacing-300);
 }
 
+.moderatorTag {
+  background: rgba(107, 81, 239, 0.12);
+  border-color: rgba(107, 81, 239, 0.3);
+  color: #6B51EF;
+  font-weight: 700;
+}
+
 .invitedLinkedin {
   display: inline-flex;
   align-items: center;
@@ -656,7 +797,6 @@
 }
 
 .invitedMemberName {
-  margin: 0.75rem 0 0.25rem;
   text-align: left;
   color: var(--color-slate-900);
   font-family: var(--brand-heading-fontFamily);
@@ -665,6 +805,14 @@
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
   transition: filter 0.3s ease;
+}
+
+.panelCardCompact {
+  height: 23.5rem;
+}
+
+.panelCardCompact .invitedMetaTruncated {
+  max-height: 9.5rem;
 }
 
 .invitedCountryFlag {
@@ -691,9 +839,27 @@
   line-height: var(--brand-text-lineHeight-300);
 }
 
+.moderatorJob {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  background: #ede9fe;
+  border: 1px solid #c4b5fd;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  line-height: 1.4;
+  margin-top: 0.1rem;
+}
+
 .invitedTopicBlock {
-  margin-top: 1.15rem;
-  padding-top: 1.1rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
   border-top: 1px dashed rgba(148, 163, 184, 0.7);
 }
 
@@ -779,7 +945,7 @@
 
 .invitedCardExpanded {
   height: auto !important;
-  min-height: 31.5rem;
+  min-height: 23.5rem;
   z-index: 10;
 }
 
@@ -1319,21 +1485,13 @@
     margin-bottom: 1.5rem;
   }
 
-  .invitedPanel {
-    margin-bottom: 1.5rem;
-  }
+
 
   .keynotePanelContent {
     padding: 0.75rem 0 0.5rem;
   }
 
-  .invitedPanelContent {
-    padding: 0.25rem 0 0.5rem;
-  }
 
-  .invitedCarouselWrapper {
-    padding: 0 0 2.75rem;
-  }
 
   .invitedCarouselWrapper :global(.slick-list) {
     overflow-x: hidden;
@@ -1641,4 +1799,20 @@
 
 .seeAllInvitedButton:hover .seeAllInvitedButtonIcon {
   transform: translateX(2px);
+}
+
+@media (max-width: 768px) {
+  .invitedArrow {
+    display: none !important;
+  }
+
+  .invitedCard {
+    height: auto !important;
+    min-height: 30rem;
+  }
+
+  .invitedCarouselWrapper :global(.slick-list) {
+    overflow: visible !important;
+    padding-bottom: 1rem;
+  }
 }

@@ -5,6 +5,7 @@ import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerA
 import { SectionHeader } from '../SectionHeader'
 import shared from '../SpeakersSection/index.module.css'
 import own from './index.module.css'
+import { AvatarZoomOverlay } from '../AvatarZoomOverlay'
 import scheduleData from '../../../data/scheduleData.json'
 import speakersRaw from '../../../data/scheduleSpeakers.json'
 
@@ -46,7 +47,7 @@ const scheduleSpeakerAvatars = new Map(
   ])
 )
 
-const speakers = (speakersRaw as ScheduleSpeaker[]).map((speaker) => {
+export const cfpScheduleSpeakers = (speakersRaw as ScheduleSpeaker[]).map((speaker) => {
   const avatarData = scheduleSpeakerAvatars.get(speaker.code)
 
   return {
@@ -57,14 +58,15 @@ const speakers = (speakersRaw as ScheduleSpeaker[]).map((speaker) => {
   }
 })
 const excludedSpeakerNames = new Set(['Sebastian Veliz Donoso', 'William Matos'])
-const trackColorMap: Record<string, string> = {
+const isPanelSpeaker = (sp: ScheduleSpeaker) => Boolean(sp.topic && sp.topic.trim().startsWith('[ Panel ]'))
+export const trackColorMap: Record<string, string> = {
   'Platform Engineering & DevOps': '#2563eb',
   'Security & Technology Transformation': '#f97316',
   'Modern Leadership & Culture': '#14b8a6',
   'Enterprise AI & Data Strategy': '#a78bfa',
 }
 
-function resolveTrackColor(trackNameEn: string | null, fallback: string) {
+export function resolveTrackColor(trackNameEn: string | null, fallback: string) {
   if (trackNameEn && trackColorMap[trackNameEn]) {
     return trackColorMap[trackNameEn]
   }
@@ -75,8 +77,8 @@ function resolveTrackColor(trackNameEn: string | null, fallback: string) {
 // ─── Track options ────────────────────────────────────────────────────────────
 function getUniqueTrackOptions(locale: 'es' | 'en') {
   const map = new Map<string, { label: string; color: string }>()
-  speakers.forEach((sp) => {
-    if (excludedSpeakerNames.has(sp.name)) return
+  cfpScheduleSpeakers.forEach((sp) => {
+    if (excludedSpeakerNames.has(sp.name) || isPanelSpeaker(sp)) return
     const key = sp.trackNameEn || ''
     if (key && !map.has(key)) {
       map.set(key, {
@@ -89,8 +91,9 @@ function getUniqueTrackOptions(locale: 'es' | 'en') {
 }
 
 // ─── Compact card ─────────────────────────────────────────────────────────────
-function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
+export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
   const avatar = useSpeakerAvatar(getSpeakerAvatarSources(speaker, 'default'))
+  const [zoomed, setZoomed] = useState(false)
   const initials = speaker.name
     .split(' ')
     .filter(Boolean)
@@ -105,7 +108,14 @@ function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
       style={{ '--track-color': resolveTrackColor(speaker.trackNameEn, speaker.trackColor) } as CSSProperties}
     >
       {/* Avatar */}
-      <div className={own.schSpeakerAvatarWrap}>
+      <div
+        className={own.schSpeakerAvatarWrap}
+        onClick={() => setZoomed(true)}
+        role="button"
+        tabIndex={0}
+        aria-label={`Ver foto de ${speaker.name}`}
+        onKeyDown={(e) => e.key === 'Enter' && setZoomed(true)}
+      >
         {avatar.src ? (
           <img
             src={avatar.src}
@@ -118,6 +128,15 @@ function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
           <div className={own.schSpeakerAvatarFallback}>{initials}</div>
         )}
       </div>
+      {zoomed && (
+        <AvatarZoomOverlay
+          src={avatar.src || null}
+          name={speaker.name}
+          initials={initials}
+          gradientColor={resolveTrackColor(speaker.trackNameEn, speaker.trackColor)}
+          onClose={() => setZoomed(false)}
+        />
+      )}
 
       {/* Info */}
       <div className={own.schSpeakerInfo}>
@@ -145,7 +164,7 @@ export function ScheduleSpeakersSection({
 }: ScheduleSpeakersSectionProps) {
   const locale = useLocale() as 'es' | 'en'
   const [activeTrack, setActiveTrack] = useState<string | null>(null)
-  const visibleSpeakers = speakers.filter((speaker) => !excludedSpeakerNames.has(speaker.name))
+  const visibleSpeakers = cfpScheduleSpeakers.filter((speaker) => !excludedSpeakerNames.has(speaker.name) && !isPanelSpeaker(speaker))
 
   const trackOptions = getUniqueTrackOptions(locale)
   const filtered = activeTrack
