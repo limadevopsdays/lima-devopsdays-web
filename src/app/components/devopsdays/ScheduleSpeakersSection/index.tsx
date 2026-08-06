@@ -5,7 +5,6 @@ import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerA
 import { SectionHeader } from '../SectionHeader'
 import shared from '../SpeakersSection/index.module.css'
 import own from './index.module.css'
-import { AvatarZoomOverlay } from '../AvatarZoomOverlay'
 import scheduleData from '../../../data/scheduleData.json'
 import speakersRaw from '../../../data/scheduleSpeakers.json'
 
@@ -93,7 +92,6 @@ function getUniqueTrackOptions(locale: 'es' | 'en') {
 // ─── Compact card ─────────────────────────────────────────────────────────────
 export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
   const avatar = useSpeakerAvatar(getSpeakerAvatarSources(speaker, 'default'))
-  const [zoomed, setZoomed] = useState(false)
   const initials = speaker.name
     .split(' ')
     .filter(Boolean)
@@ -108,14 +106,7 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
       style={{ '--track-color': resolveTrackColor(speaker.trackNameEn, speaker.trackColor) } as CSSProperties}
     >
       {/* Avatar */}
-      <div
-        className={own.schSpeakerAvatarWrap}
-        onClick={() => setZoomed(true)}
-        role="button"
-        tabIndex={0}
-        aria-label={`Ver foto de ${speaker.name}`}
-        onKeyDown={(e) => e.key === 'Enter' && setZoomed(true)}
-      >
+      <div className={own.schSpeakerAvatarWrap}>
         {avatar.src ? (
           <img
             src={avatar.src}
@@ -128,15 +119,6 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
           <div className={own.schSpeakerAvatarFallback}>{initials}</div>
         )}
       </div>
-      {zoomed && (
-        <AvatarZoomOverlay
-          src={avatar.src || null}
-          name={speaker.name}
-          initials={initials}
-          gradientColor={resolveTrackColor(speaker.trackNameEn, speaker.trackColor)}
-          onClose={() => setZoomed(false)}
-        />
-      )}
 
       {/* Info */}
       <div className={own.schSpeakerInfo}>
