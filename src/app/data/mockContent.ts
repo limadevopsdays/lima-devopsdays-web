@@ -303,6 +303,11 @@ export const sponsors = [
         href: 'https://ekiscyber.com/',
         logo: '/images/sponsors/silver/ekis.png'
       },
+      {
+        name: 'EPAM',
+        href: 'https://www.epam.com/',
+        logo: '/images/sponsors/silver/epam.png'
+      },
     ],
   },
   {
