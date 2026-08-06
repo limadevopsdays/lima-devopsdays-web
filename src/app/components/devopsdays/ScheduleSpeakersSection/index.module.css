@@ -68,19 +68,7 @@
   overflow: hidden;
 }
 
-.schSpeakerCard::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-}
 
-.schSpeakerCard:hover::after,
-.schSpeakerCard:focus-within::after {
-  pointer-events: auto;
-  bottom: -20px;
-}
 
 .schSpeakerCard:hover,
 .schSpeakerCard:focus-within {
@@ -96,6 +84,7 @@
   height: 6.1rem;
   margin-bottom: 0.95rem;
   flex-shrink: 0;
+  cursor: zoom-in;
 }
 
 .schSpeakerAvatar {
@@ -103,7 +92,6 @@
   height: 6.1rem;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #e2e8f0;
 }
 
 .schSpeakerAvatarFallback {
