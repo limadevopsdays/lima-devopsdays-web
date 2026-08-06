@@ -13,6 +13,8 @@
   -webkit-backdrop-filter: blur(18px);
   cursor: zoom-out;
   animation: avatarZoomFadeIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* Evita que transformaciones de padres rompan el position:fixed en Android */
+  will-change: opacity;
 }
 
 .avatarZoomBox {
@@ -24,8 +26,9 @@
     0 0 0 1.5px rgba(255, 255, 255, 0.12);
   animation: avatarZoomScaleIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
   cursor: default;
-  max-width: min(480px, 85vw);
-  max-height: min(480px, 85vh);
+  /* Dimensiones cuadradas y responsivas basadas en el viewport más pequeño */
+  width: min(420px, 80vmin);
+  height: min(420px, 80vmin);
 }
 
 .avatarZoomImg {
@@ -39,14 +42,14 @@
 }
 
 .avatarZoomFallback {
-  width: min(400px, 75vw);
-  height: min(400px, 75vw);
+  width: 100%;
+  height: 100%;
   border-radius: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--brand-heading-fontFamily);
-  font-size: clamp(3rem, 12vw, 6rem);
+  font-size: clamp(3rem, 15vmin, 6rem);
   font-weight: 800;
   letter-spacing: 0.04em;
   color: #fff;
