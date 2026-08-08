@@ -34,7 +34,77 @@
 }
 
 .invitedPanel {
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
+}
+
+/* ── Panel header row (title + toggle button side-by-side) ─── */
+.panelHeaderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.panelCollapseBtn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.6rem;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.panelCollapseBtn:hover {
+  background: #6b51ef;
+  border-color: #6b51ef;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 12px rgba(107, 81, 239, 0.28);
+}
+
+.panelCollapseBtn:focus-visible {
+  outline: 2px solid #6b51ef;
+  outline-offset: 2px;
+}
+
+.panelCollapseIcon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.22s ease;
+}
+
+/* ── Collapsible content wrapper ────────────────────────────── */
+.panelCollapsible {
+  overflow: visible;
+  max-height: 9999px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.panelCollapsed {
+  max-height: 0 !important;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .keynotePanelContent {
@@ -398,7 +468,8 @@
 }
 
 .panelCardCompact .invitedMetaTruncated {
-  max-height: 9.5rem;
+  max-height: 7.5rem;
+  overflow: hidden;
 }
 
 .invitedCarouselWrapper {
@@ -414,8 +485,9 @@
 .invitedCarouselWrapper :global(.slick-list) {
   overflow-x: hidden;
   overflow-y: visible;
-  padding-top: 6px;
+  padding-top: 16px;
   padding-bottom: 16px;
+  margin-top: -16px;
 }
 
 .invitedCarouselWrapper :global(.slick-track) {
@@ -579,9 +651,13 @@
 
 .invitedCard:hover,
 .invitedCard:focus-within {
-  transform: translateY(-4px);
   border-color: #94a3b8;
   filter: brightness(1.05) saturate(1.08);
+}
+
+.invitedCard:hover .invitedCardInner,
+.invitedCard:focus-within .invitedCardInner {
+  transform: translateY(-4px);
 }
 
 .invitedCardInner {
@@ -590,6 +666,7 @@
   justify-content: space-between;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.3s ease;
 }
 
 .invitedProfileImageBio {
@@ -643,7 +720,7 @@
   border: 1px solid var(--brand-color-border-muted);
   color: var(--brand-color-text-muted);
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-600);
   line-height: var(--brand-text-lineHeight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
@@ -689,10 +766,11 @@
 }
 
 .invitedMemberName {
+  padding: 0.6rem 0 0.2rem;
   text-align: left;
   color: var(--color-slate-900);
   font-family: var(--brand-heading-fontFamily);
-  font-size: var(--brand-text-size-400);
+  font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-900);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
@@ -700,11 +778,29 @@
 }
 
 .panelCardCompact {
-  height: 23.5rem;
+  height: 100%;
+  min-height: 18.5rem;
+  padding: 1.25rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* invitedCard base tiene height fija — la igualamos para paneles */
+.invitedCard.panelCardCompact {
+  height: 100%;
+  min-height: 18.5rem;
+  padding: 1.25rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.panelCardCompact .invitedCircularProfileImageWrapper {
+  margin-bottom: 0.75rem;
 }
 
 .panelCardCompact .invitedMetaTruncated {
-  max-height: 9.5rem;
+  max-height: 7.5rem;
+  overflow: hidden;
 }
 
 .invitedCountryFlag {
@@ -871,9 +967,13 @@
 
 .keynoteCard:hover,
 .keynoteCard:focus-within {
-  transform: translateY(-4px);
   border-color: #94a3b8;
   filter: brightness(1.05) saturate(1.08);
+}
+
+.keynoteCard:hover .keynoteMeta,
+.keynoteCard:focus-within .keynoteMeta {
+  transform: translateY(-4px);
 }
 
 .keynoteCardInner {
@@ -1042,6 +1142,7 @@
   flex: 1;
   position: relative;
   z-index: 2;
+  transition: transform 0.3s ease;
 }
 
 .keynoteTopRow {
@@ -1412,7 +1513,13 @@
   .invitedCard {
     padding: 1.375rem 1.125rem;
     min-height: 0;
+    height: auto;
     border-radius: 1.5rem;
+  }
+
+  .invitedCard.panelCardCompact {
+    height: auto !important;
+    min-height: 0 !important;
   }
 
   .invitedProfileImageWrapper,

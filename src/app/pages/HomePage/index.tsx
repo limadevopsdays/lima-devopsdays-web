@@ -23,7 +23,7 @@ export default function HomePage() {
       <HeroSection />
       <CountdownSection />
       <AboutSection />
-      <SpeakersSection showCfpSpeakers={false} />
+      <SpeakersSection showInvited showCfpSpeakers />
       <ScheduleSection />
       <SponsorsSection />
       <section className={styles.ticketsGalleryBlock} aria-label={t.ticketsGallerySectionLabel}>
