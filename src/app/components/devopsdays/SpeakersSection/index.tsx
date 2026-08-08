@@ -351,10 +351,11 @@ function InvitedSpeakerCard({
             </div>
 
             <h3 className={styles.invitedMemberName}>{cleanName}</h3>
+            {speaker.role ? (
+              <p className={styles.invitedMemberJob}>{speaker.role}</p>
+            ) : null}
             {isModerator ? (
               <p className={`${styles.invitedMemberJob} ${styles.moderatorJob}`}>🎙️ Moderador</p>
-            ) : speaker.role ? (
-              <p className={styles.invitedMemberJob}>{speaker.role}</p>
             ) : null}
 
             {!hideTopic && (
