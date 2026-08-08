@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { CSSProperties } from 'react'
+import { ChevronDown, ChevronUp, Linkedin } from 'lucide-react'
 import { useLocale } from '../../../i18n'
 import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerAvatars'
 import { SectionHeader } from '../SectionHeader'
@@ -20,6 +21,12 @@ interface ScheduleSpeaker {
   trackNameEn: string | null
   trackColor: string
   hasTalk: boolean
+  // Enriched from speaker detail page
+  biography: string | null
+  company: string | null
+  jobTitle: string | null
+  location: string | null
+  linkedin: string | null
 }
 
 interface ScheduleSpeakersSectionProps {
@@ -100,11 +107,32 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
     .toUpperCase()
     .slice(0, 2)
 
+  const trackColor = resolveTrackColor(speaker.trackNameEn, speaker.trackColor)
+
   return (
     <article
       className={own.schSpeakerCard}
-      style={{ '--track-color': resolveTrackColor(speaker.trackNameEn, speaker.trackColor) } as CSSProperties}
+      style={{ '--track-color': trackColor } as CSSProperties}
     >
+      {/* Top row: company + linkedin */}
+      <div className={own.schSpeakerTopRow}>
+        {speaker.company && (
+          <span className={own.schSpeakerCompany}>{speaker.company}</span>
+        )}
+        {speaker.linkedin && (
+          <a
+            href={speaker.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={own.schSpeakerLinkedin}
+            aria-label={`LinkedIn de ${speaker.name}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Linkedin className={own.schSpeakerLinkedinIcon} />
+          </a>
+        )}
+      </div>
+
       {/* Avatar */}
       <div className={own.schSpeakerAvatarWrap}>
         {avatar.src ? (
@@ -122,22 +150,35 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
 
       {/* Info */}
       <div className={own.schSpeakerInfo}>
+        {/* name */}
         <h3 className={own.schSpeakerName}>{speaker.name}</h3>
+
+        {/* rol */}
+        {speaker.jobTitle && (
+          <p className={own.schSpeakerRole}>{speaker.jobTitle}</p>
+        )}
+
+        {/* charla */}
+        {speaker.topic && (
+          <p className={own.schSpeakerTopic}>{speaker.topic}</p>
+        )}
+
+        {/* eje temático */}
         {speaker.trackName && (
           <span
             className={`${own.schSpeakerTrackBadge} ${shared.keynoteTopicHashtag}`}
-            style={{ '--track-color': resolveTrackColor(speaker.trackNameEn, speaker.trackColor) } as CSSProperties}
+            style={{ '--track-color': trackColor } as CSSProperties}
           >
             #{speaker.trackName}
           </span>
-        )}
-        {speaker.topic && (
-          <p className={own.schSpeakerTopic}>{speaker.topic}</p>
         )}
       </div>
     </article>
   )
 }
+
+
+const PAGE_SIZE = 8
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export function ScheduleSpeakersSection({
@@ -146,18 +187,36 @@ export function ScheduleSpeakersSection({
 }: ScheduleSpeakersSectionProps) {
   const locale = useLocale() as 'es' | 'en'
   const [activeTrack, setActiveTrack] = useState<string | null>(null)
-  const visibleSpeakers = cfpScheduleSpeakers.filter((speaker) => !excludedSpeakerNames.has(speaker.name) && !isPanelSpeaker(speaker))
+  const [currentPage, setCurrentPage] = useState(1)
+  const [isCollapsed, setIsCollapsed] = useState(false)
+
+  const visibleSpeakers = cfpScheduleSpeakers.filter(
+    (speaker) => !excludedSpeakerNames.has(speaker.name) && !isPanelSpeaker(speaker)
+  )
 
   const trackOptions = getUniqueTrackOptions(locale)
   const filtered = activeTrack
     ? visibleSpeakers.filter((sp) => sp.trackNameEn === activeTrack)
     : visibleSpeakers
 
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
+  const paginated = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+
+  // Reset to page 1 when filter changes
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [activeTrack])
+
+  function handleTrackClick(key: string) {
+    setActiveTrack((prev) => (prev === key ? null : key))
+  }
+
   return (
     <Component
       id={id}
       className={own.schSpeakersSection}
     >
+      <div className={own.cfpHeaderRow}>
       <SectionHeader
         className={shared.keynoteTitleHeader}
         title={<><span className={shared.keynoteTitleAccent}>CFP</span> Speakers</>}
@@ -167,6 +226,31 @@ export function ScheduleSpeakersSection({
             : `${visibleSpeakers.length} confirmed speakers on the program.`
         }
       />
+      <button
+        type="button"
+        className={own.cfpCollapseBtn}
+        onClick={() => setIsCollapsed((v) => !v)}
+        aria-expanded={!isCollapsed}
+        aria-controls="cfp-speakers-content"
+        title={isCollapsed
+          ? (locale === 'es' ? 'Expandir' : 'Expand')
+          : (locale === 'es' ? 'Minimizar' : 'Minimize')}
+      >
+        {isCollapsed
+          ? <ChevronDown className={own.cfpCollapseIcon} />
+          : <ChevronUp className={own.cfpCollapseIcon} />}
+        <span className={own.cfpCollapseBtnLabel}>
+          {isCollapsed
+            ? (locale === 'es' ? 'Expandir' : 'Expand')
+            : (locale === 'es' ? 'Minimizar' : 'Minimize')}
+        </span>
+      </button>
+    </div>
+
+    <div
+      id="cfp-speakers-content"
+      className={`${own.cfpCollapsible} ${isCollapsed ? own.cfpCollapsed : ''}`}
+    >
 
       <div className={shared.invitedFilters}>
         {trackOptions.map((track) => {
@@ -178,7 +262,7 @@ export function ScheduleSpeakersSection({
               type="button"
               className={`${shared.invitedFilterTab} ${isActive ? shared.invitedFilterTabActive : ''}`}
               style={{ '--track-color': track.color } as CSSProperties}
-              onClick={() => setActiveTrack(isActive ? null : track.key)}
+              onClick={() => handleTrackClick(track.key)}
               aria-pressed={isActive}
             >
               {track.label}
@@ -189,9 +273,9 @@ export function ScheduleSpeakersSection({
       </div>
 
       <div className={shared.invitedCarouselWrapper}>
-        {filtered.length > 0 ? (
+        {paginated.length > 0 ? (
           <div className={own.schSpeakersGrid}>
-            {filtered.map((speaker) => (
+            {paginated.map((speaker) => (
               <ScheduleSpeakerCard key={speaker.code} speaker={speaker} />
             ))}
           </div>
@@ -200,6 +284,47 @@ export function ScheduleSpeakersSection({
             {locale === 'es' ? 'No hay speakers para este filtro.' : 'No speakers for this filter.'}
           </div>
         )}
+      </div>
+
+      {/* Pagination controls */}
+      {totalPages > 1 && (
+        <div className={own.pagination}>
+          <button
+            type="button"
+            className={own.paginationBtn}
+            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            disabled={currentPage === 1}
+            aria-label={locale === 'es' ? 'Página anterior' : 'Previous page'}
+          >
+            ←
+          </button>
+
+          <div className={own.paginationPages}>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                type="button"
+                className={`${own.paginationDot} ${page === currentPage ? own.paginationDotActive : ''}`}
+                onClick={() => setCurrentPage(page)}
+                aria-label={`${locale === 'es' ? 'Página' : 'Page'} ${page}`}
+                aria-current={page === currentPage ? 'page' : undefined}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className={own.paginationBtn}
+            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            disabled={currentPage === totalPages}
+            aria-label={locale === 'es' ? 'Página siguiente' : 'Next page'}
+          >
+            →
+          </button>
+        </div>
+      )}
       </div>
     </Component>
   )

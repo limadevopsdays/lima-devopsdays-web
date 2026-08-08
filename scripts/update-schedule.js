@@ -6,9 +6,11 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const URL = 'https://talks.devopsdays.org/devopsdays-lima-2026/schedule/widgets/schedule.json'
+const SCHEDULE_URL = 'https://talks.devopsdays.org/devopsdays-lima-2026/schedule/widgets/schedule.json'
+const SPEAKER_PAGE_BASE = 'https://talks.devopsdays.org/devopsdays-lima-2026/speaker/'
 const DEST = path.resolve(__dirname, '../src/app/data/scheduleData.json')
 const SPEAKERS_DEST = path.resolve(__dirname, '../src/app/data/scheduleSpeakers.json')
+
 const EXCLUDED_SPEAKER_NAMES = new Set([
   // Keynotes
   'Marc Hornbeek',
@@ -38,6 +40,8 @@ const EXCLUDED_SPEAKER_NAMES = new Set([
   'Esmira Bayramova',
 ].map(normalizeName))
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
 function normalizeName(value) {
   return String(value || '')
     .normalize('NFD')
@@ -55,6 +59,96 @@ function formatLocalizedField(value, locale) {
   }
   return null
 }
+
+/** Simple GET returning raw body string */
+function fetchUrl(url) {
+  return new Promise((resolve, reject) => {
+    const options = {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+      },
+    }
+    https.get(url, options, (res) => {
+      if (res.statusCode !== 200) {
+        reject(new Error(`HTTP ${res.statusCode} for ${url}`))
+        return
+      }
+      let body = ''
+      res.on('data', (chunk) => { body += chunk })
+      res.on('end', () => resolve(body))
+    }).on('error', reject)
+  })
+}
+
+/**
+ * Scrapes a speaker's HTML page and extracts:
+ *   biography, company, jobTitle, location, linkedin
+ */
+function parseSpeakerPage(html) {
+  const result = {
+    biography: null,
+    company: null,
+    jobTitle: null,
+    location: null,
+    linkedin: null,
+  }
+
+  // Biography — content inside .speaker-bio
+  const bioMatch = html.match(/<div class=speaker-bio>([\s\S]*?)<\/div>/)
+  if (bioMatch) {
+    result.biography = bioMatch[1]
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<p>/gi, '')
+      .replace(/<\/p>/gi, '\n')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+  }
+
+  // Inline answers — Company, Job Title, Location
+  const answerBlocks = [...html.matchAll(/<div class=inline-answer>([\s\S]*?)<\/div>/g)]
+  for (const block of answerBlocks) {
+    const inner = block[1]
+    const questionMatch = inner.match(/<span class=question>(.*?)<\/span>/)
+    const answerMatch = inner.match(/<span class=answer>\s*<p>([\s\S]*?)<\/p>/)
+    if (!questionMatch || !answerMatch) continue
+    const question = questionMatch[1].replace(/:$/, '').trim().toLowerCase()
+    const answer = answerMatch[1].replace(/<[^>]+>/g, '').trim()
+    if (question === 'company') result.company = answer
+    else if (question === 'job title') result.jobTitle = answer
+    else if (question === 'location') {
+      result.location = /lima/i.test(answer) || /^peru$/i.test(answer.trim()) ? 'Perú' : answer
+    }
+  }
+
+  // LinkedIn — redirect URL containing linkedin.com
+  const linkedinMatch = html.match(/href="\/redirect\/\?url=([^"]*linkedin\.com[^"]*)"/)
+  if (linkedinMatch) {
+    try {
+      result.linkedin = decodeURIComponent(linkedinMatch[1]).split(':u')[0]
+    } catch {
+      result.linkedin = null
+    }
+  }
+
+  return result
+}
+
+/** Fetch & parse a single speaker page, returns enriched fields or nulls on error */
+async function fetchSpeakerDetails(code) {
+  const url = `${SPEAKER_PAGE_BASE}${code}/`
+  try {
+    const html = await fetchUrl(url)
+    return parseSpeakerPage(html)
+  } catch (err) {
+    console.warn(`  ⚠ Could not fetch speaker ${code}: ${err.message}`)
+    return { biography: null, company: null, jobTitle: null, location: null, linkedin: null }
+  }
+}
+
+// ─── Build speaker list from schedule JSON ───────────────────────────────────
 
 function buildScheduleSpeakers(parsed) {
   const speakers = Array.isArray(parsed.speakers) ? parsed.speakers : []
@@ -103,11 +197,19 @@ function buildScheduleSpeakers(parsed) {
         code: speaker.code,
         name: speaker.name,
         avatar: speaker.avatar,
+        avatar_thumbnail_default: speaker.avatar_thumbnail_default ?? null,
+        avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? null,
         topic: formatLocalizedField(talk.title, 'es') || formatLocalizedField(talk.title, 'en'),
         trackName: track?.trackName || null,
         trackNameEn: track?.trackNameEn || null,
         trackColor: track?.trackColor || '#6b51ef',
         hasTalk: true,
+        // Enriched fields — will be filled in next step
+        biography: null,
+        company: null,
+        jobTitle: null,
+        location: null,
+        linkedin: null,
       })
 
       seenCodes.add(code)
@@ -117,51 +219,43 @@ function buildScheduleSpeakers(parsed) {
   return derivedSpeakers
 }
 
-console.log('Fetching latest schedule data from Pretalx API...')
+// ─── Main ────────────────────────────────────────────────────────────────────
 
-const options = {
-  headers: {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-  },
+async function main() {
+  console.log('Fetching latest schedule data from Pretalx API...')
+
+  // 1. Fetch the main schedule JSON
+  const body = await fetchUrl(SCHEDULE_URL)
+  const parsed = JSON.parse(body)
+  const scheduleSpeakers = buildScheduleSpeakers(parsed)
+
+  // 2. Enrich each speaker with data from their individual page (parallel, max 5 at a time)
+  console.log(`Fetching details for ${scheduleSpeakers.length} speakers...`)
+  const CONCURRENCY = 5
+  for (let i = 0; i < scheduleSpeakers.length; i += CONCURRENCY) {
+    const batch = scheduleSpeakers.slice(i, i + CONCURRENCY)
+    const results = await Promise.all(batch.map((sp) => fetchSpeakerDetails(sp.code)))
+    results.forEach((details, idx) => {
+      Object.assign(batch[idx], details)
+    })
+    process.stdout.write(`  ${Math.min(i + CONCURRENCY, scheduleSpeakers.length)}/${scheduleSpeakers.length} done\r`)
+  }
+  console.log('')
+
+  // 3. Save files
+  fs.mkdirSync(path.dirname(DEST), { recursive: true })
+  fs.writeFileSync(DEST, JSON.stringify(parsed, null, 2), 'utf-8')
+  fs.writeFileSync(SPEAKERS_DEST, JSON.stringify(scheduleSpeakers, null, 2), 'utf-8')
+
+  console.log(`Successfully updated schedule data! Saved to: ${DEST}`)
+  console.log(`Successfully updated schedule speakers! Saved to: ${SPEAKERS_DEST}`)
+  console.log(`- Talks count: ${parsed.talks?.length || 0}`)
+  console.log(`- Rooms count: ${parsed.rooms?.length || 0}`)
+  console.log(`- Tracks count: ${parsed.tracks?.length || 0}`)
+  console.log(`- CFP speakers count: ${scheduleSpeakers.length}`)
 }
 
-const req = https.get(URL, options, (res) => {
-  if (res.statusCode !== 200) {
-    console.error(`Failed to fetch schedule data: Status code ${res.statusCode}`)
-    process.exit(1)
-  }
-
-  let body = ''
-  res.on('data', (chunk) => {
-    body += chunk
-  })
-
-  res.on('end', () => {
-    try {
-      // Validate it's a valid JSON response
-      const parsed = JSON.parse(body)
-      const scheduleSpeakers = buildScheduleSpeakers(parsed)
-
-      // Ensure destination directory exists
-      fs.mkdirSync(path.dirname(DEST), { recursive: true })
-
-      // Write JSON to file
-      fs.writeFileSync(DEST, JSON.stringify(parsed, null, 2), 'utf-8')
-      fs.writeFileSync(SPEAKERS_DEST, JSON.stringify(scheduleSpeakers, null, 2), 'utf-8')
-      console.log(`Successfully updated schedule data! Saved to: ${DEST}`)
-      console.log(`Successfully updated schedule speakers! Saved to: ${SPEAKERS_DEST}`)
-      console.log(`- Talks count: ${parsed.talks?.length || 0}`)
-      console.log(`- Rooms count: ${parsed.rooms?.length || 0}`)
-      console.log(`- Tracks count: ${parsed.tracks?.length || 0}`)
-      console.log(`- CFP speakers count: ${scheduleSpeakers.length || 0}`)
-    } catch (err) {
-      console.error('Error parsing or saving schedule data JSON:', err.message)
-      process.exit(1)
-    }
-  })
-})
-
-req.on('error', (err) => {
-  console.error('Network error fetching schedule data:', err.message)
+main().catch((err) => {
+  console.error('Fatal error:', err.message)
   process.exit(1)
 })

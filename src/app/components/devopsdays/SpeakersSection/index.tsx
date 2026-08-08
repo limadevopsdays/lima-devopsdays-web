@@ -1,7 +1,7 @@
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { ChevronLeft, ChevronRight, Mic, Send, Github, Linkedin } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Mic, Send, Github, Linkedin } from 'lucide-react'
 import { Link } from 'react-router'
 import { useEffect, useState, useRef } from 'react'
 import type { CSSProperties } from 'react'
@@ -64,12 +64,14 @@ function InvitedCarousel({
   slidesToShow,
   canSlide,
   cardClassName,
+  hideTopic,
 }: {
   speakers: InvitedSpeaker[]
   t: ReturnType<typeof useI18n<typeof speakersI18n>>
   slidesToShow: number
   canSlide: boolean
   cardClassName?: string
+  hideTopic?: boolean
 }) {
   const sliderRef = useRef<Slider | null>(null)
 
@@ -112,7 +114,7 @@ function InvitedCarousel({
     <Slider ref={sliderRef} {...settings}>
       {speakers.map((speaker) => (
         <div key={speaker.name} className={styles.invitedSlideWrapper}>
-          <InvitedSpeakerCard speaker={speaker} t={t} className={cardClassName} />
+          <InvitedSpeakerCard speaker={speaker} t={t} className={cardClassName} hideTopic={hideTopic} />
         </div>
       ))}
     </Slider>
@@ -229,10 +231,12 @@ function InvitedSpeakerCard({
   speaker,
   t,
   className,
+  hideTopic = false,
 }: {
   speaker: InvitedSpeaker
   t: ReturnType<typeof useI18n<typeof speakersI18n>>
   className?: string
+  hideTopic?: boolean
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isOverflowing, setIsOverflowing] = useState(false)
@@ -263,7 +267,7 @@ function InvitedSpeakerCard({
       clearTimeout(timer)
       window.removeEventListener('resize', checkOverflow)
     }
-  }, [speaker.topic])
+  }, [speaker.topic, speaker.role, speaker.company, speaker.name, hideTopic])
 
   const hasImage = Boolean(speaker.imageSrc && speaker.imageSrc.trim() && !imageFailed)
 
@@ -353,20 +357,22 @@ function InvitedSpeakerCard({
               <p className={styles.invitedMemberJob}>{speaker.role}</p>
             ) : null}
 
-            <div className={styles.invitedTopicBlock}>
-              <p className={styles.invitedTopicLabel}>{t.talkLabel}</p>
-              <p className={styles.invitedMemberTalk}>
-                <span>{speaker.topic}</span>
-              </p>
-              {speaker.thematicAxis ? (
-                <p
-                  className={styles.invitedTopicHashtag}
-                  style={{ '--track-color': speaker.thematicAxisColor || '#2563eb' } as CSSProperties}
-                >
-                  #{speaker.thematicAxis}
+            {!hideTopic && (
+              <div className={styles.invitedTopicBlock}>
+                <p className={styles.invitedTopicLabel}>{t.talkLabel}</p>
+                <p className={styles.invitedMemberTalk}>
+                  <span>{speaker.topic}</span>
                 </p>
-              ) : null}
-            </div>
+                {speaker.thematicAxis ? (
+                  <p
+                    className={styles.invitedTopicHashtag}
+                    style={{ '--track-color': speaker.thematicAxisColor || '#2563eb' } as CSSProperties}
+                  >
+                    #{speaker.thematicAxis}
+                  </p>
+                ) : null}
+              </div>
+            )}
           </div>
 
           {isOverflowing && (
@@ -396,6 +402,7 @@ export function SpeakersSection({
   const [visibleInvitedSlides, setVisibleInvitedSlides] = useState(4)
   const [activeKeynoteTracks, setActiveKeynoteTracks] = useState<string[]>([])
   const [activeInvitedTracks, setActiveInvitedTracks] = useState<string[]>([])
+  const [collapsedPanels, setCollapsedPanels] = useState<Set<string>>(new Set())
   const t = useI18n(speakersI18n)
   const locale = useLocale() as 'es' | 'en'
   const keynoteSpeakers = useI18n(keynoteSpeakersI18n)
@@ -502,6 +509,18 @@ export function SpeakersSection({
     )
   }
 
+  function togglePanel(panelId: string) {
+    setCollapsedPanels((prev) => {
+      const next = new Set(prev)
+      if (next.has(panelId)) {
+        next.delete(panelId)
+      } else {
+        next.add(panelId)
+      }
+      return next
+    })
+  }
+
 
 
   return (
@@ -561,63 +580,6 @@ export function SpeakersSection({
 
         {showInvited ? (
           <>
-            <div
-              id="invited-speakers"
-              className={`${styles.speakersSubsection} ${styles.invitedPanel} ${styles.invitedPanelContent}`}
-            >
-              <SectionHeader
-                className={styles.keynoteTitleHeader}
-                title={
-                  t.invitedTitle === 'Invited Speakers' ? (
-                    <><span className={styles.keynoteTitleAccent}>Invited</span> Speakers</>
-                  ) : (
-                    <>Speakers <span className={styles.keynoteTitleAccent}>invitados</span></>
-                  )
-                }
-                lead={t.invitedLead}
-              />
-
-              <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
-                {invitedTrackOptions.map((track) => {
-                  const isActive = activeInvitedTracks.includes(track.name)
-                  const trackSpeakerCount = invitedSpeakers.filter(
-                    (speaker) => speaker.thematicAxis === track.name
-                  ).length
-
-                  return (
-                    <button
-                      key={track.name}
-                      type="button"
-                      className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
-                      style={{ '--track-color': track.color } as CSSProperties}
-                      onClick={() => toggleInvitedTrack(track.name)}
-                      aria-pressed={isActive}
-                    >
-                      {track.name}
-                      {isActive && (
-                        <span className={styles.invitedFilterTabCount}>
-                          {trackSpeakerCount}
-                        </span>
-                      )}
-                    </button>
-                  )
-                })}
-              </div>
-
-              <div className={styles.invitedCarouselWrapper}>
-                {filteredInvitedSpeakers.length > 0 ? (
-                  <InvitedCarousel
-                    speakers={filteredInvitedSpeakers}
-                    t={t}
-                    slidesToShow={invitedSlidesToShow}
-                    canSlide={canSlideInvited}
-                  />
-                ) : (
-                  <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
-                )}
-              </div>
-            </div>
-
             {/* Panel de Seguridad */}
             {(() => {
               const securityPanelSpeakers = cfpScheduleSpeakers.filter(
@@ -626,14 +588,15 @@ export function SpeakersSection({
               const mappedSpeakers: InvitedSpeaker[] = securityPanelSpeakers
                 .map((sp) => ({
                   name: sp.name,
-                  company: '',
-                  role: '',
-                  country: '',
+                  company: sp.company || '',
+                  role: sp.jobTitle || '',
+                  country: sp.location || '',
                   topic: sp.topic || '',
                   thematicAxis: sp.trackName || sp.trackNameEn || undefined,
                   thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
                   imageSrc: sp.avatar || '',
                   alt: sp.name,
+                  linkedin: sp.linkedin || undefined,
                 }))
                 .sort((a, b) => {
                   const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
@@ -643,6 +606,7 @@ export function SpeakersSection({
               const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
               const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
 
+              const isCollapsed = collapsedPanels.has('panel-seguridad')
               return (
                 <div
                   id="panel-seguridad"
@@ -653,23 +617,39 @@ export function SpeakersSection({
                     title={
                       <>
                         Panel <span className={styles.keynoteTitleAccent}>Seguridad</span>
+                        <button
+                          type="button"
+                          className={styles.panelCollapseBtn}
+                          onClick={() => togglePanel('panel-seguridad')}
+                          aria-expanded={!isCollapsed}
+                          aria-controls="panel-seguridad-content"
+                          title={isCollapsed ? 'Expandir' : 'Minimizar'}
+                        >
+                          {isCollapsed ? <ChevronDown className={styles.panelCollapseIcon} /> : <ChevronUp className={styles.panelCollapseIcon} />}
+                        </button>
                       </>
                     }
                     lead={t.panelSecurityLead}
                   />
-                  {mappedSpeakers.length > 0 ? (
-                    <div className={styles.invitedCarouselWrapper}>
-                      <InvitedCarousel
-                        speakers={mappedSpeakers}
-                        t={t}
-                        slidesToShow={panelSlidesToShow}
-                        canSlide={canSlidePanel}
-                        cardClassName={styles.panelCardCompact}
-                      />
-                    </div>
-                  ) : (
-                    <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
-                  )}
+                  <div
+                    id="panel-seguridad-content"
+                    className={`${styles.panelCollapsible} ${isCollapsed ? styles.panelCollapsed : ''}`}
+                  >
+                    {mappedSpeakers.length > 0 ? (
+                      <div className={styles.invitedCarouselWrapper}>
+                        <InvitedCarousel
+                          speakers={mappedSpeakers}
+                          t={t}
+                          slidesToShow={panelSlidesToShow}
+                          canSlide={canSlidePanel}
+                          cardClassName={styles.panelCardCompact}
+                          hideTopic
+                        />
+                      </div>
+                    ) : (
+                      <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                    )}
+                  </div>
                 </div>
               )
             })()}
@@ -682,14 +662,15 @@ export function SpeakersSection({
               const mappedSpeakers: InvitedSpeaker[] = fintechPanelSpeakers
                 .map((sp) => ({
                   name: sp.name,
-                  company: '',
-                  role: '',
-                  country: '',
+                  company: sp.company || '',
+                  role: sp.jobTitle || '',
+                  country: sp.location || '',
                   topic: sp.topic || '',
                   thematicAxis: sp.trackName || sp.trackNameEn || undefined,
                   thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
                   imageSrc: sp.avatar || '',
                   alt: sp.name,
+                  linkedin: sp.linkedin || undefined,
                 }))
                 .sort((a, b) => {
                   const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
@@ -699,6 +680,7 @@ export function SpeakersSection({
               const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
               const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
 
+              const isCollapsed = collapsedPanels.has('panel-fintech')
               return (
                 <div
                   id="panel-fintech"
@@ -709,23 +691,39 @@ export function SpeakersSection({
                     title={
                       <>
                         Panel <span className={styles.keynoteTitleAccent}>Fintech</span>
+                        <button
+                          type="button"
+                          className={styles.panelCollapseBtn}
+                          onClick={() => togglePanel('panel-fintech')}
+                          aria-expanded={!isCollapsed}
+                          aria-controls="panel-fintech-content"
+                          title={isCollapsed ? 'Expandir' : 'Minimizar'}
+                        >
+                          {isCollapsed ? <ChevronDown className={styles.panelCollapseIcon} /> : <ChevronUp className={styles.panelCollapseIcon} />}
+                        </button>
                       </>
                     }
                     lead={t.panelFintechLead}
                   />
-                  {mappedSpeakers.length > 0 ? (
-                    <div className={styles.invitedCarouselWrapper}>
-                      <InvitedCarousel
-                        speakers={mappedSpeakers}
-                        t={t}
-                        slidesToShow={panelSlidesToShow}
-                        canSlide={canSlidePanel}
-                        cardClassName={styles.panelCardCompact}
-                      />
-                    </div>
-                  ) : (
-                    <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
-                  )}
+                  <div
+                    id="panel-fintech-content"
+                    className={`${styles.panelCollapsible} ${isCollapsed ? styles.panelCollapsed : ''}`}
+                  >
+                    {mappedSpeakers.length > 0 ? (
+                      <div className={styles.invitedCarouselWrapper}>
+                        <InvitedCarousel
+                          speakers={mappedSpeakers}
+                          t={t}
+                          slidesToShow={panelSlidesToShow}
+                          canSlide={canSlidePanel}
+                          cardClassName={styles.panelCardCompact}
+                          hideTopic
+                        />
+                      </div>
+                    ) : (
+                      <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                    )}
+                  </div>
                 </div>
               )
             })()}
@@ -738,14 +736,15 @@ export function SpeakersSection({
               const mappedSpeakers: InvitedSpeaker[] = bankingPanelSpeakers
                 .map((sp) => ({
                   name: sp.name,
-                  company: '',
-                  role: '',
-                  country: '',
+                  company: sp.company || '',
+                  role: sp.jobTitle || '',
+                  country: sp.location || '',
                   topic: sp.topic || '',
                   thematicAxis: sp.trackName || sp.trackNameEn || undefined,
                   thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
                   imageSrc: sp.avatar || '',
                   alt: sp.name,
+                  linkedin: sp.linkedin || undefined,
                 }))
                 .sort((a, b) => {
                   const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
@@ -755,6 +754,7 @@ export function SpeakersSection({
               const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
               const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
 
+              const isCollapsed = collapsedPanels.has('panel-banca')
               return (
                 <div
                   id="panel-banca"
@@ -765,26 +765,127 @@ export function SpeakersSection({
                     title={
                       <>
                         Panel <span className={styles.keynoteTitleAccent}>Banca</span>
+                        <button
+                          type="button"
+                          className={styles.panelCollapseBtn}
+                          onClick={() => togglePanel('panel-banca')}
+                          aria-expanded={!isCollapsed}
+                          aria-controls="panel-banca-content"
+                          title={isCollapsed ? 'Expandir' : 'Minimizar'}
+                        >
+                          {isCollapsed ? <ChevronDown className={styles.panelCollapseIcon} /> : <ChevronUp className={styles.panelCollapseIcon} />}
+                        </button>
                       </>
                     }
                     lead={t.panelBankingLead}
                   />
-                  {mappedSpeakers.length > 0 ? (
-                    <div className={styles.invitedCarouselWrapper}>
-                      <InvitedCarousel
-                        speakers={mappedSpeakers}
-                        t={t}
-                        slidesToShow={panelSlidesToShow}
-                        canSlide={canSlidePanel}
-                        cardClassName={styles.panelCardCompact}
-                      />
-                    </div>
+                  <div
+                    id="panel-banca-content"
+                    className={`${styles.panelCollapsible} ${isCollapsed ? styles.panelCollapsed : ''}`}
+                  >
+                    {mappedSpeakers.length > 0 ? (
+                      <div className={styles.invitedCarouselWrapper}>
+                        <InvitedCarousel
+                          speakers={mappedSpeakers}
+                          t={t}
+                          slidesToShow={panelSlidesToShow}
+                          canSlide={canSlidePanel}
+                          cardClassName={styles.panelCardCompact}
+                          hideTopic
+                        />
+                      </div>
+                    ) : (
+                      <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
+                    )}
+                  </div>
+                </div>
+              )
+            })()}
+
+            {/* Invited Speakers */}
+            <div
+              id="invited-speakers"
+              className={`${styles.speakersSubsection} ${styles.invitedPanel} ${styles.invitedPanelContent}`}
+            >
+              <SectionHeader
+                className={styles.keynoteTitleHeader}
+                title={
+                  t.invitedTitle === 'Invited Speakers' ? (
+                    <><span className={styles.keynoteTitleAccent}>Invited</span> Speakers
+                      <button
+                        type="button"
+                        className={styles.panelCollapseBtn}
+                        onClick={() => togglePanel('invited-speakers')}
+                        aria-expanded={!collapsedPanels.has('invited-speakers')}
+                        aria-controls="invited-speakers-content"
+                        title={collapsedPanels.has('invited-speakers') ? 'Expandir' : 'Minimizar'}
+                      >
+                        {collapsedPanels.has('invited-speakers') ? <ChevronDown className={styles.panelCollapseIcon} /> : <ChevronUp className={styles.panelCollapseIcon} />}
+                      </button>
+                    </>
+                  ) : (
+                    <>Speakers <span className={styles.keynoteTitleAccent}>invitados</span>
+                      <button
+                        type="button"
+                        className={styles.panelCollapseBtn}
+                        onClick={() => togglePanel('invited-speakers')}
+                        aria-expanded={!collapsedPanels.has('invited-speakers')}
+                        aria-controls="invited-speakers-content"
+                        title={collapsedPanels.has('invited-speakers') ? 'Expandir' : 'Minimizar'}
+                      >
+                        {collapsedPanels.has('invited-speakers') ? <ChevronDown className={styles.panelCollapseIcon} /> : <ChevronUp className={styles.panelCollapseIcon} />}
+                      </button>
+                    </>
+                  )
+                }
+                lead={t.invitedLead}
+              />
+
+              <div
+                id="invited-speakers-content"
+                className={`${styles.panelCollapsible} ${collapsedPanels.has('invited-speakers') ? styles.panelCollapsed : ''}`}
+              >
+                <div className={styles.invitedFilters} aria-label={t.invitedFiltersLabel}>
+                  {invitedTrackOptions.map((track) => {
+                    const isActive = activeInvitedTracks.includes(track.name)
+                    const trackSpeakerCount = invitedSpeakers.filter(
+                      (speaker) => speaker.thematicAxis === track.name
+                    ).length
+
+                    return (
+                      <button
+                        key={track.name}
+                        type="button"
+                        className={`${styles.invitedFilterTab} ${isActive ? styles.invitedFilterTabActive : ''}`}
+                        style={{ '--track-color': track.color } as CSSProperties}
+                        onClick={() => toggleInvitedTrack(track.name)}
+                        aria-pressed={isActive}
+                      >
+                        {track.name}
+                        {isActive && (
+                          <span className={styles.invitedFilterTabCount}>
+                            {trackSpeakerCount}
+                          </span>
+                        )}
+                      </button>
+                    )
+                  })}
+                </div>
+
+                <div className={styles.invitedCarouselWrapper}>
+                  {filteredInvitedSpeakers.length > 0 ? (
+                    <InvitedCarousel
+                      speakers={filteredInvitedSpeakers}
+                      t={t}
+                      slidesToShow={invitedSlidesToShow}
+                      canSlide={canSlideInvited}
+                    />
                   ) : (
                     <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
                   )}
                 </div>
-              )
-            })()}
+              </div>
+            </div>
           </>
         ) : (
           <div className={styles.seeAllInvitedContainer}>

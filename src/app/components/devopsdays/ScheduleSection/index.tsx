@@ -132,7 +132,7 @@ export function ScheduleSection() {
   const [expandedTimeSlots, setExpandedTimeSlots] = useState<string[]>([])
 
   // ─── Favorites state (stored in localStorage) ────────────────────────────────
-  const [favorites, setFavorites] = useState<number[]>(() => {
+  const [favorites, setFavorites] = useState<(string | number)[]>(() => {
     try {
       const saved = localStorage.getItem('schedule-favorites')
       return saved ? JSON.parse(saved) : []
@@ -141,10 +141,10 @@ export function ScheduleSection() {
     }
   })
 
-  const toggleFavorite = (id: number, e: React.MouseEvent) => {
+  const toggleFavorite = (favKey: string | number, e: React.MouseEvent) => {
     e.stopPropagation()
     setFavorites((prev) => {
-      const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+      const next = prev.includes(favKey) ? prev.filter((x) => x !== favKey) : [...prev, favKey]
       try {
         localStorage.setItem('schedule-favorites', JSON.stringify(next))
       } catch {}
@@ -152,12 +152,15 @@ export function ScheduleSection() {
     })
   }
 
+  const isTalkFav = (talk: any) =>
+    favorites.includes(talk.code) || favorites.includes(talk.id)
+
   // Auto-expand hour blocks containing starred sessions when viewing favorites, reset on other filters
   React.useEffect(() => {
     if (showOnlyFavorites) {
       const favHourBlocks = new Set<string>()
       formattedTalks.forEach((talk) => {
-        if (favorites.includes(talk.id) && talk.start) {
+        if (isTalkFav(talk) && talk.start) {
           const hourStr = talk.start.split(':')[0] + ':00'
           favHourBlocks.add(hourStr)
         }
@@ -361,7 +364,7 @@ export function ScheduleSection() {
   // ─── Filter based on Track and Room selection ──────────────────────────────
   const filteredTalks = formattedTalks.filter((talk) => {
     if (showOnlyFavorites) {
-      return favorites.includes(talk.id)
+      return isTalkFav(talk)
     }
 
     const matchesTrack = selectedTrack === 'all' || talk.trackId === selectedTrack
@@ -808,7 +811,7 @@ export function ScheduleSection() {
 
                 const colStart = isFullWidth ? 2 : getRoomColumnIndex(talk.roomId)
                 const colEnd = isFullWidth ? activeRoomsList.length + 2 : colStart + 1
-                const isFav = favorites.includes(talk.id)
+                const isFav = isTalkFav(talk)
 
                 if (isBreakType) {
                   return (
@@ -866,7 +869,7 @@ export function ScheduleSection() {
                           <button
                             type="button"
                             className="p-0 border-0 bg-transparent cursor-pointer flex-shrink-0"
-                            onClick={(e) => toggleFavorite(talk.id, e)}
+                            onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
                             aria-label="Add to favorites"
                           >
                             <Star
@@ -962,7 +965,7 @@ export function ScheduleSection() {
                       talk.title.toLowerCase().includes('almuerzo') ||
                       talk.title.toLowerCase().includes('break') ||
                       talk.title.toLowerCase().includes('receso')
-                    const isFav = favorites.includes(talk.id)
+                    const isFav = isTalkFav(talk)
 
                     if (isBreak) {
                       return (
@@ -1009,7 +1012,7 @@ export function ScheduleSection() {
                           <button
                             type="button"
                             className={styles.mobileFavBtn}
-                            onClick={(e) => toggleFavorite(talk.id, e)}
+                            onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
                             aria-label="Add to favorites"
                           >
                             <Star
@@ -1114,12 +1117,12 @@ export function ScheduleSection() {
                     <button
                       type="button"
                       className="p-1.5 border-0 bg-transparent cursor-pointer transition-colors flex items-center justify-center"
-                      onClick={(e) => toggleFavorite(selectedTalk.id, e)}
+                      onClick={(e) => toggleFavorite(selectedTalk.code || selectedTalk.id, e)}
                       aria-label="Add to favorites"
-                      style={{ color: favorites.includes(selectedTalk.id) ? '#f59e0b' : '#94a3b8' }}
+                      style={{ color: isTalkFav(selectedTalk) ? '#f59e0b' : '#94a3b8' }}
                     >
                       <Star
-                        className={`${styles.starIcon} ${favorites.includes(selectedTalk.id) ? styles.starIconActive : ''}`}
+                        className={`${styles.starIcon} ${isTalkFav(selectedTalk) ? styles.starIconActive : ''}`}
                         size={20}
                       />
                     </button>
