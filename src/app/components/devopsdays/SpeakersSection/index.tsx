@@ -406,8 +406,52 @@ export function SpeakersSection({
   const [collapsedPanels, setCollapsedPanels] = useState<Set<string>>(new Set())
   const t = useI18n(speakersI18n)
   const locale = useLocale() as 'es' | 'en'
-  const keynoteSpeakers = useI18n(keynoteSpeakersI18n)
-  const invitedSpeakers = useI18n(invitedSpeakersI18n)
+  const staticKeynotes = useI18n(keynoteSpeakersI18n)
+  const staticInvited = useI18n(invitedSpeakersI18n)
+
+  // Dynamically map Keynotes from scheduleSpeakers.json merged with static attributes (photos, tags, etc.)
+  const keynoteSpeakers: KeynoteSpeaker[] = staticKeynotes.map((staticSp) => {
+    const jsonSp = cfpScheduleSpeakers.find((sp) => {
+      const spName = sp.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      const stName = staticSp.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      const parts = stName.split(' ')
+      return spName.includes(parts[0]) && spName.includes(parts[parts.length - 1])
+    })
+    if (!jsonSp) return staticSp
+    return {
+      ...staticSp,
+      company: jsonSp.company || staticSp.company,
+      role: jsonSp.jobTitle || staticSp.role,
+      country: jsonSp.location || staticSp.country,
+      topic: jsonSp.topic || staticSp.topic,
+      linkedin: jsonSp.linkedin || staticSp.linkedin,
+      imageSrc: jsonSp.avatar || staticSp.imageSrc,
+      thematicAxis: jsonSp.trackName || staticSp.thematicAxis,
+      thematicAxisColor: resolveTrackColor(jsonSp.trackNameEn, jsonSp.trackColor),
+    }
+  })
+
+  // Dynamically map Invited Speakers from scheduleSpeakers.json merged with static attributes
+  const invitedSpeakers: InvitedSpeaker[] = staticInvited.map((staticSp) => {
+    const jsonSp = cfpScheduleSpeakers.find((sp) => {
+      const spName = sp.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      const stName = staticSp.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+      const parts = stName.split(' ')
+      return spName.includes(parts[0]) && spName.includes(parts[parts.length - 1])
+    })
+    if (!jsonSp) return staticSp
+    return {
+      ...staticSp,
+      company: jsonSp.company || staticSp.company,
+      role: jsonSp.jobTitle || staticSp.role,
+      country: jsonSp.location || staticSp.country,
+      topic: jsonSp.topic || staticSp.topic,
+      linkedin: jsonSp.linkedin || staticSp.linkedin,
+      imageSrc: jsonSp.avatar || staticSp.imageSrc,
+      thematicAxis: jsonSp.trackName || staticSp.thematicAxis,
+      thematicAxisColor: resolveTrackColor(jsonSp.trackNameEn, jsonSp.trackColor),
+    }
+  })
 
   // Scroll to invited section on mount if navigated with hash
   useEffect(() => {

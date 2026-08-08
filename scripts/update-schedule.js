@@ -82,6 +82,34 @@ function fetchUrl(url) {
   })
 }
 
+function normalizeLocation(rawLocation) {
+  if (!rawLocation) return null
+  const loc = String(rawLocation).trim()
+
+  // Match Colombia / Medellín / Bogotá / Bucaramanga
+  if (/colombia|medellin|bogot|bucaramanga/i.test(loc)) return 'Colombia'
+  // Match Perú / Lima / Tacna / Peru
+  if (/per[uú]|lima|tacna/i.test(loc)) return 'Perú'
+  // Match Brasil / Brazil / São Paulo
+  if (/bras[il]|s[ãa]o paulo/i.test(loc)) return 'Brasil'
+  // Match Chile / Santiago
+  if (/chile|santiago/i.test(loc)) return 'Chile'
+  // Match Argentina / Buenos Aires
+  if (/argentina|buenos aires/i.test(loc)) return 'Argentina'
+  // Match México / Ciudad de México
+  if (/m[eé]xico/i.test(loc)) return 'México'
+  // Match Estados Unidos / EEUU / USA / US / Boston / Florida / Miami
+  if (/estados unidos|eeuu|usa|\bus\b|boston|florida|miami/i.test(loc)) return 'Estados Unidos'
+  // Match España / Spain
+  if (/espa[nñ]a|spain/i.test(loc)) return 'España'
+  // Match Ecuador / Quito
+  if (/ecuador|quito/i.test(loc)) return 'Ecuador'
+  // Match Canadá / Canada
+  if (/canad[aá]/i.test(loc)) return 'Canadá'
+
+  return loc
+}
+
 /**
  * Scrapes a speaker's HTML page and extracts:
  *   biography, company, jobTitle, location, linkedin
@@ -119,7 +147,7 @@ function parseSpeakerPage(html) {
     if (question === 'company') result.company = answer
     else if (question === 'job title') result.jobTitle = answer
     else if (question === 'location') {
-      result.location = /lima/i.test(answer) || /^peru$/i.test(answer.trim()) ? 'Perú' : answer
+      result.location = normalizeLocation(answer)
     }
   }
 
@@ -180,39 +208,29 @@ function buildScheduleSpeakers(parsed) {
   )
 
   const derivedSpeakers = []
-  const seenCodes = new Set()
 
-  talks.forEach((talk) => {
-    const speakerCodes = Array.isArray(talk.speakers) ? talk.speakers : []
-    const track = talk.track ? trackMap.get(String(talk.track)) : null
+  speakers.forEach((speaker) => {
+    // Find talk for this speaker if available
+    const talk = talks.find((t) => Array.isArray(t.speakers) && t.speakers.includes(speaker.code))
+    const track = talk && talk.track ? trackMap.get(String(talk.track)) : null
 
-    speakerCodes.forEach((code) => {
-      if (seenCodes.has(code)) return
-
-      const speaker = speakerMap.get(code)
-      if (!speaker) return
-      if (EXCLUDED_SPEAKER_NAMES.has(normalizeName(speaker.name))) return
-
-      derivedSpeakers.push({
-        code: speaker.code,
-        name: speaker.name,
-        avatar: speaker.avatar,
-        avatar_thumbnail_default: speaker.avatar_thumbnail_default ?? null,
-        avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? null,
-        topic: formatLocalizedField(talk.title, 'es') || formatLocalizedField(talk.title, 'en'),
-        trackName: track?.trackName || null,
-        trackNameEn: track?.trackNameEn || null,
-        trackColor: track?.trackColor || '#6b51ef',
-        hasTalk: true,
-        // Enriched fields — will be filled in next step
-        biography: null,
-        company: null,
-        jobTitle: null,
-        location: null,
-        linkedin: null,
-      })
-
-      seenCodes.add(code)
+    derivedSpeakers.push({
+      code: speaker.code,
+      name: speaker.name,
+      avatar: speaker.avatar ?? null,
+      avatar_thumbnail_default: speaker.avatar_thumbnail_default ?? null,
+      avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? null,
+      topic: talk ? (formatLocalizedField(talk.title, 'es') || formatLocalizedField(talk.title, 'en')) : null,
+      trackName: track?.trackName || null,
+      trackNameEn: track?.trackNameEn || null,
+      trackColor: track?.trackColor || '#6b51ef',
+      hasTalk: Boolean(talk),
+      // Enriched fields — will be filled in next step by scraping /speaker/{code}/
+      biography: null,
+      company: null,
+      jobTitle: null,
+      location: null,
+      linkedin: null,
     })
   })
 

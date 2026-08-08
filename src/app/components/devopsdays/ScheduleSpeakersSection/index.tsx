@@ -63,8 +63,43 @@ export const cfpScheduleSpeakers = (speakersRaw as ScheduleSpeaker[]).map((speak
     avatar_thumbnail_tiny: speaker.avatar_thumbnail_tiny ?? avatarData?.avatar_thumbnail_tiny ?? null,
   }
 })
-const excludedSpeakerNames = new Set(['Sebastian Veliz Donoso', 'William Matos'])
-const isPanelSpeaker = (sp: ScheduleSpeaker) => Boolean(sp.topic && sp.topic.trim().startsWith('[ Panel ]'))
+// ─── Codes by category for exact set subtraction ─────────────────────────────
+export const KEYNOTE_SPEAKER_CODES = new Set([
+  'QWYREB', // Marc Hornbeek
+  'UAJUW3', // Erik Zaadi
+  '3ZZHPR', // William Matos
+  'TAKGE7', // Xavier René-Corail
+  'GUHE88', // Ricardo Martins
+  'XRQVPJ', // Yury Nino
+])
+
+export const INVITED_SPEAKER_CODES = new Set([
+  '8DKRD9', // Victor Alvarez
+  'EYSBV7', // Andrea Griffiths
+  'D9X8KE', // Juan David Arguello Plata
+  'KHCU7C', // Esmira Bayramova
+  '9PEJRF', // Jimmy Florez
+  'UMXQWV', // Carlos Gallardo
+  'EAJBEY', // Andre Delgado Ruiz
+  'WPAEV9', // Sebastian Rojas
+  '8MZQSD', // Angel Nuñez
+  'JZ3U7B', // Sebastian Veliz Donoso
+  'CGKEK7', // Alexandra Zamora
+  '73FPPV', // Emma Flores
+  'QBKEFL', // Jefferson Riobueno
+  'BPW3K7', // Francisco Lopez Valenzuela
+  'Z3NSGG', // Angelo Leva
+  'NLKQV9', // Martin Grados
+])
+
+export const isPanelSpeaker = (sp: ScheduleSpeaker) =>
+  Boolean(sp.topic && sp.topic.trim().startsWith('[ Panel ]'))
+
+export const EXCLUDED_CFP_CODES = new Set([
+  ...Array.from(KEYNOTE_SPEAKER_CODES),
+  ...Array.from(INVITED_SPEAKER_CODES),
+])
+
 export const trackColorMap: Record<string, string> = {
   'Platform Engineering & DevOps': '#2563eb',
   'Security & Technology Transformation': '#f97316',
@@ -84,7 +119,7 @@ export function resolveTrackColor(trackNameEn: string | null, fallback: string) 
 function getUniqueTrackOptions(locale: 'es' | 'en') {
   const map = new Map<string, { label: string; color: string }>()
   cfpScheduleSpeakers.forEach((sp) => {
-    if (excludedSpeakerNames.has(sp.name) || isPanelSpeaker(sp)) return
+    if (EXCLUDED_CFP_CODES.has(sp.code) || isPanelSpeaker(sp)) return
     const key = sp.trackNameEn || ''
     if (key && !map.has(key)) {
       map.set(key, {
@@ -191,7 +226,7 @@ export function ScheduleSpeakersSection({
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   const visibleSpeakers = cfpScheduleSpeakers.filter(
-    (speaker) => !excludedSpeakerNames.has(speaker.name) && !isPanelSpeaker(speaker)
+    (speaker) => !EXCLUDED_CFP_CODES.has(speaker.code) && !isPanelSpeaker(speaker)
   )
 
   const trackOptions = getUniqueTrackOptions(locale)
