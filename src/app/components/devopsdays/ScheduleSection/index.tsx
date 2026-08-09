@@ -131,11 +131,43 @@ export function ScheduleSection() {
   const [showOnlyFavorites, setShowOnlyFavorites] = useState<boolean>(false)
   const [expandedTimeSlots, setExpandedTimeSlots] = useState<string[]>([])
 
-  // ─── Favorites state (stored in localStorage) ────────────────────────────────
+  // Helper to resolve an ID or Code to the canonical talk code or ID in current scheduleData
+  const resolveFavoriteKey = (favKey: string | number): string | number => {
+    const keyStr = String(favKey)
+    const allTalks = scheduleData.talks as TalkRaw[]
+    const talkByCode = allTalks.find((t) => t.code === keyStr || t.code === favKey)
+    if (talkByCode && talkByCode.code) {
+      return talkByCode.code
+    }
+    const talkById = allTalks.find((t) => t.id === Number(favKey) || t.id === favKey)
+    if (talkById) {
+      return talkById.code || talkById.id
+    }
+    return favKey
+  }
+
+  // ─── Favorites state (stored in localStorage by immutable Pretalx code) ──────
   const [favorites, setFavorites] = useState<(string | number)[]>(() => {
     try {
+      if (typeof window === 'undefined') return []
       const saved = localStorage.getItem('schedule-favorites')
-      return saved ? JSON.parse(saved) : []
+      if (!saved) return []
+      const parsed = JSON.parse(saved)
+      if (!Array.isArray(parsed)) return []
+
+      const allCurrentTalks = scheduleData.talks as TalkRaw[]
+      const currentCodes = new Set(allCurrentTalks.map((t) => t.code).filter(Boolean))
+      const currentIds = new Set(allCurrentTalks.map((t) => t.id))
+
+      const migrated = parsed
+        .map((key) => resolveFavoriteKey(key))
+        .filter((key) => currentCodes.has(String(key)) || currentIds.has(Number(key)))
+
+      const unique = Array.from(new Set(migrated))
+      if (JSON.stringify(parsed) !== JSON.stringify(unique)) {
+        localStorage.setItem('schedule-favorites', JSON.stringify(unique))
+      }
+      return unique
     } catch {
       return []
     }
@@ -143,8 +175,11 @@ export function ScheduleSection() {
 
   const toggleFavorite = (favKey: string | number, e: React.MouseEvent) => {
     e.stopPropagation()
+    const canonicalKey = resolveFavoriteKey(favKey)
     setFavorites((prev) => {
-      const next = prev.includes(favKey) ? prev.filter((x) => x !== favKey) : [...prev, favKey]
+      const next = prev.includes(canonicalKey)
+        ? prev.filter((x) => x !== canonicalKey)
+        : [...prev, canonicalKey]
       try {
         localStorage.setItem('schedule-favorites', JSON.stringify(next))
       } catch {}
@@ -152,8 +187,13 @@ export function ScheduleSection() {
     })
   }
 
-  const isTalkFav = (talk: any) =>
-    favorites.includes(talk.code) || favorites.includes(talk.id)
+  const isTalkFav = (talk: any) => {
+    if (!talk) return false
+    return (
+      (talk.code && favorites.includes(talk.code)) ||
+      favorites.includes(talk.id)
+    )
+  }
 
   // Auto-expand hour blocks containing starred sessions when viewing favorites, reset on other filters
   React.useEffect(() => {
