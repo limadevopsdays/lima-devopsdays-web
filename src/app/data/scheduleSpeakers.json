@@ -226,7 +226,7 @@
     "avatar": "https://talks.devopsdays.org/media/avatars/TMQSSH_Km0v9dC.webp",
     "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TMQSSH_Km0v9dC_thumbnail_default.webp",
     "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TMQSSH_Km0v9dC_thumbnail_tiny.webp",
-    "topic": "Open source security in the AI era",
+    "topic": "[ Panel ] - Seguridad",
     "trackName": "Security & Technology Transformation",
     "trackNameEn": "Security & Technology Transformation",
     "trackColor": "#1ebdd1",
@@ -693,7 +693,7 @@
     "biography": "-",
     "company": "Interbank",
     "jobTitle": "CISO",
-    "location": "Perú",
+    "location": "Brasil",
     "linkedin": "https://www.linkedin.com/in/mamaral/:R1GLw8KMBArSJHbviVTkt5c2b6C9SGDdBGgiVtVHFf0"
   },
   {
@@ -1014,8 +1014,8 @@
     "trackColor": "#595555",
     "hasTalk": true,
     "biography": "Julián Darío Luna Patiño es Cloud Solutions Architect Lead en Rena Ware International, AWS Community Builder y estudiante de Doctorado en Gestión de la Innovación Tecnológica en la Universidad de los Andes. Es creador de TryCatch.tv, una comunidad de más de 110 mil personas en LATAM, y autor de dos libros sobre desarrollo de software y crecimiento en tecnología.",
-    "company": "Rena Ware - TryCatch.tv",
-    "jobTitle": "Cloud Solutions Architect Lead - Creador de contenido",
+    "company": "TryCatch.tv",
+    "jobTitle": "Solutions Architect",
     "location": "Colombia",
     "linkedin": "https://www.linkedin.com/in/judlup/:kYsuOhiDUBrc40__YRq_VFO8iMyimVE13Y-RVulVPOA"
   },
