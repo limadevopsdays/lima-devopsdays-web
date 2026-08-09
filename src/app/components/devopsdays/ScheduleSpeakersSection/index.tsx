@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Linkedin } from 'lucide-react'
 import { useLocale } from '../../../i18n'
 import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerAvatars'
 import { SectionHeader } from '../SectionHeader'
+import { CountryFlag } from '../CountryFlag'
 import shared from '../SpeakersSection/index.module.css'
 import own from './index.module.css'
 import scheduleData from '../../../data/scheduleData.json'
@@ -131,7 +132,7 @@ function getUniqueTrackOptions(locale: 'es' | 'en') {
   return Array.from(map.entries()).map(([key, val]) => ({ key, ...val }))
 }
 
-// ─── Compact card ─────────────────────────────────────────────────────────────
+// ─── Compact speaker card ──────────────────────────────────────────────────
 export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
   const avatar = useSpeakerAvatar(getSpeakerAvatarSources(speaker, 'default'))
   const initials = speaker.name
@@ -213,7 +214,7 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
 }
 
 
-const PAGE_SIZE = 8
+const PAGE_SIZE = 10
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export function ScheduleSpeakersSection({
@@ -251,36 +252,41 @@ export function ScheduleSpeakersSection({
       id={id}
       className={own.schSpeakersSection}
     >
-      <div className={own.cfpHeaderRow}>
       <SectionHeader
         className={shared.keynoteTitleHeader}
-        title={<><span className={shared.keynoteTitleAccent}>CFP</span> Speakers</>}
+        title={
+          <>
+            <span className={shared.keynoteTitleAccent}>CFP</span> Speakers
+            <button
+              type="button"
+              className={shared.panelCollapseBtn}
+              onClick={() => setIsCollapsed((v) => !v)}
+              aria-expanded={!isCollapsed}
+              aria-controls="cfp-speakers-content"
+              title={
+                isCollapsed
+                  ? locale === 'es'
+                    ? 'Expandir'
+                    : 'Expand'
+                  : locale === 'es'
+                  ? 'Minimizar'
+                  : 'Minimize'
+              }
+            >
+              {isCollapsed ? (
+                <ChevronDown className={shared.panelCollapseIcon} />
+              ) : (
+                <ChevronUp className={shared.panelCollapseIcon} />
+              )}
+            </button>
+          </>
+        }
         lead={
           locale === 'es'
             ? `${visibleSpeakers.length} speakers confirmados en el programa.`
             : `${visibleSpeakers.length} confirmed speakers on the program.`
         }
       />
-      <button
-        type="button"
-        className={own.cfpCollapseBtn}
-        onClick={() => setIsCollapsed((v) => !v)}
-        aria-expanded={!isCollapsed}
-        aria-controls="cfp-speakers-content"
-        title={isCollapsed
-          ? (locale === 'es' ? 'Expandir' : 'Expand')
-          : (locale === 'es' ? 'Minimizar' : 'Minimize')}
-      >
-        {isCollapsed
-          ? <ChevronDown className={own.cfpCollapseIcon} />
-          : <ChevronUp className={own.cfpCollapseIcon} />}
-        <span className={own.cfpCollapseBtnLabel}>
-          {isCollapsed
-            ? (locale === 'es' ? 'Expandir' : 'Expand')
-            : (locale === 'es' ? 'Minimizar' : 'Minimize')}
-        </span>
-      </button>
-    </div>
 
     <div
       id="cfp-speakers-content"

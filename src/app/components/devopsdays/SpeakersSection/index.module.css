@@ -30,7 +30,7 @@
 }
 
 .keynoteSpeakers {
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
 }
 
 .invitedPanel {
@@ -166,13 +166,13 @@
   align-items: center;
   justify-content: center;
   min-height: 2.5rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 9999px;
   background: var(--color-slate-50);
   border: 1px solid var(--color-slate-200);
   color: var(--brand-color-text-muted);
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-400);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
@@ -185,16 +185,6 @@
     box-shadow 0.24s ease;
 }
 
-.invitedFilterTab::before {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 8px;
-  background: var(--color-slate-300, #cbd5e1);
-  transition: background 0.24s ease, transform 0.24s ease;
-}
 
 .invitedFilterTab:hover,
 .invitedFilterTab:focus-visible,
@@ -203,13 +193,6 @@
   border-color: var(--track-color, #6B51EF);
   color: color-mix(in srgb, var(--track-color, #6B51EF) 90%, #0f172a);
   box-shadow: none;
-}
-
-.invitedFilterTab:hover::before,
-.invitedFilterTab:focus-visible::before,
-.invitedFilterTabActive::before {
-  background: var(--track-color, #6B51EF);
-  transform: scale(1.25);
 }
 
 .invitedFilterTab:hover,
@@ -241,6 +224,7 @@
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -352,11 +336,9 @@
 .ctaBannerOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    30deg,
-    rgba(15, 23, 42, 0.82) 0%,
-    rgba(124, 58, 237, 0.62) 100%
-  );
+  background: linear-gradient(30deg,
+      rgba(15, 23, 42, 0.82) 0%,
+      rgba(124, 58, 237, 0.62) 100%);
   z-index: 1;
 }
 
@@ -412,11 +394,13 @@
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.7;
     transform: scale(0.95);
@@ -443,7 +427,7 @@
 }
 
 @media (min-width: 641px) {
-  .keynoteShowcase > :last-child:nth-child(odd) {
+  .keynoteShowcase> :last-child:nth-child(odd) {
     grid-column: 1 / -1;
     justify-self: center;
     width: min(100%, calc((100% - 1rem) / 2));
@@ -476,10 +460,16 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .invitedCarouselWrapper :global(.slick-slider) {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .invitedCarouselWrapper :global(.slick-list) {
@@ -770,7 +760,7 @@
   text-align: left;
   color: var(--color-slate-900);
   font-family: var(--brand-heading-fontFamily);
-  font-size: var(--brand-text-size-300);
+  font-size: var(--brand-text-size-200);
   font-weight: var(--brand-text-weight-900);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
@@ -820,29 +810,33 @@
 .invitedMemberJob {
   text-align: left;
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-300);
+  font-style: italic;
   letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--brand-color-text-muted);
   line-height: var(--brand-text-lineHeight-300);
 }
 
-.moderatorJob {
+.moderatorRibbon {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  z-index: 10;
   display: inline-flex;
   align-items: center;
-  align-self: flex-start;
-  gap: 0.3rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #7c3aed;
-  background: #ede9fe;
-  border: 1px solid #c4b5fd;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #1a4d0f;
+  background: linear-gradient(135deg, #e4f9db 0%, #93e279 100%);
+  border: 1px solid #6fca51;
   border-radius: 999px;
-  padding: 0.2rem 0.65rem;
-  line-height: 1.4;
-  margin-top: 0.1rem;
+  padding: 0.22rem 0.65rem;
+  box-shadow: 0 2px 8px rgba(111, 202, 81, 0.25);
+  pointer-events: none;
 }
 
 .invitedTopicBlock {
@@ -855,7 +849,7 @@
   margin: 0 0 0.4rem;
   color: var(--color-slate-900);
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
@@ -878,7 +872,7 @@
   margin: 0;
   text-align: left;
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--brand-color-text-muted);
@@ -1014,11 +1008,9 @@
 .keynoteTeaserOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(15, 23, 42, 0.26) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(15, 23, 42, 0.26) 100%);
 }
 
 .keynoteImageLink {
@@ -1093,12 +1085,10 @@
 .keynoteImageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(15, 23, 42, 0.08) 56%,
-    rgba(15, 23, 42, 0.24) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(15, 23, 42, 0.08) 56%,
+      rgba(15, 23, 42, 0.24) 100%);
   opacity: 0.72;
   transition: opacity 0.35s ease;
 }
@@ -1183,7 +1173,7 @@
     color 0.28s ease;
   font-family: var(--brand-body-fontFamily);
   font-weight: var(--brand-text-weight-600);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   line-height: var(--brand-text-lineHeight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
   border: 1px solid var(--brand-color-border-muted);
@@ -1271,7 +1261,7 @@
   transition: color 0.28s ease, filter 0.28s ease;
   color: var(--color-slate-900);
   font-family: var(--brand-heading-fontFamily);
-  font-size: var(--brand-text-size-400);
+  font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-900);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
@@ -1286,6 +1276,10 @@
 .invitedCard:hover .invitedMemberName,
 .invitedCard:focus-within .invitedMemberName {
   filter: brightness(1.05) saturate(1.08);
+}
+
+.keynoteRole {
+  font-style: italic;
 }
 
 .keynoteRole,
@@ -1310,7 +1304,7 @@
   margin: 0 0 0.3rem;
   color: var(--color-slate-900);
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
   line-height: var(--brand-text-lineHeight-300);
@@ -1332,7 +1326,7 @@
   gap: 0.45rem;
   margin: 0;
   font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-100);
+  font-size: var(--brand-text-size-50);
   font-weight: var(--brand-text-weight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--brand-color-text-muted);
@@ -1370,7 +1364,7 @@
   font-weight: var(--brand-text-weight-900);
   letter-spacing: var(--brand-text-letterSpacing-300);
   color: var(--color-white);
-  line-height: var(--brand-text-lineHeight-300);  
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .description {
@@ -1382,7 +1376,7 @@
   font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300);  
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 /* Label para ejes temáticos */
@@ -1394,7 +1388,7 @@
   font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300);  
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 /* Ejes temáticos en fila horizontal con wrap */
@@ -1463,8 +1457,8 @@
 
   .keynoteCard {
     width: 100%;
-    max-width: 46rem;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
   }
 }
 
@@ -1508,13 +1502,22 @@
 
   .invitedSlideWrapper {
     padding: 0;
+    max-width: 100%;
   }
 
   .invitedCard {
+    max-width: 100%;
     padding: 1.375rem 1.125rem;
     min-height: 0;
     height: auto;
     border-radius: 1.5rem;
+  }
+
+  .moderatorRibbon {
+    top: 0.85rem;
+    right: 0.85rem;
+    font-size: 0.65rem;
+    padding: 0.18rem 0.55rem;
   }
 
   .invitedCard.panelCardCompact {
@@ -1557,8 +1560,8 @@
 
   .keynoteCard {
     width: 100%;
-    max-width: 32rem;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     height: auto;
     min-height: auto;
   }
@@ -1566,27 +1569,42 @@
   .keynoteCardInner,
   .keynoteProfileImageBio {
     flex-direction: column;
+    width: 100%;
     height: auto;
   }
 
   .keynoteProfileImageWrapper {
-    width: 100%;
-    min-width: 0;
-    aspect-ratio: 4 / 3;
+    width: 8.75rem;
+    height: 8.75rem;
+    min-width: 8.75rem;
+    margin: 1.25rem auto 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
   }
 
   .keynoteImageLink {
-    height: auto;
-    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .keynoteImage {
+    border-radius: 50%;
   }
 
   .keynoteMeta {
-    padding: 1.6rem 1.25rem 3.5rem;
+    padding: 1rem 1.25rem 1.5rem;
+    text-align: center;
+    align-items: center;
   }
 
   .keynoteTopRow {
     flex-wrap: wrap;
     gap: 0.65rem;
+    justify-content: center;
   }
 
   .keynoteTag {
@@ -1595,30 +1613,50 @@
 
   .keynoteName {
     margin-top: 0.65rem;
-    font-size: 1.2rem;
-    line-height: 1.15;
+    text-align: center;
+    color: var(--color-slate-900);
+    font-family: var(--brand-heading-fontFamily);
+    font-size: var(--brand-text-size-300);
+    font-weight: var(--brand-text-weight-900);
+    letter-spacing: var(--brand-text-letterSpacing-300);
+    line-height: var(--brand-text-lineHeight-300);
   }
 
   .keynoteRole,
   .keynoteCompany {
     margin-top: 0.2rem;
-    font-size: 0.9rem;
-    line-height: 1.45;
+    text-align: center;
+    color: var(--brand-color-text-muted);
+    font-family: var(--brand-body-fontFamily);
+    font-size: var(--brand-text-size-100);
+    font-weight: var(--brand-text-weight-300);
+    letter-spacing: var(--brand-text-letterSpacing-300);
+    line-height: var(--brand-text-lineHeight-300);
   }
 
   .keynoteTopicBlock {
     margin-top: 0.95rem;
     padding-top: 0.95rem;
+    text-align: center;
   }
 
   .keynoteTopic {
-    font-size: 1rem;
-    line-height: 1.5;
+    color: var(--track-color);
+    font-family: var(--brand-body-fontFamily);
+    font-size: var(--brand-text-size-50);
+    font-weight: var(--brand-text-weight-300);
+    letter-spacing: var(--brand-text-letterSpacing-300);
+    color: var(--brand-color-text-muted);
+    text-align: center;
   }
 
   .keynoteTopicHashtag {
-    font-size: 0.88rem;
-    line-height: 1.45;
+    color: var(--track-color);
+    font-family: var(--brand-body-fontFamily);
+    font-size: var(--brand-text-size-25);
+    font-weight: var(--brand-text-weight-600);
+    letter-spacing: var(--brand-text-letterSpacing-300);
+    line-height: var(--brand-text-lineHeight-300);
   }
 
   .keynoteCountryFlag {
@@ -1692,7 +1730,7 @@
   font-size: var(--brand-text-size-200);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300); 
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .ctaButton,
@@ -1722,7 +1760,7 @@
   font-size: var(--brand-text-size-200);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300);  
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .ctaSecondaryButton:hover {
@@ -1744,7 +1782,7 @@
   font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-300);
   letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300);  
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .dateText strong {
@@ -1753,7 +1791,7 @@
   font-size: var(--brand-text-size-300);
   font-weight: var(--brand-text-weight-600);
   letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300);  
+  line-height: var(--brand-text-lineHeight-300);
 }
 
 .seeAllInvitedContainer {

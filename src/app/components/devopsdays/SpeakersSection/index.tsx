@@ -121,6 +121,65 @@ function InvitedCarousel({
   )
 }
 
+function KeynoteCarousel({
+  speakers,
+  t,
+  slidesToShow,
+  canSlide,
+}: {
+  speakers: KeynoteSpeaker[]
+  t: ReturnType<typeof useI18n<typeof speakersI18n>>
+  slidesToShow: number
+  canSlide: boolean
+}) {
+  const sliderRef = useRef<Slider | null>(null)
+
+  const settings = {
+    dots: true,
+    infinite: canSlide,
+    speed: 500,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    autoplay: canSlide,
+    autoplaySpeed: 3500,
+    pauseOnHover: true,
+    arrows: false,
+    appendDots: (dots: React.ReactNode) => (
+      <div className={styles.invitedControlsBar}>
+        <button
+          type="button"
+          className={`${styles.invitedArrow} ${styles.invitedPrevArrow}`}
+          onClick={() => sliderRef.current?.slickPrev()}
+          aria-label={t.ariaPrev}
+          data-track-name="anterior_keynote_home"
+        >
+          <ChevronLeft className={styles.invitedArrowIcon} />
+        </button>
+        <ul className={styles.invitedDotsList}>{dots}</ul>
+        <button
+          type="button"
+          className={`${styles.invitedArrow} ${styles.invitedNextArrow}`}
+          onClick={() => sliderRef.current?.slickNext()}
+          aria-label={t.ariaNext}
+          data-track-name="siguiente_keynote_home"
+        >
+          <ChevronRight className={styles.invitedArrowIcon} />
+        </button>
+      </div>
+    ),
+  }
+
+  return (
+    <Slider ref={sliderRef} {...settings}>
+      {speakers.map((speaker) => (
+        <div key={speaker.name} className={styles.invitedSlideWrapper}>
+          <KeynoteSpeakerCard speaker={speaker} t={t} />
+        </div>
+      ))}
+    </Slider>
+  )
+}
+
 function KeynoteSpeakerCard({ speaker, t }: { speaker: KeynoteSpeaker; t: ReturnType<typeof useI18n<typeof speakersI18n>> }) {
   const [imageFailed, setImageFailed] = useState(false)
   const initials = speaker.name
@@ -279,6 +338,11 @@ function InvitedSpeakerCard({
 
   return (
     <article className={`${styles.invitedCard} ${isExpanded ? styles.invitedCardExpanded : ''} ${className || ''}`}>
+      {isModerator && (
+        <div className={styles.moderatorRibbon}>
+          <span>🎙️ Moderador</span>
+        </div>
+      )}
       <div className={styles.invitedCardInner}>
         <div className={styles.invitedProfileImageBio}>
           <div className={styles.invitedCircularProfileImageWrapper}>
@@ -354,9 +418,6 @@ function InvitedSpeakerCard({
             {speaker.role ? (
               <p className={styles.invitedMemberJob}>{speaker.role}</p>
             ) : null}
-            {isModerator ? (
-              <p className={`${styles.invitedMemberJob} ${styles.moderatorJob}`}>🎙️ Moderador</p>
-            ) : null}
 
             {!hideTopic && (
               <div className={styles.invitedTopicBlock}>
@@ -400,7 +461,8 @@ export function SpeakersSection({
   showInvited = false,
   showCfpSpeakers = true,
 }: SpeakersSectionProps) {
-  const [visibleInvitedSlides, setVisibleInvitedSlides] = useState(4)
+  const [visibleInvitedSlides, setVisibleInvitedSlides] = useState(5)
+  const [isMobile, setIsMobile] = useState(false)
   const [activeKeynoteTracks, setActiveKeynoteTracks] = useState<string[]>([])
   const [activeInvitedTracks, setActiveInvitedTracks] = useState<string[]>([])
   const [collapsedPanels, setCollapsedPanels] = useState<Set<string>>(new Set())
@@ -515,26 +577,27 @@ export function SpeakersSection({
       return
     }
 
-    const mediaQuery = window.matchMedia('(max-width: 1199px)')
-
     const syncVisibleSlides = () => {
-      setVisibleInvitedSlides(mediaQuery.matches ? 1 : 4)
+      const w = window.innerWidth
+      setIsMobile(w <= 640)
+      if (w <= 640) {
+        setVisibleInvitedSlides(1)
+      } else if (w <= 768) {
+        setVisibleInvitedSlides(2)
+      } else if (w <= 1024) {
+        setVisibleInvitedSlides(3)
+      } else if (w <= 1280) {
+        setVisibleInvitedSlides(4)
+      } else {
+        setVisibleInvitedSlides(5)
+      }
     }
 
     syncVisibleSlides()
 
-    if (typeof mediaQuery.addEventListener === 'function') {
-      mediaQuery.addEventListener('change', syncVisibleSlides)
-
-      return () => {
-        mediaQuery.removeEventListener('change', syncVisibleSlides)
-      }
-    }
-
-    mediaQuery.addListener(syncVisibleSlides)
-
+    window.addEventListener('resize', syncVisibleSlides)
     return () => {
-      mediaQuery.removeListener(syncVisibleSlides)
+      window.removeEventListener('resize', syncVisibleSlides)
     }
   }, [])
 
@@ -612,11 +675,22 @@ export function SpeakersSection({
 
           <div className={styles.keynotePanel}>
             {filteredKeynoteSpeakers.length > 0 ? (
-              <div className={styles.keynoteShowcase}>
-                {filteredKeynoteSpeakers.map((speaker) => (
-                  <KeynoteSpeakerCard key={speaker.name} speaker={speaker} t={t} />
-                ))}
-              </div>
+              isMobile ? (
+                <div className={styles.invitedCarouselWrapper}>
+                  <KeynoteCarousel
+                    speakers={filteredKeynoteSpeakers}
+                    t={t}
+                    slidesToShow={1}
+                    canSlide={filteredKeynoteSpeakers.length > 1}
+                  />
+                </div>
+              ) : (
+                <div className={styles.keynoteShowcase}>
+                  {filteredKeynoteSpeakers.map((speaker) => (
+                    <KeynoteSpeakerCard key={speaker.name} speaker={speaker} t={t} />
+                  ))}
+                </div>
+              )
             ) : (
               <div className={styles.invitedEmptyState}>{t.invitedEmptyState}</div>
             )}
@@ -631,18 +705,21 @@ export function SpeakersSection({
                 (sp) => sp.topic && sp.topic.trim() === '[ Panel ] - Seguridad'
               )
               const mappedSpeakers: InvitedSpeaker[] = securityPanelSpeakers
-                .map((sp) => ({
-                  name: sp.name,
-                  company: sp.company || '',
-                  role: sp.jobTitle || '',
-                  country: sp.location || '',
-                  topic: sp.topic || '',
-                  thematicAxis: sp.trackName || sp.trackNameEn || undefined,
-                  thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
-                  imageSrc: sp.avatar || '',
-                  alt: sp.name,
-                  linkedin: sp.linkedin || undefined,
-                }))
+                .map((sp) => {
+                  const isXavier = sp.code === 'TAKGE7' || sp.name.includes('Xavier')
+                  return {
+                    name: isXavier ? `${sp.name} - [Moderador]` : sp.name,
+                    company: sp.company || '',
+                    role: sp.jobTitle || '',
+                    country: sp.location || '',
+                    topic: sp.topic || '',
+                    thematicAxis: sp.trackName || sp.trackNameEn || undefined,
+                    thematicAxisColor: resolveTrackColor(sp.trackNameEn, sp.trackColor),
+                    imageSrc: sp.avatar || '',
+                    alt: sp.name,
+                    linkedin: sp.linkedin || undefined,
+                  }
+                })
                 .sort((a, b) => {
                   const aMod = a.name.toLowerCase().includes('moderador') ? -1 : 1
                   const bMod = b.name.toLowerCase().includes('moderador') ? -1 : 1

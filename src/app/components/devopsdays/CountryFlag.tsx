@@ -1,4 +1,5 @@
 import {
+  AR,
   BR,
   CL,
   CO,
@@ -11,6 +12,7 @@ import {
 import type { SVGProps } from 'react'
 
 const FLAGS_BY_COUNTRY = {
+  Argentina: AR,
   Brasil: BR,
   Brazil: BR,
   Chile: CL,
