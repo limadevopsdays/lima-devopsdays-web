@@ -176,7 +176,8 @@ export const sponsors = [
       { 
         name: 'Dynatrace', 
         href: 'https://www.dynatrace.com/es-la/',
-        logo: '/images/sponsors/platinium/dynatrace.png'
+        logo: '/images/sponsors/platinium/dynatrace.png',
+        logoHdr: '/images/sponsors/platinium/dynatrace.png'
       },
       { 
         name: 'CleverIT', 
