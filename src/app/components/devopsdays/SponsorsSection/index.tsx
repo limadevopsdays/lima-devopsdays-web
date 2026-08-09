@@ -134,11 +134,22 @@ export function SponsorsSection() {
                             className={styles.logoLink}
                             data-track-name="ver_sponsor_logo_home"
                           >
-                            {sponsor.logo ? (
+                            {(sponsor as any).logoHdr ? (
+                              <picture>
+                                <source srcSet={(sponsor as any).logoHdr} media="(dynamic-range: high)" />
+                                <img
+                                  src={sponsor.logo}
+                                  alt={t.ariaLogoSponsor(sponsor.name)}
+                                  className={styles.logo}
+                                  loading="lazy"
+                                />
+                              </picture>
+                            ) : sponsor.logo ? (
                               <img
                                 src={sponsor.logo}
                                 alt={t.ariaLogoSponsor(sponsor.name)}
                                 className={styles.logo}
+                                loading="lazy"
                               />
                             ) : (
                               <span className={styles.logoText}>{sponsor.name}</span>
@@ -146,11 +157,22 @@ export function SponsorsSection() {
                           </a>
                         ) : (
                           <div className={styles.logoLink}>
-                            {sponsor.logo ? (
+                            {(sponsor as any).logoHdr ? (
+                              <picture>
+                                <source srcSet={(sponsor as any).logoHdr} media="(dynamic-range: high)" />
+                                <img
+                                  src={sponsor.logo}
+                                  alt={t.ariaLogoSponsor(sponsor.name)}
+                                  className={styles.logo}
+                                  loading="lazy"
+                                />
+                              </picture>
+                            ) : sponsor.logo ? (
                               <img
                                 src={sponsor.logo}
                                 alt={t.ariaLogoSponsor(sponsor.name)}
                                 className={styles.logo}
+                                loading="lazy"
                               />
                             ) : (
                               <span className={styles.logoText}>{sponsor.name}</span>

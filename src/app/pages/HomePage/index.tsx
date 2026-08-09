@@ -2,6 +2,7 @@ import { HeroSection } from '../../components/devopsdays/HeroSection'
 import { MusicPlayer } from '../../components/devopsdays/MusicPlayer'
 import { CountdownSection } from '../../components/devopsdays/CountdownSection'
 import { AboutSection } from '../../components/devopsdays/AboutSection'
+import { SponsorsBannerMockup } from '../../components/devopsdays/SponsorsBannerMockup'
 import { SponsorsSection } from '../../components/devopsdays/SponsorsSection'
 import { TicketsSection } from '../../components/devopsdays/TicketsSection'
 import { GallerySection } from '../../components/devopsdays/GallerySection'
@@ -21,8 +22,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <CountdownSection />
       <AboutSection />
+      <SponsorsBannerMockup />
+      {/* <CountdownSection /> */}
       <SpeakersSection showInvited showCfpSpeakers />
       <ScheduleSection />
       <SponsorsSection />

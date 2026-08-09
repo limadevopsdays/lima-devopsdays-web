@@ -1580,8 +1580,6 @@
     margin: 1.25rem auto 0;
     border-radius: 50%;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.92);
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
   }
 
   .keynoteImageLink {

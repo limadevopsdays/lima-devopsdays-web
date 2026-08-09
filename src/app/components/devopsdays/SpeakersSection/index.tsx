@@ -485,7 +485,7 @@ export function SpeakersSection({
       company: jsonSp.company || staticSp.company,
       role: jsonSp.jobTitle || staticSp.role,
       country: jsonSp.location || staticSp.country,
-      topic: jsonSp.topic || staticSp.topic,
+      topic: (jsonSp.topic && !jsonSp.topic.toLowerCase().includes('panel')) ? jsonSp.topic : staticSp.topic,
       linkedin: jsonSp.linkedin || staticSp.linkedin,
       imageSrc: jsonSp.avatar || staticSp.imageSrc,
       thematicAxis: jsonSp.trackName || staticSp.thematicAxis,
