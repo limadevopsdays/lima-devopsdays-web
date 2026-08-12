@@ -255,40 +255,6 @@
     "linkedin": "https://www.linkedin.com/in/jorgehincapie:tVGHK9SWK2HjRcV4xWWdnQdN8kvtxgJFXwBHkLdUZXw"
   },
   {
-    "code": "9GXPNV",
-    "name": "Daniel Malvaceda Canales",
-    "avatar": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6_thumbnail_tiny.webp",
-    "topic": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Daniel Malvaceda es Application Security Architect en Pacífico Seguros. Especializado en seguridad de CI/CD y ataques a la cadena de suministro, con foco reciente en AI Security. Co-fundador de pipebreach.com, un blog de investigación con análisis técnicos de incidentes reales de seguridad en la cadena de suministro.Co-organizador del village DevSecOps Space en Ekoparty. Speaker en eventos internacionales como: DevOps Days Medellín, 8.8 Security Conference y DEF CON.",
-    "company": "Pacifico Seguros",
-    "jobTitle": "Application Security Architect",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/danielmalvaceda/:7GGfenCXmoQgsYCr5Tn6DfN7iWczr4RVMpdiPMLjMf4"
-  },
-  {
-    "code": "VFGTEQ",
-    "name": "Ricardo Sanchez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp",
-    "topic": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Arquitecto de Seguridad con más de 10 años de experiencia, actualmente especializado en DevSecOps y prácticas avanzadas de AppSec. Comenzó su carrera diseñando estrategias de detección de amenazas basado en threat hunting, threat intelligence y monitoreo de amenazas. Hoy traslada ese mismo rigor analítico a la protección de la infraestructura donde se construye y despliega el software. Ha sido speaker a nivel nacional e internacional, con participaciones destacadas en Ekoparty y DEF CON, donde presentó investigaciones sobre anatomía de malware y dirigió workshops de emulación adversario.",
-    "company": "Pacifico Seguros",
-    "jobTitle": "Security Architect",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/ricardo-sanchez-bermudez/:4X5Ibz8Bu_cNyzIkN8s1nAArkJ5wULj6B_FhG3PG9aw"
-  },
-  {
     "code": "GUHE88",
     "name": "Ricardo Martins",
     "avatar": "https://talks.devopsdays.org/media/avatars/ZXJTGT_QB2MFPg.webp",
@@ -306,6 +272,23 @@
     "linkedin": "https://www.linkedin.com/in/ricardo-martins-cto/?locale=pt:wBX9okodH7GMcPg10Ktgbq1z6-sqBh95uMngall6W40"
   },
   {
+    "code": "9GXPNV",
+    "name": "Daniel Malvaceda Canales",
+    "avatar": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6_thumbnail_tiny.webp",
+    "topic": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true,
+    "biography": "Daniel Malvaceda es Application Security Architect en Pacífico Seguros. Especializado en seguridad de CI/CD y ataques a la cadena de suministro, con foco reciente en AI Security. Co-fundador de pipebreach.com, un blog de investigación con análisis técnicos de incidentes reales de seguridad en la cadena de suministro.Co-organizador del village DevSecOps Space en Ekoparty. Speaker en eventos internacionales como: DevOps Days Medellín, 8.8 Security Conference y DEF CON.",
+    "company": "Pacifico Seguros",
+    "jobTitle": "Application Security Architect",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/danielmalvaceda/:7GGfenCXmoQgsYCr5Tn6DfN7iWczr4RVMpdiPMLjMf4"
+  },
+  {
     "code": "EYSBV7",
     "name": "Andrea Griffiths",
     "avatar": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj.webp",
@@ -321,6 +304,23 @@
     "jobTitle": "Senior Developer Advocate",
     "location": "Estados Unidos",
     "linkedin": "https://www.linkedin.com/in/acolombiadev/:qJpbH19cbXEQzwrAUsEsam4s3_qrFP1PCCqyTM1A94E"
+  },
+  {
+    "code": "VFGTEQ",
+    "name": "Ricardo Sanchez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp",
+    "topic": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true,
+    "biography": "Arquitecto de Seguridad con más de 10 años de experiencia, actualmente especializado en DevSecOps y prácticas avanzadas de AppSec. Comenzó su carrera diseñando estrategias de detección de amenazas basado en threat hunting, threat intelligence y monitoreo de amenazas. Hoy traslada ese mismo rigor analítico a la protección de la infraestructura donde se construye y despliega el software. Ha sido speaker a nivel nacional e internacional, con participaciones destacadas en Ekoparty y DEF CON, donde presentó investigaciones sobre anatomía de malware y dirigió workshops de emulación adversario.",
+    "company": "Pacifico Seguros",
+    "jobTitle": "Security Architect",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/ricardo-sanchez-bermudez/:4X5Ibz8Bu_cNyzIkN8s1nAArkJ5wULj6B_FhG3PG9aw"
   },
   {
     "code": "XRQVPJ",
@@ -936,7 +936,7 @@
   },
   {
     "code": "T8ZMPH",
-    "name": "Christian",
+    "name": "Christian Rodas",
     "avatar": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG.webp",
     "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG_thumbnail_default.webp",
     "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG_thumbnail_tiny.webp",

@@ -1,4 +1,4 @@
-﻿import type { Locale } from '../../../i18n'
+import type { Locale } from '../../../i18n'
 import type { SessionType } from '../../../data/mockContent'
 
 type TypeLabel = { label: string }
@@ -17,8 +17,8 @@ type ScheduleI18n = {
 export const scheduleI18n: Record<Locale, ScheduleI18n> = {
   es: {
     eyebrow: 'Programa',
-    title: 'Dos días de charlas técnicas, talleres y open spaces',
-    lead: 'Agenda completa de DevOpsDays Lima 2026',
+    title: 'Conoce nuestro programa',
+    lead: 'Dos días de charlas técnicas, talleres y open spaces',
     day1Label: 'Día 1',
     day2Label: 'Día 2',
     day1Date: '27 Ago',
@@ -34,8 +34,8 @@ export const scheduleI18n: Record<Locale, ScheduleI18n> = {
   },
   en: {
     eyebrow: 'Schedule',
-    title: 'Two days of technical talks, workshops and open spaces',
-    lead: 'Full agenda for DevOpsDays Lima 2026',
+    title: 'Discover our program',
+    lead: 'Two days of technical talks, workshops and open spaces',
     day1Label: 'Day 1',
     day2Label: 'Day 2',
     day1Date: 'Aug 27',

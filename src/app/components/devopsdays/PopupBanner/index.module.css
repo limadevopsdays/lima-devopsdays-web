@@ -18,15 +18,16 @@
 .banner {
   position: relative;
   width: 100%;
-  max-width: 460px;
-  max-height: 90vh;
+  max-width: 520px;
+  max-height: 85vh;
   overflow-y: auto;
   border-radius: 1.5rem;
   overflow: hidden;
+  background: #090d16;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 32px 64px rgba(0, 0, 0, 0.55),
-    0 0 80px rgba(124, 58, 237, 0.18);
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 32px 64px rgba(0, 0, 0, 0.65),
+    0 0 80px rgba(124, 58, 237, 0.25);
 }
 
 /* Close button */

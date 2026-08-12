@@ -57,8 +57,52 @@ export function CountdownSection() {
             </div>
           </div>
 
-          {/* Right: Countdown Timer Hidden */}
-          {/* Timer hidden per user request */}
+          {/* Right: Countdown */}
+          {!isEventStarted && (
+            <div className={styles.countdown}>
+              <div className={styles.countdownUnit}>
+                <div className={styles.countdownBox}>
+                  <span className={styles.countdownNumber}>
+                    {String(days).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className={styles.countdownLabel}>{t.days}</span>
+              </div>
+
+              <span className={styles.countdownSeparator}>:</span>
+
+              <div className={styles.countdownUnit}>
+                <div className={styles.countdownBox}>
+                  <span className={styles.countdownNumber}>
+                    {String(hours).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className={styles.countdownLabel}>{t.hours}</span>
+              </div>
+
+              <span className={styles.countdownSeparator}>:</span>
+
+              <div className={styles.countdownUnit}>
+                <div className={styles.countdownBox}>
+                  <span className={styles.countdownNumber}>
+                    {String(minutes).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className={styles.countdownLabel}>{t.minutes}</span>
+              </div>
+
+              <span className={styles.countdownSeparator}>:</span>
+
+              <div className={styles.countdownUnit}>
+                <div className={styles.countdownBox}>
+                  <span className={styles.countdownNumber}>
+                    {String(seconds).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className={styles.countdownLabel}>{t.seconds}</span>
+              </div>
+            </div>
+          )}
 
         </div>
       </div>
