@@ -105,14 +105,16 @@
 /* ─── Compact grid ────────────────────────────────────────────────────────── */
 .schSpeakersGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
-  gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
   margin-top: 1.5rem;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
   .schSpeakersGrid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.9rem;
   }
 }
 
@@ -131,12 +133,14 @@
 .schSpeakerCard {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: stretch;
+  text-align: left;
   padding: 1.4rem 1.05rem 1.1rem;
   border-radius: 0.875rem;
   border: 1px solid #d0d7de;
   background: #ffffff;
+  height: auto !important;
+  min-height: 0;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -152,7 +156,7 @@
 .schSpeakerCard:focus-within {
   transform: translateY(-4px);
   border-color: #94a3b8;
-  filter: brightness(1.05) saturate(1.08);
+  box-shadow: none;
 }
 
 /* ─── Avatar ──────────────────────────────────────────────────────────────── */
@@ -160,8 +164,27 @@
   position: relative;
   width: 6.1rem;
   height: 6.1rem;
-  margin-bottom: 0.95rem;
+  margin: 0 auto 0.95rem;
+  align-self: center;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.schSpeakerAvatarWrap span[class*="invitedCountryFlag"],
+.schSpeakerAvatarWrap :global(.invitedCountryFlag),
+.schSpeakerAvatarWrap > span:last-child {
+  width: 1.4rem;
+  height: 0.95rem;
+  right: 0.1rem;
+  bottom: 0.1rem;
+  border-width: 1.5px;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+  z-index: 10;
+  transform: translateZ(0);
 }
 
 .schSpeakerAvatar {
@@ -175,11 +198,9 @@
   width: 6.1rem;
   height: 6.1rem;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    var(--track-color, #6B51EF) 0%,
-    color-mix(in srgb, var(--track-color, #6B51EF) 55%, white) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--track-color, #6B51EF) 0%,
+      color-mix(in srgb, var(--track-color, #6B51EF) 55%, white) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,116 +215,35 @@
 .schSpeakerInfo {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  text-align: left;
   gap: 0.3rem;
   flex: 1;
   width: 100%;
 }
 
-.schSpeakerName {
-  font-family: var(--brand-heading-fontFamily);
-  font-size: 0.92rem;
-  font-weight: 800;
-  color: var(--color-slate-900);
-  margin: 0;
-  line-height: 1.2;
-}
-
-.schSpeakerTrackBadge {
-  display: inline-flex;
-  align-items: center;
-  margin: 0.4rem 0 0;
-  color: var(--track-color, #2563eb);
-  font-family: var(--brand-body-fontFamily);
-  font-size: var(--brand-text-size-25);
-  font-weight: var(--brand-text-weight-600);
-  letter-spacing: var(--brand-text-letterSpacing-300);
-  line-height: var(--brand-text-lineHeight-300);
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.schSpeakerTopic {
-  font-size: 0.78rem;
-  color: var(--brand-color-text-muted);
-  line-height: 1.3;
-  margin: 0.1rem 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* ─── Top row: company + linkedin ─────────────────────────────────────────── */
-.schSpeakerTopRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  min-height: 1.5rem;
-  margin-bottom: 0.6rem;
-  gap: 0.4rem;
-}
-
-.schSpeakerCompany {
-  font-family: var(--brand-body-fontFamily);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--brand-color-text-muted);
-  letter-spacing: 0.03em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 80%;
+.schSpeakerInfo h3,
+.schSpeakerInfo p {
   text-align: left;
+  width: 100%;
 }
 
-.schSpeakerLinkedin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #64748b;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
-  margin-left: auto;
+.schSpeakerInfo div[class*="invitedTopRow"] {
+  justify-content: flex-start;
+  width: 100%;
 }
 
-.schSpeakerLinkedin:hover {
-  background: #0077b5;
-  border-color: #0077b5;
-  color: #ffffff;
-  transform: scale(1.1);
+.schSpeakerInfo div[class*="invitedTopicBlock"] {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
 }
 
-.schSpeakerLinkedinIcon {
-  width: 0.8rem;
-  height: 0.8rem;
-}
-
-/* ─── Role ────────────────────────────────────────────────────────────────── */
-.schSpeakerRole {
-  font-size: 0.72rem;
-  font-family: var(--brand-body-fontFamily);
-  color: var(--brand-color-text-muted);
-  font-weight: 400;
-  line-height: 1.3;
-  margin: 0.05rem 0 0;
-  font-style: italic;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.schSpeakerInfo p[class*="invitedTopicHashtag"] {
+  text-align: left;
+  width: 100%;
 }
 
 /* ─── Topic ────────────────────────────────────────────────────────────────── */
@@ -351,7 +291,47 @@
 .paginationPages {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.35rem;
+  max-width: 100%;
+}
+
+@media (max-width: 639px) {
+  .schSpeakerCard {
+    align-items: center;
+    text-align: center;
+  }
+
+  .schSpeakerInfo {
+    align-items: center;
+    text-align: center;
+  }
+
+  .schSpeakerInfo h3,
+  .schSpeakerInfo p,
+  .schSpeakerInfo p[class*="invitedTopicHashtag"],
+  .schSpeakerInfo p[class*="invitedMemberTalk"] {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .schSpeakerInfo div[class*="invitedTopRow"] {
+    justify-content: center;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .paginationPages {
+    max-width: 180px;
+    row-gap: 0.4rem;
+    column-gap: 0.3rem;
+  }
 }
 
 .paginationDot {
@@ -390,4 +370,3 @@
   border-color: #5a43d0;
   color: #ffffff;
 }
-

@@ -337,7 +337,10 @@ function InvitedSpeakerCard({
   const cleanName = speaker.name ? speaker.name.replace(/\s*-\s*\[\s*moderador\s*\]/i, '').trim() : ''
 
   return (
-    <article className={`${styles.invitedCard} ${isExpanded ? styles.invitedCardExpanded : ''} ${className || ''}`}>
+    <article
+      className={`${styles.invitedCard} ${isExpanded ? styles.invitedCardExpanded : ''} ${className || ''}`}
+      style={{ '--track-color': speaker.thematicAxisColor || '#2563eb' } as CSSProperties}
+    >
       {isModerator && (
         <div className={styles.moderatorRibbon}>
           <span>🎙️ Moderador</span>
@@ -391,10 +394,7 @@ function InvitedSpeakerCard({
               isExpanded ? styles.invitedMetaExpanded : styles.invitedMetaTruncated
             } ${!isExpanded && isOverflowing ? styles.invitedMetaOverflowing : ''}`}
           >
-            <div
-              className={styles.invitedTopRow}
-              style={{ '--track-color': speaker.thematicAxisColor || '#2563eb' } as CSSProperties}
-            >
+            <div className={styles.invitedTopRow}>
               {speaker.company ? (
                 <span className={styles.invitedTag}>
                   {speaker.company}

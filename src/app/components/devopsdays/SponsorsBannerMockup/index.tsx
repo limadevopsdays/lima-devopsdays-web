@@ -1,3 +1,5 @@
+import { useI18n } from '../../../i18n'
+import { sponsorsBannerMockupI18n } from './i18n'
 import styles from './index.module.css'
 
 const PLATINUM_HDR_LOGOS = [
@@ -14,10 +16,12 @@ const PLATINUM_HDR_LOGOS = [
 ]
 
 export function SponsorsBannerMockup() {
+  const t = useI18n(sponsorsBannerMockupI18n)
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <p className={styles.title}>Speakers and sponsors from</p>
+        <p className={styles.title}>{t.title}</p>
         <div className={styles.marqueeRoot} aria-label="Sponsors Marquee">
           {/* Left & Right Edge Fade Gradients */}
           <div className={styles.edgeStart} />

@@ -147,28 +147,9 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
 
   return (
     <article
-      className={own.schSpeakerCard}
+      className={`${own.schSpeakerCard} ${shared.invitedCard}`}
       style={{ '--track-color': trackColor } as CSSProperties}
     >
-      {/* Top row: company + linkedin */}
-      <div className={own.schSpeakerTopRow}>
-        {speaker.company && (
-          <span className={own.schSpeakerCompany}>{speaker.company}</span>
-        )}
-        {speaker.linkedin && (
-          <a
-            href={speaker.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={own.schSpeakerLinkedin}
-            aria-label={`LinkedIn de ${speaker.name}`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Linkedin className={own.schSpeakerLinkedinIcon} />
-          </a>
-        )}
-      </div>
-
       {/* Avatar */}
       <div className={own.schSpeakerAvatarWrap}>
         {avatar.src ? (
@@ -182,31 +163,62 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
         ) : (
           <div className={own.schSpeakerAvatarFallback}>{initials}</div>
         )}
+        {speaker.location ? (
+          <CountryFlag
+            country={speaker.location}
+            className={shared.invitedCountryFlag}
+            svgClassName={shared.countryFlagSvg}
+          />
+        ) : null}
       </div>
 
-      {/* Info */}
-      <div className={own.schSpeakerInfo}>
+      {/* Info con estructura de invitedMeta */}
+      <div className={`${own.schSpeakerInfo} ${shared.invitedMeta}`}>
+        {/* Top row: company + linkedin */}
+        <div className={shared.invitedTopRow}>
+          {speaker.company && (
+            <span className={shared.invitedTag}>{speaker.company}</span>
+          )}
+          {speaker.linkedin && (
+            <a
+              href={speaker.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={shared.invitedLinkedin}
+              aria-label={`LinkedIn de ${speaker.name}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Linkedin className={shared.invitedLinkedinIcon} />
+            </a>
+          )}
+        </div>
+
         {/* name */}
-        <h3 className={own.schSpeakerName}>{speaker.name}</h3>
+        <h3 className={shared.invitedMemberName}>{speaker.name}</h3>
 
         {/* rol */}
         {speaker.jobTitle && (
-          <p className={own.schSpeakerRole}>{speaker.jobTitle}</p>
+          <p className={shared.invitedMemberJob}>{speaker.jobTitle}</p>
         )}
 
-        {/* charla */}
-        {speaker.topic && (
-          <p className={own.schSpeakerTopic}>{speaker.topic}</p>
-        )}
+        {/* charla + track */}
+        {(speaker.topic || speaker.trackName) && (
+          <div className={shared.invitedTopicBlock}>
+            {speaker.topic && (
+              <p className={shared.invitedMemberTalk}>
+                <span>{speaker.topic}</span>
+              </p>
+            )}
 
-        {/* eje temático */}
-        {speaker.trackName && (
-          <span
-            className={`${own.schSpeakerTrackBadge} ${shared.keynoteTopicHashtag}`}
-            style={{ '--track-color': trackColor } as CSSProperties}
-          >
-            #{speaker.trackName}
-          </span>
+            {speaker.trackName && (
+              <p
+                className={shared.invitedTopicHashtag}
+                style={{ '--track-color': trackColor } as CSSProperties}
+              >
+                #{speaker.trackName}
+              </p>
+            )}
+          </div>
         )}
       </div>
     </article>
@@ -214,7 +226,13 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
 }
 
 
-const PAGE_SIZE = 10
+function getResponsivePageSize() {
+  if (typeof window === 'undefined') return 10
+  const width = window.innerWidth
+  if (width < 640) return 4
+  if (width < 1024) return 8
+  return 10
+}
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export function ScheduleSpeakersSection({
@@ -224,7 +242,16 @@ export function ScheduleSpeakersSection({
   const locale = useLocale() as 'es' | 'en'
   const [activeTrack, setActiveTrack] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize, setPageSize] = useState(getResponsivePageSize)
   const [isCollapsed, setIsCollapsed] = useState(false)
+
+  useEffect(() => {
+    function handleResize() {
+      setPageSize(getResponsivePageSize())
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const visibleSpeakers = cfpScheduleSpeakers.filter(
     (speaker) => !EXCLUDED_CFP_CODES.has(speaker.code) && !isPanelSpeaker(speaker)
@@ -235,13 +262,13 @@ export function ScheduleSpeakersSection({
     ? visibleSpeakers.filter((sp) => sp.trackNameEn === activeTrack)
     : visibleSpeakers
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
-  const paginated = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+  const totalPages = Math.ceil(filtered.length / pageSize)
+  const paginated = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize)
 
-  // Reset to page 1 when filter changes
+  // Reset to page 1 when filter or pageSize changes
   useEffect(() => {
     setCurrentPage(1)
-  }, [activeTrack])
+  }, [activeTrack, pageSize])
 
   function handleTrackClick(key: string) {
     setActiveTrack((prev) => (prev === key ? null : key))

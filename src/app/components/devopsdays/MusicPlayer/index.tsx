@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { Play, Pause, Volume2, VolumeX, ChevronDown, ChevronUp, X, SkipBack, SkipForward } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, ChevronDown, ChevronUp, X, SkipBack, SkipForward, Maximize2 } from 'lucide-react'
 import styles from './index.module.css'
 
 const PLAYLIST = [
@@ -23,10 +23,15 @@ export function MusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(false)
-  const [volume, setVolume] = useState(0.4)
+  const [volume, setVolume] = useState(0.3)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [minimized, setMinimized] = useState(false)
+  const [minimized, setMinimized] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 600
+    }
+    return false
+  })
   const [showVolume, setShowVolume] = useState(false)
   const [videoVolume, setVideoVolume] = useState(0)
   const [showLightbox, setShowLightbox] = useState(false)
@@ -103,7 +108,16 @@ export function MusicPlayer() {
         })
     }
 
-    const handleGesture = () => {
+    const handleGesture = (e?: Event) => {
+      if (e && e.target instanceof Element) {
+        if (
+          e.target.closest('[role="dialog"]') ||
+          e.target.closest('[class*="overlay"]') ||
+          e.target.closest('[class*="banner"]')
+        ) {
+          return
+        }
+      }
       playAudio()
     }
 
@@ -166,8 +180,9 @@ export function MusicPlayer() {
       cleanupObserver
     }
 
-    // Try playing immediately on mount
-    playAudio()
+    // Solo esperar gestos o scroll para reproducir (no autoplay en mount)
+    setupGestureListeners()
+    setupIntersectionObserver()
 
     return () => {
       cleanupGestureListeners()
@@ -311,10 +326,16 @@ export function MusicPlayer() {
       )}
 
       {minimized ? (
-        /* Minimized: click to expand */
-        <div className={styles.minimizeBtn}>
+        /* Minimized mini player: click to expand */
+        <div 
+          className={styles.miniContainer} 
+          onClick={() => setMinimized(false)}
+          aria-label="Expandir reproductor de música"
+        >
           <span className={styles.minimizeLabel}>{PLAYLIST[currentTrackIndex].title}</span>
-          <ChevronUp size={16} strokeWidth={2.5} className={styles.expandIcon} />
+          <div className={styles.expandBadge} title="Expandir reproductor">
+            <Maximize2 size={13} strokeWidth={2.5} className={styles.expandIcon} />
+          </div>
         </div>
       ) : (
         <div className={styles.controls}>
