@@ -345,9 +345,13 @@ export const sponsors = [
       },
       {
         name: 'CertDirectory',
-        href: 'https://certdirectory.io/'
-        ,
+        href: 'https://certdirectory.io/',
         logo: '/images/sponsors/community/certdirectory.png'
+      },
+      {
+        name: 'DevOps Institute',
+        href: 'https://www.devopsinstitute.com/',
+        logo: '/images/sponsors/community/devopsinstitute.png'
       },
     ],
   },
