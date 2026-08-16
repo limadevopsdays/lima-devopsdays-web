@@ -1,0 +1,35 @@
+name: Update Schedule
+
+on:
+  schedule:
+    # Ej: Ejecutar todos los días a las 06:00 UTC (ajustable)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run update-schedule
+        run: npm run update-schedule
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-update schedule data [skip ci]"
+          branch: ${{ github.ref_name }}

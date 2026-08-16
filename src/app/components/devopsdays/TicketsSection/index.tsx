@@ -20,7 +20,8 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
   const WrapperTag = variant === 'page' ? 'section' : 'div'
   const pricingAnnounced = isTicketSaleOpen()
   const earlyBird = isEarlyBird()
-  const vipSoldOut = variant === 'home'
+  const vipSoldOut = true
+  const generalSoldOut = true
   const t = useI18n(ticketsI18n)
 
   return (
@@ -38,14 +39,10 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
 
         <div className={styles.ticketsGrid}>
           {/* ENTRADA VIP */}
-          <a
-            href={TICKETS_REGISTER_URL}
-            target="_blank"
-            rel="noreferrer"
+          <div
             className={styles.ticketWrapper}
             data-type="vip"
             aria-label={t.ariaVip}
-            data-track-name={variant === 'page' ? 'ver_ticket_vip_tickets_section_tickets' : 'ver_ticket_vip_tickets_section_home'}
           >
             <div className={styles.ticketCard}>
               {/* Perforaciones arriba y abajo (ticket horizontal) */}
@@ -144,13 +141,10 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                 </div>
               </div>
             </div>
-          </a>
+          </div>
 
           {/* ENTRADA GENERAL */}
-          <a
-            href={TICKETS_REGISTER_URL}
-            target="_blank"
-            rel="noreferrer"
+          <div
             className={styles.ticketWrapper}
             data-type="general"
             aria-label={t.ariaGeneral}
@@ -200,7 +194,19 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
 
                 {/* DERECHA: Pricing compacto */}
                 <div className={styles.ticketPricing}>
-                  {!pricingAnnounced && (
+                  {generalSoldOut && (
+                    <div className={styles.comingSoonBlock}>
+                      <div className={styles.priceStamp} data-color="general">
+                        {t.soldOut}
+                      </div>
+                      <div className={styles.priceGroup}>
+                        <div className={styles.priceMain} data-color="general">{earlyBird ? '$69.90' : '$99.90'}</div>
+                        {earlyBird && <div className={styles.priceStrikethrough}>$99.90</div>}
+                      </div>
+                    </div>
+                  )}
+
+                  {!generalSoldOut && !pricingAnnounced && (
                     <div className={styles.comingSoonBlock}>
                       <div className={styles.priceStamp} data-color="general">
                         {t.comingSoon}
@@ -212,7 +218,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                     </div>
                   )}
 
-                  {pricingAnnounced && (
+                  {!generalSoldOut && pricingAnnounced && (
                     <>
                       {earlyBird ? (
                         <div className={styles.priceBadge} data-color="general">
@@ -241,7 +247,7 @@ export function TicketsSection({ variant = 'home' }: TicketsSectionProps) {
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </div>
 
         {variant === 'home' && (

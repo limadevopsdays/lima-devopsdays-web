@@ -261,6 +261,23 @@ async function main() {
   console.log('')
 
   // 3. Save files
+  const ROOM_NAME_MAP = {
+    281: { en: 'Puruchuco - Principal', es: 'Puruchuco - Principal' },
+    282: { en: 'Manchay', es: 'Manchay' },
+    283: { en: 'Armatambo', es: 'Armatambo' },
+    284: { en: 'Paraiso', es: 'Paraiso' },
+    285: { en: 'Maranga - Workshop', es: 'Maranga - Talleres' },
+    286: { en: 'Terrace', es: 'Terrace' },
+  }
+
+  if (Array.isArray(parsed.rooms)) {
+    parsed.rooms.forEach((r) => {
+      if (ROOM_NAME_MAP[r.id]) {
+        r.name = ROOM_NAME_MAP[r.id]
+      }
+    })
+  }
+
   fs.mkdirSync(path.dirname(DEST), { recursive: true })
   fs.writeFileSync(DEST, JSON.stringify(parsed, null, 2), 'utf-8')
   fs.writeFileSync(SPEAKERS_DEST, JSON.stringify(scheduleSpeakers, null, 2), 'utf-8')

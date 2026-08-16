@@ -242,16 +242,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className={styles.ctaButtons}>
-            <Link
-              to="/tickets"
-              className={`${styles.ctaButton} ${styles.ctaPrimary}`}
-              data-track-name="comprar_tickets_hero_home"
-            >
-              {t.primaryCta}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+
         </motion.div>
 
         {/* ── Right: Outer panel with two slides ── */}

@@ -181,7 +181,6 @@
     background 0.24s ease,
     color 0.24s ease,
     border-color 0.24s ease,
-    transform 0.24s ease,
     box-shadow 0.24s ease;
 }
 
@@ -193,13 +192,6 @@
   border-color: var(--track-color, #6B51EF);
   color: color-mix(in srgb, var(--track-color, #6B51EF) 90%, #0f172a);
   box-shadow: none;
-}
-
-.invitedFilterTab:hover,
-.invitedFilterTab:focus-visible,
-.invitedFilterTabActive:hover,
-.invitedFilterTabActive:focus-visible {
-  transform: translateY(-1px);
 }
 
 .invitedEmptyState {

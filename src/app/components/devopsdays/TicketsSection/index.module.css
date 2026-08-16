@@ -1,13 +1,13 @@
 /* TicketsSection - DISEÑO HORIZONTAL COMPACTO (Ticket Real) */
 
 .section {
-  background: var(--color-slate);
+  background: var(--color-white);
   padding: 3rem 0;
   margin: 0;
 }
 
 .sectionHome {
-  background: var(--color-slate);
+  background: var(--color-white);
   margin: 0;
   scroll-margin-top: 3rem;
 }

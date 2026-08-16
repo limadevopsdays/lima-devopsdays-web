@@ -174,18 +174,7 @@ export function NavbarSection() {
           </button>
         </div>
 
-        {/* CTA */}
-        <a
-          href={siteContent.registrationUrl}
-          className={styles.ctaButton}
-          aria-label={t.ariaBuyTickets}
-          target="_blank"
-          rel="noreferrer"
-          data-track-name="comprar_tickets_navbar_home"
-        >
-          <span>{t.ctaLabel}</span>
-          <ArrowRight className={styles.ctaIcon} aria-hidden="true" />
-        </a>
+
 
         {/* Mobile toggle */}
         <button
@@ -237,19 +226,7 @@ export function NavbarSection() {
                 </button>
               </div>
             </li>
-            <li className={styles.mobileMenuCta}>
-              <a
-                href={siteContent.registrationUrl}
-                className={styles.mobileCtaButton}
-                onClick={() => setMenuOpen(false)}
-                target="_blank"
-                rel="noreferrer"
-                data-track-name="comprar_tickets_navbar_home"
-              >
-                <span>{t.ctaLabel}</span>
-                <ArrowRight className={styles.ctaIcon} aria-hidden="true" />
-              </a>
-            </li>
+
           </ul>
         </div>
       )}

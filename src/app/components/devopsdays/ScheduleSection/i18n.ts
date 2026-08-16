@@ -16,11 +16,11 @@ type ScheduleI18n = {
 
 export const scheduleI18n: Record<Locale, ScheduleI18n> = {
   es: {
-    eyebrow: 'Programa',
-    title: 'Conoce nuestro programa',
+    eyebrow: 'Agenda',
+    title: 'Nuestra agenda 2026',
     lead: 'Dos días de charlas técnicas, talleres y open spaces',
-    day1Label: 'Día 1',
-    day2Label: 'Día 2',
+    day1Label: 'Jue, 27 Ago',
+    day2Label: 'Vie, 28 Ago',
     day1Date: '27 Ago',
     day2Date: '28 Ago',
     typeLabels: {
@@ -34,10 +34,10 @@ export const scheduleI18n: Record<Locale, ScheduleI18n> = {
   },
   en: {
     eyebrow: 'Schedule',
-    title: 'Discover our program',
+    title: 'Our 2026 schedule',
     lead: 'Two days of technical talks, workshops and open spaces',
-    day1Label: 'Day 1',
-    day2Label: 'Day 2',
+    day1Label: 'Thu, Aug 27',
+    day2Label: 'Fri, Aug 28',
     day1Date: 'Aug 27',
     day2Date: 'Aug 28',
     typeLabels: {
