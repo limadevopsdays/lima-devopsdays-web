@@ -27,9 +27,9 @@ export default function HomePage() {
       <CountdownSection />
       <AboutSection />
       <SponsorsBannerMockup />
-      <SpeakersSection showInvited showCfpSpeakers />
       <ScheduleSection />
       <SponsorsSection />
+      <SpeakersSection showInvited showCfpSpeakers />
       <section className={styles.ticketsGalleryBlock} aria-label={t.ticketsGallerySectionLabel}>
         <TicketsSection />
         <GallerySection />

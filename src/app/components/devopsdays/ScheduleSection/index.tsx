@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Clock, MapPin, Calendar, Filter, Star, X, ExternalLink, ChevronDown } from 'lucide-react'
+import { Clock, MapPin, Calendar, Search, Star, X, ExternalLink, ChevronDown, Tag } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { SectionHeader } from '../SectionHeader'
 import { useI18n, useLocale } from '../../../i18n'
@@ -89,23 +89,36 @@ function TalkSpeakerAvatar({
 // ─── Parallel columns for rooms on Desktop ────────────────────────────────────
 // Sourced from Pretalx IDs in exact visual order shown in screenshot:
 const PARALLEL_ROOMS = [
-  { id: 286, nameEs: 'Terrace', nameEn: 'Terrace', color: '#cbd5e1' },
-  { id: 281, nameEs: 'Sala Principal', nameEn: 'Main Room', color: '#6b51ef' },
-  { id: 282, nameEs: 'Sala A', nameEn: 'Room A', color: '#93e279' },
-  { id: 284, nameEs: 'Sala C', nameEn: 'Room C', color: '#fb923c' },
-  { id: 283, nameEs: 'Sala B', nameEn: 'Room B', color: '#1ebdd1' },
-  { id: 285, nameEs: 'Talleres', nameEn: 'Workshops', color: '#10b981' },
+  { id: 286, nameEs: 'Terrace', nameEn: 'Terrace', color: '#DCA10D' },
+  { id: 281, nameEs: 'Puruchuco - Principal', nameEn: 'Puruchuco - Principal', color: '#D92B2B' },
+  { id: 282, nameEs: 'Manchay', nameEn: 'Manchay', color: '#1D64D8' },
+  { id: 284, nameEs: 'Paraiso', nameEn: 'Paraiso', color: '#E05A1B' },
+  { id: 283, nameEs: 'Armatambo', nameEn: 'Armatambo', color: '#D93688' },
+  { id: 285, nameEs: 'Maranga - Talleres', nameEn: 'Maranga - Workshop', color: '#2A9D4E' },
 ]
 
 const TRACK_COLOR_MAP: Record<string, string> = {
+  '200': '#2563eb', // Platform Engineering & DevOps
+  '201': '#f97316', // Security & Technology Transformation
+  '199': '#14b8a6', // Modern Leadership & Culture
+  '202': '#a78bfa', // Enterprise AI & Data Strategy
+  '230': '#475569', // Lightning Talk / Charla Relámpago (ID 230)
   'Platform Engineering & DevOps': '#2563eb',
   'Security & Technology Transformation': '#f97316',
   'Modern Leadership & Culture': '#14b8a6',
   'Enterprise AI & Data Strategy': '#a78bfa',
+  'Charla Relámpago': '#475569',
+  'Charla relámpago': '#475569',
+  'Lightning Talk': '#475569',
+  'Lightning talk': '#475569',
+  'lightning talk': '#475569',
+  'charla relámpago': '#475569',
 }
 
-function resolveTrackColor(trackName: string, fallback: string) {
-  return TRACK_COLOR_MAP[trackName] || fallback
+function resolveTrackColor(trackNameOrId: string | number | undefined, fallback: string) {
+  if (!trackNameOrId) return fallback
+  const key = String(trackNameOrId).trim()
+  return TRACK_COLOR_MAP[key] || TRACK_COLOR_MAP[key.toLowerCase()] || fallback
 }
 
 function formatTrackLabel(trackName: string) {
@@ -125,8 +138,13 @@ export function ScheduleSection() {
   const locale = useLocale() as 'es' | 'en'
 
   const [activeDay, setActiveDay] = useState<'day-1' | 'day-2'>('day-1')
-  const [selectedTrack, setSelectedTrack] = useState<string>('all')
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const [selectedRooms, setSelectedRooms] = useState<number[]>(() => PARALLEL_ROOMS.map((r) => r.id))
+  const [selectedTracks, setSelectedTracks] = useState<string[]>(() =>
+    (scheduleData.tracks as TrackRaw[])
+      .filter((tr) => tr.id !== 229)
+      .map((tr) => tr.id.toString())
+  )
   const [selectedTalk, setSelectedTalk] = useState<any | null>(null)
   const [showOnlyFavorites, setShowOnlyFavorites] = useState<boolean>(false)
   const [expandedTimeSlots, setExpandedTimeSlots] = useState<string[]>([])
@@ -209,7 +227,7 @@ export function ScheduleSection() {
     } else {
       setExpandedTimeSlots([])
     }
-  }, [activeDay, selectedTrack, showOnlyFavorites, favorites])
+  }, [activeDay, searchQuery, showOnlyFavorites, favorites])
 
   React.useEffect(() => {
     if (typeof window === 'undefined') return
@@ -301,17 +319,25 @@ export function ScheduleSection() {
   const speakersMap = new Map((scheduleData.speakers as SpeakerRaw[]).map((s) => [s.code, s]))
 
   // ─── Gather unique tracks for filter dropdown ───────────────────────────────
-  const tracksList = (scheduleData.tracks as TrackRaw[]).map((tr) => ({
-    id: tr.id.toString(),
-    name: formatTrackLabel(locale === 'es' ? tr.name.es : tr.name.en),
-    color: resolveTrackColor(tr.name.en, tr.color),
-  }))
+  const tracksList = (scheduleData.tracks as TrackRaw[])
+    .filter((tr) => tr.id !== 229 && tr.id.toString() !== '229')
+    .map((tr) => ({
+      id: tr.id.toString(),
+      name: formatTrackLabel(locale === 'es' ? tr.name.es : tr.name.en),
+      color: resolveTrackColor(tr.name.en, tr.color),
+    }))
 
   // ─── Filter talks for the selected active day ───────────────────────────────
   const activeDateStr = activeDay === 'day-1' ? '2026-08-27' : '2026-08-28'
+  const otherDateStr = activeDay === 'day-1' ? '2026-08-28' : '2026-08-27'
+  
   const rawTalksForDay = (scheduleData.talks as TalkRaw[]).filter(
     (talk) => talk.start && talk.start.startsWith(activeDateStr)
   )
+
+  const otherDayFavCount = (scheduleData.talks as TalkRaw[]).filter(
+    (talk) => talk.start && talk.start.startsWith(otherDateStr) && isTalkFav(talk)
+  ).length
 
   // ─── Parse and format each session ──────────────────────────────────────────
   const formattedTalks = rawTalksForDay.map((talk) => {
@@ -332,11 +358,14 @@ export function ScheduleSection() {
 
     // Normalize track colors for UI contrast
     let trackColor = trackObj?.color || '#6b51ef'
-    if (trackColor === '#000000' || trackColor === '#000') {
-      trackColor = '#64748b' // default slate
+    if (talk.track) {
+      trackColor = resolveTrackColor(talk.track, trackColor)
     }
     if (trackObj?.name?.en) {
       trackColor = resolveTrackColor(trackObj.name.en, trackColor)
+    }
+    if (trackObj?.name?.es) {
+      trackColor = resolveTrackColor(trackObj.name.es, trackColor)
     }
 
     const speakersList = (talk.speakers || []).map((code) => {
@@ -401,13 +430,61 @@ export function ScheduleSection() {
     }
   })
 
-  // ─── Filter based on Track and Room selection ──────────────────────────────
+  // Normalize text for flexible searching (accents, lowercase, trim)
+  const normalizeText = (text: string) =>
+    text
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim()
+
+  const rawQuery = searchQuery.trim()
+  const cleanQuery = rawQuery.startsWith('#') ? rawQuery.slice(1) : rawQuery
+  const normalizedQuery = normalizeText(cleanQuery)
+
+  const isTalkMatchingQuery = (talk: typeof formattedTalks[0]) => {
+    if (!normalizedQuery) return true
+
+    // 1. Check speaker names
+    const matchesSpeaker = talk.speakersList.some((sp) =>
+      normalizeText(sp.name).includes(normalizedQuery)
+    )
+
+    // 2. Check track name (matching both with and without leading '#')
+    const normalizedTrack = talk.trackName ? normalizeText(talk.trackName) : ''
+    const matchesTrack = Boolean(normalizedTrack && normalizedTrack.includes(normalizedQuery))
+
+    return matchesSpeaker || matchesTrack
+  }
+
+  // Track multi-select click handlers
+  const handleTrackChipClick = (trackId: string) => {
+    const allTrackIds = tracksList.map((tr) => tr.id)
+    setSelectedTracks((prev) => {
+      if (prev.length === allTrackIds.length) {
+        return [trackId]
+      }
+      if (prev.includes(trackId)) {
+        const next = prev.filter((id) => id !== trackId)
+        return next.length === 0 ? allTrackIds : next
+      } else {
+        const next = [...prev, trackId]
+        return next.length === allTrackIds.length ? allTrackIds : next
+      }
+    })
+  }
+
+  const handleAllTracksClick = () => {
+    setSelectedTracks(tracksList.map((tr) => tr.id))
+  }
+
+  // ─── Filter based on Search Query, Favorites, Room and Track selection ──────────────
   const filteredTalks = formattedTalks.filter((talk) => {
     if (showOnlyFavorites) {
       return isTalkFav(talk)
     }
 
-    const matchesTrack = selectedTrack === 'all' || talk.trackId === selectedTrack
+    const matchesSearch = isTalkMatchingQuery(talk)
 
     const isFullWidthEvent =
       !talk.roomId ||
@@ -415,14 +492,15 @@ export function ScheduleSection() {
       talk.title.toLowerCase().includes('almuerzo')
 
     const matchesRoom = isFullWidthEvent || (talk.roomId && selectedRooms.includes(talk.roomId))
+    const matchesTrack = isFullWidthEvent || !talk.trackId || selectedTracks.includes(talk.trackId)
 
-    return matchesTrack && matchesRoom
+    return matchesSearch && matchesRoom && matchesTrack
   })
 
-  // Find rooms that actually contain at least one track-matching event for the active day
+  // Find rooms that actually contain at least one search-matching event for the active day
   const roomsWithEvents = new Set<number>()
   formattedTalks.forEach((talk) => {
-    const matchesTrack = selectedTrack === 'all' || talk.trackId === selectedTrack
+    const matchesSearch = isTalkMatchingQuery(talk)
     const isBreak =
       !talk.roomId ||
       talk.trackId === '229' ||
@@ -430,7 +508,7 @@ export function ScheduleSection() {
       talk.title.toLowerCase().includes('break') ||
       talk.title.toLowerCase().includes('receso')
       
-    if (matchesTrack && talk.roomId && !isBreak) {
+    if (matchesSearch && talk.roomId && !isBreak) {
       roomsWithEvents.add(talk.roomId)
     }
   })
@@ -462,7 +540,7 @@ export function ScheduleSection() {
     const defaultStart = timeToMinutes('08:00')
     const defaultEnd = timeToMinutes('18:30')
 
-    if (selectedTrack === 'all') {
+    if (!searchQuery) {
       return { startMinutes: defaultStart, endMinutes: defaultEnd }
     }
 
@@ -634,7 +712,17 @@ export function ScheduleSection() {
         <SectionHeader
           eyebrow={t.eyebrow}
           eyebrowColor="#6b51ef"
-          title={t.title}
+          title={
+            t.title.includes('2026') ? (
+              <>
+                {t.title.split('2026')[0]}
+                <span className={styles.titleYear}>2026</span>
+                {t.title.split('2026')[1]}
+              </>
+            ) : (
+              t.title
+            )
+          }
           lead={t.lead}
         />
 
@@ -652,66 +740,88 @@ export function ScheduleSection() {
                 }}
                 className={`${styles.tabButton} ${activeDay === key ? styles.tabButtonActive : ''}`}
               >
-                {locale === 'es' ? `${label}, ${date}` : `${label}, ${date}`}
+                {label}
               </button>
             ))}
           </div>
 
-          <button
-            type="button"
-            className={`${styles.tabButtonFav} ${showOnlyFavorites ? styles.tabButtonFavActive : ''}`}
-            onClick={() => {
-              setShowOnlyFavorites((prev) => {
-                const next = !prev
-                if (next) {
-                  setSelectedTrack('all') // Reset track filters when viewing personal agenda
-                }
-                return next
-              })
-            }}
-          >
-            <Star
-              className={`${styles.starIcon} ${showOnlyFavorites ? styles.starIconActive : ''}`}
-              size={14}
-            />
-            <span>{locale === 'es' ? 'Mis Favoritos' : 'My Schedule'}</span>
-            {favorites.length > 0 && (
-              <span className={styles.favBadge}>{favorites.length}</span>
+          <div className={styles.favContainer}>
+            <button
+              type="button"
+              className={`${styles.tabButtonFav} ${showOnlyFavorites ? styles.tabButtonFavActive : ''}`}
+              onClick={() => {
+                setShowOnlyFavorites((prev) => {
+                  const next = !prev
+                  if (next) {
+                    setSearchQuery('') // Reset search query when viewing personal agenda
+                  }
+                  return next
+                })
+              }}
+            >
+              <Star className={styles.tabStarIcon} fill="#f59e0b" color="#f59e0b" size={16} aria-hidden />
+              <span>{locale === 'es' ? 'Mis Favoritos' : 'My Schedule'}</span>
+              {favorites.length > 0 && (
+                <span className={styles.favBadge}>{favorites.length}</span>
+              )}
+            </button>
+
+            {showOnlyFavorites && (
+              <span className={styles.favNote}>
+                {otherDayFavCount > 0
+                  ? locale === 'es'
+                    ? `(Tienes ${otherDayFavCount} favoritos el ${activeDay === 'day-1' ? t.day2Date : t.day1Date})`
+                    : `(${otherDayFavCount} favorites on ${activeDay === 'day-1' ? t.day2Date : t.day1Date})`
+                  : locale === 'es'
+                    ? '(Mostrando tus favoritos de este día)'
+                    : '(Showing your favorites for this day)'}
+              </span>
             )}
-          </button>
+          </div>
         </div>
 
         {/* Filters Bar */}
         <div className={styles.filtersBar}>
-          {/* Track Filter */}
+          {/* Search Input Filter */}
           <div className={styles.filterGroup}>
             <span className={styles.filterLabel}>
-              <Filter size={14} />
-              {locale === 'es' ? 'Filtrar Eje:' : 'Filter Track:'}
+              <Search size={14} className={styles.mapPinIcon} />
+              {locale === 'es' ? 'Buscar:' : 'Search:'}
             </span>
-            <select
-              className={styles.filterSelect}
-              value={selectedTrack}
-              onChange={(e) => {
-                setSelectedTrack(e.target.value)
-                setShowOnlyFavorites(false) // Deactivate favorites when exploring specific tracks
-              }}
-            >
-              <option value="all">{locale === 'es' ? 'Todos los ejes' : 'All Tracks'}</option>
-              {tracksList
-                .filter((tr) => tr.id !== '229') // Hide general events track
-                .map((track) => (
-                  <option key={track.id} value={track.id}>
-                    {track.name}
-                  </option>
-                ))}
-            </select>
+            <div className={styles.searchInputWrapper}>
+              <input
+                type="text"
+                className={styles.searchInput}
+                placeholder={
+                  locale === 'es'
+                    ? 'Buscar por eje temático o speaker...'
+                    : 'Search by track or speaker...'
+                }
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value)
+                  setShowOnlyFavorites(false)
+                }}
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  className={styles.searchClearButton}
+                  onClick={() => setSearchQuery('')}
+                  aria-label={locale === 'es' ? 'Limpiar búsqueda' : 'Clear search'}
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
           </div>
+
+
 
           {/* Rooms Multi-Select Chips */}
           <div className={styles.filterGroupRooms}>
             <span className={styles.filterLabel}>
-              <MapPin size={14} />
+              <MapPin size={14} className={styles.mapPinIcon} />
               {locale === 'es' ? 'Salas Activas:' : 'Active Rooms:'}
             </span>
             <div className={styles.chipsContainer}>
@@ -735,12 +845,6 @@ export function ScheduleSection() {
                     style={{ '--track-color': room.color } as React.CSSProperties}
                     onClick={() => handleRoomChipClick(room.id)}
                   >
-                    {!isRoomActive && (
-                      <span
-                        className={styles.legendDot}
-                        style={{ '--track-color': room.color } as React.CSSProperties}
-                      />
-                    )}
                     {locale === 'es' ? room.nameEs : room.nameEn}
                   </button>
                 )
@@ -749,7 +853,15 @@ export function ScheduleSection() {
           </div>
         </div>
 
-        {/* Scrollable Timeline Grid Container */}
+        {/* Selected Date Indicator */}
+        <div className={styles.activeDayHeader}>
+          <h3 className={styles.activeDayTitle}>
+            {activeDay === 'day-1'
+              ? locale === 'es' ? 'Jueves, 27 de Agosto' : 'Thursday, August 27'
+              : locale === 'es' ? 'Viernes, 28 de Agosto' : 'Friday, August 28'}
+          </h3>
+        </div>
+
         {/* Scrollable Timeline Grid Container */}
         <div className={styles.board}>
           {displayedTalks.length > 0 ? (
@@ -767,7 +879,12 @@ export function ScheduleSection() {
                 <div
                   key={room.id}
                   className={styles.roomHeader}
-                  style={{ gridColumn: getRoomColumnIndex(room.id) }}
+                  style={
+                    {
+                      gridColumn: getRoomColumnIndex(room.id),
+                      '--room-color': room.color,
+                    } as React.CSSProperties
+                  }
                 >
                   <span className={styles.roomHeaderName}>
                     {locale === 'es' ? room.nameEs : room.nameEn}
@@ -775,17 +892,7 @@ export function ScheduleSection() {
                 </div>
               ))}
 
-              {/* Time Grid Horizontal Lines */}
-              {timeTicks.map((tick) => (
-                <div
-                  key={`line-${tick.time}`}
-                  className={styles.gridRowLine}
-                  style={{
-                    gridRowStart: tick.row,
-                    gridColumn: `1 / ${activeRoomsList.length + 2}`,
-                  }}
-                />
-              ))}
+
 
               {/* Time Column Labels */}
               {timeTicks.map((tick) => (
@@ -797,7 +904,8 @@ export function ScheduleSection() {
                     gridColumn: 1,
                   }}
                 >
-                  {tick.time}
+                  <Clock size={12} className={styles.gridTimeTickIcon} />
+                  <span>{tick.time}</span>
                 </div>
               ))}
 
@@ -870,9 +978,13 @@ export function ScheduleSection() {
                         className={styles.sessionCardBreak}
                         onClick={() => talk.abstract && setSelectedTalk(talk)}
                       >
-                        <div className={styles.breakContent}>
-                          <span>{talk.title}</span>
-                          <span className={styles.breakDuration}>({talk.duration} min)</span>
+                        <div className={styles.breakTopHeader}>
+                          <span className={styles.breakDurationSpan}>
+                            {talk.duration}min
+                          </span>
+                        </div>
+                        <div className={styles.breakTitle}>
+                          {talk.title}
                         </div>
                       </div>
                     </div>
@@ -890,58 +1002,64 @@ export function ScheduleSection() {
                       gridColumnEnd: colEnd,
                       zIndex: 4,
                       '--track-color': talk.trackColor,
+                      '--room-color': PARALLEL_ROOMS.find((r) => r.id === talk.roomId)?.color || '#6b51ef',
                     } as React.CSSProperties}
                   >
                     <div
                       className={`${styles.sessionCard} ${selectedTalk?.id === talk.id ? styles.sessionCardActive : ''}`}
                       onClick={() => setSelectedTalk(talk)}
                     >
-                      {/* Colored Time block on the Left */}
-                      <div className={styles.cardLeftBlock}>
-                        <span className={styles.cardLeftTime}>{talk.start}</span>
-                        <span className={styles.cardLeftDuration}>{talk.duration}m</span>
-                      </div>
-
-                      {/* Right side details block */}
-                      <div className={styles.cardRightBlock}>
-                        <div className={styles.cardHeaderRow}>
-                          <h4 className={styles.cardTitle}>{talk.title}</h4>
-                          <button
-                            type="button"
-                            className="p-0 border-0 bg-transparent cursor-pointer flex-shrink-0"
-                            onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
-                            aria-label="Add to favorites"
-                          >
-                            <Star
-                              className={`${styles.starIcon} ${isFav ? styles.starIconActive : ''}`}
-                            />
-                          </button>
-                        </div>
-
-                        {talk.speakersList.length > 0 && (
-                          <div className={styles.cardSpeakers}>
-                            {talk.speakersList.map((speaker, idx) => (
-                              <div key={idx} className="flex items-center gap-1.5 min-w-0 mr-2">
-                                <TalkSpeakerAvatar
-                                  speaker={speaker}
-                                  className={styles.speakerAvatar}
-                                  fallbackClassName={`${styles.speakerAvatar} flex items-center justify-center text-[8px] font-bold text-slate-400`}
-                                />
-                                <span className={styles.speakerName}>{speaker.name}</span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {talk.trackName && (
-                          <span
-                            className={styles.trackText}
-                            style={{ '--track-color': talk.trackColor } as React.CSSProperties}
-                          >
-                            #{talk.trackName}
+                      {/* Top Header: Time (Left) & Room Name (Right) */}
+                      <div className={styles.cardTopHeader}>
+                        <span className={styles.cardDurationSpan}>
+                          {talk.duration}min - {talk.start}
+                        </span>
+                        {talk.roomName && (
+                          <span className={styles.cardRoomTag}>
+                            <MapPin size={10} className={styles.cardRoomPinIcon} />
+                            <span className={styles.cardRoomText}>{talk.roomName}</span>
                           </span>
                         )}
+                        <button
+                          type="button"
+                          className={styles.cardFavButton}
+                          onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
+                          aria-label="Add to favorites"
+                        >
+                          <Star
+                            className={`${styles.starIcon} ${isFav ? styles.starIconActive : ''}`}
+                          />
+                        </button>
                       </div>
+
+                      {/* Main Talk Title */}
+                      <h4 className={styles.cardTitle}>{talk.title}</h4>
+
+                      {/* Speakers List */}
+                      {talk.speakersList.length > 0 && (
+                        <div className={styles.cardSpeakers}>
+                          {talk.speakersList.map((speaker, idx) => (
+                            <div key={idx} className="flex items-center gap-1.5 min-w-0 mr-2">
+                              <TalkSpeakerAvatar
+                                speaker={speaker}
+                                className={styles.speakerAvatar}
+                                fallbackClassName={`${styles.speakerAvatar} flex items-center justify-center text-[8px] font-bold text-slate-400`}
+                              />
+                              <span className={styles.speakerName}>{speaker.name}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Bottom Track Tag */}
+                      {talk.trackName && (
+                        <span
+                          className={styles.trackText}
+                          style={{ '--track-color': talk.trackColor } as React.CSSProperties}
+                        >
+                          #{talk.trackName}
+                        </span>
+                      )}
                     </div>
                   </div>
                 )
@@ -1015,7 +1133,7 @@ export function ScheduleSection() {
                           onClick={() => talk.abstract && setSelectedTalk(talk)}
                         >
                           <span className={styles.mobileBreakTitle}>{talk.title}</span>
-                          <span className={styles.mobileBreakDuration}>({talk.duration} min)</span>
+                          <span className={styles.mobileBreakDuration}>{talk.duration}min</span>
                         </div>
                       )
                     }
@@ -1023,68 +1141,64 @@ export function ScheduleSection() {
                     return (
                       <div
                         key={talk.id}
-                        className={styles.mobileTalkCard}
-                        style={{ '--track-color': talk.trackColor } as React.CSSProperties}
+                        className={styles.sessionCard}
+                        style={{
+                          '--track-color': talk.trackColor,
+                          '--room-color': PARALLEL_ROOMS.find((r) => r.id === talk.roomId)?.color || '#6b51ef',
+                        } as React.CSSProperties}
                         onClick={() => setSelectedTalk(talk)}
                       >
-                        <div className={styles.mobileCardHeader}>
-                          {/* Room and Track Badges */}
-                          <div className={styles.mobileCardBadges}>
-                            {talk.roomName && (
-                              <span
-                                className={styles.mobileRoomBadge}
-                                style={{ '--room-color': PARALLEL_ROOMS.find(r => r.id === talk.roomId)?.color || '#cbd5e1' } as React.CSSProperties}
-                              >
-                                {talk.roomName}
-                              </span>
-                            )}
-                            {talk.trackName && (
-                              <span
-                                className={styles.mobileTrackBadge}
-                                style={{ '--track-color': talk.trackColor } as React.CSSProperties}
-                              >
-                                #{talk.trackName}
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Favorite Button */}
+                        {/* Top Header: Time (Left), Room (Right), Favorite */}
+                        <div className={styles.cardTopHeader}>
+                          <span className={styles.cardDurationSpan}>
+                            {talk.duration}min - {talk.start}
+                          </span>
+                          {talk.roomName && (
+                            <span className={styles.cardRoomTag}>
+                              <MapPin size={10} className={styles.cardRoomPinIcon} />
+                              <span className={styles.cardRoomText}>{talk.roomName}</span>
+                            </span>
+                          )}
                           <button
                             type="button"
-                            className={styles.mobileFavBtn}
+                            className={styles.cardFavButton}
                             onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
                             aria-label="Add to favorites"
                           >
                             <Star
                               className={`${styles.starIcon} ${isFav ? styles.starIconActive : ''}`}
-                              size={16}
                             />
                           </button>
                         </div>
 
-                        <h4 className={styles.mobileTalkTitle}>{talk.title}</h4>
+                        {/* Title */}
+                        <h4 className={styles.cardTitle}>{talk.title}</h4>
 
+                        {/* Speakers */}
                         {talk.speakersList.length > 0 && (
-                          <div className={styles.mobileSpeakersList}>
+                          <div className={styles.cardSpeakers}>
                             {talk.speakersList.map((speaker, idx) => (
-                              <div key={idx} className={styles.mobileSpeaker}>
+                              <div key={idx} className="flex items-center gap-1.5 min-w-0 mr-2">
                                 <TalkSpeakerAvatar
                                   speaker={speaker}
-                                  className={styles.mobileSpeakerAvatar}
-                                  fallbackClassName={styles.mobileSpeakerAvatarPlaceholder}
+                                  className={styles.speakerAvatar}
+                                  fallbackClassName={`${styles.speakerAvatar} flex items-center justify-center text-[8px] font-bold text-slate-400`}
                                 />
-                                <span className={styles.mobileSpeakerName}>{speaker.name}</span>
+                                <span className={styles.speakerName}>{speaker.name}</span>
                               </div>
                             ))}
                           </div>
                         )}
-                        
-                        <div className={styles.mobileCardFooter}>
-                          <span className={styles.mobileDurationText}>
-                            <Clock size={12} />
-                            {talk.duration} min ({talk.start} - {talk.end})
+
+                        {/* Track Hashtag */}
+                        {talk.trackName && (
+                          <span
+                            className={styles.trackText}
+                            style={{ '--track-color': talk.trackColor } as React.CSSProperties}
+                          >
+                            #{talk.trackName}
                           </span>
-                        </div>
+                        )}
                       </div>
                     )
                   })}
@@ -1100,20 +1214,7 @@ export function ScheduleSection() {
           )}
         </div>
 
-        {/* Tracks Color Legend */}
-        <div className={styles.legend}>
-          {tracksList
-            .filter((tr) => tr.id !== '229')
-            .map((track) => (
-              <div key={track.id} className={styles.legendItem}>
-                <span
-                  className={styles.legendDot}
-                  style={{ '--track-color': track.color } as React.CSSProperties}
-                />
-                {track.name}
-              </div>
-            ))}
-        </div>
+
       </div>
 
       {/* Slide-over details modal overlay */}

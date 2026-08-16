@@ -150,76 +150,78 @@ export function ScheduleSpeakerCard({ speaker }: { speaker: ScheduleSpeaker }) {
       className={`${own.schSpeakerCard} ${shared.invitedCard}`}
       style={{ '--track-color': trackColor } as CSSProperties}
     >
-      {/* Avatar */}
-      <div className={own.schSpeakerAvatarWrap}>
-        {avatar.src ? (
-          <img
-            src={avatar.src}
-            alt={speaker.name}
-            className={own.schSpeakerAvatar}
-            loading="lazy"
-            onError={avatar.handleError}
-          />
-        ) : (
-          <div className={own.schSpeakerAvatarFallback}>{initials}</div>
-        )}
-        {speaker.location ? (
-          <CountryFlag
-            country={speaker.location}
-            className={shared.invitedCountryFlag}
-            svgClassName={shared.countryFlagSvg}
-          />
-        ) : null}
-      </div>
-
-      {/* Info con estructura de invitedMeta */}
-      <div className={`${own.schSpeakerInfo} ${shared.invitedMeta}`}>
-        {/* Top row: company + linkedin */}
-        <div className={shared.invitedTopRow}>
-          {speaker.company && (
-            <span className={shared.invitedTag}>{speaker.company}</span>
+      <div className={shared.invitedCardInner}>
+        {/* Avatar */}
+        <div className={own.schSpeakerAvatarWrap}>
+          {avatar.src ? (
+            <img
+              src={avatar.src}
+              alt={speaker.name}
+              className={own.schSpeakerAvatar}
+              loading="lazy"
+              onError={avatar.handleError}
+            />
+          ) : (
+            <div className={own.schSpeakerAvatarFallback}>{initials}</div>
           )}
-          {speaker.linkedin && (
-            <a
-              href={speaker.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={shared.invitedLinkedin}
-              aria-label={`LinkedIn de ${speaker.name}`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Linkedin className={shared.invitedLinkedinIcon} />
-            </a>
-          )}
+          {speaker.location ? (
+            <CountryFlag
+              country={speaker.location}
+              className={shared.invitedCountryFlag}
+              svgClassName={shared.countryFlagSvg}
+            />
+          ) : null}
         </div>
 
-        {/* name */}
-        <h3 className={shared.invitedMemberName}>{speaker.name}</h3>
-
-        {/* rol */}
-        {speaker.jobTitle && (
-          <p className={shared.invitedMemberJob}>{speaker.jobTitle}</p>
-        )}
-
-        {/* charla + track */}
-        {(speaker.topic || speaker.trackName) && (
-          <div className={shared.invitedTopicBlock}>
-            {speaker.topic && (
-              <p className={shared.invitedMemberTalk}>
-                <span>{speaker.topic}</span>
-              </p>
+        {/* Info con estructura de invitedMeta */}
+        <div className={`${own.schSpeakerInfo} ${shared.invitedMeta}`}>
+          {/* Top row: company + linkedin */}
+          <div className={shared.invitedTopRow}>
+            {speaker.company && (
+              <span className={shared.invitedTag}>{speaker.company}</span>
             )}
-
-            {speaker.trackName && (
-              <p
-                className={shared.invitedTopicHashtag}
-                style={{ '--track-color': trackColor } as CSSProperties}
+            {speaker.linkedin && (
+              <a
+                href={speaker.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={shared.invitedLinkedin}
+                aria-label={`LinkedIn de ${speaker.name}`}
+                onClick={(e) => e.stopPropagation()}
               >
-                #{speaker.trackName}
-              </p>
+                <Linkedin className={shared.invitedLinkedinIcon} />
+              </a>
             )}
           </div>
-        )}
+
+          {/* name */}
+          <h3 className={shared.invitedMemberName}>{speaker.name}</h3>
+
+          {/* rol */}
+          {speaker.jobTitle && (
+            <p className={shared.invitedMemberJob}>{speaker.jobTitle}</p>
+          )}
+
+          {/* charla + track */}
+          {(speaker.topic || speaker.trackName) && (
+            <div className={shared.invitedTopicBlock}>
+              {speaker.topic && (
+                <p className={shared.invitedMemberTalk}>
+                  <span>{speaker.topic}</span>
+                </p>
+              )}
+
+              {speaker.trackName && (
+                <p
+                  className={shared.invitedTopicHashtag}
+                  style={{ '--track-color': trackColor } as CSSProperties}
+                >
+                  #{speaker.trackName}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </article>
   )

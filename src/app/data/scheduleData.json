@@ -47,16 +47,18 @@
     {
       "code": "ZQKPBK",
       "id": 23158,
-      "title": "lightning talk - IBM",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[IBM] - Qué hay de nuevo en IBM",
+      "abstract": "Repasaremos rápidamente las novedades de IBM en los temas de Inteligencia Artificial Empresarial, Platform Engineering y Ciberseguridad, así como lo que IBM presentará en las Speaking Sessions, la Demo Session y el Booth de IBM.",
+      "speakers": [
+        "EWBK9A"
+      ],
       "track": 230,
       "start": "2026-08-27T09:30:00-05:00",
       "end": "2026-08-27T09:35:00-05:00",
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.261865+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "MHATFK",
@@ -70,7 +72,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.261874+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "R7LMPB",
@@ -100,7 +102,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.261892+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "QCHH8P",
@@ -114,7 +116,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.261900+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "MHL87A",
@@ -190,16 +192,18 @@
     {
       "code": "EL8DCE",
       "id": 23171,
-      "title": "MongoDB - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[MongoDB] - Arquitectura de memoria para agentes: cuántos motores de datos justifica tu plataforma",
+      "abstract": "Todo el mundo construye agentes, pero pocos piensan en cómo operarlos. Un sistema agéntico no tiene \"una\" memoria: maneja transcripciones, memoria de trabajo, largo plazo, conocimiento y estado de ejecución.\r\nEsta complejidad llevó al mercado a multiplicar categorías: bases de datos operacionales, vectoriales, de texto y memoria. Nadie eligió tener seis bases de datos, pero terminó con ellas; cada una con su propio runbook, alertas y cero transaccionalidad.\r\nEn esta charla desglosaremos la arquitectura real de memoria para agentes, mostrando cómo consolidarla eficientemente en producción sin pagar los costos operativos de la dispersión de motores.",
+      "speakers": [
+        "FTZYAE"
+      ],
       "track": null,
       "start": "2026-08-27T11:10:00-05:00",
       "end": "2026-08-27T11:30:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.261979+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "M97QN8",
@@ -284,16 +288,18 @@
     {
       "code": "QHHT8J",
       "id": 23179,
-      "title": "IBM - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[IBM] - Del Prompt a la Plataforma: Infraestructura Potenciada por IA con IBM Bob y Terraform",
+      "abstract": "-¿Qué sucede cuando un agente de IA comprende el contexto de tu infraestructura? Descubre cómo IBM Bob, el MCP de Terraform e Infragraph transforman la creación y comprensión de infraestructura como código, acelerando el desarrollo sin perder control ni gobernanza.",
+      "speakers": [
+        "VJQTLQ"
+      ],
       "track": null,
       "start": "2026-08-27T11:40:00-05:00",
       "end": "2026-08-27T12:00:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262047+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "8ZJJHM",
@@ -372,7 +378,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262114+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "AC7WCN",
@@ -392,7 +398,7 @@
       "room": 281,
       "duration": 40,
       "updated": "2026-08-07T23:57:52.262131+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "EZ9BUL",
@@ -411,16 +417,18 @@
     {
       "code": "VHAKXY",
       "id": 23194,
-      "title": "Arkano - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[Arkano] Nos comimos el presupuesto del año en tokens antes de julio",
+      "abstract": "-Todo empezó con una prueba de concepto exitosa. Meses después, distintos equipos utilizaban modelos en producción, la inversión crecía más rápido que la adopción y nadie podía explicar quién consumía qué ni qué valor estaba generando.\r\n\r\nEn esta charla contamos cómo pasamos de una única factura opaca a una visión clara del consumo por equipo, aplicación y caso de uso, y los tres drivers que impulsaban el gasto: uno evidente, otro escondido en la arquitectura y un tercero que descubrimos al cambiar la unidad de medida. También veremos cómo AI Governance, observabilidad y evaluación de calidad nos ayudaron a optimizar la inversión.\r\nEl hallazgo más inesperado: el consumo terminó siendo una de las mejores señales para maximizar el ROI de la IA.",
+      "speakers": [
+        "GSZYJ8"
+      ],
       "track": null,
       "start": "2026-08-27T14:30:00-05:00",
       "end": "2026-08-27T14:50:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262173+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "7RP7NX",
@@ -499,7 +507,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262241+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "YV3PFK",
@@ -552,16 +560,18 @@
     {
       "code": "F9GDYT",
       "id": 23204,
-      "title": "Nutanix - Demo",
+      "title": "[Nutanix] - Kubernetes sin ataduras: Cómo Nutanix NKP empodera a los desarrolladores con GitOps, Self-Service y cero lock-in.",
       "abstract": "-",
-      "speakers": [],
+      "speakers": [
+        "3AZABU"
+      ],
       "track": null,
       "start": "2026-08-27T15:30:00-05:00",
       "end": "2026-08-27T15:50:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262275+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "PYDYA8",
@@ -581,7 +591,7 @@
       "room": 281,
       "duration": 40,
       "updated": "2026-08-07T23:57:52.262338+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "TWCTY7",
@@ -595,7 +605,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262349+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "id": 23215,
@@ -664,7 +674,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262400+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "JBSRHG",
@@ -742,7 +752,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262478+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "NTWDDN",
@@ -821,7 +831,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262556+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "YSNBCM",
@@ -944,7 +954,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.262625+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "GVN77P",
@@ -958,7 +968,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.262633+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "W8TDLK",
@@ -974,7 +984,7 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-07T23:57:52.262642+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "YH9XNM",
@@ -988,7 +998,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.262650+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "CYD7S8",
@@ -1154,7 +1164,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262710+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "JWSZV8",
@@ -1168,7 +1178,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262769+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "TAPRV9",
@@ -1246,7 +1256,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262862+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "XJNVPX",
@@ -1329,16 +1339,18 @@
     {
       "code": "CARAUU",
       "id": 23283,
-      "title": "TSOFT - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[TSOF] - Orquestación multiagente en Jira: el SDLC de punta a punta",
+      "abstract": "La IA ya dejó de ser un asistente puntual dentro del desarrollo de software: hoy los agentes pueden tomar tickets, generar código y ejecutar workflows completos dentro del ciclo de vida del software (SDLC). Pero a medida que se suman más agentes trabajando en paralelo con los equipos, aparece una tensión nueva: coordinarlos sin criterio puede generar tanto caos como el que prometen resolver.\r\n\r\nEn esta charla técnica recorremos el ciclo de vida completo de una feature construida por agentes: cómo orquestar agentes de IA —propios y de terceros, conectados vía MCP— directamente en el flujo de trabajo de Jira, y por qué necesitan contexto arquitectónico real, no solo el texto de un ticket, para tomar buenas decisiones en cada etapa del desarrollo.",
+      "speakers": [
+        "7DQAN7"
+      ],
       "track": null,
       "start": "2026-08-28T14:30:00-05:00",
       "end": "2026-08-28T14:50:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.262972+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "QCSGHU",
@@ -1425,16 +1437,18 @@
     {
       "code": "PDRCQQ",
       "id": 23292,
-      "title": "Fluid Attacks - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[Fluid Attacks] - Un recorrido por la plataforma de Fluid Attacks",
+      "abstract": "En esta demostración conocerás las principales funcionalidades de la plataforma de Fluid Attacks. Descubre cómo ayudamos a los equiposDevOps a prevenir, detectar y gestionar vulnerabilidades de manera continua, integrando la seguridad de forma eficiente en cada etapa del desarrollo de software.",
+      "speakers": [
+        "GCWYLX"
+      ],
       "track": null,
       "start": "2026-08-28T14:55:00-05:00",
       "end": "2026-08-28T15:15:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.263049+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "HVNJFF",
@@ -1453,7 +1467,7 @@
       "room": 281,
       "duration": 40,
       "updated": "2026-08-07T23:57:52.263057+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "PWB7E7",
@@ -1467,7 +1481,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.263074+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "EEWXV3",
@@ -1523,7 +1537,8 @@
       "title": "De MVP a producción con Vertex AI Search: lecciones reales de un asistente RAG universitario",
       "abstract": "Cada semestre, cientos de estudiantes hacen las mismas consultas sobre matrícula fuera de horario y esperan respuesta inmediata. En la UPCH abordamos esa fricción con IA y una restricción clara: pasar de MVP a producción rápido, sin construir infraestructura RAG desde cero y cumpliendo la Ley de Protección de Datos Personales.\r\nConstruimos TanoBot con Vertex AI Search como RAG gestionado, FastAPI en Cloud Run autoescalable y un widget embebido con consentimiento expreso. Más que una solución puntual, lo concebimos como producto: base de conocimiento gobernada, observabilidad, SecOps con auditoría de IPs y accesos, métricas de calidad y handoff humano. Atendió 4.003 consultas sin caídas, 91% resueltas, 2,2 s promedio y 56% fuera del horario laboral.\r\nCompartiré por qué Vertex AI Search aceleró el time-to-market, cómo preservamos información oficial con respuestas extractivas, cómo escalamos en días pico y por qué el 9% sin respuesta enseñó más que el 91% atendido.",
       "speakers": [
-        "SDTWPJ"
+        "SDTWPJ",
+        "BQGZ9W"
       ],
       "track": 202,
       "start": "2026-08-28T15:55:00-05:00",
@@ -1547,16 +1562,18 @@
     {
       "code": "YYLQMP",
       "id": 23300,
-      "title": "Thoughtworks - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[Thoughtworks] - CardDemo Payment System (COBOL)",
+      "abstract": "Mostrar cómo AI/works realiza rápidamente ingeniería inversa en sistemas heredados y crea un grafo de conocimiento que acelera la modernización.",
+      "speakers": [
+        "N3DUNU"
+      ],
       "track": null,
       "start": "2026-08-28T16:20:00-05:00",
       "end": "2026-08-28T16:40:00-05:00",
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.263116+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "HVVRJG",
@@ -1635,7 +1652,7 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-07T23:57:52.263167+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "G7B3FP",
@@ -1651,7 +1668,7 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-07T23:57:52.263237+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "code": "TDMCLU",
@@ -1748,7 +1765,8 @@
     {
       "id": 286,
       "name": {
-        "en": "Terrace"
+        "en": "Terrace",
+        "es": "Terrace"
       },
       "description": {}
     },
@@ -1810,20 +1828,6 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/WDG3MX_qPkMepQ.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/WDG3MX_qPkMepQ_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/WDG3MX_qPkMepQ_thumbnail_tiny.webp"
-    },
-    {
-      "code": "BNTJ9L",
-      "name": "Sandra Arellano",
-      "avatar": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_tiny.webp"
-    },
-    {
-      "code": "DUDMLT",
-      "name": "Horacio Puga Nougues",
-      "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_tiny.webp"
     },
     {
       "code": "U8GEB8",
@@ -1917,18 +1921,18 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6_thumbnail_tiny.webp"
     },
     {
-      "code": "EYSBV7",
-      "name": "Andrea Griffiths",
-      "avatar": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj_thumbnail_tiny.webp"
-    },
-    {
       "code": "VFGTEQ",
       "name": "Ricardo Sanchez",
       "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp"
+    },
+    {
+      "code": "EYSBV7",
+      "name": "Andrea Griffiths",
+      "avatar": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj_thumbnail_tiny.webp"
     },
     {
       "code": "XRQVPJ",
@@ -2129,9 +2133,9 @@
     {
       "code": "ML3EUW",
       "name": "Gabriel Farah",
-      "avatar": "https://talks.devopsdays.org/media/avatars/TDUP9Q_eXf7UeB.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TDUP9Q_eXf7UeB_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TDUP9Q_eXf7UeB_thumbnail_tiny.webp"
+      "avatar": "https://talks.devopsdays.org/media/avatars/TDUP9Q_RDLEk66.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TDUP9Q_RDLEk66_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TDUP9Q_RDLEk66_thumbnail_tiny.webp"
     },
     {
       "code": "SFJW8Q",
@@ -2148,6 +2152,27 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/JTKFXS_iIgCHXJ_thumbnail_tiny.webp"
     },
     {
+      "code": "BNTJ9L",
+      "name": "Sandra Arellano",
+      "avatar": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_tiny.webp"
+    },
+    {
+      "code": "DUDMLT",
+      "name": "Horacio Puga Nougues",
+      "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_tiny.webp"
+    },
+    {
+      "code": "7VNBNY",
+      "name": "Luis Valdivia",
+      "avatar": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu_thumbnail_tiny.webp"
+    },
+    {
       "code": "ME3BL8",
       "name": "Abner Ballardo",
       "avatar": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS.webp",
@@ -2162,11 +2187,18 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/HDC3SP_8StUyyk_thumbnail_tiny.webp"
     },
     {
-      "code": "7VNBNY",
-      "name": "Luis Valdivia",
-      "avatar": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/XRLXAB_3kJhWPu_thumbnail_tiny.webp"
+      "code": "T8ZMPH",
+      "name": "Christian Rodas",
+      "avatar": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG_thumbnail_tiny.webp"
+    },
+    {
+      "code": "FYKVNJ",
+      "name": "Francis Gomez",
+      "avatar": "https://talks.devopsdays.org/media/avatars/ZQBKWF_rYy07SV.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/ZQBKWF_rYy07SV_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/ZQBKWF_rYy07SV_thumbnail_tiny.webp"
     },
     {
       "code": "9K8TFZ",
@@ -2181,20 +2213,6 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/TEFWRZ_9jqpTq0.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TEFWRZ_9jqpTq0_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TEFWRZ_9jqpTq0_thumbnail_tiny.webp"
-    },
-    {
-      "code": "T8ZMPH",
-      "name": "Christian Rodas",
-      "avatar": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/8PVSW8_ygyVqkG_thumbnail_tiny.webp"
-    },
-    {
-      "code": "FYKVNJ",
-      "name": "Francis Gomez",
-      "avatar": "https://talks.devopsdays.org/media/avatars/ZQBKWF_rYy07SV.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/ZQBKWF_rYy07SV_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/ZQBKWF_rYy07SV_thumbnail_tiny.webp"
     },
     {
       "code": "JZ3U7B",
@@ -2225,6 +2243,34 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/B7QF9Y_1lFm5jI_thumbnail_tiny.webp"
     },
     {
+      "code": "3AZABU",
+      "name": "Luiz Datri",
+      "avatar": "https://talks.devopsdays.org/media/avatars/RYFVTB_1sQUKvy.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/RYFVTB_1sQUKvy_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/RYFVTB_1sQUKvy_thumbnail_tiny.webp"
+    },
+    {
+      "code": "FTZYAE",
+      "name": "Javier Camacho",
+      "avatar": null,
+      "avatar_thumbnail_default": null,
+      "avatar_thumbnail_tiny": null
+    },
+    {
+      "code": "VJQTLQ",
+      "name": "Jaime Cueva",
+      "avatar": "https://talks.devopsdays.org/media/avatars/TU7W83_a074I1p.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TU7W83_a074I1p_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TU7W83_a074I1p_thumbnail_tiny.webp"
+    },
+    {
+      "code": "GSZYJ8",
+      "name": "Anderson Santos",
+      "avatar": "https://talks.devopsdays.org/media/avatars/CQFWG3_8AXx0aZ.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CQFWG3_8AXx0aZ_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CQFWG3_8AXx0aZ_thumbnail_tiny.webp"
+    },
+    {
       "code": "SDTWPJ",
       "name": "Alan García Sánchez",
       "avatar": "https://talks.devopsdays.org/media/avatars/CYYZ3U_W9KbUc5.webp",
@@ -2239,6 +2285,13 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/YJCMF9_thuAqJ8_thumbnail_tiny.webp"
     },
     {
+      "code": "EWBK9A",
+      "name": "Gino Vergara",
+      "avatar": "https://talks.devopsdays.org/media/avatars/FPUPM7_3AMeOpU.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/FPUPM7_3AMeOpU_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/FPUPM7_3AMeOpU_thumbnail_tiny.webp"
+    },
+    {
       "code": "VBWLYQ",
       "name": "Yembert Quintero Cortez",
       "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
@@ -2251,6 +2304,34 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_tiny.webp"
+    },
+    {
+      "code": "GCWYLX",
+      "name": "Paola Quiñones",
+      "avatar": "https://talks.devopsdays.org/media/avatars/9J993D_wpUATNm.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/9J993D_wpUATNm_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/9J993D_wpUATNm_thumbnail_tiny.webp"
+    },
+    {
+      "code": "7DQAN7",
+      "name": "Emiliano Romero",
+      "avatar": "https://talks.devopsdays.org/media/avatars/WSZZ7B_qloopqk.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/WSZZ7B_qloopqk_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/WSZZ7B_qloopqk_thumbnail_tiny.webp"
+    },
+    {
+      "code": "BQGZ9W",
+      "name": "Paulo Costa",
+      "avatar": "https://talks.devopsdays.org/media/avatars/3BMPVW_FjQcfSM.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/3BMPVW_FjQcfSM_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/3BMPVW_FjQcfSM_thumbnail_tiny.webp"
+    },
+    {
+      "code": "N3DUNU",
+      "name": "Juliano Domingues",
+      "avatar": "https://talks.devopsdays.org/media/avatars/DQFVEV_1uCd0yL.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/DQFVEV_1uCd0yL_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/DQFVEV_1uCd0yL_thumbnail_tiny.webp"
     },
     {
       "code": "CFHNEP",

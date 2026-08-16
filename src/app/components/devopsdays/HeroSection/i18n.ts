@@ -1,4 +1,4 @@
-﻿import type { Locale } from '../../../i18n'
+import type { Locale } from '../../../i18n'
 
 type GalleryImageI18n = { alt: string; openAriaLabel: string }
 
