@@ -1339,7 +1339,7 @@
     {
       "code": "CARAUU",
       "id": 23283,
-      "title": "[TSOF] - Orquestación multiagente en Jira: el SDLC de punta a punta",
+      "title": "[TSOFT] - Orquestación multiagente en Jira: el SDLC de punta a punta",
       "abstract": "La IA ya dejó de ser un asistente puntual dentro del desarrollo de software: hoy los agentes pueden tomar tickets, generar código y ejecutar workflows completos dentro del ciclo de vida del software (SDLC). Pero a medida que se suman más agentes trabajando en paralelo con los equipos, aparece una tensión nueva: coordinarlos sin criterio puede generar tanto caos como el que prometen resolver.\r\n\r\nEn esta charla técnica recorremos el ciclo de vida completo de una feature construida por agentes: cómo orquestar agentes de IA —propios y de terceros, conectados vía MCP— directamente en el flujo de trabajo de Jira, y por qué necesitan contexto arquitectónico real, no solo el texto de un ticket, para tomar buenas decisiones en cada etapa del desarrollo.",
       "speakers": [
         "7DQAN7"
