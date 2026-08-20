@@ -132,7 +132,7 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-07T23:57:52.261909+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     },
     {
       "id": 23165,
@@ -1339,7 +1339,7 @@
     {
       "code": "CARAUU",
       "id": 23283,
-      "title": "[TSOF] - Orquestación multiagente en Jira: el SDLC de punta a punta",
+      "title": "[TSOFT] - Orquestación multiagente en Jira: el SDLC de punta a punta",
       "abstract": "La IA ya dejó de ser un asistente puntual dentro del desarrollo de software: hoy los agentes pueden tomar tickets, generar código y ejecutar workflows completos dentro del ciclo de vida del software (SDLC). Pero a medida que se suman más agentes trabajando en paralelo con los equipos, aparece una tensión nueva: coordinarlos sin criterio puede generar tanto caos como el que prometen resolver.\r\n\r\nEn esta charla técnica recorremos el ciclo de vida completo de una feature construida por agentes: cómo orquestar agentes de IA —propios y de terceros, conectados vía MCP— directamente en el flujo de trabajo de Jira, y por qué necesitan contexto arquitectónico real, no solo el texto de un ticket, para tomar buenas decisiones en cada etapa del desarrollo.",
       "speakers": [
         "7DQAN7"
@@ -1682,7 +1682,7 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-07T23:57:52.263245+00:00",
-      "content_locale": "en"
+      "content_locale": "es"
     }
   ],
   "version": "0.17",
@@ -2378,9 +2378,9 @@
     {
       "code": "BPW3K7",
       "name": "Francisco Lopez Valenzuela",
-      "avatar": "https://talks.devopsdays.org/media/avatars/PFV9VT_OVePoty.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PFV9VT_OVePoty_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PFV9VT_OVePoty_thumbnail_tiny.webp"
+      "avatar": "https://talks.devopsdays.org/media/avatars/PFV9VT_B3R2p63.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PFV9VT_B3R2p63_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PFV9VT_B3R2p63_thumbnail_tiny.webp"
     },
     {
       "code": "KD8X9S",
