@@ -39,7 +39,7 @@ type SorteoEntradasPageI18n = {
 export const sorteoEntradasPageI18n: Record<Locale, SorteoEntradasPageI18n> = {
   es: {
     badge: 'Sorteo oficial',
-    lead: 'Sorteo por 2 entradas para las personas que se registraron en el KCD Lima, Perú - July 18, 2026.',
+    lead: 'Sorteo de 1 mochila de GitHub y 1 polo',
     stepUploadTitle: '1. Cargar participantes',
     stepUploadHint:
       'El CSV debe tener al menos una columna llamada nombre. También puede incluir correo.',
@@ -75,7 +75,7 @@ export const sorteoEntradasPageI18n: Record<Locale, SorteoEntradasPageI18n> = {
   },
   en: {
     badge: 'Official raffle',
-    lead: 'Raffle for 2 tickets for people who registered for the KCD Lima, Perú - July 18, 2026.',
+    lead: 'Raffle for 1 GitHub backpack and 1 t-shirt',
     stepUploadTitle: '1. Upload participants',
     stepUploadHint: 'The CSV must include at least one column named nombre or name. It may also include email.',
     stepValidTitle: '2. Valid participants',
