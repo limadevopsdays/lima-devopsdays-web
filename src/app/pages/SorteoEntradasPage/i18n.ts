@@ -39,7 +39,7 @@ type SorteoEntradasPageI18n = {
 export const sorteoEntradasPageI18n: Record<Locale, SorteoEntradasPageI18n> = {
   es: {
     badge: 'Sorteo oficial',
-    lead: 'Sorteo de 1 polo de GitHub',
+    lead: 'Sorteo de 1 polo de GitHub y 1 entrada al evento!',
     stepUploadTitle: '1. Cargar participantes',
     stepUploadHint:
       'El CSV debe tener al menos una columna llamada nombre. También puede incluir correo.',
