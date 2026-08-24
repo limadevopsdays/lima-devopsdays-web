@@ -596,9 +596,11 @@
     {
       "code": "TWCTY7",
       "id": 23210,
-      "title": "Coforge - Demo",
+      "title": "[Coforge] - Amazon Bedrock AgentCore en Producción: Lo Que Nadie Te Cuenta",
       "abstract": "-",
-      "speakers": [],
+      "speakers": [
+        "RPCXAG"
+      ],
       "track": null,
       "start": "2026-08-27T16:00:00-05:00",
       "end": "2026-08-27T16:20:00-05:00",
@@ -1108,7 +1110,7 @@
       "code": "BZ7MZK",
       "id": 23257,
       "title": "Keyless no siempre es seguro: OIDC entre GitHub Actions y AWS",
-      "abstract": "La mayoría de los equipos adoptó OIDC para conectar GitHub Actions con AWS y eliminar credenciales hardcodeadas. El problema: un error común en la configuración de IAM permite que cualquier repositorio de GitHub —incluyendo el de un atacante— opere en tu cuenta AWS sin necesitar ningún secret.\r\nEsta charla disecciona el ataque paso a paso: cómo un repositorio malicioso puede asumir un rol de producción en cuestión de segundos, y por qué esta configuración vulnerable aparece con frecuencia en entornos reales de producción.\r\nSalís con criterios claros para evaluar si tu integración está expuesta, cuáles son los errores más comunes al implementar esta conexión, y cómo verificar que tu organización no sea el próximo caso documentado.",
+      "abstract": "La mayoría de los equipos adoptó OIDC para conectar GitHub Actions con AWS y eliminar credenciales hardcodeadas. El problema: un error común en la configuración de IAM permite que cualquier repositorio de GitHub, incluyendo el de un atacante, opere en tu cuenta AWS sin necesitar ningún secreto.\r\nEsta charla disecciona el ataque paso a paso: cómo un repositorio malicioso puede asumir un rol de producción en cuestión de segundos, y por qué esta configuración vulnerable aparece con frecuencia en entornos reales de producción.\r\nSaldrás con criterios claros para evaluar si tu integración está expuesta, cuáles son los errores más comunes al implementar esta conexión, y cómo verificar que tu organización no sea el próximo caso documentado.",
       "speakers": [
         "WMST3D"
       ],
@@ -1881,9 +1883,9 @@
     {
       "code": "UAJUW3",
       "name": "Erik Zaadi",
-      "avatar": "https://talks.devopsdays.org/media/avatars/LMGX3H_3Zw6J0g.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/LMGX3H_3Zw6J0g_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/LMGX3H_3Zw6J0g_thumbnail_tiny.webp"
+      "avatar": "https://talks.devopsdays.org/media/avatars/LMGX3H_h5VHXyA.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/LMGX3H_h5VHXyA_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/LMGX3H_h5VHXyA_thumbnail_tiny.webp"
     },
     {
       "code": "3ZZHPR",
@@ -2374,6 +2376,13 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/WH3ZN9_a63d2jk.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/WH3ZN9_a63d2jk_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/WH3ZN9_a63d2jk_thumbnail_tiny.webp"
+    },
+    {
+      "code": "RPCXAG",
+      "name": "Jhon Robert Quintero",
+      "avatar": "https://talks.devopsdays.org/media/avatars/Z997WJ_zq93l15.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/Z997WJ_zq93l15_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/Z997WJ_zq93l15_thumbnail_tiny.webp"
     },
     {
       "code": "BPW3K7",
