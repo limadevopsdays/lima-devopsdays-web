@@ -56,7 +56,7 @@
       "start": "2026-08-27T09:30:00-05:00",
       "end": "2026-08-27T09:35:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.261865+00:00",
       "content_locale": "es"
     },
@@ -70,7 +70,7 @@
       "start": "2026-08-27T09:35:00-05:00",
       "end": "2026-08-27T09:40:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.261874+00:00",
       "content_locale": "es"
     },
@@ -100,7 +100,7 @@
       "start": "2026-08-27T10:10:00-05:00",
       "end": "2026-08-27T10:15:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.261892+00:00",
       "content_locale": "es"
     },
@@ -114,7 +114,7 @@
       "start": "2026-08-27T10:15:00-05:00",
       "end": "2026-08-27T10:20:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.261900+00:00",
       "content_locale": "es"
     },
@@ -596,9 +596,11 @@
     {
       "code": "TWCTY7",
       "id": 23210,
-      "title": "Coforge - Demo",
+      "title": "[Coforge] - Amazon Bedrock AgentCore en Producción: Lo Que Nadie Te Cuenta",
       "abstract": "-",
-      "speakers": [],
+      "speakers": [
+        "RPCXAG"
+      ],
       "track": null,
       "start": "2026-08-27T16:00:00-05:00",
       "end": "2026-08-27T16:20:00-05:00",
@@ -952,7 +954,7 @@
       "start": "2026-08-28T09:30:00-05:00",
       "end": "2026-08-28T09:35:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.262625+00:00",
       "content_locale": "es"
     },
@@ -966,7 +968,7 @@
       "start": "2026-08-28T09:35:00-05:00",
       "end": "2026-08-28T09:40:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.262633+00:00",
       "content_locale": "es"
     },
@@ -996,7 +998,7 @@
       "start": "2026-08-28T10:10:00-05:00",
       "end": "2026-08-28T10:15:00-05:00",
       "room": 281,
-      "duration": 25,
+      "duration": 5,
       "updated": "2026-08-07T23:57:52.262650+00:00",
       "content_locale": "es"
     },
@@ -1108,7 +1110,7 @@
       "code": "BZ7MZK",
       "id": 23257,
       "title": "Keyless no siempre es seguro: OIDC entre GitHub Actions y AWS",
-      "abstract": "La mayoría de los equipos adoptó OIDC para conectar GitHub Actions con AWS y eliminar credenciales hardcodeadas. El problema: un error común en la configuración de IAM permite que cualquier repositorio de GitHub —incluyendo el de un atacante— opere en tu cuenta AWS sin necesitar ningún secret.\r\nEsta charla disecciona el ataque paso a paso: cómo un repositorio malicioso puede asumir un rol de producción en cuestión de segundos, y por qué esta configuración vulnerable aparece con frecuencia en entornos reales de producción.\r\nSalís con criterios claros para evaluar si tu integración está expuesta, cuáles son los errores más comunes al implementar esta conexión, y cómo verificar que tu organización no sea el próximo caso documentado.",
+      "abstract": "La mayoría de los equipos adoptó OIDC para conectar GitHub Actions con AWS y eliminar credenciales hardcodeadas. El problema: un error común en la configuración de IAM permite que cualquier repositorio de GitHub, incluyendo el de un atacante, opere en tu cuenta AWS sin necesitar ningún secreto.\r\nEsta charla disecciona el ataque paso a paso: cómo un repositorio malicioso puede asumir un rol de producción en cuestión de segundos, y por qué esta configuración vulnerable aparece con frecuencia en entornos reales de producción.\r\nSaldrás con criterios claros para evaluar si tu integración está expuesta, cuáles son los errores más comunes al implementar esta conexión, y cómo verificar que tu organización no sea el próximo caso documentado.",
       "speakers": [
         "WMST3D"
       ],
@@ -1453,8 +1455,8 @@
     {
       "code": "HVNJFF",
       "id": 23293,
-      "title": "[ Panel ] - Banca",
-      "abstract": "La banca enfrenta un reto particular: modernizar su infraestructura y adoptar prácticas ágiles de entrega de software, mientras opera sistemas core que no pueden fallar y que están bajo estricta supervisión regulatoria. Este panel reúne a líderes técnicos del sector bancario para conversar sobre cómo transforman su forma de construir y operar software sin poner en riesgo la estabilidad ni la confianza de millones de usuarios.\r\nSe abordarán temas como migración y modernización de sistemas legacy hacia arquitecturas cloud-native, observabilidad y gestión de incidentes en sistemas transaccionales críticos, cultura DevOps/SRE dentro de estructuras organizacionales tradicionales, cumplimiento regulatorio (Basilea, SBS, PCI-DSS) como parte del ciclo de desarrollo, y cómo equilibrar velocidad de entrega con la resiliencia que exige la banca 24/7.",
+      "title": "[ Panel ] - Inteligencia Artificial: revolucionando y transformando la industria tecnológica actual",
+      "abstract": "La Inteligencia Artificial está revolucionando los negocios tradicionales y la banca es uno de los sectores donde ese cambio se siente con más fuerza. La IA está redefiniendo el modelo operativo de las entidades financieras: acelera decisiones que antes tomaban semanas, transforma la manera en que se diseñan y lanzan productos, y abre categorías de negocio que no existían hace un año. Pero esa misma velocidad plantea preguntas difíciles para quienes lideran la tecnología: cómo pasar de pilotos aislados a capacidad organizacional real, cómo capturar retorno sobre la inversión sin comprometer la arquitectura, y cómo sostener el ritmo sin descuidar el riesgo ni el cumplimiento regulatorio.\r\n\r\nEn este panel, Líderes de Tecnología de los principales bancos del país compartirán cómo están escalando la IA dentro de sus organizaciones y qué están aprendiendo en el camino. Conversaremos sobre lo que realmente mueve el indicador de eficiencia operativa, sobre el rediseño de productos financieros con IA generativa, personas sintéticas y gemelos digitales, y sobre cómo dirigir la productividad para no construir lo equivocado más rápido. Una conversación franca entre quienes cargan con la responsabilidad de transformar la tecnología del sistema financiero sin detener su operación.",
       "speakers": [
         "ME3BL8",
         "QPHNVM",
@@ -1881,9 +1883,9 @@
     {
       "code": "UAJUW3",
       "name": "Erik Zaadi",
-      "avatar": "https://talks.devopsdays.org/media/avatars/LMGX3H_3Zw6J0g.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/LMGX3H_3Zw6J0g_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/LMGX3H_3Zw6J0g_thumbnail_tiny.webp"
+      "avatar": "https://talks.devopsdays.org/media/avatars/LMGX3H_h5VHXyA.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/LMGX3H_h5VHXyA_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/LMGX3H_h5VHXyA_thumbnail_tiny.webp"
     },
     {
       "code": "3ZZHPR",
@@ -2374,6 +2376,13 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/WH3ZN9_a63d2jk.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/WH3ZN9_a63d2jk_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/WH3ZN9_a63d2jk_thumbnail_tiny.webp"
+    },
+    {
+      "code": "RPCXAG",
+      "name": "Jhon Robert Quintero",
+      "avatar": "https://talks.devopsdays.org/media/avatars/Z997WJ_zq93l15.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/Z997WJ_zq93l15_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/Z997WJ_zq93l15_thumbnail_tiny.webp"
     },
     {
       "code": "BPW3K7",
