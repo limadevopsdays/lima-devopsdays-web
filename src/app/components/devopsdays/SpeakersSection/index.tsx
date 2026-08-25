@@ -850,12 +850,12 @@ export function SpeakersSection({
               )
             })()}
 
-            {/* Panel Banca */}
+            {/* Panel IA */}
             {(() => {
-              const bankingPanelSpeakers = cfpScheduleSpeakers.filter(
-                (sp) => sp.topic && sp.topic.trim() === '[ Panel ] - Banca'
+              const aiPanelSpeakers = cfpScheduleSpeakers.filter(
+                (sp) => sp.topic && sp.topic.trim().startsWith('[ Panel ] - Inteligencia Artificial')
               )
-              const mappedSpeakers: InvitedSpeaker[] = bankingPanelSpeakers
+              const mappedSpeakers: InvitedSpeaker[] = aiPanelSpeakers
                 .map((sp) => ({
                   name: sp.name,
                   company: sp.company || '',
@@ -876,33 +876,33 @@ export function SpeakersSection({
               const panelSlidesToShow = Math.max(1, Math.min(visibleInvitedSlides, mappedSpeakers.length || 1))
               const canSlidePanel = mappedSpeakers.length > panelSlidesToShow
 
-              const isCollapsed = collapsedPanels.has('panel-banca')
+              const isCollapsed = collapsedPanels.has('panel-ia')
               return (
                 <div
-                  id="panel-banca"
+                  id="panel-ia"
                   className={`${styles.speakersSubsection} ${styles.invitedPanel}`}
                 >
                   <SectionHeader
                     className={styles.keynoteTitleHeader}
                     title={
                       <>
-                        Panel <span className={styles.keynoteTitleAccent}>Banca</span>
+                        Panel <span className={styles.keynoteTitleAccent}>Inteligencia Artificial</span>
                         <button
                           type="button"
                           className={styles.panelCollapseBtn}
-                          onClick={() => togglePanel('panel-banca')}
+                          onClick={() => togglePanel('panel-ia')}
                           aria-expanded={!isCollapsed}
-                          aria-controls="panel-banca-content"
+                          aria-controls="panel-ia-content"
                           title={isCollapsed ? 'Expandir' : 'Minimizar'}
                         >
                           {isCollapsed ? <ChevronDown className={styles.panelCollapseIcon} /> : <ChevronUp className={styles.panelCollapseIcon} />}
                         </button>
                       </>
                     }
-                    lead={t.panelBankingLead}
+                    lead={t.panelAiLead}
                   />
                   <div
-                    id="panel-banca-content"
+                    id="panel-ia-content"
                     className={`${styles.panelCollapsible} ${isCollapsed ? styles.panelCollapsed : ''}`}
                   >
                     {mappedSpeakers.length > 0 ? (
