@@ -135,3 +135,16 @@ export function RootLayout() {
     </>
   )
 }
+
+export function StandaloneLayout() {
+  return (
+    <>
+      <ScrollToTop />
+      <AnalyticsTracker />
+      <SeoTracker />
+      <main id="main-content">
+        <Outlet />
+      </main>
+    </>
+  )
+}

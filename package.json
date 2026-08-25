@@ -10,6 +10,8 @@
     "dev": "vite",
     "preview": "vite preview",
     "update-schedule": "node scripts/update-schedule.js",
+    "generate-turnos-png": "node scripts/generate-turnos-png.js",
+    "screenshot-turnos": "node scripts/capture-turnos-screenshots.js",
     "prebuild": "node scripts/update-schedule.js",
     "build": "vite build"
   },
@@ -81,6 +83,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "4.7.0",
+    "puppeteer": "^25.9.0",
     "tailwindcss": "4.1.12",
     "vite": "6.4.3"
   },
