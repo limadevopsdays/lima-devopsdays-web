@@ -2,7 +2,7 @@
   "talks": [
     {
       "code": "W8D3KN",
-      "id": 23155,
+      "id": 23328,
       "title": "Entrada - Registro",
       "abstract": "Al llegar al evento, deberán ingresar por la zona de la terraza, donde nuestro equipo de registro estará esperándolos con una sonrisa para darles la bienvenida. En este punto se verificará su inscripción y se les entregará el paquete de bienvenida, que incluye material informativo, souvenirs y el polo oficial del evento. Este será también un buen momento para saludar a otros participantes, tomarse fotos y empezar a disfrutar del ambiente previo antes de pasar a las demás actividades programadas.",
       "speakers": [],
@@ -11,12 +11,12 @@
       "end": "2026-08-27T08:30:00-05:00",
       "room": 286,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.261837+00:00",
+      "updated": "2026-08-12T14:45:36.948481+00:00",
       "content_locale": "en"
     },
     {
       "code": "WEJLQK",
-      "id": 23156,
+      "id": 23329,
       "title": "Bienvenida",
       "abstract": "La Bienvenida dará inicio oficial al evento y será el momento para reconocer y agradecer a nuestros speakers por compartir su conocimiento, así como a los sponsors por su valioso apoyo. Recibiremos a todos los asistentes con una cálida recepción, invitándolos a sumarse con entusiasmo a esta experiencia única. En un ambiente de colaboración, energía positiva y espíritu de comunidad, comenzaremos juntos una jornada diseñada para aprender, inspirar y crear conexiones duraderas.",
       "speakers": [],
@@ -25,12 +25,12 @@
       "end": "2026-08-27T09:00:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.261847+00:00",
+      "updated": "2026-08-12T14:45:36.948492+00:00",
       "content_locale": "en"
     },
     {
       "code": "CKSUAW",
-      "id": 23157,
+      "id": 23330,
       "title": "The Agentic SDLC Platform",
       "abstract": "-",
       "speakers": [
@@ -41,12 +41,12 @@
       "end": "2026-08-27T09:30:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.261857+00:00",
+      "updated": "2026-08-15T22:01:51.723137+00:00",
       "content_locale": "en"
     },
     {
       "code": "ZQKPBK",
-      "id": 23158,
+      "id": 23331,
       "title": "[IBM] - Qué hay de nuevo en IBM",
       "abstract": "Repasaremos rápidamente las novedades de IBM en los temas de Inteligencia Artificial Empresarial, Platform Engineering y Ciberseguridad, así como lo que IBM presentará en las Speaking Sessions, la Demo Session y el Booth de IBM.",
       "speakers": [
@@ -57,12 +57,12 @@
       "end": "2026-08-27T09:35:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.261865+00:00",
+      "updated": "2026-08-22T03:06:34.050229+00:00",
       "content_locale": "es"
     },
     {
       "code": "MHATFK",
-      "id": 23159,
+      "id": 23332,
       "title": "lightning talk - Dynatrace",
       "abstract": "-",
       "speakers": [],
@@ -71,12 +71,12 @@
       "end": "2026-08-27T09:40:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.261874+00:00",
+      "updated": "2026-08-22T03:05:45.825375+00:00",
       "content_locale": "es"
     },
     {
       "code": "R7LMPB",
-      "id": 23160,
+      "id": 23333,
       "title": "Beyond DevSecOps: The Era of Intelligent Continuous Security",
       "abstract": "Todo sistema de software hace una promesa. Un banco promete proteger nuestro dinero. Un hospital promete proteger nuestra salud. Una aerolínea promete transportarnos de manera segura. Pero ¿qué ocurre cuando el pipeline está en verde, todos los controles de seguridad han sido aprobados y, aun así, el sistema incumple su promesa?\r\n\r\nDevSecOps ha mejorado la manera en que las organizaciones integran la seguridad en la entrega de software. Sin embargo, los controles tradicionales continúan enfocándose principalmente en vulnerabilidades, cumplimiento e implementación. Los clientes experimentan algo diferente: el comportamiento real del sistema.\r\n\r\nEsta keynote presenta la Seguridad Continua Inteligente como la siguiente evolución más allá de DevSecOps. Propone un enfoque centrado en el comportamiento que conecta la intención del negocio, las promesas de seguridad, la simulación del comportamiento, la implementación, la observabilidad y el aprendizaje continuo durante todo el ciclo de vida del software. Mediante la Ingeniería de Software Impulsada por Simulación y la Notación de Especificación de Comportamiento, los equipos simulan los comportamientos críticos antes de implementar y mantienen una sola promesa coherente desde la intención hasta la producción.\r\n\r\nLa inteligencia artificial se convierte en un socio de ingeniería que ayuda a los sistemas a observar, comprender, predecir, proteger, aprender y mejorar. La automatización aumenta, pero las decisiones importantes permanecen bajo un control humano significativo.\r\n\r\nEl mensaje central es sencillo: verde no significa seguro, la seguridad también debe aprender y la ingeniería continúa siendo una responsabilidad humana. Al colocar la promesa en el centro, las organizaciones avanzan más allá de la entrega continua de software hacia la ingeniería continua de la confianza.",
       "speakers": [
@@ -87,12 +87,12 @@
       "end": "2026-08-27T10:10:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.261883+00:00",
+      "updated": "2026-08-15T21:53:53.427673+00:00",
       "content_locale": "en"
     },
     {
       "code": "ANETQ3",
-      "id": 23161,
+      "id": 23334,
       "title": "lightning talk - NTT",
       "abstract": "-",
       "speakers": [],
@@ -101,12 +101,12 @@
       "end": "2026-08-27T10:15:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.261892+00:00",
+      "updated": "2026-08-22T03:05:51.883375+00:00",
       "content_locale": "es"
     },
     {
       "code": "QCHH8P",
-      "id": 23162,
+      "id": 23335,
       "title": "lightning talk - CleverIt",
       "abstract": "-",
       "speakers": [],
@@ -115,12 +115,12 @@
       "end": "2026-08-27T10:20:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.261900+00:00",
+      "updated": "2026-08-22T03:05:56.705445+00:00",
       "content_locale": "es"
     },
     {
       "code": "MHL87A",
-      "id": 23163,
+      "id": 23336,
       "title": "Deja de Cortar Pepinos:  Por qué ganar con IA no se trata de mejores herramientas, sino de la cocina que construyes a su alrededor.",
       "abstract": "La mayoría de los equipos compraron las mejores herramientas de IA del mercado - y siguen cortando pepinos. Hicieron los pilotos, mostraron demos a la gerencia y luego se estancaron en el \"purgatorio de pilotos\", sin llegar nunca a producción.\r\n\r\nLa verdad incómoda: la brecha entre tener IA y obtener valor de ella no se cierra con una mejor herramienta. Se cierra con lo que construyes a su alrededor - cómo tus equipos la usan, los sistemas y la metodología que implementas, y la disciplina para operar agentes en producción como cargas de trabajo reales, no como demos.\r\n\r\nA partir de mi experiencia práctica con equipos empresariales en todo el mundo, esta charla presenta cuatro fuerzas que separan a los equipos atrapados experimentando de los que entregan software IA-nativo - incluida la que casi todos pasan por alto: a medida que los modelos avanzan, necesitan menos instrucción, y eso cambia dónde deberías invertir.\r\n\r\nHabrá historias reales, errores reales y un modelo mental que podrás aplicar el lunes - ya sea que escribas el código o financies la hoja de ruta.\r\n\r\nEsta charla refleja mi experiencia personal trabajando con clientes, no una posición oficial de AWS.",
       "speakers": [
@@ -131,22 +131,33 @@
       "end": "2026-08-27T10:50:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.261909+00:00",
+      "updated": "2026-08-15T22:04:51.151346+00:00",
       "content_locale": "es"
     },
     {
-      "id": 23165,
+      "id": 23341,
       "title": {
         "en": "Break",
         "es": "Receso"
       },
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
-      "room": 283,
+      "room": 284,
       "slot_type": "break"
     },
     {
-      "id": 23167,
+      "id": 23340,
+      "title": {
+        "en": "Break",
+        "es": "Receso"
+      },
+      "start": "2026-08-27T15:50:00Z",
+      "end": "2026-08-27T11:10:00-05:00",
+      "room": 282,
+      "slot_type": "break"
+    },
+    {
+      "id": 23338,
       "title": {
         "en": "Break",
         "es": "Receso"
@@ -157,18 +168,7 @@
       "slot_type": "break"
     },
     {
-      "id": 23164,
-      "title": {
-        "en": "Break",
-        "es": "Receso"
-      },
-      "start": "2026-08-27T15:50:00Z",
-      "end": "2026-08-27T11:10:00-05:00",
-      "room": 282,
-      "slot_type": "break"
-    },
-    {
-      "id": 23168,
+      "id": 23337,
       "title": {
         "en": "Break",
         "es": "Receso"
@@ -179,67 +179,19 @@
       "slot_type": "break"
     },
     {
-      "id": 23166,
+      "id": 23339,
       "title": {
         "en": "Break",
         "es": "Receso"
       },
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
-      "room": 284,
+      "room": 283,
       "slot_type": "break"
     },
     {
-      "code": "EL8DCE",
-      "id": 23171,
-      "title": "[MongoDB] - Arquitectura de memoria para agentes: cuántos motores de datos justifica tu plataforma",
-      "abstract": "Todo el mundo construye agentes, pero pocos piensan en cómo operarlos. Un sistema agéntico no tiene \"una\" memoria: maneja transcripciones, memoria de trabajo, largo plazo, conocimiento y estado de ejecución.\r\nEsta complejidad llevó al mercado a multiplicar categorías: bases de datos operacionales, vectoriales, de texto y memoria. Nadie eligió tener seis bases de datos, pero terminó con ellas; cada una con su propio runbook, alertas y cero transaccionalidad.\r\nEn esta charla desglosaremos la arquitectura real de memoria para agentes, mostrando cómo consolidarla eficientemente en producción sin pagar los costos operativos de la dispersión de motores.",
-      "speakers": [
-        "FTZYAE"
-      ],
-      "track": null,
-      "start": "2026-08-27T11:10:00-05:00",
-      "end": "2026-08-27T11:30:00-05:00",
-      "room": 286,
-      "duration": 20,
-      "updated": "2026-08-07T23:57:52.261979+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "M97QN8",
-      "id": 23173,
-      "title": "Transformación DevOps con Liderazgo Disruptivo y Automatización Inteligente",
-      "abstract": "En esta charla estaremos explorando juntos cómo el liderazgo puede abordar los principales retos en una transformación DevOps, apalancando la automatización y la inteligencia artificial para fortalecer equipos y procesos. Exploraremos los conceptos clave de DevOps y cómo, mediante la gestión inteligente apoyada en IA, un líder puede potenciar competencias esenciales en los equipos:\r\n\r\n- Pensamiento Lean: maximizar el valor y mejorar la calidad, automatizando tareas repetitivas.\r\n- Transparencia: dar visibilidad a procesos y resultados.\r\n- Pensamiento sistémico: comprender el flujo de valor completo.\r\n- Retroalimentación: fomentar comunicación abierta.\r\n- Aprendizaje continuo: impulsar el desarrollo del equipo con recomendaciones de IA.\r\n- Propósito compartido: alinear al equipo con objetivos comunes.\r\n\r\nDescubre cómo la gestión basada en automatización e inteligencia artificial puede acelerar la evolución cultural y lograr una verdadera transformación DevOps.",
-      "speakers": [
-        "9NQFHJ"
-      ],
-      "track": 199,
-      "start": "2026-08-27T11:10:00-05:00",
-      "end": "2026-08-27T11:35:00-05:00",
-      "room": 284,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.261997+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "7ZZHCJ",
-      "id": 23169,
-      "title": "Arquitectura RAG Open Source y Cloud Native para la Mina \"Yana Killa\"",
-      "abstract": "En esta sesión compartiré cómo diseñamos “Yana Killa”, una arquitectura RAG orientada a construir un sistema de gestión documental con AI Chat para una operación minera.\r\n\r\nLa solución fue diseñada inicialmente sobre infraestructura cloud para acelerar la validación funcional y experimental del sistema, pero con una arquitectura completamente Cloud Native y Open Source que permita posteriormente migrar el stack a entornos on-premise, requisito clave en industrias con restricciones de seguridad y compliance.\r\n\r\nRevisaremos decisiones arquitectónicas, vectorización documental, pipelines de ingestión, orquestación de servicios, almacenamiento, observabilidad, despliegue en contenedores y estrategias para desacoplar la solución del proveedor cloud.\r\n\r\nTambién discutiremos los desafíos reales de implementar IA en entornos industriales donde la privacidad, resiliencia y portabilidad de la infraestructura son tan importantes como la calidad del modelo.",
-      "speakers": [
-        "ZMLZVR"
-      ],
-      "track": 202,
-      "start": "2026-08-27T11:10:00-05:00",
-      "end": "2026-08-27T11:35:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.261961+00:00",
-      "content_locale": "es"
-    },
-    {
       "code": "Z9PUTZ",
-      "id": 23174,
+      "id": 23343,
       "title": "Más allá de los pipelines: CI/CD inteligente y autónomo",
       "abstract": "Las pipelines tradicionales de CI/CD están alcanzando niveles de alta complejidad operativa: automatizaciones frágiles, herramientas fragmentadas y una fuerte dependencia de intervención manual oculta detrás de los procesos automáticos.\r\n\r\nEn esta charla exploraremos cómo estamos construyendo Octopus, una plataforma de CI/CD inteligente y autónoma diseñada para acelerar despliegues, reducir complejidad y mejorar la escalabilidad de prácticas DevOps mediante automatización avanzada y análisis asistido por IA.\r\n\r\nCompartiremos desafíos reales que enfrentan los equipos de ingeniería al escalar integración y despliegue continuo: inestabilidad en pipelines, sobrecarga operativa, cuellos de botella y dificultades de estandarización.\r\n\r\nAdemás, mostraremos cómo las capacidades autónomas comienzan a transformar el futuro del Platform Engineering y del DevOps moderno.",
       "speakers": [
@@ -250,12 +202,12 @@
       "end": "2026-08-27T11:35:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262005+00:00",
+      "updated": "2026-08-12T14:45:36.948618+00:00",
       "content_locale": "es"
     },
     {
       "code": "Q9KAZV",
-      "id": 23172,
+      "id": 23347,
       "title": "De OpenClaw a EnterpriseClaw: evolución del Platform Engineering hacia la Orquestación de Agentes",
       "abstract": "OpenClaw se ha convertido en el framework base de sistemas de agentes autónomos para dispositivos personales. Se trata de uno de los proyectos Open Source más populares en el año 2026, debido a la transición en el enfoque de los LLMs de chats a Sistemas de Agentes que actúan a nombre del usuario.\r\n\r\nEste cambio ha marcado un hito en cuanto a las posibilidades que trae el uso de esta tecnología. Pero, a pesar de lo disruptivo que ha sido, existe un gap tremendo en cuanto a su uso a escala industrial. ¿Qué pasa cuando un agente, con acceso a todo tu sistema, es comprometido por un atacante? Puede parecer exagerado, pero sólo basta con que uno de los miles de empleados de tu empresa abra un email indebido en el momento incorrecto...\r\n\r\nEn esta charla, abordaremos cómo evolucionar nuestra estrategia de Platform Engineering hacia la orquestación de agentes de IA con los mismos principios que ya aplicamos en arquitecturas de microservicios: aislamiento, mínimos privilegios y observabilidad.",
       "speakers": [
@@ -266,12 +218,60 @@
       "end": "2026-08-27T11:35:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.261988+00:00",
+      "updated": "2026-08-21T15:04:31.976937+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "M97QN8",
+      "id": 23346,
+      "title": "Transformación DevOps con Liderazgo Disruptivo y Automatización Inteligente",
+      "abstract": "En esta charla estaremos explorando juntos cómo el liderazgo puede abordar los principales retos en una transformación DevOps, apalancando la automatización y la inteligencia artificial para fortalecer equipos y procesos. Exploraremos los conceptos clave de DevOps y cómo, mediante la gestión inteligente apoyada en IA, un líder puede potenciar competencias esenciales en los equipos:\r\n\r\n- Pensamiento Lean: maximizar el valor y mejorar la calidad, automatizando tareas repetitivas.\r\n- Transparencia: dar visibilidad a procesos y resultados.\r\n- Pensamiento sistémico: comprender el flujo de valor completo.\r\n- Retroalimentación: fomentar comunicación abierta.\r\n- Aprendizaje continuo: impulsar el desarrollo del equipo con recomendaciones de IA.\r\n- Propósito compartido: alinear al equipo con objetivos comunes.\r\n\r\nDescubre cómo la gestión basada en automatización e inteligencia artificial puede acelerar la evolución cultural y lograr una verdadera transformación DevOps.",
+      "speakers": [
+        "9NQFHJ"
+      ],
+      "track": 199,
+      "start": "2026-08-27T11:10:00-05:00",
+      "end": "2026-08-27T11:35:00-05:00",
+      "room": 284,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.948645+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "7ZZHCJ",
+      "id": 23342,
+      "title": "Arquitectura RAG Open Source y Cloud Native para la Mina \"Yana Killa\"",
+      "abstract": "En esta sesión compartiré cómo diseñamos “Yana Killa”, una arquitectura RAG orientada a construir un sistema de gestión documental con AI Chat para una operación minera.\r\n\r\nLa solución fue diseñada inicialmente sobre infraestructura cloud para acelerar la validación funcional y experimental del sistema, pero con una arquitectura completamente Cloud Native y Open Source que permita posteriormente migrar el stack a entornos on-premise, requisito clave en industrias con restricciones de seguridad y compliance.\r\n\r\nRevisaremos decisiones arquitectónicas, vectorización documental, pipelines de ingestión, orquestación de servicios, almacenamiento, observabilidad, despliegue en contenedores y estrategias para desacoplar la solución del proveedor cloud.\r\n\r\nTambién discutiremos los desafíos reales de implementar IA en entornos industriales donde la privacidad, resiliencia y portabilidad de la infraestructura son tan importantes como la calidad del modelo.",
+      "speakers": [
+        "ZMLZVR"
+      ],
+      "track": 202,
+      "start": "2026-08-27T11:10:00-05:00",
+      "end": "2026-08-27T11:35:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.948609+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "EL8DCE",
+      "id": 23345,
+      "title": "[MongoDB] - Arquitectura de memoria para agentes: cuántos motores de datos justifica tu plataforma",
+      "abstract": "Todo el mundo construye agentes, pero pocos piensan en cómo operarlos. Un sistema agéntico no tiene \"una\" memoria: maneja transcripciones, memoria de trabajo, largo plazo, conocimiento y estado de ejecución.\r\nEsta complejidad llevó al mercado a multiplicar categorías: bases de datos operacionales, vectoriales, de texto y memoria. Nadie eligió tener seis bases de datos, pero terminó con ellas; cada una con su propio runbook, alertas y cero transaccionalidad.\r\nEn esta charla desglosaremos la arquitectura real de memoria para agentes, mostrando cómo consolidarla eficientemente en producción sin pagar los costos operativos de la dispersión de motores.",
+      "speakers": [
+        "FTZYAE"
+      ],
+      "track": null,
+      "start": "2026-08-27T11:10:00-05:00",
+      "end": "2026-08-27T11:30:00-05:00",
+      "room": 286,
+      "duration": 20,
+      "updated": "2026-08-15T23:17:18.413518+00:00",
       "content_locale": "es"
     },
     {
       "code": "88Z9VR",
-      "id": 23170,
+      "id": 23344,
       "title": "Specs antes que prompts: Spec Driven Development para Agentic Coding",
       "abstract": "Los agentes de IA generativa han transformado la forma en que escribimos código, pero también han traído un nuevo problema: los prompts son frágiles, ambiguos y difíciles de mantener. Cuando el contexto del agente cambia, los resultados cambian. Cuando el equipo crece, el conocimiento se fragmenta. ¿Cómo construimos software de calidad cuando el \"programador\" es un agente de IA?\r\n\r\nEn este workshop exploraremos Spec Driven Development (SDD), un enfoque donde las especificaciones estructuradas —y no los prompts ad-hoc— son el artefacto central del desarrollo con agentes. Aprenderás a diseñar specs que sirvan como contrato entre el humano y el agente: claras, versionables, testeables y reutilizables.",
       "speakers": [
@@ -282,12 +282,12 @@
       "end": "2026-08-27T12:40:00-05:00",
       "room": 285,
       "duration": 90,
-      "updated": "2026-08-07T23:57:52.261970+00:00",
+      "updated": "2026-08-15T22:26:30.239260+00:00",
       "content_locale": "es"
     },
     {
       "code": "QHHT8J",
-      "id": 23179,
+      "id": 23352,
       "title": "[IBM] - Del Prompt a la Plataforma: Infraestructura Potenciada por IA con IBM Bob y Terraform",
       "abstract": "-¿Qué sucede cuando un agente de IA comprende el contexto de tu infraestructura? Descubre cómo IBM Bob, el MCP de Terraform e Infragraph transforman la creación y comprensión de infraestructura como código, acelerando el desarrollo sin perder control ni gobernanza.",
       "speakers": [
@@ -298,12 +298,28 @@
       "end": "2026-08-27T12:00:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262047+00:00",
+      "updated": "2026-08-15T23:11:30.714778+00:00",
       "content_locale": "es"
     },
     {
+      "code": "BP8RE8",
+      "id": 23353,
+      "title": "From Manual Scaling to Intelligent Automation: How Cost Visibility Saved Our Team",
+      "abstract": "At a federal space agency, I led DevOps teams managing Kubernetes clusters with manual scaling decisions. Every Friday, the same SREs made the same scaling calls—burning budget and burning out. When budget pressure hit, two senior engineers were on the line for termination. The breakthrough wasn't technical. It was realizing that cost visibility and intelligent automation weren't luxuries—they were survival. By giving teams visibility into cost impact, automating repetitive scaling decisions, and building trust in the system, we cut infrastructure costs significantly. Those two engineers stayed. This talk is about the leadership moves that work: how to introduce automation without losing your team's trust, and why cost optimization can be the difference between keeping or losing your best people.",
+      "speakers": [
+        "KHCU7C"
+      ],
+      "track": 200,
+      "start": "2026-08-27T11:45:00-05:00",
+      "end": "2026-08-27T12:10:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-15T22:12:14.856127+00:00",
+      "content_locale": "en"
+    },
+    {
       "code": "8ZJJHM",
-      "id": 23182,
+      "id": 23356,
       "title": "De DevOps a DevSecOps: cómo integrar seguridad sin frenar a los equipos",
       "abstract": "Muchas organizaciones adoptan DevOps para acelerar la entrega de software, pero descubren un problema recurrente: la seguridad suele integrarse demasiado tarde en el proceso. Esto genera fricción entre equipos, revisiones manuales al final del pipeline y, en algunos casos, vulnerabilidades que llegan hasta producción.\r\n\r\nEn esta charla exploraremos cómo evolucionar hacia un enfoque DevSecOps, integrando controles de seguridad dentro del flujo de desarrollo y los pipelines CI/CD mediante automatización, gestión segura de secretos y políticas de seguridad como código.\r\n\r\nCompartiré aprendizajes basados en experiencias trabajando con equipos que buscan equilibrar velocidad de entrega y seguridad en entornos cloud y arquitecturas modernas.\r\n\r\nLos asistentes se llevarán lecciones prácticas y aplicables para comenzar a integrar seguridad en sus pipelines y reducir la fricción entre desarrollo y seguridad, avanzando hacia un modelo de DevSecOps más colaborativo y sostenible.",
       "speakers": [
@@ -314,12 +330,28 @@
       "end": "2026-08-27T12:10:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262072+00:00",
+      "updated": "2026-08-12T14:45:36.948733+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "CB7NQT",
+      "id": 23354,
+      "title": "La IA viene por nuestros trabajos y es una buena noticia",
+      "abstract": "La inteligencia artificial está transformando la forma en que trabajamos a una velocidad sin precedentes. ¿Estamos realmente preparados para este cambio? En esta sesión exploraremos el impacto de la IA en el entorno laboral, los desafíos que plantea y las oportunidades que abre para quienes sepan adoptarla. Compartiremos experiencias concretas de MINSUR sobre cómo la IA está potenciando a nuestros colaboradores en su día a día, transformando procesos y elevando el valor de su trabajo.",
+      "speakers": [
+        "NLKQV9"
+      ],
+      "track": 202,
+      "start": "2026-08-27T11:45:00-05:00",
+      "end": "2026-08-27T12:10:00-05:00",
+      "room": 281,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.948715+00:00",
       "content_locale": "es"
     },
     {
       "code": "ZMJPJM",
-      "id": 23180,
+      "id": 23355,
       "title": "Oye K8s, ¿cómo está el cluster? - Operaciones conversacionales con IA y notificaciones inteligentes",
       "abstract": "¿Y si en lugar de abrir Grafana, Lens o kubectl pudieras simplemente preguntar \"¿cómo está el cluster?\" y recibir un resumen inteligente en WhatsApp o Teams?\r\nEn esta charla exploraremos cómo construir un agente de operaciones conversacional sobre Kubernetes usando LLMs y herramientas del ecosistema CNCF. La idea es simple pero poderosa: conectar el estado real del cluster pods degradados, consumo acercándose a límites, escalamientos inusuales con un canal de comunicación que ya usas todos los días.\r\nVeremos la arquitectura completa: desde cómo exponer el estado del cluster de forma segura, hasta cómo usar un LLM para convertir datos técnicos en resúmenes accionables en lenguaje natural, y cómo enviarlo al canal correcto en el momento correcto, sin que nadie tenga que pedirlo.\r\nNo necesitas un equipo de 20 personas ni un presupuesto enorme. Necesitas las piezas correctas del ecosistema open source conectadas de la manera correcta.",
       "speakers": [
@@ -331,44 +363,12 @@
       "end": "2026-08-27T12:10:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262056+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "BP8RE8",
-      "id": 23183,
-      "title": "From Manual Scaling to Intelligent Automation: How Cost Visibility Saved Our Team",
-      "abstract": "At a federal space agency, I led DevOps teams managing Kubernetes clusters with manual scaling decisions. Every Friday, the same SREs made the same scaling calls—burning budget and burning out. When budget pressure hit, two senior engineers were on the line for termination. The breakthrough wasn't technical. It was realizing that cost visibility and intelligent automation weren't luxuries—they were survival. By giving teams visibility into cost impact, automating repetitive scaling decisions, and building trust in the system, we cut infrastructure costs significantly. Those two engineers stayed. This talk is about the leadership moves that work: how to introduce automation without losing your team's trust, and why cost optimization can be the difference between keeping or losing your best people.",
-      "speakers": [
-        "KHCU7C"
-      ],
-      "track": 200,
-      "start": "2026-08-27T11:45:00-05:00",
-      "end": "2026-08-27T12:10:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262081+00:00",
-      "content_locale": "en"
-    },
-    {
-      "code": "CB7NQT",
-      "id": 23181,
-      "title": "La IA viene por nuestros trabajos y es una buena noticia",
-      "abstract": "La inteligencia artificial está transformando la forma en que trabajamos a una velocidad sin precedentes. ¿Estamos realmente preparados para este cambio? En esta sesión exploraremos el impacto de la IA en el entorno laboral, los desafíos que plantea y las oportunidades que abre para quienes sepan adoptarla. Compartiremos experiencias concretas de MINSUR sobre cómo la IA está potenciando a nuestros colaboradores en su día a día, transformando procesos y elevando el valor de su trabajo.",
-      "speakers": [
-        "NLKQV9"
-      ],
-      "track": 202,
-      "start": "2026-08-27T11:45:00-05:00",
-      "end": "2026-08-27T12:10:00-05:00",
-      "room": 281,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262064+00:00",
+      "updated": "2026-08-12T14:45:36.948724+00:00",
       "content_locale": "es"
     },
     {
       "code": "DVXRYL",
-      "id": 23187,
+      "id": 23361,
       "title": "Interbank - Demo",
       "abstract": "-",
       "speakers": [],
@@ -377,12 +377,12 @@
       "end": "2026-08-27T12:30:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262114+00:00",
+      "updated": "2026-08-15T23:13:25.377537+00:00",
       "content_locale": "es"
     },
     {
       "code": "AC7WCN",
-      "id": 23189,
+      "id": 23362,
       "title": "[ Panel ] - Seguridad",
       "abstract": "En un ecosistema donde la velocidad de entrega y la resiliencia operativa son moneda corriente, la seguridad ya no puede ser un checkpoint al final del pipeline. Este panel reúne a líderes y practicantes de seguridad, DevOps y SRE para discutir cómo integrar DevSecOps de forma real dentro de organizaciones con alta exigencia regulatoria y escala.\r\nConversaremos sobre shift-left security, gestión de vulnerabilidades en pipelines de CI/CD, observabilidad de seguridad, respuesta a incidentes en entornos cloud-native, y cómo balancear velocidad de despliegue con cumplimiento normativo — sin sacrificar la experiencia del equipo de desarrollo.\r\nIdeal para: ingenieros de seguridad, DevOps/SRE, líderes técnicos y cualquier persona interesada en construir cultura de seguridad compartida (no impuesta) dentro de sus equipos.",
       "speakers": [
@@ -397,12 +397,12 @@
       "end": "2026-08-27T13:00:00-05:00",
       "room": 281,
       "duration": 40,
-      "updated": "2026-08-07T23:57:52.262131+00:00",
+      "updated": "2026-08-15T23:07:37.956531+00:00",
       "content_locale": "es"
     },
     {
       "code": "EZ9BUL",
-      "id": 23190,
+      "id": 23363,
       "title": "🍽️ Almuerzo y espacio de networking",
       "abstract": "Para nuestros asistentes VIP, el almuerzo estará incluido dentro de la experiencia del evento.\r\nPara el resto de asistentes, el Centro de Convenciones de Lima está ubicado muy cerca de La Rambla San Borja (Av. Javier Prado Este 2050), a solo minutos caminando. Ahí encontrarán una amplia variedad de opciones de comida rápida y restaurantes para el break de almuerzo.\r\nY en los alrededores también hay más alternativas cercanas",
       "speakers": [],
@@ -411,76 +411,12 @@
       "end": "2026-08-27T14:30:00-05:00",
       "room": 286,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262140+00:00",
+      "updated": "2026-08-16T06:08:13.593571+00:00",
       "content_locale": "en"
-    },
-    {
-      "code": "VHAKXY",
-      "id": 23194,
-      "title": "[Arkano] Nos comimos el presupuesto del año en tokens antes de julio",
-      "abstract": "-Todo empezó con una prueba de concepto exitosa. Meses después, distintos equipos utilizaban modelos en producción, la inversión crecía más rápido que la adopción y nadie podía explicar quién consumía qué ni qué valor estaba generando.\r\n\r\nEn esta charla contamos cómo pasamos de una única factura opaca a una visión clara del consumo por equipo, aplicación y caso de uso, y los tres drivers que impulsaban el gasto: uno evidente, otro escondido en la arquitectura y un tercero que descubrimos al cambiar la unidad de medida. También veremos cómo AI Governance, observabilidad y evaluación de calidad nos ayudaron a optimizar la inversión.\r\nEl hallazgo más inesperado: el consumo terminó siendo una de las mejores señales para maximizar el ROI de la IA.",
-      "speakers": [
-        "GSZYJ8"
-      ],
-      "track": null,
-      "start": "2026-08-27T14:30:00-05:00",
-      "end": "2026-08-27T14:50:00-05:00",
-      "room": 286,
-      "duration": 20,
-      "updated": "2026-08-07T23:57:52.262173+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "7RP7NX",
-      "id": 23192,
-      "title": "Gobernanza de AI con GitHub Copilot y Spec-Driven Development",
-      "abstract": "El mayor riesgo del AI en equipos enterprise no es que el código sea malo, es que nadie sabe por qué se tomaron las decisiones. En esta sesión veremos cómo GitHub Spec Kit y Copilot transforman el desarrollo asistido por IA en un proceso trazable y auditado: desde la constitution (las reglas no negociables del proyecto) hasta la generación de specs, planes técnicos y tareas ejecutables. Un flujo donde el equipo dirige y el agente implementa, con contexto persistente, alineado a estándares enterprise y sin sorpresas en producción.",
-      "speakers": [
-        "FFDYME"
-      ],
-      "track": 202,
-      "start": "2026-08-27T14:30:00-05:00",
-      "end": "2026-08-27T14:55:00-05:00",
-      "room": 283,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262157+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "BTY83E",
-      "id": 23193,
-      "title": "From Static Rules to Reasoning Platforms: Scaling Intelligent Canary Delivery in 2026",
-      "abstract": "As organizations scale their Kubernetes environments, the Day-2 reality of GitOps exposes a major limitation: static thresholds. Traditional canary deployments rely on fixed PromQL checks like “Error Rate < 1%.” While simple, these rules lack context to distinguish transient noise from real failures. In distributed systems, brief latency spikes, dependency hiccups, or traffic shifts can trigger false alerts, pausing rollouts and forcing manual approvals. This leads to alert fatigue and slower delivery pipelines.\r\n\r\nA shift is emerging—from static automation to reasoning platforms. Instead of rigid thresholds, modern delivery systems analyze multiple signals together. By augmenting ArgoCD Rollouts with an agentic reasoning layer, deployments can evaluate metrics, logs, and traces to make smarter Go/No-Go decisions—reducing false positives and enabling more reliable progressive delivery.",
-      "speakers": [
-        "V93TJG"
-      ],
-      "track": 200,
-      "start": "2026-08-27T14:30:00-05:00",
-      "end": "2026-08-27T14:55:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262165+00:00",
-      "content_locale": "en"
-    },
-    {
-      "code": "9UJL7E",
-      "id": 23195,
-      "title": "Tu agente de IA es stateless: lo que DevOps ya sabía sobre la memoria",
-      "abstract": "Cuando compactas el contexto de un agente de IA, pierde todo: el nombre del proyecto, las decisiones tomadas, las reglas no escritas del equipo. No es un bug del modelo, es un problema de statelessness. Y ese problema, DevOps lleva una década resolviéndolo.  Esta charla parte de una premisa simple: un agente de IA que escribe código es un componente de sistema, no un colaborador. Como todo componente stateless, necesita que el estado viva fuera de él, en el filesystem, en git, en especificaciones explícitas. Las mismas estructuras que usamos para garantizar continuidad en sistemas distribuidos funcionan para garantizar continuidad de contexto en sesiones de IA.  A través de un caso real aplicado en producción, con múltiples rondas de auditoría de seguridad y gates de calidad automatizados, veremos cómo TDD, SDD y reglas explícitas de equipo transforman un agente impredecible en un proceso reproducible.",
-      "speakers": [
-        "RPXQRN"
-      ],
-      "track": 200,
-      "start": "2026-08-27T14:30:00-05:00",
-      "end": "2026-08-27T14:55:00-05:00",
-      "room": 281,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262182+00:00",
-      "content_locale": "es"
     },
     {
       "code": "MTSUM3",
-      "id": 23287,
+      "id": 23365,
       "title": "El Futuro de la Programación",
       "abstract": "La IA generativa ha popularizado el \"vibe coding\", prometiendo velocidad absoluta. Sin embargo, delegar código sin límites genera un alto impacto negativo: hasta 45% de sobrecosto en proyectos de TI y 2.74 veces más vulnerabilidades de seguridad (Veracode). Ser rápidos programando ya no garantiza entregar software funcional ni seguro.\r\n\r\nIntroducimos el Spec-Driven Development. Mostraremos cómo abandonar la improvisación estableciendo una \"Constitución\" técnica y barreras de seguridad estrictas. Exploraremos cómo guiar a los agentes de IA exigiendo planificación, diseño y reglas innegociables antes de escribir la primera línea de código.\r\n\r\nAdoptar SDD previene la deuda técnica prematura, transforma la documentación en el entregable principal y asegura que el código generado por IA sea predecible y mantenible a escala empresarial.\r\n\r\nDescubriendo cómo evolucionar su perfil profesional de simples \"generadores de código\" a orquestadores estratégicos de software nativo de IA.",
       "speakers": [
@@ -492,12 +428,76 @@
       "end": "2026-08-27T14:55:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-12T14:45:25.241728+00:00",
+      "updated": "2026-08-12T14:45:36.948810+00:00",
       "content_locale": "es"
     },
     {
+      "code": "7RP7NX",
+      "id": 23366,
+      "title": "Gobernanza de AI con GitHub Copilot y Spec-Driven Development",
+      "abstract": "El mayor riesgo del AI en equipos enterprise no es que el código sea malo, es que nadie sabe por qué se tomaron las decisiones. En esta sesión veremos cómo GitHub Spec Kit y Copilot transforman el desarrollo asistido por IA en un proceso trazable y auditado: desde la constitution (las reglas no negociables del proyecto) hasta la generación de specs, planes técnicos y tareas ejecutables. Un flujo donde el equipo dirige y el agente implementa, con contexto persistente, alineado a estándares enterprise y sin sorpresas en producción.",
+      "speakers": [
+        "FFDYME"
+      ],
+      "track": 202,
+      "start": "2026-08-27T14:30:00-05:00",
+      "end": "2026-08-27T14:55:00-05:00",
+      "room": 283,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.948819+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "9UJL7E",
+      "id": 23368,
+      "title": "Tu agente de IA es stateless: lo que DevOps ya sabía sobre la memoria",
+      "abstract": "Cuando compactas el contexto de un agente de IA, pierde todo: el nombre del proyecto, las decisiones tomadas, las reglas no escritas del equipo. No es un bug del modelo, es un problema de statelessness. Y ese problema, DevOps lleva una década resolviéndolo.  Esta charla parte de una premisa simple: un agente de IA que escribe código es un componente de sistema, no un colaborador. Como todo componente stateless, necesita que el estado viva fuera de él, en el filesystem, en git, en especificaciones explícitas. Las mismas estructuras que usamos para garantizar continuidad en sistemas distribuidos funcionan para garantizar continuidad de contexto en sesiones de IA.  A través de un caso real aplicado en producción, con múltiples rondas de auditoría de seguridad y gates de calidad automatizados, veremos cómo TDD, SDD y reglas explícitas de equipo transforman un agente impredecible en un proceso reproducible.",
+      "speakers": [
+        "RPXQRN"
+      ],
+      "track": 200,
+      "start": "2026-08-27T14:30:00-05:00",
+      "end": "2026-08-27T14:55:00-05:00",
+      "room": 281,
+      "duration": 25,
+      "updated": "2026-08-15T21:58:54.180647+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "VHAKXY",
+      "id": 23367,
+      "title": "[Arkano] Nos comimos el presupuesto del año en tokens antes de julio",
+      "abstract": "-Todo empezó con una prueba de concepto exitosa. Meses después, distintos equipos utilizaban modelos en producción, la inversión crecía más rápido que la adopción y nadie podía explicar quién consumía qué ni qué valor estaba generando.\r\n\r\nEn esta charla contamos cómo pasamos de una única factura opaca a una visión clara del consumo por equipo, aplicación y caso de uso, y los tres drivers que impulsaban el gasto: uno evidente, otro escondido en la arquitectura y un tercero que descubrimos al cambiar la unidad de medida. También veremos cómo AI Governance, observabilidad y evaluación de calidad nos ayudaron a optimizar la inversión.\r\nEl hallazgo más inesperado: el consumo terminó siendo una de las mejores señales para maximizar el ROI de la IA.",
+      "speakers": [
+        "GSZYJ8"
+      ],
+      "track": null,
+      "start": "2026-08-27T14:30:00-05:00",
+      "end": "2026-08-27T14:50:00-05:00",
+      "room": 286,
+      "duration": 20,
+      "updated": "2026-08-15T23:09:52.041262+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "BTY83E",
+      "id": 23364,
+      "title": "From Static Rules to Reasoning Platforms: Scaling Intelligent Canary Delivery in 2026",
+      "abstract": "As organizations scale their Kubernetes environments, the Day-2 reality of GitOps exposes a major limitation: static thresholds. Traditional canary deployments rely on fixed PromQL checks like “Error Rate < 1%.” While simple, these rules lack context to distinguish transient noise from real failures. In distributed systems, brief latency spikes, dependency hiccups, or traffic shifts can trigger false alerts, pausing rollouts and forcing manual approvals. This leads to alert fatigue and slower delivery pipelines.\r\n\r\nA shift is emerging—from static automation to reasoning platforms. Instead of rigid thresholds, modern delivery systems analyze multiple signals together. By augmenting ArgoCD Rollouts with an agentic reasoning layer, deployments can evaluate metrics, logs, and traces to make smarter Go/No-Go decisions—reducing false positives and enabling more reliable progressive delivery.",
+      "speakers": [
+        "V93TJG"
+      ],
+      "track": 200,
+      "start": "2026-08-27T14:30:00-05:00",
+      "end": "2026-08-27T14:55:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-15T22:09:19.140400+00:00",
+      "content_locale": "en"
+    },
+    {
       "code": "CDJ8YJ",
-      "id": 23200,
+      "id": 23373,
       "title": "Dynatrace - Demo",
       "abstract": "-",
       "speakers": [],
@@ -506,12 +506,12 @@
       "end": "2026-08-27T15:20:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262241+00:00",
+      "updated": "2026-08-15T23:12:33.550003+00:00",
       "content_locale": "es"
     },
     {
       "code": "YV3PFK",
-      "id": 23201,
+      "id": 23376,
       "title": "¿Quién usa qué en Terraform? Construyendo IaC Observability con Port + GitHub + TFC",
       "abstract": "Cuando escalas Terraform en múltiples equipos, surge una pregunta que casi nadie puede responder con certeza: ¿quién usa qué módulo del registry privado y en qué versión?\r\n\r\nEn esta charla mostraré cómo implementamos un enfoque de IaC Observability, integrando Terraform Cloud y GitHub con Port para mapear, en tiempo real, el uso de módulos a través de toda la organización. A partir del análisis automatizado de repositorios y metadata del registry, construimos un modelo relacional que conecta módulos, versiones y equipos consumidores.\r\n\r\nEl resultado es un dashboard de Terraform Governance que permite tomar decisiones informadas sobre adopción, versionado y evolución de módulos, sin depender de conocimiento manual ni revisión manual de repositorios.\r\n\r\nTe llevarás el concepto de IaC Observability, la arquitectura de estas integraciones y los aprendizajes clave de implementarlo a escala en una organización real.",
       "speakers": [
@@ -522,28 +522,12 @@
       "end": "2026-08-27T15:30:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262249+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "CWKUPH",
-      "id": 23202,
-      "title": "De promesas a resultados confiables; como demostrar el valor de la IA",
-      "abstract": "Hoy todas las organizaciones hablan de inteligencia artificial generativa, pero pocas pueden demostrar su impacto real en el negocio. Muchas iniciativas se quedan en pilotos sin adopción, sin métricas claras y sin conexión con decisiones estratégicas.\r\n\r\nEn esta charla te llevarás criterios claros para distinguir qué iniciativas generan valor confiable y cuáles no, cómo conectar la data con decisiones reales y cómo evidenciar impacto en términos de negocio. A partir de experiencias reales, compartiré qué funciona, qué no y cómo evitar inversiones sin retorno.",
-      "speakers": [
-        "MZEQFA"
-      ],
-      "track": 202,
-      "start": "2026-08-27T15:05:00-05:00",
-      "end": "2026-08-27T15:30:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262258+00:00",
+      "updated": "2026-08-15T21:44:34.184264+00:00",
       "content_locale": "es"
     },
     {
       "code": "8RDU89",
-      "id": 23203,
+      "id": 23375,
       "title": "🎬 FAST Channels en AWS: Cómo construir una experiencia tipo Netflix en producción",
       "abstract": "¿Cómo pasar de videos sueltos a un canal tipo TV 24/7, con inserción de anuncios y escala global?\r\n\r\nEn esta charla mostraré cómo diseñar y operar canales FAST (Free Ad-Supported TV) usando AWS MediaLive y MediaTailor, abordando los desafíos reales de llevar esto a producción: latencia, sincronización de anuncios (SCTE-35), control de costos y automatización del pipeline.\r\n\r\nQué se van a llevar:\r\n\r\nArquitectura de referencia para canales FAST en AWS\r\nCómo insertar publicidad dinámicamente sin cortar la experiencia del usuario\r\nBuenas prácticas de HLS en entornos de producción\r\nErrores comunes al construir estos sistemas (y cómo evitarlos)",
       "speakers": [
@@ -554,12 +538,28 @@
       "end": "2026-08-27T15:30:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262266+00:00",
+      "updated": "2026-08-12T14:45:36.948897+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "CWKUPH",
+      "id": 23374,
+      "title": "De promesas a resultados confiables; como demostrar el valor de la IA",
+      "abstract": "Hoy todas las organizaciones hablan de inteligencia artificial generativa, pero pocas pueden demostrar su impacto real en el negocio. Muchas iniciativas se quedan en pilotos sin adopción, sin métricas claras y sin conexión con decisiones estratégicas.\r\n\r\nEn esta charla te llevarás criterios claros para distinguir qué iniciativas generan valor confiable y cuáles no, cómo conectar la data con decisiones reales y cómo evidenciar impacto en términos de negocio. A partir de experiencias reales, compartiré qué funciona, qué no y cómo evitar inversiones sin retorno.",
+      "speakers": [
+        "MZEQFA"
+      ],
+      "track": 202,
+      "start": "2026-08-27T15:05:00-05:00",
+      "end": "2026-08-27T15:30:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.948888+00:00",
       "content_locale": "es"
     },
     {
       "code": "F9GDYT",
-      "id": 23204,
+      "id": 23380,
       "title": "[Nutanix] - Kubernetes sin ataduras: Cómo Nutanix NKP empodera a los desarrolladores con GitOps, Self-Service y cero lock-in.",
       "abstract": "-",
       "speakers": [
@@ -570,12 +570,12 @@
       "end": "2026-08-27T15:50:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262275+00:00",
+      "updated": "2026-08-13T04:12:59.428138+00:00",
       "content_locale": "es"
     },
     {
       "code": "PYDYA8",
-      "id": 23209,
+      "id": 23382,
       "title": "[ Panel ] - Fintech",
       "abstract": "La inteligencia artificial ya no es solo un experimento dentro del sector fintech: se está integrando en la operación diaria de plataformas que mueven dinero y datos sensibles. Este panel reúne a líderes técnicos de organizaciones fintech para conversar sobre cómo están adoptando IA —desde agentes que automatizan operaciones hasta modelos que detectan fraude y anomalías— sin comprometer la estabilidad, seguridad y cumplimiento normativo que exige el sector financiero.\r\nSe abordarán temas como IA aplicada a detección de fraude y riesgo transaccional, agentes de IA en operaciones (AIOps) para sistemas de pagos críticos, gobernanza y explicabilidad de modelos en un entorno altamente regulado, el rol de la IA en la productividad de equipos de ingeniería fintech, y cómo balancear la velocidad de innovación con la confianza que los usuarios depositan en sus finanzas.",
       "speakers": [
@@ -590,12 +590,12 @@
       "end": "2026-08-27T16:20:00-05:00",
       "room": 281,
       "duration": 40,
-      "updated": "2026-08-07T23:57:52.262338+00:00",
+      "updated": "2026-08-15T23:07:43.220680+00:00",
       "content_locale": "es"
     },
     {
       "code": "TWCTY7",
-      "id": 23210,
+      "id": 23383,
       "title": "[Coforge] - Amazon Bedrock AgentCore en Producción: Lo Que Nadie Te Cuenta",
       "abstract": "-",
       "speakers": [
@@ -606,33 +606,11 @@
       "end": "2026-08-27T16:20:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262349+00:00",
+      "updated": "2026-08-23T19:05:40.941297+00:00",
       "content_locale": "es"
     },
     {
-      "id": 23215,
-      "title": {
-        "en": "break",
-        "es": "Receso"
-      },
-      "start": "2026-08-27T21:20:00Z",
-      "end": "2026-08-27T16:40:00-05:00",
-      "room": 281,
-      "slot_type": "break"
-    },
-    {
-      "id": 23214,
-      "title": {
-        "en": "break",
-        "es": "Receso"
-      },
-      "start": "2026-08-27T21:20:00Z",
-      "end": "2026-08-27T16:40:00-05:00",
-      "room": 283,
-      "slot_type": "break"
-    },
-    {
-      "id": 23211,
+      "id": 23386,
       "title": {
         "en": "break",
         "es": "Receso"
@@ -643,18 +621,7 @@
       "slot_type": "break"
     },
     {
-      "id": 23213,
-      "title": {
-        "en": "break",
-        "es": "Receso"
-      },
-      "start": "2026-08-27T21:20:00Z",
-      "end": "2026-08-27T16:40:00-05:00",
-      "room": 284,
-      "slot_type": "break"
-    },
-    {
-      "id": 23212,
+      "id": 23384,
       "title": {
         "en": "break",
         "es": "Receso"
@@ -665,8 +632,41 @@
       "slot_type": "break"
     },
     {
+      "id": 23385,
+      "title": {
+        "en": "break",
+        "es": "Receso"
+      },
+      "start": "2026-08-27T21:20:00Z",
+      "end": "2026-08-27T16:40:00-05:00",
+      "room": 284,
+      "slot_type": "break"
+    },
+    {
+      "id": 23388,
+      "title": {
+        "en": "break",
+        "es": "Receso"
+      },
+      "start": "2026-08-27T21:20:00Z",
+      "end": "2026-08-27T16:40:00-05:00",
+      "room": 283,
+      "slot_type": "break"
+    },
+    {
+      "id": 23387,
+      "title": {
+        "en": "break",
+        "es": "Receso"
+      },
+      "start": "2026-08-27T21:20:00Z",
+      "end": "2026-08-27T16:40:00-05:00",
+      "room": 281,
+      "slot_type": "break"
+    },
+    {
       "code": "FVDRSC",
-      "id": 23216,
+      "id": 23389,
       "title": "Kyndryl - Demo",
       "abstract": "-",
       "speakers": [],
@@ -675,44 +675,12 @@
       "end": "2026-08-27T16:50:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262400+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "JBSRHG",
-      "id": 23219,
-      "title": "De la automatización a la inteligencia operacional",
-      "abstract": "Hubo un momento en que creía que automatizar todo era suficiente. Pipelines perfectos, scripts para cada caso, workflows bien documentados. Y aun así, el negocio seguía esperando.\r\n\r\nTrabajando en organizaciones financieras entendí que el problema no era la automatización — era que los procesos habían crecido más rápido que nuestra capacidad de controlarlos. Fue ahí donde los agentes dejaron de ser una curiosidad y se convirtieron en una necesidad real.\r\n\r\nLlevé soluciones agénticas: orquestación de APIs, gobernanza de arquitectura, documentación que se genera sola,,un learning oficcer . Aprendí qué funciona, qué explota, y qué nadie te cuenta en los tutoriales.\r\n\r\nSi estás pensando en dar ese paso, saldrás sabiendo si tu equipo ya está listo — y por dónde empezar.",
-      "speakers": [
-        "73FPPV"
-      ],
-      "track": 202,
-      "start": "2026-08-27T16:40:00-05:00",
-      "end": "2026-08-27T17:05:00-05:00",
-      "room": 281,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262427+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "7RZ3VX",
-      "id": 23217,
-      "title": "Has estado construyendo los pilares del futuro: Platform Egineer en Acción !",
-      "abstract": "`\r\n# Has estado construyendo los pilares del futuro: Platform Egineer en Acción ! \r\n> Cómo DevOps, SysAdmins, Cloud Engineers y DevSecOps construimos\r\n> los pilares de la Ingeniería de Plataforma sin saberlo\r\n---\r\n## Resumen de la charla\r\nDurante años hemos construido pipelines, automatizado infraestructura, definido\r\npolíticas de seguridad como código y creado herramientas internas para que los\r\nequipos de desarrollo trabajen más rápido. Lo que nadie nos dijo es que, de\r\nmanera consciente o inconsciente, estábamos levantando los pilares fundamentales\r\nde la **Platform Engineering**.\r\n\r\nEsta charla conecta esos puntos: muestra cómo el trabajo que ya hacemos —y el\r\nconocimiento que ya tenemos— es exactamente la base sobre la que se construye\r\nuna Internal Developer Platform (IDP). No necesitas reinventarte; necesitas\r\nreconocer lo que ya construiste.\r\n`",
-      "speakers": [
-        "VBWLYQ"
-      ],
-      "track": 200,
-      "start": "2026-08-27T16:40:00-05:00",
-      "end": "2026-08-27T17:05:00-05:00",
-      "room": 284,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262409+00:00",
+      "updated": "2026-08-15T23:13:18.661640+00:00",
       "content_locale": "es"
     },
     {
       "code": "NLEHJW",
-      "id": 23220,
+      "id": 23390,
       "title": "Feature Flags Driven Development: CD seguro y sin miedos",
       "abstract": "En esta sesión exploraremos cómo implementar Feature Flag Driven Development para desacoplar el despliegue técnico de la habilitación funcional, permitiendo activar características de forma progresiva, realizar pruebas A/B, ejecutar canary releases y mitigar riesgos en producción mediante kill switches. Revisaremos cómo aprovechar servicios como Azure App Configuration en aplicaciones modernas para habilitar entregas continuas más seguras, mayor control operacional y una estrategia DevOps alineada a prácticas cloud-native.",
       "speakers": [
@@ -723,12 +691,12 @@
       "end": "2026-08-27T17:05:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262435+00:00",
+      "updated": "2026-08-12T14:45:36.949029+00:00",
       "content_locale": "es"
     },
     {
       "code": "NKA7BK",
-      "id": 23218,
+      "id": 23393,
       "title": "AI Governance as Code: Controlando tus modelos de IA desde el pipeline antes de llegar a producción",
       "abstract": "Desplegar un modelo de IA sin governance es como hacer deploy un viernes a las 6pm: puede salir bien, pero nadie debería apostar por ello. En esta sesión veremos cómo implementar AI Governance as Code usando Azure DevOps como orquestador: pipelines que no solo despliegan tu solución de IA, sino que validan que sea segura, responsable y económicamente controlada antes de tocar producción. Tres gates reales integrados en el pipeline: Safety Gate con Azure Content Safety API, Cost Gate con Azure Cost Management API, y Responsible AI Gate verificando filtros y políticas activas. Todo orquestado con Pipeline Templates y un extends base que actúa como contrato de governance que ningún equipo puede saltarse.\r\nSin MLOps platform completo, sin infraestructura enterprise. Solo Azure DevOps, las APIs correctas y governance como primera línea de defensa\r\nTe llevas: templates funcionales, tres gates implementados y la mentalidad de tratar el governance de IA como cualquier quality gate en tu pipeline",
       "speakers": [
@@ -739,12 +707,44 @@
       "end": "2026-08-27T17:05:00-05:00",
       "room": 282,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262418+00:00",
+      "updated": "2026-08-12T14:45:36.949055+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "7RZ3VX",
+      "id": 23392,
+      "title": "Has estado construyendo los pilares del futuro: Platform Egineer en Acción !",
+      "abstract": "`\r\n# Has estado construyendo los pilares del futuro: Platform Egineer en Acción ! \r\n> Cómo DevOps, SysAdmins, Cloud Engineers y DevSecOps construimos\r\n> los pilares de la Ingeniería de Plataforma sin saberlo\r\n---\r\n## Resumen de la charla\r\nDurante años hemos construido pipelines, automatizado infraestructura, definido\r\npolíticas de seguridad como código y creado herramientas internas para que los\r\nequipos de desarrollo trabajen más rápido. Lo que nadie nos dijo es que, de\r\nmanera consciente o inconsciente, estábamos levantando los pilares fundamentales\r\nde la **Platform Engineering**.\r\n\r\nEsta charla conecta esos puntos: muestra cómo el trabajo que ya hacemos —y el\r\nconocimiento que ya tenemos— es exactamente la base sobre la que se construye\r\nuna Internal Developer Platform (IDP). No necesitas reinventarte; necesitas\r\nreconocer lo que ya construiste.\r\n`",
+      "speakers": [
+        "VBWLYQ"
+      ],
+      "track": 200,
+      "start": "2026-08-27T16:40:00-05:00",
+      "end": "2026-08-27T17:05:00-05:00",
+      "room": 284,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.949046+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "JBSRHG",
+      "id": 23391,
+      "title": "De la automatización a la inteligencia operacional",
+      "abstract": "Hubo un momento en que creía que automatizar todo era suficiente. Pipelines perfectos, scripts para cada caso, workflows bien documentados. Y aun así, el negocio seguía esperando.\r\n\r\nTrabajando en organizaciones financieras entendí que el problema no era la automatización — era que los procesos habían crecido más rápido que nuestra capacidad de controlarlos. Fue ahí donde los agentes dejaron de ser una curiosidad y se convirtieron en una necesidad real.\r\n\r\nLlevé soluciones agénticas: orquestación de APIs, gobernanza de arquitectura, documentación que se genera sola,,un learning oficcer . Aprendí qué funciona, qué explota, y qué nadie te cuenta en los tutoriales.\r\n\r\nSi estás pensando en dar ese paso, saldrás sabiendo si tu equipo ya está listo — y por dónde empezar.",
+      "speakers": [
+        "73FPPV"
+      ],
+      "track": 202,
+      "start": "2026-08-27T16:40:00-05:00",
+      "end": "2026-08-27T17:05:00-05:00",
+      "room": 281,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.949037+00:00",
       "content_locale": "es"
     },
     {
       "code": "H37QK3",
-      "id": 23225,
+      "id": 23398,
       "title": "NTT - Demo",
       "abstract": "-",
       "speakers": [],
@@ -753,44 +753,28 @@
       "end": "2026-08-27T17:30:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262478+00:00",
+      "updated": "2026-08-15T23:12:38.726136+00:00",
       "content_locale": "es"
     },
     {
-      "code": "NTWDDN",
-      "id": 23229,
-      "title": "Chaos Engineering - Release the experiment!",
-      "abstract": "Hoy ya no basta con reaccionar reactivamente a las fallas. El medir la degradación sin llevar los sistemas al limite no es suficiente. Resilience engineering es el triangulo perfecto entre Performance, Chaos y observabilidad. Como funciona, lo explicamos en esta charla.",
+      "code": "YHC9HQ",
+      "id": 23399,
+      "title": "DevOps: El lado humano de la operación",
+      "abstract": "\"Hablamos de CI/CD, de infraestructura como código, de observabilidad. Pero si quitamos las herramientas, los dashboards y los YAML files… ¿qué queda? Queda una persona.\r\n\r\nEsta charla es una pausa para volver a lo esencial. Para hablar de lo que nadie pone en un job description pero todos esperan de ti: la calma cuando todo se cae, la disciplina para cuidar lo que nadie ve, y la empatía para sentarte junto a un equipo y decir \"\"veamos esto juntos\"\".\r\n\r\nRecorreremos las situaciones que definen el día a día de un profesional DevOps — los incidentes que enseñan a liderar bajo presión, la cultura de calidad que se construye en silencio, y ese instinto clínico para diagnosticar lo que otros no ven. No desde lo técnico, sino desde lo humano.\r\n\r\nSi alguna vez sentiste que tu rol y tus actividades van mucho más allá de lo que dice tu título, esta charla es para ti.\"",
       "speakers": [
-        "ZELYPB"
+        "EAJBEY"
       ],
       "track": 200,
       "start": "2026-08-27T17:15:00-05:00",
       "end": "2026-08-27T17:40:00-05:00",
-      "room": 282,
+      "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262512+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "JBJWNN",
-      "id": 23227,
-      "title": "Por qué tu implementación DORA no funciona",
-      "abstract": "Las métricas DORA llevan más de 10 años midiendo la performance de entrega de software. \r\nLa mayoría de equipos las conoce. Pocos las implementan bien.\r\n\r\nEl problema no es la métrica — es el equilibrio. **Velocidad sin estabilidad es deuda. Estabilidad sin velocidad es parálisis.**\r\n\r\nEn esta sesión exploramos las **métricas DORA desde la trinchera**: qué miden realmente, \r\ncuáles son los errores más comunes al implementarlas, cómo evitar que se conviertan en \r\nun objetivo vacío — y qué prácticas concretas sostienen las métricas en el tiempo sin \r\nmatar al equipo en el intento.\r\n\r\nPorque al final, nunca se trató de la meta. Siempre se trató del viaje.",
-      "speakers": [
-        "FYSLFX"
-      ],
-      "track": 199,
-      "start": "2026-08-27T17:15:00-05:00",
-      "end": "2026-08-27T17:40:00-05:00",
-      "room": 283,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262495+00:00",
+      "updated": "2026-08-12T14:45:36.949108+00:00",
       "content_locale": "es"
     },
     {
       "code": "ZPCJMD",
-      "id": 23228,
+      "id": 23401,
       "title": "Agentes que prueban Agentes: el nuevo paradigma de QA en la era de la IA",
       "abstract": "Las organizaciones están incorporando agentes de Inteligencia Artificial en sus productos digitales, pero los enfoques tradicionales de testing no están preparados para evaluarlos.\r\n\r\nA diferencia del software convencional, los sistemas basados en IA son no deterministas: su comportamiento depende del contexto, el lenguaje y la probabilidad. Esto redefine completamente lo que significa “calidad”.\r\n\r\nEn esta charla exploraremos cómo el rol de QA evoluciona frente a este desafío y cómo los agentes pueden ser utilizados para probar otros agentes, habilitando nuevas formas de validación más rápidas, adaptativas y escalables.\r\n\r\nMostraremos cómo integrar estas prácticas dentro del ciclo de vida DevOps para:\r\n\r\nReducir tiempos de validación\r\nAumentar cobertura en escenarios complejos\r\nMejorar la confiabilidad de sistemas basados en IA\r\n\r\nEl objetivo es claro: pasar de un testing reactivo a un modelo inteligente, donde QA se convierte en un habilitador clave de la entrega continua en productos con IA.",
       "speakers": [
@@ -802,28 +786,44 @@
       "end": "2026-08-27T17:40:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262504+00:00",
+      "updated": "2026-08-12T14:45:36.949126+00:00",
       "content_locale": "es"
     },
     {
-      "code": "YHC9HQ",
-      "id": 23226,
-      "title": "DevOps: El lado humano de la operación",
-      "abstract": "\"Hablamos de CI/CD, de infraestructura como código, de observabilidad. Pero si quitamos las herramientas, los dashboards y los YAML files… ¿qué queda? Queda una persona.\r\n\r\nEsta charla es una pausa para volver a lo esencial. Para hablar de lo que nadie pone en un job description pero todos esperan de ti: la calma cuando todo se cae, la disciplina para cuidar lo que nadie ve, y la empatía para sentarte junto a un equipo y decir \"\"veamos esto juntos\"\".\r\n\r\nRecorreremos las situaciones que definen el día a día de un profesional DevOps — los incidentes que enseñan a liderar bajo presión, la cultura de calidad que se construye en silencio, y ese instinto clínico para diagnosticar lo que otros no ven. No desde lo técnico, sino desde lo humano.\r\n\r\nSi alguna vez sentiste que tu rol y tus actividades van mucho más allá de lo que dice tu título, esta charla es para ti.\"",
+      "code": "JBJWNN",
+      "id": 23400,
+      "title": "Por qué tu implementación DORA no funciona",
+      "abstract": "Las métricas DORA llevan más de 10 años midiendo la performance de entrega de software. \r\nLa mayoría de equipos las conoce. Pocos las implementan bien.\r\n\r\nEl problema no es la métrica — es el equilibrio. **Velocidad sin estabilidad es deuda. Estabilidad sin velocidad es parálisis.**\r\n\r\nEn esta sesión exploramos las **métricas DORA desde la trinchera**: qué miden realmente, \r\ncuáles son los errores más comunes al implementarlas, cómo evitar que se conviertan en \r\nun objetivo vacío — y qué prácticas concretas sostienen las métricas en el tiempo sin \r\nmatar al equipo en el intento.\r\n\r\nPorque al final, nunca se trató de la meta. Siempre se trató del viaje.",
       "speakers": [
-        "EAJBEY"
+        "FYSLFX"
+      ],
+      "track": 199,
+      "start": "2026-08-27T17:15:00-05:00",
+      "end": "2026-08-27T17:40:00-05:00",
+      "room": 283,
+      "duration": 25,
+      "updated": "2026-08-15T21:56:16.120246+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "NTWDDN",
+      "id": 23402,
+      "title": "Chaos Engineering - Release the experiment!",
+      "abstract": "Hoy ya no basta con reaccionar reactivamente a las fallas. El medir la degradación sin llevar los sistemas al limite no es suficiente. Resilience engineering es el triangulo perfecto entre Performance, Chaos y observabilidad. Como funciona, lo explicamos en esta charla.",
+      "speakers": [
+        "ZELYPB"
       ],
       "track": 200,
       "start": "2026-08-27T17:15:00-05:00",
       "end": "2026-08-27T17:40:00-05:00",
-      "room": 281,
+      "room": 282,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262487+00:00",
+      "updated": "2026-08-12T14:45:36.949134+00:00",
       "content_locale": "es"
     },
     {
       "code": "BLVTCY",
-      "id": 23234,
+      "id": 23407,
       "title": "CleverIt - Demo",
       "abstract": "-",
       "speakers": [],
@@ -832,28 +832,28 @@
       "end": "2026-08-27T18:05:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262556+00:00",
+      "updated": "2026-08-15T23:12:43.822031+00:00",
       "content_locale": "es"
     },
     {
-      "code": "YSNBCM",
-      "id": 23238,
-      "title": "Terraform at Scale: Security Without Friction",
-      "abstract": "Security teams often become the final approval gate for infrastructure delivery, creating friction, delays, and frustration for developers. But what if security could accelerate delivery instead of blocking it?\r\n\r\nIn this talk, I’ll share practical lessons from real-world cloud environments on how to integrate security directly into Terraform pipelines using policy-as-code, automated validation, and secure-by-default patterns.\r\n\r\nWe’ll cover how tools like Checkov, TFLint, GitHub Actions, and cloud governance controls help reduce misconfigurations, improve compliance, and enable developers to move faster with confidence.\r\n\r\nThis session is for engineers who want secure infrastructure without sacrificing speed, because DevSecOps should feel like enablement, not bureaucracy.",
+      "code": "Z9F9AP",
+      "id": 23409,
+      "title": "Beyond CI/CD: Cómo construir resiliencia operativa en organizaciones que no pueden fallar",
+      "abstract": "Muchas organizaciones han logrado acelerar su delivery mediante CI/CD, cloud y automatización, pero aún operan con fragilidad técnica y organizacional en momentos críticos. En sectores regulados como banca y retail, la velocidad no garantiza resiliencia.\r\nEsta charla comparte aprendizajes reales liderando procesos de modernización tecnológica y transformación operativa en organizaciones con operaciones regionales, donde DevOps dejó de ser solo una práctica de ingeniería para convertirse en un habilitador de continuidad, gobernanza y escalabilidad.\r\nA través de patrones aplicados en producción y decisiones difíciles en escenarios de alta criticidad, se explorará cómo integrar observabilidad, prácticas DevOps, arquitectura moderna y diseño organizacional para reducir fricción operativa, fortalecer la resiliencia y acelerar la entrega de valor sin comprometer estabilidad.\r\nPorque en organizaciones que no pueden fallar, la resiliencia no es una herramienta: es una capacidad estratégica.",
       "speakers": [
-        "KD8X9S"
+        "KY8LNM"
       ],
-      "track": 201,
+      "track": 200,
       "start": "2026-08-27T17:50:00-05:00",
       "end": "2026-08-27T18:15:00-05:00",
-      "room": 282,
+      "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262590+00:00",
-      "content_locale": "en"
+      "updated": "2026-08-12T14:45:36.949196+00:00",
+      "content_locale": "es"
     },
     {
       "code": "PPFZDU",
-      "id": 23237,
+      "id": 23410,
       "title": "De DevOps a Platform Engineering: El journey",
       "abstract": "Hace algunos años no hablábamos de Platform Engineering, solo intentábamos ordenar nuestros pipelines, estandarizar herramientas e implementar controles de seguridad. En esta charla contaré el journey que hemos recorrido en Nequi desde la construcción de nuestras prácticas de DevOps y DevSecOps hasta darnos cuenta de que todo ese trabajo se convirtió en la base de nuestra Internal Developer Platform. Compartiré métricas, resultados, errores y aprendizajes para equipos que estén viviendo una transformación similar.",
       "speakers": [
@@ -864,12 +864,28 @@
       "end": "2026-08-27T18:15:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262581+00:00",
+      "updated": "2026-08-15T22:03:26.621860+00:00",
       "content_locale": "es"
     },
     {
+      "code": "YSNBCM",
+      "id": 23411,
+      "title": "Terraform at Scale: Security Without Friction",
+      "abstract": "Security teams often become the final approval gate for infrastructure delivery, creating friction, delays, and frustration for developers. But what if security could accelerate delivery instead of blocking it?\r\n\r\nIn this talk, I’ll share practical lessons from real-world cloud environments on how to integrate security directly into Terraform pipelines using policy-as-code, automated validation, and secure-by-default patterns.\r\n\r\nWe’ll cover how tools like Checkov, TFLint, GitHub Actions, and cloud governance controls help reduce misconfigurations, improve compliance, and enable developers to move faster with confidence.\r\n\r\nThis session is for engineers who want secure infrastructure without sacrificing speed, because DevSecOps should feel like enablement, not bureaucracy.",
+      "speakers": [
+        "KD8X9S"
+      ],
+      "track": 201,
+      "start": "2026-08-27T17:50:00-05:00",
+      "end": "2026-08-27T18:15:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-15T22:13:16.897153+00:00",
+      "content_locale": "en"
+    },
+    {
       "code": "9WEZHM",
-      "id": 23236,
+      "id": 23408,
       "title": "El camino hacia la adopción de plataformas internas",
       "abstract": "Muchas organizaciones ya han implementado portales y plataformas internas para el aprovisionamiento de proyectos e infraestructura. Sin embargo, según el State of Platform Engineering Report 2025, aproximadamente el 40% de estas iniciativas dependen de procesos de feedback ad hoc e inconsistentes, lo que limita la mejora continua.\r\n\r\nLos dos desafíos más reportados son:\r\n- Baja adopción por parte de los desarrolladores.\r\n- Dificultad para demostrar valor directo al negocio.\r\n\r\nEn esta charla, exploraremos cómo superar estos desafíos a través de la Ingeniería de Plataforma, tratando la plataforma como un producto. Abordaremos cómo construir plataformas centradas en la experiencia del desarrollador, impulsando la adopción y generando valor medible para la organización.\r\n\r\nTemas que se abordarán durante la sesión:\r\n- Platform as a Product.\r\n- Cómo medir el éxito de una plataforma utilizando métricas como SPACE, DX Core 4 y DORA.",
       "speakers": [
@@ -881,28 +897,12 @@
       "end": "2026-08-27T18:15:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262573+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "Z9F9AP",
-      "id": 23235,
-      "title": "Beyond CI/CD: Cómo construir resiliencia operativa en organizaciones que no pueden fallar",
-      "abstract": "Muchas organizaciones han logrado acelerar su delivery mediante CI/CD, cloud y automatización, pero aún operan con fragilidad técnica y organizacional en momentos críticos. En sectores regulados como banca y retail, la velocidad no garantiza resiliencia.\r\nEsta charla comparte aprendizajes reales liderando procesos de modernización tecnológica y transformación operativa en organizaciones con operaciones regionales, donde DevOps dejó de ser solo una práctica de ingeniería para convertirse en un habilitador de continuidad, gobernanza y escalabilidad.\r\nA través de patrones aplicados en producción y decisiones difíciles en escenarios de alta criticidad, se explorará cómo integrar observabilidad, prácticas DevOps, arquitectura moderna y diseño organizacional para reducir fricción operativa, fortalecer la resiliencia y acelerar la entrega de valor sin comprometer estabilidad.\r\nPorque en organizaciones que no pueden fallar, la resiliencia no es una herramienta: es una capacidad estratégica.",
-      "speakers": [
-        "KY8LNM"
-      ],
-      "track": 200,
-      "start": "2026-08-27T17:50:00-05:00",
-      "end": "2026-08-27T18:15:00-05:00",
-      "room": 283,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262564+00:00",
+      "updated": "2026-08-12T14:45:36.949187+00:00",
       "content_locale": "es"
     },
     {
       "code": "FMXST8",
-      "id": 23239,
+      "id": 23412,
       "title": "Entrada - Registro",
       "abstract": "Al llegar al evento, deberán ingresar por la zona de la terraza, donde nuestro equipo de registro estará esperándolos con una sonrisa para darles la bienvenida. En este punto se verificará su inscripción y se les entregará el paquete de bienvenida, que incluye material informativo, souvenirs y el polo oficial del evento. Este será también un buen momento para saludar a otros participantes, tomarse fotos y empezar a disfrutar del ambiente previo antes de pasar a las demás actividades programadas.",
       "speakers": [],
@@ -911,12 +911,12 @@
       "end": "2026-08-28T08:30:00-05:00",
       "room": 286,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262599+00:00",
+      "updated": "2026-08-12T14:45:36.949241+00:00",
       "content_locale": "en"
     },
     {
       "code": "STCKPB",
-      "id": 23240,
+      "id": 23413,
       "title": "Bienvenida",
       "abstract": "La Bienvenida dará inicio oficial al evento y será el momento para reconocer y agradecer a nuestros speakers por compartir su conocimiento, así como a los sponsors por su valioso apoyo. Recibiremos a todos los asistentes con una cálida recepción, invitándolos a sumarse con entusiasmo a esta experiencia única. En un ambiente de colaboración, energía positiva y espíritu de comunidad, comenzaremos juntos una jornada diseñada para aprender, inspirar y crear conexiones duraderas.",
       "speakers": [],
@@ -925,12 +925,12 @@
       "end": "2026-08-28T09:00:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262607+00:00",
+      "updated": "2026-08-12T14:45:36.949250+00:00",
       "content_locale": "en"
     },
     {
       "code": "EJNPTE",
-      "id": 23241,
+      "id": 23414,
       "title": "Open source security in the AI era",
       "abstract": "The AI era is full of promises, but also full of fear and uncertainties. Things are changing so fast that a new skill can quickly emerge and be made useless just months after. In this world, we hear some voices saying that developers will disappear, replaced by AI. And recently, because of the unstoppable stream of supply chain attacks and the ever-growing number of vulnerabilities found in open source, those same voices are wondering if they could replace open source by secure AI-generated code. Is AI really the death of open source? Or is there a better way to help secure open source in the AI era? The GitHub Security Lab helps secure open source since 2019, and I will share the lessons we learned along the way, and how we adapted them to the AI era.",
       "speakers": [
@@ -941,12 +941,12 @@
       "end": "2026-08-28T09:30:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262616+00:00",
+      "updated": "2026-08-15T22:06:26.166909+00:00",
       "content_locale": "en"
     },
     {
       "code": "JSCBBM",
-      "id": 23242,
+      "id": 23415,
       "title": "lightning talk - Port",
       "abstract": "-",
       "speakers": [],
@@ -955,12 +955,12 @@
       "end": "2026-08-28T09:35:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.262625+00:00",
+      "updated": "2026-08-22T03:06:01.509794+00:00",
       "content_locale": "es"
     },
     {
       "code": "GVN77P",
-      "id": 23243,
+      "id": 23416,
       "title": "lightning talk - Indra",
       "abstract": "-",
       "speakers": [],
@@ -969,12 +969,12 @@
       "end": "2026-08-28T09:40:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.262633+00:00",
+      "updated": "2026-08-22T03:06:06.703340+00:00",
       "content_locale": "es"
     },
     {
       "code": "W8TDLK",
-      "id": 23244,
+      "id": 23417,
       "title": "Del Código al Agente: El rol de Terraform y Platform Engineering en la Era de Agentic AI",
       "abstract": "La automatización de infraestructura está viviendo su mayor punto de inflexión. Pasamos de escribir scripts manuales a consolidar la Infraestructura como Código (IaC) con Terraform, y de ahí, a construir Portales Internos de Desarrollador (IDPs) mediante la Ingeniería de Plataforma. Pero el horizonte tecnológico ha vuelto a cambiar: los próximos usuarios de nuestras plataformas no serán solo desarrolladores humanos, sino Agentes de Inteligencia Artificial (Agentic AI) capaces de tomar decisiones y ejecutar cambios en tiempo real.",
       "speakers": [
@@ -985,12 +985,12 @@
       "end": "2026-08-28T10:10:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262642+00:00",
+      "updated": "2026-08-15T22:51:21.873638+00:00",
       "content_locale": "es"
     },
     {
       "code": "YH9XNM",
-      "id": 23245,
+      "id": 23418,
       "title": "lightning talk - Credicorp",
       "abstract": "-",
       "speakers": [],
@@ -999,12 +999,12 @@
       "end": "2026-08-28T10:15:00-05:00",
       "room": 281,
       "duration": 5,
-      "updated": "2026-08-07T23:57:52.262650+00:00",
+      "updated": "2026-08-22T03:06:11.978012+00:00",
       "content_locale": "es"
     },
     {
       "code": "CYD7S8",
-      "id": 23246,
+      "id": 23419,
       "title": "STPA aplicado a DevOps & SRE",
       "abstract": "STPA (System-Theoretic Process Analysis) ha demostrado ser efectivo y exitoso en diversos sectores críticos como la aviación y la astronomía. En esta oportunidad vamos a explorar como aprovechar este marco de trabajo en DevOps & SRE. Vamos a analizamos cómo las interacciones complejas y el control de software pueden generar estados inseguros en entornos de despliegue continuo. Los asistentes aprenderán a identificar riesgos proactivamente, transformando el análisis de seguridad tradicional en una práctica dinámica alineada con la observabilidad y la ingeniería de confiabilidad.",
       "speakers": [
@@ -1015,11 +1015,11 @@
       "end": "2026-08-28T10:45:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262658+00:00",
+      "updated": "2026-08-15T21:57:57.133934+00:00",
       "content_locale": "es"
     },
     {
-      "id": 23250,
+      "id": 23424,
       "title": {
         "en": "New break",
         "es": "Receso"
@@ -1030,7 +1030,7 @@
       "slot_type": "break"
     },
     {
-      "id": 23251,
+      "id": 23422,
       "title": {
         "en": "New break",
         "es": "New break"
@@ -1041,7 +1041,7 @@
       "slot_type": "break"
     },
     {
-      "id": 23248,
+      "id": 23423,
       "title": {
         "en": "New break",
         "es": "New break"
@@ -1052,18 +1052,7 @@
       "slot_type": "break"
     },
     {
-      "id": 23247,
-      "title": {
-        "en": "New break",
-        "es": "New break"
-      },
-      "start": "2026-08-28T15:50:00Z",
-      "end": "2026-08-28T11:10:00-05:00",
-      "room": 284,
-      "slot_type": "break"
-    },
-    {
-      "id": 23249,
+      "id": 23420,
       "title": {
         "en": "New break",
         "es": "New break"
@@ -1074,24 +1063,19 @@
       "slot_type": "break"
     },
     {
-      "code": "NXCFPN",
-      "id": 23253,
-      "title": "Entrenar en la Nube, Desplegar en Casa: Estrategia Empresarial Híbrida para LLMs y modelos ML",
-      "abstract": "Esta charla presenta una estrategia híbrida de IA empresarial: por qué tener modelos propios sobre datos propios es una ventaja competitiva en empresas reguladas, cómo convive con el uso pragmático de modelos comerciales y copilotos de productividad cuando los datos no son confidenciales, y qué arquitectura híbrida hace posible las dos cosas sin sacrificar gobierno ni velocidad.",
-      "speakers": [
-        "BPW3K7"
-      ],
-      "track": 202,
-      "start": "2026-08-28T11:10:00-05:00",
-      "end": "2026-08-28T11:35:00-05:00",
-      "room": 283,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262718+00:00",
-      "content_locale": "es"
+      "id": 23421,
+      "title": {
+        "en": "New break",
+        "es": "New break"
+      },
+      "start": "2026-08-28T15:50:00Z",
+      "end": "2026-08-28T11:10:00-05:00",
+      "room": 284,
+      "slot_type": "break"
     },
     {
       "code": "9DZA9L",
-      "id": 23255,
+      "id": 23429,
       "title": "IA Agéntica en el ciclo de vida del desarrollo: De asistente a colaborador autónomo",
       "abstract": "Workshop práctico donde exploraremos cómo los agentes de IA están transformando el ciclo de vida del desarrollo de software. Los participantes experimentarán de primera mano cómo integrar sistemas agénticos en flujos de trabajo reales — desde la planificación y escritura de código hasta la  transformación, pruebas y despliegue — entendiendo los patrones de orquestación, las capacidades de uso de herramientas, y las consideraciones de gobernanza que definen la adopción efectiva de IA agéntica en equipos de ingeniería.",
       "speakers": [
@@ -1103,28 +1087,12 @@
       "end": "2026-08-28T12:40:00-05:00",
       "room": 285,
       "duration": 90,
-      "updated": "2026-08-07T23:57:52.262735+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "BZ7MZK",
-      "id": 23257,
-      "title": "Keyless no siempre es seguro: OIDC entre GitHub Actions y AWS",
-      "abstract": "La mayoría de los equipos adoptó OIDC para conectar GitHub Actions con AWS y eliminar credenciales hardcodeadas. El problema: un error común en la configuración de IAM permite que cualquier repositorio de GitHub, incluyendo el de un atacante, opere en tu cuenta AWS sin necesitar ningún secreto.\r\nEsta charla disecciona el ataque paso a paso: cómo un repositorio malicioso puede asumir un rol de producción en cuestión de segundos, y por qué esta configuración vulnerable aparece con frecuencia en entornos reales de producción.\r\nSaldrás con criterios claros para evaluar si tu integración está expuesta, cuáles son los errores más comunes al implementar esta conexión, y cómo verificar que tu organización no sea el próximo caso documentado.",
-      "speakers": [
-        "WMST3D"
-      ],
-      "track": 201,
-      "start": "2026-08-28T11:10:00-05:00",
-      "end": "2026-08-28T11:35:00-05:00",
-      "room": 284,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262752+00:00",
+      "updated": "2026-08-15T22:34:28.442205+00:00",
       "content_locale": "es"
     },
     {
       "code": "HA8BSX",
-      "id": 23254,
+      "id": 23430,
       "title": "CI/CD para Agentes de IA: Desplegando Agentes con ADK en Producción",
       "abstract": "En el mundo de la IA generativa, construir un agente es solo el primer paso. El **verdadero reto está en desplegarlo, versionarlo y mantenerlo** con la misma disciplina que cualquier servicio en producción.\r\n\r\nEn esta charla comparto cómo aplicamos prácticas de **CI/CD** para automatizar el ciclo de vida completo de agentes construidos con **Google ADK (Agent Development Kit)**: desde el desarrollo local hasta su despliegue en una plataforma centralizada donde los agentes viven, se monitorean y se actualizan de forma continua.\r\n\r\nVeremos: cómo estructurar pipelines para agentes, qué significa \"testear\" un agente, y cómo una plataforma de hosting de agentes cambia la forma en que los equipos colaboran con IA.",
       "speakers": [
@@ -1135,12 +1103,44 @@
       "end": "2026-08-28T11:35:00-05:00",
       "room": 282,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262726+00:00",
+      "updated": "2026-08-12T14:45:36.949399+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "BZ7MZK",
+      "id": 23428,
+      "title": "Keyless no siempre es seguro: OIDC entre GitHub Actions y AWS",
+      "abstract": "La mayoría de los equipos adoptó OIDC para conectar GitHub Actions con AWS y eliminar credenciales hardcodeadas. El problema: un error común en la configuración de IAM permite que cualquier repositorio de GitHub, incluyendo el de un atacante, opere en tu cuenta AWS sin necesitar ningún secreto.\r\nEsta charla disecciona el ataque paso a paso: cómo un repositorio malicioso puede asumir un rol de producción en cuestión de segundos, y por qué esta configuración vulnerable aparece con frecuencia en entornos reales de producción.\r\nSaldrás con criterios claros para evaluar si tu integración está expuesta, cuáles son los errores más comunes al implementar esta conexión, y cómo verificar que tu organización no sea el próximo caso documentado.",
+      "speakers": [
+        "WMST3D"
+      ],
+      "track": 201,
+      "start": "2026-08-28T11:10:00-05:00",
+      "end": "2026-08-28T11:35:00-05:00",
+      "room": 284,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.949382+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "NXCFPN",
+      "id": 23426,
+      "title": "Entrenar en la Nube, Desplegar en Casa: Estrategia Empresarial Híbrida para LLMs y modelos ML",
+      "abstract": "Esta charla presenta una estrategia híbrida de IA empresarial: por qué tener modelos propios sobre datos propios es una ventaja competitiva en empresas reguladas, cómo convive con el uso pragmático de modelos comerciales y copilotos de productividad cuando los datos no son confidenciales, y qué arquitectura híbrida hace posible las dos cosas sin sacrificar gobierno ni velocidad.",
+      "speakers": [
+        "BPW3K7"
+      ],
+      "track": 202,
+      "start": "2026-08-28T11:10:00-05:00",
+      "end": "2026-08-28T11:35:00-05:00",
+      "room": 283,
+      "duration": 25,
+      "updated": "2026-08-15T22:24:47.665536+00:00",
       "content_locale": "es"
     },
     {
       "code": "7FXA7R",
-      "id": 23256,
+      "id": 23427,
       "title": "El AI Orchestrator: cómo el SDLC debe cambiar",
       "abstract": "El developer clásico escribe código. El AI Orchestrator dirige agentes que lo escriben. No es una optimización del flujo actual — es un cambio de rol. Esta charla define qué significa ese nuevo rol, por qué el SDLC de hoy no está diseñado para él, y cómo se ve trabajar con múltiples agent executors en paralelo desde una terminal construida para ese propósito.",
       "speakers": [
@@ -1151,12 +1151,12 @@
       "end": "2026-08-28T11:35:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262743+00:00",
+      "updated": "2026-08-15T22:10:22.015860+00:00",
       "content_locale": "es"
     },
     {
       "code": "BABAGA",
-      "id": 23252,
+      "id": 23425,
       "title": "SETI - Demo",
       "abstract": "-",
       "speakers": [],
@@ -1165,12 +1165,12 @@
       "end": "2026-08-28T11:30:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262710+00:00",
+      "updated": "2026-08-15T23:13:37.647715+00:00",
       "content_locale": "es"
     },
     {
       "code": "JWSZV8",
-      "id": 23259,
+      "id": 23435,
       "title": "Port -Demo",
       "abstract": "-",
       "speakers": [],
@@ -1179,12 +1179,12 @@
       "end": "2026-08-28T11:55:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262769+00:00",
+      "updated": "2026-08-15T23:12:49.498588+00:00",
       "content_locale": "es"
     },
     {
       "code": "TAPRV9",
-      "id": 23264,
+      "id": 23439,
       "title": "AI writes code. Who designs the architecture?",
       "abstract": "Today, developers use tools like GitHub Copilot, Claude, and ChatGPT to generate code at high speed. But a critical problem is emerging: architecture is disappearing from the process.\r\n\r\nThis talk focuses on how to use AI without losing architectural integrity. We will explore a practical approach where code is generated quickly, but architecture is continuously discovered, validated, and evolved using principles such as domain boundaries, layered design, and C4-style thinking.\r\n\r\nThrough a real-world scenario, we will show how to detect architecture from repositories, translate code into meaningful models, and prevent fragile, tightly coupled systems.\r\n\r\nWe will also connect this to Cloud Native environments, where microservices, Kubernetes, and pipelines often lack architectural direction.\r\n\r\nAI builds fast. Architecture determines whether it survives.",
       "speakers": [
@@ -1195,44 +1195,12 @@
       "end": "2026-08-28T12:10:00-05:00",
       "room": 282,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262812+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "ZPXMV7",
-      "id": 23266,
-      "title": "De la reacción a la resiliencia: Escalando SRE del incidente a la decisión ejecutiva",
-      "abstract": "En muchas organizaciones, Site Reliability Engineering (SRE) aún se percibe como una práctica técnica enfocada en monitoreo y gestión de incidentes. Sin embargo, su verdadero valor emerge cuando evoluciona hacia un habilitador estratégico del negocio.\r\n \r\nEn esta charla compartiré cómo transitamos desde una operación reactiva hacia un modelo de resiliencia organizacional, utilizando los Service Level Objectives (SLO) como puente entre tecnología, experiencia del cliente y toma de decisiones. Abordaremos desafíos reales de implementación, resistencia cultural y la necesidad de alinear equipos, métricas y prioridades en torno al impacto en el usuario.\r\n \r\nMás allá de herramientas o frameworks, esta sesión presenta aprendizajes prácticos sobre cómo escalar SRE en entornos complejos, transformando la confiabilidad en una capacidad organizacional que informa decisiones ejecutivas, y no solo en un objetivo técnico u operativo.",
-      "speakers": [
-        "8DKRD9"
-      ],
-      "track": 200,
-      "start": "2026-08-28T11:45:00-05:00",
-      "end": "2026-08-28T12:10:00-05:00",
-      "room": 283,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262828+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "CURPKG",
-      "id": 23263,
-      "title": "Trilema moderno: IA, software y seguridad",
-      "abstract": "La inteligencia artificial no es una nueva amenaza para la seguridad del software. Es el amplificador más poderoso que han tenido los riesgos que siempre existieron en el SDLC. La charla propone una respuesta concreta: los principios del ASDLC como base para enfrentar un entorno donde la velocidad del atacante ya iguala y en muchos casos supera la velocidad del equipo de desarrollo.",
-      "speakers": [
-        "9NFQKT"
-      ],
-      "track": 201,
-      "start": "2026-08-28T11:45:00-05:00",
-      "end": "2026-08-28T12:10:00-05:00",
-      "room": 284,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262803+00:00",
+      "updated": "2026-08-12T14:45:36.949478+00:00",
       "content_locale": "es"
     },
     {
       "code": "JGNN9N",
-      "id": 23265,
+      "id": 23438,
       "title": "Convirtiendo baremetal en Nube: Despliega cualquier servidor físico con MAAS",
       "abstract": "En esta sesión, exploraremos cómo romper la brecha entre el hardware físico y las prácticas modernas de DevOps utilizando la herramienta open source MAAS (Metal As A Service). A través de un caso de uso real basado en un homelab de tres nodos, demostraré cómo transformar servidores físicos tradicionales en la base para una verdadera nube privada.",
       "speakers": [
@@ -1243,12 +1211,44 @@
       "end": "2026-08-28T12:10:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262820+00:00",
+      "updated": "2026-08-12T14:45:36.949469+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "CURPKG",
+      "id": 23436,
+      "title": "Trilema moderno: IA, software y seguridad",
+      "abstract": "La inteligencia artificial no es una nueva amenaza para la seguridad del software. Es el amplificador más poderoso que han tenido los riesgos que siempre existieron en el SDLC. La charla propone una respuesta concreta: los principios del ASDLC como base para enfrentar un entorno donde la velocidad del atacante ya iguala y en muchos casos supera la velocidad del equipo de desarrollo.",
+      "speakers": [
+        "9NFQKT"
+      ],
+      "track": 201,
+      "start": "2026-08-28T11:45:00-05:00",
+      "end": "2026-08-28T12:10:00-05:00",
+      "room": 284,
+      "duration": 25,
+      "updated": "2026-08-16T07:04:01.909193+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "ZPXMV7",
+      "id": 23437,
+      "title": "De la reacción a la resiliencia: Escalando SRE del incidente a la decisión ejecutiva",
+      "abstract": "En muchas organizaciones, Site Reliability Engineering (SRE) aún se percibe como una práctica técnica enfocada en monitoreo y gestión de incidentes. Sin embargo, su verdadero valor emerge cuando evoluciona hacia un habilitador estratégico del negocio.\r\n \r\nEn esta charla compartiré cómo transitamos desde una operación reactiva hacia un modelo de resiliencia organizacional, utilizando los Service Level Objectives (SLO) como puente entre tecnología, experiencia del cliente y toma de decisiones. Abordaremos desafíos reales de implementación, resistencia cultural y la necesidad de alinear equipos, métricas y prioridades en torno al impacto en el usuario.\r\n \r\nMás allá de herramientas o frameworks, esta sesión presenta aprendizajes prácticos sobre cómo escalar SRE en entornos complejos, transformando la confiabilidad en una capacidad organizacional que informa decisiones ejecutivas, y no solo en un objetivo técnico u operativo.",
+      "speakers": [
+        "8DKRD9"
+      ],
+      "track": 200,
+      "start": "2026-08-28T11:45:00-05:00",
+      "end": "2026-08-28T12:10:00-05:00",
+      "room": 283,
+      "duration": 25,
+      "updated": "2026-08-15T22:33:24.429793+00:00",
       "content_locale": "es"
     },
     {
       "code": "QUDVJ7",
-      "id": 23270,
+      "id": 23442,
       "title": "Indra - Demo",
       "abstract": "-",
       "speakers": [],
@@ -1257,60 +1257,12 @@
       "end": "2026-08-28T12:30:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.262862+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "XJNVPX",
-      "id": 23273,
-      "title": "Del SDLC tradicional al Agentic SDLC: cómo la IA transformará el desarrollo hacia 2030",
-      "abstract": "El ciclo de vida del desarrollo de software no está desapareciendo: se está transformando. Esta charla presenta una visión práctica de cómo el SDLC evoluciona desde modelos tradicionales, manuales y fragmentados hacia un enfoque impulsado por especificaciones, copilotos de IA y agentes autónomos. A partir del concepto de Agentic SDLC, se explicará cómo los agentes especializados pueden apoyar el análisis de requerimientos, diseño, codificación, pruebas, despliegue, monitoreo y modernización de aplicaciones legacy. También se abordarán los nuevos roles que emergerán en los equipos de ingeniería, como el dueño de intención, el ingeniero de especificación, el orquestador SDLC y el responsable de gobierno de IA. La audiencia se llevará una perspectiva clara sobre cómo preparar tecnología, talento, procesos y confianza para adoptar IA agéntica de forma segura, trazable y gobernada hacia el año 2030.",
-      "speakers": [
-        "CFHNEP"
-      ],
-      "track": 200,
-      "start": "2026-08-28T12:20:00-05:00",
-      "end": "2026-08-28T12:45:00-05:00",
-      "room": 284,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262888+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "FPQFNG",
-      "id": 23275,
-      "title": "DevSecOps: Implementación de Checkmarx para el Escaneo de Código (SAST, DAST, MAST y SCA).",
-      "abstract": "En la carrera por acelerar los ciclos de entrega de software mediante metodologías ágiles y DevOps, la seguridad tradicional suele convertirse en un cuello de botella o en una revisión tardía. Históricamente, la fragmentación de herramientas de escaneo, la alta tasa de falsos positivos y la desconexión entre los equipos de desarrollo y seguridad generan fricción, retrasos en los despliegues y, lo más crítico, puntos ciegos en la superficie de ataque de nuestras aplicaciones.\r\nEsta ponencia presenta la evolución de nuestra arquitectura hacia un modelo DevSecOps maduro utilizando Checkmarx como eje central. Explicaremos, cómo logramos orquestar e integrar de forma automatizada un ecosistema de escaneo continuo dentro de nuestros pipelines de CI/CD.",
-      "speakers": [
-        "URVYPC"
-      ],
-      "track": 200,
-      "start": "2026-08-28T12:20:00-05:00",
-      "end": "2026-08-28T12:45:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262904+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "UJPHVB",
-      "id": 23274,
-      "title": "AgentsOps: construí autonomía para escalar",
-      "abstract": "Las organizaciones quieren escalar ingeniería y DevSecOps, y al mismo tiempo siguen atrapadas en procesos manuales, o automatizaciones hechas pensadas en una era que ya no está. \r\nEn esta charla exploraremos AgentsOps: cómo diseñar soluciones agénticas que combinan LLMs, herramientas, reglas, buenas prácticas y flujos de aprobación para automatizar procesos de ingeniería con autonomía controlada por guardrails.\r\nVeremos casos aplicados a SDLC, seguridad, análisis de repositorios, generación de documentación, revisión de código y operación de pipelines, mostrando cómo reducir fricción y acelerar entregas sin perder governance y como resultado te llevarás un framework práctico para identificar oportunidades, diseñar agentes confiables y construir automatizaciones que escalen equipos, no caos.",
-      "speakers": [
-        "CREDAN"
-      ],
-      "track": 200,
-      "start": "2026-08-28T12:20:00-05:00",
-      "end": "2026-08-28T12:45:00-05:00",
-      "room": 283,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262896+00:00",
+      "updated": "2026-08-15T23:12:56.828637+00:00",
       "content_locale": "es"
     },
     {
       "code": "GAKZDN",
-      "id": 23272,
+      "id": 23446,
       "title": "🚨El \"truco\" de DevSecOps que nos ahorró hasta10 MILLONES de dólares (y cómo puedes copiarlo) 🤫🚀",
       "abstract": "Si sigues dejando que los fallos en la fase de CI retrasen tus despliegues y consuman las horas de tus ingenieros, estás tirando dinero a la basura. Literalmente. 💸\r\nNosotros nos cansamos de los tiempos muertos, así que diseñamos una plataforma automatizada impulsada por IA que hace el trabajo sucio. Lee los escáneres de seguridad, interpreta el contexto y te entrega la solución empaquetada con Pull Requests listos para aprobar. ✅\r\n¿El impacto? Disminuimos el tiempo de despliegue a niveles récord y eliminamos costes ocultos por hasta 10 millones de dólares. 🤯\r\n¿Quieres ver nuestras métricas reales, la arquitectura y el retorno de inversión detallado?\r\n👇 ¡Acompáñanos en esta charla y roba nuestra estrategia antes de que tu competencia lo haga! 💥",
       "speakers": [
@@ -1321,12 +1273,60 @@
       "end": "2026-08-28T12:45:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262879+00:00",
+      "updated": "2026-08-12T14:45:36.949538+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "FPQFNG",
+      "id": 23448,
+      "title": "DevSecOps: Implementación de Checkmarx para el Escaneo de Código (SAST, DAST, MAST y SCA).",
+      "abstract": "En la carrera por acelerar los ciclos de entrega de software mediante metodologías ágiles y DevOps, la seguridad tradicional suele convertirse en un cuello de botella o en una revisión tardía. Históricamente, la fragmentación de herramientas de escaneo, la alta tasa de falsos positivos y la desconexión entre los equipos de desarrollo y seguridad generan fricción, retrasos en los despliegues y, lo más crítico, puntos ciegos en la superficie de ataque de nuestras aplicaciones.\r\nEsta ponencia presenta la evolución de nuestra arquitectura hacia un modelo DevSecOps maduro utilizando Checkmarx como eje central. Explicaremos, cómo logramos orquestar e integrar de forma automatizada un ecosistema de escaneo continuo dentro de nuestros pipelines de CI/CD.",
+      "speakers": [
+        "URVYPC"
+      ],
+      "track": 200,
+      "start": "2026-08-28T12:20:00-05:00",
+      "end": "2026-08-28T12:45:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-15T21:59:21.762347+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "XJNVPX",
+      "id": 23447,
+      "title": "Del SDLC tradicional al Agentic SDLC: cómo la IA transformará el desarrollo hacia 2030",
+      "abstract": "El ciclo de vida del desarrollo de software no está desapareciendo: se está transformando. Esta charla presenta una visión práctica de cómo el SDLC evoluciona desde modelos tradicionales, manuales y fragmentados hacia un enfoque impulsado por especificaciones, copilotos de IA y agentes autónomos. A partir del concepto de Agentic SDLC, se explicará cómo los agentes especializados pueden apoyar el análisis de requerimientos, diseño, codificación, pruebas, despliegue, monitoreo y modernización de aplicaciones legacy. También se abordarán los nuevos roles que emergerán en los equipos de ingeniería, como el dueño de intención, el ingeniero de especificación, el orquestador SDLC y el responsable de gobierno de IA. La audiencia se llevará una perspectiva clara sobre cómo preparar tecnología, talento, procesos y confianza para adoptar IA agéntica de forma segura, trazable y gobernada hacia el año 2030.",
+      "speakers": [
+        "CFHNEP"
+      ],
+      "track": 200,
+      "start": "2026-08-28T12:20:00-05:00",
+      "end": "2026-08-28T12:45:00-05:00",
+      "room": 284,
+      "duration": 25,
+      "updated": "2026-08-15T21:55:16.930409+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "UJPHVB",
+      "id": 23445,
+      "title": "AgentsOps: construí autonomía para escalar",
+      "abstract": "Las organizaciones quieren escalar ingeniería y DevSecOps, y al mismo tiempo siguen atrapadas en procesos manuales, o automatizaciones hechas pensadas en una era que ya no está. \r\nEn esta charla exploraremos AgentsOps: cómo diseñar soluciones agénticas que combinan LLMs, herramientas, reglas, buenas prácticas y flujos de aprobación para automatizar procesos de ingeniería con autonomía controlada por guardrails.\r\nVeremos casos aplicados a SDLC, seguridad, análisis de repositorios, generación de documentación, revisión de código y operación de pipelines, mostrando cómo reducir fricción y acelerar entregas sin perder governance y como resultado te llevarás un framework práctico para identificar oportunidades, diseñar agentes confiables y construir automatizaciones que escalen equipos, no caos.",
+      "speakers": [
+        "CREDAN"
+      ],
+      "track": 200,
+      "start": "2026-08-28T12:20:00-05:00",
+      "end": "2026-08-28T12:45:00-05:00",
+      "room": 283,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.949530+00:00",
       "content_locale": "es"
     },
     {
       "code": "Z9RGJR",
-      "id": 23281,
+      "id": 23454,
       "title": "🍽️ Almuerzo y espacio de networking",
       "abstract": "Para nuestros asistentes VIP, el almuerzo estará incluido dentro de la experiencia del evento.\r\nPara el resto de asistentes, el Centro de Convenciones de Lima está ubicado muy cerca de La Rambla San Borja (Av. Javier Prado Este 2050), a solo minutos caminando. Ahí encontrarán una amplia variedad de opciones de comida rápida y restaurantes para el break de almuerzo.\r\nY en los alrededores también hay más alternativas cercanas",
       "speakers": [],
@@ -1335,45 +1335,12 @@
       "end": "2026-08-28T14:30:00-05:00",
       "room": 286,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.262955+00:00",
+      "updated": "2026-08-12T14:45:36.949608+00:00",
       "content_locale": "en"
     },
     {
-      "code": "CARAUU",
-      "id": 23283,
-      "title": "[TSOFT] - Orquestación multiagente en Jira: el SDLC de punta a punta",
-      "abstract": "La IA ya dejó de ser un asistente puntual dentro del desarrollo de software: hoy los agentes pueden tomar tickets, generar código y ejecutar workflows completos dentro del ciclo de vida del software (SDLC). Pero a medida que se suman más agentes trabajando en paralelo con los equipos, aparece una tensión nueva: coordinarlos sin criterio puede generar tanto caos como el que prometen resolver.\r\n\r\nEn esta charla técnica recorremos el ciclo de vida completo de una feature construida por agentes: cómo orquestar agentes de IA —propios y de terceros, conectados vía MCP— directamente en el flujo de trabajo de Jira, y por qué necesitan contexto arquitectónico real, no solo el texto de un ticket, para tomar buenas decisiones en cada etapa del desarrollo.",
-      "speakers": [
-        "7DQAN7"
-      ],
-      "track": null,
-      "start": "2026-08-28T14:30:00-05:00",
-      "end": "2026-08-28T14:50:00-05:00",
-      "room": 286,
-      "duration": 20,
-      "updated": "2026-08-07T23:57:52.262972+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "QCSGHU",
-      "id": 23284,
-      "title": "Del Discovery al Deploy: Testing Continuo en Acción",
-      "abstract": "El testing en organizaciones como Prima AFP y Pacífico enfrenta retos clave: alta dependencia de validaciones manuales, baja automatización y certificaciones tardías. Esto genera cuellos de botella en QA, incrementa tiempos de ejecución, reduce velocidad de entrega, aumenta retrabajo, afecta productividad y prolonga la resolución de incidentes.\r\nComo solución, se propone un Framework de Testing Continuo integrado al ecosistema DevSecOps, basado en 5 prácticas: TDD, BDD, RBT, Test Automation y Non-Functional Testing. Actualmente, BDD, RBT y Test Automation ya están implementadas.\r\nSu adopción sigue un modelo de madurez: evaluación inicial, introducción de prácticas, escalamiento de automatización, gobierno de calidad y optimización continua con métricas, automatización avanzada e IA.\r\nLos resultados evidencian impacto: Prima AFP alcanzó 80% de cobertura en APIs y redujo 43% el cycle time; Pacífico logró 84% de automatización y redujo el time to market de 3 a 1 día.",
-      "speakers": [
-        "QD9DS9",
-        "K77HRA"
-      ],
-      "track": 201,
-      "start": "2026-08-28T14:30:00-05:00",
-      "end": "2026-08-28T14:55:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262981+00:00",
-      "content_locale": "es"
-    },
-    {
       "code": "DVLF3W",
-      "id": 23282,
+      "id": 23456,
       "title": "Infraestructura como Producto: Pipeline completo con Terraform, Actions y validaciones automatizadas",
       "abstract": "En muchos equipos, Terraform se usa correctamente a nivel técnico, pero falla a nivel de proceso: ejecuciones manuales, falta de validaciones, riesgos en producción y poca visibilidad del impacto en costos o seguridad.\r\n\r\nEn esta charla presentaré cómo diseñar un pipeline completo de entrega de infraestructura, donde Terraform no es solo una herramienta de provisioning, sino el núcleo de un flujo automatizado, seguro y auditable. Exploraremos buenas prácticas clave como validación temprana, análisis de seguridad con Checkov, control de costos con Infracost, y el uso de Terraform Actions para extender el ciclo hacia operaciones.\r\n\r\nA través de un flujo práctico, mostraremos cómo pasar de un commit a infraestructura desplegada en producción con control, visibilidad y confianza.",
       "speakers": [
@@ -1384,28 +1351,12 @@
       "end": "2026-08-28T16:00:00-05:00",
       "room": 285,
       "duration": 90,
-      "updated": "2026-08-07T23:57:52.262964+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "QTYVRU",
-      "id": 23285,
-      "title": "Agentes en Producción: Lo Que Tuve Que Aprender Después de Automatizar Todo",
-      "abstract": "Hace unos meses hacía todo manualmente: deployments a GitHub Pages, monitoreo de DNS, backups de configuración. Hoy un agente lo hace por mí. Respaldos nocturnos, verificación de SSL, PRs automáticos. Todo sobre GitHub Copilot y GitHub Actions. No como demo. Como infraestructura real.\r\nPero automatizar fue la parte fácil. Lo difícil fue aprender a operar lo que construí.\r\nUn flujo de polling puede morir en silencio si nunca configuraste alertas para la ausencia de actividad. Sin reglas de exclusión, un agente puede incluir archivos sensibles en un PR. Los errores no fueron del tooling. Fueron míos: suposiciones que nunca convertí en configuración.\r\nRecorro el camino de ops manual a agente autónomo con dos flujos reales: backups nocturnos y deployments a GitHub Pages. Muestro qué construí, qué me sorprendió, y tres disciplinas clave: observabilidad, guardrails de seguridad como código, y pruebas para flujos que nadie ejecuta manualmente.",
-      "speakers": [
-        "EYSBV7"
-      ],
-      "track": 202,
-      "start": "2026-08-28T14:30:00-05:00",
-      "end": "2026-08-28T14:55:00-05:00",
-      "room": 281,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.262990+00:00",
+      "updated": "2026-08-12T14:45:36.949626+00:00",
       "content_locale": "es"
     },
     {
       "code": "SDMJ7R",
-      "id": 23191,
+      "id": 23458,
       "title": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
       "abstract": "Los pipelines CI/CD modernos dependen de **actions de terceros**, workflows reutilizables y herramientas de seguridad que se ejecutan con permisos privilegiados y en muchos casos, poca validación. Entre 2025 y 2026, distintos ataques comprometieron miles de pipelines en **GitHub Actions** sin modificar una sola línea del repositorio víctima. En uno de los incidentes más relevantes, el vector fue un **escáner de seguridad** ejecutado automáticamente en cada build, desencadenando una cadena que se propagó a través de cinco ecosistemas en seis días.\r\nEn esta charla analizaremos cómo decisiones comunes en CI/CD, como usar **tags mutables**, permisos excesivos o dependencias sin verificación criptográfica, pueden permitir ejecución de código malicioso y filtración de secretos. Incluiremos una **demostración práctica** del compromiso de un pipeline vulnerable y mostraremos **controles concretos** para proteger los workflows sin afectar la velocidad de entrega.",
       "speakers": [
@@ -1417,12 +1368,45 @@
       "end": "2026-08-28T14:55:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-12T14:45:30.381774+00:00",
+      "updated": "2026-08-15T23:05:22.933635+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "QCSGHU",
+      "id": 23459,
+      "title": "Del Discovery al Deploy: Testing Continuo en Acción",
+      "abstract": "El testing en organizaciones como Prima AFP y Pacífico enfrenta retos clave: alta dependencia de validaciones manuales, baja automatización y certificaciones tardías. Esto genera cuellos de botella en QA, incrementa tiempos de ejecución, reduce velocidad de entrega, aumenta retrabajo, afecta productividad y prolonga la resolución de incidentes.\r\nComo solución, se propone un Framework de Testing Continuo integrado al ecosistema DevSecOps, basado en 5 prácticas: TDD, BDD, RBT, Test Automation y Non-Functional Testing. Actualmente, BDD, RBT y Test Automation ya están implementadas.\r\nSu adopción sigue un modelo de madurez: evaluación inicial, introducción de prácticas, escalamiento de automatización, gobierno de calidad y optimización continua con métricas, automatización avanzada e IA.\r\nLos resultados evidencian impacto: Prima AFP alcanzó 80% de cobertura en APIs y redujo 43% el cycle time; Pacífico logró 84% de automatización y redujo el time to market de 3 a 1 día.",
+      "speakers": [
+        "QD9DS9",
+        "K77HRA"
+      ],
+      "track": 201,
+      "start": "2026-08-28T14:30:00-05:00",
+      "end": "2026-08-28T14:55:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.949652+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "CARAUU",
+      "id": 23455,
+      "title": "[TSOFT] - Orquestación multiagente en Jira: el SDLC de punta a punta",
+      "abstract": "La IA ya dejó de ser un asistente puntual dentro del desarrollo de software: hoy los agentes pueden tomar tickets, generar código y ejecutar workflows completos dentro del ciclo de vida del software (SDLC). Pero a medida que se suman más agentes trabajando en paralelo con los equipos, aparece una tensión nueva: coordinarlos sin criterio puede generar tanto caos como el que prometen resolver.\r\n\r\nEn esta charla técnica recorremos el ciclo de vida completo de una feature construida por agentes: cómo orquestar agentes de IA —propios y de terceros, conectados vía MCP— directamente en el flujo de trabajo de Jira, y por qué necesitan contexto arquitectónico real, no solo el texto de un ticket, para tomar buenas decisiones en cada etapa del desarrollo.",
+      "speakers": [
+        "7DQAN7"
+      ],
+      "track": null,
+      "start": "2026-08-28T14:30:00-05:00",
+      "end": "2026-08-28T14:50:00-05:00",
+      "room": 286,
+      "duration": 20,
+      "updated": "2026-08-18T03:14:07.598304+00:00",
       "content_locale": "es"
     },
     {
       "code": "9THK38",
-      "id": 23286,
+      "id": 23460,
       "title": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
       "abstract": "Muchas organizaciones ya pueden construir demos funcionales con IA generativa. El verdadero desafío comienza cuando estas soluciones deben integrarse en canales reales, escalar y convivir con estándares enterprise diseñados para software determinístico.\r\n\r\nEsta charla explorará los aprendizajes y retos que surgen al implementar soluciones de GenAI en entornos corporativos: desde decisiones de arquitectura e infraestructura hasta observabilidad, gobierno, seguridad y operación de sistemas probabilísticos. También abordará cómo cambian los procesos, políticas y prácticas tradicionales cuando las organizaciones pasan de desarrollar software determinístico a operar sistemas basados en modelos generativos.\r\n\r\nLa audiencia obtendrá una visión práctica y estratégica sobre qué implica realmente llevar IA generativa a producción y por qué el principal reto rara vez es únicamente tecnológico.",
       "speakers": [
@@ -1433,12 +1417,28 @@
       "end": "2026-08-28T14:55:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.262998+00:00",
+      "updated": "2026-08-12T14:45:36.949661+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "QTYVRU",
+      "id": 23457,
+      "title": "Agentes en Producción: Lo Que Tuve Que Aprender Después de Automatizar Todo",
+      "abstract": "Hace unos meses hacía todo manualmente: deployments a GitHub Pages, monitoreo de DNS, backups de configuración. Hoy un agente lo hace por mí. Respaldos nocturnos, verificación de SSL, PRs automáticos. Todo sobre GitHub Copilot y GitHub Actions. No como demo. Como infraestructura real.\r\nPero automatizar fue la parte fácil. Lo difícil fue aprender a operar lo que construí.\r\nUn flujo de polling puede morir en silencio si nunca configuraste alertas para la ausencia de actividad. Sin reglas de exclusión, un agente puede incluir archivos sensibles en un PR. Los errores no fueron del tooling. Fueron míos: suposiciones que nunca convertí en configuración.\r\nRecorro el camino de ops manual a agente autónomo con dos flujos reales: backups nocturnos y deployments a GitHub Pages. Muestro qué construí, qué me sorprendió, y tres disciplinas clave: observabilidad, guardrails de seguridad como código, y pruebas para flujos que nadie ejecuta manualmente.",
+      "speakers": [
+        "EYSBV7"
+      ],
+      "track": 202,
+      "start": "2026-08-28T14:30:00-05:00",
+      "end": "2026-08-28T14:55:00-05:00",
+      "room": 281,
+      "duration": 25,
+      "updated": "2026-08-15T22:10:47.742389+00:00",
       "content_locale": "es"
     },
     {
       "code": "PDRCQQ",
-      "id": 23292,
+      "id": 23464,
       "title": "[Fluid Attacks] - Un recorrido por la plataforma de Fluid Attacks",
       "abstract": "En esta demostración conocerás las principales funcionalidades de la plataforma de Fluid Attacks. Descubre cómo ayudamos a los equiposDevOps a prevenir, detectar y gestionar vulnerabilidades de manera continua, integrando la seguridad de forma eficiente en cada etapa del desarrollo de software.",
       "speakers": [
@@ -1449,12 +1449,12 @@
       "end": "2026-08-28T15:15:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.263049+00:00",
+      "updated": "2026-08-15T23:16:33.185489+00:00",
       "content_locale": "es"
     },
     {
       "code": "HVNJFF",
-      "id": 23293,
+      "id": 23466,
       "title": "[ Panel ] - Inteligencia Artificial: revolucionando y transformando la industria tecnológica actual",
       "abstract": "La Inteligencia Artificial está revolucionando los negocios tradicionales y la banca es uno de los sectores donde ese cambio se siente con más fuerza. La IA está redefiniendo el modelo operativo de las entidades financieras: acelera decisiones que antes tomaban semanas, transforma la manera en que se diseñan y lanzan productos, y abre categorías de negocio que no existían hace un año. Pero esa misma velocidad plantea preguntas difíciles para quienes lideran la tecnología: cómo pasar de pilotos aislados a capacidad organizacional real, cómo capturar retorno sobre la inversión sin comprometer la arquitectura, y cómo sostener el ritmo sin descuidar el riesgo ni el cumplimiento regulatorio.\r\n\r\nEn este panel, Líderes de Tecnología de los principales bancos del país compartirán cómo están escalando la IA dentro de sus organizaciones y qué están aprendiendo en el camino. Conversaremos sobre lo que realmente mueve el indicador de eficiencia operativa, sobre el rediseño de productos financieros con IA generativa, personas sintéticas y gemelos digitales, y sobre cómo dirigir la productividad para no construir lo equivocado más rápido. Una conversación franca entre quienes cargan con la responsabilidad de transformar la tecnología del sistema financiero sin detener su operación.",
       "speakers": [
@@ -1468,12 +1468,12 @@
       "end": "2026-08-28T15:45:00-05:00",
       "room": 281,
       "duration": 40,
-      "updated": "2026-08-07T23:57:52.263057+00:00",
+      "updated": "2026-08-24T21:39:30.151685+00:00",
       "content_locale": "es"
     },
     {
       "code": "PWB7E7",
-      "id": 23295,
+      "id": 23468,
       "title": "Credicorp - Demo",
       "abstract": "-",
       "speakers": [],
@@ -1482,28 +1482,12 @@
       "end": "2026-08-28T16:05:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.263074+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "EEWXV3",
-      "id": 23298,
-      "title": "Respuesta a incidentes en la era de la IA",
-      "abstract": "¿Qué haces cuando tu plataforma se cae y millones de personas dependen de ella en ese instante? En una era donde la IA acelera el cambio y la innovación, aumentan también los puntos donde algo puede fallar, y los incidentes dejan de ser una posibilidad remota para volverse parte del día a día. La buena noticia: no se trata de evitarlos, sino de saber gestionarlos. En esta charla aprenderás a mantener la calma y actuar con criterio cuando todo está en rojo: cómo mitigar rápido antes de buscar la causa raíz, cómo reconocer las fallas más comunes detrás de un incidente, cómo apoyarte en agentes de IA para detectar y diagnosticar en minutos, y cómo preparar a tu organización para decidir y comunicar bajo presión. Te llevarás un marco práctico que podrás aplicar a tus propios proyectos al día siguiente.",
-      "speakers": [
-        "PVXRAU"
-      ],
-      "track": 200,
-      "start": "2026-08-28T15:55:00-05:00",
-      "end": "2026-08-28T16:20:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.263099+00:00",
+      "updated": "2026-08-15T23:13:43.036465+00:00",
       "content_locale": "es"
     },
     {
       "code": "RDPLLZ",
-      "id": 23296,
+      "id": 23471,
       "title": "Agentes en la Práctica: Construyendo una estrategia solida para que la IA resuelva en producción",
       "abstract": "Abstract:\r\nContext:\r\nObtener, procesar y tomar ventaja de los datos que hay en un ambiente tecnológico puede ser abrumador y costoso; en especial si no se tienen identificadas las fuentes, los equipos especialistas que sepan que hacer con los datos y la capacidad de análisis lo suficientemente rápido para saber el impacto de la relación entre cada uno de las métricas puede causarle al estado de producción.\r\n\r\nApproach:\r\nGenerar un set de datos relacionado con casos de uso prácticos, especializados en el ambiente tecnológico y su comportamiento, tomando en cuenta actualizaciones, cambios, bases de conocimiento, Cuál es el equilibrio costo-beneficio en la organización ¿Tiempo? ¿Recursos? ¿Calidad?\r\n\r\nResultados.\r\nCon un agente de IA embebido junto con el alcance de la solución base que resuelve en producción soportando la estrategia con beneficios tangibles",
       "speakers": [
@@ -1514,12 +1498,28 @@
       "end": "2026-08-28T16:20:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263082+00:00",
+      "updated": "2026-08-12T14:45:36.949756+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "EEWXV3",
+      "id": 23470,
+      "title": "Respuesta a incidentes en la era de la IA",
+      "abstract": "¿Qué haces cuando tu plataforma se cae y millones de personas dependen de ella en ese instante? En una era donde la IA acelera el cambio y la innovación, aumentan también los puntos donde algo puede fallar, y los incidentes dejan de ser una posibilidad remota para volverse parte del día a día. La buena noticia: no se trata de evitarlos, sino de saber gestionarlos. En esta charla aprenderás a mantener la calma y actuar con criterio cuando todo está en rojo: cómo mitigar rápido antes de buscar la causa raíz, cómo reconocer las fallas más comunes detrás de un incidente, cómo apoyarte en agentes de IA para detectar y diagnosticar en minutos, y cómo preparar a tu organización para decidir y comunicar bajo presión. Te llevarás un marco práctico que podrás aplicar a tus propios proyectos al día siguiente.",
+      "speakers": [
+        "PVXRAU"
+      ],
+      "track": 200,
+      "start": "2026-08-28T15:55:00-05:00",
+      "end": "2026-08-28T16:20:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-15T22:16:37.895877+00:00",
       "content_locale": "es"
     },
     {
       "code": "XAAEGN",
-      "id": 23297,
+      "id": 23472,
       "title": "Modelo de Wald aplicado a DevSecOps: decisiones estadísticas para despliegues seguros",
       "abstract": "Esta charla propone aplicar el modelo estadístico de Wald al proceso DevSecOps, entendiendo cada despliegue como una prueba de hipótesis bajo incertidumbre. En vez de aprobar o bloquear productos a partir de controles aislados, el enfoque acumula evidencia proveniente de señales como SAST, DAST, dependencias, contenedores, IaC, exposición pública, criticidad del producto y datos sensibles.\r\nA partir de decisiones secuenciales, el modelo permite determinar si un producto puede avanzar, debe ser observado con mayor profundidad o debe detenerse antes de producción. El objetivo es mostrar cómo la estadística puede reducir cegueras operacionales, mejorar la priorización del riesgo y transformar el pipeline en un sistema de decisión basado en evidencia, no solo en checks verdes.",
       "speakers": [
@@ -1530,12 +1530,12 @@
       "end": "2026-08-28T16:20:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263091+00:00",
+      "updated": "2026-08-12T14:45:36.949764+00:00",
       "content_locale": "es"
     },
     {
       "code": "ZHDTPF",
-      "id": 23299,
+      "id": 23469,
       "title": "De MVP a producción con Vertex AI Search: lecciones reales de un asistente RAG universitario",
       "abstract": "Cada semestre, cientos de estudiantes hacen las mismas consultas sobre matrícula fuera de horario y esperan respuesta inmediata. En la UPCH abordamos esa fricción con IA y una restricción clara: pasar de MVP a producción rápido, sin construir infraestructura RAG desde cero y cumpliendo la Ley de Protección de Datos Personales.\r\nConstruimos TanoBot con Vertex AI Search como RAG gestionado, FastAPI en Cloud Run autoescalable y un widget embebido con consentimiento expreso. Más que una solución puntual, lo concebimos como producto: base de conocimiento gobernada, observabilidad, SecOps con auditoría de IPs y accesos, métricas de calidad y handoff humano. Atendió 4.003 consultas sin caídas, 91% resueltas, 2,2 s promedio y 56% fuera del horario laboral.\r\nCompartiré por qué Vertex AI Search aceleró el time-to-market, cómo preservamos información oficial con respuestas extractivas, cómo escalamos en días pico y por qué el 9% sin respuesta enseñó más que el 91% atendido.",
       "speakers": [
@@ -1547,23 +1547,12 @@
       "end": "2026-08-28T16:20:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263108+00:00",
+      "updated": "2026-08-12T14:45:36.949738+00:00",
       "content_locale": "es"
     },
     {
-      "id": 23301,
-      "title": {
-        "en": "New break",
-        "es": "Receso"
-      },
-      "start": "2026-08-28T21:20:00Z",
-      "end": "2026-08-28T16:40:00-05:00",
-      "room": 281,
-      "slot_type": "break"
-    },
-    {
       "code": "YYLQMP",
-      "id": 23300,
+      "id": 23474,
       "title": "[Thoughtworks] - CardDemo Payment System (COBOL)",
       "abstract": "Mostrar cómo AI/works realiza rápidamente ingeniería inversa en sistemas heredados y crea un grafo de conocimiento que acelera la modernización.",
       "speakers": [
@@ -1574,12 +1563,23 @@
       "end": "2026-08-28T16:40:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.263116+00:00",
+      "updated": "2026-08-13T23:08:43.110362+00:00",
       "content_locale": "es"
     },
     {
+      "id": 23473,
+      "title": {
+        "en": "New break",
+        "es": "Receso"
+      },
+      "start": "2026-08-28T21:20:00Z",
+      "end": "2026-08-28T16:40:00-05:00",
+      "room": 281,
+      "slot_type": "break"
+    },
+    {
       "code": "HVVRJG",
-      "id": 23304,
+      "id": 23478,
       "title": "Leading engineering through an agentic shift",
       "abstract": "Explora cómo integrar agentes en el ciclo de desarrollo para automatizar trabajo repetitivo, escalar productividad y transformar el rol del ingeniero hacia liderazgo técnico aumentado",
       "speakers": [
@@ -1590,12 +1590,28 @@
       "end": "2026-08-28T17:05:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263151+00:00",
+      "updated": "2026-08-15T21:55:50.052617+00:00",
+      "content_locale": "es"
+    },
+    {
+      "code": "RQKRNF",
+      "id": 23477,
+      "title": "Me ascendieron a arquitecto ¿y ahora qué?",
+      "abstract": "Ser ascendido a arquitecto puede sonar como un gran logro, hasta que aparecen las primeras preguntas difíciles: ¿cómo tomo decisiones técnicas?, ¿cómo balanceo velocidad y confiabilidad?, ¿cómo hablo con negocio?, ¿cómo conecto desarrollo, operaciones y producto sin convertirme en “la persona de los diagramas”?\r\n\r\nEn esta charla compartiré los retos reales de pasar de construir software a tomar decisiones con impacto en arquitectura, operación, delivery y cultura técnica. Veremos cómo comunicar trade-offs, documentar decisiones, trabajar con sistemas legacy, pensar en confiabilidad y construir criterio técnico para ayudar a los equipos a entregar mejores sistemas.",
+      "speakers": [
+        "LFPVEB"
+      ],
+      "track": 199,
+      "start": "2026-08-28T16:40:00-05:00",
+      "end": "2026-08-28T17:05:00-05:00",
+      "room": 282,
+      "duration": 25,
+      "updated": "2026-08-12T14:45:36.949808+00:00",
       "content_locale": "es"
     },
     {
       "code": "QL78HD",
-      "id": 23305,
+      "id": 23475,
       "title": "Cuando integrar duele: de la fricción a una cultura DevSecOps en una multinacional financiera.",
       "abstract": "**¿Por qué tardamos más en integrar que en desarrollar?**\r\n\r\nEl problema no estaba en construir software. Los equipos avanzaban rápido, entregaban funcionalidades, hasta que llegaba la integración y todo se detenía: conflictos, retrabajo y validaciones tardías convertían el último paso en el mayor cuello de botella. Así entendimos que la lentitud no venía del código, sino de cómo lo integrábamos.\r\n\r\nEsta ponencia comparte una experiencia real de transformación cultural en un compañía multinacional del sector financiero con un estricto marco regulatorio. Expondremos cómo aceleramos las entregas simplificando la estrategia de integración y el flujo de trabajo con la adopción del modelo Trunk-Based Development. Más allá del cambio técnico, expondremos como logramos romper silos entre squads, redefinir los lineamientos del ciclo de desarrollo y automatizamos controles de calidad y seguridad usando la plataforma de GitHub, demostrando una verdadera cultura DevSecOps.",
       "speakers": [
@@ -1607,12 +1623,12 @@
       "end": "2026-08-28T17:05:00-05:00",
       "room": 283,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263159+00:00",
+      "updated": "2026-08-12T14:45:36.949790+00:00",
       "content_locale": "es"
     },
     {
       "code": "7PGA3F",
-      "id": 23302,
+      "id": 23476,
       "title": "DevContainers para una nueva generación de desarrollo asistido por IA",
       "abstract": "Durante años intentamos resolver el clásico \"funciona en mi máquina\". Sin embargo, la llegada del desarrollo asistido por IA nos plantea un desafío diferente: crear entornos donde desarrolladores y agentes inteligentes puedan ser productivos desde el primer minuto.\r\n\r\nEn esta charla compartiré una experiencia práctica utilizando Dev Containers para transformar proyectos Spring Boot en espacios de trabajo reproducibles, capaces de aprovisionar automáticamente herramientas, contexto y convenciones de desarrollo. Veremos cómo un repositorio puede evolucionar desde un simple contenedor de código hacia una plataforma preparada para colaborar, automatizar tareas y acelerar la entrega de software.\r\n\r\nLos asistentes conocerán patrones de implementación, desafíos encontrados y lecciones aprendidas para diseñar experiencias de desarrollo modernas, reducir el tiempo de onboarding y preparar sus equipos para la próxima generación de ingeniería de software asistida por IA.",
       "speakers": [
@@ -1623,28 +1639,12 @@
       "end": "2026-08-28T17:05:00-05:00",
       "room": 284,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263133+00:00",
-      "content_locale": "es"
-    },
-    {
-      "code": "RQKRNF",
-      "id": 23303,
-      "title": "Me ascendieron a arquitecto ¿y ahora qué?",
-      "abstract": "Ser ascendido a arquitecto puede sonar como un gran logro, hasta que aparecen las primeras preguntas difíciles: ¿cómo tomo decisiones técnicas?, ¿cómo balanceo velocidad y confiabilidad?, ¿cómo hablo con negocio?, ¿cómo conecto desarrollo, operaciones y producto sin convertirme en “la persona de los diagramas”?\r\n\r\nEn esta charla compartiré los retos reales de pasar de construir software a tomar decisiones con impacto en arquitectura, operación, delivery y cultura técnica. Veremos cómo comunicar trade-offs, documentar decisiones, trabajar con sistemas legacy, pensar en confiabilidad y construir criterio técnico para ayudar a los equipos a entregar mejores sistemas.",
-      "speakers": [
-        "LFPVEB"
-      ],
-      "track": 199,
-      "start": "2026-08-28T16:40:00-05:00",
-      "end": "2026-08-28T17:05:00-05:00",
-      "room": 282,
-      "duration": 25,
-      "updated": "2026-08-07T23:57:52.263142+00:00",
+      "updated": "2026-08-12T14:45:36.949799+00:00",
       "content_locale": "es"
     },
     {
       "code": "ZDLTRJ",
-      "id": 23306,
+      "id": 23479,
       "title": "ManageEngine - Demo",
       "abstract": "-",
       "speakers": [],
@@ -1653,12 +1653,12 @@
       "end": "2026-08-28T17:10:00-05:00",
       "room": 286,
       "duration": 20,
-      "updated": "2026-08-07T23:57:52.263167+00:00",
+      "updated": "2026-08-15T23:13:05.020371+00:00",
       "content_locale": "es"
     },
     {
       "code": "G7B3FP",
-      "id": 23312,
+      "id": 23485,
       "title": "Trust and Respect - The Human Anchor.pdf",
       "abstract": "La IA promete velocidad, escalabilidad y mejores decisiones, pero genera una paradoja: cuanto más automatizamos, más crítico se vuelve el factor humano. En muchas organizaciones, la transformación fracasa no por la tecnología, sino porque se acelera la implementación mientras se descuida la confianza.\r\n\r\nEn esta sesión exploraremos por qué el respeto y la confianza no son \"habilidades blandas\", sino propiedades del sistema que pueden diseñarse: el respeto da estructura y la confianza genera fluidez en la entrega de valor. Basada en el libro Engineering Respect and Trust, la charla introduce conceptos como la deuda humana (el costo acumulado del silencio y la verdad no dicha), la observabilidad organizacional aplicada al sistema humano, el ciclo de vida de la confianza (formación, verificación, refuerzo y reparación) y los requisitos específicos para confiar en la IA: explicabilidad, procedencia, transparencia y responsabilidad humana.",
       "speakers": [
@@ -1669,12 +1669,12 @@
       "end": "2026-08-28T17:40:00-05:00",
       "room": 281,
       "duration": 25,
-      "updated": "2026-08-07T23:57:52.263237+00:00",
+      "updated": "2026-08-15T23:12:04.417540+00:00",
       "content_locale": "es"
     },
     {
       "code": "TDMCLU",
-      "id": 23313,
+      "id": 23486,
       "title": "Cierre del evento",
       "abstract": "El Cierre dará fin oficial al evento y será el momento para agradecer una vez más a nuestros speakers, sponsors y asistentes por hacer posible esta edición. Compartiremos los momentos más destacados de la jornada y las próximas iniciativas de la comunidad, cerrando con un mensaje de agradecimiento y una invitación a seguir conectados hasta el próximo encuentro.",
       "speakers": [],
@@ -1683,12 +1683,12 @@
       "end": "2026-08-28T18:10:00-05:00",
       "room": 281,
       "duration": 30,
-      "updated": "2026-08-07T23:57:52.263245+00:00",
+      "updated": "2026-08-16T06:08:56.072351+00:00",
       "content_locale": "es"
     }
   ],
-  "version": "0.17",
-  "schedule_id": 599,
+  "version": "0.18",
+  "schedule_id": 600,
   "timezone": "America/Lima",
   "event_start": "2026-08-27",
   "event_end": "2026-08-28",
@@ -2294,18 +2294,18 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/FPUPM7_3AMeOpU_thumbnail_tiny.webp"
     },
     {
-      "code": "VBWLYQ",
-      "name": "Yembert Quintero Cortez",
-      "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_tiny.webp"
-    },
-    {
       "code": "CDDDHF",
       "name": "Jesus Angulo",
       "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_tiny.webp"
+    },
+    {
+      "code": "VBWLYQ",
+      "name": "Yembert Quintero Cortez",
+      "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_tiny.webp"
     },
     {
       "code": "GCWYLX",

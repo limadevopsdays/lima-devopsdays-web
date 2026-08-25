@@ -115,12 +115,6 @@ const TRACK_COLOR_MAP: Record<string, string> = {
   'charla relámpago': '#475569',
 }
 
-function resolveTrackColor(trackNameOrId: string | number | undefined, fallback: string) {
-  if (!trackNameOrId) return fallback
-  const key = String(trackNameOrId).trim()
-  return TRACK_COLOR_MAP[key] || TRACK_COLOR_MAP[key.toLowerCase()] || fallback
-}
-
 function formatTrackLabel(trackName: string) {
   if (trackName.toLowerCase() === 'charla relámpago') {
     return 'Charla Relámpago'
@@ -133,13 +127,70 @@ function formatTrackLabel(trackName: string) {
   return trackName
 }
 
-export function ScheduleSection() {
+function resolveTrackColor(
+  trackNameOrId: string | number | undefined,
+  fallback: string,
+  customTrackColors?: Record<string, string>
+) {
+  if (!trackNameOrId) return fallback
+  const key = String(trackNameOrId).trim()
+  if (customTrackColors && customTrackColors[key]) return customTrackColors[key]
+  return TRACK_COLOR_MAP[key] || TRACK_COLOR_MAP[key.toLowerCase()] || fallback
+}
+
+// Extract HH:MM (using timezone-aware parsing in America/Lima)
+export const toLimaTimeHM = (isoStr: string) => {
+  if (!isoStr) return ''
+  const date = new Date(isoStr)
+  return date.toLocaleTimeString('en-US', {
+    timeZone: 'America/Lima',
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
+
+export interface ScheduleSectionProps {
+  fixedDay?: 'day-1' | 'day-2'
+  hideDayToggle?: boolean
+  minTime?: string
+  maxTime?: string
+  titleText?: string
+  subtitleText?: string
+  customRoomColors?: Record<number | string, string>
+  customTrackColors?: Record<string, string>
+  themeColors?: {
+    containerBg?: string
+    navyBg?: string
+    purpleAccent?: string
+    textLight?: string
+  }
+}
+
+export function ScheduleSection({
+  fixedDay,
+  hideDayToggle = false,
+  minTime,
+  maxTime,
+  titleText,
+  subtitleText,
+  customRoomColors,
+  customTrackColors,
+  themeColors,
+}: ScheduleSectionProps = {}) {
   const t = useI18n(scheduleI18n)
   const locale = useLocale() as 'es' | 'en'
 
-  const [activeDay, setActiveDay] = useState<'day-1' | 'day-2'>('day-1')
+  const activeParallelRooms = React.useMemo(() => {
+    return PARALLEL_ROOMS.map((r) => ({
+      ...r,
+      color: (customRoomColors && customRoomColors[r.id]) || r.color,
+    }))
+  }, [customRoomColors])
+
+  const [activeDay, setActiveDay] = useState<'day-1' | 'day-2'>(fixedDay || 'day-1')
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [selectedRooms, setSelectedRooms] = useState<number[]>(() => PARALLEL_ROOMS.map((r) => r.id))
+  const [selectedRooms, setSelectedRooms] = useState<number[]>(() => activeParallelRooms.map((r) => r.id))
   const [selectedTracks, setSelectedTracks] = useState<string[]>(() =>
     (scheduleData.tracks as TrackRaw[])
       .filter((tr) => tr.id !== 229)
@@ -250,7 +301,7 @@ export function ScheduleSection() {
   // Room multi-select click handlers
   const handleRoomChipClick = (roomId: number) => {
     setSelectedRooms((prev) => {
-      const allIds = PARALLEL_ROOMS.map((r) => r.id)
+      const allIds = activeParallelRooms.map((r) => r.id)
       
       // If all rooms are currently selected, isolate only the clicked one (focus state)
       if (prev.length === allIds.length) {
@@ -310,7 +361,7 @@ export function ScheduleSection() {
   }
 
   const handleAllRoomsClick = () => {
-    setSelectedRooms(PARALLEL_ROOMS.map((r) => r.id))
+    setSelectedRooms(activeParallelRooms.map((r) => r.id))
   }
 
   // ─── Extract Pretalx mappings ───────────────────────────────────────────────
@@ -324,16 +375,22 @@ export function ScheduleSection() {
     .map((tr) => ({
       id: tr.id.toString(),
       name: formatTrackLabel(locale === 'es' ? tr.name.es : tr.name.en),
-      color: resolveTrackColor(tr.name.en, tr.color),
+      color: resolveTrackColor(tr.name.en, tr.color, customTrackColors),
     }))
 
   // ─── Filter talks for the selected active day ───────────────────────────────
   const activeDateStr = activeDay === 'day-1' ? '2026-08-27' : '2026-08-28'
   const otherDateStr = activeDay === 'day-1' ? '2026-08-28' : '2026-08-27'
   
-  const rawTalksForDay = (scheduleData.talks as TalkRaw[]).filter(
-    (talk) => talk.start && talk.start.startsWith(activeDateStr)
-  )
+  const rawTalksForDay = (scheduleData.talks as TalkRaw[]).filter((talk) => {
+    if (!talk.start || !talk.start.startsWith(activeDateStr)) return false
+    if (minTime || maxTime) {
+      const startHM = toLimaTimeHM(talk.start)
+      if (minTime && startHM < minTime) return false
+      if (maxTime && startHM >= maxTime) return false
+    }
+    return true
+  })
 
   const otherDayFavCount = (scheduleData.talks as TalkRaw[]).filter(
     (talk) => talk.start && talk.start.startsWith(otherDateStr) && isTalkFav(talk)
@@ -359,13 +416,13 @@ export function ScheduleSection() {
     // Normalize track colors for UI contrast
     let trackColor = trackObj?.color || '#6b51ef'
     if (talk.track) {
-      trackColor = resolveTrackColor(talk.track, trackColor)
+      trackColor = resolveTrackColor(talk.track, trackColor, customTrackColors)
     }
     if (trackObj?.name?.en) {
-      trackColor = resolveTrackColor(trackObj.name.en, trackColor)
+      trackColor = resolveTrackColor(trackObj.name.en, trackColor, customTrackColors)
     }
     if (trackObj?.name?.es) {
-      trackColor = resolveTrackColor(trackObj.name.es, trackColor)
+      trackColor = resolveTrackColor(trackObj.name.es, trackColor, customTrackColors)
     }
 
     const speakersList = (talk.speakers || []).map((code) => {
@@ -514,7 +571,7 @@ export function ScheduleSection() {
   })
 
   // Filtered rooms currently displayed in columns (exclude rooms that contain no talks for this track)
-  const activeRoomsList = PARALLEL_ROOMS.filter((room) => {
+  const activeRoomsList = activeParallelRooms.filter((room) => {
     if (showOnlyFavorites) {
       // Only include rooms that contain at least one starred session on this day
       return filteredTalks.some((talk) => talk.roomId === room.id)
@@ -537,8 +594,8 @@ export function ScheduleSection() {
 
   // Calculate dynamic boundaries to collapse empty slots when filtering by track (edge)
   const getDynamicBoundaries = () => {
-    const defaultStart = timeToMinutes('08:00')
-    const defaultEnd = timeToMinutes('18:30')
+    const defaultStart = minTime ? timeToMinutes(minTime) : timeToMinutes('08:00')
+    const defaultEnd = maxTime ? timeToMinutes(maxTime) : timeToMinutes('18:30')
 
     if (!searchQuery) {
       return { startMinutes: defaultStart, endMinutes: defaultEnd }
@@ -707,13 +764,26 @@ export function ScheduleSection() {
   ]
 
   return (
-    <section id="schedule" className={styles.section}>
+    <section
+      id="schedule"
+      className={styles.section}
+      style={
+        themeColors
+          ? {
+              backgroundColor: themeColors.containerBg || '#020002',
+              color: themeColors.textLight || '#F2F2F2',
+            }
+          : undefined
+      }
+    >
       <div className={styles.container}>
         <SectionHeader
           eyebrow={t.eyebrow}
-          eyebrowColor="#6b51ef"
+          eyebrowColor={themeColors?.purpleAccent || '#6b51ef'}
           title={
-            t.title.includes('2026') ? (
+            titleText ? (
+              titleText
+            ) : t.title.includes('2026') ? (
               <>
                 {t.title.split('2026')[0]}
                 <span className={styles.titleYear}>2026</span>
@@ -723,27 +793,29 @@ export function ScheduleSection() {
               t.title
             )
           }
-          lead={t.lead}
+          lead={subtitleText || t.lead}
         />
 
         {/* Day Selection Tabs and Favorites Toggle */}
         <div className={styles.tabsContainer} role="tablist">
-          <div className={styles.dayTabs}>
-            {days.map(({ key, label, date }) => (
-              <button
-                key={key}
-                type="button"
-                role="tab"
-                aria-selected={activeDay === key}
-                onClick={() => {
-                  setActiveDay(key)
-                }}
-                className={`${styles.tabButton} ${activeDay === key ? styles.tabButtonActive : ''}`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+          {!hideDayToggle && (
+            <div className={styles.dayTabs}>
+              {days.map(({ key, label, date }) => (
+                <button
+                  key={key}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeDay === key}
+                  onClick={() => {
+                    setActiveDay(key)
+                  }}
+                  className={`${styles.tabButton} ${activeDay === key ? styles.tabButtonActive : ''}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className={styles.favContainer}>
             <button
