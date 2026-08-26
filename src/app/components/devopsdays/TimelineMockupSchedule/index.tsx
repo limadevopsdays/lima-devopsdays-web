@@ -200,21 +200,27 @@ export function TimelineMockupSchedule({
     const roomObj = talk.room ? roomsMap.get(talk.room) : null
     const trackObj = talk.track ? tracksMap.get(talk.track) : null
 
-    const titleStr = typeof talk.title === 'object' ? (talk.title.es || talk.title.en) : talk.title
+    let titleStr = typeof talk.title === 'object' ? (talk.title.es || talk.title.en) : talk.title
     const roomName = roomObj ? (roomObj.name.es || roomObj.name.en) : ''
     const trackName = trackObj ? (trackObj.name.es || trackObj.name.en) : ''
 
     const isBreak =
       !talk.room ||
       talk.track === 229 ||
+      talk.slot_type === 'break' ||
       titleStr.toLowerCase().includes('almuerzo') ||
       titleStr.toLowerCase().includes('receso') ||
+      titleStr.toLowerCase().includes('break') ||
       titleStr.toLowerCase().includes('registro') ||
       titleStr.toLowerCase().includes('bienvenida')
 
+    if (isBreak && (titleStr.toLowerCase().includes('break') || titleStr.toLowerCase().includes('receso'))) {
+      titleStr = 'Receso'
+    }
+
     if (isBreak) {
       const isDup = scheduleItems.some(
-        (item) => item.time === startHM && item.title.toLowerCase() === titleStr.toLowerCase()
+        (item) => item.time === startHM && item.isBreak
       )
       if (isDup) return
     }
