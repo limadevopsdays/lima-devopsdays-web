@@ -31,13 +31,12 @@ export default function HomePage() {
       <SponsorsSection />
       <SpeakersSection showInvited showCfpSpeakers />
       <section className={styles.ticketsGalleryBlock} aria-label={t.ticketsGallerySectionLabel}>
-        <TicketsSection />
         <GallerySection />
       </section>
       <VenueSection />
-      <TurismSection />
       <OrganizersSection />
       <FaqSection />
+      <TurismSection />
       <MusicPlayer />
     </>
   )

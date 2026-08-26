@@ -3,7 +3,7 @@
 /* ── Avatar Zoom Overlay ─────────────────────────────────── */
 
 .section {
-  background: var(--color-white);
+  background: var(--color-slate-50);
   padding: 3rem 0;
   margin: 0;
 }
@@ -692,7 +692,10 @@
   gap: 0.5rem;
   width: 100%;
   max-width: 100%;
+  min-width: 0;
   margin-top: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .invitedTag {
@@ -710,11 +713,12 @@
   letter-spacing: var(--brand-text-letterSpacing-300);
   min-width: 0;
   max-width: 100%;
-  flex: 0 1 auto;
+  flex: 1 1 0%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .moderatorTag {

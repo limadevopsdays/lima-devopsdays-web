@@ -145,7 +145,7 @@
     box-shadow 0.3s ease,
     filter 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .schSpeakerCard:hover,
@@ -215,6 +215,8 @@
   gap: 0.3rem;
   flex: 1;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .schSpeakerInfo h3,
@@ -226,6 +228,17 @@
 .schSpeakerInfo div[class*="invitedTopRow"] {
   justify-content: flex-start;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.schSpeakerInfo span[class*="invitedTag"] {
+  min-width: 0;
+  max-width: 100%;
+  flex: 1 1 0%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .schSpeakerInfo div[class*="invitedTopicBlock"] {
@@ -293,14 +306,25 @@
 }
 
 @media (max-width: 639px) {
+  .schSpeakersGrid {
+    gap: 0.5rem;
+  }
+
   .schSpeakerCard {
     align-items: center;
     text-align: center;
+    padding: 1rem 0.5rem 0.85rem;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .schSpeakerInfo {
     align-items: center;
     text-align: center;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .schSpeakerInfo h3,
@@ -314,8 +338,11 @@
 
   .schSpeakerInfo div[class*="invitedTopRow"] {
     justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
-
   .pagination {
     gap: 0.5rem;
     margin-top: 1.25rem;
