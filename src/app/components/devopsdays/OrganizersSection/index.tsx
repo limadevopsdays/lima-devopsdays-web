@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { SectionHeader } from '../SectionHeader'
@@ -118,6 +118,43 @@ export function OrganizersSection() {
               </div>
             )
           })}
+        </div>
+      </div>
+
+      {/* ── Banner Full-Width (100vw) de Colaboradores ── */}
+      <div className={styles.collaboratorsBannerFullWidth}>
+        <div className={styles.collaboratorsBanner}>
+          <div className={styles.bannerLeft}>
+            <h3 className={styles.bannerTitle}>{t.collaboratorsTitle}</h3>
+            <p className={styles.bannerLead}>{t.collaboratorsLead}</p>
+          </div>
+
+          <div className={styles.bannerRight}>
+            <div className={styles.collaboratorsGrid}>
+              {[
+                { name: 'Jonathan Bustios', image: '/images/organizers/voluntarios/jonathan-bustios.jpg' },
+                { name: 'Néstor García', image: '/images/organizers/voluntarios/nestor-garcia.jpg' },
+                { name: 'Omar Aedo', image: '/images/organizers/voluntarios/omar-aedo.jpg' },
+                { name: 'Michael Ordóñez', image: '/images/organizers/voluntarios/michael-ordonez.jpeg' },
+                { name: 'Miguel Vargas', image: '/images/organizers/voluntarios/miguel-vargas.jpeg' },
+                { name: 'Edgard Pimentel', image: '/images/organizers/voluntarios/edgard-pimentel.jpg' },
+                { name: 'Simeon Caballero', image: '/images/organizers/voluntarios/simeon-caballero.png' },
+              ].map((vol, index) => (
+                <div
+                  key={vol.name}
+                  className={styles.collaboratorWrapper}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className={styles.collaboratorCard}>
+                    <img src={vol.image} alt={vol.name} className={styles.collaboratorImage} loading="lazy" />
+                  </div>
+                  <div className={styles.collaboratorInfo}>
+                    <span className={styles.collaboratorName}>{vol.name}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
