@@ -969,23 +969,6 @@
     "linkedin": "https://www.linkedin.com/in/agda-martins/"
   },
   {
-    "code": "JZ3U7B",
-    "name": "Sebastian Veliz Donoso",
-    "avatar": "https://talks.devopsdays.org/media/avatars/FG88ZP_oHEwTW9.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/FG88ZP_oHEwTW9_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/FG88ZP_oHEwTW9_thumbnail_tiny.webp",
-    "topic": "Modelo de Wald aplicado a DevSecOps: decisiones estadísticas para despliegues seguros",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Soy Ingeniero con más de 14 años de experiencia en TI, especializado en desarrollo de software, ciberseguridad y seguridad Web/Mobile.\n Formé parte del proceso de creación del primer neobanco de Chile, liderando aspectos normativos y de ciberseguridad para la aprobación regulatoria.\n Actualmente lidero estrategia de ciberseguridad y equipos especializados, con foco en eficiencia, calidad técnica e innovación.\n Soy profesor universitario, instructor de hacking y autor de Python para Hackers Pentester y StarHacks: Python 3 and the Feline Jedi.\n He sido reconocido con el Premio Plata en Fintech Américas y lideré Ciberdefensa Cognitiva Distribuida, proyecto ganador en Fintech América 2026 en Innovación en Ciberseguridad.",
-    "company": "Tenpo",
-    "jobTitle": "Security Manager",
-    "location": "Chile",
-    "linkedin": "https://www.linkedin.com/in/sebastianvelizdonoso:IA-5oLo86LP1bQ5z1K1FCfFqGYgTDmIdxSUZgf0wGMQ"
-  },
-  {
     "code": "SS7GMS",
     "name": "Armando Tipacti Garcia",
     "avatar": "https://talks.devopsdays.org/media/avatars/QGFWHD_dU0S3Oj.webp",
@@ -1056,9 +1039,9 @@
   {
     "code": "FTZYAE",
     "name": "Javier Camacho",
-    "avatar": null,
-    "avatar_thumbnail_default": null,
-    "avatar_thumbnail_tiny": null,
+    "avatar": "https://talks.devopsdays.org/media/avatars/8WVYNZ_d8C5Nc3.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/8WVYNZ_d8C5Nc3_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/8WVYNZ_d8C5Nc3_thumbnail_tiny.webp",
     "topic": "[MongoDB] - Arquitectura de memoria para agentes: cuántos motores de datos justifica tu plataforma",
     "trackName": null,
     "trackNameEn": null,
@@ -1156,23 +1139,6 @@
     "linkedin": "https://www.linkedin.com/in/ginovergara/:yoXxwZpIrvk-5pnqimR2FjLYmRIzcZUY50aV2EZcGvU"
   },
   {
-    "code": "CDDDHF",
-    "name": "Jesus Angulo",
-    "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_tiny.webp",
-    "topic": "Feature Flags Driven Development: CD seguro y sin miedos",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true,
-    "biography": "Jesus Angulo es un ingeniero de software, Microsoft Certified Cloud Architect y ex MVP de Microsoft con más de 10 años de experiencia.\n Actualmente trabaja como Account Architect en Baufest con foco en ayudar a clientes y equipos a encontrar soluciones para sus desafíos más complejos.",
-    "company": "Baufest",
-    "jobTitle": "Account Architect",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/cjangulo:zB-YhJekR8Vs1RpQ2oaJ2QMZs_DA2j9KoW_eA4eyWrU"
-  },
-  {
     "code": "VBWLYQ",
     "name": "Yembert Quintero Cortez",
     "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
@@ -1188,6 +1154,23 @@
     "jobTitle": "Chapter Lead Cloud Engineering",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/yembert-quintero-cortez/:KM4RQW80Ve3nrF4KH1hpPhNMDuqCqvs1Kd4_50x2Tj8"
+  },
+  {
+    "code": "CDDDHF",
+    "name": "Jesus Angulo",
+    "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_tiny.webp",
+    "topic": "Feature Flags Driven Development: CD seguro y sin miedos",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true,
+    "biography": "Jesus Angulo es un ingeniero de software, Microsoft Certified Cloud Architect y ex MVP de Microsoft con más de 10 años de experiencia.\n Actualmente trabaja como Account Architect en Baufest con foco en ayudar a clientes y equipos a encontrar soluciones para sus desafíos más complejos.",
+    "company": "Baufest",
+    "jobTitle": "Account Architect",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/cjangulo:zB-YhJekR8Vs1RpQ2oaJ2QMZs_DA2j9KoW_eA4eyWrU"
   },
   {
     "code": "GCWYLX",
@@ -1392,23 +1375,6 @@
     "jobTitle": "Director Arquitectura y Estrategia - Risk & Compliance",
     "location": "Canadá",
     "linkedin": "https://www.linkedin.com/in/francisco-lopez-valenzuela:KnhajjCwI17QcgL129HxPOFM_FnYwHPwxCmePT4p1z4"
-  },
-  {
-    "code": "KD8X9S",
-    "name": "Amaury Borges Souza",
-    "avatar": "https://talks.devopsdays.org/media/avatars/CAGHBF_YmmyApW.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CAGHBF_YmmyApW_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CAGHBF_YmmyApW_thumbnail_tiny.webp",
-    "topic": "Terraform at Scale: Security Without Friction",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Amaury is an active international conference speaker, presenting at events such as HashiTalks, HashiConf, AWS Summits, DevOpsDays, SREday, and security conferences across different regions. His talks focus on secure Terraform practices, policy as code, and building automated guardrails for modern cloud platforms.Beyond his professional work, Amaury shares his passion for cloud computing through his Medium profile, \"The DevSecOps from Zero\" He is also professor at FIAP (MBA courses), education institution focused on technology and has contributed (co-author) of book publication “Carreira Dev” (Casa do Código, 2025).",
-    "company": "CI&T",
-    "jobTitle": "Senior Security Engineer, Cloud Operations",
-    "location": "Brazil",
-    "linkedin": "https://www.linkedin.com/in/amaurybsouza/:0gku9Y8kdsjVJFjptSHpds6D96IAaljjh-rZ_Hp0evM"
   },
   {
     "code": "RLGLAY",
