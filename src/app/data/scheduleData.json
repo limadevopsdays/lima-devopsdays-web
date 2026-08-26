@@ -597,7 +597,7 @@
       "code": "TWCTY7",
       "id": 23383,
       "title": "[Coforge] - Amazon Bedrock AgentCore en Producción: Lo Que Nadie Te Cuenta",
-      "abstract": "-",
+      "abstract": "En esta sesión compartiré lecciones aprendidas al desplegar Amazon Bedrock AgentCore a escala, incluyendo patrones de optimización de tokens, selección de modelos por capas y caché semántico; factores clave que marcan la diferencia entre un prototipo y un sistema listo para producción.",
       "speakers": [
         "RPCXAG"
       ],
