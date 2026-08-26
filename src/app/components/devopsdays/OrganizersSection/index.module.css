@@ -325,6 +325,10 @@
 
 /* Responsividad del banner */
 @media (max-width: 992px) {
+  .collaboratorsBannerFullWidth {
+    background: linear-gradient(to bottom, #2d1b69 0%, #4c1d95 100%);
+  }
+
   .collaboratorsBanner {
     flex-direction: column;
     min-height: auto;
@@ -332,6 +336,12 @@
 
   .bannerLeft {
     padding: 2.5rem 2rem 1.5rem;
+    background: transparent;
+  }
+
+  .bannerRight {
+    min-height: auto;
+    background: #ffffff;
   }
 
   .bannerTitle {
@@ -340,10 +350,6 @@
     font-weight: var(--brand-text-weight-900);
     letter-spacing: var(--brand-text-letterSpacing-300);
     line-height: var(--brand-text-lineHeight-300);
-  }
-
-  .bannerRight {
-    min-height: auto;
   }
 
   .collaboratorsGrid {
