@@ -71,8 +71,8 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     panelSecurityLead: 'Expertos compartiendo estrategias de DevSecOps, ciberseguridad y resiliencia operacional.',
     panelFintechTitle: 'Panel Fintech',
     panelFintechLead: 'Líderes de la industria fintech compartiendo innovación, escalabilidad y agilidad en servicios financieros.',
-    panelAiTitle: 'Panel Inteligencia Artificial',
-    panelAiLead: 'Líderes de la industria bancaria y tecnológica compartiendo innovación, adopción y escalamiento de Inteligencia Artificial.',
+    panelBankingTitle: 'Panel Banca',
+    panelBankingLead: 'Líderes de la industria bancaria compartiendo innovación, modernización y adopción tecnológica en el sector financiero.',
   },
   en: {
     eyebrow: 'Speakers',
@@ -112,7 +112,7 @@ export const speakersI18n: Record<Locale, SpeakersI18n> = {
     panelSecurityLead: 'Experts sharing DevSecOps, cybersecurity, and operational resilience strategies.',
     panelFintechTitle: 'Fintech Panel',
     panelFintechLead: 'Fintech leaders sharing innovation, scalability, and agility in financial services.',
-    panelAiTitle: 'Artificial Intelligence Panel',
-    panelAiLead: 'Banking and tech industry leaders sharing innovation, adoption, and scaling of Artificial Intelligence.',
+    panelBankingTitle: 'Banking Panel',
+    panelBankingLead: 'Banking leaders sharing innovation, modernization, and technology adoption in the financial sector.',
   },
 }

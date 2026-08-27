@@ -139,6 +139,7 @@ export function OrganizersSection() {
                 { name: 'Miguel Vargas', image: '/images/organizers/voluntarios/miguel-vargas.jpeg' },
                 { name: 'Edgard Pimentel', image: '/images/organizers/voluntarios/edgard-pimentel.jpg' },
                 { name: 'Simeon Caballero', image: '/images/organizers/voluntarios/simeon-caballero.png' },
+                { name: 'Daly Scaletti', image: '/images/organizers/voluntarios/daly-scaletti.jpeg' },
               ].map((vol, index) => (
                 <div
                   key={vol.name}
