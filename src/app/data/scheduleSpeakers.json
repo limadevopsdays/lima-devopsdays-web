@@ -663,23 +663,6 @@
     "linkedin": "https://www.linkedin.com/in/mamaral/:R1GLw8KMBArSJHbviVTkt5c2b6C9SGDdBGgiVtVHFf0"
   },
   {
-    "code": "QD9DS9",
-    "name": "Cindy Prada",
-    "avatar": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx_thumbnail_tiny.webp",
-    "topic": "Del Discovery al Deploy: Testing Continuo en Acción",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Cindy Prada, Chapter Lead de QA en Prima AFP, con más de 10 años de experiencia en Quality Assurance impulsando la evolución de la calidad en entornos de alto impacto.",
-    "company": "PRIMA AFP",
-    "jobTitle": "Chapter Lead QA",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/cpradah/:JwfOUzdH0ct8yDbPgcykE64X_WKeUgdQUcycOJc9Eow"
-  },
-  {
     "code": "FEAAJ3",
     "name": "Fernando Madureira",
     "avatar": "https://talks.devopsdays.org/media/avatars/WG777Y_Td0MbhQ.webp",
@@ -695,6 +678,23 @@
     "jobTitle": "Corporate Global CISO",
     "location": "Brasil",
     "linkedin": "https://www.linkedin.com/in/fm-cyber/:UWpBhCN1a1-jbU6tFi6VhWxskwYNe5Zxv5lC2uxlvHI"
+  },
+  {
+    "code": "L9LVSJ",
+    "name": "Alfredo Ishikane",
+    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp",
+    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
+    "hasTalk": true,
+    "biography": "Alfredo Ishikane es Gerente de Inteligencia Artificial para Canales Digitales de Empresas en el BCP, donde lidera iniciativas de GenIA aplicadas a experiencia de clientes y transformación digital en Banca Empresarial. Cuenta con más de 12 años de experiencia en el sector financiero impulsando proyectos de analytics, canales digitales, automatización y estrategia de negocios.Además, posee un Master en Business Analytics por INCAE Business School.",
+    "company": "BCP",
+    "jobTitle": "Gerente de Inteligencia Artificial - Canales Digitales para Empresas",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/alfredo-ishikane/:GsOP0C93OT9fu4-kBTB0ILSJdq57QpvQVtMs6MG3f-c"
   },
   {
     "code": "3RU9QV",
@@ -833,21 +833,21 @@
     "linkedin": "https://www.linkedin.com/in/horacio-puga-nougues/:jI07TiBKPg3QWQo2Z4se_QatT54CLb9QF25AfVCjUkM"
   },
   {
-    "code": "L9LVSJ",
-    "name": "Alfredo Ishikane",
-    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp",
-    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
+    "code": "ME3BL8",
+    "name": "Abner Ballardo",
+    "avatar": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS_thumbnail_tiny.webp",
+    "topic": "[ Panel ] - Banca",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
     "hasTalk": true,
-    "biography": "Alfredo Ishikane es Gerente de Inteligencia Artificial para Canales Digitales de Empresas en el BCP, donde lidera iniciativas de GenIA aplicadas a experiencia de clientes y transformación digital en Banca Empresarial. Cuenta con más de 12 años de experiencia en el sector financiero impulsando proyectos de analytics, canales digitales, automatización y estrategia de negocios.Además, posee un Master en Business Analytics por INCAE Business School.",
-    "company": "BCP",
-    "jobTitle": "Gerente de Inteligencia Artificial - Canales Digitales para Empresas",
+    "biography": "Abner Ballardo es Chief Information Officer de Scotiabank Perú y cuenta con más de 25 años de experiencia liderando tecnología, arquitectura y transformación en los sectores financiero y fintech. Ha ocupado posiciones ejecutivas en organizaciones como OKA, Blum SAF, Interbank y BCP, donde participó en la construcción y modernización de plataformas digitales de alto impacto. Su trayectoria se caracteriza por conectar estrategia tecnológica, gestión de riesgos, arquitectura y ejecución para construir organizaciones y sistemas sostenibles a escala.",
+    "company": "Scotiabank Perú",
+    "jobTitle": "Chief Information Officer (VP Technology)",
     "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/alfredo-ishikane/:GsOP0C93OT9fu4-kBTB0ILSJdq57QpvQVtMs6MG3f-c"
+    "linkedin": "https://www.linkedin.com/in/abnerballardo/?locale=es:W5K5fLoIpYb5EdGn0gQj42dREeN_m9QB-c-cGB4958s"
   },
   {
     "code": "7VNBNY",
@@ -867,23 +867,6 @@
     "linkedin": "https://www.linkedin.com/in/luis-valdivia-humareda/?skipRedirect=true:WUgZ9DCJT73t1EEFfsthnHd7J8ES98xFno2pwSCnOYU"
   },
   {
-    "code": "ME3BL8",
-    "name": "Abner Ballardo",
-    "avatar": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/ZUNBCR_5afWhMS_thumbnail_tiny.webp",
-    "topic": "[ Panel ] - Banca",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Abner Ballardo es Chief Information Officer de Scotiabank Perú y cuenta con más de 25 años de experiencia liderando tecnología, arquitectura y transformación en los sectores financiero y fintech. Ha ocupado posiciones ejecutivas en organizaciones como OKA, Blum SAF, Interbank y BCP, donde participó en la construcción y modernización de plataformas digitales de alto impacto. Su trayectoria se caracteriza por conectar estrategia tecnológica, gestión de riesgos, arquitectura y ejecución para construir organizaciones y sistemas sostenibles a escala.",
-    "company": "Scotiabank Perú",
-    "jobTitle": "Chief Information Officer (VP Technology)",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/abnerballardo/?locale=es:W5K5fLoIpYb5EdGn0gQj42dREeN_m9QB-c-cGB4958s"
-  },
-  {
     "code": "QPHNVM",
     "name": "Alfonso Díaz",
     "avatar": "https://talks.devopsdays.org/media/avatars/HDC3SP_8StUyyk.webp",
@@ -899,6 +882,23 @@
     "jobTitle": "Vicepresidente de Tecnología y Operaciones",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/alfonsodiaz/:UJDMpMoN9XXtSpmX3BP813VH-Xou6RkUQGRw1Y2huwM"
+  },
+  {
+    "code": "9K8TFZ",
+    "name": "Camilo Cortes",
+    "avatar": "https://talks.devopsdays.org/media/avatars/TCHVCV_UPVrOHA.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TCHVCV_UPVrOHA_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TCHVCV_UPVrOHA_thumbnail_tiny.webp",
+    "topic": "[ Panel ] - Banca",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true,
+    "biography": "I am a passionate software engineer who likes to build high performance human organisations. Through my +17 years of experience I find joy in blending my software engineering knowledge with my consulting background to find simple solutions to everyday problems. Nowdays, with a strong focus in Banking and AI enablement.",
+    "company": "BCP",
+    "jobTitle": "CIO",
+    "location": "Colombia",
+    "linkedin": "https://www.linkedin.com/in/camilocortes/:WjYcINxT0YNotnR9fLgKS_-cW5ivfkW6qK4A7d4V7w8"
   },
   {
     "code": "T8ZMPH",
@@ -933,23 +933,6 @@
     "jobTitle": "Consultor Senior N3",
     "location": "Colombia",
     "linkedin": "https://www.linkedin.com/in/francis-adrian-gomez-ramirez-599598138:aTSpKVMYTiGfSzDVY2vo1k50Ob0ca7GpAelqiO8Fgl8"
-  },
-  {
-    "code": "9K8TFZ",
-    "name": "Camilo Cortes",
-    "avatar": "https://talks.devopsdays.org/media/avatars/TCHVCV_UPVrOHA.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TCHVCV_UPVrOHA_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TCHVCV_UPVrOHA_thumbnail_tiny.webp",
-    "topic": "[ Panel ] - Banca",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "I am a passionate software engineer who likes to build high performance human organisations. Through my +17 years of experience I find joy in blending my software engineering knowledge with my consulting background to find simple solutions to everyday problems. Nowdays, with a strong focus in Banking and AI enablement.",
-    "company": "BCP",
-    "jobTitle": "CIO",
-    "location": "Colombia",
-    "linkedin": "https://www.linkedin.com/in/camilocortes/:WjYcINxT0YNotnR9fLgKS_-cW5ivfkW6qK4A7d4V7w8"
   },
   {
     "code": "TBTPP8",
@@ -1139,23 +1122,6 @@
     "linkedin": "https://www.linkedin.com/in/ginovergara/:yoXxwZpIrvk-5pnqimR2FjLYmRIzcZUY50aV2EZcGvU"
   },
   {
-    "code": "CDDDHF",
-    "name": "Jesus Angulo",
-    "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_tiny.webp",
-    "topic": "Feature Flags Driven Development: CD seguro y sin miedos",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true,
-    "biography": "Jesus Angulo es un ingeniero de software, Microsoft Certified Cloud Architect y ex MVP de Microsoft con más de 10 años de experiencia.\n Actualmente trabaja como Account Architect en Baufest con foco en ayudar a clientes y equipos a encontrar soluciones para sus desafíos más complejos.",
-    "company": "Baufest",
-    "jobTitle": "Account Architect",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/cjangulo:zB-YhJekR8Vs1RpQ2oaJ2QMZs_DA2j9KoW_eA4eyWrU"
-  },
-  {
     "code": "VBWLYQ",
     "name": "Yembert Quintero Cortez",
     "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
@@ -1171,6 +1137,23 @@
     "jobTitle": "Chapter Lead Cloud Engineering",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/yembert-quintero-cortez/:KM4RQW80Ve3nrF4KH1hpPhNMDuqCqvs1Kd4_50x2Tj8"
+  },
+  {
+    "code": "CDDDHF",
+    "name": "Jesus Angulo",
+    "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr_thumbnail_tiny.webp",
+    "topic": "Feature Flags Driven Development: CD seguro y sin miedos",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true,
+    "biography": "Jesus Angulo es un ingeniero de software, Microsoft Certified Cloud Architect y ex MVP de Microsoft con más de 10 años de experiencia.\n Actualmente trabaja como Account Architect en Baufest con foco en ayudar a clientes y equipos a encontrar soluciones para sus desafíos más complejos.",
+    "company": "Baufest",
+    "jobTitle": "Account Architect",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/cjangulo:zB-YhJekR8Vs1RpQ2oaJ2QMZs_DA2j9KoW_eA4eyWrU"
   },
   {
     "code": "GCWYLX",
@@ -1579,6 +1562,23 @@
     "jobTitle": "Software and IA Agent Engineer",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/keniding:Qt5jg2ssfAVXdVaLHR5FebI83YK79rlenJrcmOLBrYc"
+  },
+  {
+    "code": "QD9DS9",
+    "name": "Cindy Prada",
+    "avatar": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx_thumbnail_tiny.webp",
+    "topic": "Del Discovery al Deploy: Testing Continuo en Acción",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true,
+    "biography": "Cindy Prada, Chapter Lead de QA en Prima AFP, con más de 10 años de experiencia en Quality Assurance impulsando la evolución de la calidad en entornos de alto impacto.",
+    "company": "PRIMA AFP",
+    "jobTitle": "Chapter Lead QA",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/cpradah/:JwfOUzdH0ct8yDbPgcykE64X_WKeUgdQUcycOJc9Eow"
   },
   {
     "code": "NLKQV9",
