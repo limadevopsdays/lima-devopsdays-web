@@ -33,7 +33,15 @@ type LoadSummary = {
   duplicates: number
 }
 
+function detectDelimiter(text: string): string {
+  const firstLine = text.split(/\r?\n/)[0] ?? ''
+  const commaCount = (firstLine.match(/,/g) ?? []).length
+  const semicolonCount = (firstLine.match(/;/g) ?? []).length
+  return semicolonCount > commaCount ? ';' : ','
+}
+
 function parseCSV(text: string) {
+  const delimiter = detectDelimiter(text)
   const rows: string[][] = []
   let row: string[] = []
   let value = ''
@@ -48,7 +56,7 @@ function parseCSV(text: string) {
       index += 1
     } else if (char === '"') {
       insideQuotes = !insideQuotes
-    } else if (char === ',' && !insideQuotes) {
+    } else if (char === delimiter && !insideQuotes) {
       row.push(value.trim())
       value = ''
     } else if ((char === '\n' || char === '\r') && !insideQuotes) {
