@@ -12,7 +12,7 @@ import { VenueSection } from '../../components/devopsdays/VenueSection'
 import { TurismSection } from '../../components/devopsdays/TurismSection'
 import { OrganizersSection } from '../../components/devopsdays/OrganizersSection'
 import { FaqSection } from '../../components/devopsdays/FaqSection'
-import { AgendaPopupBanner } from '../../components/devopsdays/AgendaPopupBanner'
+
 import styles from './index.module.css'
 import { useI18n } from '../../i18n'
 import { homePageI18n } from './i18n'
@@ -22,7 +22,6 @@ export default function HomePage() {
 
   return (
     <>
-      <AgendaPopupBanner />
       <HeroSection />
       <CountdownSection />
       <AboutSection />
