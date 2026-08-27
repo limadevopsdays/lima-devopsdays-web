@@ -1139,23 +1139,6 @@
     "linkedin": "https://www.linkedin.com/in/ginovergara/:yoXxwZpIrvk-5pnqimR2FjLYmRIzcZUY50aV2EZcGvU"
   },
   {
-    "code": "VBWLYQ",
-    "name": "Yembert Quintero Cortez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_tiny.webp",
-    "topic": "Has estado construyendo los pilares del futuro: Platform Egineer en Acción !",
-    "trackName": "Platform Engineering & DevOps",
-    "trackNameEn": "Platform Engineering & DevOps",
-    "trackColor": "#8c51bf",
-    "hasTalk": true,
-    "biography": "DevSecOps & Cloud Engineer de profesión. SysAdmin de corazón.\n Platform Engineer en construcciónTengo 12 años moviéndome por los distintos pisos de la tecnología: empecé como\n sysadmin, subí a ingeniería de nube, toqué desarrollo cuando fue necesario, y la\n seguridad nunca fue opcional — siempre estuvo en el centro de todo. En algún\n punto del camino me di cuenta de que lo que realmente estaba construyendo en\n cada rol no eran pipelines ni scripts: estaba construyendo plataformas. Solo que\n nadie le había puesto ese nombre todavía.Hoy formalizo ese camino. Trabajo en el sector financiero peruano donde las reglas son más estrictas, las soluciones tienen que ser más\n sólidas, y el \"lo hacemos así porque siempre lo hicimos así\" no es una respuesta\n válida. Ese contexto me obligó a pensar en plataforma antes de conocer el\n término: self-service controlado, golden paths por necesidad regulatoria,\n observabilidad como requisito de cumplimiento.Llevo aproximadamente 10 años en Lima levantando soluciones desde cero. Eso me\n dio algo que los certificados no dan: perspectiva real. Aprendí a entender el\n problema antes de elegir la herramienta. Me obsesiono con la tecnología, no con\n los productos.Multidisciplinario por naturaleza. Curioso por convicción.\n Construyendo plataformas — con o sin el título.",
-    "company": "Banco de Credito del Perú",
-    "jobTitle": "Chapter Lead Cloud Engineering",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/yembert-quintero-cortez/:KM4RQW80Ve3nrF4KH1hpPhNMDuqCqvs1Kd4_50x2Tj8"
-  },
-  {
     "code": "CDDDHF",
     "name": "Jesus Angulo",
     "avatar": "https://talks.devopsdays.org/media/avatars/TWPV9Y_WMe1Xnr.webp",
@@ -1171,6 +1154,23 @@
     "jobTitle": "Account Architect",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/cjangulo:zB-YhJekR8Vs1RpQ2oaJ2QMZs_DA2j9KoW_eA4eyWrU"
+  },
+  {
+    "code": "VBWLYQ",
+    "name": "Yembert Quintero Cortez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/JB7RZ3_lNQEgt2_thumbnail_tiny.webp",
+    "topic": "Has estado construyendo los pilares del futuro: Platform Egineer en Acción !",
+    "trackName": "Platform Engineering & DevOps",
+    "trackNameEn": "Platform Engineering & DevOps",
+    "trackColor": "#8c51bf",
+    "hasTalk": true,
+    "biography": "DevSecOps & Cloud Engineer de profesión. SysAdmin de corazón.\n Platform Engineer en construcciónTengo 12 años moviéndome por los distintos pisos de la tecnología: empecé como\n sysadmin, subí a ingeniería de nube, toqué desarrollo cuando fue necesario, y la\n seguridad nunca fue opcional — siempre estuvo en el centro de todo. En algún\n punto del camino me di cuenta de que lo que realmente estaba construyendo en\n cada rol no eran pipelines ni scripts: estaba construyendo plataformas. Solo que\n nadie le había puesto ese nombre todavía.Hoy formalizo ese camino. Trabajo en el sector financiero peruano donde las reglas son más estrictas, las soluciones tienen que ser más\n sólidas, y el \"lo hacemos así porque siempre lo hicimos así\" no es una respuesta\n válida. Ese contexto me obligó a pensar en plataforma antes de conocer el\n término: self-service controlado, golden paths por necesidad regulatoria,\n observabilidad como requisito de cumplimiento.Llevo aproximadamente 10 años en Lima levantando soluciones desde cero. Eso me\n dio algo que los certificados no dan: perspectiva real. Aprendí a entender el\n problema antes de elegir la herramienta. Me obsesiono con la tecnología, no con\n los productos.Multidisciplinario por naturaleza. Curioso por convicción.\n Construyendo plataformas — con o sin el título.",
+    "company": "Banco de Credito del Perú",
+    "jobTitle": "Chapter Lead Cloud Engineering",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/yembert-quintero-cortez/:KM4RQW80Ve3nrF4KH1hpPhNMDuqCqvs1Kd4_50x2Tj8"
   },
   {
     "code": "GCWYLX",
