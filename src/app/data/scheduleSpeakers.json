@@ -1450,7 +1450,7 @@
     "avatar": "https://talks.devopsdays.org/media/avatars/VMEFRS_ElLKlth.webp",
     "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/VMEFRS_ElLKlth_thumbnail_default.webp",
     "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/VMEFRS_ElLKlth_thumbnail_tiny.webp",
-    "topic": "Credicorp - Demo",
+    "topic": "[Credicorp] - Cómo Construimos Banca Conversacional con Agentes de IA en IO",
     "trackName": null,
     "trackNameEn": null,
     "trackColor": "#6b51ef",
@@ -1545,6 +1545,23 @@
     "jobTitle": "Director y Head Digital Architecture Perú Ntt data",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/luis-alberto-guevara-sandoval/:vJoxatmAb5bgBiwwHKeEJbhfTDGhpoehDXHLqBkhz-A"
+  },
+  {
+    "code": "UYBBNQ",
+    "name": "César Saravia",
+    "avatar": "https://talks.devopsdays.org/media/avatars/KEUHAJ_UNNBGJV.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/KEUHAJ_UNNBGJV_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KEUHAJ_UNNBGJV_thumbnail_tiny.webp",
+    "topic": "[Dynatrace] - El agente que no alucina: Por qué la IA agéntica necesita observabilidad causal",
+    "trackName": null,
+    "trackNameEn": null,
+    "trackColor": "#6b51ef",
+    "hasTalk": true,
+    "biography": "-",
+    "company": "Dynatrace",
+    "jobTitle": "Sr. Solutions Engineer",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/cesarsaravia7/:fHUq4Mt8anTEAF6fTe4RwzKmBoVPs2s9TSYgMBvhIEY"
   },
   {
     "code": "XCTJUV",
