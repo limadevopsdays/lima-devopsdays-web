@@ -488,9 +488,11 @@
     {
       "code": "CDJ8YJ",
       "id": 24435,
-      "title": "Dynatrace - Demo",
+      "title": "[Dynatrace] - El agente que no alucina: Por qué la IA agéntica necesita observabilidad causal",
       "abstract": "-",
-      "speakers": [],
+      "speakers": [
+        "UYBBNQ"
+      ],
       "track": null,
       "start": "2026-08-27T15:00:00-05:00",
       "end": "2026-08-27T15:20:00-05:00",
@@ -1438,7 +1440,7 @@
     {
       "code": "PWB7E7",
       "id": 24528,
-      "title": "Credicorp - Demo",
+      "title": "[Credicorp] - Cómo Construimos Banca Conversacional con Agentes de IA en IO",
       "abstract": "-",
       "speakers": [
         "D9YTZN"
@@ -2419,6 +2421,13 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/QUATJZ_4IMWfRj.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/QUATJZ_4IMWfRj_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QUATJZ_4IMWfRj_thumbnail_tiny.webp"
+    },
+    {
+      "code": "UYBBNQ",
+      "name": "César Saravia",
+      "avatar": "https://talks.devopsdays.org/media/avatars/KEUHAJ_UNNBGJV.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/KEUHAJ_UNNBGJV_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KEUHAJ_UNNBGJV_thumbnail_tiny.webp"
     },
     {
       "code": "XCTJUV",
