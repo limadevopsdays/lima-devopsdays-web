@@ -680,23 +680,6 @@
     "linkedin": "https://www.linkedin.com/in/cpradah/:JwfOUzdH0ct8yDbPgcykE64X_WKeUgdQUcycOJc9Eow"
   },
   {
-    "code": "L9LVSJ",
-    "name": "Alfredo Ishikane",
-    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp",
-    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
-    "hasTalk": true,
-    "biography": "Alfredo Ishikane es Gerente de Inteligencia Artificial para Canales Digitales de Empresas en el BCP, donde lidera iniciativas de GenIA aplicadas a experiencia de clientes y transformación digital en Banca Empresarial. Cuenta con más de 12 años de experiencia en el sector financiero impulsando proyectos de analytics, canales digitales, automatización y estrategia de negocios.Además, posee un Master en Business Analytics por INCAE Business School.",
-    "company": "BCP",
-    "jobTitle": "Gerente de Inteligencia Artificial - Canales Digitales para Empresas",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/alfredo-ishikane/:GsOP0C93OT9fu4-kBTB0ILSJdq57QpvQVtMs6MG3f-c"
-  },
-  {
     "code": "FEAAJ3",
     "name": "Fernando Madureira",
     "avatar": "https://talks.devopsdays.org/media/avatars/WG777Y_Td0MbhQ.webp",
@@ -765,6 +748,23 @@
     "linkedin": "https://www.linkedin.com/in/atreuco/:8oPT9kAc5_FchUDg60-EfymTQ4KRCyKjJG1q5jJYP0w"
   },
   {
+    "code": "BNTJ9L",
+    "name": "Sandra Arellano",
+    "avatar": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_tiny.webp",
+    "topic": "[ Panel ] - Fintech",
+    "trackName": "Modern Leadership & Culture",
+    "trackNameEn": "Modern Leadership & Culture",
+    "trackColor": "#595555",
+    "hasTalk": true,
+    "biography": "CTO con experiencia liderando áreas de tecnología en empresas multilatinas de servicios financieros y retail. Especialista en liderar programas de ciberseguridad y cambios disruptivos en escenarios desafiantes. Experiencia escalando productos como Yape, Peigo y Agora, mitigando riesgos tecnológicos, desarrollando capacidades de ingeniería, arquitectura, data y ciberseguridad. Experiencia aplicando la IA generativa con impacto tangible en el negocio. Liderazgo en cambios culturales en equipos multidisciplinarios y formas de trabajo.",
+    "company": "Diners Club Perú",
+    "jobTitle": "CTO",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/arellanosandra/:VZBbxvNqlRf3_V_fWEwYIuWqZpF-fSkk1CAXzXZGpgQ"
+  },
+  {
     "code": "ML3EUW",
     "name": "Gabriel Farah",
     "avatar": "https://talks.devopsdays.org/media/avatars/TDUP9Q_RDLEk66.webp",
@@ -816,23 +816,6 @@
     "linkedin": "https://www.linkedin.com/in/anrezende/:Y8x8SduV97VZSOlveQSi1cL8h-A7dU_EsYnmIW5euOs"
   },
   {
-    "code": "BNTJ9L",
-    "name": "Sandra Arellano",
-    "avatar": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_tiny.webp",
-    "topic": "[ Panel ] - Fintech",
-    "trackName": "Modern Leadership & Culture",
-    "trackNameEn": "Modern Leadership & Culture",
-    "trackColor": "#595555",
-    "hasTalk": true,
-    "biography": "CTO con experiencia liderando áreas de tecnología en empresas multilatinas de servicios financieros y retail. Especialista en liderar programas de ciberseguridad y cambios disruptivos en escenarios desafiantes. Experiencia escalando productos como Yape, Peigo y Agora, mitigando riesgos tecnológicos, desarrollando capacidades de ingeniería, arquitectura, data y ciberseguridad. Experiencia aplicando la IA generativa con impacto tangible en el negocio. Liderazgo en cambios culturales en equipos multidisciplinarios y formas de trabajo.",
-    "company": "Diners Club Perú",
-    "jobTitle": "CTO",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/arellanosandra/:VZBbxvNqlRf3_V_fWEwYIuWqZpF-fSkk1CAXzXZGpgQ"
-  },
-  {
     "code": "DUDMLT",
     "name": "Horacio Puga Nougues",
     "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
@@ -848,6 +831,23 @@
     "jobTitle": "CTO",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/horacio-puga-nougues/:jI07TiBKPg3QWQo2Z4se_QatT54CLb9QF25AfVCjUkM"
+  },
+  {
+    "code": "L9LVSJ",
+    "name": "Alfredo Ishikane",
+    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp",
+    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
+    "hasTalk": true,
+    "biography": "Alfredo Ishikane es Gerente de Inteligencia Artificial para Canales Digitales de Empresas en el BCP, donde lidera iniciativas de GenIA aplicadas a experiencia de clientes y transformación digital en Banca Empresarial. Cuenta con más de 12 años de experiencia en el sector financiero impulsando proyectos de analytics, canales digitales, automatización y estrategia de negocios.Además, posee un Master en Business Analytics por INCAE Business School.",
+    "company": "BCP",
+    "jobTitle": "Gerente de Inteligencia Artificial - Canales Digitales para Empresas",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/alfredo-ishikane/:GsOP0C93OT9fu4-kBTB0ILSJdq57QpvQVtMs6MG3f-c"
   },
   {
     "code": "7VNBNY",
@@ -1484,7 +1484,7 @@
     "avatar": "https://talks.devopsdays.org/media/avatars/QLD8F8_Dl7ep9T.webp",
     "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/QLD8F8_Dl7ep9T_thumbnail_default.webp",
     "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QLD8F8_Dl7ep9T_thumbnail_tiny.webp",
-    "topic": "[ NTT ] - La modernización tecnológica como consecuencia de la gestión del conocimiento",
+    "topic": "[ NTT ] - Humanos, Agentes y el nuevo desafío de la Ingeniería de Software",
     "trackName": "charla relámpago",
     "trackNameEn": "lightning talk",
     "trackColor": "#000000",
@@ -1528,6 +1528,23 @@
     "jobTitle": "Lead Infrastructure Engineer",
     "location": "Brazil",
     "linkedin": "https://www.linkedin.com/in/endersonmenezes/:vfLGnaZT4f2_xGQm6SwKFAj09wEBatCKhEi_qMsBJVg"
+  },
+  {
+    "code": "HY37LW",
+    "name": "Luis Guevara Sandoval",
+    "avatar": "https://talks.devopsdays.org/media/avatars/QUATJZ_4IMWfRj.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/QUATJZ_4IMWfRj_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QUATJZ_4IMWfRj_thumbnail_tiny.webp",
+    "topic": "[NTT] -  La modernización tecnológica como consecuencia de la gestión del conocimiento",
+    "trackName": null,
+    "trackNameEn": null,
+    "trackColor": "#6b51ef",
+    "hasTalk": true,
+    "biography": "MBA de ESAN-Graduate School of Business con mención en Dirección General y profesional en Ingeniería de Sistemas de la Universidad Nacional de Ingeniería.\n Certificado internacionalmente en TOGAF, RUP, SCJP, BI.\n Amplia experiencia en la gerencia y dirección de equipos, proyectos y servicios tecnológicos en diferentes giros de negocio basado en estándares y mejores prácticas internacionales del PMI, CMMI, The Open Group, SEI.\n Especialista en Soluciones de Inteligencia Artificial Generativa, Arquitectura Empresarial y Tecnológica, en implementación de soluciones de Inteligencia de Negocios, Big Data, BPM, SOA, Móviles, Middleware, DevOps, Fábricas de software y procesos de ingeniería de software.\n Profesional con gran capacidad de investigación, análisis y diseño de soluciones, proactivo, gran facilidad de comunicación y negociación, liderazgo, trabajo en equipo, solución de problemas y orientado a resultados.",
+    "company": "NTT",
+    "jobTitle": "Director y Head Digital Architecture Perú Ntt data",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/luis-alberto-guevara-sandoval/:vJoxatmAb5bgBiwwHKeEJbhfTDGhpoehDXHLqBkhz-A"
   },
   {
     "code": "XCTJUV",

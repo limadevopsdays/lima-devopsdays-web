@@ -93,8 +93,8 @@ const PARALLEL_ROOMS = [
   { id: 281, nameEs: 'Puruchuco - Principal', nameEn: 'Puruchuco - Principal', color: '#D92B2B' },
   { id: 282, nameEs: 'Manchay', nameEn: 'Manchay', color: '#1D64D8' },
   { id: 284, nameEs: 'Paraiso', nameEn: 'Paraiso', color: '#E05A1B' },
-  { id: 283, nameEs: 'Armatambo', nameEn: 'Armatambo', color: '#D93688' },
-  { id: 285, nameEs: 'Maranga - Talleres', nameEn: 'Maranga - Workshop', color: '#2A9D4E' },
+  { id: 283, nameEs: 'Maranga', nameEn: 'Maranga', color: '#D93688' },
+  { id: 285, nameEs: 'Armatambo - Talleres', nameEn: 'Armatambo - Workshop', color: '#2A9D4E' },
 ]
 
 const TRACK_COLOR_MAP: Record<string, string> = {

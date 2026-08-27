@@ -23,8 +23,8 @@ const ROOM_MAP = {
   281: { name: 'Puruchuco - Principal', color: '#D92B2B' },
   282: { name: 'Manchay', color: '#1D64D8' },
   284: { name: 'Paraiso', color: '#E05A1B' },
-  283: { name: 'Armatambo', color: '#D93688' },
-  285: { name: 'Maranga - Talleres', color: '#2A9D4E' },
+  283: { name: 'Maranga', color: '#D93688' },
+  285: { name: 'Armatambo - Talleres', color: '#2A9D4E' },
 }
 
 const TRACK_MAP = {
