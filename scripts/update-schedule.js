@@ -264,9 +264,9 @@ async function main() {
   const ROOM_NAME_MAP = {
     281: { en: 'Puruchuco - Principal', es: 'Puruchuco - Principal' },
     282: { en: 'Manchay', es: 'Manchay' },
-    283: { en: 'Armatambo', es: 'Armatambo' },
+    283: { en: 'Maranga', es: 'Maranga' },
     284: { en: 'Paraiso', es: 'Paraiso' },
-    285: { en: 'Maranga - Workshop', es: 'Maranga - Talleres' },
+    285: { en: 'Armatambo - Workshop', es: 'Armatambo - Talleres' },
     286: { en: 'Terrace', es: 'Terrace' },
   }
 

@@ -125,10 +125,10 @@ const ROOM_COLORS: Record<string, string> = {
   Terrace: '#DCA10D',
   Manchay: '#1D64D8',
   Paraiso: '#E05A1B',
-  Armatambo: '#D93688',
-  'Maranga - Talleres': '#2A9D4E',
-  Maranga: '#2A9D4E',
-  Marango: '#2A9D4E',
+  Maranga: '#D93688',
+  'Armatambo - Talleres': '#2A9D4E',
+  'Armatambo - talleres': '#2A9D4E',
+  Armatambo: '#2A9D4E',
 }
 
 const TRACK_COLORS: Record<string, string> = {
@@ -226,8 +226,11 @@ export function TimelineMockupSchedule({
     }
 
     // Format short room name for display
-    let shortRoom = roomName.replace(' - Principal', '').replace(' - Talleres', '')
-    if (shortRoom === 'Maranga') shortRoom = 'Marango'
+    let shortRoom = roomName
+      .replace(/ - Principal/gi, '')
+      .replace(/ - Talleres/gi, '')
+      .replace(/ - Workshop/gi, '')
+      .trim()
 
     const speakerFormatted = formatSpeakerNames(titleStr, isBreak, talk.speakers, speakersMap)
 
