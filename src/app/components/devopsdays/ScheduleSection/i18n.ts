@@ -19,8 +19,8 @@ export const scheduleI18n: Record<Locale, ScheduleI18n> = {
     eyebrow: 'Agenda',
     title: 'Nuestra agenda 2026',
     lead: 'Dos días de charlas técnicas, talleres y open spaces',
-    day1Label: 'Jue, 27 Ago',
-    day2Label: 'Vie, 28 Ago',
+    day1Label: 'Ayer (Jue, 27 Ago)',
+    day2Label: 'Hoy (Vie, 28 Ago)',
     day1Date: '27 Ago',
     day2Date: '28 Ago',
     typeLabels: {
@@ -36,8 +36,8 @@ export const scheduleI18n: Record<Locale, ScheduleI18n> = {
     eyebrow: 'Schedule',
     title: 'Our 2026 schedule',
     lead: 'Two days of technical talks, workshops and open spaces',
-    day1Label: 'Thu, Aug 27',
-    day2Label: 'Fri, Aug 28',
+    day1Label: 'Yesterday (Thu, Aug 27)',
+    day2Label: 'Today (Fri, Aug 28)',
     day1Date: 'Aug 27',
     day2Date: 'Aug 28',
     typeLabels: {

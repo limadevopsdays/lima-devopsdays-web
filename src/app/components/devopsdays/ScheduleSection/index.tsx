@@ -188,7 +188,7 @@ export function ScheduleSection({
     }))
   }, [customRoomColors])
 
-  const [activeDay, setActiveDay] = useState<'day-1' | 'day-2'>(fixedDay || 'day-1')
+  const [activeDay, setActiveDay] = useState<'day-1' | 'day-2'>(fixedDay || 'day-2')
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [selectedRooms, setSelectedRooms] = useState<number[]>(() => activeParallelRooms.map((r) => r.id))
   const [selectedTracks, setSelectedTracks] = useState<string[]>(() =>
@@ -759,8 +759,8 @@ export function ScheduleSection({
   })
 
   const days = [
-    { key: 'day-1' as const, label: t.day1Label, date: t.day1Date },
     { key: 'day-2' as const, label: t.day2Label, date: t.day2Date },
+    { key: 'day-1' as const, label: t.day1Label, date: t.day1Date },
   ]
 
   return (
