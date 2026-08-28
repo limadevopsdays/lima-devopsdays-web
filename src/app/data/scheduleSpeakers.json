@@ -680,23 +680,6 @@
     "linkedin": "https://www.linkedin.com/in/fm-cyber/:UWpBhCN1a1-jbU6tFi6VhWxskwYNe5Zxv5lC2uxlvHI"
   },
   {
-    "code": "L9LVSJ",
-    "name": "Alfredo Ishikane",
-    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp",
-    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
-    "trackName": "Enterprise AI & Data Strategy",
-    "trackNameEn": "Enterprise AI & Data Strategy",
-    "trackColor": "#00a86b",
-    "hasTalk": true,
-    "biography": "Alfredo Ishikane es Gerente de Inteligencia Artificial para Canales Digitales de Empresas en el BCP, donde lidera iniciativas de GenIA aplicadas a experiencia de clientes y transformación digital en Banca Empresarial. Cuenta con más de 12 años de experiencia en el sector financiero impulsando proyectos de analytics, canales digitales, automatización y estrategia de negocios.Además, posee un Master en Business Analytics por INCAE Business School.",
-    "company": "BCP",
-    "jobTitle": "Gerente de Inteligencia Artificial - Canales Digitales para Empresas",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/alfredo-ishikane/:GsOP0C93OT9fu4-kBTB0ILSJdq57QpvQVtMs6MG3f-c"
-  },
-  {
     "code": "3RU9QV",
     "name": "Alfredo Ponce",
     "avatar": "https://talks.devopsdays.org/media/avatars/RN9CR3_B1vVJO0.webp",
@@ -765,6 +748,23 @@
     "linkedin": "https://www.linkedin.com/in/arellanosandra/:VZBbxvNqlRf3_V_fWEwYIuWqZpF-fSkk1CAXzXZGpgQ"
   },
   {
+    "code": "DUDMLT",
+    "name": "Horacio Puga Nougues",
+    "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_tiny.webp",
+    "topic": "[ Panel ] - Fintech",
+    "trackName": "Modern Leadership & Culture",
+    "trackNameEn": "Modern Leadership & Culture",
+    "trackColor": "#595555",
+    "hasTalk": true,
+    "biography": "With 20 years of experience across payments, consulting, banking, retail, media, and IT projects in diverse countries, my career has been dedicated to driving innovation, agility, and the development of high-performing teams. Currently, as CTO at Niubiz, I am leading the organization’s transformation to a new agile operational model, balancing centralized technology governance with business unit autonomy. My role also emphasizes building a stable, scalable, and cost-efficient application architecture that aligns with our strategic goals.",
+    "company": "Niubiz",
+    "jobTitle": "CTO",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/horacio-puga-nougues/:jI07TiBKPg3QWQo2Z4se_QatT54CLb9QF25AfVCjUkM"
+  },
+  {
     "code": "ML3EUW",
     "name": "Gabriel Farah",
     "avatar": "https://talks.devopsdays.org/media/avatars/TDUP9Q_RDLEk66.webp",
@@ -816,21 +816,21 @@
     "linkedin": "https://www.linkedin.com/in/anrezende/:Y8x8SduV97VZSOlveQSi1cL8h-A7dU_EsYnmIW5euOs"
   },
   {
-    "code": "DUDMLT",
-    "name": "Horacio Puga Nougues",
-    "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_tiny.webp",
-    "topic": "[ Panel ] - Fintech",
-    "trackName": "Modern Leadership & Culture",
-    "trackNameEn": "Modern Leadership & Culture",
-    "trackColor": "#595555",
+    "code": "L9LVSJ",
+    "name": "Alfredo Ishikane",
+    "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp",
+    "topic": "Lo difícil no es el chatbot: lecciones reales implementando GenAI",
+    "trackName": "Enterprise AI & Data Strategy",
+    "trackNameEn": "Enterprise AI & Data Strategy",
+    "trackColor": "#00a86b",
     "hasTalk": true,
-    "biography": "With 20 years of experience across payments, consulting, banking, retail, media, and IT projects in diverse countries, my career has been dedicated to driving innovation, agility, and the development of high-performing teams. Currently, as CTO at Niubiz, I am leading the organization’s transformation to a new agile operational model, balancing centralized technology governance with business unit autonomy. My role also emphasizes building a stable, scalable, and cost-efficient application architecture that aligns with our strategic goals.",
-    "company": "Niubiz",
-    "jobTitle": "CTO",
+    "biography": "Alfredo Ishikane es Gerente de Inteligencia Artificial para Canales Digitales de Empresas en el BCP, donde lidera iniciativas de GenIA aplicadas a experiencia de clientes y transformación digital en Banca Empresarial. Cuenta con más de 12 años de experiencia en el sector financiero impulsando proyectos de analytics, canales digitales, automatización y estrategia de negocios.Además, posee un Master en Business Analytics por INCAE Business School.",
+    "company": "BCP",
+    "jobTitle": "Gerente de Inteligencia Artificial - Canales Digitales para Empresas",
     "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/horacio-puga-nougues/:jI07TiBKPg3QWQo2Z4se_QatT54CLb9QF25AfVCjUkM"
+    "linkedin": "https://www.linkedin.com/in/alfredo-ishikane/:GsOP0C93OT9fu4-kBTB0ILSJdq57QpvQVtMs6MG3f-c"
   },
   {
     "code": "ME3BL8",
@@ -1579,6 +1579,23 @@
     "jobTitle": "Chapter Lead QA",
     "location": "Perú",
     "linkedin": "https://www.linkedin.com/in/cpradah/:JwfOUzdH0ct8yDbPgcykE64X_WKeUgdQUcycOJc9Eow"
+  },
+  {
+    "code": "JAG7GK",
+    "name": "José Ángel Ortiz",
+    "avatar": null,
+    "avatar_thumbnail_default": null,
+    "avatar_thumbnail_tiny": null,
+    "topic": "[Indra] - Internal developer platform",
+    "trackName": "charla relámpago",
+    "trackNameEn": "lightning talk",
+    "trackColor": "#000000",
+    "hasTalk": true,
+    "biography": "",
+    "company": null,
+    "jobTitle": null,
+    "location": null,
+    "linkedin": null
   },
   {
     "code": "NLKQV9",
