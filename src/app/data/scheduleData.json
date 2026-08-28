@@ -1064,9 +1064,11 @@
     {
       "code": "BABAGA",
       "id": 24645,
-      "title": "SETI - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[SETI] - RemedIA - Como resolver tus vulnerabilidades a un clic.",
+      "abstract": "Durante el ciclo de vida del desarrollo de software, las herramientas de seguridad nos ayudan a identificar vulnerabilidades, pero encontrarlas es solo el primer paso. Analizarlas, comprender su impacto y corregirlas puede consumir tiempo, esfuerzo y recursos, además de mantener expuestas nuestras aplicaciones y usuarios. En esta demo presentamos RemedIA, una solución que lleva la remediación directamente al flujo de desarrollo. Desde el Pull Request, los desarrolladores podrán identificar vulnerabilidades, comprender su impacto y, con un solo clic, generar y aplicar correcciones. RemedIA transforma la seguridad en una acción rápida, integrada y sencilla, acelerando la entrega de software seguro.",
+      "speakers": [
+        "FYKVNJ"
+      ],
       "track": null,
       "start": "2026-08-28T11:10:00-05:00",
       "end": "2026-08-28T11:30:00-05:00",
@@ -1221,8 +1223,8 @@
     {
       "code": "QUDVJ7",
       "id": 24661,
-      "title": "[Indra] -Demo",
-      "abstract": "-",
+      "title": "[Indra] -Internal Developer Platform (IDP) con Backstage",
+      "abstract": "En esta sesión demo presentaremos una visión completa de un Internal Developer Portal implementado con Backstage. Recorreremos sus principales componentes y funcionalidades, destacando los aspectos más relevantes de cada una de sus áreas. Mostraremos cómo el portal centraliza y facilita el acceso a servicios, documentación, componentes, herramientas y recursos necesarios para los equipos. También veremos cómo estas capacidades contribuyen a mejorar la experiencia del desarrollador, fomentar la estandarización y aumentar la autonomía de los equipos. El objetivo es ofrecer una visión práctica de las posibilidades que ofrece Backstage como plataforma de Developer Experience y Platform Engineering.",
       "speakers": [],
       "track": null,
       "start": "2026-08-28T12:10:00-05:00",
