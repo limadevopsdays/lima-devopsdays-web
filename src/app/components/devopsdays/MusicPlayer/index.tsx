@@ -41,22 +41,6 @@ export function MusicPlayer() {
   const [videoVolume, setVideoVolume] = useState(0)
   const [showLightbox, setShowLightbox] = useState(false)
   const [hiddenByOverlay, setHiddenByOverlay] = useState(false)
-  const autoplayActiveRef = useRef(true)
-  const cleanupRefs = useRef<{
-    cleanupGestureListeners: () => void
-    cleanupObserver: () => void
-  } | null>(null)
-
-  // Desactivar autoplay definitivamente una vez que comienza a reproducirse
-  useEffect(() => {
-    if (playing) {
-      autoplayActiveRef.current = false
-      if (cleanupRefs.current) {
-        cleanupRefs.current.cleanupGestureListeners()
-        cleanupRefs.current.cleanupObserver()
-      }
-    }
-  }, [playing])
 
   /* sync volume with dynamic video ducking */
   useEffect(() => {
@@ -90,109 +74,6 @@ export function MusicPlayer() {
 
     return () => {
       window.removeEventListener('devopsdays:music-player-visibility', handleVisibility)
-    }
-  }, [])
-
-  /* autoplay on page load, interaction, or when scrolling to sections */
-  useEffect(() => {
-    let interactionListenersActive = false
-    let observer: IntersectionObserver | null = null
-
-    const playAudio = () => {
-      const audio = audioRef.current
-      if (!audio || !autoplayActiveRef.current || playing) return
-
-      audio.play()
-        .then(() => {
-          setPlaying(true)
-        })
-        .catch((err) => {
-          console.warn('Autoplay blocked, waiting for interaction/scroll:', err.message)
-          setupGestureListeners()
-          setupIntersectionObserver()
-        })
-    }
-
-    const handleGesture = (e?: Event) => {
-      if (e && e.target instanceof Element) {
-        if (
-          e.target.closest('[role="dialog"]') ||
-          e.target.closest('[class*="overlay"]') ||
-          e.target.closest('[class*="banner"]')
-        ) {
-          return
-        }
-      }
-      playAudio()
-    }
-
-    const setupGestureListeners = () => {
-      if (interactionListenersActive || !autoplayActiveRef.current) return
-      interactionListenersActive = true
-      window.addEventListener('click', handleGesture, { once: true })
-      window.addEventListener('keydown', handleGesture, { once: true })
-      window.addEventListener('touchstart', handleGesture, { once: true })
-      window.addEventListener('mousedown', handleGesture, { once: true })
-      window.addEventListener('scroll', handleGesture, { once: true })
-      window.addEventListener('wheel', handleGesture, { once: true })
-      window.addEventListener('touchmove', handleGesture, { once: true })
-    }
-
-    const cleanupGestureListeners = () => {
-      if (!interactionListenersActive) return
-      interactionListenersActive = false
-      window.removeEventListener('click', handleGesture)
-      window.removeEventListener('keydown', handleGesture)
-      window.removeEventListener('touchstart', handleGesture)
-      window.removeEventListener('mousedown', handleGesture)
-      window.removeEventListener('scroll', handleGesture)
-      window.removeEventListener('wheel', handleGesture)
-      window.removeEventListener('touchmove', handleGesture)
-    }
-
-    const setupIntersectionObserver = () => {
-      if (observer || !autoplayActiveRef.current) return
-      
-      const sections = ['about', 'speakers', 'schedule', 'sponsors', 'tickets', 'venue']
-      const targets = sections
-        .map(id => document.getElementById(id))
-        .filter((el): el is HTMLElement => el !== null)
-
-      if (targets.length === 0) return
-
-      observer = new IntersectionObserver(
-        (entries) => {
-          const isAnyVisible = entries.some(entry => entry.isIntersecting)
-          if (isAnyVisible && autoplayActiveRef.current) {
-            playAudio()
-          }
-        },
-        { threshold: 0.1 }
-      )
-
-      targets.forEach(target => observer?.observe(target))
-    }
-
-    const cleanupObserver = () => {
-      if (observer) {
-        observer.disconnect()
-        observer = null
-      }
-    }
-
-    cleanupRefs.current = {
-      cleanupGestureListeners,
-      cleanupObserver
-    }
-
-    // Solo esperar gestos o scroll para reproducir (no autoplay en mount)
-    setupGestureListeners()
-    setupIntersectionObserver()
-
-    return () => {
-      cleanupGestureListeners()
-      cleanupObserver()
-      cleanupRefs.current = null
     }
   }, [])
 
