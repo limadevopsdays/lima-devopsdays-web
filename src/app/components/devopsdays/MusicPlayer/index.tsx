@@ -28,7 +28,7 @@ export function MusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(false)
-  const [volume, setVolume] = useState(0.3)
+  const [volume, setVolume] = useState(0.15)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
   const [minimized, setMinimized] = useState(() => {
@@ -41,16 +41,33 @@ export function MusicPlayer() {
   const [videoVolume, setVideoVolume] = useState(0)
   const [showLightbox, setShowLightbox] = useState(false)
   const [hiddenByOverlay, setHiddenByOverlay] = useState(false)
-  const autoplayActiveRef = useRef(true)
+  const SESSION_PLAYED_KEY = 'devopsdays_music_played_session'
+  const autoplayActiveRef = useRef(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        return !sessionStorage.getItem(SESSION_PLAYED_KEY)
+      } catch {
+        return true
+      }
+    }
+    return true
+  })
   const cleanupRefs = useRef<{
     cleanupGestureListeners: () => void
     cleanupObserver: () => void
   } | null>(null)
 
-  // Desactivar autoplay definitivamente una vez que comienza a reproducirse
+  // Desactivar autoplay definitivamente una vez que comienza a reproducirse y guardar en la sesión
   useEffect(() => {
     if (playing) {
-      autoplayActiveRef.current = false
+      if (typeof autoplayActiveRef.current === 'function') {
+        // initialize ref value
+      }
+      autoplayActiveRef.current = () => false
+      try {
+        sessionStorage.setItem(SESSION_PLAYED_KEY, 'true')
+      } catch {}
+
       if (cleanupRefs.current) {
         cleanupRefs.current.cleanupGestureListeners()
         cleanupRefs.current.cleanupObserver()
@@ -93,18 +110,32 @@ export function MusicPlayer() {
     }
   }, [])
 
-  /* autoplay on page load, interaction, or when scrolling to sections */
+  /* autoplay on page load, interaction, or when scrolling to sections (only once per session) */
   useEffect(() => {
+    // Si ya sonó en esta sesión de navegación, no registrar listeners de autoplay
+    try {
+      if (sessionStorage.getItem(SESSION_PLAYED_KEY)) {
+        return
+      }
+    } catch {}
+
     let interactionListenersActive = false
     let observer: IntersectionObserver | null = null
 
     const playAudio = () => {
       const audio = audioRef.current
-      if (!audio || !autoplayActiveRef.current || playing) return
+      const isAutoplayActive = typeof autoplayActiveRef.current === 'function' 
+        ? autoplayActiveRef.current() 
+        : autoplayActiveRef.current
+
+      if (!audio || !isAutoplayActive || playing) return
 
       audio.play()
         .then(() => {
           setPlaying(true)
+          try {
+            sessionStorage.setItem(SESSION_PLAYED_KEY, 'true')
+          } catch {}
         })
         .catch((err) => {
           console.warn('Autoplay blocked, waiting for interaction/scroll:', err.message)
@@ -127,7 +158,11 @@ export function MusicPlayer() {
     }
 
     const setupGestureListeners = () => {
-      if (interactionListenersActive || !autoplayActiveRef.current) return
+      const isAutoplayActive = typeof autoplayActiveRef.current === 'function' 
+        ? autoplayActiveRef.current() 
+        : autoplayActiveRef.current
+
+      if (interactionListenersActive || !isAutoplayActive) return
       interactionListenersActive = true
       window.addEventListener('click', handleGesture, { once: true })
       window.addEventListener('keydown', handleGesture, { once: true })
@@ -151,7 +186,11 @@ export function MusicPlayer() {
     }
 
     const setupIntersectionObserver = () => {
-      if (observer || !autoplayActiveRef.current) return
+      const isAutoplayActive = typeof autoplayActiveRef.current === 'function' 
+        ? autoplayActiveRef.current() 
+        : autoplayActiveRef.current
+
+      if (observer || !isAutoplayActive) return
       
       const sections = ['about', 'speakers', 'schedule', 'sponsors', 'tickets', 'venue']
       const targets = sections
@@ -163,7 +202,11 @@ export function MusicPlayer() {
       observer = new IntersectionObserver(
         (entries) => {
           const isAnyVisible = entries.some(entry => entry.isIntersecting)
-          if (isAnyVisible && autoplayActiveRef.current) {
+          const stillActive = typeof autoplayActiveRef.current === 'function' 
+            ? autoplayActiveRef.current() 
+            : autoplayActiveRef.current
+
+          if (isAnyVisible && stillActive) {
             playAudio()
           }
         },
