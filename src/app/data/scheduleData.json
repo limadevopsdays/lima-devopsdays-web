@@ -943,9 +943,11 @@
     {
       "code": "GVN77P",
       "id": 24634,
-      "title": "lightning talk - Indra",
+      "title": "[Indra] - Internal developer platform",
       "abstract": "-",
-      "speakers": [],
+      "speakers": [
+        "JAG7GK"
+      ],
       "track": 230,
       "start": "2026-08-28T09:35:00-05:00",
       "end": "2026-08-28T09:40:00-05:00",
@@ -1217,7 +1219,7 @@
     {
       "code": "QUDVJ7",
       "id": 24661,
-      "title": "Indra - Demo",
+      "title": "[Indra] -Demo",
       "abstract": "-",
       "speakers": [],
       "track": null,
@@ -2068,13 +2070,6 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/WG777Y_Td0MbhQ_thumbnail_tiny.webp"
     },
     {
-      "code": "L9LVSJ",
-      "name": "Alfredo Ishikane",
-      "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp"
-    },
-    {
       "code": "3RU9QV",
       "name": "Alfredo Ponce",
       "avatar": "https://talks.devopsdays.org/media/avatars/RN9CR3_B1vVJO0.webp",
@@ -2103,6 +2098,13 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/KXKBGK_vxvVGX9_thumbnail_tiny.webp"
     },
     {
+      "code": "DUDMLT",
+      "name": "Horacio Puga Nougues",
+      "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_tiny.webp"
+    },
+    {
       "code": "ML3EUW",
       "name": "Gabriel Farah",
       "avatar": "https://talks.devopsdays.org/media/avatars/TDUP9Q_RDLEk66.webp",
@@ -2124,11 +2126,11 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/JTKFXS_iIgCHXJ_thumbnail_tiny.webp"
     },
     {
-      "code": "DUDMLT",
-      "name": "Horacio Puga Nougues",
-      "avatar": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/MYZBEU_VZfqLmO_thumbnail_tiny.webp"
+      "code": "L9LVSJ",
+      "name": "Alfredo Ishikane",
+      "avatar": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/PDLYPG_S2VKSAH_thumbnail_tiny.webp"
     },
     {
       "code": "ME3BL8",
@@ -2437,6 +2439,13 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/N3N89U_Q870kAx_thumbnail_tiny.webp"
+    },
+    {
+      "code": "JAG7GK",
+      "name": "José Ángel Ortiz",
+      "avatar": null,
+      "avatar_thumbnail_default": null,
+      "avatar_thumbnail_tiny": null
     },
     {
       "code": "NLKQV9",
