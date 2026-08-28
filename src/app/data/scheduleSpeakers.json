@@ -255,23 +255,6 @@
     "linkedin": "https://www.linkedin.com/in/danielmalvaceda/:7GGfenCXmoQgsYCr5Tn6DfN7iWczr4RVMpdiPMLjMf4"
   },
   {
-    "code": "VFGTEQ",
-    "name": "Ricardo Sanchez",
-    "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
-    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
-    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp",
-    "topic": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
-    "trackName": "Security & Technology Transformation",
-    "trackNameEn": "Security & Technology Transformation",
-    "trackColor": "#1ebdd1",
-    "hasTalk": true,
-    "biography": "Arquitecto de Seguridad con más de 10 años de experiencia, actualmente especializado en DevSecOps y prácticas avanzadas de AppSec. Comenzó su carrera diseñando estrategias de detección de amenazas basado en threat hunting, threat intelligence y monitoreo de amenazas. Hoy traslada ese mismo rigor analítico a la protección de la infraestructura donde se construye y despliega el software. Ha sido speaker a nivel nacional e internacional, con participaciones destacadas en Ekoparty y DEF CON, donde presentó investigaciones sobre anatomía de malware y dirigió workshops de emulación adversario.",
-    "company": "Pacifico Seguros",
-    "jobTitle": "Security Architect",
-    "location": "Perú",
-    "linkedin": "https://www.linkedin.com/in/ricardo-sanchez-bermudez/:4X5Ibz8Bu_cNyzIkN8s1nAArkJ5wULj6B_FhG3PG9aw"
-  },
-  {
     "code": "EYSBV7",
     "name": "Andrea Griffiths",
     "avatar": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj.webp",
@@ -287,6 +270,23 @@
     "jobTitle": "Senior Developer Advocate",
     "location": "Estados Unidos",
     "linkedin": "https://www.linkedin.com/in/acolombiadev/:qJpbH19cbXEQzwrAUsEsam4s3_qrFP1PCCqyTM1A94E"
+  },
+  {
+    "code": "VFGTEQ",
+    "name": "Ricardo Sanchez",
+    "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp",
+    "topic": "¿Qué pasa cuando lo que protege tu pipeline es lo que lo compromete?",
+    "trackName": "Security & Technology Transformation",
+    "trackNameEn": "Security & Technology Transformation",
+    "trackColor": "#1ebdd1",
+    "hasTalk": true,
+    "biography": "Arquitecto de Seguridad con más de 10 años de experiencia, actualmente especializado en DevSecOps y prácticas avanzadas de AppSec. Comenzó su carrera diseñando estrategias de detección de amenazas basado en threat hunting, threat intelligence y monitoreo de amenazas. Hoy traslada ese mismo rigor analítico a la protección de la infraestructura donde se construye y despliega el software. Ha sido speaker a nivel nacional e internacional, con participaciones destacadas en Ekoparty y DEF CON, donde presentó investigaciones sobre anatomía de malware y dirigió workshops de emulación adversario.",
+    "company": "Pacifico Seguros",
+    "jobTitle": "Security Architect",
+    "location": "Perú",
+    "linkedin": "https://www.linkedin.com/in/ricardo-sanchez-bermudez/:4X5Ibz8Bu_cNyzIkN8s1nAArkJ5wULj6B_FhG3PG9aw"
   },
   {
     "code": "XRQVPJ",
@@ -1596,6 +1596,23 @@
     "jobTitle": null,
     "location": null,
     "linkedin": null
+  },
+  {
+    "code": "YDKGVZ",
+    "name": "Anthony Joanes",
+    "avatar": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR_thumbnail_tiny.webp",
+    "topic": "[Port] - Cómo reducimos los costos de los tokens de IA un 80 %.",
+    "trackName": "charla relámpago",
+    "trackNameEn": "lightning talk",
+    "trackColor": "#000000",
+    "hasTalk": true,
+    "biography": "At Port.io, my focus lies in merging technical prowess with strategic sales initiatives, ensuring that our clients can simply platform engineering and streamline their development processes.As a Sales Engineer I've been able to cover mid-market & enterprise accounts across the Americas & LATAM markets honing my abilities in providing expert knowledge across open source security, platform engineering, and DevOps.Over the years I have been dedicated to strengthening client relationships through product demonstrations and training sessions, leading to significant growth in conversion and client expansion.",
+    "company": "Port",
+    "jobTitle": "Sales Engineer, LATAM & NA Enterprise",
+    "location": "-",
+    "linkedin": "https://www.linkedin.com/in/ajoanes/:VI6NsVLgA9q5AcwYgAcnHTZnaPJV8kTg894p3L8lBiw"
   },
   {
     "code": "NLKQV9",

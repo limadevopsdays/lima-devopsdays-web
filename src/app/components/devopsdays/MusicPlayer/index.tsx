@@ -5,6 +5,11 @@ import styles from './index.module.css'
 
 const PLAYLIST = [
   {
+    title: 'La cumbia DevOps',
+    subtitle: 'DOD Lima',
+    src: '/music/devopsdayslima_themecumbia.mp3'
+  },
+  {
     title: 'The DevOpssion',
     subtitle: 'DOD Lima',
     src: '/music/devopsdayslima_theme.mp3'

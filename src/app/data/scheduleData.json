@@ -931,7 +931,9 @@
       "id": 24633,
       "title": "[Port] - Cómo reducimos los costos de los tokens de IA un 80 %.",
       "abstract": "Realizamos miles de consultas de IA en contextos estructurados y no estructurados y medimos el costo. El contexto estructurado resultó un 80 % más económico que el no estructurado.",
-      "speakers": [],
+      "speakers": [
+        "YDKGVZ"
+      ],
       "track": 230,
       "start": "2026-08-28T09:30:00-05:00",
       "end": "2026-08-28T09:35:00-05:00",
@@ -1895,18 +1897,18 @@
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/QEXU9H_o4VmYZ6_thumbnail_tiny.webp"
     },
     {
-      "code": "VFGTEQ",
-      "name": "Ricardo Sanchez",
-      "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
-      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
-      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp"
-    },
-    {
       "code": "EYSBV7",
       "name": "Andrea Griffiths",
       "avatar": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/NTDSVX_erxKbxj_thumbnail_tiny.webp"
+    },
+    {
+      "code": "VFGTEQ",
+      "name": "Ricardo Sanchez",
+      "avatar": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/CGF7MT_MjU7D3d_thumbnail_tiny.webp"
     },
     {
       "code": "XRQVPJ",
@@ -2446,6 +2448,13 @@
       "avatar": null,
       "avatar_thumbnail_default": null,
       "avatar_thumbnail_tiny": null
+    },
+    {
+      "code": "YDKGVZ",
+      "name": "Anthony Joanes",
+      "avatar": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR.webp",
+      "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR_thumbnail_default.webp",
+      "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR_thumbnail_tiny.webp"
     },
     {
       "code": "NLKQV9",
