@@ -1621,9 +1621,11 @@
     {
       "code": "ZDLTRJ",
       "id": 24696,
-      "title": "ManageEngine - Demo",
-      "abstract": "-",
-      "speakers": [],
+      "title": "[ManageEngine] - Full Stack Observability para Equipos DevOps",
+      "abstract": "Descubre cómo una estrategia de observabilidad unificada permite a los equipos DevOps supervisar infraestructura, aplicaciones y experiencia digital en tiempo real. Con ManageEngine conocerás cómo mejorar la disponibilidad de los servicios, fortalecer el cumplimiento y optimizar las operaciones en entornos híbridos y multicloud.",
+      "speakers": [
+        "JJCEQR"
+      ],
       "track": null,
       "start": "2026-08-28T16:50:00-05:00",
       "end": "2026-08-28T17:10:00-05:00",
@@ -2457,6 +2459,13 @@
       "avatar": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR.webp",
       "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR_thumbnail_default.webp",
       "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/N98VAV_bpdg9CR_thumbnail_tiny.webp"
+    },
+    {
+      "code": "JJCEQR",
+      "name": "Jadir Andres Segura Martinez",
+      "avatar": null,
+      "avatar_thumbnail_default": null,
+      "avatar_thumbnail_tiny": null
     },
     {
       "code": "NLKQV9",

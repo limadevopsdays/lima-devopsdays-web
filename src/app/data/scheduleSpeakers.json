@@ -1615,6 +1615,23 @@
     "linkedin": "https://www.linkedin.com/in/ajoanes/:VI6NsVLgA9q5AcwYgAcnHTZnaPJV8kTg894p3L8lBiw"
   },
   {
+    "code": "JJCEQR",
+    "name": "Jadir Andres Segura Martinez",
+    "avatar": null,
+    "avatar_thumbnail_default": null,
+    "avatar_thumbnail_tiny": null,
+    "topic": "[ManageEngine] - Full Stack Observability para Equipos DevOps",
+    "trackName": null,
+    "trackNameEn": null,
+    "trackColor": "#6b51ef",
+    "hasTalk": true,
+    "biography": "",
+    "company": null,
+    "jobTitle": null,
+    "location": null,
+    "linkedin": null
+  },
+  {
     "code": "NLKQV9",
     "name": "Martin Grados",
     "avatar": "https://talks.devopsdays.org/media/avatars/ECTXEC_DiAPAif.webp",
