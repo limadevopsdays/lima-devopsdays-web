@@ -1617,19 +1617,19 @@
   {
     "code": "JJCEQR",
     "name": "Jadir Andres Segura Martinez",
-    "avatar": null,
-    "avatar_thumbnail_default": null,
-    "avatar_thumbnail_tiny": null,
+    "avatar": "https://talks.devopsdays.org/media/avatars/ZMCYAJ_F0OCgEs.webp",
+    "avatar_thumbnail_default": "https://talks.devopsdays.org/media/avatars/ZMCYAJ_F0OCgEs_thumbnail_default.webp",
+    "avatar_thumbnail_tiny": "https://talks.devopsdays.org/media/avatars/ZMCYAJ_F0OCgEs_thumbnail_tiny.webp",
     "topic": "[ManageEngine] - Full Stack Observability para Equipos DevOps",
     "trackName": null,
     "trackNameEn": null,
     "trackColor": "#6b51ef",
     "hasTalk": true,
-    "biography": "",
-    "company": null,
-    "jobTitle": null,
-    "location": null,
-    "linkedin": null
+    "biography": "-",
+    "company": "ManageEngine",
+    "jobTitle": "Technical Consultant",
+    "location": "-",
+    "linkedin": "https://www.linkedin.com/:zlH_XxaAJUhq2uMema7PgEHq15CnCSznZiXh_86e6_g"
   },
   {
     "code": "NLKQV9",
