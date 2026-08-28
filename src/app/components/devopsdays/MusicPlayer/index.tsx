@@ -28,7 +28,7 @@ export function MusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(false)
-  const [volume, setVolume] = useState(0.3)
+  const [volume, setVolume] = useState(0.15)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
   const [minimized, setMinimized] = useState(() => {
@@ -41,6 +41,39 @@ export function MusicPlayer() {
   const [videoVolume, setVideoVolume] = useState(0)
   const [showLightbox, setShowLightbox] = useState(false)
   const [hiddenByOverlay, setHiddenByOverlay] = useState(false)
+  const SESSION_PLAYED_KEY = 'devopsdays_music_played_session'
+  const autoplayActiveRef = useRef(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        return !sessionStorage.getItem(SESSION_PLAYED_KEY)
+      } catch {
+        return true
+      }
+    }
+    return true
+  })
+  const cleanupRefs = useRef<{
+    cleanupGestureListeners: () => void
+    cleanupObserver: () => void
+  } | null>(null)
+
+  // Desactivar autoplay definitivamente una vez que comienza a reproducirse y guardar en la sesión
+  useEffect(() => {
+    if (playing) {
+      if (typeof autoplayActiveRef.current === 'function') {
+        // initialize ref value
+      }
+      autoplayActiveRef.current = () => false
+      try {
+        sessionStorage.setItem(SESSION_PLAYED_KEY, 'true')
+      } catch {}
+
+      if (cleanupRefs.current) {
+        cleanupRefs.current.cleanupGestureListeners()
+        cleanupRefs.current.cleanupObserver()
+      }
+    }
+  }, [playing])
 
   /* sync volume with dynamic video ducking */
   useEffect(() => {
@@ -74,6 +107,135 @@ export function MusicPlayer() {
 
     return () => {
       window.removeEventListener('devopsdays:music-player-visibility', handleVisibility)
+    }
+  }, [])
+
+  /* autoplay on page load, interaction, or when scrolling to sections (only once per session) */
+  useEffect(() => {
+    // Si ya sonó en esta sesión de navegación, no registrar listeners de autoplay
+    try {
+      if (sessionStorage.getItem(SESSION_PLAYED_KEY)) {
+        return
+      }
+    } catch {}
+
+    let interactionListenersActive = false
+    let observer: IntersectionObserver | null = null
+
+    const playAudio = () => {
+      const audio = audioRef.current
+      const isAutoplayActive = typeof autoplayActiveRef.current === 'function' 
+        ? autoplayActiveRef.current() 
+        : autoplayActiveRef.current
+
+      if (!audio || !isAutoplayActive || playing) return
+
+      audio.play()
+        .then(() => {
+          setPlaying(true)
+          try {
+            sessionStorage.setItem(SESSION_PLAYED_KEY, 'true')
+          } catch {}
+        })
+        .catch((err) => {
+          console.warn('Autoplay blocked, waiting for interaction/scroll:', err.message)
+          setupGestureListeners()
+          setupIntersectionObserver()
+        })
+    }
+
+    const handleGesture = (e?: Event) => {
+      if (e && e.target instanceof Element) {
+        if (
+          e.target.closest('[role="dialog"]') ||
+          e.target.closest('[class*="overlay"]') ||
+          e.target.closest('[class*="banner"]')
+        ) {
+          return
+        }
+      }
+      playAudio()
+    }
+
+    const setupGestureListeners = () => {
+      const isAutoplayActive = typeof autoplayActiveRef.current === 'function' 
+        ? autoplayActiveRef.current() 
+        : autoplayActiveRef.current
+
+      if (interactionListenersActive || !isAutoplayActive) return
+      interactionListenersActive = true
+      window.addEventListener('click', handleGesture, { once: true })
+      window.addEventListener('keydown', handleGesture, { once: true })
+      window.addEventListener('touchstart', handleGesture, { once: true })
+      window.addEventListener('mousedown', handleGesture, { once: true })
+      window.addEventListener('scroll', handleGesture, { once: true })
+      window.addEventListener('wheel', handleGesture, { once: true })
+      window.addEventListener('touchmove', handleGesture, { once: true })
+    }
+
+    const cleanupGestureListeners = () => {
+      if (!interactionListenersActive) return
+      interactionListenersActive = false
+      window.removeEventListener('click', handleGesture)
+      window.removeEventListener('keydown', handleGesture)
+      window.removeEventListener('touchstart', handleGesture)
+      window.removeEventListener('mousedown', handleGesture)
+      window.removeEventListener('scroll', handleGesture)
+      window.removeEventListener('wheel', handleGesture)
+      window.removeEventListener('touchmove', handleGesture)
+    }
+
+    const setupIntersectionObserver = () => {
+      const isAutoplayActive = typeof autoplayActiveRef.current === 'function' 
+        ? autoplayActiveRef.current() 
+        : autoplayActiveRef.current
+
+      if (observer || !isAutoplayActive) return
+      
+      const sections = ['about', 'speakers', 'schedule', 'sponsors', 'tickets', 'venue']
+      const targets = sections
+        .map(id => document.getElementById(id))
+        .filter((el): el is HTMLElement => el !== null)
+
+      if (targets.length === 0) return
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const isAnyVisible = entries.some(entry => entry.isIntersecting)
+          const stillActive = typeof autoplayActiveRef.current === 'function' 
+            ? autoplayActiveRef.current() 
+            : autoplayActiveRef.current
+
+          if (isAnyVisible && stillActive) {
+            playAudio()
+          }
+        },
+        { threshold: 0.1 }
+      )
+
+      targets.forEach(target => observer?.observe(target))
+    }
+
+    const cleanupObserver = () => {
+      if (observer) {
+        observer.disconnect()
+        observer = null
+      }
+    }
+
+    cleanupRefs.current = {
+      cleanupGestureListeners,
+      cleanupObserver
+    }
+
+    // Solo esperar gestos o scroll para reproducir (no autoplay en mount)
+    setupGestureListeners()
+    setupIntersectionObserver()
+
+    return () => {
+      cleanupGestureListeners()
+      cleanupObserver()
+      cleanupRefs.current = null
     }
   }, [])
 
