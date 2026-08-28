@@ -929,8 +929,8 @@
     {
       "code": "JSCBBM",
       "id": 24633,
-      "title": "lightning talk - Port",
-      "abstract": "-",
+      "title": "[Port] - Cómo reducimos los costos de los tokens de IA un 80 %.",
+      "abstract": "Realizamos miles de consultas de IA en contextos estructurados y no estructurados y medimos el costo. El contexto estructurado resultó un 80 % más económico que el no estructurado.",
       "speakers": [],
       "track": 230,
       "start": "2026-08-28T09:30:00-05:00",
@@ -1139,8 +1139,8 @@
     {
       "code": "JWSZV8",
       "id": 24650,
-      "title": "Port -Demo",
-      "abstract": "-",
+      "title": "[Port] - Reduzca a la mitad el MTTR con la resolución autónoma de incidentes.",
+      "abstract": "Vea cómo el flujo de trabajo de un agente SRE en Port, reduce el MTTR a la mitad, utilizando el contexto completo para clasificar, diagnosticar y solucionar incidentes de forma autónoma, hasta llegar a un RCA.",
       "speakers": [],
       "track": null,
       "start": "2026-08-28T11:35:00-05:00",
@@ -1534,8 +1534,8 @@
     {
       "code": "YYLQMP",
       "id": 24690,
-      "title": "[Thoughtworks] - CardDemo Payment System (COBOL)",
-      "abstract": "Mostrar cómo AI/works realiza rápidamente ingeniería inversa en sistemas heredados y crea un grafo de conocimiento que acelera la modernización.",
+      "title": "[Thoughtworks] - Ingeniería de Agentes con AI/works™",
+      "abstract": "El desarrollo de software está cambiando rápidamente. Mientras que los copilotos de código tradicionales actúan en tareas aisladas, la verdadera revolución está en la ingeniería agéntica. En esta charla técnica, presentaremos AI/works, la plataforma agéntica de desarrollo de Thoughtworks que orquesta la evolución continua de sistemas de software.",
       "speakers": [
         "N3DUNU"
       ],
