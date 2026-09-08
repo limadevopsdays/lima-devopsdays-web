@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { SectionHeader } from '../SectionHeader'
 import { useI18n, useLocale } from '../../../i18n'
 import { getSpeakerAvatarSources, useSpeakerAvatar } from '../../../lib/speakerAvatars'
+import { PdfIcon } from '../PdfIcon'
 import { scheduleI18n } from './i18n'
 import styles from './index.module.css'
 import scheduleData from '../../../data/scheduleData.json'
@@ -21,6 +22,8 @@ interface TalkRaw {
   room: number | null
   duration: number
   content_locale: string
+  answer?: string | null
+  answer_file?: string | null
 }
 
 interface TrackRaw {
@@ -484,6 +487,8 @@ export function ScheduleSection({
       speakersList,
       startRaw: talk.start,
       endRaw: talk.end,
+      answer: talk.answer || null,
+      answer_file: talk.answer_file || null,
     }
   })
 
@@ -1092,16 +1097,19 @@ export function ScheduleSection({
                             <span className={styles.cardRoomText}>{talk.roomName}</span>
                           </span>
                         )}
-                        <button
-                          type="button"
-                          className={styles.cardFavButton}
-                          onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
-                          aria-label="Add to favorites"
-                        >
-                          <Star
-                            className={`${styles.starIcon} ${isFav ? styles.starIconActive : ''}`}
-                          />
-                        </button>
+                        {talk.answer_file && (
+                          <a
+                            href={talk.answer_file}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.cardSlidesLink}
+                            onClick={(e) => e.stopPropagation()}
+                            title={locale === 'es' ? 'Descargar / Ver PDF' : 'Download / View PDF'}
+                            aria-label="View PDF presentation"
+                          >
+                            <PdfIcon size={18} className={styles.slidesIcon} />
+                          </a>
+                        )}
                       </div>
 
                       {/* Main Talk Title */}
@@ -1231,16 +1239,19 @@ export function ScheduleSection({
                               <span className={styles.cardRoomText}>{talk.roomName}</span>
                             </span>
                           )}
-                          <button
-                            type="button"
-                            className={styles.cardFavButton}
-                            onClick={(e) => toggleFavorite(talk.code || talk.id, e)}
-                            aria-label="Add to favorites"
-                          >
-                            <Star
-                              className={`${styles.starIcon} ${isFav ? styles.starIconActive : ''}`}
-                            />
-                          </button>
+                          {talk.answer_file && (
+                            <a
+                              href={talk.answer_file}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.cardSlidesLink}
+                              onClick={(e) => e.stopPropagation()}
+                              title={locale === 'es' ? 'Descargar / Ver PDF' : 'Download / View PDF'}
+                              aria-label="View PDF presentation"
+                            >
+                              <PdfIcon size={18} className={styles.slidesIcon} />
+                            </a>
+                          )}
                         </div>
 
                         {/* Title */}
@@ -1320,25 +1331,17 @@ export function ScheduleSection({
                   <h3 className={styles.modalTitle}>{selectedTalk.title}</h3>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  {!(
-                    !selectedTalk.roomId ||
-                    selectedTalk.trackId === '229' ||
-                    selectedTalk.title.toLowerCase().includes('almuerzo') ||
-                    selectedTalk.title.toLowerCase().includes('break') ||
-                    selectedTalk.title.toLowerCase().includes('receso')
-                  ) && (
-                    <button
-                      type="button"
-                      className="p-1.5 border-0 bg-transparent cursor-pointer transition-colors flex items-center justify-center"
-                      onClick={(e) => toggleFavorite(selectedTalk.code || selectedTalk.id, e)}
-                      aria-label="Add to favorites"
-                      style={{ color: isTalkFav(selectedTalk) ? '#f59e0b' : '#94a3b8' }}
+                  {selectedTalk.answer_file && (
+                    <a
+                      href={selectedTalk.answer_file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.cardSlidesLink}
+                      title={locale === 'es' ? 'Descargar / Ver PDF' : 'Download / View PDF'}
+                      aria-label="View PDF presentation"
                     >
-                      <Star
-                        className={`${styles.starIcon} ${isTalkFav(selectedTalk) ? styles.starIconActive : ''}`}
-                        size={20}
-                      />
-                    </button>
+                      <PdfIcon size={20} className={styles.slidesIcon} />
+                    </a>
                   )}
                   <button
                     type="button"
@@ -1373,6 +1376,17 @@ export function ScheduleSection({
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>{locale === 'es' ? 'Ver más' : 'See more'}</span>
+                  </a>
+                )}
+                {selectedTalk.answer_file && (
+                  <a
+                    href={selectedTalk.answer_file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.modalSlidesLink}
+                  >
+                    <PdfIcon size={16} className="flex-shrink-0" />
+                    <span>{locale === 'es' ? 'Descargar Presentación (PDF)' : 'Download Slides (PDF)'}</span>
                   </a>
                 )}
               </div>
