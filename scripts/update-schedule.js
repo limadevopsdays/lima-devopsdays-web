@@ -2,14 +2,18 @@ import https from 'https'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { execSync } from 'child_process'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const SCHEDULE_URL = 'https://talks.devopsdays.org/devopsdays-lima-2026/schedule/widgets/schedule.json'
 const SPEAKER_PAGE_BASE = 'https://talks.devopsdays.org/devopsdays-lima-2026/speaker/'
+const TALK_PAGE_BASE = 'https://talks.devopsdays.org/devopsdays-lima-2026/talk/'
 const DEST = path.resolve(__dirname, '../src/app/data/scheduleData.json')
 const SPEAKERS_DEST = path.resolve(__dirname, '../src/app/data/scheduleSpeakers.json')
+const SLIDES_OUTPUT_DIR = path.resolve(__dirname, '../public/assets/slides')
+const TMP_DIR = path.resolve(__dirname, '../.tmp_slides')
 
 const EXCLUDED_SPEAKER_NAMES = new Set([
   // Keynotes
@@ -176,6 +180,100 @@ async function fetchSpeakerDetails(code) {
   }
 }
 
+/** Fetch & parse a talk page for slides / materials (.pdf, .ppt, .pptx) */
+async function fetchTalkSlides(code) {
+  if (!code) return { remote_url: null }
+  const url = `${TALK_PAGE_BASE}${code}/`
+  try {
+    const html = await fetchUrl(url)
+    const match =
+      html.match(/href=[\"']?(\/media\/devopsdays-lima-2026\/question_uploads\/[^\"'>\s]+)[\"']?/i) ||
+      html.match(/href=[\"']?(\/media\/devopsdays-lima-2026\/submissions\/[^\/]+\/resources\/[^\"'>\s]+)[\"']?/i)
+    if (match) {
+      const relativeUrl = match[1]
+      return {
+        remote_url: `https://talks.devopsdays.org${relativeUrl}`,
+      }
+    }
+    return { remote_url: null }
+  } catch (err) {
+    return { remote_url: null }
+  }
+}
+
+/** Download file with redirect handling */
+function downloadFile(url, destPath) {
+  return new Promise((resolve, reject) => {
+    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        let redirectUrl = res.headers.location
+        if (redirectUrl.startsWith('/')) {
+          redirectUrl = `https://talks.devopsdays.org${redirectUrl}`
+        }
+        return downloadFile(redirectUrl, destPath).then(resolve).catch(reject)
+      }
+      if (res.statusCode !== 200) {
+        return reject(new Error(`HTTP ${res.statusCode} for ${url}`))
+      }
+      const fileStream = fs.createWriteStream(destPath)
+      res.pipe(fileStream)
+      fileStream.on('finish', () => {
+        fileStream.close(() => resolve(destPath))
+      })
+    }).on('error', reject)
+  })
+}
+
+/** Downloads file to local static directory, converting non-PDF to PDF via LibreOffice */
+async function downloadAndEnsurePdf(remoteUrl, talkCode) {
+  if (!remoteUrl || !talkCode) return null
+
+  fs.mkdirSync(SLIDES_OUTPUT_DIR, { recursive: true })
+  fs.mkdirSync(TMP_DIR, { recursive: true })
+
+  const finalPdfPath = path.join(SLIDES_OUTPUT_DIR, `${talkCode}.pdf`)
+  const internalRoute = `/assets/slides/${talkCode}.pdf`
+
+  // Return cached file if already downloaded and valid
+  if (fs.existsSync(finalPdfPath) && fs.statSync(finalPdfPath).size > 0) {
+    return internalRoute
+  }
+
+  const urlPath = remoteUrl.split('?')[0]
+  const ext = path.extname(urlPath).toLowerCase() || '.pdf'
+
+  if (ext === '.pdf') {
+    try {
+      await downloadFile(remoteUrl, finalPdfPath)
+      return internalRoute
+    } catch (err) {
+      console.warn(`  ⚠ Could not download PDF for ${talkCode}: ${err.message}`)
+      return null
+    }
+  }
+
+  // Non-PDF (PPTX, PPT, ODP, KEY, etc.) -> download temp & convert with soffice
+  const tmpFilePath = path.join(TMP_DIR, `${talkCode}${ext}`)
+  try {
+    await downloadFile(remoteUrl, tmpFilePath)
+    execSync(`soffice --headless --convert-to pdf --outdir "${SLIDES_OUTPUT_DIR}" "${tmpFilePath}"`, {
+      stdio: 'pipe',
+    })
+  } catch (err) {
+    console.warn(`  ⚠ Conversion failed for ${talkCode}: ${err.message}`)
+  } finally {
+    try {
+      if (fs.existsSync(tmpFilePath)) fs.unlinkSync(tmpFilePath)
+    } catch {}
+  }
+
+  if (fs.existsSync(finalPdfPath) && fs.statSync(finalPdfPath).size > 0) {
+    return internalRoute
+  }
+
+  return null
+}
+
 // ─── Build speaker list from schedule JSON ───────────────────────────────────
 
 function buildScheduleSpeakers(parsed) {
@@ -249,7 +347,7 @@ async function main() {
 
   // 2. Enrich each speaker with data from their individual page (parallel, max 5 at a time)
   console.log(`Fetching details for ${scheduleSpeakers.length} speakers...`)
-  const CONCURRENCY = 5
+  const CONCURRENCY = 8
   for (let i = 0; i < scheduleSpeakers.length; i += CONCURRENCY) {
     const batch = scheduleSpeakers.slice(i, i + CONCURRENCY)
     const results = await Promise.all(batch.map((sp) => fetchSpeakerDetails(sp.code)))
@@ -259,6 +357,36 @@ async function main() {
     process.stdout.write(`  ${Math.min(i + CONCURRENCY, scheduleSpeakers.length)}/${scheduleSpeakers.length} done\r`)
   }
   console.log('')
+
+  // 3. Enrich each talk with material, downloading and converting to PDF
+  if (Array.isArray(parsed.talks)) {
+    console.log(`Fetching & converting presentation materials for ${parsed.talks.length} talks...`)
+    for (let i = 0; i < parsed.talks.length; i += CONCURRENCY) {
+      const batch = parsed.talks.slice(i, i + CONCURRENCY)
+      const results = await Promise.all(batch.map((t) => fetchTalkSlides(t.code)))
+
+      for (let idx = 0; idx < batch.length; idx++) {
+        const talk = batch[idx]
+        const slides = results[idx]
+        if (slides.remote_url) {
+          const localPdf = await downloadAndEnsurePdf(slides.remote_url, talk.code)
+          if (localPdf) {
+            talk.answer = `file://devopsdays-lima-2026/slides/${talk.code}.pdf`
+            talk.answer_file = localPdf
+            talk.remote_answer_file = slides.remote_url
+          } else {
+            talk.answer = null
+            talk.answer_file = null
+          }
+        } else {
+          talk.answer = null
+          talk.answer_file = null
+        }
+      }
+      process.stdout.write(`  ${Math.min(i + CONCURRENCY, parsed.talks.length)}/${parsed.talks.length} talks done\r`)
+    }
+    console.log('')
+  }
 
   // 3. Save files
   const ROOM_NAME_MAP = {
@@ -282,9 +410,12 @@ async function main() {
   fs.writeFileSync(DEST, JSON.stringify(parsed, null, 2), 'utf-8')
   fs.writeFileSync(SPEAKERS_DEST, JSON.stringify(scheduleSpeakers, null, 2), 'utf-8')
 
+  const talksWithSlides = (parsed.talks || []).filter((t) => Boolean(t.answer_file))
+
   console.log(`Successfully updated schedule data! Saved to: ${DEST}`)
   console.log(`Successfully updated schedule speakers! Saved to: ${SPEAKERS_DEST}`)
   console.log(`- Talks count: ${parsed.talks?.length || 0}`)
+  console.log(`- Talks with slides / materials count: ${talksWithSlides.length}`)
   console.log(`- Rooms count: ${parsed.rooms?.length || 0}`)
   console.log(`- Tracks count: ${parsed.tracks?.length || 0}`)
   console.log(`- CFP speakers count: ${scheduleSpeakers.length}`)

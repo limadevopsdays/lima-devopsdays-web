@@ -12,7 +12,9 @@
       "room": 286,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.276347+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "WEJLQK",
@@ -26,7 +28,9 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.276358+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "CKSUAW",
@@ -42,7 +46,9 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.276367+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "ZQKPBK",
@@ -58,7 +64,9 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.276376+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "MHATFK",
@@ -72,7 +80,9 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.276386+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "R7LMPB",
@@ -88,7 +98,9 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.276395+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "ANETQ3",
@@ -104,7 +116,10 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.276404+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/ANETQ3.pdf",
+      "answer_file": "/assets/slides/ANETQ3.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-ANETQ3_YIWJkxb.pptx"
     },
     {
       "code": "QCHH8P",
@@ -120,7 +135,9 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.276414+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "MHL87A",
@@ -136,7 +153,10 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.276423+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/MHL87A.pdf",
+      "answer_file": "/assets/slides/MHL87A.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-MHL87A_HtSjY0B.pptx"
     },
     {
       "id": 24561,
@@ -147,7 +167,9 @@
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
       "room": 281,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24557,
@@ -158,7 +180,9 @@
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
       "room": 282,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24559,
@@ -169,7 +193,9 @@
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
       "room": 284,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24560,
@@ -180,7 +206,9 @@
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
       "room": 285,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24558,
@@ -191,7 +219,9 @@
       "start": "2026-08-27T15:50:00Z",
       "end": "2026-08-27T11:10:00-05:00",
       "room": 283,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "EL8DCE",
@@ -207,7 +237,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.276505+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "7ZZHCJ",
@@ -223,7 +255,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276487+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/7ZZHCJ.pdf",
+      "answer_file": "/assets/slides/7ZZHCJ.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-7ZZHCJ_eOfd64H.pdf"
     },
     {
       "code": "Z9PUTZ",
@@ -239,7 +274,9 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276478+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "Q9KAZV",
@@ -255,7 +292,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276523+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/Q9KAZV.pdf",
+      "answer_file": "/assets/slides/Q9KAZV.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-Q9KAZV_fgh9Lrn.pdf"
     },
     {
       "code": "M97QN8",
@@ -271,7 +311,9 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276514+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "88Z9VR",
@@ -287,7 +329,10 @@
       "room": 285,
       "duration": 90,
       "updated": "2026-08-27T15:10:54.276496+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/88Z9VR.pdf",
+      "answer_file": "/assets/slides/88Z9VR.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-88Z9VR_btzb3sY.pdf"
     },
     {
       "code": "QHHT8J",
@@ -303,7 +348,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.276567+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "ZMJPJM",
@@ -320,7 +367,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276623+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/ZMJPJM.pdf",
+      "answer_file": "/assets/slides/ZMJPJM.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-ZMJPJM_b2LK05A.pptx"
     },
     {
       "code": "8ZJJHM",
@@ -336,7 +386,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276605+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/8ZJJHM.pdf",
+      "answer_file": "/assets/slides/8ZJJHM.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-8ZJJHM_L0NU4WP.pptx"
     },
     {
       "code": "CB7NQT",
@@ -352,7 +405,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276577+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/CB7NQT.pdf",
+      "answer_file": "/assets/slides/CB7NQT.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-CB7NQT_IMBuzSk.pdf"
     },
     {
       "code": "BP8RE8",
@@ -368,7 +424,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276614+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": "file://devopsdays-lima-2026/slides/BP8RE8.pdf",
+      "answer_file": "/assets/slides/BP8RE8.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-BP8RE8_I006Drf.pptx"
     },
     {
       "code": "AC7WCN",
@@ -388,7 +447,10 @@
       "room": 281,
       "duration": 40,
       "updated": "2026-08-27T15:10:54.276672+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/AC7WCN.pdf",
+      "answer_file": "/assets/slides/AC7WCN.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-AC7WCN_YtjhRZi.pdf"
     },
     {
       "code": "EZ9BUL",
@@ -402,7 +464,9 @@
       "room": 286,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.276875+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "MTSUM3",
@@ -419,7 +483,9 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276905+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "BTY83E",
@@ -435,7 +501,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276896+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": "file://devopsdays-lima-2026/slides/BTY83E.pdf",
+      "answer_file": "/assets/slides/BTY83E.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-BTY83E_9Zi6wZr.pdf"
     },
     {
       "code": "7RP7NX",
@@ -451,7 +520,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276887+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/7RP7NX.pdf",
+      "answer_file": "/assets/slides/7RP7NX.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-7RP7NX_zpgvjJV.pptx"
     },
     {
       "code": "9UJL7E",
@@ -467,7 +539,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276923+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/9UJL7E.pdf",
+      "answer_file": "/assets/slides/9UJL7E.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-9UJL7E_weagiUY.odp"
     },
     {
       "code": "VHAKXY",
@@ -483,7 +558,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.276914+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "CDJ8YJ",
@@ -499,7 +576,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T16:04:11.545258+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "8RDU89",
@@ -515,7 +594,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277003+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/8RDU89.pdf",
+      "answer_file": "/assets/slides/8RDU89.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-8RDU89_TxXcQhm.pptx"
     },
     {
       "code": "CWKUPH",
@@ -531,7 +613,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276994+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/CWKUPH.pdf",
+      "answer_file": "/assets/slides/CWKUPH.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-CWKUPH_EUWbjYf.pdf"
     },
     {
       "code": "SMFHDA",
@@ -547,7 +632,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276977+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/SMFHDA.pdf",
+      "answer_file": "/assets/slides/SMFHDA.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-SMFHDA_02vxYgq.pptx"
     },
     {
       "code": "YV3PFK",
@@ -563,7 +651,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.276986+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/YV3PFK.pdf",
+      "answer_file": "/assets/slides/YV3PFK.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-YV3PFK_M5vfBZn.pdf"
     },
     {
       "code": "F9GDYT",
@@ -579,7 +670,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277029+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "PYDYA8",
@@ -599,7 +692,10 @@
       "room": 281,
       "duration": 40,
       "updated": "2026-08-27T15:10:54.277056+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/PYDYA8.pdf",
+      "answer_file": "/assets/slides/PYDYA8.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-PYDYA8_Ls64ubt.pdf"
     },
     {
       "code": "TWCTY7",
@@ -615,7 +711,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277064+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24608,
@@ -626,7 +724,9 @@
       "start": "2026-08-27T21:20:00Z",
       "end": "2026-08-27T16:40:00-05:00",
       "room": 283,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24604,
@@ -637,7 +737,9 @@
       "start": "2026-08-27T21:20:00Z",
       "end": "2026-08-27T16:40:00-05:00",
       "room": 281,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24605,
@@ -648,7 +750,9 @@
       "start": "2026-08-27T21:20:00Z",
       "end": "2026-08-27T16:40:00-05:00",
       "room": 282,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24606,
@@ -659,7 +763,9 @@
       "start": "2026-08-27T21:20:00Z",
       "end": "2026-08-27T16:40:00-05:00",
       "room": 284,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24607,
@@ -670,7 +776,9 @@
       "start": "2026-08-27T21:20:00Z",
       "end": "2026-08-27T16:40:00-05:00",
       "room": 285,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "7RZ3VX",
@@ -686,7 +794,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277132+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/7RZ3VX.pdf",
+      "answer_file": "/assets/slides/7RZ3VX.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-7RZ3VX_iVNaHhH.pptx"
     },
     {
       "code": "NLEHJW",
@@ -702,7 +813,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277123+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/NLEHJW.pdf",
+      "answer_file": "/assets/slides/NLEHJW.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-NLEHJW_q4Jkwkz.pptx"
     },
     {
       "code": "JBSRHG",
@@ -718,7 +832,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277140+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/JBSRHG.pdf",
+      "answer_file": "/assets/slides/JBSRHG.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-JBSRHG_xBz2xtD.pdf"
     },
     {
       "code": "NKA7BK",
@@ -734,7 +851,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277115+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/NKA7BK.pdf",
+      "answer_file": "/assets/slides/NKA7BK.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-NKA7BK_iqZRcxY.pdf"
     },
     {
       "code": "H37QK3",
@@ -750,7 +870,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:12:28.976570+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "ZPCJMD",
@@ -767,7 +889,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277192+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/ZPCJMD.pdf",
+      "answer_file": "/assets/slides/ZPCJMD.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-ZPCJMD_G7hKpx2.pptx"
     },
     {
       "code": "JBJWNN",
@@ -783,7 +908,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277217+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/JBJWNN.pdf",
+      "answer_file": "/assets/slides/JBJWNN.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-JBJWNN_21icIxJ.pptx"
     },
     {
       "code": "NTWDDN",
@@ -799,7 +927,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277200+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/NTWDDN.pdf",
+      "answer_file": "/assets/slides/NTWDDN.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-NTWDDN_wHUobTZ.pptx"
     },
     {
       "code": "YHC9HQ",
@@ -815,7 +946,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277209+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/YHC9HQ.pdf",
+      "answer_file": "/assets/slides/YHC9HQ.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-YHC9HQ_AudEcuw.pdf"
     },
     {
       "code": "BLVTCY",
@@ -831,7 +965,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T21:15:27.091915+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "Z9F9AP",
@@ -847,7 +983,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277288+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/Z9F9AP.pdf",
+      "answer_file": "/assets/slides/Z9F9AP.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-Z9F9AP_AaUaN6N.pdf"
     },
     {
       "code": "9WEZHM",
@@ -864,7 +1003,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277279+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/9WEZHM.pdf",
+      "answer_file": "/assets/slides/9WEZHM.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-9WEZHM_8g6LKmf.pptx"
     },
     {
       "code": "PPFZDU",
@@ -880,7 +1022,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277270+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/PPFZDU.pdf",
+      "answer_file": "/assets/slides/PPFZDU.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-PPFZDU_wyR0SbR.pptx"
     },
     {
       "code": "FMXST8",
@@ -894,7 +1039,9 @@
       "room": 286,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.277297+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "STCKPB",
@@ -908,7 +1055,9 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.277305+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "EJNPTE",
@@ -924,7 +1073,9 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.277313+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "JSCBBM",
@@ -940,7 +1091,10 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.277322+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/JSCBBM.pdf",
+      "answer_file": "/assets/slides/JSCBBM.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-JSCBBM_trAtnd1.pptx"
     },
     {
       "code": "GVN77P",
@@ -956,7 +1110,10 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.277330+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/GVN77P.pdf",
+      "answer_file": "/assets/slides/GVN77P.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-GVN77P_6XUs5xV.pptx"
     },
     {
       "code": "W8TDLK",
@@ -972,7 +1129,10 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.277339+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/W8TDLK.pdf",
+      "answer_file": "/assets/slides/W8TDLK.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-W8TDLK_Mwkv7j2.pptx"
     },
     {
       "code": "YH9XNM",
@@ -988,7 +1148,10 @@
       "room": 281,
       "duration": 5,
       "updated": "2026-08-27T15:10:54.277347+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/YH9XNM.pdf",
+      "answer_file": "/assets/slides/YH9XNM.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-YH9XNM_qyrdUcj.pptx"
     },
     {
       "code": "CYD7S8",
@@ -1004,7 +1167,10 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.277356+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/CYD7S8.pdf",
+      "answer_file": "/assets/slides/CYD7S8.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-CYD7S8_kZHepsf.pdf"
     },
     {
       "id": 24638,
@@ -1015,7 +1181,9 @@
       "start": "2026-08-28T15:50:00Z",
       "end": "2026-08-28T11:10:00-05:00",
       "room": 283,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24640,
@@ -1026,7 +1194,9 @@
       "start": "2026-08-28T15:50:00Z",
       "end": "2026-08-28T11:10:00-05:00",
       "room": 282,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24639,
@@ -1037,7 +1207,9 @@
       "start": "2026-08-28T15:50:00Z",
       "end": "2026-08-28T11:10:00-05:00",
       "room": 281,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24641,
@@ -1048,7 +1220,9 @@
       "start": "2026-08-28T15:50:00Z",
       "end": "2026-08-28T11:10:00-05:00",
       "room": 284,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "id": 24642,
@@ -1059,7 +1233,9 @@
       "start": "2026-08-28T15:50:00Z",
       "end": "2026-08-28T11:10:00-05:00",
       "room": 285,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "BABAGA",
@@ -1075,7 +1251,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277423+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "7FXA7R",
@@ -1091,7 +1269,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277440+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/7FXA7R.pdf",
+      "answer_file": "/assets/slides/7FXA7R.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-7FXA7R_bnYFIVg.pptx"
     },
     {
       "code": "BZ7MZK",
@@ -1107,7 +1288,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277406+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/BZ7MZK.pdf",
+      "answer_file": "/assets/slides/BZ7MZK.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-BZ7MZK_sE53m6I.pdf"
     },
     {
       "code": "HA8BSX",
@@ -1123,7 +1307,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277415+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/HA8BSX.pdf",
+      "answer_file": "/assets/slides/HA8BSX.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-HA8BSX_9Ia2e3V.pptx"
     },
     {
       "code": "9DZA9L",
@@ -1140,7 +1327,10 @@
       "room": 285,
       "duration": 90,
       "updated": "2026-08-27T15:10:54.277431+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/9DZA9L.pdf",
+      "answer_file": "/assets/slides/9DZA9L.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-9DZA9L_ectUIcD.pdf"
     },
     {
       "code": "JWSZV8",
@@ -1154,7 +1344,10 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277465+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/JWSZV8.pdf",
+      "answer_file": "/assets/slides/JWSZV8.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-JWSZV8_FVJlqds.pptx"
     },
     {
       "code": "JGNN9N",
@@ -1170,7 +1363,9 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277516+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "ZPXMV7",
@@ -1186,7 +1381,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277499+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/ZPXMV7.pdf",
+      "answer_file": "/assets/slides/ZPXMV7.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-ZPXMV7_r8lz3uw.pdf"
     },
     {
       "code": "TAPRV9",
@@ -1202,7 +1400,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277490+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/TAPRV9.pdf",
+      "answer_file": "/assets/slides/TAPRV9.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-TAPRV9_RCAc80T.pptx"
     },
     {
       "code": "CURPKG",
@@ -1218,7 +1419,10 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277507+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/CURPKG.pdf",
+      "answer_file": "/assets/slides/CURPKG.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-CURPKG_uaxWSvT.pdf"
     },
     {
       "code": "QUDVJ7",
@@ -1232,7 +1436,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277562+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "UJPHVB",
@@ -1248,7 +1454,9 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277629+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "GAKZDN",
@@ -1264,7 +1472,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277570+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/GAKZDN.pdf",
+      "answer_file": "/assets/slides/GAKZDN.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-GAKZDN_rCFWkg9.pptx"
     },
     {
       "code": "XJNVPX",
@@ -1280,7 +1491,9 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277620+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "FPQFNG",
@@ -1296,7 +1509,9 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277579+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "Z9RGJR",
@@ -1310,7 +1525,9 @@
       "room": 286,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.277679+00:00",
-      "content_locale": "en"
+      "content_locale": "en",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "QTYVRU",
@@ -1326,7 +1543,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277730+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/QTYVRU.pdf",
+      "answer_file": "/assets/slides/QTYVRU.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-QTYVRU_f0pMREU.pptx"
     },
     {
       "code": "CARAUU",
@@ -1342,7 +1562,10 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277713+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/CARAUU.pdf",
+      "answer_file": "/assets/slides/CARAUU.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-CARAUU_NRCPTyV.pptx"
     },
     {
       "code": "DVLF3W",
@@ -1358,7 +1581,9 @@
       "room": 285,
       "duration": 90,
       "updated": "2026-08-27T15:10:54.277688+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "SDMJ7R",
@@ -1375,7 +1600,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277721+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/SDMJ7R.pdf",
+      "answer_file": "/assets/slides/SDMJ7R.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-SDMJ7R_ErjmRxp.pptx"
     },
     {
       "code": "9THK38",
@@ -1391,7 +1619,9 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277704+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "QCSGHU",
@@ -1408,7 +1638,9 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277696+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "PDRCQQ",
@@ -1424,7 +1656,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277756+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "HVNJFF",
@@ -1443,7 +1677,10 @@
       "room": 281,
       "duration": 40,
       "updated": "2026-08-27T15:10:54.277781+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/HVNJFF.pdf",
+      "answer_file": "/assets/slides/HVNJFF.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-HVNJFF_0Znv60I.pdf"
     },
     {
       "code": "PWB7E7",
@@ -1459,7 +1696,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:59:49.480637+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "EEWXV3",
@@ -1475,7 +1714,9 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277878+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "RDPLLZ",
@@ -1491,7 +1732,9 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277905+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "NXCFPN",
@@ -1507,7 +1750,10 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277864+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/NXCFPN.pdf",
+      "answer_file": "/assets/slides/NXCFPN.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-NXCFPN_bfNeYSC.pdf"
     },
     {
       "code": "ZHDTPF",
@@ -1524,7 +1770,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277891+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/ZHDTPF.pdf",
+      "answer_file": "/assets/slides/ZHDTPF.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-ZHDTPF_nSjsQGQ.pptx"
     },
     {
       "id": 24691,
@@ -1535,7 +1784,9 @@
       "start": "2026-08-28T21:20:00Z",
       "end": "2026-08-28T16:40:00-05:00",
       "room": 281,
-      "slot_type": "break"
+      "slot_type": "break",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "YYLQMP",
@@ -1551,7 +1802,10 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277914+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/YYLQMP.pdf",
+      "answer_file": "/assets/slides/YYLQMP.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-YYLQMP_BXQO5Cc.pdf"
     },
     {
       "code": "7PGA3F",
@@ -1567,7 +1821,9 @@
       "room": 284,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277972+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "RQKRNF",
@@ -1583,7 +1839,10 @@
       "room": 282,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277988+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/RQKRNF.pdf",
+      "answer_file": "/assets/slides/RQKRNF.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-RQKRNF_E4acsOF.pdf"
     },
     {
       "code": "QL78HD",
@@ -1600,7 +1859,10 @@
       "room": 283,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277953+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": "file://devopsdays-lima-2026/slides/QL78HD.pdf",
+      "answer_file": "/assets/slides/QL78HD.pdf",
+      "remote_answer_file": "https://talks.devopsdays.org/media/devopsdays-lima-2026/question_uploads/q462-QL78HD_S4bUrG9.pptx"
     },
     {
       "code": "HVVRJG",
@@ -1616,7 +1878,9 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.277943+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "ZDLTRJ",
@@ -1632,7 +1896,9 @@
       "room": 286,
       "duration": 20,
       "updated": "2026-08-27T15:10:54.277999+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "G7B3FP",
@@ -1648,7 +1914,9 @@
       "room": 281,
       "duration": 25,
       "updated": "2026-08-27T15:10:54.278094+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     },
     {
       "code": "TDMCLU",
@@ -1662,7 +1930,9 @@
       "room": 281,
       "duration": 30,
       "updated": "2026-08-27T15:10:54.278106+00:00",
-      "content_locale": "es"
+      "content_locale": "es",
+      "answer": null,
+      "answer_file": null
     }
   ],
   "version": "0.23",
